@@ -1,0 +1,63 @@
+site_name: "EasyBuild tutorial"
+site_url: https://easybuilders.github.io/easybuild-tutorial
+
+theme:
+  name: material
+  logo: img/easybuild_logo.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    #- navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - header.autohide
+    - toc.follow
+
+
+nav:
+  - Home: index.md
+  - "PEAP-Q April 2022":
+      - PEAP-Q-20220427/index.md
+      - LUMI Software Stacks: PEAP-Q-20220427/software_stacks.md
+
+plugins:
+  # show revision date at bottom of each page
+  # - git-revision-date-localized
+  # necessary for search to work
+  - search
+  # redirects to avoid broken URLs in original version of the tutorial (June 2020)
+  #- redirects:
+  #    redirect_maps:
+  #        practical_information.md: 2020-06-isc20/practical_information.md
+
+markdown_extensions:
+  # notes, warnings, hints, ...
+  - admonition
+  # code blocks with syntax highlighting, graphs
+  - pymdownx.superfences:
+        custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # clickable details
+  - pymdownx.details
+  # tabbed contents
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+      
+extra:
+  # add links in bottom right
+  social:
+      #- type: github
+      #icon: octicons/logo-github
+      #link: https://github.com/easybuilders
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw
+      name: LUMI on YouTube
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/lumi-supercomputer
+      name: LUMI on LinkedIn
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/LUMIhpc
+      name: LUMI on Twitter
