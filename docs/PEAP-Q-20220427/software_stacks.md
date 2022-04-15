@@ -245,8 +245,150 @@ same software on LUMI-C and on the login or large memory nodes and don't want tw
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.
 
+## Lmod
 
-## Lmod on LUMI
+
+### Lmod on LUMI
+
+Contrary to some other module systems, or even some other Lmod installations, not all modules are
+immediately available for loading. So don't be disappointed by the few modules you will see with
+`module available` right after login. Lmod has a so-called hierarchical setup that tries to protect
+you from being confronted with all modules at the same time, even those that may conflict with 
+each other, and we use that to some extent on LUMI. Lmod distinguishes between installed modules and
+available modules. Installed modules are all modules on the system that can be loaded one way or
+another, sometimes through loading other modules first. Available modules are all those modules
+that can be loaded at a given point in time without first loading other modules.
+
+The HPE Cray Programming Environment also uses a hierarchy though it is not fully implemented in
+the way the Lmod developer intended so that some features do not function as they should.
+For example, the `cray-mpich` module can only be loaded if both a network target module and a
+compiler module are loaded (and that is already the example that is implemented differently from
+what the Lmod developer had in mind). Another example is the performance monitoring tools. Many of those
+tools only become available after loading the `perftools-base` module. Another example is the
+`cray-fftw` module which requires a processor target module to be loaded first.
+
+Lmod has several tools to search for modules. The `module avail` command is one that is also
+present in the various Environment Modules implementations and is the command to search in the
+available modules. But Lmod also has other commands, `module spider` and `module keyword`, to 
+search in the list of installed modules.
+
+
+### Module spider command
+
+`module spider` by itself will show a list of all installed software with a short description.
+Software is bundled by name of the module, and it shows the description taken from the default
+version. `module spider` will also look for "extensions" defined in a module and show those also
+and mark them with an "E". Extensions are a usefull Lmod feature to make clear that a module offers
+features that one would not expect from its name. E.g., in a Python module the extensions could be
+a list of major Python packages installed in the module which would allow you to find `NumPy` if
+it were hidden in a module with a differnt name. This is also a very usefull feature to make
+tools that are bundled in one module to reduce the module clutter findable.
+
+`module spider` with the name of a packge will show all versions of that package installed on
+the system. This is also case-insensitive. LEt's try for instance `module spider gnuplot`. This
+will show 5 versions of GNUplot. There are two installations of GNUplot 5.4.2 and 3 of 5.4.3. The 
+remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
+versions for two or three compilers is that no two compiler modules can be loaded simultaneiously,
+and this offers a solution to use multiple tools without having to rebuild your environment for
+every tool, and hence also to combine tools. 
+
+Now try `module spider CMake`. We see that there are two versions, 3.21.2 and 3.22.2, but now
+they are shown in blue with an "E" behind the name. That is because there is no module called
+`CMake` on LUMI. Instead the tool is provided by another module that in this case contains
+a collection of popular build tools and that we will discover shortly.
+
+The third use of `module spider` is with the full name of a module. Try for instance
+`module spider gnuplot/5.4.3-cpeGNU-21.12`. This will now show full help information for
+the specific module, including what should be done to make the module available. For 
+this GNUplot module we see that there are two ways to load the module: By loading `LUMI/21.12` 
+combined with `partition/C` or by loading `LUMI/21.12` combined with `partition/L`. So use only
+a single line, but chose it in function of the other modules that you will also need. In this case
+it means that that version of GNUplot is available in the `LUMI/21.12` stack which we could already
+have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
+partition.
+
+We can also use `module spider` with the name and version of an extension. So try
+`module spider CMake/3.22.2`. This will now show us that this tool is in the `buildtools/21.12`
+module and give us 6 different options to load that module as it is provided in the `CrayEnv`
+and the `LUMI/211.12` software stacks and for all partitions (basically because we don't do
+processor-specific optimisations for these tools).
+
+
+### Module keyword command
+
+`module keyword` will search for a module using a keyword but it is currently not very useful on
+LUMI because of a bug in the current version of Cray Lmod which is solved in the more recent versions.
+Currently the output contains a lot of irrelevant modules, basically all extensions of modules
+on the system.
+
+What `module keyword` really does is search in the module description and help for the word that 
+you give as an argument. Try for instance `module keyword https` and you'll see two relevant tools,
+`cURL` and `wget`, two tools that can be used to download files to LUMI via several protocols in use
+on the internet.
+
+On LUMI we do try to put enough information in the module files to make this a suitable additional
+way to discover software that is already installed on the system, more so than in regular EasyBuild
+installations.
+
+
+### Sticky modules and module purge
+
+You may have been thaught that `module purge` is a command that unloads all modules and on some
+systems they will tell you in trainings not to use it because it may also remove some basic 
+modules that you need to use the system. On LUMI for instance there is an `init-lumi` module that
+does some of the setup of the module system and should be reloaded after a normal `module purge`.
+On Cray systems `module purge` will also unload the target modules while those are typically not
+loaded by the `PrgEnv` modules so you'd need to reload them by hand before the `PrgEnv` modules
+would work.
+
+Lmod however does have the concept of "sticky modules". These are not unloaded by `module purge`
+but are re-loaded, so unloaded and almost immediately loaded again, though you can always
+force-unload them with `module --force purge` or `module --force unload` for individual modules.
+
+The sticky property has to be declared in the module file so we cannot add it to for instance the
+Cray Programming Environment target modules, but we can and do use it in some modules that we control
+ourselves. We use it on LUMI for the software stacks themselves and for the modules that set the
+display style of the modules. In the `CrayEnv` environment, `module purge` will clear the target
+modules also but as `CrayEnv` is not just left untouched but reloaded instead, the load of `CrayEnv`
+will load a suitable set of target modules for the node you're on again. But any customisations that
+you did for cross-compiling will be lost. Similary in the LUMI stacks, as the `LUMI` module itself
+is reloaded, it will also reload a partition module. However, that partition module might not be the 
+one that you had loaded but it will be the one that the LUMI module deems the best for the node you're
+on, and you may see some confusing messages that look like an error message but are not.
+
+
+### Changing how the module list is displayed
+
+You may have noticed already that by default you don't see the directories in which the module
+files reside as is the case on many other clusters. Instead we try to show labels that tell you
+what that group of modules actually is. And sometimes this also combines modules from multiple
+directories that have the same purpose. For instance, in the default view we collapse all modules
+from the Cray Programming Environment in two categories, the target modules and other programming
+environment modules. But you can customise this by loading one of the `ModuleLabel` modules.
+One version, teh `label` version, is the default view. But we also have `PEhierarchy` which 
+still provides descriptive texts but unfolds the whole hierarchy in the Cray Programming 
+Environment. And the third style is calle `system` which shows you again the module directories.
+
+We're also very much aware that the default colour view is not good for everybody. So far I don't
+know an easy way to provide various colour schemes as one that is OK for people who like a black 
+background on their monitor might not be OK for people who prefer a white background. But it is possible
+to turn colour off alltogether by loading the `ModuleColour/off` mdoule, and you can always turn it
+on again with `ModuleColour/on`.
+
+We also hide some modules from regular users because we think they are not useful at all for regular
+users or not useful in the context you're in at the moment. For instance, when working in the `LUMI/21.12`
+stack we prefer that users use the Cray programming environment modules that come with release 21.12 of that
+environment, and cannot guarantee compatibility of other modules with already installed software, so
+we hide the other ones from view.
+You can still load them if you know they exist but 
+you cannot see them with `module available`. It is possible though to still show most if not all of 
+them by loading `ModulePowerUser/LUMI`. Use this at your own risk however, we will not help you to make
+things work or to use any module that was designed for us to maintain the system.
+
+
+## EasyBuild to extend the LUMI software stack
+
+
 
 
 
