@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://easybuilders.github.io/easybuild-tutorial/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://easybuilders.github.io/easybuild-tutorial/PEAP-Q-20220427/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://easybuilders.github.io/easybuild-tutorial/PEAP-Q-20220427/software_stacks/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
