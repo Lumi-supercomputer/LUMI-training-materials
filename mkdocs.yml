@@ -3,7 +3,7 @@ site_url: https://easybuilders.github.io/easybuild-tutorial
 
 theme:
   name: material
-  logo: img/easybuild_logo.png
+  # logo: img/easybuild_logo.png
   features:
     - navigation.instant
     - navigation.tracking
