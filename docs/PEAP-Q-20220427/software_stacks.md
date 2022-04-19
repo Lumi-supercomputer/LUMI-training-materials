@@ -388,6 +388,246 @@ things work or to use any module that was designed for us to maintain the system
 
 ## EasyBuild to extend the LUMI software stack
 
+### Extending the LUMI software stack
+
+Software on HPC systems is rarely installed from RPMs for various reasons.
+Generic RPMs are rarely optimised for the specific CPU of the system as they have to work on a range
+of systems and including optimised code paths in a single executable for multiple architectures is
+hard to even impossible. 
+Secondly generic RPMs might not even work with the specific LUMI environment. They may not fully
+support the SlingShot interconnect and hence run at reduced speed, or they may miss particular
+kernel modules or daemons that are not present on the system or they may not work well with
+the resource manager on the system. We expect this to happen especially with packages that 
+require specific MPI versions.
+Moreover, LUMI is a multi-user system so there is usually no "one version fits all".
+And we need a small system image as nodes are diskless which means that RPMs need to be
+relocatable so that they can be installed elsewhere.
+
+Space and EasyBuild are the two most popular HPC-specific software build and installation
+frameworks. 
+These two systems usually install packages from sources so that the software can be adapted
+to the underlying hardware and operating system.
+They do offer a mean to communicate and execute installation instructions easily so that in
+practice once a package is well supported by these tools a regular user can install them also.
+Both packages make software available via modules so that you can customise your environment
+and select appropriate versions for your work. 
+And they do take care of dependency handling in a way that is compatible with modules.
+
+
+### Extending the LUMI stack with EasyBuild
+
+On LUMI EasyBuild is our primary software installation tool. We selected this as there is
+already a lot of experience with EasyBuild in several LUMI consortium countries and as
+it is also a tool developed in Europe which makes it a nice fit with EuroHPC's goal of
+creating a fully European HPC ecosystem.
+
+EasyBuild is fully integrated in the LUMI software stack. Loading the LUMI module will
+not only make centrally installed packages available, but also packages installed in
+your personal or project stack. Installing packages in that space
+is done by loading the EasyBuild-user module that will load a suitable version of
+EasyBuild and configure it for installation in a way that is compatible with the
+LUMI stack.
+EasyBuild will then use existing modules for dependencies if those are already on the system
+or in your personal or project stack.
+
+Note however that the build-in easyconfig files that come with EasyBuild do not work on LUMI at
+the moment.
+For the GNU toolchain we would have problems with MPI. EasyBuild there uses Open MPI and that
+needs to be configured differently to work well on LUMI, and there are also still issues with
+getting it to collaborate with the resource manager as it is installed on LUMI.
+The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the
+AMD CPUs are a problematic cocktail. There have recently been problems with both the MKL math
+library and some versions of Intel MPI, and you need to be careful selecting compiler options
+or the Intel compiler will simply optimize for a two decades old CPU.
+
+Instead we make our own EasyBuild build recipes that we also make available in the 
+[LUMI-EasyBuild-contrib GitHub repository](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib).
+The EasyBuild configuration done by the EasyBuild-user module will find a copy of that repository
+on the system or in your own install directory. The latter is useful if you always want the very
+latest, before we deploy it on the system. 
+We're also working on presenting a list of supported software in the documentation.
+
+### Step 1: Where to install
+
+Let's now discuss how you can extend the central LUMI software stack with packages that you
+need for your project.
+
+The default location for the EasyBuild user modules and software is in `$HOME/EasyBuild`. This is not
+the ideal place though as then the software is not available for other users in your project, and
+as the size of your home directory is also limited and cannot be restricted. The home file system on LUMI 
+is simply not meant to install software. However, as LUMI users can have multiple projects there is no
+easy way to figure out automatically where else to install software.
+
+The best place to install software is in your project directory so that it also becomes available
+for the whole project. After all, a project is meant to be a collaboration between all participants
+on a scientific problem. You'll need to point LUMI to the right location though and that has to
+be done by setting the environment variable `EBU_USER_PREFIX` to point to the location where you
+want to have your custom installation. Also don't forget to export that variable as otherwise the
+module system and EasyBuild will not find it when they need it. So a good choice would be 
+something like 
+`export EBU_USER_PREFIX=/project/project_465000000/EasyBuild`. 
+You have to do this **before** loading the `LUMI` module as it is then already used to ensure that
+user modules are included in the module search path. You can do this in your `.bash_profile` or
+`.bashrc`. 
+This variable is not only used by EasyBuild-user to know where to install software, but also 
+by the `LUMI` - or actually the `partiton` - module to find software so all users in your project
+who want to use the software should set that variable.
+
+Once that environment variable is set, all you need to do to activate EasyBuild is to load
+the `LUMI` module, load a partition module if you want a different one from the default, and 
+then load the `EasyBuild-config` module. In fact, if you switch to a different `partition` 
+or `LUMI` module after loading `EasyBuild-config` EasyBuild will still be correctly reconfigured 
+for the new stack and new partition. 
+Cross-compilation which is installing software for a different partition than the one you're
+working on does not always work since there is so much software around with installation scripts
+that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
+a different partition module than the one that is auto-loaded by the `LUMI` module.
+
+
+### Step 2: Install the software.
+
+Let's look at GROMACS as an example. I will not try to do this completely live though as the 
+installation takes 15 or 20 minutes.
+First we need to figure out for which versions of GROMACS we already have support.
+For this we use `eb -S` or `eb --search`. So in our example this is
+``` bash
+eb --search GROMACS
+```
+This process is not optimal and will be improved in the future. We are developing a system that
+will instead give an overview of available EasyBuild recipes on the documentation web site.
+
+Now let's take the variant `GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb`. 
+This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
+from `LUMI/21.12`, and a build meant for CPU-only systems. The `-CPU` extension is not
+always added for CPU-only system, but in case of GROMACS we do expect that GPU builds for
+LUMI will become available early on in the deployment of LUMI-G so we've already added
+a so-called version suffix to distinguish between CPU and GPU versions.
+To install it, we first run 
+```bash
+eb –r GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb –D
+```
+The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
+when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
+look for dependencies in a preset search path. The search for dependencies is not automatic
+since there are scenarios where this is not desired and it cannot be turned off as easily as
+it can be turned on.
+
+Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
+But it will do so automatically when we run
+```bash
+eb –r GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb
+```
+
+This takes too long to wait for, but once it finished the software should be available
+and you should be able to see the module in the output of
+```bash
+module avail
+```
+
+### Step 2: Install the software - Note
+
+There is a little problem though that you may run into. Sometimes the module does not
+show up immediately. This is because Lmod keeps a cache when it feels that Lmod searches
+become too slow and often fails to detect that the cache is outdated.
+The easy solution is then to simply remove the cache which is in `$HOME/.lmod.d/.cache`, 
+which you can do with 
+```bash
+rm -rf $HOME/.lmod.d/.cache
+```
+And we have seen some very rare cases where even that did not help likely because some
+internal data structures in Lmod where corrupt. The easiest way to solve this is to simply
+log out and log in again and rebuild your environment.
+
+Installing software this way is 100% equivalent to an installation in the central software
+tree. The application is compiled in exactly the same way as we would do and served from the
+same file systems. But it helps keep the output of `module avail` reasonably short and focused
+on your projects, and it puts you in control of installing updates. For instance, we may find out
+that something in a module does not work for some users and that it needs to be re-installed. 
+Do this in the central stack and either you have to chose a different name or risk breaking running
+jobs as the software would become unavailable during the re-installation and also jobs may get
+confused if they all of a sudden find different binaries. However, have this in your own stack
+extension and you can update whenever it suits your project best or even not update at all if 
+you figure out that the problem we discovered has no influence on your work.
+
+
+### More advanced work
+
+You can also install some EasyBuild recipes that you got from support. For this it is best to
+create a subdirectory where you put those files, then go into that directory and run 
+something like
+```bash
+eb -r . my_recipe.eb
+```
+The dot after the `-r` is very important here as it does tell EasyBuild to also look for 
+dependencies in the current directory, the directory where you have put the recipes you got from
+support.
+
+In some cases you will have to download sources by hand as packages don't allow to download 
+software unless you sign in to their web site first. This is the case for a lot of licensed software,
+for instance, for VASP. We'd likely be in violation of the license if we would put the download somewhere
+where EasyBuild can find it, and it is also a way for us to ensure that you have a license for VASP.
+For instance, 
+```bash
+eb --search VASP
+```
+will tell you for which versions of VASP we already have build instructions, but you will still have
+to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
+directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
+```bash
+eb –r . VASP-6.3.0-cpeGNU-21.12.eb
+```
+
+### More advanced work (2)
+
+It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
+in your `$EBU_USER_PREFIX` subdirectory if you want the latest and greates before it is in
+the centrally maintained clone of the repository. All you need to do is
+```bash
+cd $EBU_USER_PREFIX
+git clone https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib.git
+```
+and then of course keep the repository up to date.
+
+And it is even possible to maintain your own GitHub repository.
+The only restrictions are that it should also be in `$EBU_USER_PREFIX` and that
+the subdirectory should be called `UserRepo`, but that doesn't stop you from using
+a different name for the repository on GitHub. After cloning your GitHub version you
+can always change the name of the directory.
+The structure should also be compatible with the structure that EasyBuild uses, so
+easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
+
+
+### More advanced work (3)
+
+EasyBuild also takes care of a high level of reproducibility of installations.
+
+It will keep a copy of all the downloaded sources in the `$EBU_USER_PREFIX/sources`
+subdirectory, and use that source file again rather than downloading it again. Of course
+in some cases those "sources" could be downloaded tar files with binaries instead
+as EasyBuild can install downloaded binaries or relocatable RPMs.
+And if you know the structure of those directories, this is also a place where
+you could manually put the downloaded installation files for licensed software.
+
+Moreover, EasyBuild also keeps copies of all installed easconfig files in two locations.
+There is a cop in `$EBU_USER_PREFIX/ebrepo_files`. And in fact, EasyBuild will use this version
+first if you try to re-install and did not delete this version first. This is also a policy
+we set on LUMI which has both its advantages and disadvantages. The advantage is that it ensures
+that the information that EasyBuild has about the installed application is compatible with what is
+in the module files. But the disadvantage of course is that if you install an EasyConfig file
+without being in the subdirectory that contains that file, it is easily overlooked that it
+is installing based on the EasyConfig in the `ebrepo_files` subdirectory and not based on the
+version of the recipe that you likely changed and is in your user repository or one of the 
+other repositories that EasyBuild uses.
+The second copy is with the installed software in `$EBU_USER_PREFIX/SW` in a subdirectory
+called `easybuild`. This subdirectory is meant ot have all information about how EasyBuild
+installed the application, also some other files that play a role in that process, and hence
+to help in reproducing an installation or checking what's in an existing installation. It is
+also the directory where you will find the extensive log file with all commands executed during
+the installation and their output.
+
+
+
+
 
 
 
