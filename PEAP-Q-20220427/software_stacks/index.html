@@ -321,16 +321,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lmod" class="md-nav__link">
-    Lmod
+  <a href="#lmod-on-lumi" class="md-nav__link">
+    Lmod on LUMI
   </a>
   
-    <nav class="md-nav" aria-label="Lmod">
+    <nav class="md-nav" aria-label="Lmod on LUMI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lmod-on-lumi" class="md-nav__link">
-    Lmod on LUMI
+  <a href="#exploring-modules-with-lmod" class="md-nav__link">
+    Exploring modules with Lmod
   </a>
   
 </li>
@@ -527,16 +527,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lmod" class="md-nav__link">
-    Lmod
+  <a href="#lmod-on-lumi" class="md-nav__link">
+    Lmod on LUMI
   </a>
   
-    <nav class="md-nav" aria-label="Lmod">
+    <nav class="md-nav" aria-label="Lmod on LUMI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lmod-on-lumi" class="md-nav__link">
-    Lmod on LUMI
+  <a href="#exploring-modules-with-lmod" class="md-nav__link">
+    Exploring modules with Lmod
   </a>
   
 </li>
@@ -658,6 +658,9 @@
 
 
 <h1 id="lumi-software-stacks">LUMI Software Stacks<a class="headerlink" href="#lumi-software-stacks" title="Permanent link">&para;</a></h1>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 2" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia2.png" /></p>
+</figure>
 <p>In this part of the training, we cover:</p>
 <ul>
 <li>Software stacks on LUMI</li>
@@ -667,6 +670,9 @@
 </ul>
 <h2 id="the-software-stacks-on-lumi">The software stacks on LUMI<a class="headerlink" href="#the-software-stacks-on-lumi" title="Permanent link">&para;</a></h2>
 <h3 id="design-considerations">Design considerations<a class="headerlink" href="#design-considerations" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 3" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia3.png" /></p>
+</figure>
 <p>LUMI is a rather experimental and also a inhomogeneous machine. It uses a novel interconnect 
 which is an extension of Ethernet rather than being based on InfiniBand, and that interconnect
 has a different software stack of your typical Mellanox InfiniBand cluster. It also uses a
@@ -713,6 +719,9 @@ containers, conda and Python virtual environments is certainly to some extent ex
 need for more customised setups and the need for multiple setups as it has become nearly impossible
 to combine everything in a single setup due to conflicts between packages and the dependencies they need.</p>
 <h3 id="the-lumi-solution">The LUMI solution<a class="headerlink" href="#the-lumi-solution" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 4" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia4.png" /></p>
+</figure>
 <p>We tried to take all these considerations into account and came up with a solution that may look a
 little unconventional to many users.</p>
 <p>In principle there should be a high degree of compatibility between releases of the HPE Cray Programming
@@ -745,6 +754,9 @@ to environment variables etc. You only need to point to the place where you want
 for your project as we cannot automatically determine a suitable place. We do offer some help so set up
 Spack also but activating Spack for installation is your project directory is not yet automated.</p>
 <h3 id="software-policies">Software policies<a class="headerlink" href="#software-policies" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 5" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia5.png" /></p>
+</figure>
 <p>As any site, we also have a number of policies about software installation, and we're still further
 developing them as we gain experience in what we can do with the amount of people we have and what we
 cannot do.</p>
@@ -802,6 +814,9 @@ the Python provided by the <code>cray-python</code> module. The link to the docu
 but may by some from CSC also be known as Tykky is in the handout of the slides that you can get
 after the course.</p>
 <h3 id="organisation-of-the-software-in-software-stacks">Organisation of the software in software stacks<a class="headerlink" href="#organisation-of-the-software-in-software-stacks" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 6" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia6.png" /></p>
+</figure>
 <p>On LUMI we have several software stacks.</p>
 <p>CrayEnv is the software stack for users who only need the Cray Programming Environment but want a more
 recent set of build tools etc than the OS provides. We also take care of a few issues that we will discuss
@@ -820,6 +835,9 @@ restrictions we cannot yet use the GPU compilers with EasyBuild the way we shoul
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
 <h3 id="3-ways-to-access-the-cray-programming-environment-on-lumi">3 ways to access the Cray Programming environment on LUMI.<a class="headerlink" href="#3-ways-to-access-the-cray-programming-environment-on-lumi" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 7" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia7.png" /></p>
+</figure>
 <p>Right after login you have a very bare environment available with the Cray Programming Environment
 with the PRgEnv-cray module loaded. It gives you basically what you can expect on a typical Cray system.
 There aren't many tools avialable, basically mostly only the tools in the base OS image and some tools that
@@ -833,6 +851,9 @@ CrayEnv will reload an optimal set of target modules for the node you're on. It 
 tools like newer build tools than provided with the OS. They are offered here and not in the bare environment to be
 sure that those tools don't create conflicts with software in other stacks. But otherwise the Cray Programming 
 Environment works exactly as you'd expect from this course.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 8" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia8.png" /></p>
+</figure>
 <p>The third way to access the Cray Programming Environment is through the LUMI software stacks, where each stack
 is based on a particular release of the HPE Cray Programming Environment. We advise against mixing with modules
 that came with other versions of the Cray PE, but they remain accessible although they are hidden from the default
@@ -872,6 +893,9 @@ toolchains instead as indicated by the following table:</p>
 <p>The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
 This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 9" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png" /></p>
+</figure>
 <p>To manage the hetergeneity in the hardware, the LUMI software stack uses two levels of modules</p>
 <p>First there are the LUMI/21.08 and LUMI/21.12 modules. Each of the LUMI modules loads a particular
 version of the LUMI stack.</p>
@@ -892,8 +916,11 @@ you're using and more optimised binaries can be available. If for some reason yo
 same software on LUMI-C and on the login or large memory nodes and don't want two copies of locally
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.</p>
-<h2 id="lmod">Lmod<a class="headerlink" href="#lmod" title="Permanent link">&para;</a></h2>
-<h3 id="lmod-on-lumi">Lmod on LUMI<a class="headerlink" href="#lmod-on-lumi" title="Permanent link">&para;</a></h3>
+<h2 id="lmod-on-lumi">Lmod on LUMI<a class="headerlink" href="#lmod-on-lumi" title="Permanent link">&para;</a></h2>
+<h3 id="exploring-modules-with-lmod">Exploring modules with Lmod<a class="headerlink" href="#exploring-modules-with-lmod" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 10" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia10.png" /></p>
+</figure>
 <p>Contrary to some other module systems, or even some other Lmod installations, not all modules are
 immediately available for loading. So don't be disappointed by the few modules you will see with
 <code>module available</code> right after login. Lmod has a so-called hierarchical setup that tries to protect
@@ -914,6 +941,9 @@ present in the various Environment Modules implementations and is the command to
 available modules. But Lmod also has other commands, <code>module spider</code> and <code>module keyword</code>, to 
 search in the list of installed modules.</p>
 <h3 id="module-spider-command">Module spider command<a class="headerlink" href="#module-spider-command" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 11" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia11.png" /></p>
+</figure>
 <p><code>module spider</code> by itself will show a list of all installed software with a short description.
 Software is bundled by name of the module, and it shows the description taken from the default
 version. <code>module spider</code> will also look for "extensions" defined in a module and show those also
@@ -948,6 +978,9 @@ module and give us 6 different options to load that module as it is provided in 
 and the <code>LUMI/211.12</code> software stacks and for all partitions (basically because we don't do
 processor-specific optimisations for these tools).</p>
 <h3 id="module-keyword-command">Module keyword command<a class="headerlink" href="#module-keyword-command" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 12" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia12.png" /></p>
+</figure>
 <p><code>module keyword</code> will search for a module using a keyword but it is currently not very useful on
 LUMI because of a bug in the current version of Cray Lmod which is solved in the more recent versions.
 Currently the output contains a lot of irrelevant modules, basically all extensions of modules
@@ -960,7 +993,10 @@ on the internet.</p>
 way to discover software that is already installed on the system, more so than in regular EasyBuild
 installations.</p>
 <h3 id="sticky-modules-and-module-purge">Sticky modules and module purge<a class="headerlink" href="#sticky-modules-and-module-purge" title="Permanent link">&para;</a></h3>
-<p>You may have been thaught that <code>module purge</code> is a command that unloads all modules and on some
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 13" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia13.png" /></p>
+</figure>
+<p>You may have been taught that <code>module purge</code> is a command that unloads all modules and on some
 systems they will tell you in trainings not to use it because it may also remove some basic 
 modules that you need to use the system. On LUMI for instance there is an <code>init-lumi</code> module that
 does some of the setup of the module system and should be reloaded after a normal <code>module purge</code>.
@@ -981,6 +1017,9 @@ is reloaded, it will also reload a partition module. However, that partition mod
 one that you had loaded but it will be the one that the LUMI module deems the best for the node you're
 on, and you may see some confusing messages that look like an error message but are not.</p>
 <h3 id="changing-how-the-module-list-is-displayed">Changing how the module list is displayed<a class="headerlink" href="#changing-how-the-module-list-is-displayed" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 14" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia14.png" /></p>
+</figure>
 <p>You may have noticed already that by default you don't see the directories in which the module
 files reside as is the case on many other clusters. Instead we try to show labels that tell you
 what that group of modules actually is. And sometimes this also combines modules from multiple
@@ -1006,6 +1045,9 @@ them by loading <code>ModulePowerUser/LUMI</code>. Use this at your own risk how
 things work or to use any module that was designed for us to maintain the system.</p>
 <h2 id="easybuild-to-extend-the-lumi-software-stack">EasyBuild to extend the LUMI software stack<a class="headerlink" href="#easybuild-to-extend-the-lumi-software-stack" title="Permanent link">&para;</a></h2>
 <h3 id="extending-the-lumi-software-stack">Extending the LUMI software stack<a class="headerlink" href="#extending-the-lumi-software-stack" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 15" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia15.png" /></p>
+</figure>
 <p>Software on HPC systems is rarely installed from RPMs for various reasons.
 Generic RPMs are rarely optimised for the specific CPU of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
@@ -1028,6 +1070,9 @@ Both packages make software available via modules so that you can customise your
 and select appropriate versions for your work. 
 And they do take care of dependency handling in a way that is compatible with modules.</p>
 <h3 id="extending-the-lumi-stack-with-easybuild">Extending the LUMI stack with EasyBuild<a class="headerlink" href="#extending-the-lumi-stack-with-easybuild" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 16" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia16.png" /></p>
+</figure>
 <p>On LUMI EasyBuild is our primary software installation tool. We selected this as there is
 already a lot of experience with EasyBuild in several LUMI consortium countries and as
 it is also a tool developed in Europe which makes it a nice fit with EuroHPC's goal of
@@ -1056,6 +1101,9 @@ on the system or in your own install directory. The latter is useful if you alwa
 latest, before we deploy it on the system. 
 We're also working on presenting a list of supported software in the documentation.</p>
 <h3 id="step-1-where-to-install">Step 1: Where to install<a class="headerlink" href="#step-1-where-to-install" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 17" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia17.png" /></p>
+</figure>
 <p>Let's now discuss how you can extend the central LUMI software stack with packages that you
 need for your project.</p>
 <p>The default location for the EasyBuild user modules and software is in <code>$HOME/EasyBuild</code>. This is not
@@ -1087,6 +1135,9 @@ working on does not always work since there is so much software around with inst
 that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
 a different partition module than the one that is auto-loaded by the <code>LUMI</code> module.</p>
 <h3 id="step-2-install-the-software">Step 2: Install the software.<a class="headerlink" href="#step-2-install-the-software" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 18" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia18.png" /></p>
+</figure>
 <p>Let's look at GROMACS as an example. I will not try to do this completely live though as the 
 installation takes 15 or 20 minutes.
 First we need to figure out for which versions of GROMACS we already have support.
@@ -1118,6 +1169,9 @@ and you should be able to see the module in the output of
 <div class="highlight"><pre><span></span><code>module avail
 </code></pre></div></p>
 <h3 id="step-2-install-the-software-note">Step 2: Install the software - Note<a class="headerlink" href="#step-2-install-the-software-note" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 19" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia19.png" /></p>
+</figure>
 <p>There is a little problem though that you may run into. Sometimes the module does not
 show up immediately. This is because Lmod keeps a cache when it feels that Lmod searches
 become too slow and often fails to detect that the cache is outdated.
@@ -1139,6 +1193,9 @@ confused if they all of a sudden find different binaries. However, have this in 
 extension and you can update whenever it suits your project best or even not update at all if 
 you figure out that the problem we discovered has no influence on your work.</p>
 <h3 id="more-advanced-work">More advanced work<a class="headerlink" href="#more-advanced-work" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 20" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia20.png" /></p>
+</figure>
 <p>You can also install some EasyBuild recipes that you got from support. For this it is best to
 create a subdirectory where you put those files, then go into that directory and run 
 something like
@@ -1160,6 +1217,9 @@ directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
 <div class="highlight"><pre><span></span><code>eb –r . VASP-6.3.0-cpeGNU-21.12.eb
 </code></pre></div></p>
 <h3 id="more-advanced-work-2">More advanced work (2)<a class="headerlink" href="#more-advanced-work-2" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 21" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia21.png" /></p>
+</figure>
 <p>It is also possible to have your own clone of the <code>LUMI-EasyBuild-contrib</code> GitHub repository
 in your <code>$EBU_USER_PREFIX</code> subdirectory if you want the latest and greates before it is in
 the centrally maintained clone of the repository. All you need to do is
@@ -1175,6 +1235,9 @@ can always change the name of the directory.
 The structure should also be compatible with the structure that EasyBuild uses, so
 easyconfig files go in <code>$EBU_USER_PREFIX/easybuild/easyconfigs</code>.</p>
 <h3 id="more-advanced-work-3">More advanced work (3)<a class="headerlink" href="#more-advanced-work-3" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide 22" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia22.png" /></p>
+</figure>
 <p>EasyBuild also takes care of a high level of reproducibility of installations.</p>
 <p>It will keep a copy of all the downloaded sources in the <code>$EBU_USER_PREFIX/sources</code>
 subdirectory, and use that source file again rather than downloading it again. Of course
