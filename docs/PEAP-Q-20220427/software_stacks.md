@@ -1,5 +1,9 @@
 # LUMI Software Stacks
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 2](img/LUMI-PEAPQ-EasyBuild-20220427/Dia2.png){ loading=lazy }
+</figure>
+
 In this part of the training, we cover:
 
 -   Software stacks on LUMI
@@ -10,6 +14,10 @@ In this part of the training, we cover:
 ## The software stacks on LUMI
 
 ### Design considerations
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 3](img/LUMI-PEAPQ-EasyBuild-20220427/Dia3.png){ loading=lazy }
+</figure>
 
 LUMI is a rather experimental and also a inhomogeneous machine. It uses a novel interconnect 
 which is an extension of Ethernet rather than being based on InfiniBand, and that interconnect
@@ -63,6 +71,10 @@ to combine everything in a single setup due to conflicts between packages and th
 
 ### The LUMI solution
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 4](img/LUMI-PEAPQ-EasyBuild-20220427/Dia4.png){ loading=lazy }
+</figure>
+
 We tried to take all these considerations into account and came up with a solution that may look a
 little unconventional to many users.
 
@@ -100,6 +112,10 @@ Spack also but activating Spack for installation is your project directory is no
 
 
 ### Software policies
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 5](img/LUMI-PEAPQ-EasyBuild-20220427/Dia5.png){ loading=lazy }
+</figure>
 
 As any site, we also have a number of policies about software installation, and we're still further
 developing them as we gain experience in what we can do with the amount of people we have and what we
@@ -164,6 +180,10 @@ after the course.
 
 ### Organisation of the software in software stacks
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 6](img/LUMI-PEAPQ-EasyBuild-20220427/Dia6.png){ loading=lazy }
+</figure>
+
 On LUMI we have several software stacks.
 
 CrayEnv is the software stack for users who only need the Cray Programming Environment but want a more
@@ -188,6 +208,10 @@ the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for 
 
 ### 3 ways to access the Cray Programming environment on LUMI.
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 7](img/LUMI-PEAPQ-EasyBuild-20220427/Dia7.png){ loading=lazy }
+</figure>
+
 Right after login you have a very bare environment available with the Cray Programming Environment
 with the PRgEnv-cray module loaded. It gives you basically what you can expect on a typical Cray system.
 There aren't many tools avialable, basically mostly only the tools in the base OS image and some tools that
@@ -202,6 +226,10 @@ CrayEnv will reload an optimal set of target modules for the node you're on. It 
 tools like newer build tools than provided with the OS. They are offered here and not in the bare environment to be
 sure that those tools don't create conflicts with software in other stacks. But otherwise the Cray Programming 
 Environment works exactly as you'd expect from this course.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 8](img/LUMI-PEAPQ-EasyBuild-20220427/Dia8.png){ loading=lazy }
+</figure>
 
 The third way to access the Cray Programming Environment is through the LUMI software stacks, where each stack
 is based on a particular release of the HPE Cray Programming Environment. We advise against mixing with modules
@@ -219,6 +247,10 @@ toolchains instead as indicated by the following table:
 The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
 This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 9](img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png){ loading=lazy }
+</figure>
 
 To manage the hetergeneity in the hardware, the LUMI software stack uses two levels of modules
 
@@ -245,10 +277,14 @@ same software on LUMI-C and on the login or large memory nodes and don't want tw
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.
 
-## Lmod
+## Lmod on LUMI
 
 
-### Lmod on LUMI
+### Exploring modules with Lmod
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 10](img/LUMI-PEAPQ-EasyBuild-20220427/Dia10.png){ loading=lazy }
+</figure>
 
 Contrary to some other module systems, or even some other Lmod installations, not all modules are
 immediately available for loading. So don't be disappointed by the few modules you will see with
@@ -274,6 +310,10 @@ search in the list of installed modules.
 
 
 ### Module spider command
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 11](img/LUMI-PEAPQ-EasyBuild-20220427/Dia11.png){ loading=lazy }
+</figure>
 
 `module spider` by itself will show a list of all installed software with a short description.
 Software is bundled by name of the module, and it shows the description taken from the default
@@ -316,6 +356,10 @@ processor-specific optimisations for these tools).
 
 ### Module keyword command
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 12](img/LUMI-PEAPQ-EasyBuild-20220427/Dia12.png){ loading=lazy }
+</figure>
+
 `module keyword` will search for a module using a keyword but it is currently not very useful on
 LUMI because of a bug in the current version of Cray Lmod which is solved in the more recent versions.
 Currently the output contains a lot of irrelevant modules, basically all extensions of modules
@@ -333,7 +377,11 @@ installations.
 
 ### Sticky modules and module purge
 
-You may have been thaught that `module purge` is a command that unloads all modules and on some
+<figure markdown style="border: 1px solid #000">
+  ![Slide 13](img/LUMI-PEAPQ-EasyBuild-20220427/Dia13.png){ loading=lazy }
+</figure>
+
+You may have been taught that `module purge` is a command that unloads all modules and on some
 systems they will tell you in trainings not to use it because it may also remove some basic 
 modules that you need to use the system. On LUMI for instance there is an `init-lumi` module that
 does some of the setup of the module system and should be reloaded after a normal `module purge`.
@@ -358,6 +406,10 @@ on, and you may see some confusing messages that look like an error message but 
 
 
 ### Changing how the module list is displayed
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 14](img/LUMI-PEAPQ-EasyBuild-20220427/Dia14.png){ loading=lazy }
+</figure>
 
 You may have noticed already that by default you don't see the directories in which the module
 files reside as is the case on many other clusters. Instead we try to show labels that tell you
@@ -390,6 +442,10 @@ things work or to use any module that was designed for us to maintain the system
 
 ### Extending the LUMI software stack
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 15](img/LUMI-PEAPQ-EasyBuild-20220427/Dia15.png){ loading=lazy }
+</figure>
+
 Software on HPC systems is rarely installed from RPMs for various reasons.
 Generic RPMs are rarely optimised for the specific CPU of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
@@ -415,6 +471,10 @@ And they do take care of dependency handling in a way that is compatible with mo
 
 
 ### Extending the LUMI stack with EasyBuild
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 16](img/LUMI-PEAPQ-EasyBuild-20220427/Dia16.png){ loading=lazy }
+</figure>
 
 On LUMI EasyBuild is our primary software installation tool. We selected this as there is
 already a lot of experience with EasyBuild in several LUMI consortium countries and as
@@ -448,6 +508,10 @@ latest, before we deploy it on the system.
 We're also working on presenting a list of supported software in the documentation.
 
 ### Step 1: Where to install
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 17](img/LUMI-PEAPQ-EasyBuild-20220427/Dia17.png){ loading=lazy }
+</figure>
 
 Let's now discuss how you can extend the central LUMI software stack with packages that you
 need for your project.
@@ -485,6 +549,10 @@ a different partition module than the one that is auto-loaded by the `LUMI` modu
 
 
 ### Step 2: Install the software.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 18](img/LUMI-PEAPQ-EasyBuild-20220427/Dia18.png){ loading=lazy }
+</figure>
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
 installation takes 15 or 20 minutes.
@@ -526,6 +594,10 @@ module avail
 
 ### Step 2: Install the software - Note
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 19](img/LUMI-PEAPQ-EasyBuild-20220427/Dia19.png){ loading=lazy }
+</figure>
+
 There is a little problem though that you may run into. Sometimes the module does not
 show up immediately. This is because Lmod keeps a cache when it feels that Lmod searches
 become too slow and often fails to detect that the cache is outdated.
@@ -551,6 +623,10 @@ you figure out that the problem we discovered has no influence on your work.
 
 
 ### More advanced work
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 20](img/LUMI-PEAPQ-EasyBuild-20220427/Dia20.png){ loading=lazy }
+</figure>
 
 You can also install some EasyBuild recipes that you got from support. For this it is best to
 create a subdirectory where you put those files, then go into that directory and run 
@@ -579,6 +655,10 @@ eb –r . VASP-6.3.0-cpeGNU-21.12.eb
 
 ### More advanced work (2)
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 21](img/LUMI-PEAPQ-EasyBuild-20220427/Dia21.png){ loading=lazy }
+</figure>
+
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
 in your `$EBU_USER_PREFIX` subdirectory if you want the latest and greates before it is in
 the centrally maintained clone of the repository. All you need to do is
@@ -598,6 +678,10 @@ easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 
 
 ### More advanced work (3)
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 22](img/LUMI-PEAPQ-EasyBuild-20220427/Dia22.png){ loading=lazy }
+</figure>
 
 EasyBuild also takes care of a high level of reproducibility of installations.
 

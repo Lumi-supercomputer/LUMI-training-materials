@@ -31,6 +31,10 @@ plugins:
   #        practical_information.md: 2020-06-isc20/practical_information.md
 
 markdown_extensions:
+  # Attributes (e.g., for lazy loading)
+  - attr_list
+  # MArkdown in HTML
+  - md_in_html
   # notes, warnings, hints, ...
   - admonition
   # code blocks with syntax highlighting, graphs
