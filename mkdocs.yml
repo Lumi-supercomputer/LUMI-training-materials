@@ -1,5 +1,5 @@
-site_name: "EasyBuild tutorial"
-site_url: https://easybuilders.github.io/easybuild-tutorial
+site_name: "LUMI training materials"
+site_url: https://github.com/klust/LUMI-training-materials
 
 theme:
   name: material
