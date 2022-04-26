@@ -105,7 +105,7 @@ module list
 module purge
 module list
 module --force unload ModuleLabel/label
-module avail
+module list
 ```
 
 * Used on LUMI for the software stacks and modules that set 
@@ -116,6 +116,7 @@ module avail
 
 ```
 module load init-lumi
+module list
 ```
 
 -------------------------------------------------
@@ -185,7 +186,7 @@ module avail
 * Search for a GROMACS build recipe
 
 ```
-module load LUMI/21.12 EasyBuild-user
+module load LUMI/21.12 partition/C EasyBuild-user
 eb --search GROMACS
 eb -S GROMACS
 ```
