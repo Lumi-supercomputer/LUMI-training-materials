@@ -6,7 +6,8 @@
 
 In this part of the training, we cover:
 
--   Software stacks on LUMI
+-   Software stacks on LUMI, where we discuss the organisation of the software stacks
+    that we offer and some of the policies surrounding it
 -   Advanced Lmod use to make the best out of the software stacks
 -   Creating your customised environment with EasyBuild, the tool that we use to install
     most software.
@@ -735,11 +736,26 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
     the installation and their output.
 
 
+### EasyBuild training for support team members
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide 22](img/LUMI-PEAPQ-EasyBuild-20220427/Dia23.png){ loading=lazy }
+</figure>
 
+Since there were a lot of registrations from local support team members, I want to dedicate one slide
+to them also.
 
+Pointers to all information about EasyBuild can be found on the EasyBuild web site 
+[easybuild.io](https://easybuild.io/). This
+page also includes links to training materials, both written and as recordings on YouTube, and the
+EasyBuild documentation.
 
+Generic EasyBuild training materials are available on 
+[easybuilders.github.io/easybuild-tutorial](https:/easybuilders.github.io/easybuild-tutorial/).
+The site also contains a LUST-specific tutorial oriented towards Cray systems.
 
-
-
+Lastly we are organising a training for CSC staff also open to other local support organisations
+on May 9 and 11, from 12:30 to 15:30 CEST. Notes from that training will likely also become available
+on the EasyBuilders training web site, or we will post them via a separate GitHub pages web site or so.
+If you want to join, contact [LUMI support](https://lumi-supercomputer.eu/user-support/need-help/generic/).
 
