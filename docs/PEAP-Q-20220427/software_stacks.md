@@ -20,51 +20,52 @@ In this part of the training, we cover:
   ![Slide 3](img/LUMI-PEAPQ-EasyBuild-20220427/Dia3.png){ loading=lazy }
 </figure>
 
--   LUMI is a rather experimental and also a inhomogeneous machine. 
+-   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
+    **teething problems** and ihomogeneous doesn't make life easier either.
 
-    1.  It uses a novel interconnect which is an extension of Ethernet rather than being based on InfiniBand, 
+    1.  It uses a **novel interconnect** which is an extension of Ethernet rather than being based on InfiniBand, 
         and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. 
-    2.  It also uses a relatively new GPU architecture, AMD CDNA2, with an immature software ecosystem. 
-        The GPU nodes are really GPU-first, with the interconnect cards connected directly to the GPU packages 
-        and only one CPU socket, and another feature which is relatively new: a fully cache-coherent unified memory
+    2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with an immature software ecosystem. 
+        The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
+        and only one CPU socket, and another feature which is relatively new: a **fully cache-coherent unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
         only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
         for some USA pre-exascale systems, and of course in the Apple M1 but then without the NUMA character.
-    3.  LUMI is also inhomogeneous because some nodes have zen2 processors while the two main compute partitions
-        have zen3-based CPUS, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
+    3.  LUMI is also **inhomogeneous** because some nodes have zen2 processors while the two main compute partitions
+        have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
         NVIDIA GPUs. 
         
     Given the novel interconnect and GPU we do expect that both system and application
-    software will be immature at first and evolve quickly, hence we needed a setup that enables us
+    software will be immature at first and **evolve quickly**, hence we needed a setup that enables us
     to remain very agile, which leads to different compromises compared to a software stack for a more
     conventional and mature system as a x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.
 
--   Users also come to LUMI from 11 different channels, not counting subchannels as some countries have
+-   Users also come to LUMI from **11 different channels**, not counting subchannels as some countries have
     multiple organisations managing allocations, and those channels all have different expectations about
     what LUMI should be and what kind of users should be served. For our major stakeholder, the EuroHPC JU,
     LUMI is a pre-exascale system meant to prepare users and applications to make use of future even large
     systems, while some of the LUMI consortium countries see LUMI more as an extension of their tier-1 or
     even tier-2 machines.
 
--   The central support team of LUMI is also relatively small compared to the nature of LUMI with its
+-   The central support team of LUMI is also **relatively small compared to the nature of LUMI** with its
     many different partitions and storage services and the expected number of projects and users. 
-    Support from users coming in via the national channels will rely a lot on efforts from local organisations
-    also. So we must set up a system so that they can support their users without breaking things on
-    LUMI, and to work with restricted rights. And in fact, LUMI User Support team members also have very limited additional
+    Support from users coming in via the national channels will rely a lot on efforts from **local organisations**
+    also. **So we must set up a system so that they can support their users without breaking things on
+    LUMI, and to work with restricted rights.** And in fact, LUMI User Support team members also have very limited additional
     rights on the machine compared to regular users or support people from the local organisations.
     LUST is currently 9 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
     installation and support only... (I give this number because it was mentioned in a recent talk in an
     EasyBuild user meeting.)
 
--   The Cray Programming Environment is also a key part of LUMI and the environment for which we get
-    support from HPE Cray. It is however different from more traditional environments such as a typcial
+-   The Cray Programming Environment is also a **key part of LUMI** and the environment for which we get
+    support from HPE Cray. It is however different from more traditional environments such as a typical
     Intel oneAPI installation of a typical installation build around the GNU Compiler Collection and Open MPI
-    or MPICH. The programming environment is installed with the operating system rather than through the
+    or MPICH. The programming environment is **installed with the operating system** rather than through the
     user application software stack hence not managed through the tools used for the application software
-    stack, and it also works differently with its universal compiler wrappers that are typically configured
+    stack, and it also works differently with its **universal compiler wrappers** that are typically configured
     through modules. 
 
--   We also see an increasing need for customised setups. Everybody wants a central stack as long as their
+-   We also see an increasing **need for customised setups**. Everybody wants a central stack as long as their
     software is in there but not much more as otherwise it is hard to find, and as long as software is 
     configured in the way they are used to. And everybody would like LUMI to look as much as possible 
     as their home system. But this is of course impossible. Moreover, there are more and more conflicts
@@ -79,8 +80,8 @@ In this part of the training, we cover:
   ![Slide 4](img/LUMI-PEAPQ-EasyBuild-20220427/Dia4.png){ loading=lazy }
 </figure>
 
-We tried to take all these considerations into account and came up with a solution that may look a
-little unconventional to many users.
+We tried to take all these considerations into account and came up with a solution that may look **a
+little unconventional** to many users.
 
 In principle there should be a high degree of compatibility between releases of the HPE Cray Programming
 Environment but we decided not to take the risk and **build our software for a specific release of the 
@@ -126,20 +127,23 @@ developing them as we gain experience in what we can do with the amount of peopl
 cannot do.
 
 LUMI uses a **bring-your-on-license model except for a selection of tools that are useful to a larger
-community**. This is partly caused by the **distributed user management** as we do not even have the necessary
-information to determine if a particular user can use a particular license, so we must shift that 
-responsibility to people who have that information, which is often the PI of your project.
-You also have to take into account that up to 20% of LUMI is reserved for industry use which makes 
-negotiations with software vendors rather difficult as they will want to push us onto the industrial
-rather than academic pricing as they have no guarantee that we will obey to the academic license
-restrictions. And lastly, we don't have an infinite budget. There was a questionaire send out to 
-some groups even before the support team was assembled and that contained a number of packages that
-by themselves would likely consume our whole software budget for a single package if I look at the 
-size of the company that produces the package and the potential size of their industrial market. 
-So we'd have to make choices and with any choice for a very specialised package you favour a few 
-groups. And there is also a political problem as without doubt the EuroHPC JU would prefer that we
-invest in packages that are developed by European companies or at least have large development
-teams in Europe.
+community**. 
+
+-   This is partly caused by the **distributed user management** as we do not even have the necessary
+    information to determine if a particular user can use a particular license, so we must shift that 
+    responsibility to people who have that information, which is often the PI of your project.
+-   You also have to take into account that up to 20% of LUMI is reserved for industry use which makes 
+    negotiations with software vendors rather difficult as they will want to push us onto the industrial
+    rather than academic pricing as they have no guarantee that we will obey to the academic license
+    restrictions. 
+-   And lastly, **we don't have an infinite budget**. There was a questionaire send out to 
+    some groups even before the support team was assembled and that contained a number of packages that
+    by themselves would likely consume our whole software budget for a single package if I look at the 
+    size of the company that produces the package and the potential size of their industrial market. 
+    So we'd have to make choices and with any choice for a very specialised package you favour a few 
+    groups. And there is also a political problem as without doubt the EuroHPC JU would prefer that we
+    invest in packages that are developed by European companies or at least have large development
+    teams in Europe.
 
 The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
 correction in software is not our task**. As a user, you have to realise that **not all Linux or even
@@ -218,6 +222,8 @@ the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for 
 
 ### 3 ways to access the Cray Programming environment on LUMI.
 
+#### Bare environment and CrayEnv
+
 <figure markdown style="border: 1px solid #000">
   ![Slide 7](img/LUMI-PEAPQ-EasyBuild-20220427/Dia7.png){ loading=lazy }
 </figure>
@@ -237,6 +243,8 @@ tools** like newer build tools than provided with the OS. They are offered here 
 sure that those tools don't create conflicts with software in other stacks. But otherwise the Cray Programming 
 Environment **works exactly as you'd expect from this course**.
 
+#### LUMI stack
+
 <figure markdown style="border: 1px solid #000">
   ![Slide 8](img/LUMI-PEAPQ-EasyBuild-20220427/Dia8.png){ loading=lazy }
 </figure>
@@ -255,8 +263,11 @@ toolchains** instead as indicated by the following table:
 | `PrgEnv-amd`  | `cpeAMDy`      | AMD ROCm GPU compilers (LUMI-G only) |
 
 The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
+
 This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.
+
+#### LUMI stack mmodule organisation
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 9](img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png){ loading=lazy }
@@ -270,6 +281,7 @@ version of the LUMI stack.
 The **second level consists of partition modules**. There is partition/L for the login and large memory nodes,
 partition/C for the regular compute nodes, partition/EAP for the early access platform and in the future
 we will have partition/D for the visualisation nodes and partition/G for the AMD GPU nodes.
+
 There is also a **hidden partition/common module** in which we install software that is available everywhere, 
 but we advise you to be careful to install software in there in your own installs as it is risky to rely on
 software in one of the regular partitions, and impossible in our EasyBuild setup.
@@ -298,7 +310,7 @@ explicitly load the partition/L module.
 
 Contrary to some other module systems, or even some other Lmod installations, **not all modules are
 immediately available for loading**. So don't be disappointed by the few modules you will see with
-`module available` right after login. Lmod has a so-called hierarchical setup that tries to protect
+`module available` right after login. Lmod has a **so-called hierarchical setup** that tries to protect
 you from being confronted with all modules at the same time, even those that may conflict with 
 each other, and we use that to some extent on LUMI. Lmod **distinguishes between installed modules and
 available modules**. Installed modules are all modules on the system that can be loaded one way or
@@ -326,6 +338,8 @@ Lmod has **several tools to search for modules**.
 
 
 ### Module spider command
+
+***Demo moment 1***
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 11](img/LUMI-PEAPQ-EasyBuild-20220427/Dia11.png){ loading=lazy }
@@ -575,6 +589,8 @@ a different partition module than the one that is auto-loaded by the `LUMI` modu
 
 ### Step 2: Install the software.
 
+***Demo moment 2***
+
 <figure markdown style="border: 1px solid #000">
   ![Slide 18](img/LUMI-PEAPQ-EasyBuild-20220427/Dia18.png){ loading=lazy }
 </figure>
@@ -616,6 +632,8 @@ and you should be able to see the module in the output of
 ```bash
 module avail
 ```
+
+***End of demo moment 2***
 
 ### Step 2: Install the software - Note
 
@@ -678,7 +696,7 @@ directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
 eb –r . VASP-6.3.0-cpeGNU-21.12.eb
 ```
 
-### More advanced work (2)
+### More advanced work (2): Repositories
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 21](img/LUMI-PEAPQ-EasyBuild-20220427/Dia21.png){ loading=lazy }
@@ -702,7 +720,7 @@ The structure should also be compatible with the structure that EasyBuild uses, 
 easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 
 
-### More advanced work (3)
+### More advanced work (3): Reproducibility
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 22](img/LUMI-PEAPQ-EasyBuild-20220427/Dia22.png){ loading=lazy }
