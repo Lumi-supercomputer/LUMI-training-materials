@@ -344,8 +344,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lumi-stack-mmodule-organisation" class="md-nav__link">
-    LUMI stack mmodule organisation
+  <a href="#lumi-stack-module-organisation" class="md-nav__link">
+    LUMI stack module organisation
   </a>
   
 </li>
@@ -584,8 +584,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lumi-stack-mmodule-organisation" class="md-nav__link">
-    LUMI stack mmodule organisation
+  <a href="#lumi-stack-module-organisation" class="md-nav__link">
+    LUMI stack module organisation
   </a>
   
 </li>
@@ -758,7 +758,7 @@
 <ul>
 <li>
 <p>LUMI is a <strong>very leading edge</strong> and also an <strong>inhomogeneous machine</strong>. Leading edge often implies
-    <strong>teething problems</strong> and ihomogeneous doesn't make life easier either.</p>
+    <strong>teething problems</strong> and inhomogeneous doesn't make life easier either.</p>
 <ol>
 <li>It uses a <strong>novel interconnect</strong> which is an extension of Ethernet rather than being based on InfiniBand, 
     and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. </li>
@@ -775,7 +775,7 @@
 <p>Given the novel interconnect and GPU we do expect that both system and application
 software will be immature at first and <strong>evolve quickly</strong>, hence we needed a setup that enables us
 to remain very agile, which leads to different compromises compared to a software stack for a more
-conventional and mature system as a x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.</p>
+conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.</p>
 </li>
 <li>
 <p>Users also come to LUMI from <strong>11 different channels</strong>, not counting subchannels as some countries have
@@ -996,19 +996,21 @@ toolchains</strong> instead as indicated by the following table:</p>
 </tr>
 <tr>
 <td align="left"><code>PrgEnv-amd</code></td>
-<td align="left"><code>cpeAMDy</code></td>
+<td align="left"><code>cpeAMD</code></td>
 <td align="left">AMD ROCm GPU compilers (LUMI-G only)</td>
 </tr>
 </tbody>
 </table>
-<p>The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.</p>
+<p>The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
+And we sometimes use this to work around problems in Cray-provided modules that we cannot change. E.g.,
+the <code>PRgEnv-aocc/21.12</code> module can successfully use the <code>aocc/3.1.0</code> compilers.</p>
 <p>This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.</p>
-<h4 id="lumi-stack-mmodule-organisation">LUMI stack mmodule organisation<a class="headerlink" href="#lumi-stack-mmodule-organisation" title="Permanent link">&para;</a></h4>
+<h4 id="lumi-stack-module-organisation">LUMI stack module organisation<a class="headerlink" href="#lumi-stack-module-organisation" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide 9" loading="lazy" src="../img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png" /></p>
 </figure>
-<p>To manage the hetergeneity in the hardware, the LUMI software stack uses <strong>two levels of modules</strong></p>
+<p>To manage the heterogeneity in the hardware, the LUMI software stack uses <strong>two levels of modules</strong></p>
 <p>First there are the <strong>LUMI/21.08 and LUMI/21.12 modules</strong>. Each of the LUMI modules loads a particular
 version of the LUMI stack.</p>
 <p>The <strong>second level consists of partition modules</strong>. There is partition/L for the login and large memory nodes,
@@ -1265,8 +1267,8 @@ by the <code>LUMI</code> - or actually <strong>the <code>partition</code> - modu
 who want to use the software should set that variable.</p>
 <p>Once that environment variable is set, all you need to do to activate EasyBuild is to load
 the <code>LUMI</code> module, load a partition module if you want a different one from the default, and 
-then load the <code>EasyBuild-config</code> module. In fact, if you switch to a different <code>partition</code> 
-or <code>LUMI</code> module after loading <code>EasyBuild-config</code> EasyBuild will still be correctly reconfigured 
+then load the <code>EasyBuild-user</code> module. In fact, if you switch to a different <code>partition</code> 
+or <code>LUMI</code> module after loading <code>EasyBuild-user</code> EasyBuild will still be correctly reconfigured 
 for the new stack and new partition. 
 Cross-compilation which is installing software for a different partition than the one you're
 working on does not always work since there is so much software around with installation scripts
@@ -1343,7 +1345,8 @@ something like
 </code></pre></div>
 The dot after the <code>-r</code> is very important here as it does tell EasyBuild to also look for 
 dependencies in the current directory, the directory where you have put the recipes you got from
-support.</p>
+support, but also in its subdirectories so for speed reasons you should not do this just in your
+home directory but in a subdirectory that only contains those files.</p>
 <p>In some cases you will have to download sources by hand as packages don't allow to download 
 software unless you sign in to their web site first. This is the case for a lot of licensed software,
 for instance, for VASP. We'd likely be in violation of the license if we would put the download somewhere
