@@ -21,7 +21,7 @@ In this part of the training, we cover:
 </figure>
 
 -   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
-    **teething problems** and ihomogeneous doesn't make life easier either.
+    **teething problems** and inhomogeneous doesn't make life easier either.
 
     1.  It uses a **novel interconnect** which is an extension of Ethernet rather than being based on InfiniBand, 
         and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. 
@@ -38,7 +38,7 @@ In this part of the training, we cover:
     Given the novel interconnect and GPU we do expect that both system and application
     software will be immature at first and **evolve quickly**, hence we needed a setup that enables us
     to remain very agile, which leads to different compromises compared to a software stack for a more
-    conventional and mature system as a x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.
+    conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.
 
 -   Users also come to LUMI from **11 different channels**, not counting subchannels as some countries have
     multiple organisations managing allocations, and those channels all have different expectations about
@@ -260,20 +260,22 @@ toolchains** instead as indicated by the following table:
 | `PrgEnv-cray` | `cpeCray`      | Cray Compiler Environment            |
 | `PrgEnv-gnu`  | `cpeGNU`       | GNU C/C++ and Fortran                |
 | `PrgEnv-aocc` | `cpeAOCC`      | AMD CPU compilers                    |
-| `PrgEnv-amd`  | `cpeAMDy`      | AMD ROCm GPU compilers (LUMI-G only) |
+| `PrgEnv-amd`  | `cpeAMD`      | AMD ROCm GPU compilers (LUMI-G only) |
 
 The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
+And we sometimes use this to work around problems in Cray-provided modules that we cannot change. E.g.,
+the `PRgEnv-aocc/21.12` module can successfully use the `aocc/3.1.0` compilers.
 
 This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.
 
-#### LUMI stack mmodule organisation
+#### LUMI stack module organisation
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 9](img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png){ loading=lazy }
 </figure>
 
-To manage the hetergeneity in the hardware, the LUMI software stack uses **two levels of modules**
+To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
 
 First there are the **LUMI/21.08 and LUMI/21.12 modules**. Each of the LUMI modules loads a particular
 version of the LUMI stack.
@@ -578,8 +580,8 @@ who want to use the software should set that variable.
 
 Once that environment variable is set, all you need to do to activate EasyBuild is to load
 the `LUMI` module, load a partition module if you want a different one from the default, and 
-then load the `EasyBuild-config` module. In fact, if you switch to a different `partition` 
-or `LUMI` module after loading `EasyBuild-config` EasyBuild will still be correctly reconfigured 
+then load the `EasyBuild-user` module. In fact, if you switch to a different `partition` 
+or `LUMI` module after loading `EasyBuild-user` EasyBuild will still be correctly reconfigured 
 for the new stack and new partition. 
 Cross-compilation which is installing software for a different partition than the one you're
 working on does not always work since there is so much software around with installation scripts
@@ -679,7 +681,8 @@ eb -r . my_recipe.eb
 ```
 The dot after the `-r` is very important here as it does tell EasyBuild to also look for 
 dependencies in the current directory, the directory where you have put the recipes you got from
-support.
+support, but also in its subdirectories so for speed reasons you should not do this just in your
+home directory but in a subdirectory that only contains those files.
 
 In some cases you will have to download sources by hand as packages don't allow to download 
 software unless you sign in to their web site first. This is the case for a lot of licensed software,
