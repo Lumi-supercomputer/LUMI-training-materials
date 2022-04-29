@@ -84,7 +84,8 @@ Tutorial on the Cray module environment and compiler wrapper scripts.*
         [Slides "IPMI is dead, long live RedFish](https://www.slideshare.net/eurolinux/ipmi-is-dead-long-live-redfish#:~:text=Redfish%20is%20an%20IPMI%20replacement,is%20scalable%2C%20discoverable%20and%20extensible)
 
 +   **Q:** How is the boost of CPU's configured at Lumi-c by default.
-    +   **A:** Slurm has the `--cpu-freq` flag to control   the CPU frequency (see [here]([--cpu-freq](https://slurm.schedmd.com/sbatch.html#OPT_cpu-freq=))). In general you can expect boosting to be enabled on compute nodes but core boost policy is quite complex.  
+    +   **A:** Slurm has the `--cpu-freq` flag to control   the CPU frequency (see [here (`--cpu-freq`)](https://slurm.schedmd.com/sbatch.html#OPT_cpu-freq=). 
+        In general you can expect boosting to be enabled on compute nodes but core boost policy is quite complex.  
 
 #### Programming environment talk
 
