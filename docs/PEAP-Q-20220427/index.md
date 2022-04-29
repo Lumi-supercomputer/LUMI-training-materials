@@ -9,5 +9,6 @@
 
 ## Notes
 
+-   [Notes from the hackmd page](hackmd_notes.md)
 -   [LUMI Software Stacks](software_stacks.md)
 
