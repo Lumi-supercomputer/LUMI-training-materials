@@ -17,13 +17,16 @@ theme:
 
 nav:
   - Home: index.md
+  - "LUMI-G August 2022":
+      - LUMI-G-20220823/index.md
+      - hackmd notes: LUMI-G-20220823/hackmd_notes.md
+  - "EasyBuild May 2022":
+      - EasyBuild-CSC-20220509/index.md
+      - Course notes: https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/
   - "PEAP-Q April 2022":
       - PEAP-Q-20220427/index.md
       - hackmd notes: PEAP-Q-20220427/hackmd_notes.md
       - LUMI Software Stacks: PEAP-Q-20220427/software_stacks.md
-  - "EasyBuild May 2022":
-      - EasyBuild-CSC-20220509/index.md
-      - Course notes: https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/
 
 plugins:
   # show revision date at bottom of each page
