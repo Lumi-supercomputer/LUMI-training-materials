@@ -773,7 +773,7 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
 ### EasyBuild training for support team members
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 22](img/LUMI-PEAPQ-software-20221124/Dia23.png){ loading=lazy }
+  ![Slide 23](img/LUMI-PEAPQ-software-20221124/Dia23.png){ loading=lazy }
 </figure>
 
 Since there were a lot of registrations from local support team members, I want to dedicate one slide
@@ -791,3 +791,190 @@ The site also contains a LUST-specific tutorial oriented towards Cray systems.
 In the past we also organised a training for CSC staff and staff from other local support 
 organisations. The latest version of the training materials is currently available on
 [klust.github.io/easybuild-tutorial](https://klust.github.io/easybuild-tutorial/).
+
+
+## Containers on LUMI
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 24](img/LUMI-PEAPQ-software-20221124/Dia24.png){ loading=lazy }
+</figure>
+
+Let's now switch to using containers on LUMI. 
+This section is about using containers on the login nodes and compute nodes. 
+Some of you may have heard that there were plans to also have an OpenShift Kubernetes container cloud
+platform for running microservices but at this point it is not clear if and when this will materialize
+due to a lack of manpower to get this running and then to support this.
+
+In this section, we will 
+
+-   discuss what to expect from containers on LUMI: what can they do and what can't they do,
+
+-   discuss how to get a container on LUMI,
+
+-   discuss how to run a container on LUMI,
+
+-   and discuss some enhancements we made to the LUMI environment that are based on containers or help
+    you use containers.
+
+Remember though that the compute nodes of LUMI are an HPC infrastructure and not a container cloud!
+
+## What do containers not provide
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 25](img/LUMI-PEAPQ-software-20221124/Dia25.png){ loading=lazy }
+</figure>
+
+What is being discussed in this subsection may be a bit surprising.
+Containers are often marketed as a way to provide reproducible science and as an easy way to transfer
+software from one machine to another machine. However, containers are neither of those and this becomes 
+very clear when using containers build on your typical Mellanox/NVIDIA InfiniBand based clusters with
+Intel processors and NVIDIA GPUs on LUMI.
+
+First, computational results are almost never 100% reproducible because of the very nature of how computers
+work. You can only expect reproducibility of sequential codes between equal hardware. As soon as you change the
+CPU type, some floating point computations may produce slightly different results, and as soon as you go parallel
+this may even be the case between two runs on exactly the same hardware and software.
+
+But portability is a much greater myth. Containers are really only guaranteed to be portable between similar systems.
+They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
+in the ocntainer, but that is where it stops. Containers are usually build for a particular CPU architecture and GPU
+architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
+there is in fact more: containers talk to other hardware to, and on an HPC system the first piece of hardware that comes
+to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
+kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
+TCPI sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
+intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.
+
+Even if a container is portable to LUMI, it may not yet be performance portable. E.g., without proper support for the
+interconnect it may still run but in a much slower mode. But one should also realise that speed gains in the x86
+family over the years come to a large extent from adding new instructions to the CPU set, and that two processors
+with the same instructions set extensions may still benefit from different optimisations by the compilers. 
+Not using the proper instruction set extensions can have a lot of influence. At my local site we've seen GROMACS 
+doubling its speed by chosing proper options, and the difference can even be bigger.
+
+Many HPC sites try to build software as much as possible from sources to exploit the available hardware as much as 
+possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
+investment represents 32 million EURO and a lot of science can be done for that money...
+
+
+## But what can they then do on LUMI?
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 26](img/LUMI-PEAPQ-software-20221124/Dia26.png){ loading=lazy }
+</figure>
+
+
+*   A very important reason to use containers on LUMI is reducing the pressure on the file system by software
+    that accesses many thousands of small files (Python and R users, you know who we are talking about).
+    That software kills the metadata servers of almost any parallel file system when used at scale.
+
+    As a container on LUMI is a single file, the metadata servers of the parallel file system have far less 
+    work to do, and all the file caching mechanisms can also work much better.
+
+*   When setting up very large software environments, e.g., some Python and R envrionments, they can still 
+    be very helpful, even if you may have to change some elements in your build recipes from your regular
+    cluster or workstation. Some software may also be simply too hard to install from sources in the
+    typical HPC way of working.
+    
+*   And related to the previous point is also that some software may not even be suited for installation in
+    a multi-user HPC system. HPC systems want a lightweight `/usr` etc. structure as that part of the system
+    software is often stored in a RAM disk, and to reduce boot times. Moreover, different users may need
+    different versions of a software library so it cannot be installed in its default location in the system
+    library. However, some software is ill-behaved and doesn't allowed to be relocated to a different directory,
+    and in these cases containers help you to build a private installation that does not interfer with other
+    software on the system.
+
+Remember thoug that whenever you use containers, you are the system administrator and not LUST. We can impossibly
+support all different software that users want to run in containers, and all possible Linux distributions they may
+want to run in those containers. We provide some advice on how to build a proper container, but if you chose to
+neglect it it is up to you to solve the problems that occur.
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 27](img/LUMI-PEAPQ-software-20221124/Dia27.png){ loading=lazy }
+</figure>
+
+So how manage containers?
+
+First of all Docker is not directly available. Singularity is currently the only supported container runtime and is available on login nodes and compute nodes as a system command so no module is needed.
+
+To work with any container you need to either pull the container from a registree, e.g., DockerHub, or copy from outside.
+
+It is important to node that singularity uses a flat single file format, but singularity pull will do that conversion for you automatically. 
+If the pull fails it may leave a lot of data in the cache diectory which can exhaust your storage quota. So be aware of where the vache is stored.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 28](img/LUMI-PEAPQ-software-20221124/Dia28.png){ loading=lazy }
+</figure>
+
+There is currently no support for building containers on LUMI, so you need to build elsewhere or build from external servers
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 29](img/LUMI-PEAPQ-software-20221124/Dia29.png){ loading=lazy }
+</figure>
+
+There are basically three ways to interact with containers
+
+If you have the sif file already you can enter the contaier with an interactive shell.
+
+Or you can execute a command in the container with singularity exec.
+
+And the third option is often called running a container, which is done with singularity run. It does require the container to have a special script that tells singularity what running a container means. UYou can check if it is present and what it does with singularity inspect.
+
+You of course want your container to interact with your files on the system. Some directories are automatically mounted in the containers, but you may need others, e.g., your project anbd scratch directory. For that you need to add bind mounts using --mount or SINGULARITY_BINDPATH.
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 30](img/LUMI-PEAPQ-software-20221124/Dia30.png){ loading=lazy }
+</figure>
+
+To run contianers with MPI on the compute nodes you should combine the above with the SLURM srun command. 
+
+Your container should be compatible with Cray MPICH. For this it should be compatible with the MPIC ABI, and in that case we can tell it to use Cray MPICH.
+
+We do not recommend using Open MPI containers. We have no good sollution at the moment to guarantee performance. There are some complications in the Open MPI design that make this more difficult than when using MPICH. The good news is that the Open MPI designers of course also want to use the big USA exascale machines and hence are also working on better support for Slingshot (though that is currently not the only issue on LUMI).
+
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 31](img/LUMI-PEAPQ-software-20221124/Dia31.png){ loading=lazy }
+</figure>
+
+Some LUMI-specific tools:
+
+HPC-container wrapper is recommended to use for Python and Conda environments. 
+
+DEMO:
+* conda-cont-1 directory is where the container will be put
+* cat conda_env.yaml in the current directory
+* conda-containerize new --preix ./conda-cont-1 conda_env.yaml
+
+Command not shown because it takes too long to build the container.
+
+Result is a lightweight container and a SquashFS file that contains all small files that are installed in a single file. And a bin directory with some scripts that encapsulate the regular commands.
+
+The wrapper module also offers a pip-based command to build upon the Cray Python modules already present on the system
+
+LUMI-VNC: <make your own tesxt>
+
+Singularity-bindings: You should install it yourself via EasyBuild (and maaybe customize the recipe?) and it will help you to use Cray MPICH instead
+
+As a summary: Limitations
+
+* Use the host operating system kernel so you need to be compatible with that
+
+* Interconnect may not be supported by a generic container
+
+* Specifically MPI requires ABI compatibility with MPICH.
+
+* No support for building containers and don't hope it will come quickly.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 32](img/LUMI-PEAPQ-software-20221124/Dia32.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 33](img/LUMI-PEAPQ-software-20221124/Dia33.png){ loading=lazy }
+</figure>
+
+
