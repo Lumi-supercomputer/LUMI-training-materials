@@ -112,8 +112,10 @@ specifically for the HPE Cray programming environment** so recipes need to be ad
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that **your modules appear in your module view** without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
-for your project as we cannot automatically determine a suitable place. **We do offer some help so set up
-Spack also but activating Spack for installation is your project directory is not yet automated.**
+for your project as we cannot automatically determine a suitable place. 
+**We have a pre-configured Spack installation also but do not do any package development in Spack ourselves.
+The setup is meant for users familiar with Spack who can also solve problems that occur on the road,
+but we already did the work of ensuring that Spack is correctly configured for the HPE Cray compilers.**
 
 
 ### Software policies
@@ -346,7 +348,7 @@ Lmod has **several tools to search for modules**.
 
 ### Module spider command
 
-***Demo moment 1***
+***Demo moment 1 (when infrastructure for a demo is available)***
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 11](img/LUMI-PEAPQ-software-20221124/Dia11.png){ loading=lazy }
@@ -394,11 +396,20 @@ There are three ways to use `module spider`, discovering software in more and mo
     and the `LUMI/22.08` software stacks and for all partitions (basically because we don't do
     processor-specific optimisations for these tools).
 
+*Try the following commands:*
+
+```bash
+module spider
+module spider gnuplot
+module spider cmake
+module spider gnuplot/5.4.3-cpeGNU-22.08
+module spider CMake/3.24.0
+```
 
 ### Module keyword command
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 12](img/LUMI-PEAPQ-software-20221124/Dia12.png){ loading=lazy }
+  ![Slide 22](img/LUMI-PEAPQ-software-20221124/Dia22.png){ loading=lazy }
 </figure>
 
 `module keyword` will search for a module using a keyword but it is **currently not very useful on
@@ -415,11 +426,16 @@ On LUMI **we do try to put enough information in the module files** to make this
 way to discover software that is already installed on the system, more so than in regular EasyBuild
 installations.
 
+*Try the following command:*
+
+```bash
+module keyword https
+```
 
 ### Sticky modules and module purge
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 13](img/LUMI-PEAPQ-software-20221124/Dia13.png){ loading=lazy }
+  ![Slide 27](img/LUMI-PEAPQ-software-20221124/Dia27.png){ loading=lazy }
 </figure>
 
 You may have been taught that `module purge` is a command that unloads all modules and on some
@@ -433,6 +449,17 @@ would work.
 Lmod however does have the concept of **"sticky modules"**. These are not unloaded by `module purge`
 but are re-loaded, so unloaded and almost immediately loaded again, though you can always
 force-unload them with `module --force purge` or `module --force unload` for individual modules.
+
+*Try the following commands and carefully observe the output:*
+
+```bash
+module load LUMI/22.08 buildtools
+module list
+module purge
+module list
+module --force unload ModuleLabel/label
+module list
+```
 
 The sticky property has to be declared in the module file so we cannot add it to for instance the
 Cray Programming Environment target modules, but we can and do use it in some modules that we control
@@ -452,7 +479,7 @@ display style of the modules**.
 ### Changing how the module list is displayed
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 14](img/LUMI-PEAPQ-software-20221124/Dia14.png){ loading=lazy }
+  ![Slide 33](img/LUMI-PEAPQ-software-20221124/Dia33.png){ loading=lazy }
 </figure>
 
 You may have noticed already that by default you **don't see the directories in which the module
@@ -463,13 +490,35 @@ from the Cray Programming Environment in two categories, the target modules and 
 environment modules. But you can **customise this by loading one of the `ModuleLabel` modules**.
 One version, the `label` version, is the default view. But we also have `PEhierarchy` which 
 still provides descriptive texts but unfolds the whole hierarchy in the Cray Programming 
-Environment. And the third style is calle `system` which shows you again the module directories.
+Environment. And the third style is called `system` which shows you again the module directories.
+
+*Try the following commands:*
+
+```bash
+module list
+module avail
+module load ModuleLabel/PEhiererachy
+module avail
+module load ModuleLabel/system
+module avail
+module load ModuleLabel/label
+```
 
 We're also very much aware that the default colour view is not good for everybody. So far we are not 
 aware of an easy way to provide various colour schemes as one that is OK for people who like a black 
 background on their monitor might not be OK for people who prefer a white background. But it is possible
 to turn colour off alltogether by loading the `ModuleColour/off` module, and you can always turn it
 on again with `ModuleColour/on`.
+
+*Try the following commands:* 
+
+```bash
+module avail
+module load ModuleColour/off
+module avail
+module list
+module load ModuleColour/on
+```
 
 We also **hide some modules from regular users** because we think they are not useful at all for regular
 users or not useful in the context you're in at the moment. For instance, when working in the `LUMI/22.08`
@@ -481,13 +530,24 @@ you cannot see them with `module available`. It is possible though to still show
 them by loading `ModulePowerUser/LUMI`. Use this at your own risk however, we will not help you to make
 things work or to use any module that was designed for us to maintain the system.
 
+*Try the following commands:*
+
+```bash
+module load LUMI/22.08
+module avail
+module load ModulePowerUser
+module avail
+```
+
+*Note that we see a lot more Cray PE modules with `ModulePowerUser`!*
+
 
 ## EasyBuild to extend the LUMI software stack
 
 ### Installing software on HPC systems
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 15](img/LUMI-PEAPQ-software-20221124/Dia15.png){ loading=lazy }
+  ![Slide 34](img/LUMI-PEAPQ-software-20221124/Dia34.png){ loading=lazy }
 </figure>
 
 Software on HPC systems is **rarely installed from RPMs** for various reasons.
@@ -517,7 +577,7 @@ And they do **take care of dependency handling** in a way that is compatible wit
 ### Extending the LUMI stack with EasyBuild
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 16](img/LUMI-PEAPQ-software-20221124/Dia16.png){ loading=lazy }
+  ![Slide 35](img/LUMI-PEAPQ-software-20221124/Dia35.png){ loading=lazy }
 </figure>
 
 On LUMI EasyBuild is our primary software installation tool. We selected this as there is
@@ -534,7 +594,7 @@ LUMI stack.
 EasyBuild will then use existing modules for dependencies if those are already on the system
 or in your personal or project stack.
 
-Note however that the **build-in easyconfig files that come with EasyBuild do not work on LUMI** at
+Note however that the **built-in easyconfig files that come with EasyBuild do not work on LUMI** at
 the moment.
 
 -   For the GNU toolchain we would have problems with MPI. EasyBuild there uses Open MPI and that
@@ -551,13 +611,14 @@ Instead we make our **own EasyBuild build recipes** that we also make available 
 The EasyBuild configuration done by the EasyBuild-user module will find a copy of that repository
 on the system or in your own install directory. The latter is useful if you always want the very
 latest, before we deploy it on the system. 
-We're also **working on presenting a list of supported software in the documentation**.
-There is already [a prototype of this system](https://klust.github.io/LUMI-EasyBuild-docs/).
+We also maintain a list of all EasyBuild recipes installed in the central stack maintained by
+LUST or available in the main EasyConfig repository LUMI-EasyBuild-contrib in 
+[the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
 
 ### Step 1: Where to install
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 17](img/LUMI-PEAPQ-software-20221124/Dia17.png){ loading=lazy }
+  ![Slide 36](img/LUMI-PEAPQ-software-20221124/Dia36.png){ loading=lazy }
 </figure>
 
 Let's now discuss how you can extend the central LUMI software stack with packages that you
@@ -584,6 +645,13 @@ This variable is not only **used by EasyBuild-user** to know where to install so
 by the `LUMI` - or actually **the `partition` - module to find software** so all users in your project
 who want to use the software should set that variable.
 
+
+### Step 2: Configure the environment
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 38](img/LUMI-PEAPQ-software-20221124/Dia38.png){ loading=lazy }
+</figure>
+
 Once that environment variable is set, all you need to do to activate EasyBuild is to load
 the `LUMI` module, load a partition module if you want a different one from the default, and 
 then load the `EasyBuild-user` module. In fact, if you switch to a different `partition` 
@@ -595,12 +663,12 @@ that don't follow good practices, but when it works it is easy to do on LUMI by 
 a different partition module than the one that is auto-loaded by the `LUMI` module.
 
 
-### Step 2: Install the software.
+### Step 3: Install the software.
 
 ***Demo moment 2***
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 18](img/LUMI-PEAPQ-software-20221124/Dia18.png){ loading=lazy }
+  ![Slide 39](img/LUMI-PEAPQ-software-20221124/Dia39.png){ loading=lazy }
 </figure>
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
@@ -621,7 +689,7 @@ LUMI will become available early on in the deployment of LUMI-G so we've already
 a so-called version suffix to distinguish between CPU and GPU versions.
 To install it, we first run 
 ```bash
-eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
+eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
@@ -632,7 +700,7 @@ it can be turned on.
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
 But it will do so automatically when we run
 ```bash
-eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb
+eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r
 ```
 
 This takes too long to wait for, but once it finished the software should be available
@@ -643,10 +711,10 @@ module avail
 
 ***End of demo moment 2***
 
-### Step 2: Install the software - Note
+### Step 3: Install the software - Note
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 19](img/LUMI-PEAPQ-software-20221124/Dia19.png){ loading=lazy }
+  ![Slide 50](img/LUMI-PEAPQ-software-20221124/Dia50.png){ loading=lazy }
 </figure>
 
 There is a little problem though that you may run into. Sometimes the module does not
@@ -678,14 +746,14 @@ of the package that better suits your needs.
 ### More advanced work
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 20](img/LUMI-PEAPQ-software-20221124/Dia20.png){ loading=lazy }
+  ![Slide 51](img/LUMI-PEAPQ-software-20221124/Dia51.png){ loading=lazy }
 </figure>
 
 You can also install some EasyBuild recipes that you got from support. For this it is best to
 create a subdirectory where you put those files, then go into that directory and run 
 something like
 ```bash
-eb -r . my_recipe.eb
+eb my_recipe.eb -r .
 ```
 The dot after the `-r` is very important here as it does tell EasyBuild to also look for 
 dependencies in the current directory, the directory where you have put the recipes you got from
@@ -704,13 +772,13 @@ will tell you for which versions of VASP we already have build instructions, but
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
 directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
 ```bash
-eb –r . VASP-6.3.2-cpeGNU-22.08.eb
+eb VASP-6.3.2-cpeGNU-22.08.eb -r .
 ```
 
 ### More advanced work (2): Repositories
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 21](img/LUMI-PEAPQ-software-20221124/Dia21.png){ loading=lazy }
+  ![Slide 52](img/LUMI-PEAPQ-software-20221124/Dia52.png){ loading=lazy }
 </figure>
 
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
@@ -734,7 +802,7 @@ easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 ### More advanced work (3): Reproducibility
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 22](img/LUMI-PEAPQ-software-20221124/Dia22.png){ loading=lazy }
+  ![Slide 53](img/LUMI-PEAPQ-software-20221124/Dia53.png){ loading=lazy }
 </figure>
 
 EasyBuild also takes care of a **high level of reproducibility of installations**.
@@ -770,10 +838,10 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
     the installation and their output.
 
 
-### EasyBuild training for support team members
+### EasyBuild training for advanced users and developers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 23](img/LUMI-PEAPQ-software-20221124/Dia23.png){ loading=lazy }
+  ![Slide 54](img/LUMI-PEAPQ-software-20221124/Dia54.png){ loading=lazy }
 </figure>
 
 Since there were a lot of registrations from local support team members, I want to dedicate one slide
@@ -796,7 +864,7 @@ organisations. The latest version of the training materials is currently availab
 ## Containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 24](img/LUMI-PEAPQ-software-20221124/Dia24.png){ loading=lazy }
+  ![Slide 55](img/LUMI-PEAPQ-software-20221124/Dia55.png){ loading=lazy }
 </figure>
 
 Let's now switch to using containers on LUMI. 
@@ -821,7 +889,7 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 ## What do containers not provide
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 25](img/LUMI-PEAPQ-software-20221124/Dia25.png){ loading=lazy }
+  ![Slide 56](img/LUMI-PEAPQ-software-20221124/Dia56.png){ loading=lazy }
 </figure>
 
 What is being discussed in this subsection may be a bit surprising.
@@ -835,7 +903,7 @@ work. You can only expect reproducibility of sequential codes between equal hard
 CPU type, some floating point computations may produce slightly different results, and as soon as you go parallel
 this may even be the case between two runs on exactly the same hardware and software.
 
-But portability is a much greater myth. Containers are really only guaranteed to be portable between similar systems.
+But full portability is a much greater myth. Containers are really only guaranteed to be portable between similar systems.
 They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
 in the container, but that is where it stops. Containers are usually build for a particular CPU architecture and GPU
 architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
@@ -860,7 +928,7 @@ investment represents 32 million EURO and a lot of science can be done for that 
 ## But what can they then do on LUMI?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 26](img/LUMI-PEAPQ-software-20221124/Dia26.png){ loading=lazy }
+  ![Slide 57](img/LUMI-PEAPQ-software-20221124/Dia57.png){ loading=lazy }
 </figure>
 
 
@@ -893,7 +961,7 @@ neglect it it is up to you to solve the problems that occur.
 ## Managing containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 27](img/LUMI-PEAPQ-software-20221124/Dia27.png){ loading=lazy }
+  ![Slide 58](img/LUMI-PEAPQ-software-20221124/Dia58.png){ loading=lazy }
 </figure>
 
 On LUMI, we currently support only one container runtime.
@@ -927,7 +995,7 @@ but this directory is also automatically cleaned when you log out from your last
 (login) node.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 28](img/LUMI-PEAPQ-software-20221124/Dia28.png){ loading=lazy }
+  ![Slide 59](img/LUMI-PEAPQ-software-20221124/Dia59.png){ loading=lazy }
 </figure>
 
 There is currently no support for building containers on LUMI and I do not expect that to change quickly.
@@ -943,7 +1011,7 @@ OS kernel on LUMI.
 ## Interacting with containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 29](img/LUMI-PEAPQ-software-20221124/Dia29.png){ loading=lazy }
+  ![Slide 60](img/LUMI-PEAPQ-software-20221124/Dia60.png){ loading=lazy }
 </figure>
 
 There are basically three ways to interact with containers.
@@ -989,7 +1057,7 @@ flag or via the `SINGULARITY_BIND` or `SINGULARITY_BINDPATH` environment variabl
 ## Running containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 30](img/LUMI-PEAPQ-software-20221124/Dia30.png){ loading=lazy }
+  ![Slide 61](img/LUMI-PEAPQ-software-20221124/Dia61.png){ loading=lazy }
 </figure>
 
 Just as for other jobs, you need to use Slurm to run containers on the compute nodes.
@@ -1026,7 +1094,7 @@ support on systems that rely on OFI and do not support UCX.
 ## Enhancements to the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 31](img/LUMI-PEAPQ-software-20221124/Dia31.png){ loading=lazy }
+  ![Slide 63](img/LUMI-PEAPQ-software-20221124/Dia62.png){ loading=lazy }
 </figure>
 
 To make life easier, LUST with the support of CSC did implement some modules
@@ -1056,7 +1124,7 @@ that we are developing and that will be made available via the
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 32](img/LUMI-PEAPQ-software-20221124/Dia32.png){ loading=lazy }
+  ![Slide 63](img/LUMI-PEAPQ-software-20221124/Dia63.png){ loading=lazy }
 </figure>
 
 The second tool is a container that we provide with some bash functions
@@ -1092,16 +1160,78 @@ that contains the conda or Python installation.
 We do strongly recommend to use the container wrapper tool for larger conda and Python installation.
 We will not raise your file quota if it is to house such installation in your `/project` directory.
 
-TODO: Show some commands?
+### Demo
 
-DEMO:
-* conda-cont-1 directory is where the container will be put
-* cat conda_env.yaml in the current directory
-* conda-containerize new --preix ./conda-cont-1 conda_env.yaml
+Create a subdirectory to experiment. In that subdirectory, create a file named `env.yml` with
+the content:
 
-Command not shown because it takes too long to build the container.
+```
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8.8
+  - scipy
+  - nglview
+```
 
-Result is a lightweight container and a SquashFS file that contains all small files that are installed in a single file. And a bin directory with some scripts that encapsulate the regular commands.
+and create an empty subdirectory `conda-cont-1`.
+
+|Now you can follow the commands on the slides below:
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 64](img/LUMI-PEAPQ-software-20221124/Dia64.png){ loading=lazy }
+</figure>
+
+On the slide above we prepared the environment.
+
+Now lets run the command 
+
+```
+conda-containerize new --prefix ./conda-cont-1 env.yml
+```
+
+and look at the output that scrolls over the screen.
+The screenshots don't show the full output as some parts of the screen get overwritten during
+the process:
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 65](img/LUMI-PEAPQ-software-20221124/Dia65.png){ loading=lazy }
+</figure>
+
+The tool will first build the conda installation in a temprorary work directory
+and also uses a base container for that purpose.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 66](img/LUMI-PEAPQ-software-20221124/Dia66.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 67](img/LUMI-PEAPQ-software-20221124/Dia67.png){ loading=lazy }
+</figure>
+
+The conda installation itself though is stored in a SquashFS file that is then
+used by the container.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 68](img/LUMI-PEAPQ-software-20221124/Dia68.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 69](img/LUMI-PEAPQ-software-20221124/Dia69.png){ loading=lazy }
+</figure>
+
+In the slide above we see the installation contains both a singularity container
+and a SquashFS file. They work together to get a working conda installation.
+
+The `bin` directory seems to contain the commands, but these are in fact scripts 
+that run those commands in the container with the SquashFS file system mounted in it.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide 70](img/LUMI-PEAPQ-software-20221124/Dia70.png){ loading=lazy }
+</figure>
+
+So as you can see above, we dcan simply use the `python3` command without realising
+what goes on behind the screen...
 
 The wrapper module also offers a pip-based command to build upon the Cray Python modules already present on the system
 
@@ -1109,7 +1239,7 @@ The wrapper module also offers a pip-based command to build upon the Cray Python
 ## Conclusion: Container limitations on LUMI-C
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 33](img/LUMI-PEAPQ-software-20221124/Dia33.png){ loading=lazy }
+  ![Slide 71](img/LUMI-PEAPQ-software-20221124/Dia71.png){ loading=lazy }
 </figure>
 
 To conclude the information on using singularity containers on LUMI,
