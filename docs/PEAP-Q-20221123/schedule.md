@@ -4,7 +4,7 @@
 
 <em>All times CET.</em>
 
-<table style="text-align: left;" resolved="">
+<table style="text-align: left;">
 <tbody>
 <tr>
     <td>09:30&nbsp;&nbsp;</td>
@@ -80,7 +80,7 @@
 
 <em>All times CET.</em>
 
-<table style="text-align: left;" resolved="">
+<table style="text-align: left;">
 <tbody>
 <tr>
     <td>09:30&nbsp;&nbsp;</td>
@@ -124,7 +124,7 @@
 </tr>
 <tr>
     <td>15:15</td>
-    <td>break (20 minutes)</td>
+    <td><em>break (20 minutes)</em></td>
 </tr>
 <tr>
     <td>15:35</td>
