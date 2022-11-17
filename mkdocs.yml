@@ -17,6 +17,11 @@ theme:
 
 nav:
   - Home: index.md
+  - "PEAP-Q November 2022":
+      - PEAP-Q-20221123/index.md
+      - Schedule: PEAP-Q-20221123/schedule.md
+      - HedgeDoc notes: PEAP-Q-20221123/hedgedoc_notes.md
+      - LUMI Software Stacks: PEAP-Q-20221123/software_stacks.md
   - "LUMI-G August 2022":
       - LUMI-G-20220823/index.md
       - hackmd notes: LUMI-G-20220823/hackmd_notes.md
