@@ -8,9 +8,8 @@
 
 ## Downloads
 
--   [LUMI Software Stacks slides (PDF, 667k)](files/LUMI-PEAPQ-EasyBuild-20220427.pdf)
--   [The LUMI documentation and help desk (PDF, 1.8M)](files/220428-Documentation-Helpdesk.pdf)
--   [Frequently asked support questions (PDF, 907 k)](files/LUST_presentation--freq-supp-Qs--202204281615-JV.pdf)
+-   [LUMI Software Stacks slides (PDF, 4.7M)](files/LUMI-PEAPQ-software-20221124.pdf)
+-   [LUMI Support slides (PDF, 1.8M)](files/220428-Documentation-Helpdesk.pdf)
 
 ## Notes
 
