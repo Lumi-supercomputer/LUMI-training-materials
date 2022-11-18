@@ -396,15 +396,58 @@ There are three ways to use `module spider`, discovering software in more and mo
     and the `LUMI/22.08` software stacks and for all partitions (basically because we don't do
     processor-specific optimisations for these tools).
 
-*Try the following commands:*
+???+Demo "Demo module spider"
 
-```bash
-module spider
-module spider gnuplot
-module spider cmake
-module spider gnuplot/5.4.3-cpeGNU-22.08
-module spider CMake/3.24.0
-```
+    Try the following commands:
+
+    ```bash
+    module spider
+    module spider gnuplot
+    module spider cmake
+    module spider gnuplot/5.4.3-cpeGNU-22.08
+    module spider CMake/3.24.0
+    ```
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 12](img/LUMI-PEAPQ-software-20221124/Dia12.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 13](img/LUMI-PEAPQ-software-20221124/Dia13.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 14](img/LUMI-PEAPQ-software-20221124/Dia14.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 15](img/LUMI-PEAPQ-software-20221124/Dia15.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 16](img/LUMI-PEAPQ-software-20221124/Dia16.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 17](img/LUMI-PEAPQ-software-20221124/Dia17.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 18](img/LUMI-PEAPQ-software-20221124/Dia18.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 19](img/LUMI-PEAPQ-software-20221124/Dia19.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 20](img/LUMI-PEAPQ-software-20221124/Dia20.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 21](img/LUMI-PEAPQ-software-20221124/Dia21.png){ loading=lazy }
+    </figure>
+
 
 ### Module keyword command
 
@@ -426,11 +469,31 @@ On LUMI **we do try to put enough information in the module files** to make this
 way to discover software that is already installed on the system, more so than in regular EasyBuild
 installations.
 
-*Try the following command:*
+???+Demo "Demo module keyword"
 
-```bash
-module keyword https
-```
+    Try the following command:
+
+    ```bash
+    module keyword https
+    ```
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 23](img/LUMI-PEAPQ-software-20221124/Dia23.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 24](img/LUMI-PEAPQ-software-20221124/Dia24.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 25](img/LUMI-PEAPQ-software-20221124/Dia25.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 26](img/LUMI-PEAPQ-software-20221124/Dia26.png){ loading=lazy }
+    </figure>
+
+
 
 ### Sticky modules and module purge
 
@@ -450,16 +513,45 @@ Lmod however does have the concept of **"sticky modules"**. These are not unload
 but are re-loaded, so unloaded and almost immediately loaded again, though you can always
 force-unload them with `module --force purge` or `module --force unload` for individual modules.
 
-*Try the following commands and carefully observe the output:*
+???+Demo "Demo"
 
-```bash
-module load LUMI/22.08 buildtools
-module list
-module purge
-module list
-module --force unload ModuleLabel/label
-module list
-```
+    Try the following command:
+
+    ```bash
+    module av
+    ```
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 1](img/LUMI-PEAPQ-software-20221124/Dia28.png){ loading=lazy }
+    </figure>
+
+    Note the very descriptive titles in the above screenshot.
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 2](img/LUMI-PEAPQ-software-20221124/Dia29.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 3](img/LUMI-PEAPQ-software-20221124/Dia30.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 4](img/LUMI-PEAPQ-software-20221124/Dia31.png){ loading=lazy }
+    </figure>
+
+    The letter "D" next to a name denotes that this is the default version,
+    the letter "L" denotes that the module is loaded.
+
+    Try the following commands and carefully observe the output:
+
+    ```bash
+    module load LUMI/22.08 buildtools
+    module list
+    module purge
+    module list
+    module --force unload ModuleLabel/label
+    module list
+    ```
 
 The sticky property has to be declared in the module file so we cannot add it to for instance the
 Cray Programming Environment target modules, but we can and do use it in some modules that we control
@@ -492,17 +584,19 @@ One version, the `label` version, is the default view. But we also have `PEhiera
 still provides descriptive texts but unfolds the whole hierarchy in the Cray Programming 
 Environment. And the third style is called `system` which shows you again the module directories.
 
-*Try the following commands:*
+???+Demo "Demo"
 
-```bash
-module list
-module avail
-module load ModuleLabel/PEhiererachy
-module avail
-module load ModuleLabel/system
-module avail
-module load ModuleLabel/label
-```
+    Try the following commands:
+
+    ```bash
+    module list
+    module avail
+    module load ModuleLabel/PEhiererachy
+    module avail
+    module load ModuleLabel/system
+    module avail
+    module load ModuleLabel/label
+    ```
 
 We're also very much aware that the default colour view is not good for everybody. So far we are not 
 aware of an easy way to provide various colour schemes as one that is OK for people who like a black 
@@ -510,15 +604,17 @@ background on their monitor might not be OK for people who prefer a white backgr
 to turn colour off alltogether by loading the `ModuleColour/off` module, and you can always turn it
 on again with `ModuleColour/on`.
 
-*Try the following commands:* 
+???+Demo "Demo"
 
-```bash
-module avail
-module load ModuleColour/off
-module avail
-module list
-module load ModuleColour/on
-```
+    Try the following commands:
+
+    ```bash
+    module avail
+    module load ModuleColour/off
+    module avail
+    module list
+    module load ModuleColour/on
+    ```
 
 We also **hide some modules from regular users** because we think they are not useful at all for regular
 users or not useful in the context you're in at the moment. For instance, when working in the `LUMI/22.08`
@@ -530,16 +626,18 @@ you cannot see them with `module available`. It is possible though to still show
 them by loading `ModulePowerUser/LUMI`. Use this at your own risk however, we will not help you to make
 things work or to use any module that was designed for us to maintain the system.
 
-*Try the following commands:*
+???+Demo "Demo"
 
-```bash
-module load LUMI/22.08
-module avail
-module load ModulePowerUser
-module avail
-```
+    Try the following commands:
 
-*Note that we see a lot more Cray PE modules with `ModulePowerUser`!*
+    ```bash
+    module load LUMI/22.08
+    module avail
+    module load ModulePowerUser
+    module avail
+    ```
+
+    Note that we see a lot more Cray PE modules with `ModulePowerUser`!
 
 
 ## EasyBuild to extend the LUMI software stack
@@ -708,6 +806,50 @@ and you should be able to see the module in the output of
 ```bash
 module avail
 ```
+
+???+demo "Demo of the EasyBuild installation of GROMACS"
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb --search](img/LUMI-PEAPQ-software-20221124/Dia40.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -S](img/LUMI-PEAPQ-software-20221124/Dia41.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -D](img/LUMI-PEAPQ-software-20221124/Dia42.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -D](img/LUMI-PEAPQ-software-20221124/Dia43.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia44.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia45.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia46.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia47.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia48.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia49.png){ loading=lazy }
+    </figure>
+
+
 
 ***End of demo moment 2***
 
@@ -988,14 +1130,38 @@ singularity pull docker://julia
 Singularity uses a single flat sif file for storing containers. The `singularity pull` command does the 
 conversion from Docker format to the singularity format.
 
-Note though that sometimes pull commands don't finish successfully, and they may leave a mess of files in
-the `.singularity` cache directory or in `$XDG_RUNTIME_DIR` (works only on the login nodes). The former can lead to exhaustion of your
+Singularity caches files during pull operations and that may leave a mess of files in
+the `.singularity` cache directory or in `$XDG_RUNTIME_DIR` (works only on the login nodes). 
+The former can lead to exhaustion of your
 storage quota, so check and clean up from time to time. You may also want to clean up `$XDG_RUNTIME_DIR`,
 but this directory is also automatically cleaned when you log out from your last running session on that
 (login) node.
 
+???+demo "Demo singularity pull"
+
+    Let's try the `singularity pull docker://julia` command:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 59](img/LUMI-PEAPQ-software-20221124/Dia59.png){ loading=lazy }
+    </figure>
+
+    We do get a lot of warnings but usually this is perfectly normal and usually they can be safely ignored.
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 60](img/LUMI-PEAPQ-software-20221124/Dia60.png){ loading=lazy }
+    </figure>
+
+    The process ends with the creation of the file `jula_latest.sif`. 
+
+    Note however that the process has left a considerable number of files in `~/.singularity ` also:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 61](img/LUMI-PEAPQ-software-20221124/Dia61.png){ loading=lazy }
+    </figure>
+
+
 <figure markdown style="border: 1px solid #000">
-  ![Slide 59](img/LUMI-PEAPQ-software-20221124/Dia59.png){ loading=lazy }
+  ![Slide 62](img/LUMI-PEAPQ-software-20221124/Dia62.png){ loading=lazy }
 </figure>
 
 There is currently no support for building containers on LUMI and I do not expect that to change quickly.
@@ -1011,7 +1177,7 @@ OS kernel on LUMI.
 ## Interacting with containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 60](img/LUMI-PEAPQ-software-20221124/Dia60.png){ loading=lazy }
+  ![Slide 63](img/LUMI-PEAPQ-software-20221124/Dia63.png){ loading=lazy }
 </figure>
 
 There are basically three ways to interact with containers.
@@ -1022,12 +1188,42 @@ If you have the sif file already on the system you can enter the container with 
 singularity shell container.sif
 ```
 
+???+demo "Demo singularity shell"
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 64](img/LUMI-PEAPQ-software-20221124/Dia64.png){ loading=lazy }
+    </figure>
+
+    In this screenshot we checked the contents of the `/opt` directory before and after the
+    `singularity shell julia_latest.sif` command. This shows that we are clearly in a different
+    environment. Checking the `/etc/os-release` file only confirms this as LUMI runs SUSE Linux
+    on the login nodes, not a version of Debian.
+
+
 The second way is to execute a command in the container with `singularity exec`. E.g., assuming the 
 container has the `uname` executable installed in it,
 
 ```
 singularity exec container.sif uname -a
 ```
+
+???+demo "Demo singularity exec"
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 65](img/LUMI-PEAPQ-software-20221124/Dia65.png){ loading=lazy }
+    </figure>
+
+    In this screenshot we execute the `uname -a` command before and with the
+    `singularity exec julia_latest.sif` command. There are some slight differences in the
+    output though the same kernel version is reported as the container uses the host kernel.
+    Executing
+
+    ```
+    singularity exec julia_latest.sif cat /etc/os-release
+    ```
+
+    confirms though that the commands are executed in the container.
+
 
 The third option is often called running a container, which is done with singularity run:
 
@@ -1041,6 +1237,18 @@ running a container means. You can check if it is present and what it does with 
 ```
 singularity inspect --runscript container.sif
 ```
+
+???+demo "Demo singularity run"
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 66](img/LUMI-PEAPQ-software-20221124/Dia66.png){ loading=lazy }
+    </figure>
+
+    In this screenshot we start the julia interface in the container using
+    `singularity run`. The second command shows that the contianer indeed
+    includes a script to tell singularity what `singularity run` should do.
+
+
 
 You want your container to be able to interact with the files in your account on the system.
 Singularity will automatically mount `$HOME`, `/tmp`, `/proc`, `/sys` and `dev` in the container,
@@ -1057,7 +1265,7 @@ flag or via the `SINGULARITY_BIND` or `SINGULARITY_BINDPATH` environment variabl
 ## Running containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 61](img/LUMI-PEAPQ-software-20221124/Dia61.png){ loading=lazy }
+  ![Slide 67](img/LUMI-PEAPQ-software-20221124/Dia67.png){ loading=lazy }
 </figure>
 
 Just as for other jobs, you need to use Slurm to run containers on the compute nodes.
@@ -1094,7 +1302,7 @@ support on systems that rely on OFI and do not support UCX.
 ## Enhancements to the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 63](img/LUMI-PEAPQ-software-20221124/Dia62.png){ loading=lazy }
+  ![Slide 68](img/LUMI-PEAPQ-software-20221124/Dia68.png){ loading=lazy }
 </figure>
 
 To make life easier, LUST with the support of CSC did implement some modules
@@ -1124,7 +1332,7 @@ that we are developing and that will be made available via the
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 63](img/LUMI-PEAPQ-software-20221124/Dia63.png){ loading=lazy }
+  ![Slide 69](img/LUMI-PEAPQ-software-20221124/Dia69.png){ loading=lazy }
 </figure>
 
 The second tool is a container that we provide with some bash functions
@@ -1160,78 +1368,78 @@ that contains the conda or Python installation.
 We do strongly recommend to use the container wrapper tool for larger conda and Python installation.
 We will not raise your file quota if it is to house such installation in your `/project` directory.
 
-### Demo
+???+demo "Demo lumi-container-wrapper"
 
-Create a subdirectory to experiment. In that subdirectory, create a file named `env.yml` with
-the content:
+    Create a subdirectory to experiment. In that subdirectory, create a file named `env.yml` with
+    the content:
 
-```
-channels:
-  - conda-forge
-dependencies:
-  - python=3.8.8
-  - scipy
-  - nglview
-```
+    ```
+    channels:
+      - conda-forge
+    dependencies:
+      - python=3.8.8
+      - scipy
+      - nglview
+    ```
 
-and create an empty subdirectory `conda-cont-1`.
+    and create an empty subdirectory `conda-cont-1`.
 
-|Now you can follow the commands on the slides below:
+    |Now you can follow the commands on the slides below:
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 64](img/LUMI-PEAPQ-software-20221124/Dia64.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 70](img/LUMI-PEAPQ-software-20221124/Dia70.png){ loading=lazy }
+    </figure>
 
-On the slide above we prepared the environment.
+    On the slide above we prepared the environment.
 
-Now lets run the command 
+    Now lets run the command 
 
-```
-conda-containerize new --prefix ./conda-cont-1 env.yml
-```
+    ```
+    conda-containerize new --prefix ./conda-cont-1 env.yml
+    ```
 
-and look at the output that scrolls over the screen.
-The screenshots don't show the full output as some parts of the screen get overwritten during
-the process:
+    and look at the output that scrolls over the screen.
+    The screenshots don't show the full output as some parts of the screen get overwritten during
+    the process:
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 65](img/LUMI-PEAPQ-software-20221124/Dia65.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 71](img/LUMI-PEAPQ-software-20221124/Dia71.png){ loading=lazy }
+    </figure>
 
-The tool will first build the conda installation in a temprorary work directory
-and also uses a base container for that purpose.
+    The tool will first build the conda installation in a temprorary work directory
+    and also uses a base container for that purpose.
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 66](img/LUMI-PEAPQ-software-20221124/Dia66.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 72](img/LUMI-PEAPQ-software-20221124/Dia72.png){ loading=lazy }
+    </figure>
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 67](img/LUMI-PEAPQ-software-20221124/Dia67.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 73](img/LUMI-PEAPQ-software-20221124/Dia73.png){ loading=lazy }
+    </figure>
 
-The conda installation itself though is stored in a SquashFS file that is then
-used by the container.
+    The conda installation itself though is stored in a SquashFS file that is then
+    used by the container.
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 68](img/LUMI-PEAPQ-software-20221124/Dia68.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 74](img/LUMI-PEAPQ-software-20221124/Dia74.png){ loading=lazy }
+    </figure>
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 69](img/LUMI-PEAPQ-software-20221124/Dia69.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 75](img/LUMI-PEAPQ-software-20221124/Dia75.png){ loading=lazy }
+    </figure>
 
-In the slide above we see the installation contains both a singularity container
-and a SquashFS file. They work together to get a working conda installation.
+    In the slide above we see the installation contains both a singularity container
+    and a SquashFS file. They work together to get a working conda installation.
 
-The `bin` directory seems to contain the commands, but these are in fact scripts 
-that run those commands in the container with the SquashFS file system mounted in it.
+    The `bin` directory seems to contain the commands, but these are in fact scripts 
+    that run those commands in the container with the SquashFS file system mounted in it.
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide 70](img/LUMI-PEAPQ-software-20221124/Dia70.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Slide 76](img/LUMI-PEAPQ-software-20221124/Dia76.png){ loading=lazy }
+    </figure>
 
-So as you can see above, we dcan simply use the `python3` command without realising
-what goes on behind the screen...
+    So as you can see above, we can simply use the `python3` command without realising
+    what goes on behind the screen...
 
 The wrapper module also offers a pip-based command to build upon the Cray Python modules already present on the system
 
@@ -1239,11 +1447,11 @@ The wrapper module also offers a pip-based command to build upon the Cray Python
 ## Conclusion: Container limitations on LUMI-C
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 71](img/LUMI-PEAPQ-software-20221124/Dia71.png){ loading=lazy }
+  ![Slide 77](img/LUMI-PEAPQ-software-20221124/Dia77.png){ loading=lazy }
 </figure>
 
 To conclude the information on using singularity containers on LUMI,
-we want to repeat the limitations:\
+we want to repeat the limitations:
 
 *   Containers use the host's operating system kernel which is likely different and
     may have different drivers and kernel extensions than your regular system.
