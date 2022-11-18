@@ -1,0 +1,19 @@
+/* This is done in the theme instead.
+:root {
+    --md-admonition-icon--demo: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>');
+}
+*/
+.md-typeset .admonition.demo,
+.md-typeset details.demo {
+    border-color: rgb(43, 155, 70);
+}
+.md-typeset .demo > .admonition-title,
+.md-typeset .demo > summary {
+    background-color: rgba(43, 155, 70, 0.1);
+}
+.md-typeset .demo > .admonition-title::before,
+.md-typeset .demo > summary::before {
+    background-color: rgb(43, 155, 70);
+    -webkit-mask-image: var(--md-admonition-icon--demo);
+            mask-image: var(--md-admonition-icon--demo);
+}

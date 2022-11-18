@@ -14,6 +14,9 @@ theme:
     - toc.follow
   palette:
     - primary: black
+  icon:
+    admonition:
+      demo: fontawesome/solid/computer-mouse
 
 nav:
   - Home: index.md
@@ -62,7 +65,10 @@ markdown_extensions:
   - pymdownx.tabbed
   - toc:
       permalink: true
-      
+
+extra_css:
+  - stylesheets/extra.css
+ 
 extra:
   # add links in bottom right
   social:
