@@ -8,13 +8,12 @@
 
 ## Downloads
 
+-   [Course introduction (PDF, 612k)](files/LUMI-PEAPQ-intro-20221124.pdf)
 -   [LUMI Software Stacks slides (PDF, 4.4M)](files/LUMI-PEAPQ-software-20221124.pdf)
 -   [LUMI Support slides (PDF, 1M)](files/LUMI-PEAPQ-support-20221124.pdf)
 
 ## Notes
 
-<!--
 -   [Notes from the HedgeDoc page](hedgedoc_notes.md)
--->
 -   [LUMI Software Stacks](software_stacks.md)
 
