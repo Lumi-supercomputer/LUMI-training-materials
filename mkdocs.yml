@@ -20,6 +20,8 @@ theme:
 
 nav:
   - Home: index.md
+  - "LUMI-G January 2023":
+      - LUMI-G-20230111/index.md
   - "PEAP-Q November 2022":
       - PEAP-Q-20221123/index.md
       - Schedule: PEAP-Q-20221123/schedule.md
