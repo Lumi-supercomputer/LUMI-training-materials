@@ -44,10 +44,18 @@ Presenter: Harvey Richardson (HPE)
 
 
 
-## Exercises
+### Exercises
 
 !!! info
     The exercises can be found on LUMI at `/project/project_465000320/exercises/HPE`
+
+
+
+
+### GPU Hardware & Introduction to ROCm and HIP
+
+!!! info
+    The slides for this session are available on LUMI at `/project/project_465000320/slides/AMD/`.
 
 
 
