@@ -32,6 +32,27 @@ Slides from the LUST talks are available [on these pages](index.md)
 ## Q&A of the sessions
 
 
+### Questions regarding organisation or LUMI in general
+
+1. I was on the waiting list for the training, and didn't seen to recieve the invitation link to the project. Any way to get the slides? (I have access to LUMI)
+
+    **Answer**
+
+    - This training was heavily overbooked, so it wasn't possible for everyone to get access.
+    - We will share the AMD slides on https://lumi-supercomputer.github.io/LUMI-training-materials/
+    - We are still debating on how to share the HPE slides with all LUMI users (everyone who joined the training project can access the slides on LUMI at `/project/project_465000320/slides`.
+    - I tried to see the slides at /project/project_465000320/slides, but permission denied.
+    - I managed to `cp` the presentation slides to my ~/user/slides and then `scp` to my base PC with no problem.
+    - Still can not access: cp: cannot stat '/project/project_465000320/slides': Permission denied
+        - same for me "permission denied"
+
+2. Will the recorded training available after? I did not get the link and could join after 20 minutes.
+ 
+    **Answer**
+
+    - We are still debating on how to best share but we will definitely upload them to LUMI at `/project/project_465000320/recordings`.
+        - it will be unavailable for people with "permission denied"
+
 ### Introduction to the Cray EX Hardware and Programming Environment on LUMI-G
 
 Presenter: Harvey Richardson (HPE)
@@ -40,16 +61,542 @@ Presenter: Harvey Richardson (HPE)
     The slides for this session are available on LUMI at `01_Intro_EX_Architecture_and_PE.pdf`.
     There are also optional exercises on LUMI at `/project/project_465000320/exercises/HPE`
 
+5. What's the topology of Slingshot in Lumi?
+
+    **Answer**
+
+    - Dragonfly, more later
+
+    **Question**
+
+    - Do we have about 50 GPUs per switch?
+
+    **Answer**
+
+    - It's a bit more difficult than this as every board (with two nodes per board) is connected to multiple switches on the first level of switches, and I believe this actually results in multiple switches per node also. But the number is much less than 50 per switch. I'm not sure but I believe it is 16 at the first level, the other connections on those switches are used to build the dragonfly with some ports for in-group connections and others for connections between the groups.
+    - (Harvey) I will try to address this in future training, I still need to understand this myself as it varies by system and node type.
+ 
+    **Question**
+
+    - Is Slurm aware? Will it but tasks in one job to the same electric group?
+
+    **Answer**
+
+    - Not always as this would dramatically raise waiting times for jobs in the queue. Network groups are available as a Slurm feature of the compute node: `scontrol show node nid00XXXX` -> "ActiveFeatures=AMD_EPYC_7A53,x1101. In this example, `x1101` is the identifier of the network group. User can request that a job use a particular group by using the Slurm `--constraint=<feature>` option.
+    - (Harvey) You can configure slurm to be aware of the switch topology, I just checked and I don't think this is currently enabled but this is something we should consider.
+
+1. How does SHMEM work with GPU memory? is there something similar to NVSHMEM?
+ 
+    **Answer**
+
+    - I don't think so, I don't think there is a GPU support. Good question for AMD people though... 
+    - See [ROC_SHMEM](https://github.com/ROCm-Developer-Tools/ROC_SHMEM). 
+      It requires UCX so, it may not work on LUMI that relies on libfabric for   communication.
+
+1.  What is the module name for the Cray Scientific and Math Libraries
+    I can't find out how to load LAPACK and BLAS on LUMI
+ 
+    **Answer**
+
+    - `module load cray-libsci`. This might be discussed later in the course and is part of our introductory courses. It is linked automatically when cray-libsci is loaded but there is more to it that is discussed in our "big" course like the one we had in November in Brussels or the online one we will have in February. All those modules also come with manual pages. In this case it is `man intro_libsci` (after `module load cray-libsci`) that is a good starting point.
+ 
+    **Question**
+
+    - Thank you! And then I can probably use `module show cray-libsci` to locate the header files.
+ 
+    **Answer**
+
+    - The compiler wrappers should add the necessary `-I` options automatically. But the mdoule does define 
+      a number of environment variables that point to the installation directory of the libraries, so you can
+      develop Makefiles etc. that adapt to new releases on the system
+
+2. Where can I get more information about GPU accelerated Sci libraries?
+  
+    **Answer**
+
+    - Need to load the module first (cray-libsci_acc) and then you have a man page: `man -l /opt/cray/pe/libsci_acc/default/man/man3/intro_libsci_acc.3s`
+
+1.  how can I check my project ID (I have two projects)?
+ 
+    **Answer**
+
+    - `groups` command will tell your projects
+    - `lumi-workspaces` with `module load lumi-workspaces` will print all your projects with their directories. 
+
+1.  Does LUMI support installation of software via Anaconda/conda?
+ 
+    **Answer**
+
+    - Yes but not directly. You can create conda environments in a container: https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/ 
+    - It is not supported in the sense that we also solve problems with Conda. We have no control whatsoever over the binaries that Conda installs nor how they are build, so we cannot solve problems with those either. And just as with regular containers, as is discussed in the full courses, you can expect problems with, e.g., MPI which may not recognize the SlingShot network correctly and use it in the appropriate way.
+
+1.  I have a Finnish/CSC based Lumi account, and now also the myaccessid/puhuri based one. Is there way to combine or something?
+ 
+    **Answer**
+
+    - A solution is being rolled out (but still somewhat in a test phase). It is a direct result of the choice to use the myCSC system that is familiar to Finnish users to manage Finnish project on LUMI without integrating it with Puhuuri and use the authentication mechanisms that Puhuuri uses.
+    - I have managed to (**No guarantees that you will be able to**): https://docs.csc.fi/accounts/how-to-manage-user-information/. in myCSC you can link your myCSC account to myAccessID. So my access to the LUMI-G course is attached to myCSC account.
+        - I don't dare to push that before end of course to not to break anything with the existing dual accounts :-)
+            - Yes. No guarantees it works! 
+            - Linking in My CSC worked for me nicely, can access the training directory with me regular CSC account.
+
+1.  Is mpi4py available in python? if so, which python module has mpi4py available?
+ 
+    **Answer**
+
+    - cray-python
+
+1.  Can I use cray compilers outside of LUMI? 
+  
+    **Answer**
+
+    - Cray compiler (CCE) is part of the HPE Cray Environment, so it is available only on HPE Cray systems
+    - If you are using the Cray C/C++ compiler it is very similar to Clang, which is freely available. The Fortran compiler, though, is HPE/Cray-specific.
+
+    **Question**
+
+    - Are there online docs to view cray specific compile flags and options? Or is it safe to assume that they are very similar to clang and that cray compiler are simply optimized versions
+ 
+    **Answer**
+
+    - There are online PDF documents which are very hard to find and not very enlighting. The Cray PE is mostly documented through man pages accessible via the man command on the system. That is also why man pages are mentioned throughout the talk of Harvey.
+    - The man pages to use are actually mentioned in our documentation at https://docs.lumi-supercomputer.eu in the relevant pages (though I note that those for the GPU compiler of AMD should still be added).
+    - (Harvey) We cover compilers in a lot of detailed in the longer training courses. There is a Fortran manual but for clang the manpage is just showing the additions, there is comprehensive clang documentation online.
+
+1.  Why do I have to export following to get the ROCm-aware MPI support not to error? I am running on AMD GPUs and MPI via Julia and need to explicitly export the following if I use ROCm-aware MPI features in the code. Thus I load following:
+    ```
+    export LD_PRELOAD=${CRAY_MPICH_ROOTDIR}/gtl/lib/libmpi_gtl_hsa.so
+    ```
+    ```
+    module load CrayEnv
+    module load craype-accel-amd-gfx90a # MI250x
+    module load cray-mpich
+    module load rocm
+    ```
+ 
+    **Answer**
+
+    - Could you give more details? GTL is the GPU-Transfer-Library used by cray-mpich for GPU to GPU communications. MPI links with this library whenever the module `craype-accel-amd-gfx90a` is loaded.
+    - OK, so you are not using the compiler wrappers, therefore you have link with the GTL library to get MPI GPU-aware. 
+  
+    **User answer**
+
+    - Thanks for the info. Indeed, I am not using the wrapper indeed, as just launching Julia via `srun julia my_prog.jl`
+
+1.  What do I need to load in order to get working OpenCL support?
+ 
+    **Answer**
+
+    - I have no tried it, but I would assume the standard modules just like any GPU compilation. eg.
+      ```
+      module load craype-accel-amd-gfx90a
+      module load rocm
+      ```
+  
+    **User remark**
+
+    - This makes libOpenCL.so and include files available (so things compile), but OpenCL depends on dynamically loading drivers that are normally listed in /etc/OpenCL/vendors.  This dir does not exist on the GPU nodes.  I can create my own in my home directory and set OCL_ICD_VENDORS environment variable to point at it (which libOpenCL picks up), but this seems rather hacky.  Note that all this "vendors" directory contains is a file "amdocl64_50002.icd" containing the string "libamdocl64.so".
+
+1.  The compute nodes have rocm 5.1,while the log in nodes 5.0. This makes some problems with some compilations. Is there a plan to have the 5.1 available on the log in nodes as well?
+ 
+    **Answer**
+
+    - The official ROCm versions are actually 5.0 on login and 5.1 on compute nodes, and this is a configuration error of the system so it should be solved at some point. But currently the GPU nodes are still in the hands of HPE so we cannot yet do whatever we like. This is also why the current phase is called "extended beta". The 5.1 is a module that we build ourselves and that may not fully integrate with the HPE Cray PE.
+
+    **Question**
+
+    - Follow up: can/should the 5.1 module be used with hipcc? (Trying to build Jax..., I got a container for my app already, this was just an attempt to get a native build flying)
+ 
+    **Answer**
+
+    - I'm not sure building Jax on LUMI is a good idea at the moment since the more recent versions require ROCm 5.3 or newer and the code for AMD in the older versions of Jax is even more immature. Some users use a container with ROCm 5.3 and a prebuilt Jax in it. ROCm 5.3 should still work fine on the driver version that we have on LUMI. And in any case I would build on a compute node and use 5.1 instead. 
+    
+    - You can try to use prebuild wheels of jax:
+
+      ```
+      wget https://a3s.fi/swift/v1/AUTH_ac5838fe86f043458516efa4b8235d7a/lumi-wheels/jaxlib-0.3.25-cp39-cp39-manylinux2014_x86_64.whl
+      wget https://a3s.fi/swift/v1/AUTH_ac5838fe86f043458516efa4b8235d7a/lumi-wheels/jax-0.3.25-py3-none-any.whl
+      module load cray-python
+      module load rocm
+      python -m venv --system-site-packages jaxenv
+      source jaxenv/bin/activate
+      pip install absl-py etils opt_einsum wheel typing_extensions
+      pip install --no-deps jax*.whl
+      ```
+
+    **Question**
+
+    - Thanx, that receipe worked, as far as building and loading libraries. However, it doesn't seem to see the GPUs (I'm on dev-g):
+   
+      ```
+      Python 3.9.12 (main, Apr 18 2022, 21:29:31)
+      [GCC 9.3.0 20200312 (Cray Inc.)] on linux
+      Type "help", "copyright", "credits" or "license" for more information.
+      >>> import jax
+      >>> import jaxlib
+      >>> jax.device_count()
+      2023-01-11 11:50:57.816391: E  external/org_tensorflow/tensorflow/compiler/xla/stream_executor/rocm/rocm_driver.cc:302] failed call to hipInit: HIP_ERROR_InvalidDevice
+      WARNING:jax._src.lib.xla_bridge:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+      1           
+      ```
+    
+    **Answer**
+
+    - The only way I can reproduce your result is by not requesting a GPU. Did you request a GPU when you submitted your job? Here is what I get:
+    
+      ```
+      $ srun -pdev-g --gres=gpu:1 --pty -t30:00 $SHELL
+      srun: job 2420138 queued and waiting for resources
+      srun: job 2420138 has been allocated resources
+      ❄️ (12:32) nid007565 [~/sandbox] $ source jaxenv/bin/activate
+      (jaxenv) ❄️ (12:32) nid007565 [~/sandbox] $ python
+      Python 3.9.12 (main, Apr 18 2022, 21:29:31)
+      [GCC 9.3.0 20200312 (Cray Inc.)] on linux
+      Type "help", "copyright", "credits" or "license" for more    information.
+      >>> import jax
+      >>> jax.device_count()
+      1
+      >>> jax.devices('gpu')
+      [StreamExecutorGpuDevice(id=0, process_index=0, slice_index=0)]
+      ```
+              
+    - We also have a container with a JAX installation: https://a3s.fi/swift/v1/AUTH_ac5838fe86f043458516efa4b8235d7a/lumi-experimental-containers/jax/jax-0.3.25-rocm-5.3.sif
+    
+1.  In the MI250x EAP phase the compiler names were not yet wrapped with "CC" etc, yet? Right? I've not been using wrong commands, have I? (Say, september 2022) (OpenMP)
+     
+    **Answer**
+
+    - If you mean the MI100 EAP phase: the wrappers where there also but not OK.
+    - Once users where allowed on the MI250X everything was there. In September the wrappers where there already, and in fact this is also what HPE was using for the acceptance tests. The wrappers were actually explained in the course for Pilot users in August.
+     
+    **User remark**
+
+    - I was just reading the web pages. I have "amdclang" as a compiler in my Makefile with `-fopenmp-targets=amdgcn-amd-amdhsa`  etc.
+     
+    **Answer**
+
+    - Using the compilers without wrappers is possible but you have to know better what to do then to, e.g., ensure that MPI works properly (as shown in one of the questions above). The wrappers are just a convenience, not an absolute requirement. With older versions of some of the PE compilers the compiles sometimes had trouble finding their own include files though. 
+
+1.  Does cray-libsci_acc work transparently with GPU pointers?
+     
+    **Answer**
+
+    - Yes, in that case it will push the computation on the GPU. With CPU pointers, the library will apply some heuristics to check if it worth to move data to the GPU and do the computation there. Check the man page for more info.
+
+1.  Is it allowed to use Jupyter notebooks on Lumi GPUs? and if yes, how to log in to the allocated node and forward the port?
+    
+    **Answer**
+
+    - In the (hopefully not too distant) future this will be possible with OpenOnDemand (see question 23)
+    - The prefered scenario, also with OpenOnDemand, will be though that the Jupyter notebooks are used to launch jobs and process what they return on resources reserved for interactive use, and that they are not used to block access to regular nodes for interactive work for a long time as having those expensive nodes idle waiting for user input is not what you want, and as you never can be sure that your allocation will actually start at a time that you will be available to use it. LUMI does have nodes that are set apart for interactive use and will be used by Open On Demand, but these are not the AMD GPU nodes.
+
+1.  Is there a prebuilt tensorflow & pytorch available that's optimized for the GPU architecture?
+     
+    **Answer**
+
+    - AMD has optimized versions in containers that seem to work well but it is nearly impossible to build these packages from scratch ourselves as they have build environments that are developed for a totally different environment than an HPC cluster (even more so for TensorFlow than for PyTorch) and as build procedures and dependencies are not well documented, so expect that pre-built containers and/or wheels will be the way to go for a very long time.
+
+1.  Is there anything similar to PyCuda available?
+    
+    **Answer**
+
+    - CuPY has some AMD GPU support. https://docs.cupy.dev/en/stable/install.html?highlight=AMD#using-cupy-on-amd-gpu-experimental
+
+1.  This may be linked to question #20 above: Harvey mentioned at the begining (interactive?) nodes for vizualisation, are these in production and where can we find more information?
+    
+    **Answer**
+
+    - No, they are not in production yet. 
+    - (Harvey) Sorry for any confusion but I was talking in general terms at that point and not being specific about node types on LUMI.
+    - CSC is working a OpenOnDemand solution to allow quick and easy access to LUMI-D (visualisation partition with Nvidia GPUs). We are hoping for a production phase in Q2 2023. This would also allow direct in browser Jupyter and R notebook access.
+    
+    **User remark**
+
+    - Ok, thanks, so no interactive nodes with Radeon GPUs then?
+    
+    **Answer**
+
+    - Maybe. As far as I know OpenOnDemand should also allow access to LUMI-G for calculations.
+    - (Kurt): As far as I know it will allow to launch jobs on all partitions, but there is no partition on LUMI-G with a job policy optimised for interactive work.
+
+1.  I used to have access to the eap partition. How can I see all partitions that I am allowed to use?
+     
+    **Answer**
+
+    - All users of lumi have now access to the new partitions (standard-g, small-g, dev-g) but you will need allocated GPU hours
+    - Talk to your allocator to get GPU resources
 
 
+### First steps for running on LUMI-G
+
+!!! info
+    The slides for this session are available on LUMI at `/project/project_465000320/slides/HPE/02_Running_Applications_and_Tools.pdf`.
+    There are also optional exercises on LUMI at `/project/project_465000320/exercises/HPE`
+
+25. Is the famous `slurm` command available on Lumi?
+     
+    **Answer**
+
+    - It is! A wrapper for e.g. sinfo.
+
+26. In all theses examples the exact format of the "project" is omitted. Is it just the number or with "project_nnnn" format?
+     
+    **Answer**
+
+    - project_XXXXXXX
+    - You can quickly see your projects by running the `groups` command. It is the names as used in SLURM.
+
+27. Is there any guarantee that the GPUs land on the same node?
+     
+    **Answer**
+
+    - With `--gres` yes. Using `--gpus=<n>` on the `dev-g` and `small-g` partitions no.
+
+28. If I have an sbatch job running on a node e.g. nid012, is it possible to log in to that node and check e.g. rocm-smi status? It seems that slurm somehow isolates the GPUs of other jobs (e.g. via srun, requesting nid012) that land on the same node, so I can't check the status of the GPUs allocated to the first job. 
+     
+    **Answer**
+
+    - This would allow you to go into a given node but no GPU visibility: `srun --pty --jobid <your job id> -w <your node> --mem=0 --oversubscribe --gpus-per-task=0 -N 1 -n 1 -c 16  /usr/bin/bash -l`
+    - This would allow you to go to the first node of a given allocation with GPU visibility: `srun --jobid <your job id> --interactive --pty /bin/bash`
+    - Unfortunately the previous version ignores -w option to specify any node. There is a ticket on that.
+    - Our sysadmins are also working on allowing ssh access to allocated nodes. But this is still in the future.
 
 
-### Exercises
+29. What is the difference between `--gres=gpu:N` and e.g. `--gpus=N`. When should either be used
+     
+    **Answer**
+
+    - The outcome will be similar. Also, using --gpus should instruct SLURM to allocate the specified number of GPUs. E.g. `-N $N --gpus $((N*8))`
+
+
+30. `seff` isn't on LUMI AFAIK. Why?
+     
+    **Answer**
+
+    - This is not a standard Slurm command but something that has to be installed separately, and also requires certain rights to certain data in Slurm. We currently use a Slurm instance as pre-configured by HPE Cray that does not contain `seff`. It is likely that it will be installed in the future as many people are requesting it.
+    - Note also that `seff` is no replacement for a decent profiler when you want to assess the efficiency of your job/code. E.g., so-called busy waiting is common in MPI implementations and OpemMP runtimes and `seff` would still give the impression that those jobs are efficient.
+
+31. Why is SMT not enabled by default in Slurm?
+     
+    **Answer**
+
+    - SMT is typically not faster for most HPC workloads.
+
+32. Are the GPU interrupts something not bound to the computation? I just wonder because CPU0 is reserverd for system AND gpu interrupts of 
+     
+    **Answer**
+
+    - (Harvey) I'm not an expert on this but I think the interrupts relate to the driver and are in kernel space so not clear to me how this interacts with the 'computation'. You could ask this again later today as I think hardware will be covered again.
+
+33. Is it possible to disable the low-noise mode?
+     
+    **Answer**
+
+    - (Peter) No, not as a user.
+    - (Harvey) I expect we might see future developments here as we learn more and implement more features.  I think that disabling 0 was a pretty recent change felt to be of benefit based on experience of running applications. It would be useful to get feedback on this.
+    - (Kurt) My guess is that it is probably needed for applications that scale over many nodes as any kind of OS jitter can them completely break scalability, but it is an annoyance for single node jobs. But since LUMI is build as a pre-exascale system that should accomodate huge jobs, it is a reasonable thing to have.
+    - (Kurt) If AMD is reading this: I know what you are doing for MI300 from the hints at the investor's day and CES, but for MI400 please give as yet another CPU die to run those processes, with quick access to some on-package LPDDR5 memory so that all OS code can be in a different part of memory from the user GPU application. An "accelerator" to run the OS code without interfering with user applications... Cloud companies can then use these cores to run the hypervisor.
+    
+34. Can I run examples/exercises using the LUMI-G training project? 
+     
+    **Answer**
+
+    - You can use it for the exercises this afternoon but not for other purposes as the amount of resources allocated to the project is very minimal.
+    - I just want to run the `xthi` example :). I copied the files to my `$HOME` dir. 
+    - `xthi` hardly consumes any resources. I believe you can actually try the program first on the login nodes.
+    - And if you do `module spider lumi-CPEtools` it will actually tell you about a module that contains a similar program that gives even a bit more information. I'm not sure it is there already for the GPU nodes though.
+
+35. Shouldn't SLURM be doing this NUMA-GPU-CPU-NIC binding for us? At least for the default case? 
+     
+    **Answer**
+
+    - (Peter) Yes, ideally... Hopefully, it will be added to SLURM eventually.
+    - (Harvey) I'm not sure that there is a generic capability to discover all the hardware (maybe hwloc, or at least it was not there for AMD GPus to enable this to be developed in time.)
+
+36. Could you please provide us with the handy script to select the proper GPU id with `ROCR_VISIBLE_DEVICES`?
+     
+    **Answer**
+
+    - Do you mean the script in the slides?
+    - There is something similar in the LUMI user documentation on the page with GPU examples: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/
+    - The `xthi` example talked about in the presentation is available: `/projappl/project_465000320/exercises/HPE/xthi` 
+
+37. Is it faster to MPI transfer data from GPU memory than host memory?
+     
+    **Answer**
+
+    - Answered in slides. (a bit faster, not really significant.)
+
+38. Does the programmer need to handle manually the communications between gpus on the same nodes or in different node? I mean if the suitable technology is automatically selected.(RDMA vs. peer2peer)
+     
+    **Answer**
+
+    - The MPI implementation will handle that for you (MPICH_GPU_SUPPORT_ENABLED=1 needs to be set). Other libraries like RCCL will also detect topology and use the best approach for communication between GPUs. Having said that, if you are not planning on using these libs you need to manage the topology yourself.
+    - You may wish to take care on which ranks are on each node of course as you would for any MPI application to balance on or off- node traffic.
+
+40. I tried running a simple NCCL example ported to HIP using the RCCL library within rocm. Compilation worked well but I had trouble running it when submitting it to the GPU queue. The first call to a library function, ncclCommInitRank(), returned an error reading "unhandled system error". I suspect something is wrong with my batch script, might be related to some MPI environment variable. Have you got any ideas what the problem could be?
+     
+    **Answer**
+
+    - RCCL is using the wrong network interface. Please `export NCCL_SOCKET_IFNAME=hsn` to select the slingshot NICs.
+
+41. Can you also profile the energy consumption of GPU jobs? I assumed what was just shown is only for CPU?
+     
+    **Answer**
+
+    - (Harvey) I have not checked this but the basic information for whole-job GPU energy consumption should be available. I'm not sure if either Slurm or perftools reports that and would have to check.
+     
+    **User remark**
+
+    - OK, we have a research project where we want to look at the energy consumption of GPU jobs, so this would be very useful. I know with `rocm-smi` we can see the current (at that specific point in time) GPU utilization and consumption, but might be hard to get for the whole job?
+     
+    **Answer**
+
+    - The files are in `/sys/cray/pm_counters` (on compute nodes). They update at 10Hz. See accel0_energy etc. for example
+
+42. Is it possible to get memory peak on the GPU ?
+     
+    **Answer**
+
+    - this is something CrayPAT can do for you. (This is actually a question for AMD, you can ask it in the afternoon).
+
+ 
+
+### Exercises morning sessions
 
 !!! info
     The exercises can be found on LUMI at `/project/project_465000320/exercises/HPE`
 
+43. Is there a way to get access to the exercices when not on the training project? (This is basically question 1)
+     
+    **Answer**
 
+    - No, unfortunately at the moment not. We will reevaluate how to publish slides and exercises for future courses.
+    - If you have gotten all the emails in the last few days about the course, you should be able tojoin the project and then get access to the project folder on LUMI.
+     
+    **User remark**
+
+    - I was on the waiting list and apparently didn't recieve a link to get the access. Should I open a ticket like suggested in the next question?
+     
+    **Answer**
+
+    - It will take a few minutes (~15-30) after you joined for the synchronization to LUMI.
+
+44. What should we do if we get permission denied when trying to access `/project/project_465000320/`? 
+     
+    **Answer**
+
+    - Check that you are using the right account (the Puhuri one)
+     
+    **User remark**
+
+    - I see the project listed under the Puhuru portal. Should I sign in with another username than normally?
+     
+    **Answer**
+
+    - Otherwise join the project or if you have problems with joining the project, please open a ticket at https://lumi-supercomputer.eu/user-support/need-help/generic/
+
+47. Are there some instructions for the exercises? In what order should they be run?
+     
+    **Answer**
+
+    - No instructions are provided, there are there only to reproduce what we showed in the slides. 
+    - We are running ahead of expectation as last time I think we had way more discussion during the morning. Because we are switching to AMD presenters this afternoon I didn't want to suggest moving everything forward.
+
+47. What is the recommended way of running Java code on LUMI? Can the Java Fork/Join framework be used directly or does one need to use something like aparapi?
+     
+    **Answer**
+
+    - Question remained unanswered due to the lack of Java experts. After all, this is not a popular HPC tool...
+  
+
+48. I am trying to compile the implementation of BabelStream ("ocl").  After doing `module load craype-accel-amd-gfx90a` and `module load rocm` I try `cmake -Bbuild -H. -DMODEL=ocl`, but this fails with `Could NOT find OpenCL (missing: OpenCL_LIBRARY) (found version "2.2")`.  The OpenCL libraries are certainly somewhere in /opt/rocm, but apparently not made available to cmake.  What am I missing?
+     
+    **Answer**
+
+    - This seem to work: ` cmake -DMODEL=ocl -DOpenCL_LIBRARY=/opt/rocm-5.1.0/opencl/lib/libOpenCL.so ../`. Built in the compute node. However the resulting binary fails with:
+      ```
+      >  ./ocl-stream                      
+      BabelStream                                                                                                
+      Version: 4.0                                                                                               
+      Implementation: OpenCL  
+      Running kernels 100 times                                                                                  
+      Precision: double                                                                                          
+      Array size: 268.4 MB (=0.3 GB)
+      Total size: 805.3 MB (=0.8 GB)                                                                             
+      terminate called after throwing an instance of    'cl::Error'                                                                                                                                                            
+        what():  clGetPlatformIDs
+      Aborted (core dumped)
+      ```
+      This may require further investigation.
+    - (Alfio) There was a discussion about missing OpenCL files on the compute nodes (see a question above), namely the files under `/etc/OpenCL/vendors`. I'm not an expert, but it appears that the suggested solution is to copy those files in the home to make them available on the compute nodes too.
+    
+49. Any news on hipSYCL on Lumi?
+     
+    **Answer**
+
+    - We have an EasyConfig for it, see the link to the LUMI software Library in the LUMI documentation: https://docs.lumi-supercomputer.eu/software/#the-lumi-software-library
+
+50. Do we need to load modules in slurm batch script or set variables ? hello_jobstep after compilation (modified Makefile to use flags like frontier) during execution - error while loading shared libraries: libomp.so cannot open shared object file: No such file or directory
+     
+    **Answer**
+
+    - If you use anyting other then default modules at build time then it is best to load those modules in the batch script (or check if the environment at the point you submit the job has been exported to the job (that is a site dependent configuration))
+    - On a fresh connection to LUMI, I set:
+      ```
+      module load rocm
+      module load craype-accel-amd-gfx90a
+      
+      CC -std=c++11 -fopenmp  -x hip -c hello_jobstep.cpp
+      CC -fopenmp hello_jobstep.o -o hello_jobstep
+      ```
+      Then I run on sbatch (using a script used in the slides).
+    - The various scenarios for using the Cray PE on LUMI is a part of the introductory courses e.g., the full 4-day course on GPU computing in February or the course we had in November). As this was a LUST talk, some of the material is available on https://lumi-supercomputer.github.io/LUMI-training-materials/
+    - There is a problem with the installation fo PrgEnv-amd (which may in fact be an HPE packaging error in 22.08). Is that what you were using? It does cause certain libraries not to be found at runtime.
+     
+    **User remark**
+
+    - Problem solved- do not change PrgEnv-cray during compilation to PrgEnv-amd for hello_jobstep. Only modification is in Makefile - there is no lumi, but flags from frontier worked
+     
+    **Answer**
+
+    - Well, the problem is that libomp is under `/opt/rocm/llvm/lib`, while the PrgEnv-amd module (5.0.2) is using `/opt/rocm-5.0.2/llvm/lib` and the 5.0.2 is not available on the compute nodes (only 5.1.0). You can do `export LD_LIBRARY_PATH=/opt/rocm/llvm/lib:$LD_LIBRARY_PATH`.
+ 
+51. What exercises can I make public and which ones can I not? For example in a public repo on Github
+     
+    **Answer**
+
+    - Those from HPE cannot be made public in any way. In fact, they can only be spread to users of LUMI.
+    - (Harvey) In some cases those exercises came from elsewhere in which case there is no problem and I migh have been a bit strong in my comments earlier based on examples used in other courses, We will check.
+    - I remember seeing an AMD repo in one of their accounts for ROCm that had exercises very similar to those of this afternoon, so I guess you can look up the license that covers that repository. The AMD people will only be around this afternoon.
+    - Check the slides, we basically took the slides from the repos, namely:
+      - OSU benchmark https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.9.tar.gz
+      - Fortran OpenACC examples https://github.com/RonRahaman/openacc-mpi-demos
+      - Fortran OpenMP examples https://github.com/ye-luo/openmp-target
+      - Collections of examples in BabelStream https://github.com/UoB-HPC/BabelStream
+      - https://code.ornl.gov/olcf/hello_jobstep
+      - https://support.hpe.com/hpesc/public/docDisplay?docId=a00114008en_us&docLocale=en_US&page=Run_an_OpenMP_Application.html
+      
+52. except PrgEnv-xxx, Cray introduced also **cpe** module (Cray Programming environment). when is the cpe module used for compiling? 
+      
+    **Answer**
+
+    - (Alfio) cpe is a collection, for instance LUMI has 22.08 (year.month version). You can load the cpe, which will load PrgEnv-XXX versions (and all other modules)...
+     
+    **User remark**
+
+    - but e.g *PrgEnv-cray* is loaded by default, if then load *cpe*, there is not any changed. 
+     
+    **Answer**
+
+    - Because by default CPE 22.08 is the default
+      ```
+      > module av cpe
+      cpe-cuda/22.06    cpe-cuda/22.08 (D)    cpe/21.12    cpe/22.06    cpe/22.08 (D)
+      ```
+      Therefore, loading 22.08 will not change the default modules. 
+    - (Kurt) cpe is really a module that changes the default versions of the packages and then tries to reload the already modules to switch to the new default versions. With the emphasis on "tries to", sometimes it fails. Also, due to the way LMOD works it should always be loaded in a separate `module load cpe` command. And a workaround for some of the problems is to do that `module load` twice.
+            
 
 
 ### GPU Hardware & Introduction to ROCm and HIP
@@ -58,289 +605,272 @@ Presenter: Harvey Richardson (HPE)
     The slides for this session are available on LUMI at `/project/project_465000320/slides/AMD/`.
 
 
+53. It seems that whenever I try to run a slurm job, I get the sbatch error AssocMaxSubmitJobLimit - "Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)". I assume this means I need to be allocated more time and resources on LUMI.
+      
+    **Answer**
 
+    -   Are you submitting with your own project or the training one? (`--account=<project_XXXXXXXXXX> option`)
 
+      
+    **User remark**
 
-
-
-### First steps for running on LUMI-G
-
-Presenter: Alfio Lazzaro (HPE)
-
-!!! info
-    The slides for this session are available on LUMI at `/project/project_465000320/slides/HPE/02_Running_Applications_and_Tools.pdf`.
-    There are also optional exercises on LUMI at `/project/project_465000320/exercises/HPE`
-
-
-
-
-
-
-
-<!--
-
-# OLD TEXT BELOW AS AN EXAMPLE
-
-### Course introduction
-
-*Presenter: Kurt Lust*<br>
-*[Slides](files/LUMI-PEAPQ-intro-20221124.pdf)*
-
-1. Do you know the current allocation per country ? (I wonder how much Belgium contributes to LUMI)
-    - Belgium: 7.4% of the total budget.
-    - Information about how to contact the Belgian team is [https://www.enccb.be/LUMI](https://www.enccb.be/LUMI)
-
-
-2. What do you mean the training project? like ssh to lumi? or the puhuri portal?
-    - Yes, there is a small allocation on LUMI associated with the course (i.e. yo can log in with SSH and run jobs). We send out an email on Monday with the puhuri link to join the training project. This is a different project from the one you may have from a project from EuroHPC or your national allocation. **Please use this project only for the exercises, not to run your own code or we will run out of our allocation for the course.**
-    - The information on how to join was sent out a few days before the course. We will mention the project number and slurm reservation before we start the exercises.
-
-### Introduction to the HPE Cray Hardware and Programming Environment 
-
-*Presenter: Harvey Richardson (HPE)*<br>
-*Slide files: `/project/project_465000297/slides/01_EX_Architecture.pdf` and `/project/project_465000297/slides/02_PE_and_Modules.pdf`*
-
-3. What's the expected CPU clock for a heavy all-core job?
-    - 2.45 GHz base clock rate (https://www.amd.com/en/product/10906)
-    - Don't expect any boost for a really heavy load. The effective clock is determined dynamically by the system depending on the heating/cooling situation. It can be complex, because heavy network/MPI traffic will also affect this, and the node tries to distribute power between the CPU cores, the IO die on the CPU, (the GPUs for LUMI-G), and the network cards on-the-fly to optimize for the best performance.
-
-4. Regarding the CPU cores and threads : you said that the threads are hardware : should we run large runs on the number of threads, rather than the number of nodes ?
-    - Could you elaborate a bit more? 
-    - My understanding is : a cpu that has 64 cores, shows 128 threads by multithreading, therefore cases that use the cpu 100% load during 100% of the time will be better tu run on 64 core, rather than the 128 threads to eliminate the overhead of the operating system due to scheduling the software threads to the hardware core.
-    - There are two sessions about SLURM in the course where it will be explained how to use hyperthreading etc. 
-    - In general, hyperthreading doesn't offer much benefits on a good code, rather the contrary. It's really more lack of cache and memory bandwidth stat stops you from using hyperthreading. Hyperthreading is basically a way to hide latency in very branchy code such as databases. In fact there are codes that run faster using a given number of nodes and 75% of the cores than the same number of nodes and all cores per socket, without hyperthreading.
-    - OK I will wait for the next parts of the course. Thank you
-
-5. At the ExaFoam summer school I was told that HDF5 parallel I/O does not scale to exa scale applications. Ist that correct Instead the exafoam project is working on an ADIOS-2 based system for parallel I/O in OpenFOAM. Feel free to answer this question at the most appropriate time in the course
-    - This is the current understanding, so I would say "yes" (even if I'm not a 100% expert).
-    - The HDF5 group had a [BOF at SC22 about their future plans]( https://www.hdfgroup.org/2022/10/hdf5-in-the-era-of-exascale-and-cloud-computing/)
-    - I would not rule out HDF5 parallel I/O at large scale on LUMI-C for runs of say 500 nodes or similar. The best approach would be to try to benchmark it first for your particular use case.
-    - It depends on what you would exactly need to do. If you need to write to file, I am not sure there are real alternatives. ADIOS would be great for in-situ processing.
-    - **[Harvey]** I have heard of some good experience about ADIOS-2 but have not tried it yet myself, on my list of things to do.
-    - One of the engines that ADIOS-2 can use is HDF5 so it is not necessarily more scalable. Just as for HDF5, it will depend much on how it is used and tuned for the particular simulation.
-
-6. Will there be, for the exercises, shown on-screen (in the zoom session) terminal session which will show how to use all the commands, how to successfully complete the exercises, or will we be void of visual guide and will we only have to rely on the voice of the person presenting the exercises? What I mean - can we please have the presenter show interactively the commands and their usage and output?
-    - You can find exercises at `/project/project_465000297/exercises/` with Readme's. You can copy the directory in your area. Just follow them and let us know if you have questions. We will cover it during the next sessions.
+    -   Thanks. I get the same error whether I use my own project or the trainig project. I am submitting to partition "small" - perhaps I should be submitting to a different partition? Here's the batch file I'n trying to run:
     
-7. Julia (language) is installed?
-    - No, not in the central software stack available for everyone. It is quite easy to just download the Julia binaries in your home directory and just run it, though. Julia uses OpenBLAS by default, which is quite OK on AMD CPUs. If you want, you can also try to somewhat "hidden" Julia module installed with Spack. `module load spack/22.08; module load julia/1.7.2-gcc-vv`. No guarantees on that one, though (unsupported/untested).
-    - Another easy approach is to use existing containers. Unless GPU is used, generic container from DockerHub should work fine.
-    - It is not clear though if the communication across nodes is anywhere near optimal on LUMI at the moment. The problem is that Julia comes with very incomplete installation instructions. Both the Spack and EasyBuild teams are struggling with a proper installation from sources and neither seem to have enough resources to also fully test and benchmark to see if Julia is properly tuned. 
+        ```
+        #!/bin/bash 
+        #SBATCH -p small
+        #SBATCH -A project_465000320
+        #SBATCH --time=00:02:00
+        #SBATCH --nodes=1
+        #SBATCH --gres=gpu:1
+        #SBATCH --exclusive
+        srun -n 1 rocm-smi
+        ```
 
-9. Paraview is a data postprocessing software that employs a graphical user interface. Is it possible to use it with LUMI?
-    Also, as explained in https://www.paraview.org/Wiki/PvPython_and_PvBatch, Paraview functions may be accessed without using the GUI and just using python scripts. Is it feasible to use pvBatch and pvPython in LUMI to postprocess data with Paraview?
-    - Yes, you can use Paraview on LUMI. We have an EasyBuild recipe that is not yet present on the system but is available via the [LUMI "contrib" Github](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/) repository. This easyconfig build the server components only and does CPU rendering via MESA. You need to run a client of the same version of the server on your local machine in order to interact with the server.
-    - Actually, the Paraview recipe is still missing in the repository but we will take care of that.
+    **Answer**
 
-### First steps to running on Cray EX Hardware
-
-*Slide file: `/project/project_465000297/slides/03_Running_Applications_Slurm.pdf`*
-
-
-1.  I would like to know whether it is possible to run FEM simulation software (e.g., COMSOL Multiphysics) on LUMI?
-    - As long as it is installed correctly then I see no reason why not. It has been run on other Cray EX systems. The only complication here will be the commerical license.  LUMI does not have its own license, you would have to provide your own. There might be some complications right now, because the compute nodes do not have internet access, which would block access to the license server. We hope that internet access will be enabled on the compute nodes soon.
-
-2.  Is it something like MC (Midnight Commander) installed?
-   - No, and midnight commander specifically has some annoying dependencies so it will not come quickly in a way that integrates properly with all the other software on LUMI.
-   - You can see your files and transfer to and from LUMI using tools like [filezilla](https://filezilla-project.org/) and the host `sftp://lumi.csc.fi`
-   - And for people on a connection with sufficiently low latency Visual Studio Code also works. The client-server connection seems to fail easily though on connections with a higher latency. It is also more for editing remotely in a user friendly way than browsing files or running commands. But we do understand that mc is awesome for some people.
-   - In the future there will also be an [Open OnDemand](https://openondemand.org/) interface to LUMI.
-   - MC is ok but Krusader is better
-
-12. and WinSCP?
-    - That is client software to run on your PC. It should work. 
-    - In general, until we have Open OnDemand, the support for running GUI software on LUMI is very limited. And after that it will not be brilliant either, as an interface such as GNOME is not ideal to run on multiuser login nodes due to the resources it needs but also due to how it works internally.
+    -   You should use `small-g` but the error message you should get is `sbatch: error: Batch job submission failed: Requested node configuration is not available`. What is your username?
     
-15. Would it be alright to test the building of licensed software such as VASP during the course and the EasyBuild system you have in place? (and benchmark with very small test run of course)
-    - Please don't run benchmarks of your own software on the project account. If you already have another project, use that one instead.
-    - You can install and run VASP but need to bring your own license file. See also [here](https://docs.lumi-supercomputer.eu/software/guides/vasp/) or the future page in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/v/VASP/).
+    -   You should be able to submit with `project_465000320` and using the `small-g` partition. Your other project has no billing units. Maybe you have the `SBATCH_ACCOUNT` or `SLURM_ACCOUNT` environment variables set to this project as this is something we recommend in the documentation?
+      
+    **User remark**
 
-!!! info "Exercises"
-    Exercises are available at `/project/project_465000297/exercises/ProgrammingModels/`
-    Copy the files to your home folder before unpacking them.
+    -   Thank you. The problem was that my `SBATCH_ACCOUNT` variable was set to my other project. Thanks for the help!
 
-### Overview of compilers and libraries
+54. Are these advanced features like Matrix cores and packed FP32 already ported to libraries like PyTorch and TensorFlow (as they already have official ROCm ports)? 
+      
+    **Answer**
 
-*Slide file: `/project/project_465000297/slides/04_Compilers_and_Libraries.pdf`*
+    - Yes, these libs/frameworks leverage BLAS and MiOpen libs that comprise support for matrix ops.
+    
+55. When running multi-GPU (but single node, so up to 8 logical GPUs) batch ML training jobs using basic Keras/Tensorflow with ROCm, I'm noticing that it's quite unstable, often but not always the training crashes after a few steps. This does not occur (or occurs much more rarely) when using a single (logical) GPU. There are no useful messages in the log. Any ideas how to debug this?
+      
+    **Answer**
 
-16. By default the libraries are shared (dynamic), so isn't it good practice to but the compiling part of the application in the slurm script job ?
+    - Any backtrace dumped when the crash happens? Several users have managed to run training on multiple GPUs and multiple nodes each using multiple GPUs. 
 
-    - In general, no. The libraries on the system will not change that often, only after service breaks / upgrades of the Cray Programming Environment. It would also be inefficient to compile using compute node allocation if you have e.g. a wide parallel job with 100 compute nodes.
-    - You must also consider that it uses your allocated resources (from your project)
+56. If I need to synchronize only a subset of my threads, similar to what I'd do with a `__syncwarp`, should I abandon the optimization and do a `__syncthreads`, or is there an implicit wavefront-wide synchronisation?
+      
+    **Answer**
 
-17. Question about the cray fortran compiler: I've been trying to use it now on some private code, and it crashes when it encounters preprocesseor statements like `#ifdef` which gfortran is happy about. Is this expected? Is there a way to handle this?
-    - What error does the compiler give?
-        - `ftn-100: This statement must begin with a label, a keyword or identifier`, so it just seems to take the statement literally
-    - Did you use the right filename extension to activate the preprocessor or the -ep/-ez options shown in the presentation?
-    - That is probably the problem, I think I missed that comment, I will go back to the slides to look
-    - After loading PrgEnv-cray you can also get extensive help about all the command line options using man crayftn
-    - Source file extension needs to start with F and not f to automatically trigger the preprocessor.
-    - The other cause might be that sometimes there are subtle differences between wat a C and Fortran preprocessor allows but I believe there is an option for that also. I remember having such a ticket long ago.
-    - Thanks, the filename was actually the problem, I wasn't expecting that
-    - I may have another advice, just in case: the CCE produces modules with capital letters names (FOO.mod), you can use `-emf` to get lowercase (like gfortran).
+    - Cooperative groups are supported in recent ROCm versions. However on Instinct GPUs all threads in a wave front always execute in lock step. So cooperative groups is mostly a portability feature as on instinct GPUs threads do not diverge. 
 
-!!! info "Exercises"
-    Try the compiler exercises at `/project/project_465000297/exercises/perftools/compiler_listings` and recompiling the exercises from earlier. You don't need to run any jobs.
+57. Why isn't there a HIP equivalent to CUDA fortran? (Out of curiosity)
+      
+    **Answer**
 
-### Advanced Application Placement
+    - There is not, you have to call the HIP runtime through the C interface and launch kernels separately. There is a library with wrappers to facilitate this: https://github.com/ROCmSoftwarePlatform/hipfort
 
-*Presenter: Jean Pourroy (HPE)*<br>
-*Slide file: `/project/project_465000297/slides/05_Advanced_Placement.pdf`*
+58. What are some good resources for running python code (torch/CUDA) on LUMI GPUs? The documentation does not have anything on it.
+      
+    **Answer**
 
-18. I have a question regarding `srun`: does it forward options to the underlying MPI implementation? with OpenMPI you can get a report of the binding using —report-bindings 
-    - Yes, it forwards the options to pmi
-    - It is possible to get a report and we will mention tomorrow how to do that. But it can be done by option or environmental variable.
+    - https://docs.csc.fi/apps/pytorch/ has some comments on using pytorch on LUMI. 
+      
+    **User remark**
 
-!!! info "Exercises"
-    Try out the exercises found under `/project/project_465000297/exercises/Binding` and ask questions here.
-    All exercises are described in the pdf document there.
+    - Ok, so the package is available, but if changes in the code regarding running it on AMD GPUs are needed I cannot find that in the docs, right?
+      
+    **Answer**
 
+    - You can run the same Python/PyTorch code on AMD.
+    - There are some AI/ML modules on LUMI (for AMD GPUs) created by CSC: `module use /appl/local/csc/soft/ai/modulefiles/`, if you have any questions about this you can send a ticket to csc service desk (email: servicedesk@csc.fi).
 
+59. There was at some point a HIP implementation that runs on the CPU (https://github.com/ROCm-Developer-Tools/HIP-CPU), which would be useful for portability, but it doesn't seem maintained. Is the project dead?
+      
+    **Answer**
 
-## Q&A of the sessions on day 2
+    - Being a header only project I'd expect it to work in most cases as HIP standard didn't shift much. However, this is maintained on best effort and not officially supported. Having said that, we encourage users to file tickets if they are facing issues using it. 
 
-### Introduction to Perftools
+60. Can you obtain the information provided by rocminfo (CUs etc.) from an API simply useable in an OpenMP offload program?
+      
+    **Answer**
 
-*Presenter: Alfio Lazarro*<br>
-*Slide file: `/project/project_465000297/slides/06_introduction_to_perftools.pdf`*
+    - Yes, there is library which provides the `rocm-smi` information: https://github.com/RadeonOpenCompute/rocm_smi_lib
+    - Actually, if you look at the source of rocminfo, it's quite a small utility (~1K LoC). You can have a look and extract the part that you are interested in and include it in your application.
 
-20. Can `perftools-lite` also be used with the gcc compilers?
+61. When I run Alfio's example on slide 8 of his slides, I get an output similar to that on his slide 9, but this is followed by the following errors:
 
-    - yes, there is support for all the compilers offered on the machine. 
-    - the 'loops' variant only works with CCE as it needs extra information from the compiler.
+    ```
+    srun: error: nid007244: task 0: Exited with exit code 2
+    srun: launch/slurm: _step_signal: Terminating StepId=2422727.0
+    ```
+    
+    Does anyone know what this is due to?
+      
+    **Answer**
 
-21. Can `perftools` also output per-MPI-rank timings or only (as shown in the presentation) averaged over all processes?
-
-        * you can get per rank timings in the text output with appropriate options to pat_reoprt. Conversely, you can have a look at apprentice2 which has a nice way of showing per-rank timings.
-    * there is an option pe=ALL that will show timings per rank/PE
-
-
-22. The output of the statistics will tell you the name of the subroutine, line number, will it also tell you the name of the file where this is from ?
-    - with the `-O ca+src` option to `pat_report` you can get the source information.
-
-!!! info "Exercises"
-    The exercise files are on lumi at `/project/project_465000297/exercises/perftools/perftools-lite`. Copy the files into your home directory and work from there.
-
-!!! info "Apprentice2 and Reveal downloads"
-    With `perftools-base` loaded (and it is loaded by default), you can also find the Apprentice2 downloads in `$CRAYPAT_ROOT/share/desktop_installers` or 
-`$CRAY_PERFTOOLS_PREFIX/share/desktop_installers`.
-    Copy them to your local machine and install them there.
-
-
-### Advanced Performance Analysis I/II
-
-*Presenter: Thierry Braconnier (HPE)*<br>
-*Slide file: `/project/project_465000297/slides/07_advanced_performance_analysis_part1.pdf`*
-
-1.  I downloaded and installed "Apprentice2" under Windows. Even if I am able to connect to LUMI via SSH, I am not able to open a remote folder with Apprentice2 (connection failed). Is it something special to configure (I added the ssh keys to pageagent and also added a LUMI section in my ~/.ssh/config)?
-
-    - I think you will have to copy the files to the laptop as Windows has no concept of a generic ssh setup for a user as far as I know.
-    - [name=Kurt] I'd have to check when I can get access to a Windows machine (as my work machine is macOS), but Windows 10 and 11 come with OpenSSH and can use a regular config file in the .ssh subdirectory. And that could allow to define an alias with a parameter that points to the keu file. Windows 10 and 11 also have a built-in ssh agent equivalent that Windows Open?SSH can use. 
+    -   rocm-smi is exiting with a return code of 2 which slurm interprets as a failure.
+    
+        ```
+        harveyri@nid007307:~/workshop/2023_01> rocm-smi
 
 
-### Advanced Performance Analysis II/II
+        ======================= ROCm System Management Interface     =======================
+        ================================= Concise Info =================================
+        GPU  Temp   AvgPwr  SCLK    MCLK     Fan  Perf  PwrCap  VRAM%  GPU%
+        0    40.0c  91.0W   800Mhz  1600Mhz  0%   auto  560.0W    0%   0%
+        ================================================================================
+        ============================= End of ROCm SMI Log ==============================
+        harveyri@nid007307:~/workshop/2023_01> echo $?
+        2
+        ```
+      
+    **User remark**
 
-*Presenter: Thierry Braconnier (HPE)*<br>
-*Slide file: `/project/project_465000297/slides/08_advanced_performance_analysis_part2.pdf`*
+    -   OK. Thanks. I assume rocm-smi is supposed to exit with code 2. At least, not something I need to worry about!
+       
+    **Answer**
 
-25. If perftools runs on CLE/Mac/windows where can we get it/ find install instructions? 
+    -   (Harvey) I don't know but there is an issue reported on the return code in github for an invocation with -a so I expect this is not expected. It is not something to worry about in any case.
 
-    * Only apprentice2 and reveal are available as clients on mac/windows (basically the user interface components to interpret the collected data). These should be self-installing executables. Like `*.dmg` on a MAC.
-    * You can download the apprentice install files from LUMI (look at the info box above question 23)
+62. I am interested in running distributed trainings using pytorch, as we have a very large dataset. I am using the official Docker container for Pytorch with ROCm support. The communication between nodes/GPUs works at this moment. But, I get this error `MIOpen Error: /long_pathname_so_that_rpms_can_package_the_debug_info/data/driver/MLOpen/src/sqlite_db.cpp:220: Internal error while accessing SQLite database: locking protocol` for the trainings. I can set `MIOPEN_DEBUG_DISABLE_FIND_DB=1`, `MIOPEN_DISABLE_CACHE=1`, and `MIOPEN_FIND_ENFORCE=5` to eliminate this issue. Any comments would be great.
+      
+    **Answer**
 
-26. I managed to install apprentice2 on my MAC. How can I connect to Lumi? I need to provide a password, but when connecting to Lumi via the terminal I just pass the local ssh key...
-    - There is no password access enabled, you have to setup ssh in a way that it is being picked up by apprentice
-    - It should work if you have a ssh config file with the hostname, username and identity file for lumi. Can you connect to lumi with just `ssh lumi`?
-        - Yes, I can connect to lumi with just `ssh lumi`. However: apprentice2, open remote with host `username@lumi.csc.fi` prompts for a password
+    -   This can be fixed if you add to each process instance something like:
+        ```
+        export MIOPEN_USER_DB_PATH="/tmp/sam-miopen-cache-$SLURM_PROCID"
+        export MIOPEN_CUSTOM_CACHE_DIR=$MIOPEN_USER_DB_PATH
 
-!!! info "Exercises"
-    The exercise files are on lumi at `/project/project_465000297/exercises/perftools/`.Copy the files into your home directory and work from there.
+        rm -rf $MIOPEN_USER_DB_PATH
+        mkdir -p $MIOPEN_USER_DB_PATH
+        ```
 
+        the FS doesn't cope with the locks, so moving the DB to /tmp fixes the problem.
+        
+    -   Please do some cleanup at the end of your job if you use this solution, i.e., remove the files `rm -rf $MIOPEN_USER_DB_PATH` as `/tmp` is a RAM disk and, at the moment, is not cleaned at the end of the job execution. As a consequence, leftover files may endup consuming the entire node memory.
+    
+    -   Not sure which ROCm users space you use but you might be interested in enabling the libfabric plugin. Here's a module I maintain that provides that - not sure if there a generally available build:
 
-### Debugging
+        ```
+        module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+        module load aws-ofi-rccl/sam-rocm-5.3.3.lua
+        ```
+        
+        this will boost your internode BW.
+    
+      
+    **Question**
 
-*Presenter: Alfio Lazarro (HPE)*<br>
-*Slide file: `/project/project_465000297/slides/09_debugging_at_scale.pdf`*
+    -   Thank you for this answer. I get another error `nid007564:5809:6364 [6] /long_pathname_so_that_rpms_can_package_the_debug_info/data/driver/rccl/src/misc/rocm_smi_wrap.cc:38 NCCL WARN ROCm SMI init failure An error occurred during initialization, during monitor discovery or when when initializing internal data structures` if `MIOPEN_FIND_ENFORCE=5` is not set. Is this also related? 
+      
+    **Answer**
 
+    -   Does it help if you set `export NCCL_SOCKET_IFNAME=hsn0,hsn1,hsn2,hsn3`?
+      
+    **User remark**
 
-### MPI Topics on the HPE Cray EX supercomputer
+    -   Unfortunately not -- `NCCL_SOCKET_IFNAME=hsn` is already set. Only thing seems to help is the enforce level 5, which seems to be related to this DB. 
+      
+    **Answer**
 
-*Presenter: Harvey Richardson (HPE)*<br>
-*Slide file: `/project/project_465000297/slides/11_cray_mpi_MPMD_short.pdf`*
-
-
-### Optimizing Large Scale I/O
-
-*Presenter: Harvey Richardson (HPE)*<br>
-*Slide file: `/project/project_465000297/slides/12_IO_short_LUMI.pdf`*
-
-27. You mentioned that you are using a RAID array to have redundancy of storage (and I read RAID-6 in the slides), have you considered using the ZFS file system ? I don't know too much, but i read it could be more reliable and better performance.
-    - in ZFS you also chose a RAID level. I'm not sure what is used on LUMI, and it might be different for metadata and the storage targets. You will not solve the metadata problem with ZFS though. I know H?PE supports two backend file systems for Lustre but I'm not sure which one is used on LUMI.
-
-28. This is really a question about the earlier session on performance tools, but I hope it's still OK to post it: I've tried using `perftools-lite`on my own code, but doing so it does not compile (it does without the modules). The linking seems to fail with 
-    `WARNING: cannot acquire file status information for '-L/usr/lib64/libdl.so' [No such file or directory]`
-    Is this something that has been seen before? Any tips/hints on what is going on?
-    - without checking the code is hard to understand what it the problem. Do you really link with libdl.so in your compilation?
-    - Yes, doing ldd on a successful compile gives `libdl.so.2 => /lib64/libdl.so.2 (0x00007f228c3b0000)` The other dl library symlinks to that one.
-    - OK, the question is the line `-L/usr/lib64/libdl.so`, I wonder if you are using somewhere in the makefile
-    - Yes, this is a large cmake set-up though, but cmake has `CMakeCache.txt:LIBDL_LIBRARY:FILEPATH=/usr/lib64/libdl.so`
-    - Then we are hitting a situation where perftools-lite doesn't work... Try perftools, restricting to `-g `
-    - OK, thanks! Will try that.
-
-
-### Lust presentation: LUMI software stack
-
-*Presenter: Kurt Lust*<br>
-*[Slides](files/LUMI-PEAPQ-software-20221124.pdf) and [notes](software_stacks.md)*
-
-29. `Error: ~/exercises/VH1-io/VH1-io/run> sbatch run_vh1-io.slurm sbatch: error: Invalid directive found in batch script: e.g` Do I need to change something in run_vh1-io.slurm before submitting?
-    - Yes, you have to at least adapt the account, partition and reservation. qos has to be deleted (reservation is also optional). 
-    - The readme has some quick build instructions. It worked for me :) 
-    - Okay, thank you.
-
-30. More information about the python container wrapper can be found in the [documentation](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
-
-33. Is easybuild with AMD compilers on the roadmap for EB? 
-    - The AMD AOCC compiler is already available in the Cray and LUMI software stack. Either `PrgEnv-aocc` or `cpeAOCC/22.08`. Additionally the AMD LLVM compiler is available via `PrgEnv-amd`.
-    - Ok thanks! I thought one of Kurt's slides showed that EB currently only works with GNU or Intel
-    - No, it works with Cray, GNU and AOCC but intel is tricky and not recommended.
-    - Thanks!
-    - **[Kurt]** Clarification: Standard EasyBuild has a lot of toolchains for different compilers, but only build recipes \9the EasyConfig files) for some specific toolchains, called the common toolchains. And they are based on GNU+OpenMPI+FlexiBLAS with OpenBLAS+FFTW and a few other libraries, or Intel (currently the classic compilers but that will change) with MKL and Intel MPI. This is what I pointed to with GNU and Intel in EasyBuild. For LUMI we build our own toolchain definitions which are an improved version of those used at CSCS and similar toolchains for an older version of the Cray PE included in EasyBuild.
-    - **[Kurt]** It is not on the roadmap of the EasyBuilders. They have toolchains for AMD compilers but doe not build specific EasyBuild recipes and don't do much specific testing. I am trying to push them to support at least default clang, but then the Fortran mess will have to be cleaned up first. Regular clang support would at least imply that a number of clang-specific configuration problems would get solved so that changing to the AMD toolchain would be a relatively small effort (and could work with `--try-toolchain`). 
-    - Ok thanks again! :D 
+    -   RCCL attempts to initilaize all interfaces but the ones other than slingshot can't be initialized properly.
 
 
-### LUST presentation: LUMI support
+63. Is there a mechanism to profile shared libraries that use the GPUs? (My application is a python package, so everything is in a `.so`)
+      
+    **Answer**
 
-*Presenter: Jorn Dietze*<br>
-*[Slides](files/LUMI-PEAPQ-support-20221124.pdf)*
+    - rocprof will follow linked libraries, so the profiling method is not different than a regular map. `rocprof python ...` is what you should be running.
+    - for omnitrace with instrumentation you'd have to instrument the libraries you care about.
 
-34. Will porting calls be available just for academic users? What about (potential) industrial users?
-    - There are other EuroHPC inititiaves that specifically aim to support industrial users (like the national competence centres). An industrial project for the LUMI porting program could be considered if it is open research and the software is then publicly available for all (and I think without a big license cost). 
-    - Good to know. Thanks for answering. I guess industrial users can always pay for porting if they wish to keep their software private.
-    - Indeed, but then the problem on our side would still be personpower. The payment could of course be used to hire additional people on our side, but that is also not always easy. I also don't know how much AMD and/or HPE would charge for their part in the support.
+64. Using omniperf with Grafana is definitely interesting! So could we take this debugging and profiling information back locally and analyse on our own Grafana servers? Granted this is more advanced due to having your own Grafana server. 
+      
+    **Answer**
+
+    - Copying the information locally: According to AMD, yes.
+    - (Kurt from LUST) But no hope that LUST will offer omniperf in one way or another for now. I just heard from a colleague that there is a serious security problem which has to do with the basic concepts that omniperf uses, making it not suitable for a shared infrastructure as LUMI. We cannot stop you from installing yourself but be aware that you put your data at risk. We are working on omnitrace though.
+
+65. If you had a working program ("black box"), how would you start profiling the program and what metrics would you first focus on to see if the program utilizes the GPUs correctly?
+      
+    **Answer**
+
+    - Using plain `rocprof` with your app is a good starting point - that will produce a list of the kernels ran on the GPU and that could give one hints if that is what one would expect. While running you can also monitor rocm-smi and see what PIDs use which GPUs and have an overview of the activity: memory being used and compute (which correlates to the GPU drawn power - up to 560W).
+
+66. This is very heavy with lots of info. Is there a "poor man" way to use it. Like getting start it with something simple?
+      
+    **Answer**
+
+    - Our more introductory 4-day course...
+
+67. As an excercise I'm running rocgdb for my openMP offload code. Could someone interpret the general lines:
+    ```
+    (gdb) run
+    The program being debugged has been started already.
+    Start it from the beginning? (y or n) y
+    Starting program: /pfs/lustrep2/users/---/prw/parallel_random_walk
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib64/libthread_db.so.1".
+    OMP: Warning #234: OMP_NUM_THREADS: Invalid symbols found. Check the value "".
+    [New Thread 0x1554aae22700 (LWP 61357)]
+    Markers 1000000 Steps 320000 Gridsize 10240.
+    [New Thread 0x1554a37ff700 (LWP 61358)]
+    [GPU Memory Error] Addr: 0x155673c00000 Reason: No Idea!
+    Memory access fault by GPU node-4 (Agent handle: 0x3d4160) on address 0x155673c00000. Reason: Unknown.
+    ```
+    Specifically 
+
+    -   `[GPU Memory Error] Addr: 0x155673c00000 Reason: No Idea!`
+    -   `Memory access fault by GPU node-4 (Agent handle: 0x3d4160) on address 0x155673c00000. Reason: Unknown.`
+      
+    **Answer**
+
+    -   This is a memory access problem - some data not being accessed properly. Are you assuming unified memory?
+      
+    **User remark/question**
+
+    -   openMP...so no. The same code works with other compliler versions in Lumi. 
+    -   What's this: `OMP: Warning #234: OMP_NUM_THREADS: Invalid symbols found. Check the value "".`?
+      
+    **Answer**
+
+    -   Have you tried OMP_NUM_THREADS=1? How do you declare it btw?
+
+    **User remark/question**
+
+    -   That was a good question. Forgot to remove it from the script to bring the code to the debugger.
+      
+    **Answer**
+
+    -   Here's an example from Babelstream that runs to completion:
+        ```
+        module purge
+        module load CrayEnv
+        module load PrgEnv-cray/8.3.3
+        module load craype-accel-amd-gfx90a
+        module load amd/5.1.0
+        cmake -DMODEL=omp ../
+        make
+        rocgdb ./omp-stream 
+        ```
+
+1.  Can I submit tickets regarding what George discussed to LUST? In-depth questions about profiling, debugging etc in case I would like some support on roctrace, omniperf etc?
+      
+    **Answer**
+
+    - Yes you can. When you submit a ticket it's also visible to AMD and HPE LUMI center of excellence members. So, either LUST or the vendors can answer depending on the complexity of your question
 
 
-35. If I think I may need level-3 support is it still recommended to go through LUMI service desk? 
-    - Hard to tell. At the moment we ourselves have no clear view on all the instances giving Level-3 support. If a ticket would end up with us we would do an effort to refer to the right instance, but the reality is that we hope there is already a lot more than we see. I am pretty sure that some centres are already offering some support to some of the users of their country without much contact with us.
-    - I guess to be clearer. Would LUST like to be kept 'in the loop' regarding these problems or is it more effort than necessary for LUST to forward these tickets to local centres?
-    - It would be nice for us to be in the loop as we can learn from it, but the reality is that it turned out to be difficult to integrate ticketing systems to make that easy and that the communication with some local teams is decent but is totally absent with others so we cannot efficiently pass things to the local centres. That is a communication problem that LUST and the LUMI project management needs to solve though.
 
 
 ### General Q&A
 
-31. What is the `libfabric` module that is loaded by default upon login?
-    - It is the library necessary for the node interconnect (slingshot) to work. It will be automatically loaded if you load `craype-network-ofi` module which is standard if you login or use one of the described Software stacks.
+71. What is the status of LUMI? has it now being handed over to CSC/EuroHPC?
 
-32. I know it is not the object of today course, but may I still ask how launch I a job on LUMI-G ?
-    As Kurt said, first:
-    reload LUMI/22.08 partition/G
-    and then do I have to specify a specific --partition with the sbatch command ?
-    - Yes, you have to use `--partition=pilot` but this only works at the moment if you are member of a GPU-pilot project. Alternatively you can use the `eap` partition which is available for everyone on LUMI and consists of the same GPU nodes, but has shorter walltime limits. `eap` is intended for testing only, not for production runs.
-    - partition `gpu` is shown but currently not available (it is for the HPE benchmarking) instead `pilot` and `eap` have to be used.
-    - Thank you for the precision. My project is mostly GPU oriented, so we did not ask for CPU as we thought a minimum amount of CPU would be included. Will it be possible to launch jobs on LUMI-G without any CPU resources or should I ask for additional CPU resources ?
-    - **[Kurt]** In regular operation you will only need GPU billing units to run on the GPUs. However, at the moment, during the pilot, the situation is different:
-        - The Early Access Platform (partition `eap`) does not require GPU billing units. It is also not charged, but usage is monitored and should remain reasonable, i.e., development and first benchmarking only. However, to get access to the queue, a minimal CPU allocation is needed.
-        - The `pilot` partition is for pilot users only and this one requires GPU billing units but no CPU allocation.  
+    **Answer**
 
--->
+    - LUMI-G is still owned by HPE and hasn't been handed over. 
+      That's also the reason why we are not in full production but in an extended beta phase.
+
+72. What software will be first hand supported?
+
+    **Answer**
+
+    - We don't know yet. SW has to be quite stable for us to be supportable
+    - LUST is a very small team so we don't have much resources except for providing SW installation (easybuild) recipes.
+    - Medium term goal to produce some guide lines for most used SW packages.
+    - Long term goal to involve local consortium countries (centers and universities) to help support and tune 
+      software packages and write application guidelines.
+
+
