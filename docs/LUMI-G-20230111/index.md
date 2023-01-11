@@ -108,3 +108,15 @@
 
 -   [Notes from the hackmd page](hackmd_notes.md)
 -->
+
+## Exercises
+
+Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:
+
+-   [OSU benchmark](https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.9.tar.gz)
+-   [Fortran OpenACC examples](https://github.com/RonRahaman/openacc-mpi-demos)
+-   [Fortran OpenMP examples](https://github.com/ye-luo/openmp-target)
+-   [Collections of examples in BabelStream](https://github.com/UoB-HPC/BabelStream)
+-   [hello_jobstep example](https://code.ornl.gov/olcf/hello_jobstep)
+-   [Run OpenMP example in the HPE Suport Center](https://support.hpe.com/hpesc/public/docDisplay?docId=a00114008en_us&docLocale=en_US&page=Run_an_OpenMP_Application.html)
+-   [ROCm HIP examples](https://github.com/ROCm-Developer-Tools/HIP-Examples)
