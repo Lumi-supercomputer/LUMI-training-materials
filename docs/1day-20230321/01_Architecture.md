@@ -403,13 +403,55 @@ Rialto Bridge which most likely is a variant optimized to be cheaper to manufact
 that it can appeal to a larger market.
 
 
-
-
 ## Building LUMI: The Slingshot interconnect
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 11](img/LUMI-1day-20230321-architecture/Dia11.png){ loading=lazy }
 </figure>
+
+All nodes of LUMI, including the login, management and storage nodes, are linked
+together using the Slingshot interconnect (and almost all use Slingshot 11, the full
+implementation with 200 Gb/s bandwidth per direction).
+
+Slingshot is an interconnect developed by HPE Cray and based on Ethernet, but with
+proprietary extensions for better HPC performance., It adapts to the regular Ethernet
+protocols when talking to a node that only supports Ethernet, so one of the attractive
+features is that regular servers with Ethernet can be directly connected to the 
+Slingshot network switches.
+HPE Cray has a tradition of developing their own interconnect for very large systems.
+As in previous generations, a lot of attention went to adaptive routing and congestion
+control. There are basically two versions of it. The early version was named Slingshot 10,
+ran at 100 Gb/s per direction and did not yet have all features. It was used on the initial
+deployment of LUMI-C compute nodes but has since been upgraded to the full version.
+The full version with all features is called Slingshot 11. It supports a bandwidth of 200 Gb/s
+per direction, comparable to HDR InfiniBand with 4x links. 
+
+Slingshot is a different interconnect from your typical Mellanox/NVIDIA InfiniBand implementation
+and hence also has a different software stack. This implies that there are no UCX libraries on
+the system as the Slingshot 11 adapters do not support that. Instead, the software stack is 
+based on libfabric (as is the stack for many other Ethernet-derived solutions and even Omni-PAth
+has switched to libfabric under its new owner).
+
+LUMI uses the dragonfly topology. This topology is designed to scale to a very large number of 
+connections while still minimizing the amount of long cables that have to be used. However, with
+its complicated set of connections it does rely on adaptive routing and congestion control for
+optimal performance more than the fat tree topology used in many smaller clusters.
+It also needs so-called high-radix switches. The Slingshot switch, code-named Rosetta, has 64 ports.
+16 of those ports connect directly to compute nodes (and the next slide will show you how).
+Switches are then combined in groups. Within a group there is an all-to-all connection betweeh 
+switches: Each switch is connected to each other switch. So traffic between two nodes of a 
+group passes only via two switches if it takes the shortest route. However, as there is typically
+only one 200 Gb/s direct connection between two switches in a group, if all 16 nodes in two groups
+would be communicating heavily with each other, it is clear that some traffic will have to take a
+different route. In fact, it may be statistically better if the 32 involved nodes would be spread 
+more evenly over the group, so topology based scheduling of jobs and getting the processes of a job
+on as few switches as possible may not be that important on a dragonfly Slingshot network. 
+The groups in a slingshot network are then also connected in an all-to-all fashion, but the number
+of direct links between two groups is again limited so traffic again may not always want to take 
+the shortest path. The shortest path between two nodes in a dragonfly topology never involves 
+more than 3 hops between switches (so 4 switches): One from the switch the node is connected to 
+the switch in its group that connects to the other group, a second hop to the other group, and then
+a third hop in the destination group to the switch the destination node is attached to.
 
 
 ## Assembling LUMI
@@ -418,4 +460,41 @@ that it can appeal to a larger market.
   ![Slide 12](img/LUMI-1day-20230321-architecture/Dia12.png){ loading=lazy }
 </figure>
 
+Let's now have a look at how everything connects together to the supercomputer LUMI.
+LUMI does use a custom rack design for the compute nodes that is also fully water cooled.
+It is build out of units that can contain up to 4 custom cabinets, and a cooling distribution
+unit (CDU). The size of the complex as depicted in the slide is approximately 12 m<sup>2</sup>.
+Each cabinet contains 8 compute chassis in 2 columns of 4 rows. In between the two
+columns is all the power circuitry. Each compute chassis can contain 8 compute blades
+that are mounted vertically. Each compute blade can contain multiple nodes, depending on
+the type of compute blades. HPE Cray have multiple types of compute nodes, also with 
+different types of GPUs. In fact, the Aurora supercomputer which uses Intel CPUs and GPUs and
+El Capitan, which uses the MI300 series of APU (integrated CPU and GPU) will use the same
+design with a different compute blade. Each LUMI-C compute blade contains 4 compute nodes
+and two network interface cards, with each network interface card implementing two Slingshot
+interfaces and connecting to two nodes. A LUMI-G compute blade contains two nodes and
+4 network interface cards, where each interface card now connects to two GPUs in the same 
+node. All connections for power, management network and high performance interconnect
+of the compute node are at the back of the compute blade. At the front of the compute
+blades one can find the connections to the cooling manifolds that distribute cooling
+water to the blades. One compute blade of LUMI-G can consume up to 5kW, so the power
+density of this setup is incredible, with 40 kW for a single compute chassis.
+
+The back of each cabinet is equally genius. At the back each cabinet has 8 switch chassis,
+each matching the position of a compute chassis. The switch chassis contains the connection to
+the power delivery system and a switch for the management network and has 8 positions for 
+switch blades. These are mounted horizontally and connect directly to the compute blades.
+Each slingshot switch has 8x2 ports on the inner side for that purpose, two for each compute
+blade. Hence for LUMI-C two switch blades are needed in each switch chassis as each blade has
+4 network interfaces, and for LUMI-G 4 switch blades are needed for each compute chassis as
+those nodes have 8 network interfaces. Note that this also implies that the nodes on the same 
+compute blade of LUMI-C will be on two different switches even though in the node numbering they
+are numbered consecutively. For LUMI-G both nodes on a blade will be on a different pair of switches 
+and each node is connected to two switches. Thw switch blades are also water cooled (each one can 
+consume up to 250W). No current possible configuration of the Cray EX system needs that much switches.
+
+This does not mean that the extra positions cannot be useful in the future. If not for an interconnect,
+one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based storage via blades as the 
+switch blade environment is certainly less hostile to such storage than the very dense and very hot
+compute blades.
 
