@@ -26,6 +26,7 @@ nav:
   - "1-day March 2023":
       - 1day-20230321/index.md
       - LUMI Architecture: 1day-20230321/01_Architecture.md
+      - CPE: 1day-20230321/02_CPE.md
   - Profiling April 2013:
       - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:
