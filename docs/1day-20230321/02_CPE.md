@@ -102,11 +102,82 @@ Lastly, there are also bindings for MPI.
   ![Slide 4](img/LUMI-1day-20230321-CPE/Dia4.png){ loading=lazy }
 </figure>
 
+Some mathematical libraries have become so popular that they basically define an API for which
+several implementations exist, and CPU manufacturers and some open source groups spend a significant
+amount of resources to make optimal implementations for each CPU architecture.
+
+The most notorious library of that type is BLAS, a set of basic linear algebra subroutines
+for vector-vector, matrix-vector and matrix-matrix implementations. It is the basis for many
+other libraries that need those linear algebra operations, including Lapack, a library with
+solvers for linear systems and eigenvalue problems.
+
+The HPE Cray LibSci library contains BLAS and its C-interface CBLAS, and LAPACK and its
+C interface LAPACKE. It also adds ScaLAPACK, a distributed memory version of LAPACK, and BLACS, the 
+Basic Linear Algebra Communication Subprograms, which is the communication layer used by ScaLAPACK.
+The BLAS library combines implementations from different sources, to try to offer the most optimal
+one for several architectures and a range of matrix and vector sizes.
+
+LibSci also contains one component which is HPE Cray-only: IRT, the Iterative Refinement Toolkit, 
+which allows to do mixed precision computations for LAPACK operations that can speed up the generation
+of a double precision result with nearly a factor of two for those problems that are suited for
+iterative refinement. If you are familiar with numerical analysis, you probably know that the matrix should
+not be too ill-conditioned for that.
+
+There is also a GPU-optimized version of LibSci, called LibSCi_ACC, which contains a subset of the
+routines of LibSci. We don't have much experience in the support team with this library though.
+It can be compared with what Intel is doing with oneAPI MKL which also offers GPU versions of some of
+the traditional MKL routines.
+
+Another separate component of the scientific and mathematical libraries is FFTW3, 
+Fastest Fourier Transfoerms in the West, which comes with
+optimized versions for all CPU architectures supported by recent HPE Cray machines.
+
+Finally, the scientific and math libraries also contain HDF5 and netCDF libraries
+in sequential and parallel versions.
+
 
 ## Cray MPI
 
 <figure markdown style="border: 1px solid #000">
   ![Slide 5](img/LUMI-1day-20230321-CPE/Dia5.png){ loading=lazy }
 </figure>
+
+HPE Cray build their own MPI library with optimisations for their own interconnects.
+The Cray MPI library is derived from the ANL MPICH 3.4 code base and fully support the 
+ABI (Application Binary Interface) of that application which implies that in principle
+it should be possible to swap the MPI library of applications build with that ABI with
+the Cray MPICH library. Or in other words, if you can only get a binary distribution of
+an application and that application was build against an MPI library compatible with 
+the MPICN 3.4 ABI (which includes Intel MPI) it should be possible to exchange that
+library for the Cray one to have optimised communication on the Cray Slingshot interconnect.
+
+Cray MPI contains many tweaks specifically for Cray systems.
+HPE Cray claim improved algorithms for many collectives, an asynchornous
+progress engine to improve overlap of communications and computations, 
+customizable collective buffering when using MPI-IO, and
+optimized remote memory access (MPI one-sided communication) which also supports
+passive remote memory access.
+
+When used in the correct way (some attention is needed when linking applications) it is allo fully
+GPU aware with currently support for AMD and NVIDIA GPUs.
+
+The MPI library also supports bindings for Fortran 2008.
+
+MPI 3.1 is almost completely supported, with two exceptions. Dynamic process management is not
+supported (and a problem anyway on systems with batch schedulers), and when using CCE
+MPI_LONG_DOUBLE and MPI_C_LONG_DOUBLE_COMPLEX are also not supported.
+
+The Cray MPI library does not support the `mpirun` or `mpiexec` commands, which is in fact
+allowed by the standard which only requires a process starter and suggest `mpirun` or `mpiexec` 
+depending on the version of the standard. Instead the Slurm `srun` command is used as the 
+process starter. This actually makes a lot of sense as the MPI application should be mapped
+correctly on the allocated resources, and the resource manager is better suited to do so.
+
+Cray MPI on LUMI is layered on top of libfabric, which in turn uses the so-called Cassini provider
+to interface with the hardware. UCX is not supported on LUMI (but Cray MPI can support it when used
+on InfiniBand clusters). It also uses a GPU Transfer Library (GTL) for GPU-aware MPI.
+
+
+
 
 
