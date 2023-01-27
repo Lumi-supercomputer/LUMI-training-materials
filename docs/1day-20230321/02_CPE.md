@@ -7,7 +7,7 @@ it also determines how programs should be run.
 ## Why do I need to know this?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 2](img/LUMI-1day-20230321-CPE/Dia2.png){ loading=lazy }
+  ![Slide Why do I need to know](img/LUMI-1day-20230321-CPE/Dia2.png){ loading=lazy }
 </figure>
 
 The typical reaction of someone who only wants to run software on an HPC
@@ -33,10 +33,73 @@ as you may want to inject an optimised MPI library as we shall see in the contai
 of this course.
 
 
+## The operating system on LUMI
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide The OS on LUMI](img/LUMI-1day-20230321-CPE/Dia3.png){ loading=lazy }
+</figure>
+
+The login nodes of LUMI run a regular SUSE Linux Enterprise Server 15 SP3 distribution.
+The compute nodes however run Cray OS, a restricted version of the SUSE Linux that runs
+on the login nodes. Some daemons are inactive or configured differently and Cray also 
+does not support all regular file systems. The goal of this is to minimize OS jitter,
+interrupts that the OS handles and slow down random cores at random moments, that can 
+limit scalability of programs. Yet on the GPU nodes there was still the need to reserve
+one core for the OS and driver processes.
+
+This also implies that some software that works perfectly fine on the login nodes may not
+work on the compute nodes. E.g., there is no `/run/user/$UID` directory and we have experienced
+that DBUS also does not work as one should expect.
+
+
+## Programming models
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Programming models](img/LUMI-1day-20230321-CPE/Dia4.png){ loading=lazy }
+</figure>
+
+On LUMI we have several C/C++ and Fortran compilers. These will be discussed more in this
+session.
+
+There is also support for MPI and SHMEM for distributed applications. And we also support
+[RCCL](https://github.com/ROCmSoftwarePlatform/rccl), the ROCm-equivalent of the 
+[CUDA NCCL](https://developer.nvidia.com/nccl) library that is popular in machine learning packages.
+
+All compilers have some level of [OpenMP](https://www.openmp.org/) support, 
+and two compilers support OpenMP offload to 
+the AMD GPUs, but again more about that later.
+
+The other important programming model for AMD GPUs is [HIP](https://github.com/rocm-developer-tools/hip), 
+which is their alternative for the
+proprietary CUDA model. It does not support all CUDA features though (basically it is more CUDA 7 or 8 level) 
+and there is also no equivalent to CUDA Fortran.
+
+[OpenACC](https://www.openacc.org/) is only supported in the Cray Fortran compiler. There is no commitment of neither HPE Cray
+or AMD to extend that support to C/C++ or other compilers, even though there is work going on
+in the LLVM community and several compilers on the system are based on LLVM.
+
+The commitment to OpenCL is very unclear, and this actually holds for other GPU vendors also.
+
+We also try to provide [SYCL](https://www.khronos.org/sycl/) as it is a programming language/model that works on all three GPU
+families currently used in HPC. 
+
+Python is of course pre-installed on the system but we do ask to use big Python installations in a special way
+as Python puts a tremendous load on the file system. More about that later in this course.
+
+Some users also report some success in running [Julia](https://julialang.org/). We don't have full support though and have to
+depend on binaries as provided by [julialang.org](https://julialang.org/downloads/)]. The AMD GPUs are
+not yet fully supported by Julia.
+
+It is important to realise that there is no CUDA on AMD GPUs and there will never be as this is a 
+proprietary technology that other vendors cannot implement. LUMI will in the future have some nodes
+with NVIDIA GPUs but these nodes are meant for visualisation and not for compute.
+
+
+
 ##  The development environment on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 3](img/LUMI-1day-20230321-CPE/Dia3.png){ loading=lazy }
+  ![Slide Development environment](img/LUMI-1day-20230321-CPE/Dia5.png){ loading=lazy }
 </figure>
 
 Long ago, Cray made designed its own processors and hence had to develop their own
@@ -82,7 +145,7 @@ to the 4-day trainings that we organise three times a year with HPE for more mat
 ## The Cray Compiling Environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 4](img/LUMI-1day-20230321-CPE/Dia4.png){ loading=lazy }
+  ![Slide Cra Compiling Environment](img/LUMI-1day-20230321-CPE/Dia6.png){ loading=lazy }
 </figure>
 
 The Cray Compiling Environment are the default compilers on many Cray systems and on LUMI.
@@ -128,7 +191,7 @@ Lastly, there are also bindings for MPI.
 ## Scientific and math libraries
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 5](img/LUMI-1day-20230321-CPE/Dia5.png){ loading=lazy }
+  ![Slide Scientific and math libraries](img/LUMI-1day-20230321-CPE/Dia7.png){ loading=lazy }
 </figure>
 
 Some mathematical libraries have become so popular that they basically define an API for which
@@ -168,7 +231,7 @@ in sequential and parallel versions.
 ## Cray MPI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 6](img/LUMI-1day-20230321-CPE/Dia6.png){ loading=lazy }
+  ![Slide Cray MPI](img/LUMI-1day-20230321-CPE/Dia8.png){ loading=lazy }
 </figure>
 
 HPE Cray build their own MPI library with optimisations for their own interconnects.
@@ -210,7 +273,7 @@ on InfiniBand clusters). It also uses a GPU Transfer Library (GTL) for GPU-aware
 ## Lmod
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Lmod](img/LUMI-1day-20230321-CPE/Dia7.png){ loading=lazy }
+  ![Slide Lmod](img/LUMI-1day-20230321-CPE/Dia9.png){ loading=lazy }
 </figure>
 
 Virtually all clusters use modules to enable the users to configure the environment and
@@ -252,7 +315,7 @@ the same name and version yet make different binaries available depending on the
 ## Compiler wrappers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Compiler wrappers](img/LUMI-1day-20230321-CPE/Dia8.png){ loading=lazy }
+  ![Slide Compiler wrappers](img/LUMI-1day-20230321-CPE/Dia10.png){ loading=lazy }
 </figure>
 
 The HPE Cray PE compilers are usually used through compiler wrappers.
@@ -292,7 +355,7 @@ simply pass those to those compilers.
 ## Selecting the version of the CPE
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Slecting the version of the CPE](img/LUMI-1day-20230321-CPE/Dia9.png){ loading=lazy }
+  ![Slide Slecting the version of the CPE](img/LUMI-1day-20230321-CPE/Dia11.png){ loading=lazy }
 </figure>
 
 The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `22.08` for the version
@@ -321,7 +384,7 @@ later.
 ## The target modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Target modules](img/LUMI-1day-20230321-CPE/Dia10.png){ loading=lazy }
+  ![Slide Target modules](img/LUMI-1day-20230321-CPE/Dia12.png){ loading=lazy }
 </figure>
 
 The target modules are used to select the CPU and GPU optimization targets and to 
@@ -358,7 +421,7 @@ settings: `-target-cpu`, `-target-accel` and `-target-network`.
 ## PrgEnv and compiler modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide PrgEnv and compiler modules](img/LUMI-1day-20230321-CPE/Dia11.png){ loading=lazy }
+  ![Slide PrgEnv and compiler modules](img/LUMI-1day-20230321-CPE/Dia13.png){ loading=lazy }
 </figure>
 
 In the HPE Cray PE, the `PrgEnv-*` modules are usually used to load a specific variant of the
@@ -383,7 +446,7 @@ hipcc with the GNU compilers or GPU support with the Cray compilers.
 ## Getting help
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Getting help](img/LUMI-1day-20230321-CPE/Dia12.png){ loading=lazy }
+  ![Slide Getting help](img/LUMI-1day-20230321-CPE/Dia14.png){ loading=lazy }
 </figure>
 
 Help on the HPE Cray Programming Environment is offered mostly through manual pages
@@ -412,7 +475,7 @@ Lastly, there is also a lot of information in the
 ## Other modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Other modules](img/LUMI-1day-20230321-CPE/Dia13.png){ loading=lazy }
+  ![Slide Other modules](img/LUMI-1day-20230321-CPE/Dia15.png){ loading=lazy }
 </figure>
 
 Other modules that are relevant even to users who do not do development:
@@ -439,7 +502,7 @@ courses for developers that we organise several times per year with the help of 
 ## Warning 1: You do not always get what you expect...
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide You do not always get what you expect](img/LUMI-1day-20230321-CPE/Dia14.png){ loading=lazy }
+  ![Slide You do not always get what you expect](img/LUMI-1day-20230321-CPE/Dia16.png){ loading=lazy }
 </figure>
 
 The HPE Cray PE packs a surprise in terms of the libraries it uses, certainly for users
@@ -510,7 +573,7 @@ export CRAY_ADD_RPATH=yes
 ## Warning 2: Order matters
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Order of loading modules](img/LUMI-1day-20230321-CPE/Dia15.png){ loading=lazy }
+  ![Slide Order of loading modules](img/LUMI-1day-20230321-CPE/Dia17.png){ loading=lazy }
 </figure>
 
 Lmod is a hierarchical module scheme and this is exploited by the HPE Cray PE. Not all modules
