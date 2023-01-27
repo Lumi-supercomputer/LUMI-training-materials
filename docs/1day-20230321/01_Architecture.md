@@ -7,7 +7,7 @@ jobs that can scale.
 ## LUMI is ...
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 2](img/LUMI-1day-20230321-architecture/Dia2.png){ loading=lazy }
+  ![Slide LUMI is...](img/LUMI-1day-20230321-architecture/Dia2.png){ loading=lazy }
 </figure>
 
 LUMI is in the first place a EuroHPC pre-exascale machine, build to prepare for 
@@ -94,7 +94,7 @@ people to set it up and manage it.
 ## Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 3](img/LUMI-1day-20230321-architecture/Dia3.png){ loading=lazy }
+  ![Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU](img/LUMI-1day-20230321-architecture/Dia3.png){ loading=lazy }
 </figure>
 
 The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
@@ -117,7 +117,7 @@ double precision) rather than the 32 some Intel processors are capable of.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 4](img/LUMI-1day-20230321-architecture/Dia4.png){ loading=lazy }
+  ![Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU (2)](img/LUMI-1day-20230321-architecture/Dia4.png){ loading=lazy }
 </figure>
 
 The full processor package for the AMD EPYC processors used in LUMI have
@@ -149,7 +149,7 @@ cores spread over all CCDs are used.
 ## Building LUMI: a LUMI-C node
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 5](img/LUMI-1day-20230321-architecture/Dia5.png){ loading=lazy }
+  ![Slide LUMI-C node](img/LUMI-1day-20230321-architecture/Dia5.png){ loading=lazy }
 </figure>
 
 A compute node is then built out of two such processor packages, connected 
@@ -164,7 +164,7 @@ high performance Slingshot interconnect though.
 ### A strong hierarchy in the node
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 6](img/LUMI-1day-20230321-architecture/Dia6.png){ loading=lazy }
+  ![Slide Strong hierarchy](img/LUMI-1day-20230321-architecture/Dia6.png){ loading=lazy }
 </figure>
 
 As can be seen from the node architecture in the previous slide, the CPU compute
@@ -204,13 +204,10 @@ CCDs in those 2 NUMA domains unless communication through the L3 threads would b
 application.
 
 
-
-
-
 ### Hierarchy: delays in numbers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 7](img/LUMI-1day-20230321-architecture/Dia7.png){ loading=lazy }
+  ![Slide Delays in numbers](img/LUMI-1day-20230321-architecture/Dia7.png){ loading=lazy }
 </figure>
 
 This slide shows the ACPI System Locality distance Information Table (SLIT)
@@ -231,7 +228,7 @@ really need (and you will be billed for them).
 ## Building LUMI: Concept LUMI-G node
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 8](img/LUMI-1day-20230321-architecture/Dia8.png){ loading=lazy }
+  ![Slide Concept LUMI-G node](img/LUMI-1day-20230321-architecture/Dia8.png){ loading=lazy }
 </figure>
 
 This slide shows a conceptual view of a LUMI-G compute node. This node is
@@ -244,9 +241,9 @@ Each GPU node consists of one 64-core AMD EPYC CPU and 4 AMD MI250x GPUs.
 So far nothing special. However, two elements make this compute node very
 special. The GPUs are not connected to the CPU though a PCIe bus. Instead
 they are connected through the same links that AMD uses to link the GPUs together,
-or two link the two sockets in the LUMI-C compute nodes, known as xGMI or
+or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
 Infinity Fabric. This enables CPU and GPU to access each others memory 
-rather seamlessly or to implement coherent caches across the whole system.
+rather seamlessly and to implement coherent caches across the whole system.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (though a PCIe interface on the GPU) rather
 than two the CPU. The CPUs have a shorter path to the communication 
@@ -264,13 +261,36 @@ that can (at least if those two could execute concurrently with each other), and
 match node types as needed, rather than building clusters with massive and expensive nodes
 that few applications can fully exploit.
 
+It is also important to realise that even though we call the partition "LUMI-G", the MI250x
+is not a GPU in the true sense of the word. It is not a rendering GPU, which for AMD is 
+currently the RDNA architecture with version 3 just out, but a compute accelerator with
+an architecture that evolved from a GPU architecture, in this case the VEGA architecture
+from AMD. The architecture of the MI200 series is also known as CDNA2, with the MI100 series
+being just CDNA, the first version. Much of the hardware that does not serve compute purposes
+has been removed from the design to have more transistors available for compute. MI200 even
+removed the multimedia engine that survived the cut in MI100. So the MI200 is no accelerator
+for rendering or for video processing. Rendering is possible, but it will be software-based 
+rendering with some GPU acceleration for certain parts of the pipeline, but not full hardware
+rendering.
+
+This is not an evolution at AMD only. The same is happening with NVIDA GPUs and there is a reason
+why the latest generation is called "Hopper" for compute and "Ada Lovelace" for rendering GPUs. 
+Several of the functional blocks in the Ada Lovelace architecture are missing in the Hopper 
+architecture to make room for more compute power and double precision compute units. E.g.,
+Hopper does not contain the ray tracing units of Ada Lovelace.
+
+Graphics on one hand and HPC and AI on the other hand are becoming separate workloads for which
+manufacturers make different, specialised cards, and if you have applications that need both,
+you'll have to rework them to work in two phases, or to emply to types of nodes and communicate
+between them over the interconnect, and look for supercomputers that support both workloads.
+
 But so far for the sales presentation, let's get back to reality...
 
 
 ## Building LUMI: What a LUMI-G node really looks like
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 9](img/LUMI-1day-20230321-architecture/Dia9.png){ loading=lazy }
+  ![Slide Real LUMI-G node](img/LUMI-1day-20230321-architecture/Dia9.png){ loading=lazy }
 </figure>
 
 Or the full picture with the bandwidths added to it:
@@ -355,7 +375,7 @@ and as we shall see later in the course, exploiting this is a bit tricky at the 
 ### What the future looks like...
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 10](img/LUMI-1day-20230321-architecture/Dia10.png){ loading=lazy }
+  ![Slide The future we're preparing for...](img/LUMI-1day-20230321-architecture/Dia10.png){ loading=lazy }
 </figure>
 
 Some users may be annoyed by the "small" amount of memory on each node. Others
@@ -406,7 +426,7 @@ that it can appeal to a larger market.
 ## Building LUMI: The Slingshot interconnect
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 11](img/LUMI-1day-20230321-architecture/Dia11.png){ loading=lazy }
+  ![Slide Slingshot interconnect](img/LUMI-1day-20230321-architecture/Dia11.png){ loading=lazy }
 </figure>
 
 All nodes of LUMI, including the login, management and storage nodes, are linked
@@ -457,7 +477,7 @@ a third hop in the destination group to the switch the destination node is attac
 ## Assembling LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 12](img/LUMI-1day-20230321-architecture/Dia12.png){ loading=lazy }
+  ![Slide HPE Cray EX System](img/LUMI-1day-20230321-architecture/Dia12.png){ loading=lazy }
 </figure>
 
 Let's now have a look at how everything connects together to the supercomputer LUMI.
