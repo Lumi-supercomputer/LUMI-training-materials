@@ -518,3 +518,28 @@ one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based stor
 switch blade environment is certainly less hostile to such storage than the very dense and very hot
 compute blades.
 
+
+## LUMI assembled
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide LUMI](img/LUMI-1day-20230321-architecture/Dia13.png){ loading=lazy }
+</figure>
+
+This slide shows LUMI fully assembled (as least as it was at the end of 2022).
+
+At the front there are 5 rows of cabinets similar to the ones in the exploded Cray EX picture 
+on the previous slide.
+Each row has 2 CDUs and 6 cabinets with compute nodes. 
+The first row, the one with the wolve, contains all nodes of LUMI-C, while the other four 
+rows, with the letters of LUMI, contain the GPU accelerator nodes.
+At the back of the room there are more 
+regular server racks that house the storage, management nodes, some special compute nodes , etc.
+The total size is roughly the size of a tennis court. 
+
+!!! Remark
+    The water temperature that a system like the Cray EX can handle is so high that in fact the water can
+    be cooled again with so-called "free cooling", by just radiating the heat to the environment rather 
+    than using systems with compressors similar to air conditioning systems, especially in regions with a
+    colder climate. The LUMI supercomputer is housed in Kajaani in Finland, with moderate temperature almost 
+    year round, and the heat produced by the supercomputer is fed into the central heating system of the
+    city, making it one of the greenest supercomputers in the world as it is also fed with renewable energy.
