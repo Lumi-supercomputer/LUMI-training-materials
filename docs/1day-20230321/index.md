@@ -7,3 +7,5 @@
 
 -   [The HPE Cray Programming Environment](02_CPE.md)
   
+-   [Lmod modules](03_Modules.md)
+  
