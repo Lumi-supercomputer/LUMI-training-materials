@@ -1,8 +1,9 @@
 # Comprehensive General LUMI Training, February 14-17, 2023
 
-## Course overview
+## Course organisation
 
 -   [Course schedule](schedule.md)
+-   HedgeDoc for questions
 
 <!--
 ## Downloads
