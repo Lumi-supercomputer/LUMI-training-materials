@@ -4,6 +4,7 @@
 
 -   [Course schedule](schedule.md)
 -   HedgeDoc for questions
+-   [Test software stack notes](software_stacks.md)
 
 <!--
 ## Downloads
