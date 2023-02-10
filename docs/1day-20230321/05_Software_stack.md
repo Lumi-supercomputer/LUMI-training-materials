@@ -366,20 +366,132 @@ latest, before we deploy it on the system.
 We're also **working on presenting a list of supported software in the documentation**.
 
 
-### Easubuild recipes - easyconfigs
+### EasyBuild recipes - easyconfigs
 
+<figure markdown style="border: 1px solid #000">
+  ![EasyBuild recipes - easyconfigs](img/LUMI-1day-20230321-software/Dia11.png){ loading=lazy }
+</figure>
 
+EasyBuild uses a build recipe for each individual package, or better said, each individual module
+as it is possible to install more than one software package in the same module. That installation
+description relies on either a generic or a specific installation process provided by an easyblock.
+The build recipes are called easyconfig files or simply easyconfigs are are Python files with 
+the extension `.eb`. 
 
+The typical steps in an installation process are:
+
+1.  Downloading sources and patches. For licensed software you may have to provide the sources as
+    often they cannot be downloaded automatically.
+2.  A typical configure - build - test - install process, where the test process is optional and
+    depends on the package providing useable pre-installation tests.
+3.  An extension mechanism can be used to install perl/python/R extension packages
+4.  Then EasyBuild will do some simple checks (some default ones or checks defined in the recipe)
+5.  And finally it will generate the module file using lots of information specified in the 
+    EasyBuild recipe.
+
+Most or all of these steps can be influenced by parameters in the easyconfig.
 
 
 ### The toolchain concept
 
+<figure markdown style="border: 1px solid #000">
+  ![The toolchain concept](img/LUMI-1day-20230321-software/Dia12.png){ loading=lazy }
+</figure>
+
+EasyBuild uses the toolchain concept. A toolchain consists of compilers, an MPI implementation
+and some basic mathematics libraries. The latter two are optional in a toolchain. All these 
+components have a level of exchangeability as there are language standards, as MPI is standardised,
+and the math libraries that are typically included are those that provide a standard API for which
+several implementations exist. All these components also have in common that it is risky to combine 
+pieces of code compiled with different sets of such libraries and compilers because there can
+be conflicts in names in the libraries.
+
+On LUMI we don't use the standard EasyBuild toolchains but our own toolchains specifically for Cray
+and these are precisely the `cpeCray`, `cpeGNU`, `cpeAOCC` and `cpeAMD` modules already mentioned 
+before.
+
+| HPE Cray PE   | LUMI toolchain | What?                                |
+|:--------------|:---------------|:-------------------------------------|
+| `PrgEnv-cray` | `cpeCray`      | Cray Compiler Environment            |
+| `PrgEnv-gnu`  | `cpeGNU`       | GNU C/C++ and Fortran                |
+| `PrgEnv-aocc` | `cpeAOCC`      | AMD CPU compilers                    |
+| `PrgEnv-amd`  | `cpeAMD`      | AMD ROCm GPU compilers (LUMI-G only) |
 
 
+<figure markdown style="border: 1px solid #000">
+  ![The toolchain concept 2](img/LUMI-1day-20230321-software/Dia13.png){ loading=lazy }
+</figure>
 
-### Easyconfig names and module names
+There is also a special toolchain called the SYSTEM toolchain that uses the compiler
+provided by the operating system. This toolchain does not fully function in the same way as the other
+toolchains when it comes to handling dependencies of a package and is therefore a bit harder to use.
+The EasyBuild designers had in mind that this compiler would only be used to bootstrap an
+EasyBuild-managed software stack, but we do use it for a bit more on LUMI as it offers us a
+relatively easy way to compile some packages also for the CrayEnv stack and do this in a way
+that they interact as little as possible with other software.
+
+It is not possible to load packages from different cpe toolchains at the same time.
+This is an EasyBuild restriction, because mixing libraries compiled with different compilers
+does not always work. This could happen, e.g., if a package compiled with the Cray Compiling
+Environment and one compiled with the GNU compiler collection would both use a particular 
+library, as these would have the same name and hence the last loaded one would be used
+by both executables (we don't use rpath or runpath linking in EasyBuild for those familiar
+with that technique).
+
+However, as we did not implement a hierarchy in the Lmod implementation of our software stack
+at the toolchain level, the module system will not protect you from these mistakes. 
+When we set up the software stack, most people in the support team considered it too misleading
+and difficult to ask users to first select the toolchain they want to use and then see the 
+software for that toolchain.
+
+It is however possible to combine packages compiled with one CPE-based toolchain with packages
+compiled with teh system toolchain, but we do avoid mixing those when linking as that may cause
+problems. The reason is that we try to use as much as possible static linking in the SYSTEM
+toolchain so that these packages are as independent as possible.
+
+And with some tricks it might also be possible to combine packages from the LUMI software stack
+with packages compiled with Spack, but one should make sure that no Spack packages are available
+when building as mixing libraries could cause problems. Spack uses rpath linking which is why
+this may work.
 
 
+### EasyConfig names and module names
+
+<figure markdown style="border: 1px solid #000">
+  ![easyconfig names and module names](img/LUMI-1day-20230321-software/Dia14.png){ loading=lazy }
+</figure>
+
+There is a convention for the naming of an EasyConfig as shown on the slide. This is not
+mandatory, but EasyBuild will fail to automatically locate easyconfigs for dependencies 
+of a package that are not yet installed if the easyconfigs don't follow the naming
+convention. Each part of the name also corresponds to a parameter in the easyconfig 
+file.
+
+Consider, e.g., the easyconfig file `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`.
+
+1.  The first part of the name, `GROMACS`, is the name of the package, specified by the
+    `name` parameter in the easyconfig, and is after installation also the name of the
+    module.
+2.  The second part, `2021.4`, is the version of GROMACS and specified by the
+    `version` parameter in the easyconfig.
+3.  The next part, `cpeCray-22.08` is the name and version of the toolchain,
+    specified by the `toolchain` parameter in the easyconfig. The version of the
+    toolchain must always correspond to the version of the LUMI stack. So this is
+    and easyconfig for installation in `LUMI/22.08`.
+
+    This part is not present for the SYSTEM toolchain
+
+4.  The final part, `-PLUMED-2.8.0-CPU`, is the version suffix and used to provide
+    additional information and distinguish different builds with different options
+    of the same package. It is specified in the `versionsuffix` parameter of the
+    easyconfig.
+
+    This part is optional.
+
+The version, toolchain + toolchain version and versionsuffix together also combine
+to the version of the module that will be generated during the installation process.
+Hence this easyconfig file will generate the module 
+`GROMACS/2021.4-cpeCray-22.08-PLUMED-2.8.0-CPE`.
 
 
 
@@ -599,15 +711,34 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
     also the directory where you will find the extensive log file with all commands executed during
     the installation and their output.
 
-### Additional tips and tricks
+### EasyBuild tips and tricks
 
 <figure markdown style="border: 1px solid #000">
-  ![Additional tips and tricks](img/LUMI-1day-20230321-software/Dia33.png){ loading=lazy }
+  ![EasyBuild tips and tricks](img/LUMI-1day-20230321-software/Dia33.png){ loading=lazy }
 </figure>
 
+Updating the version of a package often requires only trivial changes in the easyconfig file.
+However, we do tend to use checksums for the sources so that we can detect if the available
+sources have changed. This may point to files being tampered with, or other changes that might
+need us to be a bit more careful when installing software and check a bit more again. 
+Should the checksum sit in the way, you can always disable it by using 
+`--ignore-checksums` with the `eb` command.
 
+Updating an existing recipe to a new toolchain might be a bit more involving as you also have
+to make build recipes for all dependencies. When we update a toolchain on the system, we
+often bump the versions of all installed libraries to one of the latest versions to have
+most bug fixes and security patches in the software stack, so you need to check for those
+versions also to avoid installing yet another unneeded version of a library.
 
-
+We provide documentation on the available software that is either pre-installed or can be
+user-installed with EasyBuild in the 
+[LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
+For most packages this documentation does also contain information about the license.
+The user documentation for some packages gives more information about how to use the
+package on LUMI, or sometimes also about things that do not work.
+The documentation also shows all EasyBuild recipes, and for many packages there is 
+also some technical documentation that is more geared towards users who want to
+build or modify recipes. It sometimes also tells why we did things in a particular way.
 
 
 ### EasyBuild training for advanced users and developers
