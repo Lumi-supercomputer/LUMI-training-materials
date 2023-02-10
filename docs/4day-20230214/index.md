@@ -39,8 +39,9 @@ To come as the course progresses.
 
 <!--
 -   [Notes from the HedgeDOC page](hedgedoc_notes.md)
--   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
 -->
+-   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
+
 
 To come as the course progresses (and afterwards).
 
