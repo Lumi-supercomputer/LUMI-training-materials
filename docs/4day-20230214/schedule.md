@@ -24,8 +24,8 @@
     </ul>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <!--
-    <em>Slide files: <code>/project/project_465000320/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
+    <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -42,8 +42,8 @@
     </ul>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <!--
-    <em>Slide file: <code>/project/project_465000320/slides/HPE/02_Running_Applications_and_Tools.pdf</code> on LUMI only.</em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/02_Running_Applications_and_Tools.mp4</code> on LUMI only.</em>
+    <em>Slide file: <code>/project/project_465000388/slides/HPE/02_Running_Applications_and_Tools.pdf</code> on LUMI only.</em><br>
+    <em>Recording: <code>/project/project_465000388/recordings/02_Running_Applications_and_Tools.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -67,8 +67,8 @@
     </ul>
     <em>Presenter: Alfio Lazzaro (HPE)</em><br>
     <!--
-    <em>Slide files: <code>/project/project_465000320/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
+    <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -78,7 +78,7 @@
     </td>
 </tr>
 <tr>
-    <td>10:30</td>
+    <td>15:00</td>
     <td><em>break (30 minutes)</em>
     </td>
 </tr>
@@ -90,8 +90,8 @@
     </ul>
     <em>Presenter: Alfio Lazzaro (HPE)</em><br>
     <!--
-    <em>Slide files: <code>/project/project_465000320/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
+    <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -148,11 +148,11 @@
 </tr>
 <tr>
     <td>12:00</td>
-    <td><em>lunch break (90 minutes)</em>
+    <td><em>lunch break (75 minutes)</em>
     </td>
 </tr>
 <tr>
-    <td>13:30</td>
+    <td>13:15</td>
     <td>Understanding Cray MPI on Slingshot, rank reordering and MPMD launch
     <ul>
         <li>High level overview of Cray MPI on Slingshot</li>
@@ -185,7 +185,7 @@
     </td>
 </tr>
 <tr>
-    <td>16:00</td>
+    <td>16:30</td>
     <td>LUMI support and LUMI documentation.
     <ul>
         <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
@@ -216,7 +216,7 @@
    </td>
 </tr>
 <tr>
-    <td>09:20</td>
+    <td>09:30</td>
     <td>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<br/>
     <em>Presenter: Thierry Braconnier (HPE)</em><br>
     </td>
@@ -262,7 +262,7 @@
     <!--
     <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
     <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
+    <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -354,13 +354,13 @@
     </td>
 </tr>
 <tr>
-    <td>3:30</td>
+    <td>13:30</td>
     <td>Introduction to AMD Omnitrace<br/>
     <em>Presenter: George Markomanolis (AMD)</em><br/>
     <!--
     <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
     <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
+    <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
     -->
     </td>
     </td>
@@ -377,7 +377,7 @@
     <!--
     <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
     <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
+    <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -393,18 +393,18 @@
 </tr>
 <tr>
     <td>15:30</td>
-    <td>ADD slot
-    </td>
-</tr>
-<tr>
-    <td>16:00</td>
-    <td>Optimization, tips & tricks<br/>
-    <em>Presenter: George Markomanolis (AMD)</em><br/>
+    <td>Best practices: GPU Optimization, tips & tricks / dem<br/>
+    <!-- <em>Presenter: George Markomanolis (AMD)</em><br/> -->
     <!--
     <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
     <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-    <em>Recording: <code>/project/project_465000320/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
+    <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
     -->
+    </td>
+</tr>
+<tr>
+    <td>16:30</td>
+    <td><b>Exercises</b>
     </td>
 </tr>
 <tr>
