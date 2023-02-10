@@ -20,10 +20,11 @@ In this section we discuss
         and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. 
     2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with an immature software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
-        and only one CPU socket, and another feature which is relatively new: a **fully cache-coherent unified memory**
+        and only one CPU socket, and another feature which is relatively new: the option to use a **coherent unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
         only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
-        for some USA pre-exascale systems, and of course in the Apple M1 but then without the NUMA character.
+        for some USA pre-exascale systems, and of course in Apple Silicon M-series but then without the NUMA character
+        (except maybe for the Ultra version that consists of two dies).
     3.  LUMI is also **inhomogeneous** because some nodes have zen2 processors while the two main compute partitions
         have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
         NVIDIA GPUs. 
@@ -47,8 +48,8 @@ In this section we discuss
     LUMI, and to work with restricted rights.** And in fact, LUMI User Support team members also have very limited additional
     rights on the machine compared to regular users or support people from the local organisations.
     LUST is currently 9 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
-    installation and support only... (I give this number because it was mentioned in a recent talk in an
-    EasyBuild user meeting.)
+    installation and support only... (I give this number because it was mentioned in a a talk in the
+    EasyBuild user meeting in 2022.)
 
 -   The Cray Programming Environment is also a **key part of LUMI** and the environment for which we get
     support from HPE Cray. It is however different from more traditional environments such as a typical
@@ -148,8 +149,9 @@ high performance from the interconnect. For example,
     libraries needs to be ported. 
 -   Binaries that do only contain NVIDIA code paths, even if the programming
     model is supported on AMD GPUs, will not run on LUMI. 
--   The final LUMI interconnect requires **libfabric**
-    using a specific provider for the NIC used on LUMI, so any software compiled with an MPI library that
+-   The LUMI interconnect requires **libfabric**
+    using a specific provider for the NIC used on LUMI, the so-called Cassini provider, 
+    so any software compiled with an MPI library that
     requires UCX, or any other distributed memory model build on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. 
 -   Even intro-node interprocess communication can already cause problems as there are three different kernel extensions
@@ -175,15 +177,14 @@ state in our policy that a LUMI user should be capable of installing their softw
 another support channel. We cannot install every single piece of often badly documented research-quality
 code that was never meant to be used by people who don't understand the code.
 
-Another soft compatibility problem that I did not yet mention is that software that **accesses hundreds
+Another soft compatibility problem that I did not yet mention is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
 data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
 also require to **containerize conda and Python installations**. We do offer a container-based wrapper
 that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the `cray-python` module. The link to the documentation of the tool that we call
+the Python provided by the `cray-python` module. On LUMI the tool is called
 [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/)
-but may by some from CSC also be known as Tykky is in the handout of the slides that you can get
-after the course.
+but it may by some from CSC also be known as Tykky.
 
 ### Organisation of the software in software stacks
 
@@ -200,15 +201,13 @@ on the next slide that are present right after login on LUMI.
 Next we have the **stacks called "LUMI"**. Each one corresponds to a **particular release of the HPE Cray
 Programming Environment**. It is the stack in which we install software using the that programming environment
 and mostly EasyBuild. **The Cray Programming Environment modules are still used, but they are accessed through
-a replacement for the PrgEnv modules that is managed by EasyBuild**. We have **tuned versions for the 4 types
+a replacement for the PrgEnv modules that is managed by EasyBuild**. We have **tuned versions for the 3 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
-LUMI-C compute nodes, zen 2 combined with NVIDIA GPUs for the visualisation nodes and zen3 + MI250X for
-the LUMI-G partition. There is also some support for the early access platform which has zen2 CPUs combined
-with MI100 GPUs but we don't pre-install software in there at the moment except for some build tools and
-some necessary tools for ROCm as these nodes are not meant to run codes on and as due to installation 
-restrictions we cannot yet use the GPU compilers with EasyBuild the way we should do that on the final system.
+LUMI-C compute nodes and zen3 + MI250X for
+the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
+zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.
 
-In the far future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
+In the distant future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.
 
@@ -448,8 +447,9 @@ At the moment we have to use `eb -S` or `eb --search` for that. So in our exampl
 ``` bash
 eb --search GROMACS
 ```
-This process is not optimal and will be improved in the future. We are developing a system that
-will instead give an overview of available EasyBuild recipes on the documentation web site.
+We now also have the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+which lists all software that we manage via EasyBuild and make available either preinstalled on
+the system or as an EasyBuild recipe for user installation.
 
 Now let's take the variant `GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb`. 
 This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
@@ -463,7 +463,7 @@ eb –r GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
-look for dependencies in a preset search path. The search for dependencies is not automatic
+look for dependencies in a preset search path. The installation of dependencies is not automatic
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.
 
@@ -584,7 +584,7 @@ you could manually put the downloaded installation files for licensed software.
 Moreover, EasyBuild also keeps **copies of all installed easconfig files in two locations**.
 
 1.  There is a **copy in `$EBU_USER_PREFIX/ebrepo_files`**. And in fact, EasyBuild will use this version
-    first if you try to re-install and did not delete this version first. This is also a policy
+    first if you try to re-install and did not delete this version first. This is a policy
     we set on LUMI which has **both its advantages and disadvantages**. The **advantage** is that it ensures
     that the **information that EasyBuild has about the installed application is compatible with what is
     in the module files**. But the **disadvantage** of course is that if you install an EasyConfig file
@@ -615,9 +615,6 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
 <figure markdown style="border: 1px solid #000">
   ![EasyBuild training](img/LUMI-1day-20230321-software/Dia34.png){ loading=lazy }
 </figure>
-
-Since there were a lot of registrations from local support team members, I want to dedicate one slide
-to them also.
 
 Pointers to all information about EasyBuild can be found on the EasyBuild web site 
 [easybuild.io](https://easybuild.io/). This

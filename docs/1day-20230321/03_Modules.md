@@ -535,15 +535,15 @@ due to another bug in the already old version of Lmod.
 You may have noticed in the above example that we don't show directories of module files
 in the overview (as is the case on most clusters) but descriptive texts about the module group.
 This is just one view on the module tree though, and it can be changed easily by loading a 
-versio of the `ModuleLabel` module.
+version of the `ModuleLabel` module.
 
 -   `ModuleLabel/label` produces the default view of the previous example
 -   `ModuleLabel/PEhierarchy` still uses descriptive texts but will show the whole 
-    module hierarchy of the HPE Cray Programming Enviornment.
+    module hierarchy of the HPE Cray Programming Environment.
 -   `ModuleLabel/system` does not use the descriptive texts but shows module directories instead.
 
 When using any kind of descriptive labels, Lmod can actually bundle module files from different 
-directories in a single categorie and this is used heavily when `ModuleLabel/label` is loaded 
+directories in a single category and this is used heavily when `ModuleLabel/label` is loaded 
 and to some extent also when `ModuleLabel/PEhierarchy` is loaded.
 
 It is rather hard to provide multiple colour schemes in Lmod, and as we do not know how your 
