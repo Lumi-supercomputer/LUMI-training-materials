@@ -11,6 +11,7 @@ In this part of the training, we cover:
 -   Advanced Lmod use to make the best out of the software stacks
 -   Creating your customised environment with EasyBuild, the tool that we use to install
     most software.
+-   Some remarks about using containers on LUMI.
 
 ## The software stacks on LUMI
 
@@ -27,10 +28,10 @@ In this part of the training, we cover:
         and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. 
     2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with an immature software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
-        and only one CPU socket, and another feature which is relatively new: a **fully cache-coherent unified memory**
+        and only one CPU socket, and another feature which is relatively new: the option to use a **coherent unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
         only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
-        for some USA pre-exascale systems, and of course in the Apple M1 but then without the NUMA character.
+        for some USA pre-exascale systems, and of course in Apple Silicon M-series but then without the NUMA character.
     3.  LUMI is also **inhomogeneous** because some nodes have zen2 processors while the two main compute partitions
         have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
         NVIDIA GPUs. 
@@ -54,8 +55,8 @@ In this part of the training, we cover:
     LUMI, and to work with restricted rights.** And in fact, LUMI User Support team members also have very limited additional
     rights on the machine compared to regular users or support people from the local organisations.
     LUST is currently 9 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
-    installation and support only... (I give this number because it was mentioned in a recent talk in an
-    EasyBuild user meeting.)
+    installation and support only... (I give this number because it was mentioned in a a talk in the
+    EasyBuild user meeting in 2022.)
 
 -   The Cray Programming Environment is also a **key part of LUMI** and the environment for which we get
     support from HPE Cray. It is however different from more traditional environments such as a typical
@@ -113,9 +114,10 @@ The whole setup of EasyBuild is done such that you can build on top of the centr
 and such that **your modules appear in your module view** without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
 for your project as we cannot automatically determine a suitable place. 
-**We have a pre-configured Spack installation also but do not do any package development in Spack ourselves.
+
+We have a **pre-configured Spack installation** also but **do not do any package development in Spack** ourselves.
 The setup is meant for users familiar with Spack who can also solve problems that occur on the road,
-but we already did the work of ensuring that Spack is correctly configured for the HPE Cray compilers.**
+but we already did the work of ensuring that Spack is correctly configured for the HPE Cray compilers.
 
 
 ### Software policies
@@ -157,8 +159,9 @@ high performance from the interconnect. For example,
     libraries needs to be ported. 
 -   Binaries that do only contain NVIDIA code paths, even if the programming
     model is supported on AMD GPUs, will not run on LUMI. 
--   The final LUMI interconnect requires **libfabric**
-    using a specific provider for the NIC used on LUMI, so any software compiled with an MPI library that
+-   The LUMI interconnect requires **libfabric**
+    using a specific provider for the NIC used on LUMI, the so-called Cassini provider, 
+    so any software compiled with an MPI library that
     requires UCX, or any other distributed memory model build on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. 
 -   Even intro-node interprocess communication can already cause problems as there are three different kernel extensions
@@ -184,15 +187,14 @@ state in our policy that a LUMI user should be capable of installing their softw
 another support channel. We cannot install every single piece of often badly documented research-quality
 code that was never meant to be used by people who don't understand the code.
 
-Another soft compatibility problem that has not yet been mentioned is that software that **accesses hundreds
+Another soft compatibility problem that has not yet been mentioned is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
 data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
 also require to **containerize conda and Python installations**. We do offer a container-based wrapper
 that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the `cray-python` module. The link to the documentation of the tool that we call
+the Python provided by the `cray-python` module. On LUMI the tool is called
 [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/)
-but may by some from CSC also be known as Tykky is in the handout of the slides that you can get
-after the course.
+but it may by some from CSC also be known as Tykky.
 
 ### Organisation of the software in software stacks
 
@@ -209,20 +211,18 @@ on the next slide that are present right after login on LUMI.
 Next we have the **stacks called "LUMI"**. Each one corresponds to a **particular release of the HPE Cray
 Programming Environment**. It is the stack in which we install software using the that programming environment
 and mostly EasyBuild. **The Cray Programming Environment modules are still used, but they are accessed through
-a replacement for the PrgEnv modules that is managed by EasyBuild**. We have **tuned versions for the 4 types
+a replacement for the PrgEnv modules that is managed by EasyBuild**. We have **tuned versions for the 3 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
-LUMI-C compute nodes, zen 2 combined with NVIDIA GPUs for the visualisation nodes and zen3 + MI250X for
-the LUMI-G partition. There is also some support for the early access platform which has zen2 CPUs combined
-with MI100 GPUs but we don't pre-install software in there at the moment except for some build tools and
-some necessary tools for ROCm as these nodes are not meant to run codes on and as due to installation 
-restrictions we cannot yet use the GPU compilers with EasyBuild the way we should do that on the final system.
+LUMI-C compute nodes and zen3 + MI250X for
+the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
+zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.
 
 We also provide the **spack** modules which provide some support to install software with [Spack](https://spack.io/). This stack is 
 meant for users who are very familiar with Spack and can deal with the problems Spack may throw at you. We have
 no intent to debug or modify Spack package files ourselves, but did an effort to configure Spack to use the
 compilers provided by the HPE Cray PE.
 
-In the far future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
+In the distant future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.
 
@@ -232,7 +232,7 @@ the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for 
 #### Bare environment and CrayEnv
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing the Cray PE: Bare and CrayEnv]](../img/LUMI-4day-20230214-software/Dia7.png){ loading=lazy }
+  ![Accessing the Cray PE: BAre and CrayEnv](../img/LUMI-4day-20230214-software/Dia7.png){ loading=lazy }
 </figure>
 
 Right after login you have a **very bare environment available with the Cray Programming Environment
@@ -307,6 +307,7 @@ you're using and more optimised binaries can be available. If for some reason yo
 same software on LUMI-C and on the login or large memory nodes and don't want two copies of locally
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.
+
 
 ## Lmod on LUMI
 
@@ -461,9 +462,9 @@ Currently the output contains a lot of irrelevant modules, basically all extensi
 on the system.
 
 What `module keyword` really does is search in the **module description and help** for the word that 
-you give as an argument. Try for instance `module keyword https` and you'll see two relevant tools,
-`cURL` and `wget`, two tools that can be used to download files to LUMI via several protocols in use
-on the internet.
+you give as an argument. Try for instance `module keyword quota` and you'll see two relevant modules,
+`lumi-workspaces` (which would actually show a depracation warning when you load the module)
+and `lumi-tools`.
 
 On LUMI **we do try to put enough information in the module files** to make this a suitable additional
 way to discover software that is already installed on the system, more so than in regular EasyBuild
@@ -474,7 +475,7 @@ installations.
     Try the following command:
 
     ```bash
-    module keyword https
+    module keyword quota
     ```
 
     <figure markdown style="border: 1px solid #000">
@@ -527,20 +528,37 @@ force-unload them with `module --force purge` or `module --force unload` for ind
 
     Note the very descriptive titles in the above screenshot.
 
+    The letter "D" next to a name denotes that this is the default version,
+    the letter "L" denotes that the module is loaded, but we'll come back to 
+    that later also.
+
+    (Skipping a screen in the output as ther eis nothing special)
+
     <figure markdown style="border: 1px solid #000">
       ![module av slide 2](../img/LUMI-4day-20230214-software/Dia29.png){ loading=lazy }
     </figure>
+
+    Note the two categories for the PE modules. The target modules get their own block.
 
     <figure markdown style="border: 1px solid #000">
       ![module av slide 3](../img/LUMI-4day-20230214-software/Dia30.png){ loading=lazy }
     </figure>
 
+    Here we see the modules for the software stack that we have just discussed.
+
     <figure markdown style="border: 1px solid #000">
       ![module av slide 4](../img/LUMI-4day-20230214-software/Dia31.png){ loading=lazy }
     </figure>
 
-    The letter "D" next to a name denotes that this is the default version,
-    the letter "L" denotes that the module is loaded.
+    And this screen shows the extensions of modules (like the CMake tool we've tried to locate
+    before)
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 4](../img/LUMI-4day-20230214-software/Dia32.png){ loading=lazy }
+    </figure>
+
+    At the end of the output we also get some information about the meaning of the 
+    letters used in the display.
 
     Try the following commands and carefully observe the output:
 
@@ -562,7 +580,7 @@ display style of the modules**.
     modules also but as `CrayEnv` is not just left untouched but reloaded instead, the load of `CrayEnv`
     will load a suitable set of target modules for the node you're on again. But any customisations that
     you did for cross-compiling will be lost. 
--    Similary in the LUMI stacks, as the `LUMI` module itself
+-   Similarly in the LUMI stacks, as the `LUMI` module itself
     is reloaded, it will also reload a partition module. However, that partition module might not be the 
     one that you had loaded but it will be the one that the LUMI module deems the best for the node you're
     on, and you may see some confusing messages that look like an error message but are not.
@@ -828,6 +846,7 @@ Consider, e.g., the easyconfig file `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-C
     and easyconfig for installation in `LUMI/22.08`.
 
     This part is not present for the SYSTEM toolchain
+
 4.  The final part, `-PLUMED-2.8.0-CPU`, is the version suffix and used to provide
     additional information and distinguish different builds with different options
     of the same package. It is specified in the `versionsuffix` parameter of the
@@ -869,7 +888,8 @@ something like
 You have to do this **before** loading the `LUMI` module as it is then already used to ensure that
 user modules are included in the module search path. You can do this in your `.bash_profile` or
 `.bashrc`. 
-This variable is not only **used by EasyBuild-user** to know where to install software, but also 
+This variable is not only used by the module that will load and configure EasyBuild
+(the **EasyBuild-user** module) to know where to install software, but also 
 by the `LUMI` - or actually **the `partition` - module to find software** so all users in your project
 who want to use the software should set that variable.
 
@@ -889,6 +909,10 @@ Cross-compilation which is installing software for a different partition than th
 working on does not always work since there is so much software around with installation scripts
 that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
 a different partition module than the one that is auto-loaded by the `LUMI` module.
+
+It is currently problematic for the GPU nodes as due to a misconfiguration of the system the ROCm 
+version is not the same on the login and GPU compute nodes, but that will hopefully be solved
+in the next update of the system.
 
 <figure markdown style="border: 1px solid #000">
   ![Step 2: Configure the envrionment - Demo](../img/LUMI-4day-20230214-software/Dia42.png){ loading=lazy }
@@ -910,8 +934,10 @@ At the moment we have to use `eb -S` or `eb --search` for that. So in our exampl
 ``` bash
 eb --search GROMACS
 ```
-This process is not optimal and will be improved in the future. We are developing a system that
-will instead give an overview of available EasyBuild recipes on the documentation web site.
+We now also have the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+which lists all software that we manage via EasyBuild and make available either preinstalled on
+the system or as an EasyBuild recipe for user installation.
+
 
 Now let's take the variant `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`. 
 This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
@@ -925,7 +951,7 @@ eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
-look for dependencies in a preset search path. The search for dependencies is not automatic
+look for dependencies in a preset search path. The installation of dependencies is not automatic
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.
 
@@ -1014,8 +1040,8 @@ Do this in the central stack and either you have to chose a different name or ri
 jobs as the software would become unavailable during the re-installation and also jobs may get
 confused if they all of a sudden find different binaries. However, have this in your own stack
 extension and you can update whenever it suits your project best or even not update at all if 
-you figure out that the problem we discovered has no influence on your work. OFten you also don't need
-to be an EasyBuild expert to adapt the build recipe to install, e.g., a slgithly different version
+you figure out that the problem we discovered has no influence on your work. Often you also don't need
+to be an EasyBuild expert to adapt the build recipe to install, e.g., a slightly different version
 of the package that better suits your needs.
 
 
@@ -1098,7 +1124,7 @@ in Rust.
 Moreover, EasyBuild also keeps **copies of all installed easconfig files in two locations**.
 
 1.  There is a **copy in `$EBU_USER_PREFIX/ebrepo_files`**. And in fact, EasyBuild will use this version
-    first if you try to re-install and did not delete this version first. This is also a policy
+    first if you try to re-install and did not delete this version first. This is a policy
     we set on LUMI which has **both its advantages and disadvantages**. The **advantage** is that it ensures
     that the **information that EasyBuild has about the installed application is compatible with what is
     in the module files**. But the **disadvantage** of course is that if you install an EasyConfig file
@@ -1150,8 +1176,9 @@ build or modify recipes. It sometimes also tells why we did things in a particul
   ![EasyBuild training](../img/LUMI-4day-20230214-software/Dia59.png){ loading=lazy }
 </figure>
 
-Since there were a lot of registrations from local support team members, I want to dedicate one slide
-to them also.
+I also want to give some pointers to more information in case you want to learn a lot more
+about, e.g., developing support for your code in EasyBuild, or for support people who want
+to adapt our EasyConfigs for users requesting a specific configuration of a package.
 
 Pointers to all information about EasyBuild can be found on the EasyBuild web site 
 [easybuild.io](https://easybuild.io/). This
@@ -1213,7 +1240,7 @@ But full portability is a much greater myth. Containers are really only guarante
 They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
 in the container, but that is where it stops. Containers are usually build for a particular CPU architecture and GPU
 architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
-there is in fact more: containers talk to other hardware to, and on an HPC system the first piece of hardware that comes
+there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
 to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
 kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
 TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
@@ -1278,7 +1305,7 @@ to run the container which cannot be given safely to regular users of the system
 Singularity is currently the only supported container runtime and is available on the login nodes and
 the compute nodes. It is a system command that is installed with the OS, so no module has to be loaded
 to enable it. We can also offer only a single version of singularity or its close cousin AppTainer 
-as singularity/AppTainer simply don't support running multiple versions, and currently the version that
+as singularity/AppTainer simply don't really like running multiple versions next to one another, and currently the version that
 we offer is determined by what is offered by the OS.
 
 To work with containers on LUMI you will either need to pull the container from a container registry,
@@ -1489,10 +1516,8 @@ run
 eb --search singularity-bindings
 ```
 
-Soon you'll also be able to find more information on the design of this module
-and the contents of the EasyConfig files in the software library documentation
-that we are developing and that will be made available via the
-["Software" section in the LUMI documentation](https://docs.lumi-supercomputer.eu/software/).
+You can also check the 
+[page for the module in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-bindings/).
 
 
 <figure markdown style="border: 1px solid #000">
@@ -1627,11 +1652,11 @@ we want to repeat the limitations:
     In particular a generic container may not offer sufficiently good support for the 
     SlingShot 11 interconnect on LUMI which requires OFI (libfabric) with the right 
     network provider (the so-called Cassini provider) for optimal performance.
-    The software in teh container may fall back to TCP sockets resulting in poor 
+    The software in the container may fall back to TCP sockets resulting in poor 
     performance and scalability for communication-heavy programs.
 
-    For containers with an MPI implementation that follows the MPICH aBI the solution
-    is often to tell it to use the Cray MPICH libraries fro the system instead.
+    For containers with an MPI implementation that follows the MPICH ABI the solution
+    is often to tell it to use the Cray MPICH libraries from the system instead.
 
 *   Building containers is currently not supported on LUMI due to security concerns.
 
