@@ -409,3 +409,69 @@ These are the notes from the LUMI training,
     - `make -f Makefile.allcompilers`
     - It won't build binaries that are already there.
 
+
+### Cray Scientific Libraries
+
+*No questions during the session.*
+
+#### Exercises
+
+!!! Info
+    1. Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
+    2. Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or the pdf at `doc/ProgrammingModelExamples.pdf`.
+    3. To set the necessary environment variables, source `lumi_c.sh` with  `source /project/project_465000388/exercises/HPE/lumi_c.sh` (or `lumi_g.sh` equivalent for GPU nodes)
+
+    4. Directory `libsci_acc`: Test with LibSci_ACC, check the different interfaces and environment variables
+
+74. Just to clarify? for the 3rd exercise, to copy from /project/project_465000388/exercises/HPE/libsci_acc ? The file called "ProgrammingModels.tar" does not contain dir "libsci_acc"
+    -   Yes, this is another example. Need to copy it.
+    -   The slide being shared at the moment is tying to convey that these are different directories.
+
+75. This is rather a compilers/packages question. I compile the software using cmake on the login node using ftn (Cray Fortran : Version 14.0.2). In the submission script I do "module load CrayEnv" and the following is printed on the *.e file: `Lmod is automatically replacing "craype-x86-rome" with "craype-x86-milan"`. My question is if the `milan` architecture was indeed taken into account during compilation, since this was done on the login node 
+    -   If you didn't load the `craype-x86-milan` module on the login node before compilation, then your binary is optimized for Rome. See the slides of the morning session about cross-compilation for more information.
+    -   We'll discuss `CrayEnv` tomorrow. It always loads the most suitable target module for the node on which you execute the load (or the `module purge` which causes an automatic reload), though there is currently a bug that manifests on the `dev-g` partition (basically because there were some nodes added to the system that I did not know about so did not adapt the code). So to compile with zen3 optimizations on the login nodes you'd still have to make sure `craype-x86-milan` is loaded as that is not what `CrayEnv` will do for you.
+    -   Also note that cross-compilation does not always work as some programs come with configuration scripts that think it is wise to add a `-march=native`(or `-xHost` for Intel) to the command line which may overwrite options that the Cray wrapper passes to cross-compile.
+        -   I see, thanks. So would it make sense to compile on a compute nodes to make sure everything is setup correctly without me having to load the appropriate modules?
+    -   Yes, it is always safer to do so. Though so far for our software stack we do compile on a login node. For most programs so far this seems OK. It is most often "research code quality" applications that I have trouble with.
+
+
+### Q&A day 1
+
+76. I have a program writting with cuda module, for optimization purpose and getting it run on AMD GPU on LUMI. Based on what I learned today, first, I need to convert my code with hip (or something else?), then compile it with proper enviroment, am I right?
+     -   AMD presentations will cover the hipification tools that can be used for this.
+
+
+77. Not a question but I am working on Python and so far using Pytorch Lightning works, not sure if optimized though, so it's nice to see that we have some abstraction without fiddling too much with the code.
+      -   https://docs.amd.com/bundle/ROCm-Deep-Learning-Guide-v5.3/page/Frameworks_Installation.html. The relevant bit is how to instruct pip to get the right wheels: `--extra-index-url https://download.pytorch.org/whl/nightly/rocm5.2/`
+          -   Yup, it is also important to do some `export` to use more than 1 GPU. CSC has a modules for pytorch that sets it right. https://docs.lumi-supercomputer.eu/software/local/csc/
+
+78. Are the python libraries _global_ or are libraries supposed to be local venv
+    -   Users should manage their libraries but can ellect a given python instalation to use it directly or to create virtual environments. Special care should be given to not have many files in the virtual environments. More details on what users can do will be explained tomorrow.
+
+79. Are tools to synchronize between local and remote supported and advisable to use? (e.g. Synchting) Can a user continously run a single-core job to keep alive the server?
+    -   No. That is a waste of your billing units and you should also not do it on the login nodes. Use a more clever way of synching that doesn't need to be running all the time.
+        -   Any suggestions for a cleverer way?
+    -   It depends what it is for. E.g., my development directories are synchronised but for that I simply use Eclipse as the IDE. 
+    -   check VS code remote plugin
+    -   (Kurt) That one is for remote editing, you still have to synch via another plugin or in another way. I did notice the visual studio remote can be a bit unreliable on a high latency connection so take that into account.
+    -   And of course I just use rsync from time to time but start it only when I need it.
+
+80. Is there a list of essential modules that we should have to run jobs both for CPU and GPU particions? I accidentaly purged a lot of them and now is too difficult to add them 1-1.
+    -   It depends on the PrgEnv. You can use a script to put your modules so that you can source it. CPU is out-of-the-box. For GPU you need: `module load craype-accel-amd-gfx90a rocm`
+    -   We'll talk about another solution also that is implemented on LUMI.
+
+81. If you require a specific name for mpi compilation (e.g. mpifort), do you recommend using alias or update-alternatives to change the name? 
+    -   If you can set an alias it implies you can change the command I think? If this was hardcoded I would write a wrapper script in your path.
+    -   (Kurt) The wrapper script might be the better alternative as you need to do something in a bash script to be able to use aliases. By default they are not available in shell scripts.
+    
+
+83. About VS Code, are you aware of any way that allows it to run on compute nodes and not on the login node?
+    -   We have not tested this yet. 
+    -   There should be a way to just start vscoded server and use it via a web browser. But I've never tried it, and you'd still need to create an ssh tunnel from the machine on which you run the browser to a login node which then forwards all data to the compute node (the way one would also use the `lumi-vnc` module to contact a VNC server) 
+
+84. Will SSHing into allocated compute nodes be allowed?
+    -   Not clear if they will ever allow it. It does make it more difficult to clean up a node. So far the only solution is to go to the node with an interactive srun, which sometimes needs an option to overlap with tasks that are already on the node.
+        -   Precisely, rocm-smi or some other monitoring tool (e.g. htop).
+
+
+

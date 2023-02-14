@@ -13,9 +13,7 @@
     <td>09:00&nbsp;&nbsp;</td>
     <td>Welcome and introduction<br>
     <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)(</em>
-    <!--
     <br><em>Recording: <code>/project/project_465000388/recordings/00_Introduction.mp4</code> on LUMI only.</em>
-    -->
     </td>
 </tr>
 <tr>
@@ -23,9 +21,7 @@
     <td>HPE Cray EX architecture<br/>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <em>Slide files: <code>/project/project_465000388/slides/HPE/01_EX_Architecture.pdf</code> on LUMI only.</em>
-    <!--
     <br><em>Recording: <code>/project/project_465000388/recordings/01_Cray_EX_Architecture.mp4</code> on LUMI only.</em>
-    -->
     </td>
 </tr>
 <tr>
@@ -33,9 +29,7 @@
     <td>Programming Environment and Modules<br/>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <em>Slide files: <code>/project/project_465000388/slides/HPE/02_PE_and_Modules.pdf</code> on LUMI only.</em>
-    <!--
     <br><em>Recording: <code>/project/project_465000388/recordings/02_Programming_Environment_and_Modules.mp4</code> on LUMI only.</em>
-    -->
     </td>
 </tr>
 <tr>
@@ -51,10 +45,7 @@
     </ul>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <em>Slide file: <code>/project/project_465000388/slides/HPE/03_Running_Applications_Slurm.pdf</code> on LUMI only.</em>
-    <!--
-    <br>
-    <em>Recording: <code>/project/project_465000388/recordings/03_Running_Applications.mp4</code> on LUMI only.</em>
-    -->
+    <br><em>Recording: <code>/project/project_465000388/recordings/03_Running_Applications.mp4</code> on LUMI only.</em>
     </td>
 </tr>
 <tr>
@@ -111,12 +102,12 @@
     </td>
 </tr>
 <tr>
-    <td>16:30</td>
+    <td>16:00</td>
     <td><b>Exercises</b>
     </td>
 </tr>
 <tr>
-    <td>17:00</td>
+    <td>16:45</td>
     <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
     </td>
 </tr>
