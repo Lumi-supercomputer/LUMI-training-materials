@@ -1,0 +1,247 @@
+# Notes from the HedgeDoc page
+
+These are the notes from the LUMI training,
+1114-17.02.2023, 9:00--17:30 (CET) on Zoom.
+
+## Day 1
+
+
+### Other questions regarding organisation or LUMI in general
+
+1. I managed to log onto Lumi, but after a few minutes everything "freezes" and I have to use a different terminal to log in again: is it normal? That already happened several times since this morning, even using different login nodes).
+    - It depends. If it freezes forever than it may be your terminal application or unstable connection. Shorter freezes that can still last 30 seconds or more are currently unfortunately a common problem on LUMI and caused by file system issues for which the technicians still haven't found a proper solution. There's only two of the four login nodes operating at the moment I think (one down for repair and one crashed yesterday evening and is not up again yet, at least not when I checked half an hour ago) the load on the login nodes is also a bit higher than usual.
+        - uan02 seems to work a bit better
+
+3. Will we find material in the /scratch/project_465000388 folder?
+    - The location of the files will be posted on here and later appear in https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/schedule/
+
+4. Is LUMI up? I am not able to connect at all.
+     - One of the login nodes has crashed but is unfortunately still in lumi.csc.fi. Try lumi-uan01.csc.fi or lumi-uan02.csc.fi.
+
+5. Is LUMI planning to introduce MFA at some point in the near future?
+    -   No such plans for ssh so far, it is already complicated enough and we already have enough "connot log on tickets"... But identity providers may require it independently of LUMI when you log in to MyAccessID.
+
+6. I read about a Lumi partition for "visualization", with Nvidia GPUs, is that meant for instance to use Jupyter notebooks?
+    -   That service will be offered later via Open OnDemand. No date set yet, but hopefully before the summer. The nodes have only just become available and still need to be set up. Be aware though that you have to use Jupyter in a proper way or other people can break into your account via Jupyter, and that it is not meant for large amounts of interactive work, but to offer an interface to prepare batch jobs that you can then launch to the cluster. LUMI-G is the most important part of the LUMI investment so it is only normal that getting that partition working properly has the highest priority.
+        -   That makes perfect sense
+        -   Looking forward to it
+
+
+### Introduction to HPE Cray Hardware and Programming Environment
+
+11. Once a job starts on a particular node, can we get direct access to this node (I mean while the job is running, can we interact with it, for monitoring purposes for example)?
+    -   https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/
+    -   See the sessions on Slurm. Currently only with `srun`, not with `ssh`, as `srun` is the only command that can guarantee your session would end up in the CPU sets of your job.
+
+
+12. Why was LUSTRE chosen as the FileSystem? What others were considered?
+    -   Almost all really big clusters run Lustre. Spectrum Scale is very expensive and BeeGFS probably doesn't have the maturity for such a cluster. And it is actually not a choice of CSC but a choice made by vendors when answering the tender. HPE Cray only offers Lustre on clusters the size of LUMI, with their own storage system which is actually a beautiful design.
+    -   There is an ongoing discussion in the supercomputing community whether the whole concept of a global parallel file system will work in the future. There might be a scale, when it simply does not work any longer.
+    -   I agree. And it is part of the reason why the main parallel file system is split in four. But there is currently no other affordable and sufficiently scalable technology that can also run on affordable hardware. I know a flash based technology that claims to scale better, but just the hardware cost would be 10 times the hardware cost of the current main storage. There is a reason why we bill storage on the flash file system at ten times the rate of the disk based storage, as that is also the price difference of the system. And HPE is working on local buffers that are rumoured to be used in El Capitan, but even that is still a system that integrates with Lustre. Google for "Rabbit storage HPE" or something like that.
+
+13. Can you use MPI MPMD to run one program on LUMI-C and another on LUMI-G including communication between the two programs?
+    -   Yes, it is possible, but not so well tested yet. We are interested in your experiences if you try this!
+        There is a known problem with the scheduler if you do this across partitions though. In trying to make life easier for "basic" users a decision was taken that makes MPMD more difficult. So the LUMI-C + LUMI-G scenario is currently difficult basically because those jobs have difficulties getting scheduled.
+        -    That's too bad. Are there plans to improve it?
+    -   If you can convince the sysadmins and technical responsible of the project... It would mean that every user has to change the way they work with LUMI so I'm afraid it is rather unlikely and will require a lot of discussion. I'm in favour though as this is also the model EuroHPC promotes via the DEEP series of projects.
+        -   Indeed and it is one of the advantages of having two or more separate partitions.
+    -   If you look at the EuroHPC supercomputers, they are all designed with different specialised partitions. The problem is probably that a select group of researchers and compute centres directly involved in the projects that explored this design are very aware of this but many other centres or in the case of LUMI also other groups involved in the decision process on scheduler policies are not enough aware of this way of designing applications. We do see it used by climate scientists already with codes where simulation, I/O and in-situ visualisation are collaborating but different programs, but I'm only aware of one project which asked this for LUMI-C and LUMI-G so my answer is based on what the technical responsible of the LUMI project answered about the problems that can be expected.
+        -   Ok. Thanks alot for the answers. I will try it in the near future so perhaps you will see another request soon :) In my case it is for multiscale molecular dynamics simulations (computational chemistry).
+    -   I've added the request to the items to be discussed with sysadmins and technical responsibles of the project.
+        -   Thanks!
+
+14. Is there any difference between Trento and Milan that the user should care about?
+    - The only difference I know is the link to the GPUs. From the ISA point-of-view they are the same.
+    - The main difference seems to be in the I/O die as now all 128 lanes coming out of the chip support xGNI/Infinity Fabric rather than only 64 of them while the other 64 only supported PCIe. I wouldn't expect much more changes as this is a really low production part, only used in HPE Cray systems with MI250x.
+
+15. Is it possible to use RStudio Server (for interactive programming with R) on LUMI (probably as a singularity container)?
+    -   Singularity is installed, so if you have a container, it should run.
+    -   It might also come in Open OnDemand, a service that is still under development, but in that case it might be more to simply prepare data for a job that would then be launched or to postprocess data. 
+
+16. When will be the recordings available?
+    -   Some days after the course. We don't have a pipeline yet to upload them immediately after the training.
+    -   It takes some postprocessing and this requires time. We are all busy with the course so this is basically evening work and work for after the course. The place where they are stored will be announced in https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/schedule/
+
+17. It seems that the On Demand service will provide things like Rstudio, Jupyter, etc. but most users do not need the "basic" Rstudio or Jupyter but a lot of various packages with them: how will that be managed?
+    -   Not clear as we don't have the personpower to install everything for everybody so we focus on the main components that have a lot of users. I guess local support teams will have to develop containers that we can then fit in the setup. 
+        -   Will this On Demand service allow users to run their own containers with all they need inside? (because nobody really uses bare Jupyter or Rstudio, do they?)
+    -   We cannot answer these questions yet as the service is not being set up by us but offered by one of the LUMI partners (in this case CSC) who will do the main setup.  
+
+18. What is the typical daily KWh of LUMI?
+    -   It has rarely run at full load I think but from what I remember its design power is around 6 MW.
+
+19. Is there a way for users to get accurate figures about the actual electrical power consumption of particular jobs, on CPUs
+    -   Not at the moment and I doubt this will appear soon. It is also largely impossible as measurements are on the node level so it doesn't make sense for shared nodes. And on exclusive nodes you only get data for the node as a whole, so if you use only one core you'd likely still see 80W or 100W basically because of all the power consumed by the I/O die and network interface, even wehn idle.
+        -   even at that level electrical consumption information would be useful, to compare several simulations, etc.
+    -   I don't know what your experiences are with it, but I have used it on one PRACE cluster and the results were totally worthless as a comparison as there was too much background power consumption. So I don't think this has a high level of priority for LUMI. Profiling an application and getting an idea of how well it uses the cache hierarhcy and how much bandwidth it requires to memory would be a much better comparison. But unfortunately even that is limited on LUMI at the moment I believe. Hardware counter monitoring by users had to be turned off due to security problems in the Linux kernel.
+       -   I was thinking about comparisons between a single run on Lumi using thousands of CPUs vs. a similar run on a smaller machine with less CPUs during a longer time
+    -   I hope you realise how much power is consumed by, e.g., the network? Every switch blade in LUMI actually has a power consumption of up to 250W (and is therefore also water cooled), about as much as a processor socket, so any measurement would still have a very large error margin. And in fact, the answer is obvious. The run wil less CPUs on a smaller cluster will always consume less assuming the cluster has a similar design with respect to efficiency, as with more CPUs for the same problem you always loose parallel efficiency and as the bigger the network becomes the more power you consume. The latter is also nicely shown in the Green500 list, You'll see there bunches of similar machines together with the smaller one always on top since the network power is less. Which is whey the Frontier TDS (which is not Frontier but just its test system) is in that list ahead of Adastra, Frontier itself and LUMI even though these are all systems with the same design. I guess the reason why Frontier is above LUMI in that list is probably because they seemed to have access to a different version of some software for their Top500 run as they also get better scalability than LUMI despite using the same node and network design.
+
+
+20. Is see that there are plans for a Container Orchestration Platform - LUMI-K. What will be the purpose of this partition?
+
+    -   It will likely never appear due to lack of personpower to implement the service. The idea was to have a platform for microservices (the Galaxy's etc. of this world)
+
+21. What is the average waiting time until a SLURM job get submitted to LUMI [I understand this may vary depeding on the requested RAM/time/etc, but I mean is it a matter of hours or days...]? How the priority of jobs is determined?
+    -   Generally speaking, LUMI, like many HPC clusters, is optimized for throughput and not short waiting times. It is not really meant for "interactive" use like this. That being said, there are special queues for short interactive jobs and debugging, where the waiting time is short, but you cannot run large jobs there.
+    -   We don't know ourselves what goes in the priority system. Currently the waiting time is often very low but that will change when LUMI becomes used a lot more.
+    -   The maximum walltime in the standard queue is 2 days, meaning that if your job has top priority (for example, if you have run very little in your project), it will start within 2 days. It will often be a lot faster than that.
+        -   Is it possible to have walltime more than 2 days for specific jobs expected to need more time?
+            -   Unfortunately not. You have to use so-called "checkpointing", i.e. saving intermediate results to disk, so that your job can be restarted. Even if you have a lot of data in RAM, this should be possible to do using e.g. flash file system. Also given the general instability seen on LUMI now, it is not advisble to try to run very long jobs, hardware may break... This is not necessarily a "fault" in the LUMI design, as clusters grow larger, with many components, some nodes in your jobs will eventually fail if you run e.g. a 1000-node job.
+            -   LUMI is meant for scalable applications. Also on big clusters you can expect a lot of failures so it is not wise to have long running jobs that you cannot restart. Longer jobs also make maintenance difficult. And they lead to monopolisation of resources by a single user.
+        -   is it possible to request an extension for already running job, if it is expected to be finished in longer time?
+            -   No.
+
+22. Is it possible to provide some hints on the role of containers and its possible role in LUMI ?
+    -   We will discuss containers tomorrow. But we expect more and more workloads to use containers. But be aware that containers need to be optimized/adapted to run efficiently (or at all) on LUMI. Usually, MPI is the problem.
+
+23. When will GCC 12 become available on LUMI?
+    -   In a future version of the Cray programming environment. We do not know the exact date yet. Which special feature of GCC 12 do you need?
+        -   We need it just because it makes the installation of our software dependencies, especially ExaTensor, much easier. We have recently HIPified this but it's not easy to tune for the new supercomputer https://github.com/ORNL-QCI/ExaTENSOR (distributed tensor library)
+    -   There is a chance that the CPE 23.02 will be installed during the next maintenance period as it contains some patches that we really need in other compilers also, and that one contains 12.2. The next maintenance period is currently expected in March but may need to shift if the software contained in it turns out to be too immature.
+
+25. Which visualization software will be available on the nvidia-visualization nodes? ParaView? VisIT? COVISE? VISTLE?
+    -   Partly based on user demand and partly based on what other support organisations also contribute as we are too small a team to do everything for everybody. The whole LUMI project is set up with the idea that all individual countries also contribute to support. More info about that in a presentation tomorrow afternoon. Just remember the visualisation team at HLRS is as big as the whole LUMI User Support Team so we cannot do miracles. We already have a ParaVeiwe server build recipe with software rendering so I guess you can expect that one to be adapted.
+
+26. Looking at the software list, is distributed computing/ shared computing supported/ have been tested? https://en.wikipedia.org/wiki/Folding%40home
+    -   It would normally not make sense to use LUMI for workloads which could run in a distributed setup, like e.g. Folding at Home. The whole point with a supercomputer system like LUMI is to have a very fast network that connects the different servers in the system.
+    -   LUMI is in the first place a capability computing system, build to run jobs that require lots of compute power with very low latency and very high bandwidth between the processing elements to be able to scale applications. Using it for stuff that could run on simple servers like Folding@Home that can do with much cheaper hardware is a waste of money.
+
+27. Regarding Python: What do I have to consider to run Python code in an optimised way? We have heard about cray-python before.
+    -   See tomorrow, and some other presentations that may mention cray-python which is really mostly a normal Python with some pre-installed packages carefully linked to optimised math libraries from Cray. The bigger problem is the way Python uses the file system but that will be discussed tomorrow afternoon.
+    -   Please note that we hope to include more content related to Python in future (HPE) presentations.
+
+28. On Lumi-G is there Tensorflow and Pytorch available?
+    -   Not preinstalled as there are really too many combinations with other Python packages that users may want and as due to the setup of LUMI there is currently even only some GPU software that we can install properly but you can use containers or download wheels yourself and there is actually info on how to run it in the docs.
+    -   Again, available software is discussed in its own presentation tomorrow afternoon.
+    -   TF and PyTorch are available in the CSC local software collection https://docs.lumi-supercomputer.eu/software/local/csc/ (*not* maintained/supported by LUST)
+    
+29. Which ROCm version is the "most" compatible with what is on Lumi-G?
+     -   The only ones that we can truly support are the ones that come with the Cray PE (so not the 5.2.5 and 5.3.3). HPE Cray tested the version of the software that is on LUMI with ROCm 5.0, 5.1 and 5.2. The driver should be recent enough to run 5.3.x but no guarantee that it will work together with, e.g., Cray MPICH (though it seems to work in the testing we have done so far but that can never be exhaustive)
+    
+
+30. Why for some modules (e.g. python) there are several options with the same version number (3.9.12-gcc-n7, 3.9.12-gcc-v4, etc.). Are there any differences? How could we tell?
+    -   The modules with the "funny names" in the end "-n7", "-v4" are generated by Spack. These are shortened hash codes identifying the version. You will normally not see them unless you load the Spack module. You will have to check the complete Spack "spec" of the module to determine exactly how they were built. You can use the command `spack find -lv python`, for example.
+    - And for those installed through EasyBuild (which have things like cpeGNU-22.08 etc. in their name): see tomorrow afternoon.
+        - I checked and they are exactly the same :/.
+
+31. Nob question: I'm confused on what is PrgEnv and modules such as PerfTools. What is the difference between them?
+    - PrgEnv sets modules for a given env (i.e. compiler base: gnu, amd, aocc, cray). This is the entry point of the Programming Environment (PE). Given that, all other modules will be set to that PE. Therefore, you can have PrgEnv-cray and then perftools module will be set for the cray environment. We discuss more on the next lectures (and hands-on).
+    - There are separate presentations on all that is in perftools coming over the next days.
+
+32. Follow up question: I'm interested in working with AMD developement tools. How do I set my PrgEnv to use the AMD compilers and compatible libs?
+    -   We will discuss that in the Compiler session. But yes, you can use PrgEnv-amd for that (if you want GPU support) or PrgEnv-aocc (CPU support only). Just do `module swap PrgEnv-cray PrgEnv-amd`. More on the next lectures.
+    -   KL: No need for `module swap` on LUMI as Lmod is configured with auto-swap. So `module load PrgEnv-amd` would also do.
+
+34. What is the minimal environment I have to load to run a singularity container on Lumi-G (with GPUs mainly)?
+    -   https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/container-jobs/ 
+    -   Depends on what part of the environment is already in the container...
+        -   Assuming it is an "official" rocm-tensorflow image (so with the drivers, python, etc), which Lumi modules do I need to load?
+        -   We only have a longer description for PyTorch, right now: https://docs.lumi-supercomputer.eu/software/packages/pytorch/
+    -   Very likely none at all as you then only need singularity which is installed in the OS. Unless you need the RCCL plugin for better communication. It should not be that different for Tensorflow as it is for PyTorch.
+
+35. Is the environment firewall set as DENY for all outgoing (internet) TCP. i guess reverse proxy is not recommended
+    ```
+    ping  google.com
+    PING google.com (142.250.179.174) 56(84) bytes of data 
+    ``` 
+    ..hangs
+
+    -   Internet access from the compute nodes should be enabled soon if not enabled yet. Some nodes might still need a reboot for that.
+    -   Ping is never a good test as that is blocked on many systems nowadays.
+
+
+### First steps for running on Cray EX Hardware
+
+36. Is that possible to change cpu numbers per task in one slurm script to optimize the CPU utilization?
+    -   You mean different number of CPUs for each task, e.g. first task 2 cores, second task 8 cpus? 
+        -   Yes, exactly, and these tasks are running in order
+    -   You can request the total number of tasks and then start the individual programs with `srun -n N`
+
+37. When I execute `sinfo`, I get almost 40 lines of output. For example, I see 20 lines that start with `standard-g`. What is the meaning of that?
+    -   use `sinfo -s` or pipe it through `less` or `head`
+    -   `sinfo` reports a line for each status of the nodes, e.g. standard-g for drained nodes, idle, resv... (check the 5th column). `man sinfo` for more details.
+
+38. Is it possible to pass arguments to #SBATCH parameters in the jobscript?(not possible with PBS e.g.)
+    -   I am not sure that I understand what you mean, but if it is what I think the answer is no. But instead of using #SBATCH lines you can also pass those settings via environment variables or via command line parameters. Typing `man sbatch` may bring you quickly to the manual page of `sbatch` if you need more information (for me it is the first hit but that is probably because I've used it soo often). 
+        -   environment variables would work fine I guess, thanks
+
+39. Sometimes `srun` knows what you asked for (#SBATCH) and then it is enough to just run `srun` without, e.g., the `-n` option. Is that not the case on LUMI?
+    -   It is the case on LUMI also. 
+    -   There are some defaults but it is always better to be explicit in your job script.
+
+40. Sometimes I need to download large satellite images (~200 GB), it only use one CPU in login node, however, considering the I/O issues recently, should I move downloading in compute node or can I continue in login node?
+
+    -   The I/O problem to the outside world was a defective cable and has been repaired. 
+    -   It might be better to chose for a push strategy to move data onto LUMI rather than a pull strategy from LUMI. Soon there will be the object file system also which will likely be the prefered way to use as an intermediate for large files.
+    -   Given the slow speeds of single stream downloads/uploads from and to LUMI doing this in a compute job seems like a waste of billing units and it won't help with the reliability problem.
+
+41. is --gres per node or total number of GPUs?
+    -   per each node
+
+42. I think it was mentioned but I didn't catch if all jobs get exclusive node access, i.e., `--exclusive`? Ok, it was just answered. Since it is not exclusive by default, I guess one should also specify memory?
+    -   It depends on the partition, see https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/
+
+43. Is it possible to see the std/err output of the running batch job?
+    -   each job will dump a file for stdout and a file for stderr. Just answered in the presentation.
+        -   But I mean when job is still running
+    - Yes. There is some buffering so output is not always immediate but it is not stored elsewhere first and only copied to your account at the end of the job as on some other systems.
+        -   perfect, thanks
+        -   Is it possible to define the size of that buffer, to minimise the time it takes for the contents of the stdout/stderr files to be updated?
+    - Yes, there is an option to activate unbuffered output with srun. `srun --unbuffered ..`. But this in not adviced as it increases the load on the file system if your program does lots of small writes.
+        -   OK, thank you.
+
+#### Excise setup 
+!!! info
+    Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
+    Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or better transfer the pdf to your local machine with `scp` (run it from your local machine).
+    To set the necessary environment variables, source `lumi_c.sh` with  `source /project/project_465000388/exercises/HPE/lumi_c.sh` (or `lumi_g.sh` equivalent for GPU nodes)
+
+50. Should we copy the exercise to the scratch directory?
+    -   I'd suggest copying to your home directory, and if you would use the scratch of project_465000388 then keep in mind that there are many people in that project so create a directory with your login name. But doing this in you home directory will give you more privacy.
+
+
+52. Is there a scratch area ? Or should run in home ? (bit slow at times)
+
+    -   scratch, project and home are really on the same four file systems so there is no speed difference between them, What differs is the policy: Number of files allowed, maximum capacity allowed, how long does data remain before it is cleaned automatically, ... Yes, we know we have file system problems and that sometimes the file systems are slow and we do not yet know to which extent this is caused by hardware problems that are not yet discovered, by software problems (for example with VASP or simply in the file system software) or simply by users abusing the file systems and causing a slowdown for everybody. It is very likely that there is more than one factor that plays a role.
+
+53. I still failed to get my account of my new csc account (I had an old csc account). When I applied it via MyAccessID, it prompted that "The level of assurance provided by your home organization for you does not meet the required level when logging in to the service. From March 1, 2023, you will not be able to access the service."
+    -   Just ignore that. It is just a warning about future changes in the background.
+    -   So what I need is just to fill in the registration? It needs the project number 465000388 and project manager email, what should I fill in for the project manager email?
+    -   I link MyAccessID with my csc account now, but the project 4659000388 is not shown on the list of projects.
+
+54. sbatch: error: Batch job submission failed: Requested node configuration is not available
+    from sbatch pi.slurm
+    -   Have you run `source lumi_c.sh`?
+    -   no, sorry, did lumi_g
+    -   Is there a job script for lumi_g trial ? 
+        -   In the next lectures, but yes, you can use one of the GPU examples or adjust the existing job launcher (this is pi_acc.slurm)
+        -   okay, but for now lumi_c is intended for ALL scripts ( without adjusting anything) ? Then I do that.
+        -   but also with source lumi_c.sh + make clean + make and sbatch pi.slurm same error for me
+    -   yes, standard works; thanks
+    -   I have got the same error, although I sourced lumi_c. Do I need to fill something into the job account area within the script?
+        -   Could you check you have the right partition in the file? I've changed the scripts, so you maybe using an old version?
+        -   May I ask you, what you entered for these options? For SBATCH -p I am not sure what to fill in. 
+            -   `standard` or `standard-g`. Please check the lumi_g.sh and lumi_c.sh for the updated version.
+        -   Thank you! That helped me! I am new in this area, so it is still a bit confusing, but now I get a clue.
+
+55. How to compile pi_hip (in C)? Tried make clean & source lumi_g.sh & make but that fails
+    -   Use source ../setup_modules/setup_LUMI-G.sh (also change in job submission script) and check loaded modules:
+        ```
+          1) libfabric/1.15.0.0       4) xpmem/2.4.4-2.3_9.1__gff0e1d9.shasta   7) cray-dsmml/0.2.2       10) PrgEnv-cray/8.3.3      13) init-lumi/0.1           (S)  16) rocm/5.0.2
+          2) craype-network-ofi       5) cce/14.0.2                             8) cray-mpich/8.1.18      11) ModuleLabel/label (S)  14) craype-x86-trento
+          3) perftools-base/22.06.0   6) craype/2.7.17                          9) cray-libsci/22.08.1.1  12) lumi-tools/23.01  (S)  15) craype-accel-amd-gfx90a
+        ```
+
+
+57. I managed to Unpack it with `tar xf ProgrammingModels.tar`, but where are lumi_g.sh and lumi_c.sh?
+    -   It is in the main directory (`/projappl/project_465000388/exercises/HPE/`) since it is common to all exercises.
+    -   So, the instructions to do the excercises are in the PDF file?
+    -   yes and README too
+
+58. pi_hip with 8 GPUs takes about 2.3s whereas it is faster with only 8 MPI ranks (and marginally slower with 2 MPIs), is it normal? I expected the GPU version to be much faster than the CPU...
+    -   the example is not really using multiple gpus... BTW, it is not using MPI...
+    -   First, yes it is using one GPU, secondly some of these examples are really just there so you can see what that example looks like in the programming model chosen. The HIP example in a way is an outlier because it needs a reduction ( add up all the counts) and I want the example to do everything on the GPU, it is doing this by a simple method (atomic addition). If we cared about performance we would do that in another way but it would really complicate the example. If you run the HIP example on 8 tasks it will run the single-GPU example eight times.  I have not yet created an MPI/HIP version.
+
+
+
