@@ -69,10 +69,7 @@
     </ul>
     <em>Presenter: Alfio Lazzaro (HPE)</em><br>
     <em>Slide files: <code>/project/project_465000388/slides/HPE/04_Compilers_and_Programming_Models.pdf</code> on LUMI only.</em>
-    <!--
-    <br>
-    <em>Recording: <code>/project/project_465000388/recordings/04_Compilers_and_Programming_Models.mp4</code> on LUMI only.</em>
-    -->
+    <br>    <em>Recording: <code>/project/project_465000388/recordings/04_Compilers_and_Programming_Models.mp4</code> on LUMI only.</em>
     </td>
 </tr>
 <tr>
@@ -96,9 +93,7 @@
     </ul>
     <em>Presenter: Alfio Lazzaro (HPE)</em><br>
     <em>Slide files: <code>/project/project_465000388/slides/HPE/05_Libraries.pdf</code> on LUMI only.</em>
-    <!--
     <br><em>Recording: <code>/project/project_465000388/recordings/05_Libraries.mp4</code> on LUMI only.</em>
-    -->
     </td>
 </tr>
 <tr>
