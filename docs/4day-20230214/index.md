@@ -3,7 +3,7 @@
 ## Course organisation
 
 -   [Course schedule](schedule.md)
-<!-- -   HedgeDoc for questions -->
+-   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
 
 ## Downloads
 
@@ -18,6 +18,13 @@
 To come as the course progresses.
 
 ## Other material only available on LUMI
+
+The following materials are available to members of the `project_465000388` project only:
+
+-   Slides of presentations given by HPE people are in
+    <code>/project/project_465000388/slides/HPE</code> on LUMI
+-   Exercises from the HPE sessions are in
+    <code>/project/project_465000388/exercises/HPE</code> on LUMI
 
 <!--
 The following materials can only be found on LUMI and are only accessible to members of project_465000388:
@@ -37,9 +44,8 @@ To come as the course progresses.
 
 ## Notes
 
-<!--
 -   [Notes from the HedgeDOC page](hedgedoc_notes.md)
--->
+    <br><em>Published with delay.</em>
 <!--
 -   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
 -->

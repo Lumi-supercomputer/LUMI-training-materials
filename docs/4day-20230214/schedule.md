@@ -42,20 +42,22 @@
 </tr>
 <tr>
     <td>10:55</td>
-    <td>First steps for running on Cray EX Hardware
+    <td>Running Applications
     <ul>
         <li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li> 
     </ul>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
+    <em>Slide file: <code>/project/project_465000388/slides/HPE/03_Running_Applications_Slurm.pdf</code> on LUMI only.</em>
     <!--
-    <em>Slide file: <code>/project/project_465000388/slides/HPE/02_Running_Applications_and_Tools.pdf</code> on LUMI only.</em><br>
+    <br>
     <em>Recording: <code>/project/project_465000388/recordings/02_Running_Applications_and_Tools.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
 <tr>
-    <td>11:20</td>
-    <td><b>Exercises</b>
+    <td>11:15</td>
+    <td><b>Exercises</b><br/>
+    <em> Exercises are in <code>/project/project_465000388/exercises/HPE</code> on LUMI only.
     </td>
 </tr>
 <tr>
@@ -65,15 +67,16 @@
 </tr>
 <tr>
     <td>13:30</td>
-    <td>Overview of compilers and Parallel Programming Models 
+    <td>Compilers and Parallel Programming Models 
     <ul>
         <li>An introduction to the compiler suites available, including examples of how to get additional information about the compilation process.</li>
         <li>Cray Compilation Environment (CCE) and options relevant to porting and performance. CCE classic to Clang transition.</li>
         <li>Description of the Parallel Programming models.</li>
     </ul>
     <em>Presenter: Alfio Lazzaro (HPE)</em><br>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/04_Compilers_and_Programming_Models.pdf</code> on LUMI only.</em>
     <!--
-    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
+    <br>
     <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
     -->
     </td>
