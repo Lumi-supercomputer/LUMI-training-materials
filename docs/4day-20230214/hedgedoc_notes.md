@@ -191,7 +191,8 @@ These are the notes from the LUMI training,
     - Yes, there is an option to activate unbuffered output with srun. `srun --unbuffered ..`. But this in not adviced as it increases the load on the file system if your program does lots of small writes.
         -   OK, thank you.
 
-#### Excise setup 
+#### Exercise setup 
+
 !!! info
     Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
     Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or better transfer the pdf to your local machine with `scp` (run it from your local machine).
@@ -244,4 +245,167 @@ These are the notes from the LUMI training,
     -   First, yes it is using one GPU, secondly some of these examples are really just there so you can see what that example looks like in the programming model chosen. The HIP example in a way is an outlier because it needs a reduction ( add up all the counts) and I want the example to do everything on the GPU, it is doing this by a simple method (atomic addition). If we cared about performance we would do that in another way but it would really complicate the example. If you run the HIP example on 8 tasks it will run the single-GPU example eight times.  I have not yet created an MPI/HIP version.
 
 
+
+### Overview of compilers and Parallel Programming Models
+
+62. Are there any SYCL implementation available on LUMI? For example hipSYCL with HIP backend.
+
+    -   Not installed by default and without any guarantee that they work in all cases, but we do have a build recipe for hipSYCL (which actually renamed to Open SYCL a couple of days ago) and someone has also succeeded in building the open-sourced version of DPC++. No guarantee though that it works for all cases or always plays nice with Cray MPICH. See tomorrow afternoon about how to expand the LUMI software stack. https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/tree/main/easybuild/easyconfigs/h/hipSYCL or even better https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/h/hipSYCL/
+    -   I'd wish though that HPE Cray and AMD would offer proper support as this is a good model to be able to target all three main HPC GPU families and even more exotic hardware.
+    -   (Harvey) We have built SYCL at another site but I'm not sure of the status. As for officially supporting it, I don't know of any plans but you could equally argue that Raja or Kokkos could be supported as an alternative higher-level framework.
+
+64. Apologies if this was explained while I was away, are there any plans / roadmap for moving the Cray Fortran compiler to be LLVM-based, or is it expected it will remain based on Cray's proprietary backend? 
+    -   No. The Fortran compiler has always been extremely good, The C++ compiler specifically was not keeping up with standards and had very long compilation times and these were some of the drivers to make the change there. I think open source Fortran is also a moving target, the new Flang (f18) seems a work in progres.
+        -   (user comment) OK, thank you (Intel also moved their C compiler backend to LLVM and they seem to be now following the same path with their Fortran compiler, so we were wondering if Cray's strategy would be the same; really happy to hear it's not, since this gives us access to a wider range of implementations).
+    -   (Harvey) Best I don't comment on Intel. I'm interested to see how the classic Intel compilers and the OneAPI ones develop, particularly for Fortran.
+    -   (Kurt) I keep wondering what Intel is actually doing with Fortran. Are they indeed fully moving to a new flang (and contributing to it) or did they really just port their frontend to an LLVM backend?
+        -   [I think they re-built their frontend on top of an LLVM backend](https://community.intel.com/t5/Blogs/Tech-Innovation/Tools/The-Next-Chapter-for-the-Intel-Fortran-Compiler/post/1439297) (sorry for the off-topic)
+
+65. Is (or will) HIP also be compatible with Intel Habana GPUs?
+    -   I have no idea, but I assume hipSYCL can work for that...
+    -   (Kurt) Habana is not a GPU but an AI accelerator with a different architecture. Or do you mean the XE line (Ponte Vecchio, Rialto Bridge, Falcon Shores)?
+       
+        But even there the answer is no. AMD will not do it. The way they also can support CUDA is because it is only an API translation. And Intel will not do it either, their preferred programming models for XE are Data Parallel C++ which is their SYCL implementation and OpenMP offload.
+        
+        - (User comment) Project to enable HIP applications to run on Intel hardware exists. See [here](https://www.alcf.anl.gov/news/argonne-s-brice-videau-prepares-hip-applications-aurora) as well as this [presentation](https://www.oneapi.io/event-sessions/hip-on-aurora-bringing-hip-to-oneapi-isc-2022/). No idea if it will run on a specialized hardware like the Habana AI processors.
+    
+    - (Kurt) I really doubt HIP can do anything on Habana when I check their web site. I suspect it is more of a matrix processor and not a vector processing and they even say very little about programming on their web site. It doesn't really look like hardware that fits the CUDA/HIP programming model. I hadn't heard about the ANL project to port HIP yet. The only one I had seen already was a project that did something similar as HIP but was basically a one person effort that had died already.
+
+
+#### Exercise
+
+!!! Info
+    1.  Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
+    2.  Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or the pdf at `doc/ProgrammingModelExamples.pdf`.
+    3.  To set the necessary environment variables, source `lumi_c.sh` with  `source /project/project_465000388/exercises/HPE/lumi_c.sh` (or `lumi_g.sh` equivalent for GPU nodes)
+    4.  Try out different compilers (by switching compiler environments, e.g. `module swap PrgEnv-gnu`) either manually e.g. `cc C/pi_mpi.c` or use `make Makefile.allcompilers`
+
+
+66. is there a simple command to restore the default module configuration? 
+    -   People more expert than me can give better advice here: I do `module purge` and then `module load PrgEnv-cray`
+    -   But note that that does not load the target modules! We'll see a LUMI-specific way tomorrow afternoon.
+    -   If you have loaded the GPU modules then the longhand way is:
+        ```
+        module unload rocm
+        module unload craype-accel-amd-gfx90a
+        module swap craype-x86-trento craype-x86-rome
+        ```
+67.   How does the compilation of the acceleration example work? I have been trying some modules, but it did not work.
+    -   See pi/setup_modules, there is a script setup_LUMI-G.sh that you can source to load the modules that Alfio talked about. You need to load the new environment variables from lumi_g.sh or put the right options in the batch script to select partition and request gpus. The standard Makefile has a target acc that should build those examples with CCE.
+    -   For non-pi examples you would need to check any relevant instructions
+    -   `source /project/project_465000388/exercises/HPE/lumi_g.sh`
+    -   Please share error messages or explain more if you are still stuck.
+    -   Thanks for your help! I will try to implement.
+
+68. I tried to use the pi_acc.slurm script, but sbatch says the requested node configuration is not available. The changes I did was add -A project_465000388
+    -   could you update your `lumi_g_sh` script? We udpated it with the new partition.
+        - I copied lumi_g just now, but looks like it's the same as lumi_c.sh
+    - It runs through, but there is a complaint in the out file that `/var/spool/slurmd/job2843827/slurm_script: line 33: ../../setup_acc.sh: No such file or directory`
+     
+    - You need to point it to a script that sets up the gpu modules, so the file in the setup_modules, I should have fixed that so it did not need editing.
+        - so `setup-LUMI-G.sh`?
+   - yes
+        - I'd already done the setup manually, so it still worked
+    - Finally works for me
+    - Sorry for the incovenient...
+    
+70. I still try to run exercise one, but not success? "No partition specified or system default partition"
+    -   please, source lumi_c.sh or lumi_g.sh first.
+        -   is there a way to check if the sourcing process worked?
+    -   `echo $SLURM_ACCOUNT` should report `project_465000388`
+        -   still got error should I remove some arguments?
+    -   pi.slurm?
+    -   Also please copy those two files again as they were updated (lumi_c.sh, lumi_g.sh)
+        - I did, my I have the content of pi.slurm to be excuted?
+        - I still can't excute pi.slurm!!! 
+    -   via `sbatch pi.slurm`?
+    - I just change the content
+        -   SBATCH -A project_465000388
+        -   is this correct or #SBATCH -A y11?
+        -   this the error ".........../ProgrammingModels/jobscripts/../C/pi_serial: No such file or directory"
+        -   should i set the directory?
+            
+
+71. I'm trying to run my own application with MPI+gpus following the explaination in the slides, but I either get the error`MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked`
+    if I set `MPICH_GPU_SUPPORT_ENABLED=1` or
+    ```
+    MPICH ERROR [Rank 0] [job id 2843791.3] [Tue Feb 14 16:11:55 2023] [nid007564] - Abort(1616271) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+    MPIR_Init_thread(171).......: 
+    MPID_Init(506)..............: 
+    MPIDI_OFI_mpi_init_hook(837): 
+    create_endpoint(1382).......: OFI EP enable failed (ofi_init.c:1382:create_endpoint:Address already in use)
+    ```
+    if I set `MPICH_GPU_SUPPORT_ENABLED=0`
+    
+    -   Is the GPU target module loaded? You need the GPU target (and recompile) to tell MPI to use the GPU. It will discussed tomorrow. 
+        -   ok, thanks! And I believe so, I do `module load craype-accel-amd-gfx90a`
+    -   Then you have to recompile. Did you?
+        -   Yes, everything was compiled with that line already loaded
+    -   can you show the `module list` output?
+        -    Here:
+        ```
+        Currently Loaded Modules:
+          1) ModuleColour/on                      (S)  
+          2) LUMI/22.08                           (S)  
+          3) libfabric/1.15.0.0                        
+          4) craype-network-ofi                        
+          5) xpmem/2.4.4-2.3_9.1__gff0e1d9.shasta      
+          6) partition/G               (S)  
+          7) cce/14.0.2                     
+          8) perftools-base/22.06.0         
+          9) cpeCray/22.08                  
+         1)  METIS/5.1.0-cpeCray-22.08      
+         2)  buildtools/22.08     
+         3)  craype/2.7.17        
+         4)  cray-dsmml/0.2.2     
+         5)  cray-libsci/22.08.1.1
+         6)  PrgEnv-cray/8.3.3    
+         7)  cray-python/3.9.12.1
+         8)  cray-mpich/8.1.18
+         9)  craype-x86-trento
+         10) craype-accel-amd-gfx90a
+         11) rocm/5.0.2
+        ```
+    -   OK, what's the `ldd <exe>` output? We just need to check if the gtl library (used by MPI) is linked in. Just grep for gtl.
+        -   Do you want the complete version or should I grep something?
+            ```
+            ldd ./libslim4.so | grep mpi
+                libmpi_cray.so.12 => /opt/cray/pe/lib64/libmpi_cray.so.12 (0x00007fd88af32000)
+                libmpi_gtl_hsa.so.0 => /opt/cray/pe/lib64/libmpi_gtl_hsa.so.0 (0x00007fd88accf000)
+            ```
+    -   OK, it is there... Can you run within the jobscript? 
+        -     What does that mean?
+    - Put ldd command in the job script just before the srun of your executable. It would be better to have ldd of your executable. Somehow the gtl library is not present when you run, so I can assume you have to load the module in the jobscript.
+        - It's a python package, so I don't have an executable
+    -   OK, then, can you do `export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH`? Please note that the wrappers does the magic for you, but here you have python... (actually it is `export LD_LIBRARY_PATH=/opt/cray/pe/lib64/:$LD_LIBRARY_PATH`)
+        -   I still get the same two outcomes, depending on `MPICH_GPU_SUPPORT_ENABLED` (everything being recompiled on a fresh environment)
+    
+72. Are the timings correct? In the previous exercise, it claimed the serial code took 6 seconds, but it was done almost instantly
+    -    Are you saying that if you time the srun or srun time ... that the time reported is shorter than that reported by the program?
+         -   I ran the Fortran_timings programs and it seemed to claim that pi_serial took six seconds, but the job was done almost instantly. I didn't have a watch and autocomplete struggles, so it took some time to open the file, but my impression was that it was much faster than it claimed in the output file
+    -   It might be just that you see all the output at once so when you see it start it is really finishing
+        ```
+        harveyri@uan04:~/workshop/2023_02/ProgrammingModels/Fortran_timing> time srun -n 1 time ./pi_serial
+        srun: job 2843939 queued and waiting for resources
+        srun: job 2843939 has been allocated resources
+        PI approximation by serial program
+        PI = 3.141592653589793120
+        myPI = 3.141592647959183800
+        diff = 0.00000018%
+        Elapsed time was 6.02s
+        6.02user 0.01system 0:06.05elapsed 99%CPU (0avgtext+0avgdata 6884maxresident)k
+        48inputs+0outputs (0major+446minor)pagefaults 0swaps
+
+        real    0m7.002s
+        user    0m0.037s
+        sys     0m0.001s
+
+        sys     0m0.020s
+        ```
+
+
+1.  You wrote in hints for the 2nd exercise: "Try out different compilers (by switching compiler environments, e.g. module swap PrgEnv-gnu) either manually e.g. cc C/pi_mpi.c or use make Makefile.allcompilers", but the variant - make Makefile.allcompilers, does not work properly `make: Nothing to be done for 'Makefile.allcompilers'`
+    - `make clean`
+    - `make -f Makefile.allcompilers`
+    - It won't build binaries that are already there.
 

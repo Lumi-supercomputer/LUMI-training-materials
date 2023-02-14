@@ -13,6 +13,9 @@
     <td>09:00&nbsp;&nbsp;</td>
     <td>Welcome and introduction<br>
     <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)(</em>
+    <!--
+    <br><em>Recording: <code>/project/project_465000388/recordings/00_Introduction.mp4</code> on LUMI only.</em>
+    -->
     </td>
 </tr>
 <tr>
@@ -21,7 +24,7 @@
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <em>Slide files: <code>/project/project_465000388/slides/HPE/01_EX_Architecture.pdf</code> on LUMI only.</em>
     <!--
-    <br><em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <br><em>Recording: <code>/project/project_465000388/recordings/01_Cray_EX_Architecture.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -31,7 +34,7 @@
     <em>Presenter: Harvey Richardson (HPE)</em><br>
     <em>Slide files: <code>/project/project_465000388/slides/HPE/02_PE_and_Modules.pdf</code> on LUMI only.</em>
     <!--
-    <br><em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <br><em>Recording: <code>/project/project_465000388/recordings/02_Programming_Environment_and_Modules.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -50,7 +53,7 @@
     <em>Slide file: <code>/project/project_465000388/slides/HPE/03_Running_Applications_Slurm.pdf</code> on LUMI only.</em>
     <!--
     <br>
-    <em>Recording: <code>/project/project_465000388/recordings/02_Running_Applications_and_Tools.mp4</code> on LUMI only.</em>
+    <em>Recording: <code>/project/project_465000388/recordings/03_Running_Applications.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -77,7 +80,7 @@
     <em>Slide files: <code>/project/project_465000388/slides/HPE/04_Compilers_and_Programming_Models.pdf</code> on LUMI only.</em>
     <!--
     <br>
-    <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <em>Recording: <code>/project/project_465000388/recordings/04_Compilers_and_Programming_Models.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
@@ -89,11 +92,14 @@
 <tr>
     <td>15:00</td>
     <td><em>break (30 minutes)</em>
+    <ul>
+        <li>Exercises on programming models: Try swapping compilers and some GPU programs.</li>
+    </ul>
     </td>
 </tr>
 <tr>
-    <td>16:00</td>
-    <td>Scientific Libraries 
+    <td>15:30</td>
+    <td>Cray Scientific Libraries 
     <ul>
         <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
     </ul>
