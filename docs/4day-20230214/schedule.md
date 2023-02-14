@@ -17,25 +17,31 @@
 </tr>
 <tr>
     <td>09:10</td>
-    <td>Introduction to the HPE Cray Hardware and Programming Environment 
-    <ul>
-        <li>Focus on the HPE Cray EX hardware architecture and software stack.</li>
-        <li>Tutorial on the Cray module environment and compiler wrapper scripts.</li>
-    </ul>
+    <td>HPE Cray EX architecture<br/>
     <em>Presenter: Harvey Richardson (HPE)</em><br>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_EX_Architecture.pdf</code> on LUMI only.</em>
     <!--
-    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
-    <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <br><em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
 <tr>
-    <td>10:30</td>
-    <td><em>break (20 minutes)</em>
+    <td>10:10</td>
+    <td>Programming Environment and Modules<br/>
+    <em>Presenter: Harvey Richardson (HPE)</em><br>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/02_PE_and_Modules.pdf</code> on LUMI only.</em>
+    <!--
+    <br><em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    -->
     </td>
 </tr>
 <tr>
-    <td>10:45</td>
+    <td>10:40</td>
+    <td><em>break (15 minutes)</em>
+    </td>
+</tr>
+<tr>
+    <td>10:55</td>
     <td>First steps for running on Cray EX Hardware
     <ul>
         <li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li> 
