@@ -104,9 +104,9 @@
         <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
     </ul>
     <em>Presenter: Alfio Lazzaro (HPE)</em><br>
+    <em>Slide files: <code>/project/project_465000388/slides/HPE/05_Libraries.pdf</code> on LUMI only.</em>
     <!--
-    <em>Slide files: <code>/project/project_465000388/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code> on LUMI only.</em><br>
-    <em>Recording: <code>/project/project_465000388/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> on LUMI only.</em>
+    <br><em>Recording: <code>/project/project_465000388/recordings/05_Libraries.mp4</code> on LUMI only.</em>
     -->
     </td>
 </tr>
