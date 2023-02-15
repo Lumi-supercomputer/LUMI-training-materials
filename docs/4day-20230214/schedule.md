@@ -118,16 +118,19 @@
 </tr>
 <tr>
     <td>09:00</td>
-    <td>OpenACC and OpenMP offload with Cray Compilation Environment
+    <td>CCE Offloading Models
     <ul>
         <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.</li>
     </ul>
-    <em>Presenter: Alfio Lazzaro (HPE)</em><br>
+    <em>Presenter: Alfio Lazzaro (HPE)</em>
+    <br><em>Slide file: <code>/project/project_465000388/slides/HPE/06_Directives_Programming.pdf</code> on LUMI only.</em>
     </td>
 </tr>
 <tr>
     <td>09:45</td> 
-    <td>Exercises: about 30 minutes</td>
+    <td><b>Exercises</b>
+    <br/><em>See also: <code>/project/project_465000388/slides/HPE/Exercises_Day1-2.pdf</code> on LUMI only.</em>
+    </td>
 </tr>
 <tr>
     <td>10:15</td>
@@ -135,7 +138,7 @@
 </tr>
 <tr>
     <td>10:45</td>
-    <td>Advanced Application Placement
+    <td>Advanced Placement
     <ul>
         <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
     </ul>
