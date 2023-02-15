@@ -160,13 +160,13 @@ DAY 2
         </td>
     </tr>
     <tr>
-        <td>11:30</td>
+        <td>11:40</td>
         <td><b>Exercises</b>
         </td>
     </tr>
     <tr>
-        <td>12:00</td>
-        <td><em>lunch break (75 minutes)</em>
+        <td>12:10</td>
+        <td><em>lunch break (65 minutes)</em>
         </td>
     </tr>
     <tr>
@@ -178,16 +178,17 @@ DAY 2
             <li>Rank reordering and MPMD application launch</li>
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em><br>
-    </td>
+         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/08_cray_mpi_MPMD_medium.pdf</code> on LUMI only.</em>
+   </td>
     </tr>
     <tr>
-        <td>14.10</td>
+        <td>14.15</td>
         <td><b>Exercises</b>
         </td>
     </tr>
     <tr>
-        <td>14:40</td>
-        <td><em>break (20 minutes)</em>
+        <td>14:45</td>
+        <td><em>break (15 minutes)</em>
         </td>
     </tr>
     <tr>
@@ -199,7 +200,9 @@ DAY 2
             <li>Installing software with EasyBuild (concepts, contributed recipes)</li>
             <li>Containers for Python, R, VNC (container wrappers)</li>
         </ul>
-        <em>Presenter: Kurt Lust (LUST)</em><br>
+        <em>Presenter: Kurt Lust (LUST)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/LUST/LUMI-Software-20230215.pdf</code> on LUMI only.</em>
+        <br><em><a href="../software_stacks">Notes available</a></em>
         </td>
     </tr>
     <tr>

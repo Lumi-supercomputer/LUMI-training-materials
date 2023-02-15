@@ -3,6 +3,10 @@
 ## Course organisation
 
 -   [Course schedule](schedule.md)
+
+     *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
+     if that file is only available on LUMI.*
+
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
 
 ## Downloads
@@ -46,9 +50,7 @@ To come as the course progresses.
 
 -   [Notes from the HedgeDOC page](hedgedoc_notes.md)
     <br><em>Published with delay.</em>
-<!--
 -   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
--->
 
 
 To come as the course progresses (and afterwards).

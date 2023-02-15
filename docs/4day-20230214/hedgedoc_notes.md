@@ -581,4 +581,136 @@ These are the notes from the LUMI training,
         -   perfect, thanks!
 
 
+### Advanced Application Placement
+
+16. I was a bit confused by this definition of CPU. Can it be repeated and expanded?
+    -   I have uploaded the talk
+    -   We will try to use cpu in this talk to mean what Linux calls a cpu which is a hardware thread in a core - so 2 per core. 
+
+17. Could it be the case that when a thread needs to access data in a remote cache (different core), OS rather migrates the thread instead of accessing (or even copying) the data? I'm suspecting such a behavior since sometimes pinning threads is slower than allowing OS to migrate them inside a NUMA domain. Any suggestions what to check?
+    -   Well, this is definitely the case. Within the same NUMA can be a good trade-off. This is a bit experimental, you have to try which affinity is best for you.
+
+18. Any possibility to identify who did a binding (the different SW components)?
+    -   You can get various components to report what they did (Slurm/MPI/OpenMP) but in general anything can override the binding or at least further constrain it. This is why it is good to run an application (as a proxy for your own) from your job script to double check this.
+    -   It is not obvious when it comes to frameworks and applications that do their own thing to set the binding. We are covering MPI, MPI/OpenMP as they are the most common. We can at least use Slurm to set the binding of any process it starts and as long as that keeps within the binding it was given that at least gives us some control.
+    -   In general, there is no trace on what is setting the binding...
+ 
+
+#### Exercises
+
+!!! Info "Exercises"
+    -   xercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
+    -   Directories for this exercise: `XTHI` (try out application) and `ACHECK` (pdf doc & application similar to xthi but nicer output)
+    -   Copy the files to your home or project folder before working on the exercises.
+    -   In some exercises you have source additional files to load the right modules necessary, check the README file. __Check that you don't have unnecessary (GPU) modules loaded.__
+    -   To run slurm jobs, set the necessary variables for this course by `source /project/project_465000388/exercises/HPE/lumi_c.sh` (CPU)
+
+    Try different parallel different binding options for CPU execution (look at slides and use envars to change and display the order
+
+19. Is it common to use different bindings depending on the size of the computations? 
+    -   No sure I understand the question on what you mean by "different". Usually you have to check the best match for your application. For example, if you are memory bound, then you may decide to spread your threads such that they will use multiple memory channels.
+    -   The most common situation at scale is just to fill up multiple nodes using cores in sequence and if you use threads then choose OMP_NUM_THREADS so tasks fit nicely in NUMA regions and don't span them. It is when you want to do something special where other options come into play.
+
+20. While compiling xthi.c I got the following error
+    ```
+    ld.lld: error: undefined symbol: omp_get_thread_num
+    >>> referenced by xthi.c
+    >>>               /tmp/xthi-c56fa1.o:(main)
+    clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+    ```
+    -   Sorry, the readme is missing `-fopenmp`.
+        -   I'm a bit confused, the Cray cc wasn't supposed to have openmp ON by default?
+    -   Only OpenACC is the default.
+    -   Not anymore, but it was before yes !
+
+21. I'm trying the example ACHECK and I get `./acheck-cray: error while loading shared libraries: libamdhip64.so.5: cannot open shared object file: No such file or directory`. I have done `source /project/project_465000388/exercises/HPE/lumi_c.sh`. What am I missing here ?
+    -   I think you will need to `source /project/project_465000388/exercises/HPE/lumi_g.sh` instead to get the relevant modules for the GPUs.
+    -   Those modules are setting the SLURM environment. I assume you have the GPU modules loaded. Please, unload them, recompile and run.
+    -   I suggest you do the exercise on LUMI-C for this session.  Perhaps you built it with gpu modules and are running on LUMI-C.  (it would work on LUMI-G if you have LUMI-G Slurm and modules setup but there is no need to)
+
+22. Why? -> slurmstepd: error: execve(): xthi.c: Permission denied!!!
+    -   are you using the provided job.slurm?
+        -   yes
+    -   I have the following there:
+        ```
+        #!/bin/bash
+
+        #SBATCH -t 1
+
+        export OMP_NUM_THREADS=1
+
+        echo srun a.out
+        srun a.out | sort
+        ```
+        then ou have to run via `sbatch job.slurm`. Is it what you are doing?
+        -   a.out I have change it to xthi.c as the above script cause an error "execve(): xthi: No such file or directory"
+    -   Put it back to a.out...
+        -   Error: execve(): xthi: No such file or directory
+    -   OK, you compile and it will produce a.out, do you have it? Then, `sbatch job.slurm` will submit it. The job.slurm above doesn't mention any `xthi`, so I don't know where you error is coming from...
+
+        ```      
+        #!/bin/bash
+
+        #SBATCH -t 1
+
+        export OMP_NUM_THREADS=1
+
+        echo srun a.out
+        srun a.out | sort
+        ```        
+
+        -   Sorry, this is the error : 
+            ```
+            srun a.out
+            slurmstepd: error: execve(): a.out: No such file or directory
+            srun: error: nid005032: task 0: Exited with exit code 2
+            srun: launch/slurm: _step_signal: Terminating StepId=2876961.0
+            ```
+
+    -   Then you have to compile first...
+        -   when i try to compile i got 
+        -   ld.lld: error: undefined symbol: omp_get_thread_num
+    -   Need to add -fopenmp flag. I've update the Readme.
+        -   I cant see the update letme try copy it again
+        -   Done, thank you
+
+23. I tried "cc -fopenmp xthi.c " but got many errors like "xthi.c:65:27: error: use of undeclared identifier 'hnbuf'
+            rank, thread, hnbuf, clbuf);
+            "
+    -   Need to set for LUMI_C. Unload the GPU modules and recompile.
+        -   Yes.. I use "source /project/project_465000388/exercises/HPE/lumi_c.sh"..still the same error.
+    -   This is for setting SLURM stuff. Do you hav ethe modules `rocm` and `craype-accel-amd-gfx90a`? If so, please unload them and recompile.
+        -   Now I got the error "fatal error: mpi.h: No such file or directory"..
+    -   Which modules do you have? I suggest to open a new and fresh terminal connection...
+        -   Got it ..working now
+
+24. Run make on _openmp-target_ and it went well. Next ran
+    ```
+    srun -v -n1 --gres=gpu:8 ctest
+    srun: error: Unable to allocate resources: Requested node configuration is not available
+    ```
+    What node configuration was it looking for or is there a way to see what is required there.
+    should we swap back to rome for that use case : _swap craype-x86-rome craype-x86-trento_
+    -   openmp-target example is usig GPU. Are you setting SLURM for the GPU nodes (script lumi_g.sh)?
+
+
+25. Is the Lumi-D partition mentionned yesterday accessible now to try, or should we make a new application for that?
+    -   There is a session this afternoon describing the LUMI environment in detail, suggest you ask again if this is not covered there.
+    -   LUMI-D is two things:
+        -   The large memory nodes that are available and have the same architecture as the login nodes
+        -   The visualisation nodes. They were releases again on February 13 but have hardly any software installed at the moment.
+            Given the relative investment in LUMI-G, LUMI-C and the visualisation nodes it is clear that they won't get too much
+            attention anytime soon.
+
+26. Bit Mask: Slurm Script -> sbatch: error: Batch job submission failed: Requested node configuration is not available, why?
+    -   is the SLURM setting done? (script lumi_c.sh)
+        -   Yes, i will do it again
+    -   Could post the job.slum script?
+        -   I just copy and paste from slides, am I correct? page 50
+    -   let me try... Works for me. 
+        -   please share job.slum.
+    -   There are other problems that I'm investigating. but at least I can submit it. Check at `/pfs/lustrep1/projappl/project_465000388/alfiolaz/training_exercises/XTHI/mask.slurm`
+
+
+
 
