@@ -474,4 +474,111 @@ These are the notes from the LUMI training,
         -   Precisely, rocm-smi or some other monitoring tool (e.g. htop).
 
 
+## Day 2
+
+### OpenACC and OpenMP offload with Cray Compilation Environment
+
+1.  Can you have both OpenMP and OpenACC directives in a code (assuming you only activate one of them)?
+  
+    -   Yes. This is quite common to mix OpenMP for multithreading on  the host and OpenACC for the device. For OpenMP and OpenACC, both on the device, yes you can selectively select one of the other using macros. Note that OpenACC is enabled by default for the Cray Fortran compiler so if you don't want to use OpenACC you have to explicitly disable it. OpenMP need to be enabled explicitly.
+
+2.  Are there features in OpenACC that are not available (and not planned) in OpenMP?
+    -   I will raise this at the end of the talk.
+        -   Thanks for the answer. Very useful.
+    -   In practice, we have seen that people only stay with OpenACC if they already have in their (Fortran) code (i.e. from previous work with enabling Nvidia GPU support), new porting projects tend to choose OpenMP offloading. 
+        -   Follow-up question: How is the support of OpenACC vs OpenMP in compilers. I would maybe expect that OpenMP would be more widely supported, now and especially in the future?
+    -   The assumption is correct, OpenMP is the target for most compilers. As far I know, GNU will target Mi250 in GCC 13. I'm not aware of a real OpenACC in GNU. NVIDIA is supporting OpenACC for their compilers.
+
+3.  What gives better performance on LUMI-G OpenMP offloading or OpenACC offloading? (C/C++)
+    -   There is no OpenACC support for C/C++.
+    -   Hypothetically speaking, there is no big performance difference between OpenACC and OpenMP offload in theory, sometimes they even share the same back-end. In practice, OpenMP offers somewhat more control at the programmer level for optimizations, whereas in OpenACC, they compiler has more freedom in optimizing.
+
+4. T his is not related to the presented topic, but every time I login to Lumi I get this message: "/usr/bin/manpath: can't set the locale; make sure $LC_* and $LANG are correct", how can I fix it?
+    -   I think I saw that on Mac ssh consoles
+        -   I am using a Mac, so that is probably related
+    -   I have had the same problem before and fixed it by adding `SendEnv LANG LC_*` in my SSH config file.
+        -   Will try that - No difference
+            -   Did you simply add a line in the .ssh/config with `SendEnv LANG LC_*`?
+    -   The other problem that I have also had on a Mac was that it had sent a locale that was not recognized by the system I was logging on to.
+        -   Nothing seems to fix it, I will leave it like that for now since it does not affect anything else
+
+6.  Working on a Fortran+OpenACC+hipBlas/hipFFT code which has currently a CPU and a GPU version. The two versions have become very different: CPU version has lots of function calls inside the OpenMP loop. GPU version has all the parallelism at the lowest level. Looking for ways to get back to one code base. Any chance to use craype-accel-host to get good performance on CPU and GPU targets?!
+    -   the host is not meant to be for performance, for instance it will likely use a single thread. Check the man page intro_openmp for more details.
+    -   How to (best) organize the code to support multiple GPU architectures is still an open question. Before, you could "get away" with only having support for 1 type of GPUs, and have that as a special branch of compilation, but with several types of GPUs and/or accelerators in the future (at least Nvidia, Intel, AMD...) it will become more difficult to do it like that. I have seen a few projects with successful support of several kinds of accelerators, what they typically do is to abstract it to a common matrix/vector library in the application (a "matrix class" or similar) and then have this module support different GPU/accelerator backends (including pure CPU execution).
+        -   Yes, this a common issue. Moreover, it you have multiple libraries accessing to the GPU, they don't talk each other (even worse for a multi-gpu case), so memory pooling is quite difficult. 
+
+7.  Can we print out some of the slides from yesterday, for personal use? "Programming Environment and Modules"
+    -   Sure, but please do not redistribute the digital form.
+        -   Ok, thank you.
+    -   The HPE slides and exercises can be copied for personal use by people attending the course. Some of the exercise examples are open source and were downloaded from the relevant repositories.
+
+#### Exercises
+
+!!! info "Exercise"
+    -   Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
+    -   Directories for this exercise: `openmp-target`, `openacc-mpi-demos`, `BabelStream`
+    -   Copy the files to your home or project folder before working on the exercises.
+    -   In some exercises you have source additional files to load the right modules necessary, check the README file.
+    - T  o run slurm jobs, set the necessary variables for this course by `source /project/project_465000388/exercises/HPE/lumi_g.sh` (GPU) or `source /project/project_465000388/exercises/HPE/lumi_c.sh` (CPU)
+
+    Try different parallel offload programming models (openACC, OpenMP, HIP) and examples.
+
+
+
+1.  Has anything changed in the exercise files since yesterday, i.e., should we update our copy?
+    -   Probably no changes to these folders but better copy again. Some other files for later changed.
+
+2.  Are there job scripts available for today's exercise or I make them myself ?
+    -   they are available (follow the readme)
+    -   readme says Execute ... srun -n1 ... 
+    -   yes, correct. If you would like to submit (they are quite short runs), you can use one of the yesterday batch script.
+    -   sorry, in my build/ there is no file ctest; nto sure I understand what to submit +1
+        -   ctest is a command, it will run the tests produced by cmake. If you are interested in the single binaries, then they are in the directories `build/tests/bin`. Otherwise ctest will execute all.
+    -   test all worked; thanks
+    -   Might be an easy one, sorry: I got the return that No partition was specified. Has anyone experience with that?
+        -   Need to source the lumi_g.sh file to get SLURM configurtion.
+    -   is there a useful sequence in which to study the tests/*/.cpp s ? Seem many of those
+        -   So, check the original code at https://github.com/ye-luo/openmp-target. The idea is to check OpenMP offload functionalities and check if they are supported by Compilers. If the tests are OK, then the assumption is that the compile is working.
+        -   The exercise is not to understand the workings of the source files ? but to apply this comprehensive test then ? (tests were all passed according to job output)
+            -   It depends if you want to understand how OpenMP works, then you are welcome to check the code, sure. Otherwise the exercises is to give examples on how to use the Offload OpenMP with CCE.
+            -   okay, got it, thanks.
+
+3.  In openmp-target exercise I got the following error after the last make command "An accelerator module must be loaded for the compiler to support "target" related directive !$OMP TARGET"
+    -   Have you loaded the GPU module? (`source setup_modules/setup_LUMI-G.sh`)
+    -   I use the command "source /project/project_465000388/exercises/HPE/lumi_g.sh"
+        -   This one is to set SLURM, you need to set the modules for the GPU (a different file)
+
+4.  Modules were loaded, but `make` couldn't find the compiler - BabelStream
+    -   Which example are you trying to run? 
+    -   What's the error? could check the modules too? 
+        -   `Currently Loaded Modules:1) libfabric/1.15.0.0   3) xpmem/2.4.4-2.3_9.1__gff0e1d9.shasta       5) LUMI/22.08        (S)   7) craype-accel-amd-gfx90a 2) craype-network-ofi   4) partition/L`
+        -   You are missing PrgEnv-cray...
+
+6.  Inside the `makefile` of `/exercises/HPE/openacc-mpi-demos/src/`, there are some comments after FC and FFLAGS. Are they meant as a guide for something?
+    -   Those examples are taken from https://github.com/RonRahaman/openacc-mpi-demos which uses the NVIDIA compiler as baseline. I agree that I can remove the comments... Sorry for the confusion.
+        -   Thanks, actually I find those comments useful, I might try in a machine with NVIDIA. Some comment that these are for NVIDIA would clarify things.
+    -   Then you are welcome to use the original code. Note, it requires the nvidia compiler (previously PGI).
+
+7.  In BabelStream example, the OpenMP compilation (with `make`) gives an error:
+    ```
+    CC -fopenmp -O3 -DOMP src/main.cpp src/omp/OMPStream.cpp -I src/ -I src/omp -DOMP_TARGET_GPU -o omp.x
+    warning: src/omp/OMPStream.cpp:108:3: loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
+    ```
+    The HIP compilation works fine.
+    -   this is a warning. It says that it cannot vectorize the loop (O3 enables vectorization), but this is fine since we are running on the GPU anyway. BTW, if you want to inspect more, I suggest to add the listing flag (-fsave-loopmark) to get more info.
+        -   I added the flag in Makefile (CC -fopenmp -O3 -fsave-loopmark -DOMP src/main.cpp src/omp/OMPStream.cpp -I src/ -I src/omp -DOMP_TARGET_GPU -o omp.x) but the output is the same as before
+    -   It will generate a file .lst that you can inspect and get more info.
+        -   Ah, ok, thanks
+                
+8.  In BabelStream, the OpenMP code OMPStream.cpp, there is #pragma omp target enter data map... I assume this defines mapping of data onto devices. Where is the device list for OMP further defined in the code? or is this all?
+    -   This is an OpenMP question, actually. With the call `pragma omp target enter data map(alloc: a[0:array_size], b[0:array_size], c[0:array_size])` (line 31) you map those data to the GPUs (it does allocate them). Then there will be an `#pragma omp target exit data map(release: a[0:array_size], b[0:array_size], c[0:array_size])` (line 46) to release the data. Then, the way OpenMP offload works is that if you do another map for the same data, OpenMP will check that data exists already on the device and it will reuse those allocations.
+        -   Thanks! Could you please clarify where is the device list itself defined in the code, so that OMP knows which devices it should map the data to?
+    -   This the default device, i.e. device_id 0.
+        -   Ahh, ok, thanks. I saw this device_id 0, but I thought it can't be so easy :)
+    -   Yeah, it is done via `omp_set_default_device(device);` (line 26). You can also use the clause `device` (this is for multi-gpus, actually).
+        -   the id 0 means graphic card 0 on a multi-card node?
+    -  It is part of the current talk. It is GPU 0, but then you can set `HIP_VISIBLE_DEVICES=2` and OpenMP will have GPU_ID=0 for the device 2 (maybe I'm confusing you). The point is that OpenMP uses at runtime the available GPUs, provided by ROCM. But then you can change the GPU order via `HIP_VISIBLE_DEVICES=1,0`. Wait for this afternoon exercises...
+        -   perfect, thanks!
+
+
 
