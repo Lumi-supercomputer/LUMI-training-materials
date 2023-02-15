@@ -48,8 +48,14 @@ To come as the course progresses.
 
 ## Notes
 
--   [Notes from the HedgeDOC page](hedgedoc_notes.md)
-    <br><em>Published with delay.</em>
+-   Notes from the HedgeDOC pages:
+    -   [Day 1](hedgedoc_notes_day1.md)
+    -   [Day 2](hedgedoc_notes_day2.md)
+    -   [Day 3](hedgedoc_notes_day3.md)
+    -   [Day 4](hedgedoc_notes_day4.md)
+    
+    <em>Published with delay.</em>
+    
 -   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
 
 

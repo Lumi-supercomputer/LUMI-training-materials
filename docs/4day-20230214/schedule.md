@@ -137,13 +137,14 @@ DAY 2
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/06_Directives_Programming.pdf</code> on LUMI only.</em>
-        </td>
+        <br><em>Recording: <code>/project/project_465000388/recordings/06_Directives_programming.mp4</code> on LUMI only.</em>
+         </td>
     </tr>
     <tr>
         <td>09:45</td> 
         <td><b>Exercises</b>
         <br/><em>See also: <code>/project/project_465000388/slides/HPE/Exercises_Day1-2.pdf</code> on LUMI only.</em>
-        </td>
+         </td>
     </tr>
     <tr>
         <td>10:15</td>
@@ -157,6 +158,7 @@ DAY 2
         </ul>
         <em>Presenter: Jean Pourroy (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/07_Advanced_Placement.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/07_Advanced_Placement.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -177,9 +179,10 @@ DAY 2
             <li>Useful environment variable controls</li>
             <li>Rank reordering and MPMD application launch</li>
         </ul>
-        <em>Presenter: Harvey Richardson (HPE)</em><br>
-         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/08_cray_mpi_MPMD_medium.pdf</code> on LUMI only.</em>
-   </td>
+        <em>Presenter: Harvey Richardson (HPE)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/08_cray_mpi_MPMD_medium.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/08_MPI_Topics.mp4</code> on LUMI only.</em>
+    </td>
     </tr>
     <tr>
         <td>14.15</td>
@@ -203,6 +206,7 @@ DAY 2
         <em>Presenter: Kurt Lust (LUST)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/LUST/LUMI-Software-20230215.pdf</code> on LUMI only.</em>
         <br><em><a href="../software_stacks">Notes available</a></em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/09_LUMI_Software_Stack.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -212,7 +216,8 @@ DAY 2
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
-        <em>Presenter: Jørn Dietze (LUST)</em><br>
+        <em>Presenter: Jørn Dietze (LUST)</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/10_LUMI_User_Support.mp4</code> on LUMI only.</em>
     </td>
     </tr>
     <tr>
@@ -236,13 +241,13 @@ DAY 3
     <tr>
         <td>09:00</td>
         <td>Performance Optimization: Improving single-core efficiency<br/>
-        <em>Presenter: Alfio Lazzaro (HPE)</em><br>
+        <em>Presenter: Alfio Lazzaro (HPE)</em>
     </td>
     </tr>
     <tr>
         <td>09:30</td>
         <td>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<br/>
-        <em>Presenter: Thierry Braconnier (HPE)</em><br>
+        <em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -266,7 +271,7 @@ DAY 3
             <li>Being nice to Lustre</li>
             <li>Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</li>
         </ul>
-        <em>Presenter: Harvey Richardson (HPE)</em><br>
+        <em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -282,11 +287,11 @@ DAY 3
     <tr>
         <td>13:30</td>
         <td>Introduction to AMD ROCm ecosystem and HIP<br/>
-        <em>Presenter: George Markomanolis (AMD)</em><br/>
+        <em>Presenter: George Markomanolis (AMD)</em>
         <!--
-        <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
-        <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-        <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
+        <br/><em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
+        <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em>
+        <br/><em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
         -->
         </td>
     </tr>
@@ -346,7 +351,7 @@ DAY 4
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
             <li>Demo: Visualization of performance data with Apprentice2</kli>
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em><br>
+        <em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -367,7 +372,7 @@ DAY 4
             <li>Communication Imbalance, Hardware Counters, Perftools API, OpenMP</li>
             <li>Compiler feedback and variable scoping with Reveal</li>
         </ul>
-        <em>Presenter: Thierry Braconnier (HPE)</em><br>
+        <em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -383,7 +388,7 @@ DAY 4
     <tr>
         <td>13:30</td>
         <td>Introduction to AMD Omnitrace<br/>
-        <em>Presenter: George Markomanolis (AMD)</em><br/>
+        <em>Presenter: George Markomanolis (AMD)</em>
         <!--
         <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
         <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
@@ -400,7 +405,7 @@ DAY 4
     <tr>
         <td>14:15</td>
         <td>Introduction do AMD Omniperf<br/>
-        <em>Presenter: George Markomanolis (AMD)</em><br/>
+        <em>Presenter: George Markomanolis (AMD)</em>
         <!--
         <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
         <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>

@@ -1,12 +1,14 @@
-# Notes from the HedgeDoc page
+# Notes from the HedgeDoc page - day 1
 
 These are the notes from the LUMI training,
 1114-17.02.2023, 9:00--17:30 (CET) on Zoom.
 
-## Day 1
+-   [Day 1](hedgedoc_notes_day1.md): This page
+-   [Day 2](hedgedoc_notes_day2.md)
+-   [Day 3](hedgedoc_notes_day3.md)
+-   [Day 4](hedgedoc_notes_day4.md)
 
-
-### Other questions regarding organisation or LUMI in general
+## Other questions regarding organisation or LUMI in general
 
 1. I managed to log onto Lumi, but after a few minutes everything "freezes" and I have to use a different terminal to log in again: is it normal? That already happened several times since this morning, even using different login nodes).
     - It depends. If it freezes forever than it may be your terminal application or unstable connection. Shorter freezes that can still last 30 seconds or more are currently unfortunately a common problem on LUMI and caused by file system issues for which the technicians still haven't found a proper solution. There's only two of the four login nodes operating at the moment I think (one down for repair and one crashed yesterday evening and is not up again yet, at least not when I checked half an hour ago) the load on the login nodes is also a bit higher than usual.
@@ -27,7 +29,7 @@ These are the notes from the LUMI training,
         -   Looking forward to it
 
 
-### Introduction to HPE Cray Hardware and Programming Environment
+## Introduction to HPE Cray Hardware and Programming Environment
 
 11. Once a job starts on a particular node, can we get direct access to this node (I mean while the job is running, can we interact with it, for monitoring purposes for example)?
     -   https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/
@@ -151,7 +153,7 @@ These are the notes from the LUMI training,
     -   Ping is never a good test as that is blocked on many systems nowadays.
 
 
-### First steps for running on Cray EX Hardware
+## First steps for running on Cray EX Hardware
 
 36. Is that possible to change cpu numbers per task in one slurm script to optimize the CPU utilization?
     -   You mean different number of CPUs for each task, e.g. first task 2 cores, second task 8 cpus? 
@@ -191,7 +193,7 @@ These are the notes from the LUMI training,
     - Yes, there is an option to activate unbuffered output with srun. `srun --unbuffered ..`. But this in not adviced as it increases the load on the file system if your program does lots of small writes.
         -   OK, thank you.
 
-#### Exercise setup 
+### Exercise setup 
 
 !!! info
     Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
@@ -246,7 +248,7 @@ These are the notes from the LUMI training,
 
 
 
-### Overview of compilers and Parallel Programming Models
+## Overview of compilers and Parallel Programming Models
 
 62. Are there any SYCL implementation available on LUMI? For example hipSYCL with HIP backend.
 
@@ -272,7 +274,7 @@ These are the notes from the LUMI training,
     - (Kurt) I really doubt HIP can do anything on Habana when I check their web site. I suspect it is more of a matrix processor and not a vector processing and they even say very little about programming on their web site. It doesn't really look like hardware that fits the CUDA/HIP programming model. I hadn't heard about the ANL project to port HIP yet. The only one I had seen already was a project that did something similar as HIP but was basically a one person effort that had died already.
 
 
-#### Exercise
+### Exercise
 
 !!! Info
     1.  Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
@@ -410,11 +412,11 @@ These are the notes from the LUMI training,
     - It won't build binaries that are already there.
 
 
-### Cray Scientific Libraries
+## Cray Scientific Libraries
 
 *No questions during the session.*
 
-#### Exercises
+### Exercises
 
 !!! Info
     1. Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
@@ -435,7 +437,7 @@ These are the notes from the LUMI training,
     -   Yes, it is always safer to do so. Though so far for our software stack we do compile on a login node. For most programs so far this seems OK. It is most often "research code quality" applications that I have trouble with.
 
 
-### Q&A day 1
+## Q&A day 1
 
 76. I have a program writting with cuda module, for optimization purpose and getting it run on AMD GPU on LUMI. Based on what I learned today, first, I need to convert my code with hip (or something else?), then compile it with proper enviroment, am I right?
      -   AMD presentations will cover the hipification tools that can be used for this.
@@ -472,245 +474,5 @@ These are the notes from the LUMI training,
 84. Will SSHing into allocated compute nodes be allowed?
     -   Not clear if they will ever allow it. It does make it more difficult to clean up a node. So far the only solution is to go to the node with an interactive srun, which sometimes needs an option to overlap with tasks that are already on the node.
         -   Precisely, rocm-smi or some other monitoring tool (e.g. htop).
-
-
-## Day 2
-
-### OpenACC and OpenMP offload with Cray Compilation Environment
-
-1.  Can you have both OpenMP and OpenACC directives in a code (assuming you only activate one of them)?
-  
-    -   Yes. This is quite common to mix OpenMP for multithreading on  the host and OpenACC for the device. For OpenMP and OpenACC, both on the device, yes you can selectively select one of the other using macros. Note that OpenACC is enabled by default for the Cray Fortran compiler so if you don't want to use OpenACC you have to explicitly disable it. OpenMP need to be enabled explicitly.
-
-2.  Are there features in OpenACC that are not available (and not planned) in OpenMP?
-    -   I will raise this at the end of the talk.
-        -   Thanks for the answer. Very useful.
-    -   In practice, we have seen that people only stay with OpenACC if they already have in their (Fortran) code (i.e. from previous work with enabling Nvidia GPU support), new porting projects tend to choose OpenMP offloading. 
-        -   Follow-up question: How is the support of OpenACC vs OpenMP in compilers. I would maybe expect that OpenMP would be more widely supported, now and especially in the future?
-    -   The assumption is correct, OpenMP is the target for most compilers. As far I know, GNU will target Mi250 in GCC 13. I'm not aware of a real OpenACC in GNU. NVIDIA is supporting OpenACC for their compilers.
-
-3.  What gives better performance on LUMI-G OpenMP offloading or OpenACC offloading? (C/C++)
-    -   There is no OpenACC support for C/C++.
-    -   Hypothetically speaking, there is no big performance difference between OpenACC and OpenMP offload in theory, sometimes they even share the same back-end. In practice, OpenMP offers somewhat more control at the programmer level for optimizations, whereas in OpenACC, they compiler has more freedom in optimizing.
-
-4. T his is not related to the presented topic, but every time I login to Lumi I get this message: "/usr/bin/manpath: can't set the locale; make sure $LC_* and $LANG are correct", how can I fix it?
-    -   I think I saw that on Mac ssh consoles
-        -   I am using a Mac, so that is probably related
-    -   I have had the same problem before and fixed it by adding `SendEnv LANG LC_*` in my SSH config file.
-        -   Will try that - No difference
-            -   Did you simply add a line in the .ssh/config with `SendEnv LANG LC_*`?
-    -   The other problem that I have also had on a Mac was that it had sent a locale that was not recognized by the system I was logging on to.
-        -   Nothing seems to fix it, I will leave it like that for now since it does not affect anything else
-
-6.  Working on a Fortran+OpenACC+hipBlas/hipFFT code which has currently a CPU and a GPU version. The two versions have become very different: CPU version has lots of function calls inside the OpenMP loop. GPU version has all the parallelism at the lowest level. Looking for ways to get back to one code base. Any chance to use craype-accel-host to get good performance on CPU and GPU targets?!
-    -   the host is not meant to be for performance, for instance it will likely use a single thread. Check the man page intro_openmp for more details.
-    -   How to (best) organize the code to support multiple GPU architectures is still an open question. Before, you could "get away" with only having support for 1 type of GPUs, and have that as a special branch of compilation, but with several types of GPUs and/or accelerators in the future (at least Nvidia, Intel, AMD...) it will become more difficult to do it like that. I have seen a few projects with successful support of several kinds of accelerators, what they typically do is to abstract it to a common matrix/vector library in the application (a "matrix class" or similar) and then have this module support different GPU/accelerator backends (including pure CPU execution).
-        -   Yes, this a common issue. Moreover, it you have multiple libraries accessing to the GPU, they don't talk each other (even worse for a multi-gpu case), so memory pooling is quite difficult. 
-
-7.  Can we print out some of the slides from yesterday, for personal use? "Programming Environment and Modules"
-    -   Sure, but please do not redistribute the digital form.
-        -   Ok, thank you.
-    -   The HPE slides and exercises can be copied for personal use by people attending the course. Some of the exercise examples are open source and were downloaded from the relevant repositories.
-
-#### Exercises
-
-!!! info "Exercise"
-    -   Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
-    -   Directories for this exercise: `openmp-target`, `openacc-mpi-demos`, `BabelStream`
-    -   Copy the files to your home or project folder before working on the exercises.
-    -   In some exercises you have source additional files to load the right modules necessary, check the README file.
-    - T  o run slurm jobs, set the necessary variables for this course by `source /project/project_465000388/exercises/HPE/lumi_g.sh` (GPU) or `source /project/project_465000388/exercises/HPE/lumi_c.sh` (CPU)
-
-    Try different parallel offload programming models (openACC, OpenMP, HIP) and examples.
-
-
-
-1.  Has anything changed in the exercise files since yesterday, i.e., should we update our copy?
-    -   Probably no changes to these folders but better copy again. Some other files for later changed.
-
-2.  Are there job scripts available for today's exercise or I make them myself ?
-    -   they are available (follow the readme)
-    -   readme says Execute ... srun -n1 ... 
-    -   yes, correct. If you would like to submit (they are quite short runs), you can use one of the yesterday batch script.
-    -   sorry, in my build/ there is no file ctest; nto sure I understand what to submit +1
-        -   ctest is a command, it will run the tests produced by cmake. If you are interested in the single binaries, then they are in the directories `build/tests/bin`. Otherwise ctest will execute all.
-    -   test all worked; thanks
-    -   Might be an easy one, sorry: I got the return that No partition was specified. Has anyone experience with that?
-        -   Need to source the lumi_g.sh file to get SLURM configurtion.
-    -   is there a useful sequence in which to study the tests/*/.cpp s ? Seem many of those
-        -   So, check the original code at https://github.com/ye-luo/openmp-target. The idea is to check OpenMP offload functionalities and check if they are supported by Compilers. If the tests are OK, then the assumption is that the compile is working.
-        -   The exercise is not to understand the workings of the source files ? but to apply this comprehensive test then ? (tests were all passed according to job output)
-            -   It depends if you want to understand how OpenMP works, then you are welcome to check the code, sure. Otherwise the exercises is to give examples on how to use the Offload OpenMP with CCE.
-            -   okay, got it, thanks.
-
-3.  In openmp-target exercise I got the following error after the last make command "An accelerator module must be loaded for the compiler to support "target" related directive !$OMP TARGET"
-    -   Have you loaded the GPU module? (`source setup_modules/setup_LUMI-G.sh`)
-    -   I use the command "source /project/project_465000388/exercises/HPE/lumi_g.sh"
-        -   This one is to set SLURM, you need to set the modules for the GPU (a different file)
-
-4.  Modules were loaded, but `make` couldn't find the compiler - BabelStream
-    -   Which example are you trying to run? 
-    -   What's the error? could check the modules too? 
-        -   `Currently Loaded Modules:1) libfabric/1.15.0.0   3) xpmem/2.4.4-2.3_9.1__gff0e1d9.shasta       5) LUMI/22.08        (S)   7) craype-accel-amd-gfx90a 2) craype-network-ofi   4) partition/L`
-        -   You are missing PrgEnv-cray...
-
-6.  Inside the `makefile` of `/exercises/HPE/openacc-mpi-demos/src/`, there are some comments after FC and FFLAGS. Are they meant as a guide for something?
-    -   Those examples are taken from https://github.com/RonRahaman/openacc-mpi-demos which uses the NVIDIA compiler as baseline. I agree that I can remove the comments... Sorry for the confusion.
-        -   Thanks, actually I find those comments useful, I might try in a machine with NVIDIA. Some comment that these are for NVIDIA would clarify things.
-    -   Then you are welcome to use the original code. Note, it requires the nvidia compiler (previously PGI).
-
-7.  In BabelStream example, the OpenMP compilation (with `make`) gives an error:
-    ```
-    CC -fopenmp -O3 -DOMP src/main.cpp src/omp/OMPStream.cpp -I src/ -I src/omp -DOMP_TARGET_GPU -o omp.x
-    warning: src/omp/OMPStream.cpp:108:3: loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering [-Wpass-failed=transform-warning]
-    ```
-    The HIP compilation works fine.
-    -   this is a warning. It says that it cannot vectorize the loop (O3 enables vectorization), but this is fine since we are running on the GPU anyway. BTW, if you want to inspect more, I suggest to add the listing flag (-fsave-loopmark) to get more info.
-        -   I added the flag in Makefile (CC -fopenmp -O3 -fsave-loopmark -DOMP src/main.cpp src/omp/OMPStream.cpp -I src/ -I src/omp -DOMP_TARGET_GPU -o omp.x) but the output is the same as before
-    -   It will generate a file .lst that you can inspect and get more info.
-        -   Ah, ok, thanks
-                
-8.  In BabelStream, the OpenMP code OMPStream.cpp, there is #pragma omp target enter data map... I assume this defines mapping of data onto devices. Where is the device list for OMP further defined in the code? or is this all?
-    -   This is an OpenMP question, actually. With the call `pragma omp target enter data map(alloc: a[0:array_size], b[0:array_size], c[0:array_size])` (line 31) you map those data to the GPUs (it does allocate them). Then there will be an `#pragma omp target exit data map(release: a[0:array_size], b[0:array_size], c[0:array_size])` (line 46) to release the data. Then, the way OpenMP offload works is that if you do another map for the same data, OpenMP will check that data exists already on the device and it will reuse those allocations.
-        -   Thanks! Could you please clarify where is the device list itself defined in the code, so that OMP knows which devices it should map the data to?
-    -   This the default device, i.e. device_id 0.
-        -   Ahh, ok, thanks. I saw this device_id 0, but I thought it can't be so easy :)
-    -   Yeah, it is done via `omp_set_default_device(device);` (line 26). You can also use the clause `device` (this is for multi-gpus, actually).
-        -   the id 0 means graphic card 0 on a multi-card node?
-    -  It is part of the current talk. It is GPU 0, but then you can set `HIP_VISIBLE_DEVICES=2` and OpenMP will have GPU_ID=0 for the device 2 (maybe I'm confusing you). The point is that OpenMP uses at runtime the available GPUs, provided by ROCM. But then you can change the GPU order via `HIP_VISIBLE_DEVICES=1,0`. Wait for this afternoon exercises...
-        -   perfect, thanks!
-
-
-### Advanced Application Placement
-
-16. I was a bit confused by this definition of CPU. Can it be repeated and expanded?
-    -   I have uploaded the talk
-    -   We will try to use cpu in this talk to mean what Linux calls a cpu which is a hardware thread in a core - so 2 per core. 
-
-17. Could it be the case that when a thread needs to access data in a remote cache (different core), OS rather migrates the thread instead of accessing (or even copying) the data? I'm suspecting such a behavior since sometimes pinning threads is slower than allowing OS to migrate them inside a NUMA domain. Any suggestions what to check?
-    -   Well, this is definitely the case. Within the same NUMA can be a good trade-off. This is a bit experimental, you have to try which affinity is best for you.
-
-18. Any possibility to identify who did a binding (the different SW components)?
-    -   You can get various components to report what they did (Slurm/MPI/OpenMP) but in general anything can override the binding or at least further constrain it. This is why it is good to run an application (as a proxy for your own) from your job script to double check this.
-    -   It is not obvious when it comes to frameworks and applications that do their own thing to set the binding. We are covering MPI, MPI/OpenMP as they are the most common. We can at least use Slurm to set the binding of any process it starts and as long as that keeps within the binding it was given that at least gives us some control.
-    -   In general, there is no trace on what is setting the binding...
- 
-
-#### Exercises
-
-!!! Info "Exercises"
-    -   xercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
-    -   Directories for this exercise: `XTHI` (try out application) and `ACHECK` (pdf doc & application similar to xthi but nicer output)
-    -   Copy the files to your home or project folder before working on the exercises.
-    -   In some exercises you have source additional files to load the right modules necessary, check the README file. __Check that you don't have unnecessary (GPU) modules loaded.__
-    -   To run slurm jobs, set the necessary variables for this course by `source /project/project_465000388/exercises/HPE/lumi_c.sh` (CPU)
-
-    Try different parallel different binding options for CPU execution (look at slides and use envars to change and display the order
-
-19. Is it common to use different bindings depending on the size of the computations? 
-    -   No sure I understand the question on what you mean by "different". Usually you have to check the best match for your application. For example, if you are memory bound, then you may decide to spread your threads such that they will use multiple memory channels.
-    -   The most common situation at scale is just to fill up multiple nodes using cores in sequence and if you use threads then choose OMP_NUM_THREADS so tasks fit nicely in NUMA regions and don't span them. It is when you want to do something special where other options come into play.
-
-20. While compiling xthi.c I got the following error
-    ```
-    ld.lld: error: undefined symbol: omp_get_thread_num
-    >>> referenced by xthi.c
-    >>>               /tmp/xthi-c56fa1.o:(main)
-    clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
-    ```
-    -   Sorry, the readme is missing `-fopenmp`.
-        -   I'm a bit confused, the Cray cc wasn't supposed to have openmp ON by default?
-    -   Only OpenACC is the default.
-    -   Not anymore, but it was before yes !
-
-21. I'm trying the example ACHECK and I get `./acheck-cray: error while loading shared libraries: libamdhip64.so.5: cannot open shared object file: No such file or directory`. I have done `source /project/project_465000388/exercises/HPE/lumi_c.sh`. What am I missing here ?
-    -   I think you will need to `source /project/project_465000388/exercises/HPE/lumi_g.sh` instead to get the relevant modules for the GPUs.
-    -   Those modules are setting the SLURM environment. I assume you have the GPU modules loaded. Please, unload them, recompile and run.
-    -   I suggest you do the exercise on LUMI-C for this session.  Perhaps you built it with gpu modules and are running on LUMI-C.  (it would work on LUMI-G if you have LUMI-G Slurm and modules setup but there is no need to)
-
-22. Why? -> slurmstepd: error: execve(): xthi.c: Permission denied!!!
-    -   are you using the provided job.slurm?
-        -   yes
-    -   I have the following there:
-        ```
-        #!/bin/bash
-
-        #SBATCH -t 1
-
-        export OMP_NUM_THREADS=1
-
-        echo srun a.out
-        srun a.out | sort
-        ```
-        then ou have to run via `sbatch job.slurm`. Is it what you are doing?
-        -   a.out I have change it to xthi.c as the above script cause an error "execve(): xthi: No such file or directory"
-    -   Put it back to a.out...
-        -   Error: execve(): xthi: No such file or directory
-    -   OK, you compile and it will produce a.out, do you have it? Then, `sbatch job.slurm` will submit it. The job.slurm above doesn't mention any `xthi`, so I don't know where you error is coming from...
-
-        ```      
-        #!/bin/bash
-
-        #SBATCH -t 1
-
-        export OMP_NUM_THREADS=1
-
-        echo srun a.out
-        srun a.out | sort
-        ```        
-
-        -   Sorry, this is the error : 
-            ```
-            srun a.out
-            slurmstepd: error: execve(): a.out: No such file or directory
-            srun: error: nid005032: task 0: Exited with exit code 2
-            srun: launch/slurm: _step_signal: Terminating StepId=2876961.0
-            ```
-
-    -   Then you have to compile first...
-        -   when i try to compile i got 
-        -   ld.lld: error: undefined symbol: omp_get_thread_num
-    -   Need to add -fopenmp flag. I've update the Readme.
-        -   I cant see the update letme try copy it again
-        -   Done, thank you
-
-23. I tried "cc -fopenmp xthi.c " but got many errors like "xthi.c:65:27: error: use of undeclared identifier 'hnbuf'
-            rank, thread, hnbuf, clbuf);
-            "
-    -   Need to set for LUMI_C. Unload the GPU modules and recompile.
-        -   Yes.. I use "source /project/project_465000388/exercises/HPE/lumi_c.sh"..still the same error.
-    -   This is for setting SLURM stuff. Do you hav ethe modules `rocm` and `craype-accel-amd-gfx90a`? If so, please unload them and recompile.
-        -   Now I got the error "fatal error: mpi.h: No such file or directory"..
-    -   Which modules do you have? I suggest to open a new and fresh terminal connection...
-        -   Got it ..working now
-
-24. Run make on _openmp-target_ and it went well. Next ran
-    ```
-    srun -v -n1 --gres=gpu:8 ctest
-    srun: error: Unable to allocate resources: Requested node configuration is not available
-    ```
-    What node configuration was it looking for or is there a way to see what is required there.
-    should we swap back to rome for that use case : _swap craype-x86-rome craype-x86-trento_
-    -   openmp-target example is usig GPU. Are you setting SLURM for the GPU nodes (script lumi_g.sh)?
-
-
-25. Is the Lumi-D partition mentionned yesterday accessible now to try, or should we make a new application for that?
-    -   There is a session this afternoon describing the LUMI environment in detail, suggest you ask again if this is not covered there.
-    -   LUMI-D is two things:
-        -   The large memory nodes that are available and have the same architecture as the login nodes
-        -   The visualisation nodes. They were releases again on February 13 but have hardly any software installed at the moment.
-            Given the relative investment in LUMI-G, LUMI-C and the visualisation nodes it is clear that they won't get too much
-            attention anytime soon.
-
-26. Bit Mask: Slurm Script -> sbatch: error: Batch job submission failed: Requested node configuration is not available, why?
-    -   is the SLURM setting done? (script lumi_c.sh)
-        -   Yes, i will do it again
-    -   Could post the job.slum script?
-        -   I just copy and paste from slides, am I correct? page 50
-    -   let me try... Works for me. 
-        -   please share job.slum.
-    -   There are other problems that I'm investigating. but at least I can submit it. Check at `/pfs/lustrep1/projappl/project_465000388/alfiolaz/training_exercises/XTHI/mask.slurm`
-
-
 
 
