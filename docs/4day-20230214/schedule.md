@@ -289,8 +289,9 @@ DAY 3
     </tr>
     <tr>
         <td>13:30</td>
-        <td>Introduction to AMD ROCm ecosystem and HIP<br/>
+        <td>Introduction to AMD ROCm ecosystem<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/AMD/01_introduction_amd_rocm.pdf</code> on LUMI only.</em>
         <!--
         <br/><em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
         <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em>
@@ -311,6 +312,7 @@ DAY 3
         <td>15:30</td>
         <td>Debugging<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/AMD/02_Rocgdb_Tutorial.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -322,6 +324,7 @@ DAY 3
         <td>16:15</td>
         <td>Introduction to AMD Rocprof<br/>
         <em>Presenter: George Markomanolis (AMD)</em><br>
+        <br><em>Slide file: <code>/project/project_465000388/slides/AMD/03_intro_rocprof.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
