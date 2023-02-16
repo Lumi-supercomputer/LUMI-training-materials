@@ -54,3 +54,85 @@ These are the notes from the LUMI training,
     2.   subfolder: environment variables for GPU example
          Don't forget to `source /project/project_465000388/exercises/HPE/lumi_g.sh` & load GPU modules
 
+
+5.  launcher-args -N2 is the one identical to srun argument list ? (in valgrind4hpc call)
+    -   yes: it sets the number of nodes used for the underlying srun command used by valgrind4hpc
+        -   but -n1 is given by valgrid arg
+    - yes -n is the number of processes used by valgrind4hpc (and also the number of processes for the underlying srun command used by valgrind4hpc)
+        -    valgrind4hpc –n1 --launcher-args... gives me cannot find exec n1
+        -    when I post the code line I cannot edit anymore; trying to modify pi_threads.slurm; added module load; put the srun args into --launcher-args; but -n1 seems to be a problem
+    -   The launcher-args are for you to specify extra arguments about the distribution of the tasks (you don't put -n though)
+
+6. With gdb4hpc in an interactive job, how to check I'm on the allocated compute node and not the login node? (hostname doesn't work there)
+    -   the launch command in gdb4hpc uses an underlying srun command and thus, used the ressources of the salloc command 
+        -   ok thanks, and theoretically in case of multiple allocated jobs, how to select which to use?
+    -   focus p{0}, check the slides (page 24). The man page is also giving some good examples
+        -   Sorry, I don't understand how to use the focus comand to select a job (not process). On page 24 I can see only how to select set of processes.
+    -   Ah, you want to attach to an existing job? 
+        -  yes, I mean if I allocate multiple interactive jobs and then I want to launch gdb4hpc on one of them
+    -   You have to run gdb4hpc in the same salloc. You start salloc and then run the app under gdb4hpc. 
+        -  ok, probably I have to check how really salloc works, I'm PBS user, thanks
+    -   So, salloc gives you a set of reserved nodes and it will return with a shell on the login node. Then you can run `srun` to submit to the reserved nodes. The equivalent on batch processing is sbatch.
+        -  oh I see, I was confused with the login shell - so even its a login, it is already linked with the particular interactive job (allocated nodes), right?
+    -   correct, everyting you run after salloc with `srun` (gdb4hpc or valgrind4hpc use srun under the hood) will run on the reserved nodes. You can check that with salloc you get a lot of `SLURM_` environment variables set by SLURM, for example `echo $SLURM_NODELIST`
+        - ok, understand, cool tip, thank you
+    -   the corresponding PBS is `qsub -I`, if recall correctly...
+        - yes, but it returns directly the first node shell
+    -   ah, this can be configured on SLURM too (sysadmin SLURM conf). However, on LUMI you will still remain on the login node.
+
+7.  When in an gdb4hpc session, I can switch to one process with `focus $p{0}`. But how do I get a listing of that process to see the source of where it is stuck or breaked?
+    -   this is the standard gdb command then, for instance `where`
+    -   use the list (short 1) gdb command. Since you "have" a focus on 0, gdb will list source file for process 0
+
+
+8.  For the valgrind4hpc exercise, I did it a first time and got the expected output, then I fixed the code, recompiled and ran the ./hello directly to make sure it worked. However when running valgring4hpc again I still get the same output as the first time (whereas this time obviously there was no more bug): is there something I should have reset to get the correct output instead of:
+    ```
+    HEAP SUMMARY:
+      in use at exit: 16 bytes in 1 blocks
+
+    LEAK SUMMARY:
+       definitely lost: 16 bytes in 1 blocks
+       indirectly lost: 0 bytes in 0 blocks
+         possibly lost: 0 bytes in 0 blocks
+       still reachable: 0 bytes in 0 blocks
+
+    ERROR SUMMARY: 31 errors from 109 contexts (suppressed 1259
+    ```
+    -   you have the same error on the 16 bytes lost because you do not free(test) in both cases. But the invalid write of size 4 are removed if you change test[6]= and test[10]= by for example test[2]= and test[3]=
+        -   OK, so now I added free(test) and things seem to have improved:
+            ```
+            All heap blocks were freed -- no leaks are possible
+
+            ERROR SUMMARY: 30 errors from 54 contexts (suppressed 1259)
+            ```
+            so there is no more leak and all blocks were freed, but why are there still 30 errors???
+      -   these are in the libraries, no related to users. You can expect masking of those errors in the future.
+      -   yes the library where the errors occur in the outputs is /usr/lib64/libcxi.so.1 and you can see the errors are in cxil_* functions from this library
+
+
+
+
+## I/O Optimisation - Parallel I/O
+
+9.  How does Lustre work with HDF5?
+
+    -   HDF5 is built on top of MPI-IO, which means that HDF5 will make good use of all the underlying infrastructure provided for Lustre by MPI-IO.
+
+
+### Exercise
+!!! info "Exercise"
+    Remarks:
+
+    -    Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
+    -    Directory for this exercise: `io_lustre`
+    -    Copy the files to your home or project folder before working on the exercises.
+    -    In some exercises you have source additional files to load the right modules necessary, check the README file.
+    -    To run slurm jobs, set the necessary variables for this course by `source /project/project_465000388/exercises/HPE/lumi_g.sh` (GPU) or `source /project/project_465000388/exercises/HPE/lumi_c.sh` (CPU)
+  
+    Exercise
+
+    -   Try out different Lustre striping parameters and use relevant MPI environment variables
+        -    Do the environmental variables (like MPICH_MPIIO_HINTS) always prevail over what could be explicitely set in the code/script?
+        
+:::
+
