@@ -143,7 +143,7 @@ DAY 2
     <tr>
         <td>09:45</td> 
         <td><b>Exercises</b>
-        <br/><em>See also: <code>/project/project_465000388/slides/HPE/Exercises_Day1-2.pdf</code> on LUMI only.</em>
+        <br/><em>See also: <code>/project/project_465000388/slides/HPE/Exercises_Day1-3.pdf</code> on LUMI only.</em>
          </td>
     </tr>
     <tr>
@@ -253,17 +253,17 @@ DAY 3
     </td>
     </tr>
     <tr>
-        <td>10:05</td>
-        <td>Exercises: about 20 minutes</td>
+        <td>10:10</td>
+        <td><b>Exercises</b></td>
     </tr>
     <tr>
-        <td>10:25</td>
+        <td>10:30</td>
         <td><em>break (20 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>10:45</td>
-        <td>I/O Optimisation - Parallel I/O
+        <td>10:50</td>
+        <td>I/O Optimizing Large Scale I/O
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
             <li>Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. </li>
@@ -274,19 +274,17 @@ DAY 3
             <li>Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</li>
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em>
-        <!--
-        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/09_cpu_performance_optimization.pdf</code> on LUMI only.</em>
-        -->
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/11_IO_medium_LUMI.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
-        <td>11:55</td>
-        <td>Exercises: about 20 minutes
+        <td>11:40</td>
+        <td><b>Exercises</b>
         </td>
     </tr>
     <tr>
-        <td>12:15</td>
-        <td><em>lunch break (75 minutes)</em>
+        <td>12:10</td>
+        <td><em>lunch break</em>
         </td>
     </tr>
     <tr>
