@@ -240,27 +240,29 @@ DAY 3
     </tr>
     <tr>
         <td>09:00</td>
-        <td>Performance Optimization: Improving single-core efficiency<br/>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
-    </td>
-    </tr>
-    <tr>
-        <td>09:30</td>
-        <td>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<br/>
-        <em>Presenter: Thierry Braconnier (HPE)</em>
+        <td>Performance Optimization: Improving Single-core Efficiency<br/>
+        <em>Presenter: Jean Pourroy (HPE)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/09_cpu_performance_optimization.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
-        <td>09:50</td>
+        <td>09:45</td>
+        <td>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<br/>
+        <em>Presenter: Thierry Braconnier (HPE)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/10_debugging_at_scale.pdf</code> on LUMI only.</em>
+    </td>
+    </tr>
+    <tr>
+        <td>10:05</td>
         <td>Exercises: about 20 minutes</td>
     </tr>
     <tr>
-        <td>10:10</td>
+        <td>10:25</td>
         <td><em>break (20 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>10:30</td>
+        <td>10:45</td>
         <td>I/O Optimisation - Parallel I/O
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
@@ -272,16 +274,19 @@ DAY 3
             <li>Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</li>
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em>
+        <!--
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/09_cpu_performance_optimization.pdf</code> on LUMI only.</em>
+        -->
         </td>
     </tr>
     <tr>
-        <td>11:40</td>
+        <td>11:55</td>
         <td>Exercises: about 20 minutes
         </td>
     </tr>
     <tr>
-        <td>12:00</td>
-        <td><em>lunch break (90 minutes)</em>
+        <td>12:15</td>
+        <td><em>lunch break (75 minutes)</em>
         </td>
     </tr>
     <tr>
