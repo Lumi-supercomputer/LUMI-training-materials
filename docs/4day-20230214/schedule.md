@@ -289,7 +289,7 @@ DAY 3
     </tr>
     <tr>
         <td>13:30</td>
-        <td>Introduction to AMD ROCm ecosystem<br/>
+        <td>Introduction to AMD ROCm<sup>TM</sup> ecosystem<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/AMD/01_introduction_amd_rocm.pdf</code> on LUMI only.</em>
         <!--
@@ -302,6 +302,7 @@ DAY 3
     <tr>
         <td>14:30</td>
         <td><b>Exercises</b>
+        <br><em>[<a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
         </td>
     </tr>
     <tr>
@@ -310,7 +311,7 @@ DAY 3
         </td>
     <tr>
         <td>15:30</td>
-        <td>Debugging<br/>
+        <td>AMD Debugger: ROCgdb<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/AMD/02_Rocgdb_Tutorial.pdf</code> on LUMI only.</em>
         </td>
@@ -322,7 +323,7 @@ DAY 3
     </tr>
     <tr>
         <td>16:15</td>
-        <td>Introduction to AMD Rocprof<br/>
+        <td>Introduction to Rocprof Profiling Tool<br/>
         <em>Presenter: George Markomanolis (AMD)</em><br>
         <br><em>Slide file: <code>/project/project_465000388/slides/AMD/03_intro_rocprof.pdf</code> on LUMI only.</em>
         </td>

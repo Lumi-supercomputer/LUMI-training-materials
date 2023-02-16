@@ -11,9 +11,10 @@
 
 ## Downloads
 
+
+
 <!--
 -   Slides [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem (PDF, 10M)](files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf)
--   [Additional notes and exercises from the AMD session](https://hackmd.io/@gmarkoma/HyAx9y2ci)
 -   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
     [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
     system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
@@ -57,6 +58,8 @@ To come as the course progresses.
     <em>Published with delay.</em>
     
 -   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
+
+-   [Additional notes and exercises from the AMD session](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA) (External link!)
 
 
 To come as the course progresses (and afterwards).
