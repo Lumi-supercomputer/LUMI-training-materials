@@ -243,6 +243,7 @@ DAY 3
         <td>Performance Optimization: Improving Single-core Efficiency<br/>
         <em>Presenter: Jean Pourroy (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/09_cpu_performance_optimization.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/11_CPU_Performance_Optimization.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -250,7 +251,8 @@ DAY 3
         <td>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<br/>
         <em>Presenter: Thierry Braconnier (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/10_debugging_at_scale.pdf</code> on LUMI only.</em>
-    </td>
+        <br><em>Recording: <code>/project/project_465000388/recordings/12_Debugging_at_Scale.mp4</code> on LUMI only.</em>
+        </td>
     </tr>
     <tr>
         <td>10:10</td>
@@ -258,7 +260,7 @@ DAY 3
     </tr>
     <tr>
         <td>10:30</td>
-        <td><em>break (20 minutes)</em>
+        <td><em>break</em>
         </td>
     </tr>
     <tr>
@@ -275,6 +277,7 @@ DAY 3
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/11_IO_medium_LUMI.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/13_IO_Optimization.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -292,49 +295,49 @@ DAY 3
         <td>Introduction to AMD ROCm<sup>TM</sup> ecosystem<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/AMD/01_introduction_amd_rocm.pdf</code> on LUMI only.</em>
-        <!--
-        <br/><em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
-        <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em>
-        <br/><em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
-        -->
+        <br><em>Recording: <code>/project/project_465000388/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
         <td>14:30</td>
         <td><b>Exercises</b>
-        <br><em>[<a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
+        <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
         </td>
     </tr>
     <tr>
         <td>15:00</td>
-        <td><em>break (30 minutes)</em>
+        <td><em>break</em>
         </td>
     <tr>
         <td>15:30</td>
         <td>AMD Debugger: ROCgdb<br/>
-        <em>Presenter: George Markomanolis (AMD)</em>
+        <em>Presenter: Bob Robey (AMD)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/AMD/02_Rocgdb_Tutorial.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/15_AMD_Rocgdb_Tutorial.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
-        <td>15:55</td>
+        <td>16:05</td>
         <td><b>Exercises</b>
+        <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
         </td>
     </tr>
     <tr>
-        <td>16:15</td>
+        <td>16:25</td>
         <td>Introduction to Rocprof Profiling Tool<br/>
         <em>Presenter: George Markomanolis (AMD)</em><br>
         <br><em>Slide file: <code>/project/project_465000388/slides/AMD/03_intro_rocprof.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/16_Introduction_Rocprof.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
-        <td>16:35</td>
+        <td>16:45</td>
         <td><b>Exercises</b>
+        <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
         </td>
     </tr>
     <tr>
-        <td>17:00</td>
+        <td>17:10</td>
         <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
         </td>
     </tr>
