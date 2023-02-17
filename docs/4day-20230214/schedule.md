@@ -294,7 +294,7 @@ DAY 3
         <td>13:30</td>
         <td>Introduction to AMD ROCm<sup>TM</sup> ecosystem<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <br><em>Slide file: <code>/project/project_465000388/slides/AMD/01_introduction_amd_rocm.pdf</code> on LUMI only.</em>
+        <br><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -312,7 +312,7 @@ DAY 3
         <td>15:30</td>
         <td>AMD Debugger: ROCgdb<br/>
         <em>Presenter: Bob Robey (AMD)</em>
-        <br><em>Slide file: <code>/project/project_465000388/slides/AMD/02_Rocgdb_Tutorial.pdf</code> on LUMI only.</em>
+        <br><em><a href="../files/02_Rocgdb_Tutorial.pdf">Slides for download</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/15_AMD_Rocgdb_Tutorial.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -325,8 +325,8 @@ DAY 3
     <tr>
         <td>16:25</td>
         <td>Introduction to Rocprof Profiling Tool<br/>
-        <em>Presenter: George Markomanolis (AMD)</em><br>
-        <br><em>Slide file: <code>/project/project_465000388/slides/AMD/03_intro_rocprof.pdf</code> on LUMI only.</em>
+        <em>Presenter: George Markomanolis (AMD)</em>
+        <br><em><a href="../files/03_intro_rocprof.pdf">Slides for download</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/16_Introduction_Rocprof.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -404,7 +404,7 @@ DAY 4
     <tr>
         <td>13:30</td>
         <td>Introduction to AMD Omnitrace<br/>
-        <em>Presenter: George Markomanolis (AMD)</em>
+        <em>Presenter: Suyash Tandon (AMD)</em>
         <!--
         <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
         <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
