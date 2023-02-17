@@ -421,7 +421,7 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>14:40</td>
+        <td>14:45</td>
         <td>Introduction do AMD Omniperf<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <!--
@@ -432,7 +432,7 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>14:40</td>
+        <td>15:20</td>
         <td><b>Exercises</b>
         </td>
     </tr>
