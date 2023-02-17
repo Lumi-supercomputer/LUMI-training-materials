@@ -143,7 +143,7 @@ DAY 2
     <tr>
         <td>09:45</td> 
         <td><b>Exercises</b>
-        <br/><em>See also: <code>/project/project_465000388/slides/HPE/Exercises_Day1-3.pdf</code> on LUMI only.</em>
+        <br/><em>See also: <code>/project/project_465000388/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
          </td>
     </tr>
     <tr>
@@ -356,12 +356,13 @@ DAY 4
     </tr>
     <tr>
         <td>09:00</td>
-        <td>Introduction to Perftools - Perftools-lite modules
+        <td>Introduction to Perftools
         <ul>
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
             <li>Demo: Visualization of performance data with Apprentice2</kli>
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/12_introduction_to_perftools.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
