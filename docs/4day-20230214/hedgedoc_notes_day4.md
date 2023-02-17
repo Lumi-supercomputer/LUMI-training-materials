@@ -123,7 +123,7 @@ These are the notes from the LUMI training,
     -   This warning means that somehow the loop completed and the end address could not be recorded. If the reason is not clear by inspection of the loop (and it is hard to work out where it is) I'm afraid it needs knowledge of the perftools internals to investigate this further.
     -   OK, we will look into it. What matters is that you get the info you need in the profile of course.
 
-14. Related to 9. - if HW counters are disabled, how to identify the node-level performance efficiency (w.r.t. HW capabilities)? And follow-up: is it planned to enable the HW counters access (what timeframe if yes)?
+14. Related to the previous question on hardware counters. - if HW counters are disabled, how to identify the node-level performance efficiency (w.r.t. HW capabilities)? And follow-up: is it planned to enable the HW counters access (what timeframe if yes)?
     -   There is no time frame as we don't know when the security concerns that triggered disabling them will be resolved.
         -   Can you please elaborate more on the security issue?
     -   We have representatives from the LUMI Support Team here but policies around the system are set by the CSC staff managing the system and they are not represented in this training, and even then might not want to comment. If you want to make your voice heard that this capability should be enabled then you could put in a ticket.
@@ -159,7 +159,7 @@ These are the notes from the LUMI training,
         -   I compared with another job script that follows your example, and I see the same bus_id for each rank of the naive example. So the CPU-GPU affinity is suboptimal (?) [rank 0 : GPU 0 , rank 1 : GPU 1 ...]
     -   (Alfio) same bus_id? Are you using select_gpu script? We don't rely on SLURM GPU affinity in our examples...
     -   I am intending to edit the acheck binding code to add GPU information, not done yet.
-    
+      
 
 ## Advanced performance analysis
 
@@ -185,6 +185,10 @@ These are the notes from the LUMI training,
     Exercise:
 
     -   __Follow the Readme.md files in each subfolder of `perftools` and get familiar with the `perftools` commands and outputs__
+
+
+## Introduction to AMD Omnitrace
+
 
 
 
