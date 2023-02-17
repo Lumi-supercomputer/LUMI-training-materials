@@ -17,6 +17,7 @@
     -   [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](files/01_introduction_amd_rocm.pdf)
     -   [AMD Debugger: ROCgdb](files/02_Rocgdb_Tutorial.pdf)
     -   [Introduction to Rocporf Profiling Tool](files/03_intro_rocprof.pdf)
+    -   [Introduction to OmniTools](files/04_intro_omnitools_new.pdf)
 
 <!--
 -   Slides [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem (PDF, 10M)](files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf)

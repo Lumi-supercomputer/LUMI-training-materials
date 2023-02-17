@@ -402,10 +402,12 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>13:30</td>
-        <td>Introduction to AMD Omnitrace<br/>
-        <em>Presenter: Suyash Tandon (AMD)</em>
-        <!--
+        <td>13:34</td>
+        <td>Introduction to OmniTools<br/>
+        (late start due to technical problems)
+        <br><em>Presenter: Suyash Tandon (AMD)</em>
+        <br><em><a href="../files/04_intro_omnitools_new.pdf">Slides for download</a></em>
+       <!--
         <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
         <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
         <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
@@ -414,12 +416,12 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>13:55</td>
+        <td>14:20</td>
         <td><b>Exercises</b>
         </td>
     </tr>
     <tr>
-        <td>14:15</td>
+        <td>14:40</td>
         <td>Introduction do AMD Omniperf<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <!--
