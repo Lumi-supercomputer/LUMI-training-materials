@@ -11,7 +11,8 @@
 
 ## Downloads
 
-
+-   Slides presentation ["LUMI Software Stacks"](files/LUMI-Software-20230215.pdf) 
+    (but you may prefer [reading the notes](software_stacks.md))
 
 <!--
 -   Slides [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem (PDF, 10M)](files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf)
@@ -57,7 +58,7 @@ To come as the course progresses.
     
     <em>Published with delay.</em>
     
--   [Notes on the presentation "Additional software on LUMI"](software_stacks.md)
+-   [Notes on the presentation "LUMI Software Stacks"](software_stacks.md)
 
 -   [Additional notes and exercises from the AMD session](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA) (External link!)
 
