@@ -368,7 +368,7 @@ DAY 4
     <tr>
         <td>09:40</td>
         <td><b>Exercises</b>
-        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
+        <br><em>Info about the exercises in <code>/project/project_465000388/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -378,13 +378,14 @@ DAY 4
     </tr>
     <tr>
         <td>10:30</td>
-        <td>Advanced performance analysis
+        <td>Advanced Performance Analysis
         <ul>
             <li>Automatic performance analysis and loop work estimated with perftools</li>
             <li>Communication Imbalance, Hardware Counters, Perftools API, OpenMP</li>
             <li>Compiler feedback and variable scoping with Reveal</li>
         </ul>
         <em>Presenter: Thierry Braconnier (HPE)</em>
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/13_advanced_performance_analysis_merged.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
