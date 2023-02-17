@@ -433,27 +433,17 @@ DAY 4
     </tr>
     <tr>
         <td>15:20</td>
-        <td><b>Exercises</b>
-        </td>
-    </tr>
-    <tr>
-        <td>15:00</td>
         <td><em>break</em>
         </td>
     </tr>
     <tr>
-        <td>15:30</td>
-        <td>Best practices: GPU Optimization, tips & tricks / dem<br/>
-        <!-- <em>Presenter: George Markomanolis (AMD)</em><br/> -->
-        <!--
-        <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
-        <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-        <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
-        -->
+        <td>15:40</td>
+        <td>Tools in Action - An Example with Pytorch
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
-        <td>16:30</td>
+        <td>17:00</td>
         <td><b>Exercises</b>
         </td>
     </tr>

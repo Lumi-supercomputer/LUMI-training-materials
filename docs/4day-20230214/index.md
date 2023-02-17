@@ -19,14 +19,6 @@
     -   [Introduction to Rocporf Profiling Tool](files/03_intro_rocprof.pdf)
     -   [Introduction to OmniTools](files/04_intro_omnitools_new.pdf)
 
-<!--
--   Slides [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem (PDF, 10M)](files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf)
--   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
-    [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
-    system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
--->
-
-To come as the course progresses.
 
 ## Other material only available on LUMI
 
@@ -51,7 +43,6 @@ The following materials can only be found on LUMI and are only accessible to mem
 -   Exercises are in <code>/project/project_465000388/exercises</code>
 -->
 
-To come as the course progresses.
 
 ## Notes
 
@@ -66,9 +57,6 @@ To come as the course progresses.
 -   [Notes on the presentation "LUMI Software Stacks"](software_stacks.md)
 
 -   [Additional notes and exercises from the AMD session](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA) (External link!)
-
-
-To come as the course progresses (and afterwards).
 
 
 ## Exercises
