@@ -368,11 +368,12 @@ DAY 4
     <tr>
         <td>09:40</td>
         <td><b>Exercises</b>
+        <br><em>Slide file: <code>/project/project_465000388/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
         <td>10:10</td>
-        <td><em>break (20 minutes)</em>
+        <td><em>break</em>
         </td>
     </tr>
     <tr>
