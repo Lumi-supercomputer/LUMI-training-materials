@@ -407,12 +407,8 @@ DAY 4
         (late start due to technical problems)
         <br><em>Presenter: Suyash Tandon (AMD)</em>
         <br><em><a href="../files/04_intro_omnitools_new.pdf">Slides for download</a></em>
-       <!--
-        <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
-        <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-        <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
-        -->
-        </td>
+        <br><em>Recording: <code>/project/project_465000388/recordings/19_Introduction_to_OmniTools.mp4</code> on LUMI only.</em>
+       </td>
         </td>
     </tr>
     <tr>
@@ -424,11 +420,7 @@ DAY 4
         <td>14:45</td>
         <td>Introduction do AMD Omniperf<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <!--
-        <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
-        <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
-        <em>Recording: <code>/project/project_465000388/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
-        -->
+        <br><em>Recording: <code>/project/project_465000388/recordings/20_Introduction_to_Omniperf.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -444,12 +436,9 @@ DAY 4
     </tr>
     <tr>
         <td>17:00</td>
-        <td><b>Exercises</b>
-        </td>
-    </tr>
-    <tr>
-        <td>17:00</td>
         <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
+        <br><em>Some examples from the presentation: <code>/pfs/lustrep1/projappl/project_465000388/slides/AMD/pytorch-based-examples</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/21_Tools_in_Action_Pytorch_Demo.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
