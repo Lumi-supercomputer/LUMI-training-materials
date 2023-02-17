@@ -363,6 +363,7 @@ DAY 4
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/12_introduction_to_perftools.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/17_Introduction_to_Perftools.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -386,11 +387,13 @@ DAY 4
         </ul>
         <em>Presenter: Thierry Braconnier (HPE)</em>
         <br><em>Slide file: <code>/project/project_465000388/slides/HPE/13_advanced_performance_analysis_merged.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/18_Advanced_Performance_Analysis.mp4</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
-        <td>11:30</td>
+        <td>11:25</td>
         <td><b>Exercises</b>
+        <br><em>Info about the exercises in <code>/project/project_465000388/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
@@ -433,7 +436,7 @@ DAY 4
     </tr>
     <tr>
         <td>15:00</td>
-        <td><em>break (30 minutes)</em>
+        <td><em>break</em>
         </td>
     </tr>
     <tr>
