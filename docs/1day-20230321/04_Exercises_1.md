@@ -1,7 +1,12 @@
 # Exercises 1: HPE Cray PE and modules
 
 
-## Compilation of a program
+
+## Compilation of a program 1: A simple "Hello, world" program
+
+
+
+## Compilation of a program 2: A program with BLAS
 
 In the `CPE_and_modules` subdirectory you'll find the C program `matrix_mult_C.c`
 and the Fortran program `matrix_mult_F.f90`. Both do the same thing: a matrix-matrix
@@ -136,6 +141,51 @@ starting with `ijk-variant`, is printed, you've done something wrong.
     messages about not being able to find DGEMM.
 
 
-## Compilation of a program 2: A hybrid MPI/OpenMP program
+## Compilation of a program 3: A hybrid MPI/OpenMP program
 
+The file `mpi_omp_hello.c` is a hybrid MPI and OpenMP C program that sends a message
+from each thread in each MPI rank. It is basically a simplified version of the
+programs found in the `lumi-CPEtools` modules that can be used to quickly check 
+the core assignement in a hybrid MPI and OpenMP job (see later in this tutorial).
+It is again just a CPU-based program.
 
+Compile the program with your favourite C compiler on LUMI.
+
+We have not yet seen how to start an MPI program. However, you can run the executable
+on the login nodes and it will then contain just a single MPI rank. 
+
+??? Solution
+    In the HPE Cray PE environment, you don't use `mpicc` to compile a C MPI program,
+    but you just use the `cc` wrapper as for any other C program. To enable MPI you 
+    have to make sure that the `cray-mpich` module is loaded. This module will usually
+    be loaded by loading one of the `PrgEnv-*` modules, but only if the right network
+    target module, which is `craype-network-ofi`, is also already loaded. 
+
+    Compiling the program is very simple:
+
+    ```
+    module load PrgEnv-gnu
+    cc -O3 -fopenmp mpi_omp_hello.c -o mpi_omp_hello_gnu.x
+    ```
+
+    to compile with the GNU C compiler, 
+
+    ```
+    module load PrgEnv-cray
+    cc -O3 -fopenmp mpi_omp_hello.c -o mpi_omp_hello_cray.x
+    ```
+
+    to compile with the Cray C compiler, and
+
+    ```
+    module load PrgEnv-aocc
+    cc -O3 -fopenmp mpi_omp_hello.c -o mpi_omp_hello_aocc.x
+    ```
+
+    to compile with the AMD AOCC compiler.
+
+    To run the executables generated with the GNU or Cray compiler it is not
+    even needed to have the respective `PrgEnv-*` module loaded since the binaries
+    will use a copy of the libraries stored in a default directory, but to run the 
+    executable build with the AOCC compiler it is necessary to load the `PrgEnv-aocc` 
+    module or you will get an error message about a certain library not being found.
