@@ -4,6 +4,65 @@
 
 ## Compilation of a program 1: A simple "Hello, world" program
 
+Four different implementations of a simple "Hello, World!" program are provided:
+
+-   `hello_world.c` is an implementation in C,
+-   `hello_world.cc` is an implemenatation in C++,
+-   `hello_world.f` is an implementation in Fortran using the fixed format source form,
+-   `hello_world.f90` is an implementation in Fortran using the more modern free format source form.
+
+Try to compile these programs using the programming environment of your choice.
+
+??? Solution "Click to see the solution."
+    We'll use the default version of the programming environment, but in case you want to use
+    a particular version, e.g., the 22.08 version, and want to be very sure that all modules are
+    loaded correctly from the start you could consider using
+
+    ```
+    module load cpe/22.08
+    module load cpe/22.08
+    ```
+
+    So note that we do twice the same command as the first iteration does not always succeed to reload
+    all modules in the correct version. Do not combine both lines into a single `module load` statement
+    as that would again trigger the bug that prevents all modules to be reloaded in the first iteration.
+
+    The sample programs that we asked you to compile do not use the GPU. So there are three programming
+    environments that we can use: `PrgEnv-gnu`, `PrgEnv-cray` and `PrgEnv-aocc`. All three will work,
+    and they work almost the same.
+
+    Let's start with an easy case, compiling the C version of the program with the GNU C compiler.
+    For this all we need to do is
+
+    ```
+    module load PrgEnv-gnu
+    cc hello_world.c
+    ```
+
+    which will generate an executable named `a.out`. Of course it is better to give the executable a proper
+    name which can be done with the `-o` compiler option:
+
+    ```
+    module load PrgEnv-gnu
+    cc hello_world.c -o hello_world.x
+    ```
+
+    Try running this program:
+
+    ```
+    ./hello_world.x
+    ```
+
+    to see that it indeed works. We did forget another important compiler option, but we'll discover
+    that in the next exercise.
+
+    The other programs are equally easy to compile using the compiler wrappers:
+
+    ```
+    CC hello_world.cc -o hello_world.x
+    ftn hello_world.f -o hello_world.x
+    ftn hello_world.f90 -o hello_world.x
+    ```
 
 
 ## Compilation of a program 2: A program with BLAS
@@ -30,39 +89,17 @@ is completely unreliable.
 If this program takes more than half a minute or so before the first result line in the table,
 starting with `ijk-variant`, is printed, you've done something wrong.
 
-??? Solution
-    We'll use the default version of the programming environment, but in case you want to use
-    a particular version, e.g., the 22.08 version, and want to be very sure that all modules are
-    loaded correctly from the start you could consider using
+??? Solution "Click to see the solution."
+    Just as in the previous exercise, this is a pure CPU program so we can chose between the
+    same three programming environments.
 
-    ```
-    module load cpe/22.08
-    module load cpe/22.08
-    ```
-
-    So note that we do twice the same command as the first iteration does not always succeed to reload
-    all modules in the correct version. Do not combine both lines into a single `module load` statement
-    as that would again trigger the bug that prevents all modules to be reloaded in the first iteration.
-
-    The sample programs that we asked you to compile do not use the GPU. So there are three programming
-    environments that we can use: `PrgEnv-gnu`, `PrgEnv-cray` and `PrgEnv-aocc`. All three will work,
-    and they work almost the same.
-
-    The one "difficulty" is that we need to link with the BLAS library. This is very easy however in 
+    The one additional "difficulty" is that we need to link with the BLAS library. This is very easy however in 
     the HPE Cray PE if you use the compiler wrappers rather than calling the compilers yourself:
     you only need to make sure that the `cray-libsci` module is loaded and the wrappers will take
     care of the rest. And on most systems (including LUMI) this module will be loaded automatically
     when you load the `PrgEnv-*` module.
 
     To compile with the GNU C compiler, all you need to do is
-
-    ```
-    module load PrgEnv-gnu
-    cc -O3 matrix_mult_C.c
-    ```
-
-    which will generate the executable `a.out`. Of course it is better to give the executable a proper
-    name which can be done with the `-o` compiler option:
 
     ```
     module load PrgEnv-gnu
@@ -154,7 +191,7 @@ Compile the program with your favourite C compiler on LUMI.
 We have not yet seen how to start an MPI program. However, you can run the executable
 on the login nodes and it will then contain just a single MPI rank. 
 
-??? Solution
+??? Solution "Click to see the solution."
     In the HPE Cray PE environment, you don't use `mpicc` to compile a C MPI program,
     but you just use the `cc` wrapper as for any other C program. To enable MPI you 
     have to make sure that the `cray-mpich` module is loaded. This module will usually
