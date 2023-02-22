@@ -195,7 +195,7 @@ These are the notes from the LUMI training,
 
 ### Exercise setup 
 
-!!! info
+!!! exercise
     Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
     Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or better transfer the pdf to your local machine with `scp` (run it from your local machine).
     To set the necessary environment variables, source `lumi_c.sh` with  `source /project/project_465000388/exercises/HPE/lumi_c.sh` (or `lumi_g.sh` equivalent for GPU nodes)
@@ -276,7 +276,7 @@ These are the notes from the LUMI training,
 
 ### Exercise
 
-!!! Info
+!!! exercise
     1.  Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
     2.  Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or the pdf at `doc/ProgrammingModelExamples.pdf`.
     3.  To set the necessary environment variables, source `lumi_c.sh` with  `source /project/project_465000388/exercises/HPE/lumi_c.sh` (or `lumi_g.sh` equivalent for GPU nodes)
@@ -418,7 +418,7 @@ These are the notes from the LUMI training,
 
 ### Exercises
 
-!!! Info
+!!! exercise
     1. Copy the exercises to your home or project folder  `cp /project/project_465000388/exercises/HPE/ProgrammingModels.tar $HOME`
     2. Unpack it with `tar xf ProgrammingModels.tar` and read the `README` file or the pdf at `doc/ProgrammingModelExamples.pdf`.
     3. To set the necessary environment variables, source `lumi_c.sh` with  `source /project/project_465000388/exercises/HPE/lumi_c.sh` (or `lumi_g.sh` equivalent for GPU nodes)

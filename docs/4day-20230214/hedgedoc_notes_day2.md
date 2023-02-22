@@ -46,7 +46,7 @@ These are the notes from the LUMI training,
 
 ### Exercises
 
-!!! info "Exercise"
+!!! exercise
     -   Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
     -   Directories for this exercise: `openmp-target`, `openacc-mpi-demos`, `BabelStream`
     -   Copy the files to your home or project folder before working on the exercises.
@@ -130,8 +130,8 @@ These are the notes from the LUMI training,
 
 ### Exercises
 
-!!! Info "Exercises"
-    -   xercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
+!!! exercise
+    -   Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
     -   Directories for this exercise: `XTHI` (try out application) and `ACHECK` (pdf doc & application similar to xthi but nicer output)
     -   Copy the files to your home or project folder before working on the exercises.
     -   In some exercises you have source additional files to load the right modules necessary, check the README file. __Check that you don't have unnecessary (GPU) modules loaded.__
@@ -301,7 +301,7 @@ These are the notes from the LUMI training,
 
 ### Exercises
 
-!!! info "Exercises"
+!!! exercise
     -   Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
     -   Directories for this exercise: `ProgrammingModels` or any other you want to try.
     -   Copy the files to your home or project folder before working on the exercises.

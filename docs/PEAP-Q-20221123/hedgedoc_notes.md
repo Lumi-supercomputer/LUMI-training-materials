@@ -105,7 +105,7 @@ Slides from the LUST talks are available [on these pages](index.md)
     - Please don't run benchmarks of your own software on the project account. If you already have another project, use that one instead.
     - You can install and run VASP but need to bring your own license file. See also [here](https://docs.lumi-supercomputer.eu/software/guides/vasp/) or the future page in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/v/VASP/).
 
-!!! info "Exercises"
+!!! exercise
     Exercises are available at `/project/project_465000297/exercises/ProgrammingModels/`
     Copy the files to your home folder before unpacking them.
 
@@ -129,7 +129,7 @@ Slides from the LUST talks are available [on these pages](index.md)
     - Thanks, the filename was actually the problem, I wasn't expecting that
     - I may have another advice, just in case: the CCE produces modules with capital letters names (FOO.mod), you can use `-emf` to get lowercase (like gfortran).
 
-!!! info "Exercises"
+!!! exercise
     Try the compiler exercises at `/project/project_465000297/exercises/perftools/compiler_listings` and recompiling the exercises from earlier. You don't need to run any jobs.
 
 ### Advanced Application Placement
@@ -141,7 +141,7 @@ Slides from the LUST talks are available [on these pages](index.md)
     - Yes, it forwards the options to pmi
     - It is possible to get a report and we will mention tomorrow how to do that. But it can be done by option or environmental variable.
 
-!!! info "Exercises"
+!!! exercise
     Try out the exercises found under `/project/project_465000297/exercises/Binding` and ask questions here.
     All exercises are described in the pdf document there.
 
@@ -168,7 +168,7 @@ Slides from the LUST talks are available [on these pages](index.md)
 22. The output of the statistics will tell you the name of the subroutine, line number, will it also tell you the name of the file where this is from ?
     - with the `-O ca+src` option to `pat_report` you can get the source information.
 
-!!! info "Exercises"
+!!! exercise
     The exercise files are on lumi at `/project/project_465000297/exercises/perftools/perftools-lite`. Copy the files into your home directory and work from there.
 
 !!! info "Apprentice2 and Reveal downloads"
@@ -203,7 +203,7 @@ Slides from the LUST talks are available [on these pages](index.md)
     - It should work if you have a ssh config file with the hostname, username and identity file for lumi. Can you connect to lumi with just `ssh lumi`?
         - Yes, I can connect to lumi with just `ssh lumi`. However: apprentice2, open remote with host `username@lumi.csc.fi` prompts for a password
 
-!!! info "Exercises"
+!!! exercise
     The exercise files are on lumi at `/project/project_465000297/exercises/perftools/`.Copy the files into your home directory and work from there.
 
 

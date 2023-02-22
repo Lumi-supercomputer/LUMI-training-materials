@@ -18,6 +18,9 @@
     -   [AMD Debugger: ROCgdb](files/02_Rocgdb_Tutorial.pdf)
     -   [Introduction to Rocporf Profiling Tool](files/03_intro_rocprof.pdf)
     -   [Introduction to OmniTools](files/04_intro_omnitools_new.pdf)
+-   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
+    [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
+    system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
 
 
 ## Other material only available on LUMI

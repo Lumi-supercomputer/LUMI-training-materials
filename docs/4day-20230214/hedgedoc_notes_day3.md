@@ -38,7 +38,7 @@ These are the notes from the LUMI training,
 
 ### Exercise
 
-!!! info "Exercise"
+!!! exercise
     General remarks:
     -   Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
     -   Directory for this exercise: `debugging`
@@ -120,7 +120,8 @@ These are the notes from the LUMI training,
 
 
 ### Exercise
-!!! info "Exercise"
+
+!!! exercise
     Remarks:
 
     -    Exercise notes and files including pdf and Readme with instructions on LUMI at `project/project_465000388/exercies/HPE`
@@ -171,7 +172,7 @@ These are the notes from the LUMI training,
 
 ### Exercises
 
-!!! Info "Exercise"
+!!! exercise
     Find the instructions [here](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA)
     
 17. I'm just compiled the exercise vectoradd.cpp, but I'm getting the following output:
@@ -413,7 +414,8 @@ These are the notes from the LUMI training,
     -   note that we do need a software update to enable GPU kernel debugging (breaking inside the kernel) with gdb4hpc at the moment
 
 ### Exercise
-!!! info "Exercise"
+
+!!! exercise
     Find the instructions [here](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA?view#Debugging)
     Try the debugging section.
 
@@ -448,7 +450,7 @@ These are the notes from the LUMI training,
 
 ### Exercises
 
-!!! info "Exercises"
+!!! exercise
     Find the instructions [here](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA?view#Rocprof).
     Try the _rocprof_ section.
 
