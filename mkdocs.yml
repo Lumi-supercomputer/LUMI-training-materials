@@ -17,6 +17,9 @@ theme:
   icon:
     admonition:
       demo: fontawesome/solid/computer-mouse
+      exercise: fontawesome/solid/screwdriver-wrench
+      remark: fontawesome/solid/comment-dots
+      solution: fontawesome/solid/wand-magic-sparkles
 
 nav:
   - Home: index.md
