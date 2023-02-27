@@ -9,10 +9,9 @@
   
 -   [Lmod modules](03_Modules.md)
   
--   [Exercises 1: Cray PE and modules](04_Exercises_1.md)
+-   [Managing software on LUMI](04_Software_stack.md)
 
--   [Managing software on LUMI](05_Software_stack.md)
+-   [Exercises 1: modules, Cray PE and EasyBuild](05_Exercises_1.md)
 
--   [Exercises 2: Managing software stacks](06_Exercises_2.md)
 
 

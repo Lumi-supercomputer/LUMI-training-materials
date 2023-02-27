@@ -28,9 +28,8 @@ nav:
       - LUMI Architecture: 1day-20230321/01_Architecture.md
       - CPE: 1day-20230321/02_CPE.md
       - Lmod modules: 1day-20230321/03_Modules.md
-      - Exercises 1: 1day-20230321/04_Exericses_1.md
-      - Managing software: 1day-20230321/05_Software_stack.md
-      - Exercises 2: 1day-20230321/06_Exericses_2.md
+      - Managing software: 1day-20230321/04_Software_stack.md
+      - Exercises 1: 1day-20230321/05_Exercises_1.md
   - Profiling April 2013:
       - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:

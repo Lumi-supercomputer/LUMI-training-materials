@@ -1,8 +1,13 @@
-# Exercises 1: HPE Cray PE and modules
+# Exercises 1: Modules, the HPE Cray PE and EasyBuild
 
 
 
-## Compilation of a program 1: A simple "Hello, world" program
+## Exercises on compiling software by hand
+
+*These exercises are optional during the session, but useful if you expect 
+to be compiling software yourself.*
+
+### Compilation of a program 1: A simple "Hello, world" program
 
 Four different implementations of a simple "Hello, World!" program are provided:
 
@@ -65,7 +70,7 @@ Try to compile these programs using the programming environment of your choice.
     ```
 
 
-## Compilation of a program 2: A program with BLAS
+### Compilation of a program 2: A program with BLAS
 
 In the `CPE_and_modules` subdirectory you'll find the C program `matrix_mult_C.c`
 and the Fortran program `matrix_mult_F.f90`. Both do the same thing: a matrix-matrix
@@ -178,7 +183,7 @@ starting with `ijk-variant`, is printed, you've done something wrong.
     messages about not being able to find DGEMM.
 
 
-## Compilation of a program 3: A hybrid MPI/OpenMP program
+### Compilation of a program 3: A hybrid MPI/OpenMP program
 
 The file `mpi_omp_hello.c` is a hybrid MPI and OpenMP C program that sends a message
 from each thread in each MPI rank. It is basically a simplified version of the
@@ -226,3 +231,30 @@ on the login nodes and it will then contain just a single MPI rank.
     will use a copy of the libraries stored in a default directory, but to run the 
     executable build with the AOCC compiler it is necessary to load the `PrgEnv-aocc` 
     module or you will get an error message about a certain library not being found.
+
+## Information in the LUMI Software Library  
+
+Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
+
+-   Search for information for the package ParaView and quickly read through the page
+
+??? Solution "Click to see the solution."
+    [Link to the Paraview documentation](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/ParaView/)
+
+    It is an example of a package for which we have both user-level and some technical information. The page
+    will first show some license information, then the actual user information which in case of this package
+    is very detailed and long. But it is also a somewhat complicated package to use. It will become easier
+    when LUMI evolves a bit further, but there will always be some pain. Next comes the more technical
+    part: Links to the EasyBuild recipe and some information about how we build the package.
+
+    We currently only provide ParaView in the cpeGNU toolchain. This is because it has a lot of dependencies
+    that are not trivial to compile and to port to the other compilers on the system, and EasyBuild is 
+    strict about mixing compilers basically because it can cause a lot of problems, e.g., due to conflicts
+    between OpenMP runtimes.
+
+
+## Installing a simple application with EasyBuild
+
+TODO!
+
+
