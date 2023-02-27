@@ -7,6 +7,33 @@
 -   HedgeDoc for off-line questions
 
 
+## Setting up for the exercises
+
+-   Create a directory in the scratch of the training project, or if you want to
+    keep the exercises around for a while after the session and have already
+    another project on LUMI, in a subdirectory or your project directory 
+    or in your home directory (though we don't recommend the latter).
+    Then go into that directory.
+
+    E.g., in the scratch directory of the project:
+
+    ```
+    mkdir -p /scratch/porject_465000XXX/$USER/exercises
+    cd /scratch/project_465000XXX/$USER/exercises
+    ```
+
+-   Now download the exercises and un-tar:
+
+    ```
+    wget https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230321/files/exercises-20230328.tar.gz
+    tar -xf exercises-20230328.tar.gz
+    ```
+
+    [Link to the exercises](files/exercises-20230328.tar.gz)
+
+-   You're all set to go!
+
+
 ## Notes
 
 -   [LUMI architecture](01_Architecture.md)
