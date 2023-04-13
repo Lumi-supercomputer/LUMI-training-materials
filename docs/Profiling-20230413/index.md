@@ -14,6 +14,10 @@
 
 ## Downloads
 
+-   Slides AMD:
+    -   [Introduction to ROC-Profiler (rocprof)](files/02_intro_rocprof.pdf)
+    -   [Introduction to OmniTrace](files/03_intro_omnitrace.pdf)
+    -   [Introduction to Omniperf and Hierarchical Roofline on AMD Instinct<sup>TM</sup> MI200 GPUs](files/04_intro_omniperf_roofline.pdf)
 -   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
     [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
     system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
