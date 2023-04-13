@@ -29,4 +29,14 @@ The following materials are available to members of the `project_465000502` proj
     <code>/project/project_465000502/exercises/HPE</code> on LUMI
 
 
+## Notes
+
+-   [Notes from the HedgeDoc document](hedgedoc_notes.md)
+
+
+## Exercises
+
+Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:
+
+-   [ROCm HIP examples](https://github.com/ROCm-Developer-Tools/HIP-Examples)
 

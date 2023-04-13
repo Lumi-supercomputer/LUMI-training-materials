@@ -30,7 +30,33 @@
     </tr>
     <tr>
         <td>13:00</td>
-        <td>AMD ROCm<sup>TM</sup> Profiling Tools: Rocprof, Omniperf and Omnitrace<br/>
+        <td>Introduction to ROC-prof profiler<br/>
+        <!--AMD ROCm<sup>TM</sup> Profiling Tools: Rocprof, Omniperf and Omnitrace<br/>-->
+        <em>Presenter: George Markomanolis (AMD)</em>
+        <!--<br><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
+        -->
+        </td>
+    </tr>
+    <tr>
+        <td>13:30</td>
+        <td>Introduction to OmniTrace<br/>
+        <!--AMD ROCm<sup>TM</sup> Profiling Tools: Rocprof, Omniperf and Omnitrace<br/>-->
+        <em>Presenter: George Markomanolis (AMD)</em>
+        <!--<br><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
+        <br><em>Recording: <code>/project/project_465000388/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
+        -->
+        </td>
+    </tr>
+    <tr>
+        <td>14:10</td>
+        <td><em>5-minute break</em>
+        </td>
+    </tr>
+    <tr>
+        <td>14:15</td>
+        <td>Introduction to Omniperf and Hierarchical Roofline on AMD Instinct<sup>TM</sup> MI200 GPUs<br/>
+        <!--AMD ROCm<sup>TM</sup> Profiling Tools: Rocprof, Omniperf and Omnitrace<br/>-->
         <em>Presenter: George Markomanolis (AMD)</em>
         <!--<br><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
