@@ -39,5 +39,4 @@ The following materials are available to members of the `project_465000502` proj
 Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:
 
 -   [vcopy.cpp example from the Omniperf presentation](https://raw.githubusercontent.com/AMDResearch/omniperf/main/sample/vcopy.cpp)
--   [ROCm HIP examples](https://github.com/ROCm-Developer-Tools/HIP-Examples)
 
