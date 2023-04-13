@@ -13,8 +13,11 @@
     </tr>
     <tr>
         <td>10:30</td>
-        <td>HPE Cray EPE tools: Perftools, Apprentice2 and Reveal<br/>
-        <em>Presenter: John (HPE)</em><br>
+        <td>Preparing an Application for Hybrid Supercomputing<br/>
+        <em>Presenter: John Levesque (HPE)</em>
+        <ul>
+            <lii>HPE Cray PE tools: Perftools, Apprentice2 and Reveal</li>
+        </ul>
         <!--<em>Slide files: <code>/project/project_465000388/slides/HPE/01_EX_Architecture.pdf</code> on LUMI only.</em>
         <br><em>Recording: <code>/project/project_465000388/recordings/01_Cray_EX_Architecture.mp4</code> on LUMI only.</em>
         -->

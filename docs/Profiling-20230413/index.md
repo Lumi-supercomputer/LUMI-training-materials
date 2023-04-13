@@ -9,6 +9,8 @@
 
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-profiling?edit)
 
+-   [Exercises AMD](https://hackmd.io/@gmarkoma/rkPbZqNMn)
+
 
 ## Downloads
 
