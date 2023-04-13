@@ -64,12 +64,12 @@
         </td>
     </tr>
     <tr>
-        <td>15:00</td>
+        <td>14:55</td>
         <td><em>break</em>
         </td>
     </tr>
     <tr>
-        <td>13:00</td>
+        <td>15:05</td>
         <td>Hands-on with examples or own code
         </td>
     </tr> 
