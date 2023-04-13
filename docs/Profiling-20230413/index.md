@@ -7,9 +7,7 @@
      *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
      if that file is only available on LUMI.*
 
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-profiling?edit)
-
--   [Exercises AMD](https://hackmd.io/@gmarkoma/rkPbZqNMn)
+-   [HedgeDoc for questions (during the course only)](https://md.sigma2.no/lumi-profiling?edit)
 
 
 ## Downloads
@@ -31,6 +29,9 @@ The following materials are available to members of the `project_465000502` proj
     <code>/project/project_465000502/slides/HPE</code> on LUMI
 -   Exercises from the HPE sessions are in
     <code>/project/project_465000502/exercises/HPE</code> on LUMI
+-   Material for the AMD exercises is in
+    <code>/project/project_465000502/exercises/AMD</code> on LUMI, 
+    and there is also an [online text](https://hackmd.io/@gmarkoma/rkPbZqNMn)
 
 
 ## Notes
