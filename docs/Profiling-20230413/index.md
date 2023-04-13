@@ -2,6 +2,11 @@
 
 ## Course organisation
 
+-   [Course schedule](schedule.md)
+
+     *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
+     if that file is only available on LUMI.*
+
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-profiling?edit)
 
 
