@@ -23,6 +23,8 @@ theme:
 
 nav:
   - Home: index.md
+  - Profiling April 2013:
+      - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:
       - 4day-20230214/index.md
   - LUMI-G January 2023:
