@@ -1,4 +1,4 @@
-# LUMI 1-day training March 2023
+# LUMI 1-day training May 2023
 
 ## Organisation
 
@@ -18,18 +18,18 @@
     E.g., in the scratch directory of the project:
 
     ```
-    mkdir -p /scratch/porject_465000XXX/$USER/exercises
-    cd /scratch/project_465000XXX/$USER/exercises
+    mkdir -p /scratch/project_465000522/$USER/exercises
+    cd /scratch/project_465000522/$USER/exercises
     ```
 
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230321/files/exercises-20230328.tar.gz
-    tar -xf exercises-20230328.tar.gz
+    wget https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/files/exercises-20230509.tar.gz
+    tar -xf exercises-20230509.tar.gz
     ```
 
-    [Link to the exercises](files/exercises-20230328.tar.gz)
+    [Link to the exercises](files/exercises-20230509.tar.gz)
 
 -   You're all set to go!
 
