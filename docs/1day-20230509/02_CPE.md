@@ -39,7 +39,7 @@ of this course.
   ![Slide The OS on LUMI](img/LUMI-1day-20230509-CPE/Dia3.png){ loading=lazy }
 </figure>
 
-The login nodes of LUMI run a regular SUSE Linux Enterprise Server 15 SP3 distribution.
+The login nodes of LUMI run a regular SUSE Linux Enterprise Server 15 SP4 distribution.
 The compute nodes however run Cray OS, a restricted version of the SUSE Linux that runs
 on the login nodes. Some daemons are inactive or configured differently and Cray also 
 does not support all regular file systems. The goal of this is to minimize OS jitter,
@@ -294,7 +294,7 @@ topic we present the basic commands:
 
 *   `module avail`: Lists all modules that can currently be loaded. 
 *   `module list`: Lists all modules that are currently loaded
-*   `module load: Command used to load a module. Add the name and version of the module.
+*   `module load`: Command used to load a module. Add the name and version of the module.
 *   `module unload`: Unload a module. Using the name is enough as there can only one version be 
     loaded of a module.
 *   `module swap`:  Unload the first module given and then load the second one. In Lmod this is 
