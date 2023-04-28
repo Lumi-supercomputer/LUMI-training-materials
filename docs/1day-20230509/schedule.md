@@ -1,5 +1,6 @@
 # Schedule (tentative)
 
+*All times in CEST. For EEST (Finland, Estonia) add one hour.*
 
 <table style="text-align: left;">
 <tbody>
