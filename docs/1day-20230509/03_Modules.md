@@ -10,7 +10,7 @@
 ## Module environments
 
 <figure markdown style="border: 1px solid #000">
-  ![Module environments](../img/LUMI-1day-20230321-modules/Dia2.png)
+  ![Module environments](../img/LUMI-1day-20230509-modules/Dia2.png)
 </figure>
 
 Modules are commonly used on HPC systems to enable users to create 
@@ -62,7 +62,7 @@ information for search and help information.
 ## Exploring modules with Lmod
 
 <figure markdown style="border: 1px solid #000">
-  ![Exploring modules with Lmod](../img/LUMI-1day-20230321-modules/Dia3.png)
+  ![Exploring modules with Lmod](../img/LUMI-1day-20230509-modules/Dia3.png)
 </figure>
 
 Contrary to some other module systems, or even some other Lmod installations, **not all modules are
@@ -97,7 +97,7 @@ Lmod has **several tools to search for modules**.
 ## Benefits of a hierarchy
 
 <figure markdown style="border: 1px solid #000">
-  ![Benefits of a hierarchy](../img/LUMI-1day-20230321-modules/Dia4.png)
+  ![Benefits of a hierarchy](../img/LUMI-1day-20230509-modules/Dia4.png)
 </figure>
 
 When the hierarchy is well designed, you get some protection from loading modules that do
@@ -146,7 +146,7 @@ the `gcc/11.0.2` compiler.
 ## About module names and families
 
 <figure markdown style="border: 1px solid #000">
-  ![Module names and families](../img/LUMI-1day-20230321-modules/Dia6.png)
+  ![Module names and families](../img/LUMI-1day-20230509-modules/Dia6.png)
 </figure>
 
 In Lmod you cannot have two modules with the same name loaded at the same time.
@@ -189,7 +189,7 @@ when loading `PrgEnv-gnu` and that then unloaded `cce/14.0.1` when the
 ## Extensions
 
 <figure markdown style="border: 1px solid #000">
-  ![Extensions](../img/LUMI-1day-20230321-modules/Dia7.png)
+  ![Extensions](../img/LUMI-1day-20230509-modules/Dia7.png)
 </figure>
 
 It would not make sense to have a separate module for each of the hundreds of R
@@ -213,7 +213,7 @@ to optimised math libraries.
 ## Searching for modules: the module spider command
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider](../img/LUMI-1day-20230321-modules/Dia8.png)
+  ![module spider](../img/LUMI-1day-20230509-modules/Dia8.png)
 </figure>
 
 There are three ways to use `module spider`, discovering software in more and more detail.
@@ -306,7 +306,7 @@ next two examples will show.
 ### Example 3: Searching for GNUplot
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider for a regular package](../img/LUMI-1day-20230321-modules/Dia15.png)
+  ![module spider for a regular package](../img/LUMI-1day-20230509-modules/Dia15.png)
 </figure>
 
 To see if GNUplot is available, we'd first search for the name of the package:
@@ -359,7 +359,7 @@ worth looking there also.
 ### Example 4: Searching for an extension of a module: CMake.
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider for extensions](../img/LUMI-1day-20230321-modules/Dia20.png)
+  ![module spider for extensions](../img/LUMI-1day-20230509-modules/Dia20.png)
 </figure>
 
 The `cmake` command on LUMI is available in the operating system image, but as is often the case with
@@ -419,7 +419,7 @@ to get even more information about the buildtools module, including any help inc
 ## Alternative search: the module keyword command
 
 <figure markdown style="border: 1px solid #000">
-  ![module keyword](../img/LUMI-1day-20230321-modules/Dia24.png)
+  ![module keyword](../img/LUMI-1day-20230509-modules/Dia24.png)
 </figure>
 
 Lmod has a second way of searching for modules: `module keyword`, but unfortunately it does not
@@ -475,7 +475,7 @@ two tools that can be used to fetch files from the internet.
 ## Sticky modules and the module purge command
 
 <figure markdown style="border: 1px solid #000">
-  ![Sticky modules and module purge](../img/LUMI-1day-20230321-modules/Dia29.png)
+  ![Sticky modules and module purge](../img/LUMI-1day-20230509-modules/Dia29.png)
 </figure>
 
 On some systems you will be taught to avoid `module purge` as many HPC systems do their default user
@@ -529,7 +529,7 @@ due to another bug in the already old version of Lmod.
 ## Changing how the module list is displayed
 
 <figure markdown style="border: 1px solid #000">
-  ![Changing how the module list is displayed](../img/LUMI-1day-20230321-modules/Dia36.png)
+  ![Changing how the module list is displayed](../img/LUMI-1day-20230509-modules/Dia36.png)
 </figure>
 
 You may have noticed in the above example that we don't show directories of module files
@@ -573,7 +573,7 @@ from regular users.
 ## Getting help with the module help command
 
 <figure markdown style="border: 1px solid #000">
-  ![Getting help](../img/LUMI-1day-20230321-modules/Dia37.png)
+  ![Getting help](../img/LUMI-1day-20230509-modules/Dia37.png)
 </figure>
 
 Lmod has the `module help` command to get help on modules
@@ -611,7 +611,7 @@ $ module whatis Subversion/1.14.1
 ## A note on caching
 
 <figure markdown style="border: 1px solid #000">
-  ![A note on caching](../img/LUMI-1day-20230321-modules/Dia38.png)
+  ![A note on caching](../img/LUMI-1day-20230509-modules/Dia38.png)
 </figure>
 
 Modules are stored as (small) files in the file system. Having a large module system with
@@ -636,7 +636,7 @@ in good shape.
 ## A note on other commands
 
 <figure markdown style="border: 1px solid #000">
-  ![A note on other commands](../img/LUMI-1day-20230321-modules/Dia39.png)
+  ![A note on other commands](../img/LUMI-1day-20230509-modules/Dia39.png)
 </figure>
 
 As this tutorial assumes some experience with using modules on other clusters, we haven't paid
