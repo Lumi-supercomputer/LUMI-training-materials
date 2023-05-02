@@ -364,16 +364,16 @@ and January), though not all versions are ever offered on LUMI.
 
 There is always a default version assigned by the sysadmins when installing the programming
 environment. It is possible to change the default version for loading further modules
-by loading one of the versions of the `cpe` module. E.g., assuming the 21.12 version would be
+by loading one of the versions of the `cpe` module. E.g., assuming the 22.08 version would be
 present on the system, it can be loaded through
 ```
-module load cpe/21.12
+module load cpe/22.08
 ```
 Loading this module will also try to switch the already loaded PE modules to the versions from
 that release. This does not always work correctly, due to some bugs in most versions of this
 module and a limitation of Lmod. Executing the `module load` twice will fix this.
 The module will also produce a warning when it is unloaded (which is also the case when you
-do a `moudle load` of `cpe` when one is already loades, as it then first unloads the already
+do a `module load` of `cpe` when one is already loaded, as it then first unloads the already
 loaded `cpe` module). The warning can be ignored, but keep in mind that what it says is true,
 it cannot restore the environment you found on LUMI at login.
 
@@ -485,7 +485,7 @@ Other modules that are relevant even to users who do not do development:
 -   Cray FFTW3 library: `cray-fftw`
 -   HDF5:
     -   `cray-hdf5`: Serial HDF5 I/O library
-    -   `cray-hdf5-parallel`: PArallel HDF5 I/O library
+    -   `cray-hdf5-parallel`: Parallel HDF5 I/O library
 -   NetCDF:
     -   `cray-netcdf`
     -   `cray-netcdf-hdf5parallel`
@@ -513,7 +513,7 @@ The PE does not use the versions of many libraries determined by the loaded modu
 but instead uses default versions of libraries (which are actually in `/opt/cray/pe/lib64` on the system)
 which correspond to the version of the programming environment that is set as the default when installed.
 This is very much the behaviour of Linux applications also that pick standard libraries in a few standard
-directories and it enables most programs build with the HPE Cray PE to run without reconstructing the
+directories and it enables many programs build with the HPE Cray PE to run without reconstructing the
 environment and in some cases to mix programs compiled with different compilers with ease (with the
 emphasis on some as there may still be library conflicts between other libraries when not using the 
 so-called rpath linking). This does have an annoying side effect though: If the default PE on the system 
@@ -540,15 +540,15 @@ export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
     $ module load LUMI/22.08
     $ module load lumi-CPEtools/1.0-cpeGNU-22.08
     $ ldd $EBROOTLUMIMINCPETOOLS/bin/mpi_check
-    	    linux-vdso.so.1 (0x00007ffdd0999000)
-	        libdl.so.2 => /lib64/libdl.so.2 (0x00007f8504c9b000)
-	        libmpi_gnu_91.so.12 => /opt/cray/pe/lib64/libmpi_gnu_91.so.12 (0x00007f850207f000)
+          linux-vdso.so.1 (0x00007f420cd55000)
+          libdl.so.2 => /lib64/libdl.so.2 (0x00007f420c929000)
+          libmpi_gnu_91.so.12 => /opt/cray/pe/lib64/libmpi_gnu_91.so.12 (0x00007f4209da4000)
           ...
     $ export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
     $ ldd $EBROOTLUMIMINCPETOOLS/bin/mpi_check
-    	    linux-vdso.so.1 (0x00007ffdd0999000)
-	        libdl.so.2 => /lib64/libdl.so.2 (0x00007f8504c9b000)
-          libmpi_gnu_91.so.12 => /opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1/lib/libmpi_gnu_91.so.12 (0x00007f9f0c68b000)
+    	    linux-vdso.so.1 (0x00007fb38c1e0000)
+          libdl.so.2 => /lib64/libdl.so.2 (0x00007fb38bdb4000)
+          libmpi_gnu_91.so.12 => /opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1/lib/libmpi_gnu_91.so.12 (0x00007fb389198000)
           ...
     ```
     The `ldd` command shows which libraries are used by an executable. Only a part of the very long
@@ -563,7 +563,7 @@ the module fixes `LD_LIBRARY_PATH` again to the state before adding `CRAY_LD_LIB
 reloading the module adapts `LD_LIBRARY_PATH` to the current value of `CRAY_LD_LIBRARY_PATH`. Loading that
 module after loading all other modules should fix this issue for most if not all software.
 
-The second solution would be to use rpath-linking for everything, which can be done by setting
+The second solution would be to use rpath-linking for the Cray PE libraries, which can be done by setting
 the `CRAY_ADD_RPATH`enviornment variable:
 ```
 export CRAY_ADD_RPATH=yes
