@@ -284,14 +284,14 @@ The output also suggests us to dig a bit deeper and
 check for a specific version, so let's run
 
 ```bash
-$ module spider cray-fftw/3.3.10.1
+$ module spider cray-fftw/3.3.10.3
 ```
 
 This produces:
 
-![module spider cray-fftw/3.3.10.1](../img/03_mod_ms_FFTW_version_1.png)
+![module spider cray-fftw/3.3.10.3](../img/03_mod_ms_FFTW_version_1.png)
 
-![module spider cray-fftw/3.3.10.1](../img/03_mod_ms_FFTW_version_2.png)
+![module spider cray-fftw/3.3.10.3](../img/03_mod_ms_FFTW_version_2.png)
 
 We now get a long list of possible combinations of modules that would enable us to load this module.
 What these modules are will be explained in the next session of this course. However, it does show
@@ -327,7 +327,7 @@ letters are not always used in the same way on different clusters. Some manageme
 stacks will only use lowercase letters, while the package we use on LUMI often uses both.
 
 We see that there are a lot of versions installed on the system and that the version actually contains more 
-information (e.g., `-cpeGNU-22.08`) that we will explain in the next part of this course. But you might of
+information (e.g., `-cpeGNU-22.12`) that we will explain in the next part of this course. But you might of
 course guess that it has to do with the compilers that were used. It may look strange to you to have the same
 software built with different compilers. However, mixing compilers is sometimes risky as a library compiled
 with one compiler may not work in an executable compiled with another one, so to enable workflows that use
@@ -338,14 +338,14 @@ line in terms of the other software that you will be using.
 The output again suggests to dig a bit further for more information, so let's try
 
 ```bash
-$ module spider gnuplot/5.4.3-cpeGNU-22.08
+$ module spider gnuplot/5.4.6-cpeGNU-22.12
 ```
 
 This produces:
 
-![module spider gnuplot/5.4.3-cpeGNU-22.08](../img/03_mod_ms_gnuplot_version_1.png)
+![module spider gnuplot/5.4.6-cpeGNU-22.12](../img/03_mod_ms_gnuplot_version_1.png)
 
-![module spider gnuplot/5.4.3-cpeGNU-22.08](../img/03_mod_ms_gnuplot_version_2.png)
+![module spider gnuplot/5.4.6-cpeGNU-22.12](../img/03_mod_ms_gnuplot_version_2.png)
 
 In this case, this module is provided by 3 different combinations of modules that also will be explained
 in the next part of this course. Furthermore, the output of the command now also shows some help information
@@ -367,7 +367,7 @@ The `cmake` command on LUMI is available in the operating system image, but as i
 such tools distributed with the OS, it is a rather old version and you may want to use a newer one.
 
 If you would just look through the list of available modules, even after loading some other modules to
-acitvate a larger software stack, you will not find any module called `CMake` though. But let's use the
+activate a larger software stack, you will not find any module called `CMake` though. But let's use the
 powers of `module spider` and try
 
 ```bash
@@ -385,14 +385,14 @@ But Lmod already tells us
 how to find out which module actually provides the CMake tools. So let's try
 
 ```bash
-$ module spider CMake/3.24.0
+$ module spider CMake/3.25.2
 ```
 
 which produces
 
-![module spider CMake/3.24.0](../img/03_mod_ms_cmake_version_1.png)
+![module spider CMake/3.25.2](../img/03_mod_ms_cmake_version_1.png)
 
-![module spider CMake/3.24.0](../img/03_mod_ms_cmake_version_2.png)
+![module spider CMake/3.25.2](../img/03_mod_ms_cmake_version_2.png)
 
 This shows us that the version is provided by a number of `buildtools` modules, and for each of those
 modules also shows us which other modules should be loaded to get access to the commands. E.g.,
@@ -403,7 +403,7 @@ one such combination.
 So in this case, after
 
 ```bash
-$ module load LUMI/22.08 partition/L buildtools/22.08
+$ module load LUMI/22.12 partition/L buildtools/22.12
 ```
 
 the `cmake` command would be available.
@@ -411,7 +411,7 @@ the `cmake` command would be available.
 And you could of course also use
 
 ```
-$ module spider buildtools/22.08
+$ module spider buildtools/22.12
 ```
 
 to get even more information about the buildtools module, including any help included in the module.
@@ -450,6 +450,8 @@ which produces a lot of output:
 
 ![module keyword https](../img/03_mod_mk_https_4.png)
 
+![module keyword https](../img/03_mod_mk_https_5.png)
+
 The bug in the Lmod 8.3 version on LUMI is that all extensions are shown in the output while they are
 irrelevant. On the second screen though we see `cURL` and on the fourth screen `wget` which are
 two tools that can be used to fetch files from the internet.
@@ -476,7 +478,7 @@ two tools that can be used to fetch files from the internet.
 ## Sticky modules and the module purge command
 
 <figure markdown style="border: 1px solid #000">
-  ![Sticky modules and module purge](../img/LUMI-1day-20230509-modules/Dia29.png)
+  ![Sticky modules and module purge](../img/LUMI-1day-20230509-modules/Dia30.png)
 </figure>
 
 On some systems you will be taught to avoid `module purge` as many HPC systems do their default user
@@ -501,6 +503,7 @@ chosen a software stack but want to clean up your environment.
 Let us look at the output of the `module avail` command, taken just after login on the system at the
 time of writing of these notes (the exact list of modules shown is a bit fluid):
 
+<!-- Use a window of 98x23 -->
 ![module avail slide 1](../img/03_mod_ma_1.png)
 
 ![module avail slide 2](../img/03_mod_ma_2.png)
@@ -530,7 +533,7 @@ due to another bug in the already old version of Lmod.
 ## Changing how the module list is displayed
 
 <figure markdown style="border: 1px solid #000">
-  ![Changing how the module list is displayed](../img/LUMI-1day-20230509-modules/Dia36.png)
+  ![Changing how the module list is displayed](../img/LUMI-1day-20230509-modules/Dia37.png)
 </figure>
 
 You may have noticed in the above example that we don't show directories of module files
@@ -574,7 +577,7 @@ from regular users.
 ## Getting help with the module help command
 
 <figure markdown style="border: 1px solid #000">
-  ![Getting help](../img/LUMI-1day-20230509-modules/Dia37.png)
+  ![Getting help](../img/LUMI-1day-20230509-modules/Dia38.png)
 </figure>
 
 Lmod has the `module help` command to get help on modules
@@ -593,8 +596,8 @@ Try, e.g., the following commands:
 
 ```
 $ module help cray-mpich
-$ module help cray-python/3.9.4.2
-$ module help buildtools/22.08
+$ module help cray-python/3.9.13.1
+$ module help buildtools/22.12
 ```
 
 Lmod also has another command that produces more limited information (and is currently not fully exploited
@@ -606,13 +609,13 @@ Try, e.g.,:
 
 ```
 $ module whatis Subversion
-$ module whatis Subversion/1.14.1
+$ module whatis Subversion/1.14.2
 ```
 
 ## A note on caching
 
 <figure markdown style="border: 1px solid #000">
-  ![A note on caching](../img/LUMI-1day-20230509-modules/Dia38.png)
+  ![A note on caching](../img/LUMI-1day-20230509-modules/Dia39.png)
 </figure>
 
 Modules are stored as (small) files in the file system. Having a large module system with
@@ -637,7 +640,7 @@ in good shape.
 ## A note on other commands
 
 <figure markdown style="border: 1px solid #000">
-  ![A note on other commands](../img/LUMI-1day-20230509-modules/Dia39.png)
+  ![A note on other commands](../img/LUMI-1day-20230509-modules/Dia40.png)
 </figure>
 
 As this tutorial assumes some experience with using modules on other clusters, we haven't paid
@@ -663,7 +666,7 @@ is loaded that makes this one or an equivalent module available again.
     $ module load craype-network-ofi
 
     Activating Modules:
-      1) cray-mpich/8.1.18
+      1) cray-mpich/8.1.23
     ```
 
     The `cray-mpich` module needs both a valid network architecture target module to be loaded
