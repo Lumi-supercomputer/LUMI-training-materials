@@ -115,18 +115,19 @@ An easy example (though a tricky one as there are other mechanisms at play also)
 a different programming environment in the default login environment right after login:
 
 ```
-$ module load PrgEnv-gnu
+$ module load PrgEnv-aocc
 ```
 
 which results in
 
-![module load PrgEnv-gnu](../img/03_mod_ml_PrgEngGnu_1.png)
+<!-- Used window size 23x95 -->
+![module load PrgEnv-aocc](../img/03_mod_ml_PrgEnvAOCC_1.png)
 
 The first two lines of output are due to to other mechanisms that are at work here, 
 and the order of the lines may seem strange but that has to do with the way Lmod works
 internally. Each of the PrgEnv modules hard loads a compiler module which is why Lmod tells
-you that it is loading `gcc/11.2.0`. However, there is also another mechanism at work that
-causes `cce/10.0.2` and `PrgEnv-cray/8.3.3` to be unloaded, but more about that in the next
+you that it is loading `aocc/3.2.0`. However, there is also another mechanism at work that
+causes `cce/15.0.0` and `PrgEnv-cray/8.3.3` to be unloaded, but more about that in the next
 subsection (next slide).
 
 The important line for the hierarchy in the output are the lines starting with 
@@ -135,12 +136,12 @@ Remember that we said that each module has a corresponding module file. Just as 
 on a system, these are organised in a directory structure, and there is a path, in this
 case MODULEPATH, that determines where Lmod will look for module files. The hierarchy is
 implemented with a directory structure and the environment variable MODIULEPATH, and
-when the `cce/14.0.2` module was unloaded and `gcc/11.2.0` module was loaded, that 
+when the `cce/15.0.0` module was unloaded and `aocc/3.2.0` module was loaded, that 
 MODULEPATH was changed. As a result, the version of the cray-mpich module for the 
-`cce/14.0.2` compiler became unavailable, but one with the same module name for the
-`gcc/11.2.0` compiler became available and hence Lmod unloaded the version for the
-`cce/14.0.2` compiler as it is no longer available but loaded the matching one for
-the `gcc/11.0.2` compiler. 
+`cce/15.0.0` compiler became unavailable, but one with the same module name for the
+`aocc/3.2.0` compiler became available and hence Lmod unloaded the version for the
+`cce/15.0.0` compiler as it is no longer available but loaded the matching one for
+the `aocc/3.2.0` compiler. 
 
 
 ## About module names and families
