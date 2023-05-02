@@ -98,8 +98,8 @@ people to set it up and manage it.
 </figure>
 
 The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
-Whereas Intel CPUs from those generations were build out of a single large
-monolitic piece of silicon (that only changed recently with some variants
+Whereas Intel CPUs launched in the same period were built out of a single large
+monolithic piece of silicon (that only changed recently with some variants
 of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are build out
 of multiple so-called chiplets. 
 
@@ -110,7 +110,7 @@ across all cores on a chiplet and has a total size of 32 MB on LUMI (there are s
 variants of the processor where this is 96MB).
 At the user level, the instruction set is basically equivalent to that of the
 Intel Broadwell generation. AVX2 vector instructions and the FMA instruction are
-fully supprted, but there is no support for any of the AVX-512 versions that can
+fully supported, but there is no support for any of the AVX-512 versions that can
 be found on Intel Skylake server processors and later generations. Hence the number
 of floating point operations that a core can in theory do each clock cycle is 16 (in 
 double precision) rather than the 32 some Intel processors are capable of. 
@@ -121,7 +121,7 @@ double precision) rather than the 32 some Intel processors are capable of.
 </figure>
 
 The full processor package for the AMD EPYC processors used in LUMI have
-89 such Compute Complex Dies for a total of 64 cores. The caches are not
+8 such Compute Complex Dies for a total of 64 cores. The caches are not
 shared between different CCDs, so it also implies that the processor has
 8 so-called L3 cache regions. (Some cheaper variants have only 4 CCDs,
 and some have CCDs with only 6 or fewer cores enabled but the same 32 MB of L3
@@ -131,9 +131,10 @@ Each CCD connects to the memory/IO die though an Infinity Fabric link.
 The memory/IO die contains the memory controllers,
 connections to connect two CPU packages together, PCIe lanes to connect to external
 hardware, and some additional hardware, e.g., for managing the processor. 
-The memory/IO die supports 8 DDR4 memory controllers providing 64-bit wide memory
+The memory/IO die supports 4 dual channel DDR4 memory controllers providing 
+a total of 8 64-bit wide memory
 channels. From a logical point of view the memory/IO-die is split in 4 quadrants,
-with each quadrant having 2 memory controllers and 2 CCDs. They basically act
+with each quadrant having a dual channel memory controller and 2 CCDs. They basically act
 as 4 NUMA domains. For a core it is slightly faster to access memory in its own
 quadrant than memory attached to another quadrant, though for the 4 quadrants within
 the same socket the difference is small. (In fact, the BIOS can be set to show only
@@ -198,7 +199,7 @@ they may push your data out of the cache or saturate the link to the memory/IO d
 slow down some threads of your process. Similarly, on a 256 GB compute node each NUMA node has
 32 GB of RAM (or actually a bit less as the OS also needs memory, etc.), so if you have a job
 that uses 50 GB of memory but only, say, 12 threads, you should really have two NuMA nodes reserved
-for that jog as otherwise other threads or processes running on cores in those NUMA nodes could saturate
+for that job as otherwise other threads or processes running on cores in those NUMA nodes could saturate
 some resources needed by your job. It might also be preferential to spread those 12 threads over the 4 
 CCDs in those 2 NUMA domains unless communication through the L3 threads would be the bottleneck in your
 application.
@@ -232,7 +233,7 @@ really need (and you will be billed for them).
 </figure>
 
 This slide shows a conceptual view of a LUMI-G compute node. This node is
-unlike any Intel architecture  with NVIDIA GPU compute node you may have 
+unlike any Intel-architecture-CPU-with-NVIDIA-GPU compute node you may have 
 seen before, and rather mimics the architecture of the USA pre-exascale
 machines Summit and Sierra which have IBM POWER9 CPUs paired with 
 NVIDIA V100 GPUs.
@@ -267,11 +268,13 @@ currently the RDNA architecture with version 3 just out, but a compute accelerat
 an architecture that evolved from a GPU architecture, in this case the VEGA architecture
 from AMD. The architecture of the MI200 series is also known as CDNA2, with the MI100 series
 being just CDNA, the first version. Much of the hardware that does not serve compute purposes
-has been removed from the design to have more transistors available for compute. MI200 even
-removed the multimedia engine that survived the cut in MI100. So the MI200 is no accelerator
-for rendering or for video processing. Rendering is possible, but it will be software-based 
+has been removed from the design to have more transistors available for compute. 
+Rendering is possible, but it will be software-based 
 rendering with some GPU acceleration for certain parts of the pipeline, but not full hardware
-rendering.
+rendering. 
+<!--
+The video units are still present though, likely for AI applications that process video.
+-->
 
 This is not an evolution at AMD only. The same is happening with NVIDA GPUs and there is a reason
 why the latest generation is called "Hopper" for compute and "Ada Lovelace" for rendering GPUs. 
@@ -318,7 +321,7 @@ between two CPU sockets in a LUMI-C node, but per link the bandwidth is still on
 the two compute dies in an MI250x GPU. That amount of bandwidth is very low compared to
 even the memory bandwidth, which is roughly 1.6 TB/s peak per die, let alone compared
 to whatever bandwidth caches on the compute dies would have or the bandwidth of the internal structures that 
-connect all compute engines on the conpute die. Hence the two dies in a single package cannot
+connect all compute engines on the compute die. Hence the two dies in a single package cannot
 function efficiently as as single GPU which is one reason why each MI250x GPU on LUMI
 is actually seen as two GPUs. 
 
@@ -327,8 +330,9 @@ to some compute dies in other MI250x packages. In total, each MI250x package is 
 5 such links to other MI250x packages. These links run at the same 25 GT/s speed as the 
 links between two compute dies in a package, but even then the bandwidth is only a meager 
 250 GB/s per direction, less than an NVIDIA A100 GPU which offers 300 GB/s per direction
-or the NVIDIA H100 GPU which offers 450 GB/s per direction. Each Infinity Fabric and
-each NVLINK 3 or 4 link (NVIDIA Ampere and Hopper respectively) may be comparable in performance, 
+or the NVIDIA H100 GPU which offers 450 GB/s per direction. Each Infinity Fabric link may be
+twice as fast as each NVLINK 3 or 4 link (NVIDIA Ampere and Hopper respectively),
+offering 50 GB/s per direction rather than 25 GB/s per direction for NVLINK, 
 but each Ampere GPU has 12 such links and each Hopper GPU 18 (and in fact a further 18 similar ones to
 link to a Grace CPU), while each MI250x package has only 5 such links available to link to other GPUs
 (and the three that we still need to discuss).
@@ -364,13 +368,14 @@ and GPU dies is all but logical:
 
 and as we shall see later in the course, exploiting this is a bit tricky at the moment.
 
+<!--
 !!! Note
     It is not clear if the GPU compute dies are actually directly connected to the CPU compute
     dies or via the memory/IO die. The former would imply that each CPU CCD would have two 
     Infinity Fabric ports. As far as we are aware, this has never been show in AMD documentation,
     but then it is known that the Zen4 8-core CCD has two such ports that are actually also
     used in those EPYC 7004 SKUs that have only 4 CCDs.
-
+-->
 
 ### What the future looks like...
 
@@ -417,10 +422,13 @@ Intel has shown only very conceptual drawings of its Falcon Shores chip which it
 an XPU, but those drawings suggest that that chip will also support some low-bandwidth
 but higher capacity external memory, similar to the approach taken in some Sapphire 
 Rapids Xeon processors that combine HBM memory on-package with DDR5 memory outside 
-the package. Falcon Shores will be the third generation of Intel GPUs for HPC, after 
-Ponte Vecchio which will be used in the Aurora supercomputer and its successor 
-Rialto Bridge which most likely is a variant optimized to be cheaper to manufacture so
-that it can appeal to a larger market.
+the package. Falcon Shores will be the next generation of Intel GPUs for HPC, after 
+Ponte Vecchio which will be used in the Aurora supercomputer. It is currently not clear
+though if Intel will already use the integrated CPU+GPU model for the Falcon Shores generation
+or if this is getting postponed.
+
+However, a CPU closely integrated with accelerators is nothing new as Apple Silicon is 
+rumoured to do exactly that in its latest generations, including the M-family chips.
 
 
 ## Building LUMI: The Slingshot interconnect
@@ -434,7 +442,7 @@ together using the Slingshot interconnect (and almost all use Slingshot 11, the 
 implementation with 200 Gb/s bandwidth per direction).
 
 Slingshot is an interconnect developed by HPE Cray and based on Ethernet, but with
-proprietary extensions for better HPC performance., It adapts to the regular Ethernet
+proprietary extensions for better HPC performance. It adapts to the regular Ethernet
 protocols when talking to a node that only supports Ethernet, so one of the attractive
 features is that regular servers with Ethernet can be directly connected to the 
 Slingshot network switches.
@@ -449,7 +457,7 @@ per direction, comparable to HDR InfiniBand with 4x links.
 Slingshot is a different interconnect from your typical Mellanox/NVIDIA InfiniBand implementation
 and hence also has a different software stack. This implies that there are no UCX libraries on
 the system as the Slingshot 11 adapters do not support that. Instead, the software stack is 
-based on libfabric (as is the stack for many other Ethernet-derived solutions and even Omni-PAth
+based on libfabric (as is the stack for many other Ethernet-derived solutions and even Omni-Path
 has switched to libfabric under its new owner).
 
 LUMI uses the dragonfly topology. This topology is designed to scale to a very large number of 
@@ -458,10 +466,11 @@ its complicated set of connections it does rely on adaptive routing and congesti
 optimal performance more than the fat tree topology used in many smaller clusters.
 It also needs so-called high-radix switches. The Slingshot switch, code-named Rosetta, has 64 ports.
 16 of those ports connect directly to compute nodes (and the next slide will show you how).
-Switches are then combined in groups. Within a group there is an all-to-all connection betweeh 
+Switches are then combined in groups. Within a group there is an all-to-all connection between 
 switches: Each switch is connected to each other switch. So traffic between two nodes of a 
 group passes only via two switches if it takes the shortest route. However, as there is typically
-only one 200 Gb/s direct connection between two switches in a group, if all 16 nodes in two groups
+only one 200 Gb/s direct connection between two switches in a group, if all 16 nodes on two 
+switches in a group
 would be communicating heavily with each other, it is clear that some traffic will have to take a
 different route. In fact, it may be statistically better if the 32 involved nodes would be spread 
 more evenly over the group, so topology based scheduling of jobs and getting the processes of a job
@@ -511,7 +520,8 @@ those nodes have 8 network interfaces. Note that this also implies that the node
 compute blade of LUMI-C will be on two different switches even though in the node numbering they
 are numbered consecutively. For LUMI-G both nodes on a blade will be on a different pair of switches 
 and each node is connected to two switches. Thw switch blades are also water cooled (each one can 
-consume up to 250W). No current possible configuration of the Cray EX system needs that much switches.
+consume up to 250W). No currently possible configuration of the Cray EX system needs that 
+all swtich positions in the switch chassis.
 
 This does not mean that the extra positions cannot be useful in the future. If not for an interconnect,
 one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based storage via blades as the 
