@@ -107,7 +107,8 @@ The whole setup of EasyBuild is done such that you can build on top of the centr
 and such that **your modules appear in your module view** without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
 for your project as we cannot automatically determine a suitable place. **We do offer some help so set up
-Spack also but activating Spack for installation is your project directory is not yet automated.**
+Spack also but it is mostly offered "as is" an we will not do bugfixing or development in Spack
+package files.**
 
 
 ### Software policies
@@ -154,7 +155,7 @@ high performance from the interconnect. For example,
     so any software compiled with an MPI library that
     requires UCX, or any other distributed memory model build on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. 
--   Even intro-node interprocess communication can already cause problems as there are three different kernel extensions
+-   Even intra-node interprocess communication can already cause problems as there are three different kernel extensions
     that provide more efficient interprocess messaging than the standard Linux mechanism. Many clusters
     use **knem** for that but on LUMI **xpmem** is used. So software that is not build to support xpmem will
     also fall back to the default mechanism or fail. 
@@ -247,16 +248,15 @@ that came with other versions of the Cray PE, but they **remain accessible** alt
 view for regular users. It ia also better to **not use the PrgEnv modules, but the equivalent LUMI EasyBuild 
 toolchains** instead as indicated by the following table:
 
-| HPE Cray PE   | LUMI toolchain | What?                                |
-|:--------------|:---------------|:-------------------------------------|
-| `PrgEnv-cray` | `cpeCray`      | Cray Compiler Environment            |
-| `PrgEnv-gnu`  | `cpeGNU`       | GNU C/C++ and Fortran                |
-| `PrgEnv-aocc` | `cpeAOCC`      | AMD CPU compilers                    |
-| `PrgEnv-amd`  | `cpeAMD`      | AMD ROCm GPU compilers (LUMI-G only) |
+| HPE Cray PE   | LUMI toolchain | What?                                           |
+|:--------------|:---------------|:------------------------------------------------|
+| `PrgEnv-cray` | `cpeCray`      | Cray Compiler Environment                       |
+| `PrgEnv-gnu`  | `cpeGNU`       | GNU C/C++ and Fortran                           |
+| `PrgEnv-aocc` | `cpeAOCC`      | AMD CPU compilers (login nodes and LUMI-C only) |
+| `PrgEnv-amd`  | `cpeAMD`       | AMD ROCm GPU compilers (LUMI-G only)            |
 
 The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
-And we sometimes use this to work around problems in Cray-provided modules that we cannot change. E.g.,
-the `PrgEnv-aocc/21.12` module can successfully use the `aocc/3.1.0` compilers.
+And we sometimes use this to work around problems in Cray-provided modules that we cannot change. 
 
 This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.
@@ -269,7 +269,7 @@ compilers we used.
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
 
-First there are the **LUMI/22.08 and LUMI/22.11 modules**. Each of the LUMI modules loads a particular
+First there are the **LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules**. Each of the LUMI modules loads a particular
 version of the LUMI stack.
 
 The **second level consists of partition modules**. There is partition/L for the login and large memory nodes,
@@ -410,12 +410,12 @@ On LUMI we don't use the standard EasyBuild toolchains but our own toolchains sp
 and these are precisely the `cpeCray`, `cpeGNU`, `cpeAOCC` and `cpeAMD` modules already mentioned 
 before.
 
-| HPE Cray PE   | LUMI toolchain | What?                                |
-|:--------------|:---------------|:-------------------------------------|
-| `PrgEnv-cray` | `cpeCray`      | Cray Compiler Environment            |
-| `PrgEnv-gnu`  | `cpeGNU`       | GNU C/C++ and Fortran                |
-| `PrgEnv-aocc` | `cpeAOCC`      | AMD CPU compilers                    |
-| `PrgEnv-amd`  | `cpeAMD`      | AMD ROCm GPU compilers (LUMI-G only) |
+| HPE Cray PE   | LUMI toolchain | What?                                           |
+|:--------------|:---------------|:------------------------------------------------|
+| `PrgEnv-cray` | `cpeCray`      | Cray Compiler Environment                       |
+| `PrgEnv-gnu`  | `cpeGNU`       | GNU C/C++ and Fortran                           |
+| `PrgEnv-aocc` | `cpeAOCC`      | AMD CPU compilers (login nodes and LUMI-C only) |
+| `PrgEnv-amd`  | `cpeAMD`       | AMD ROCm GPU compilers (LUMI-G only)            |
 
 
 <figure markdown style="border: 1px solid #000">
@@ -563,15 +563,15 @@ We now also have the [LUMI Software Library](https://lumi-supercomputer.github.i
 which lists all software that we manage via EasyBuild and make available either preinstalled on
 the system or as an EasyBuild recipe for user installation.
 
-Now let's take the variant `GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb`. 
+Now let's take the variant `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`. 
 This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
-from `LUMI/21.12`, and a build meant for CPU-only systems. The `-CPU` extension is not
+from `LUMI/22.08`, and a build meant for CPU-only systems. The `-CPU` extension is not
 always added for CPU-only system, but in case of GROMACS we do expect that GPU builds for
 LUMI will become available early on in the deployment of LUMI-G so we've already added
 a so-called version suffix to distinguish between CPU and GPU versions.
 To install it, we first run 
 ```bash
-eb –r GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb –D
+eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
@@ -582,7 +582,7 @@ it can be turned on.
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
 But it will do so automatically when we run
 ```bash
-eb –r GROMACS-2021.4-cpeCray-21.12-PLUMED-2.8.0-CPU.eb
+eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb
 ```
 
 This takes too long to wait for, but once it finished the software should be available
@@ -632,7 +632,7 @@ You can also install some EasyBuild recipes that you got from support. For this 
 create a subdirectory where you put those files, then go into that directory and run 
 something like
 ```bash
-eb -r . my_recipe.eb
+eb my_recipe.eb -r . 
 ```
 The dot after the `-r` is very important here as it does tell EasyBuild to also look for 
 dependencies in the current directory, the directory where you have put the recipes you got from
@@ -651,7 +651,7 @@ will tell you for which versions of VASP we already have build instructions, but
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
 directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
 ```bash
-eb –r . VASP-6.3.0-cpeGNU-21.12.eb
+eb –r . VASP-6.3.0-cpeGNU-22.08.eb
 ```
 
 ### More advanced work (2): Repositories
@@ -756,6 +756,7 @@ Generic EasyBuild training materials are available on
 [easybuilders.github.io/easybuild-tutorial](https:/easybuilders.github.io/easybuild-tutorial/).
 The site also contains a LUST-specific tutorial oriented towards Cray systems.
 
-
-
+There is also a later course developed by LUST for developers of EasyConfigs for LUMI
+that can be found on 
+[klust.github.io/easybuild-tutorial](https://klust.github.io/easybuild-tutorial).
 
