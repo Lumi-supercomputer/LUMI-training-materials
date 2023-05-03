@@ -13,6 +13,10 @@
 
         tells us that there are indeed newer versions available on the system. 
 
+        The versions that have a compiler name (usually `gcc`) in their name followed
+        by some seemingly random characters are installed with Spack and not in the
+        CrayEnv or LUMI environments.
+
         To get more information about `Bison/3.8.2`: 
 
         ```
@@ -44,7 +48,7 @@
         available on the system. With `module keyword htop` we'll find out immediately that it is in the 
         `systools` modules and some of those seem to be numbered after editions of the LUMI stack suggesting
         that they may be linked to a stack, with `module spider` you'll first see that it is an extension of
-        a module and see the versions.
+        a module and see the versions. You may again see some versions installed with Spack.
 
         Let's check further for `htop/3.2.1` that should exist according to `module spider htop`:
 
@@ -90,8 +94,12 @@
         shows a long help test telling you how to use this module (though it does assume some familiarity with how
         X11 graphics work on Linux).
 
+        Note that if there is only a single version on the system, as is the case for the course in May 2023,
+        the `module spider VNC` command without specific version or correct module name will already display the
+        help information.
+
 4.  Search for the `bzip2` tool (and not just the `bunzip2` command as we also need the `bzip2` command) and make 
-    sure that you can use software compiled with the Cray compilers in the same session.
+    sure that you can use software compiled with the Cray compilers in the LUMI stacks in the same session.
 
     ??? Solution "Click to see the solution."
 
@@ -102,7 +110,9 @@
         shows that there are versions of `bzip2` for several of the `cpe*` toolchains and in several versions
         of the LUMI software stack.
 
-        Of course we prefer to use a recent software stack, the `22.08`. And since we want to use other software
+        Of course we prefer to use a recent software stack, the `22.08` or `22.12` (but as of early May 2023, 
+        there is a lot more software ready-to-install for `22.08`). 
+        And since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
         different toolchains. So the module we want to load is `bzip2/1.0.8-cpeGNU-22.08`.
 
@@ -119,11 +129,12 @@
 ## Exercises on compiling software by hand
 
 *These exercises are optional during the session, but useful if you expect 
-to be compiling software yourself.*
+to be compiling software yourself. The source files mentioned can be found in
+the subdirectory CPE of the download.*
 
 ### Compilation of a program 1: A simple "Hello, world" program
 
-Four different implementations of a simple "Hello, World!" program are provided:
+Four different implementations of a simple "Hello, World!" program are provided in the `CPE` subdirectory:
 
 -   `hello_world.c` is an implementation in C,
 -   `hello_world.cc` is an implemenatation in C++,
@@ -133,7 +144,8 @@ Four different implementations of a simple "Hello, World!" program are provided:
 Try to compile these programs using the programming environment of your choice.
 
 ??? Solution "Click to see the solution."
-    We'll use the default version of the programming environment, but in case you want to use
+    We'll use the default version of the programming environment (22.12 at the moment of the
+    course in May 2023), but in case you want to use
     a particular version, e.g., the 22.08 version, and want to be very sure that all modules are
     loaded correctly from the start you could consider using
 
@@ -158,7 +170,12 @@ Try to compile these programs using the programming environment of your choice.
     cc hello_world.c
     ```
 
-    which will generate an executable named `a.out`. Of course it is better to give the executable a proper
+    which will generate an executable named `a.out`. 
+    If you are not comfortable using the default version of `gcc` (which produces the warning message when
+    loading the `PrgEnv-gnu` module) you can always load the `gcc/11.2.0` module instead after loading
+    `PrgEnv-gnu`.
+
+    Of course it is better to give the executable a proper
     name which can be done with the `-o` compiler option:
 
     ```
@@ -186,7 +203,7 @@ Try to compile these programs using the programming environment of your choice.
 
 ### Compilation of a program 2: A program with BLAS
 
-In the `CPE_and_modules` subdirectory you'll find the C program `matrix_mult_C.c`
+In the `CPE` subdirectory you'll find the C program `matrix_mult_C.c`
 and the Fortran program `matrix_mult_F.f90`. Both do the same thing: a matrix-matrix
 multiplication using the 6 different orders of the three nested loops involved in
 doing a matrix-matrix multiplication, and a call to the BLAS routine DGEMM that does the same
@@ -206,7 +223,9 @@ you should note. Also, because these nodes are shared with a lot of people any b
 is completely unreliable.
 
 If this program takes more than half a minute or so before the first result line in the table,
-starting with `ijk-variant`, is printed, you've done something wrong.
+starting with `ijk-variant`, is printed, you've very likely done something wrong (unless the load
+on the system is extreme). In fact, if you've done things well the time reported for the
+`ijk`-variant should be well under 3 seconds for both the C and Fortran versions...
 
 ??? Solution "Click to see the solution."
     Just as in the previous exercise, this is a pure CPU program so we can chose between the
@@ -287,10 +306,15 @@ starting with `ijk-variant`, is printed, you've done something wrong.
     different and those differences would be even more pronounced with bigger matrices
     (which you can do after the session on using Slurm).
 
+    The exercise also shows that not all codes are equal even if they produce a result of the
+    same quality. The six different loop orderings run at very different speed, and none of our
+    simple implementations can beat a good library, in this case the BLAS library included in
+    LibSci.
+
     The results with the Cray Fortran compiler are particularly interesting. The result for
     the BLAS library is slower which we do not yet understand, but it also turns out that 
     for four of the six loop orderings we get the same result as with the BLAS library DGEMM
-    routine. It looks like the compiler simply recongnized that this was code for a matrix-matrix
+    routine. It looks like the compiler simply recognized that this was code for a matrix-matrix
     multiplication and replaced it with a call to the BLAS library. The Fortran 90 matrix
     multiplication is also replaced by a call of the DGEMM routine. To confirm all this,
     unload the `cray-libsci` module and try to compile again and you will see five error
@@ -340,11 +364,10 @@ on the login nodes and it will then contain just a single MPI rank.
 
     to compile with the AMD AOCC compiler.
 
-    To run the executables generated with the GNU or Cray compiler it is not
+    To run the executables it is not
     even needed to have the respective `PrgEnv-*` module loaded since the binaries
-    will use a copy of the libraries stored in a default directory, but to run the 
-    executable build with the AOCC compiler it is necessary to load the `PrgEnv-aocc` 
-    module or you will get an error message about a certain library not being found.
+    will use a copy of the libraries stored in a default directory, though there have
+    been bugs in the past preventing this to work with `PrgEnv-aocc`.
 
 ## Information in the LUMI Software Library  
 
@@ -369,17 +392,18 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
 
 ## Installing software with EasyBuild
 
-*These exercises are based on material from the [EasyBuild tutorials](http://tutorial.easybuild.io/).*
+*These exercises are based on material from the [EasyBuild tutorials](http://tutorial.easybuild.io/)
+(and we have a [special version for LUMI](https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/) also).*
 
 *Note*: If you want to be able to uninstall all software installed through the exercises
 easily, we suggest you make a separate EasyBuild installation for the course, e.g.,
-in `/scratch/project_465000XXX/$USER/eb-course`:
+in `/scratch/project_465000522/$USER/eb-course` if you make the exercises during the course:
 
 -   Start from a clean login shell with only the standard modules loaded.
 -   Set `EBU_USER_PREFIX`: 
      
     ```
-    export EBU_USER_PREFIX=/scratch/project_465000XXX/$USER/eb-course
+    export EBU_USER_PREFIX=/scratch/project_465000522/$USER/eb-course
     ```
 
     You'll need to do that in every shell session where you want to install or use that software.
@@ -390,7 +414,7 @@ in `/scratch/project_465000XXX/$USER/eb-course`:
     that you just created.
 
     ```
-    rm -rf /scratch/project_465000XXX/$USER/eb-course
+    rm -rf /scratch/project_465000522/$USER/eb-course
     ```
 
 
@@ -398,6 +422,9 @@ in `/scratch/project_465000XXX/$USER/eb-course`:
 
 The LUMI Software Library contains the package `eb-tutorial`. Install the version of
 the package for the `cpeCray` toolchain in the 22.08 version of the software stack.
+
+*At the time of this course, in early May 2023, we're still working on EasyBuild build
+recipes for the 22.12 version of the software stack.*
 
 ??? Solution "Click to see the solution."
     -   We can check the 
@@ -448,6 +475,28 @@ the package for the `cpeCray` toolchain in the 22.08 version of the software sta
 
         ```
         rm -rf $HOME/.lmod.d/.cache
+        ```
+    -   Now that we have the module, we can check what it actually does:
+
+        ```
+        module help eb-tutorial/1.0.1-cpeCray-22.08
+        ```
+
+        and we see that it provides the `eb-tutorial` command.
+
+    -   So let's now try to run this command:
+
+        ```
+        module load eb-tutorial/1.0.1-cpeCray-22.08
+        eb-tutorial
+        ```
+
+        Note that if you now want to install one of the other versions of this module, EasyBuild will
+        complain that some modules are loaded that it doesn't like to see, including the `eb-tutorial`
+        module and the `cpeCray` modules so it is better to unload those first:
+
+        ```
+        module unload cpeCray eb-tutorial
         ```
 
 ### Installing an EasyConfig given to you by LUMI User Support
