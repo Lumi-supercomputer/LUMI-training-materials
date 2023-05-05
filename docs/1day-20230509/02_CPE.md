@@ -472,10 +472,57 @@ Lastly, there is also a lot of information in the
 ["Developing" section of the LUMI documentation](https://docs.lumi-supercomputer.eu/development/).
 
 
+## Google, ChatGPT and LUMI
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Google, ChatGPT and LUMI](img/LUMI-1day-20230509-02-CPE/Dia15.png){ loading=lazy }
+</figure>
+
+When looking for information on the HPE Cray Programming Environment using search engines such as
+Google, you'll be disappointed how few results show up. HPE doesn't put much information on the 
+internet, and the environment so far was mostly used on Cray systems of which there are not that
+many. 
+
+The same holds for ChatGPT. In fact, much of the training of the current version of ChatGPT was done
+with data of two or so years ago and there is not that much suitable training data available on
+the internet either.
+
+The HPE Cray environment has a command line alternative to search engines though: the `man -K` command
+that searches for a term in the manual pages. It is often useful to better understand some error messages.
+E.g., sometimes Cray MPICH will suggest you to set some environment variable to work around some problem.
+You may remember that `man intro_mpi` gives a lot of information about Cray MPICH, but if you don't and,
+e.g., the error message suggests you to set `FI_CXI_RX_MATCH_MODE` to either `software` or `hybrid`, one way
+to find out where you can get more information about this environment variable is
+
+```
+man -K FI_CXI_RX_MATCH_MODE
+```
+
+For Cray Fortran compiler error messages, the `explain` command is also helpful. E.g.,
+
+```
+$ ftn
+ftn-2107 ftn: ERROR in command line
+  No valid filenames are specified on the command line.
+$ explain ftn-2107
+
+Error : No valid filenames are specified on the command line.
+
+At least one file name must appear on the command line, with any command-line
+options.  Verify that a file name was specified, and also check for an
+erroneous command-line option which may cause the file name to appear to be
+an argument to that option.
+```
+
+On older Cray systems this used to be a very useful command with more compilers but as 
+HPE Cray is using more and more open source components instead there are fewer commands
+that give additional documentation via the `explain` command.
+
+
 ## Other modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Other modules](img/LUMI-1day-20230509-02-CPE/Dia15.png){ loading=lazy }
+  ![Slide Other modules](img/LUMI-1day-20230509-02-CPE/Dia16.png){ loading=lazy }
 </figure>
 
 Other modules that are relevant even to users who do not do development:
@@ -502,7 +549,7 @@ courses for developers that we organise several times per year with the help of 
 ## Warning 1: You do not always get what you expect...
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide You do not always get what you expect](img/LUMI-1day-20230509-02-CPE/Dia16.png){ loading=lazy }
+  ![Slide You do not always get what you expect](img/LUMI-1day-20230509-02-CPE/Dia17.png){ loading=lazy }
 </figure>
 
 The HPE Cray PE packs a surprise in terms of the libraries it uses, certainly for users
@@ -573,7 +620,7 @@ export CRAY_ADD_RPATH=yes
 ## Warning 2: Order matters
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Order of loading modules](img/LUMI-1day-20230509-02-CPE/Dia17.png){ loading=lazy }
+  ![Slide Order of loading modules](img/LUMI-1day-20230509-02-CPE/Dia18.png){ loading=lazy }
 </figure>
 
 Lmod is a hierarchical module scheme and this is exploited by the HPE Cray PE. Not all modules
