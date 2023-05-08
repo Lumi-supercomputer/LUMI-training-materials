@@ -103,7 +103,7 @@ monolithic piece of silicon (that only changed recently with some variants
 of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are build out
 of multiple so-called chiplets. 
 
-The basic building block of Zen3 CPUs is the Compute Complex Die (CCD).
+The basic building block of Zen3 CPUs is the Core Complex Die (CCD).
 Each CCD contains 8 cores, and each core has 32 kB of L1 instruction 
 and 32 kB of L1 data cache, and 512 kB of L2 cache. The L3 cache is shared
 across all cores on a chiplet and has a total size of 32 MB on LUMI (there are some
@@ -121,13 +121,13 @@ double precision) rather than the 32 some Intel processors are capable of.
 </figure>
 
 The full processor package for the AMD EPYC processors used in LUMI have
-8 such Compute Complex Dies for a total of 64 cores. The caches are not
+8 such Core Complex Dies for a total of 64 cores. The caches are not
 shared between different CCDs, so it also implies that the processor has
 8 so-called L3 cache regions. (Some cheaper variants have only 4 CCDs,
 and some have CCDs with only 6 or fewer cores enabled but the same 32 MB of L3
 cache per CCD).
 
-Each CCD connects to the memory/IO die though an Infinity Fabric link. 
+Each CCD connects to the memory/IO die through an Infinity Fabric link. 
 The memory/IO die contains the memory controllers,
 connections to connect two CPU packages together, PCIe lanes to connect to external
 hardware, and some additional hardware, e.g., for managing the processor. 
@@ -246,7 +246,7 @@ or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
 Infinity Fabric. This enables CPU and GPU to access each others memory 
 rather seamlessly and to implement coherent caches across the whole system.
 The second remarkable element is that the Slingshot interface cards
-connect directly to the GPUs (though a PCIe interface on the GPU) rather
+connect directly to the GPUs (through a PCIe interface on the GPU) rather
 than two the CPU. The CPUs have a shorter path to the communication 
 network than the CPU in this design. 
 
@@ -256,11 +256,13 @@ not good at such as some scalar processing or running an OS, rather than a CPU n
 with GPU accelerator.
 
 It is also a good fit with the cluster-booster design explored in the DEEP project
-series. That design would favour that parts of you application that cannot be
-properly accelerated would run on CPU nodes, while using booster GPU nodes for those parts 
-that can (at least if those two could execute concurrently with each other), and mix and
-match node types as needed, rather than building clusters with massive and expensive nodes
-that few applications can fully exploit.
+series. In that design, parts of your application that cannot be
+properly accelerated would run on CPU nodes, while booster GPU nodes would be used for those parts 
+that can (at least if those two could execute concurrently with each other).
+Different node types are mixed and matched as needed for each specific application, 
+rather than building clusters with massive and expensive nodes
+that few applications can fully exploit. As the cost per transistor does not decrease
+anymore, one has to look for ways to use each transistor as efficiently as possible...
 
 It is also important to realise that even though we call the partition "LUMI-G", the MI250x
 is not a GPU in the true sense of the word. It is not a rendering GPU, which for AMD is 
@@ -345,7 +347,7 @@ connections. The rings are:
 -   1 - 0 - 6 - 7 - 5 - 4 - 2 - 3 - 1
 -   1 - 5 - 4 - 2 - 3 - 7 - 6 - 0 - 1
 
-Each compute die is also connected to one CPU Compute Complex Die (or as documentation of the
+Each compute die is also connected to one CPU Core Complex Die (or as documentation of the
 node sometimes says, L3 cache region). This connection only runs at the same speed as the links
 between CPUs on the LUMI-C CPU nodes, i.e., 36 GB/s per direction (which is still enough for 
 all 8 GPU compute dies together to saturate the memory bandwidth of the CPU). 
