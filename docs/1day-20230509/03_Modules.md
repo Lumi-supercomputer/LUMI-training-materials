@@ -22,6 +22,10 @@ installations and as one prefers to have a software stack which is as isolated a
 possible from the system installation to keep the image that has to be loaded
 on the compute nodes small.
 
+Another use of modules not mentioned on the slide is to configure the programs
+that is being activated. E.g., some packages expect certain additional environment
+variables to be set and modules can often take care of that also.
+
 There are 3 systems in use for module management.
 The oldest is a C implementation of the commands using module files written in Tcl.
 The development of that system stopped around 2012, with version 3.2.10. 
@@ -430,7 +434,7 @@ processing of the command.
 The `module keyword` command searches in some of the information included in module files for the
 given keyword, and shows in which modules the keyword was found.
 
-We do an efford to put enough information in the modules to make this a suitable additional way
+We do an effort to put enough information in the modules to make this a suitable additional way
 to discover software that is installed on the system.
 
 Let us look for packages that allow us to download software via the `https` protocol.
