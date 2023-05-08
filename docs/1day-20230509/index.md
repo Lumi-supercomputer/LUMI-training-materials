@@ -4,7 +4,7 @@
 
 -   [Schedule](schedule.md)
 
--   HedgeDoc for off-line questions
+-   [HedgeDoc for off-line questions](https://md.sigma2.no/lumi-intro-course-9may23)
 
 
 ## Setting up for the exercises
