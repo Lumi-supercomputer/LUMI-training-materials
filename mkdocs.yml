@@ -23,11 +23,18 @@ theme:
 
 nav:
   - Home: index.md
+  - "1-day May 2023":
+      - 1day-20230509/index.md
+      - LUMI Architecture: 1day-20230509/01_Architecture.md
+      - CPE: 1day-20230509/02_CPE.md
+      - Lmod modules: 1day-20230509/03_Modules.md
+      - Managing software: 1day-20230509/04_Software_stack.md
+      - Exercises 1: 1day-20230509/05_Exercises_1.md
   - Profiling April 2013:
       - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:
       - 4day-20230214/index.md
-  - LUMI-G January 2023:
+  - "LUMI-G January 2023":
       - LUMI-G-20230111/index.md
   - PEAP-Q November 2022:
       - PEAP-Q-20221123/index.md

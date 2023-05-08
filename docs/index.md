@@ -2,6 +2,7 @@
 
 In reverse chronological order:
 
+-   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
 -   [Comprehensive general LUMI course (February 14-17, 2023)](4day-20230214/index.md)
 -   [LUMI-G Training (January 11, 2023)](LUMI-G-20230111/index.md)
