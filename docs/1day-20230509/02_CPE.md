@@ -51,6 +51,11 @@ This also implies that some software that works perfectly fine on the login node
 work on the compute nodes. E.g., there is no `/run/user/$UID` directory and we have experienced
 that DBUS also does not work as one should expect.
 
+Large HPC clusters also have a small system image, so don't expect all the bells-and-whistles 
+from a Linux workstation to be present on a large supercomputer.
+Since LUMI compute nodes are diskless, the system image actually occupies RAM which is another
+reason to keep it small.
+
 
 ## Programming models
 
@@ -69,14 +74,15 @@ All compilers have some level of [OpenMP](https://www.openmp.org/) support,
 and two compilers support OpenMP offload to 
 the AMD GPUs, but again more about that later.
 
+[OpenACC](https://www.openacc.org/), the other directive-based model for GPU offloading, 
+is only supported in the Cray Fortran compiler. There is no commitment of neither HPE Cray
+or AMD to extend that support to C/C++ or other compilers, even though there is work going on
+in the LLVM community and several compilers on the system are based on LLVM.
+
 The other important programming model for AMD GPUs is [HIP](https://github.com/rocm-developer-tools/hip), 
 which is their alternative for the
 proprietary CUDA model. It does not support all CUDA features though (basically it is more CUDA 7 or 8 level) 
 and there is also no equivalent to CUDA Fortran.
-
-[OpenACC](https://www.openacc.org/) is only supported in the Cray Fortran compiler. There is no commitment of neither HPE Cray
-or AMD to extend that support to C/C++ or other compilers, even though there is work going on
-in the LLVM community and several compilers on the system are based on LLVM.
 
 The commitment to OpenCL is very unclear, and this actually holds for other GPU vendors also.
 
@@ -87,7 +93,7 @@ Python is of course pre-installed on the system but we do ask to use big Python 
 as Python puts a tremendous load on the file system. More about that later in this course.
 
 Some users also report some success in running [Julia](https://julialang.org/). We don't have full support though and have to
-depend on binaries as provided by [julialang.org](https://julialang.org/downloads/)]. The AMD GPUs are
+depend on binaries as provided by [julialang.org](https://julialang.org/downloads/). The AMD GPUs are
 not yet fully supported by Julia.
 
 It is important to realise that there is no CUDA on AMD GPUs and there will never be as this is a 
@@ -102,7 +108,7 @@ with NVIDIA GPUs but these nodes are meant for visualisation and not for compute
   ![Slide Development environment](img/LUMI-1day-20230509-02-CPE/Dia5.png){ loading=lazy }
 </figure>
 
-Long ago, Cray made designed its own processors and hence had to develop their own
+Long ago, Cray designed its own processors and hence had to develop their own
 compilers. They kept doing so, also when they moved to using more standard components,
 and had a lot of expertise in that field, especially when it comes to the needs of 
 scientific codes, programming models that are almost only used in scientific computing
@@ -138,6 +144,13 @@ Cray Debugging Support Tools that will not be discussed in this one-day course, 
 Python and R modules that both also provide some packages compiled with support for the
 Cray Scientific Libraries.
 
+Besides the tools provided by HPE Cray, several of the development tools from the
+ROCm stack are also available on the system while some others can be user-installed
+(and one of those, Omniperf, is not available due to security concerns).
+Furthermore there are some third party tools available on LUMI,
+including [Linaro Forge](https://www.linaroforge.com/) (previously ARM Forge) and
+[Vampir](https://vampir.eu/) and some open source profiling tools.
+
 We will now discuss some of these components in a little bit more detail, but refer
 to the 4-day trainings that we organise three times a year with HPE for more material.
 
@@ -150,12 +163,14 @@ to the 4-day trainings that we organise three times a year with HPE for more mat
 
 The Cray Compiling Environment are the default compilers on many Cray systems and on LUMI.
 These compilers are designed specifically for scientific software in an HPC environment.
-The current versions use an LLVM-based backend with extensions by HPE Cray for
+The current versions use are LLVM-based with extensions by HPE Cray for
 automatic vectorization and shared memory parallelization, technology that they
 have experience with since the late '70s or '80s.
 
 The compiler offers extensive standards support.
-The C and C++ compiler is essentially Clang with LLVM, and the version numbering of the CCE
+The C and C++ compiler is essentially their own build of Clang with LLVM with some of their
+optimisation plugins and OpenMP run-time.
+The version numbering of the CCE
 currently follows the major versions of the Clang compiler used. The support for C and C++
 language standards corresponds to that of Clang.
 The Fortran compiler uses a frontend developed by HPE Cray, but an LLVM-based backend. 
@@ -183,7 +198,7 @@ There are no plans to also support OpenACC in the C/C++ compiler.
 The CCE compilers also offer support for some PGAS (Partitioned Global Address Space) languages.
 UPC 1.2 is supported, as is Fortran 2008 coarray support. These implementations do not require a
 preprocessor that first translates the code to regular C or Fortran. There is also support
-for debugging with ARM Forge.
+for debugging with Linaro Forge.
 
 Lastly, there are also bindings for MPI.
 
@@ -240,7 +255,7 @@ ABI (Application Binary Interface) of that application which implies that in pri
 it should be possible to swap the MPI library of applications build with that ABI with
 the Cray MPICH library. Or in other words, if you can only get a binary distribution of
 an application and that application was build against an MPI library compatible with 
-the MPICN 3.4 ABI (which includes Intel MPI) it should be possible to exchange that
+the MPICH 3.4 ABI (which includes Intel MPI) it should be possible to exchange that
 library for the Cray one to have optimised communication on the Cray Slingshot interconnect.
 
 Cray MPI contains many tweaks specifically for Cray systems.
@@ -285,7 +300,7 @@ compatible with modulefiles for the old tool, but prefers modulefiles written in
 supported by the HPE Cray PE and is our choice on LUMI. The final implementation is a full TCL implementation developed 
 in France and also in use on some large systems in Europe.
 
-Fortunately the basic commands are large similar in those implementations, but what differs is
+Fortunately the basic commands are largely similar in those implementations, but what differs is
 the way to search for modules. We will now only discuss the basic commands, the more advanced ones
 will be discussed in the next session of this tutorial course.
 
@@ -340,7 +355,7 @@ flag is used. This is the case for:
     wrappers do the job as soon as the `cray-mpich` module is loaded.
 -   LibSci and FFTW are linked automatically if the corresponding modules are loaded. So no need
     to look, e.g., for the BLAS or LAPACK libraries: They will be offered to the linker if the
-    `cray--libsci` module is loaded (and it is an example of where the wrappers try to take the
+    `cray-libsci` module is loaded (and it is an example of where the wrappers try to take the
     right version based not only on compiler, but also on whether MPI is loaded or not and the
     OpenMP compiler flag).
 -   netCDF and HDF5
@@ -371,7 +386,11 @@ module load cpe/22.08
 ```
 Loading this module will also try to switch the already loaded PE modules to the versions from
 that release. This does not always work correctly, due to some bugs in most versions of this
-module and a limitation of Lmod. Executing the `module load` twice will fix this.
+module and a limitation of Lmod. Executing the `module load` twice will fix this:
+```
+module load cpe/22.08
+module load cpe/22.08
+```
 The module will also produce a warning when it is unloaded (which is also the case when you
 do a `module load` of `cpe` when one is already loaded, as it then first unloads the already
 loaded `cpe` module). The warning can be ignored, but keep in mind that what it says is true,
@@ -433,7 +452,7 @@ activate:
 
 | PrgEnv      | Description                               | Comiler module | Compilers                            |
 |-------------|-------------------------------------------|----------------|--------------------------------------|
-| PrgEnv-cray | Cray Compilation Environment              | `cce`          | `craycc`, `crayCC`, `crayftn`        |
+| PrgEnv-cray | Cray Compiling Environment                | `cce`          | `craycc`, `crayCC`, `crayftn`        |
 | PrgEnv-gnu  | GNU Compiler Collection                   | `gcc`          | `gcc`, `g++`, `gfortran`             |
 | PrgEnv-aocc | AMD Optimizing Compilers<br>(CPU only)    | `aocc`         | `clang`, `clang++`, `flang`          |
 | PrgEnv-amd  | AMD ROCm LLVM compilers <br>(GPU support) | `amd`          | `amdclang`, `amdclang++`, `amdflang` |
@@ -468,6 +487,26 @@ compiler.
 The wrappers also support the `-dumpversion` flag to show the version of the underlying compiler.
 Many other commands, including the actual compilers, use `--version` to show the version.
 
+For Cray Fortran compiler error messages, the `explain` command is also helpful. E.g.,
+
+```
+$ ftn
+ftn-2107 ftn: ERROR in command line
+  No valid filenames are specified on the command line.
+$ explain ftn-2107
+
+Error : No valid filenames are specified on the command line.
+
+At least one file name must appear on the command line, with any command-line
+options.  Verify that a file name was specified, and also check for an
+erroneous command-line option which may cause the file name to appear to be
+an argument to that option.
+```
+
+On older Cray systems this used to be a very useful command with more compilers but as 
+HPE Cray is using more and more open source components instead there are fewer commands
+that give additional documentation via the `explain` command.
+
 Lastly, there is also a lot of information in the
 ["Developing" section of the LUMI documentation](https://docs.lumi-supercomputer.eu/development/).
 
@@ -498,25 +537,6 @@ to find out where you can get more information about this environment variable i
 man -K FI_CXI_RX_MATCH_MODE
 ```
 
-For Cray Fortran compiler error messages, the `explain` command is also helpful. E.g.,
-
-```
-$ ftn
-ftn-2107 ftn: ERROR in command line
-  No valid filenames are specified on the command line.
-$ explain ftn-2107
-
-Error : No valid filenames are specified on the command line.
-
-At least one file name must appear on the command line, with any command-line
-options.  Verify that a file name was specified, and also check for an
-erroneous command-line option which may cause the file name to appear to be
-an argument to that option.
-```
-
-On older Cray systems this used to be a very useful command with more compilers but as 
-HPE Cray is using more and more open source components instead there are fewer commands
-that give additional documentation via the `explain` command.
 
 
 ## Other modules
@@ -541,7 +561,7 @@ Other modules that are relevant even to users who do not do development:
     other libraries of the HPE Cray PE, including mpi4py, NumPy, SciPy and pandas.
 -   R: `cray-R`
 
-The HPE ray PE also offers other modules for debugging, profiling, performance analysis, etc. that
+The HPE Cray PE also offers other modules for debugging, profiling, performance analysis, etc. that
 are not covered in this short version of the LUMI course. Many more are covered in the 4-day
 courses for developers that we organise several times per year with the help of HPE and AMD.
 
@@ -604,8 +624,8 @@ export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
     versions, while in the second case it is taken from `/opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1/lib/`
     which clearly is for a specific version of `cray-mpich`.
 
-We do provide an experimental module `lumi-CrayPath` that currently because of its experimental nature
-still needs to be installed by the user that tries to fix `LD_LIBRARY_PATH` in a way that unloading
+We do provide an experimental module `lumi-CrayPath` 
+that tries to fix `LD_LIBRARY_PATH` in a way that unloading
 the module fixes `LD_LIBRARY_PATH` again to the state before adding `CRAY_LD_LIBRARY_PATH` and that
 reloading the module adapts `LD_LIBRARY_PATH` to the current value of `CRAY_LD_LIBRARY_PATH`. Loading that
 module after loading all other modules should fix this issue for most if not all software.
