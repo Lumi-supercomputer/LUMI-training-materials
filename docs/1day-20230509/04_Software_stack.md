@@ -102,7 +102,7 @@ We chose to go with **EasyBuild as our primary tool** for which we also do some 
 However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
 that you may be acustomed with from clusters at your home institution. **It uses toolchains
 specifically for the HPE Cray programming environment** so recipes need to be adapted. We do offer an
-**increasing library of Cray-specific installation recipes** though.
+**growing library of Cray-specific installation recipes** though.
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that **your modules appear in your module view** without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
@@ -127,11 +127,11 @@ community**.
 -   This is partly caused by the **distributed user management** as we do not even have the necessary
     information to determine if a particular user can use a particular license, so we must shift that 
     responsibility to people who have that information, which is often the PI of your project.
--   You also have to take into account that up to 20% of LUMI is reserved for industry use which makes 
+-   You also have to take into account that **up to 20% of LUMI is reserved for industry** use which makes 
     negotiations with software vendors rather difficult as they will want to push us onto the industrial
     rather than academic pricing as they have no guarantee that we will obey to the academic license
     restrictions. 
--   And lastly, **we don't have an infinite budget**. There was a questionaire send out to 
+-   And lastly, **we don't have an infinite budget**. There was a questionnaire send out to 
     some groups even before the support team was assembled and that contained a number of packages that
     by themselves would likely consume our whole software budget for a single package if I look at the 
     size of the company that produces the package and the potential size of their industrial market. 
@@ -173,7 +173,7 @@ high performance from the interconnect. For example,
     goal of a pre-exascale machine. But that implies that certain Linux daemons that your software may 
     expect to find are not present on the compute nodes. D-bus comes to mind.
 
-Also, the LUNI user support team is **too small to do all software installations** which is why we currently
+Also, the LUMI user support team is **too small to do all software installations** which is why we currently
 state in our policy that a LUMI user should be capable of installing their software themselves or have
 another support channel. We cannot install every single piece of often badly documented research-quality
 code that was never meant to be used by people who don't understand the code.
@@ -200,7 +200,7 @@ recent set of build tools etc** than the OS provides. We also take care of a few
 on the next slide that are present right after login on LUMI.
 
 Next we have the **stacks called "LUMI"**. Each one corresponds to a **particular release of the HPE Cray
-Programming Environment**. It is the stack in which we install software using the that programming environment
+Programming Environment**. It is the stack in which we install software using that programming environment
 and mostly EasyBuild. **The Cray Programming Environment modules are still used, but they are accessed through
 a replacement for the PrgEnv modules that is managed by EasyBuild**. We have **tuned versions for the 3 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
@@ -354,7 +354,7 @@ the moment.
     getting it to collaborate with the resource manager as it is installed on LUMI.
 -   The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the
     AMD CPUs are a problematic cocktail. There have recently been performance and correctness problems 
-    with the MKL math library and also failures some versions of Intel MPI, 
+    with the MKL math library and also failures with some versions of Intel MPI, 
     and you need to be careful selecting compiler options and not use `-xHost`
     or the Intel compiler will simply optimize for a two decades old CPU.
 
@@ -363,7 +363,14 @@ Instead we make our **own EasyBuild build recipes** that we also make available 
 The EasyBuild configuration done by the EasyBuild-user module will find a copy of that repository
 on the system or in your own install directory. The latter is useful if you always want the very
 latest, before we deploy it on the system. 
-We're also **working on presenting a list of supported software in the documentation**.
+
+We also have the
+[LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+which documents all software for which we have EasyBuild recipes available. 
+This includes both the pre-installed software and the software for which we provide recipes in the
+[LUMI-EasyBuild-contrib GitHub repository](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib),
+and even instructions for some software that is not suitable for installation through EasyBuild or
+Spack, e.g., because it likes to write in its own directories while running.
 
 
 ### EasyBuild recipes - easyconfigs
@@ -375,7 +382,7 @@ We're also **working on presenting a list of supported software in the documenta
 EasyBuild uses a build recipe for each individual package, or better said, each individual module
 as it is possible to install more than one software package in the same module. That installation
 description relies on either a generic or a specific installation process provided by an easyblock.
-The build recipes are called easyconfig files or simply easyconfigs are are Python files with 
+The build recipes are called easyconfig files or simply easyconfigs and are Python files with 
 the extension `.eb`. 
 
 The typical steps in an installation process are:
@@ -477,7 +484,7 @@ Consider, e.g., the easyconfig file `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-C
 3.  The next part, `cpeCray-22.08` is the name and version of the toolchain,
     specified by the `toolchain` parameter in the easyconfig. The version of the
     toolchain must always correspond to the version of the LUMI stack. So this is
-    and easyconfig for installation in `LUMI/22.08`.
+    an easyconfig for installation in `LUMI/22.08`.
 
     This part is not present for the SYSTEM toolchain
 
@@ -521,21 +528,11 @@ module system and EasyBuild will not find it when they need it. So a good choice
 something like 
 `export EBU_USER_PREFIX=/project/project_465000000/EasyBuild`. 
 You have to do this **before** loading the `LUMI` module as it is then already used to ensure that
-user modules are included in the module search path. You can do this in your `.bash_profile` or
+user modules are included in the module search path. You can do this in your `.profile` or
 `.bashrc`. 
 This variable is not only **used by EasyBuild-user** to know where to install software, but also 
 by the `LUMI` - or actually **the `partition` - module to find software** so all users in your project
 who want to use the software should set that variable.
-
-Once that environment variable is set, all you need to do to activate EasyBuild is to load
-the `LUMI` module, load a partition module if you want a different one from the default, and 
-then load the `EasyBuild-user` module. In fact, if you switch to a different `partition` 
-or `LUMI` module after loading `EasyBuild-user` EasyBuild will still be correctly reconfigured 
-for the new stack and new partition. 
-Cross-compilation which is installing software for a different partition than the one you're
-working on does not always work since there is so much software around with installation scripts
-that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
-a different partition module than the one that is auto-loaded by the `LUMI` module.
 
 
 #### Step 2: Configure the environment
@@ -544,6 +541,25 @@ a different partition module than the one that is auto-loaded by the `LUMI` modu
   ![Installing: Configure the environment](img/LUMI-1day-20230509-04-software/Dia16.png){ loading=lazy }
 </figure>
 
+The next step is to configure your environment. First load the proper version of the LUMI
+stack for which you want to install software, and you may want to change to the proper
+partition also if you are cross-compiling.
+
+Once you have selected the software stack and partition, all you need to do to activate EasyBuild to install
+additional software is to load
+the `LUMI` module, load a partition module if you want a different one from the default, and 
+then load the `EasyBuild-user` module. In fact, if you switch to a different `partition` 
+or `LUMI` module after loading `EasyBuild-user` EasyBuild will still be correctly reconfigured 
+for the new stack and new partition. 
+
+Cross-compilation which is installing software for a different partition than the one you're
+working on does not always work since there is so much software around with installation scripts
+that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
+a different partition module than the one that is auto-loaded by the `LUMI` module.
+
+**Note that the `EasyBuild-user` module is only needed for the installation process. For using
+the software that is installed that way it is sufficient to ensure that `EBU_USER_PREFIX` has
+the proper value before loading the `LUMI` module.**
 
 
 #### Step 3: Install the software.
@@ -560,15 +576,15 @@ At the moment we have to use `eb -S` or `eb --search` for that. So in our exampl
 eb --search GROMACS
 ```
 We now also have the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
-which lists all software that we manage via EasyBuild and make available either preinstalled on
+which lists all software that we manage via EasyBuild and make available either pre-installed on
 the system or as an EasyBuild recipe for user installation.
 
 Now let's take the variant `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`. 
 This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
 from `LUMI/22.08`, and a build meant for CPU-only systems. The `-CPU` extension is not
-always added for CPU-only system, but in case of GROMACS we do expect that GPU builds for
-LUMI will become available early on in the deployment of LUMI-G so we've already added
-a so-called version suffix to distinguish between CPU and GPU versions.
+always added for CPU-only system, but in case of GROMACS there already is a GPU version
+for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
+that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
 ```bash
 eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
@@ -651,7 +667,7 @@ will tell you for which versions of VASP we already have build instructions, but
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
 directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
 ```bash
-eb –r . VASP-6.3.0-cpeGNU-22.08.eb
+eb VASP-6.3.0-cpeGNU-22.08.eb –r . 
 ```
 
 ### More advanced work (2): Repositories
@@ -758,5 +774,5 @@ The site also contains a LUST-specific tutorial oriented towards Cray systems.
 
 There is also a later course developed by LUST for developers of EasyConfigs for LUMI
 that can be found on 
-[klust.github.io/easybuild-tutorial](https://klust.github.io/easybuild-tutorial).
+[lumi-supercomputer.github.io/easybuild-tutorial](https://lumi-supercomputer.github.io/easybuild-tutorial/).
 
