@@ -7,7 +7,7 @@
    viewBox="0 0 149 98"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    sodipodi:docname="Milan_CCD.svg"
    inkscape:export-filename="Milan_CCD.png"
    inkscape:export-xdpi="600"
@@ -28,12 +28,12 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="2.2828775"
-     inkscape:cx="310.79197"
-     inkscape:cy="252.75119"
+     inkscape:cx="293.48925"
+     inkscape:cy="253.18923"
      inkscape:window-width="2325"
-     inkscape:window-height="1361"
-     inkscape:window-x="66"
-     inkscape:window-y="-1"
+     inkscape:window-height="1314"
+     inkscape:window-x="822"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      inkscape:lockguides="true">
@@ -278,15 +278,15 @@
        id="text5844"><tspan
          x="63.812271"
          y="40.173782"
-         id="tspan53151"><tspan
-           dx="0 2.8250532 2.7855358 3.0522404 2.8250532"
-           id="tspan53149">Zen3
+         id="tspan2823"><tspan
+           dx="0 3.3110888 2.8697708 3.1253977 3.1398678"
+           id="tspan2821">Zen3
 </tspan></tspan><tspan
          x="63.812271"
          y="46.347407"
-         id="tspan53155"><tspan
-           dx="0 2.3706698 2.9880323 1.9409862"
-           id="tspan53153">core</tspan></tspan></text>
+         id="tspan2827"><tspan
+           dx="0 2.5731475 2.9975846 2.1077137"
+           id="tspan2825">core</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
@@ -306,13 +306,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53157">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2829">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53159">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2831">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590"
@@ -327,17 +327,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53163"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2835"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53161">L1D
+           id="tspan2833">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53167"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2839"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53165">32kB</tspan></tspan></text>
+           id="tspan2837">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4"
@@ -352,17 +352,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53171"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2843"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53169">L1I
+           id="tspan2841">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53175"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2847"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53173">32kB</tspan></tspan></text>
+           id="tspan2845">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847"
@@ -377,9 +377,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53177">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2849">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-9"
@@ -394,13 +394,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-2);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53179">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2851">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53181">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2853">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-7"
@@ -415,17 +415,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-0);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53185"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2857"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53183">L1D
+           id="tspan2855">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53189"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2861"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53187">32kB</tspan></tspan></text>
+           id="tspan2859">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-6"
@@ -440,17 +440,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-1);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53193"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2865"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53191">L1I
+           id="tspan2863">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53197"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2869"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53195">32kB</tspan></tspan></text>
+           id="tspan2867">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-5"
@@ -465,9 +465,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-8);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53199">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2871">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-0"
@@ -482,13 +482,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-3);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53201">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2873">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53203">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2875">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-0"
@@ -503,17 +503,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-2);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53207"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2879"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53205">L1D
+           id="tspan2877">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53211"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2883"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53209">32kB</tspan></tspan></text>
+           id="tspan2881">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-9"
@@ -528,17 +528,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-2);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53215"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2887"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53213">L1I
+           id="tspan2885">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53219"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2891"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53217">32kB</tspan></tspan></text>
+           id="tspan2889">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-9"
@@ -553,9 +553,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-0);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53221">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2893">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-8"
@@ -570,13 +570,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-1);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53223">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2895">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53225">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2897">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-9"
@@ -591,17 +591,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-5);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53229"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2901"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53227">L1D
+           id="tspan2899">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53233"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2905"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53231">32kB</tspan></tspan></text>
+           id="tspan2903">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-8"
@@ -616,17 +616,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-4);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53237"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2909"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53235">L1I
+           id="tspan2907">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53241"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2913"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53239">32kB</tspan></tspan></text>
+           id="tspan2911">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-6"
@@ -641,9 +641,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-7);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53243">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2915">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-5"
@@ -658,13 +658,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-0);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53245">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2917">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53247">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2919">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-2"
@@ -679,17 +679,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-3);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53251"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2923"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53249">L1D
+           id="tspan2921">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53255"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2927"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53253">32kB</tspan></tspan></text>
+           id="tspan2925">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-4"
@@ -704,17 +704,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-9);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53259"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2931"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53257">L1I
+           id="tspan2929">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53263"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2935"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53261">32kB</tspan></tspan></text>
+           id="tspan2933">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-1"
@@ -729,9 +729,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-4);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53265">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2937">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-5-5"
@@ -746,15 +746,15 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-0-4);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53267">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2939">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53269">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2941">core</tspan></text>
     <rect
-       style="fill:#6dff3e;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-2-5"
        width="12"
        height="8"
@@ -767,17 +767,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-3-2);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53273"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2945"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53271">L1D
+           id="tspan2943">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53277"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2949"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53275">32kB</tspan></tspan></text>
+           id="tspan2947">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-4-2"
@@ -792,17 +792,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-9-5);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53281"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2953"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53279">L1I
+           id="tspan2951">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53285"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2957"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53283">32kB</tspan></tspan></text>
+           id="tspan2955">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-1-8"
@@ -817,9 +817,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-4-6);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53287">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2959">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-5-8"
@@ -834,13 +834,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-0-6);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53289">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2961">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53291">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2963">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-2-4"
@@ -855,17 +855,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-3-22);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53295"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2967"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53293">L1D
+           id="tspan2965">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53299"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2971"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53297">32kB</tspan></tspan></text>
+           id="tspan2969">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-4-0"
@@ -880,17 +880,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-9-3);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53303"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2975"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53301">L1I
+           id="tspan2973">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53307"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2979"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53305">32kB</tspan></tspan></text>
+           id="tspan2977">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-1-9"
@@ -905,9 +905,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-4-2);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53309">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan2981">L2 512kB</tspan></text>
     <rect
        style="fill:#00c0fe;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect65-5-2"
@@ -922,13 +922,13 @@
        style="font-size:18.6667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect5947-0-46);display:inline"
        x="20.822701"
        y="0"><tspan
-         x="224.75254"
-         y="77.718742"
-         id="tspan53311">Zen3
+         x="222.94169"
+         y="77.764572"
+         id="tspan2983">Zen3
 </tspan><tspan
-         x="227.40323"
-         y="101.05212"
-         id="tspan53313">core</tspan></text>
+         x="226.39157"
+         y="101.09795"
+         id="tspan2985">core</tspan></text>
     <rect
        style="fill:#ffff73;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-2-3"
@@ -943,17 +943,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-3-23);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="212.95661"
-         y="120.17216"
-         id="tspan53317"><tspan
+         x="212.22653"
+         y="120.19835"
+         id="tspan2989"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53315">L1D
+           id="tspan2987">L1D
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53321"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan2993"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53319">32kB</tspan></tspan></text>
+           id="tspan2991">32kB</tspan></tspan></text>
     <rect
        style="fill:#fedd00;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7590-4-4-1"
@@ -968,17 +968,17 @@
        style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7646-67-9-2);display:inline"
        x="11.888045"
        y="0"><tspan
-         x="215.04195"
-         y="120.17216"
-         id="tspan53325"><tspan
+         x="214.09112"
+         y="120.19835"
+         id="tspan2997"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53323">L1I
+           id="tspan2995">L1I
 </tspan></tspan><tspan
-         x="210.27927"
-         y="133.50554"
-         id="tspan53329"><tspan
+         x="209.10152"
+         y="133.53173"
+         id="tspan3001"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan53327">32kB</tspan></tspan></text>
+           id="tspan2999">32kB</tspan></tspan></text>
     <rect
        style="fill:#f7a000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
        id="rect7847-1-1"
@@ -993,9 +993,9 @@
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect10191-4-20);display:inline"
        x="27.366617"
        y="0"><tspan
-         x="216.98805"
-         y="155.16679"
-         id="tspan53331">L2 512kB</tspan></text>
+         x="213.83797"
+         y="155.19953"
+         id="tspan3003">L2 512kB</tspan></text>
     <rect
        style="fill:#b97300;fill-opacity:1;stroke:none;stroke-width:0.305091;stroke-dasharray:none;stroke-opacity:1"
        id="rect22607"
@@ -1010,16 +1010,16 @@
        style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect22611);display:inline"
        x="42.271942"
        y="0"><tspan
-         x="296.86129"
-         y="174.37158"
-         id="tspan53335"><tspan
+         x="293.06355"
+         y="174.42395"
+         id="tspan3007"><tspan
            style="fill:#ffffff"
-           id="tspan53333">L3 cache
+           id="tspan3005">L3 cache
 </tspan></tspan><tspan
-         x="308.57327"
-         y="201.0382"
-         id="tspan53339"><tspan
+         x="306.5427"
+         y="201.09058"
+         id="tspan3011"><tspan
            style="fill:#ffffff"
-           id="tspan53337">32 MB</tspan></tspan></text>
+           id="tspan3009">32 MB</tspan></tspan></text>
   </g>
 </svg>
