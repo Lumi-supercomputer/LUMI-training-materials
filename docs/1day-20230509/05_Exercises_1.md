@@ -114,12 +114,12 @@
         there is a lot more software ready-to-install for `22.08`). 
         And since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
-        different toolchains. So the module we want to load is `bzip2/1.0.8-cpeGNU-22.08`.
+        different toolchains. So the module we want to load is `bzip2/1.0.8-cpeCray-22.08`.
 
         To figure out how to load it, use
 
         ```
-        module spider bzip2/1.0.8-cpeGNU-22.08
+        module spider bzip2/1.0.8-cpeCray-22.08
         ```
 
         and see that (as expected from the name) we need to load `LUMI/22.08` and can then use it in any of the
