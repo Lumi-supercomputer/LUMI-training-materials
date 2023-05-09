@@ -46,6 +46,7 @@
 
 -   [Running jobs](files/LUMI-1day-20230509-06-running_jobs.pdf)
 
+
 ## Notes
 
 -   [LUMI architecture](01_Architecture.md)
@@ -56,5 +57,11 @@
   
 -   [Managing software on LUMI](04_Software_stack.md)
 
--   [Exercises 1: modules, Cray PE and EasyBuild](05_Exercises_1.md)
+-   [Exercises 1: Modules, Cray PE and EasyBuild](05_Exercises_1.md)
+
+-   [Exercises 2: Running jobs](07_Exercises_2.md)
+
+-   [Questions from the Hedgedoc document of the 9 May 2020 session](notes_20230509.md)
+
+
 
