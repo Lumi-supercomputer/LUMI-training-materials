@@ -3,15 +3,16 @@
 ## Exercises on the Slurm allocation modes
 
 1. Run single task on the CPU partition with `srun` using multiple cpu cores. Inspect default task allocation with `taskset` command (`taskset -cp $$` will show you cpu numbers allocated to a current process). 
-   ??? Solution "Click to see the solution."
 
-      ```
-      srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --partition=small --account=<project_id> bash -c 'taskset -cp $$' 
-      ```
-
-      Note you need to replace `<project_id>` with actual project account ID in a form of `project_` plus 9 digits number.
-
-      The command runs single process (`bash` shell with a native Linux `taskset` tool showing process's CPU affinity) on a compute node. You can use `man taskset` command to see how the tool works.
+	??? Solution "Click to see the solution."
+		
+		```
+		srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --partition=small --account=<project_id> bash -c 'taskset -cp $$' 
+		```
+		
+		Note you need to replace `<project_id>` with actual project account ID in a form of `project_` plus 9 digits number.
+		
+		The command runs single process (`bash` shell with a native Linux `taskset` tool showing process's CPU affinity) on a compute node. You can use `man taskset` command to see how the tool works.
 
 2. Try Slurm allocations with `hybrid_check` tool program from the LUMI Software Stack. The program is preinstalled on the system. 
 
@@ -32,19 +33,19 @@ module load lumi-CPEtools
 srun hybrid_check -n -r
 ``` 
 
-   ??? Solution "Click to see the solution."
+??? Solution "Click to see the solution."
 
-      Save script contents into `job.sh` file (you can use `nano` console text editor for instance), remember to use valid project account name.
+Save script contents into `job.sh` file (you can use `nano` console text editor for instance), remember to use valid project account name.
 
-      Submit job script using `sbatch` command. 
+Submit job script using `sbatch` command. 
 
-      ```
-      sbatch job.sh
-      ```
+```
+sbatch job.sh
+```
 
-      The job output is saved in the `slurm-<job_id>.out` file. You can view it's contents with either `less` or `more` shell commands.
+The job output is saved in the `slurm-<job_id>.out` file. You can view it's contents with either `less` or `more` shell commands.
 
-      Actual task/threads affinity may depend on the specific OpenMP runtime but you should see "block" thread affinity as a default behaviour. 
+Actual task/threads affinity may depend on the specific OpenMP runtime but you should see "block" thread affinity as a default behaviour.
 
 3. Improve threads affinity with OpenMP runtime variables. Alter your script and add MPI runtime variable to see another cpu mask summary. 
 
