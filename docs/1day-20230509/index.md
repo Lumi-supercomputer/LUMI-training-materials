@@ -34,7 +34,7 @@
 -   You're all set to go!
 
 
-## Downloads
+## Slide downloads
 
 -   [LUMI Architecture](files/LUMI-1day-20230509-01-architecture.pdf)
 
@@ -44,6 +44,7 @@
 
 -   [LUMI Software Stacks](files/LUMI-1day-20230509-04-software.pdf)
 
+-   [Running jobs](files/LUMI-1day-20230509-06-running_jobs.pdf)
 
 ## Notes
 

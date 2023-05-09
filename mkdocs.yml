@@ -30,6 +30,8 @@ nav:
       - Lmod modules: 1day-20230509/03_Modules.md
       - Managing software: 1day-20230509/04_Software_stack.md
       - Exercises 1: 1day-20230509/05_Exercises_1.md
+      - Running jobs: 1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf
+      - Exercises 2: 1day-20230509/07_Exercises_2.md
   - Profiling April 2013:
       - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:

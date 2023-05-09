@@ -61,7 +61,7 @@
         <td>11:45</td>
         <td>
             Hands-on
-            <br/><a href="../05_Exercises_1">Exercises assignments and solutions</a>
+            <br/><a href="../05_Exercises_1">Exercise assignments and solutions</a>
         </td>
     </tr>
     <tr>
@@ -73,14 +73,16 @@
         <td>
             Running jobs
             <br/><em>Presenter: Maciej Szpindler</em>
-            <!--<br/><a href="../06_Running_jobs">Notes</a>-->
+            <br/>
+            <!-- <a href="../06_Running_jobs">Notes</a> and-->
+            <a href="../files/LUMI-1day-20230509-06-running_jobs.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
         <td>14:30</td>
         <td>
             Hands-on
-            <!--<br/><a href="../07_Exercises_2">Exercises assignments and solutions</a>-->
+            <br/><a href="../07_Exercises_2">Exercise assignments and solutions</a>
         </td>
     </tr>
     <tr>
