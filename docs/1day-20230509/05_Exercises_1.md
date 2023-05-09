@@ -35,7 +35,7 @@
         would also have shown that Bison is part of several versions of the `buildtools` module.
 
         The `module spider` command is often the better command if you use names that with a high 
-        likelyhood could be the name of a package, while `module keyword` is often the better choice
+        likelihood could be the name of a package, while `module keyword` is often the better choice
         for words that are more a keyword. But if one does not return the solution it is a good idea 
         to try the other one also.
 
@@ -137,7 +137,7 @@ the subdirectory CPE of the download.*
 Four different implementations of a simple "Hello, World!" program are provided in the `CPE` subdirectory:
 
 -   `hello_world.c` is an implementation in C,
--   `hello_world.cc` is an implemenatation in C++,
+-   `hello_world.cc` is an implementation in C++,
 -   `hello_world.f` is an implementation in Fortran using the fixed format source form,
 -   `hello_world.f90` is an implementation in Fortran using the more modern free format source form.
 
@@ -326,7 +326,7 @@ on the system is extreme). In fact, if you've done things well the time reported
 The file `mpi_omp_hello.c` is a hybrid MPI and OpenMP C program that sends a message
 from each thread in each MPI rank. It is basically a simplified version of the
 programs found in the `lumi-CPEtools` modules that can be used to quickly check 
-the core assignement in a hybrid MPI and OpenMP job (see later in this tutorial).
+the core assignment in a hybrid MPI and OpenMP job (see later in this tutorial).
 It is again just a CPU-based program.
 
 Compile the program with your favourite C compiler on LUMI.
