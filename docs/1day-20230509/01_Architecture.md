@@ -13,7 +13,7 @@ jobs that can scale.
 LUMI is in the first place a EuroHPC pre-exascale machine, build to prepare for 
 the exascale era and to fit in the EuroHPC ecosystem. The EuroHPC JU tries to
 build systems that have some flexibility, but also does not try to cover 
-all needs with a single machine. They are building 3 pre-exsacale systems
+all needs with a single machine. They are building 3 pre-exascale systems
 with different architecture to explore multiple architectures and to cater
 to a more diverse audience.
 
@@ -278,7 +278,7 @@ rendering.
 The video units are still present though, likely for AI applications that process video.
 -->
 
-This is not an evolution at AMD only. The same is happening with NVIDA GPUs and there is a reason
+This is not an evolution at AMD only. The same is happening with NVIDIA GPUs and there is a reason
 why the latest generation is called "Hopper" for compute and "Ada Lovelace" for rendering GPUs. 
 Several of the functional blocks in the Ada Lovelace architecture are missing in the Hopper 
 architecture to make room for more compute power and double precision compute units. E.g.,
@@ -286,7 +286,7 @@ Hopper does not contain the ray tracing units of Ada Lovelace.
 
 Graphics on one hand and HPC and AI on the other hand are becoming separate workloads for which
 manufacturers make different, specialised cards, and if you have applications that need both,
-you'll have to rework them to work in two phases, or to emply to types of nodes and communicate
+you'll have to rework them to work in two phases, or to use two types of nodes and communicate
 between them over the interconnect, and look for supercomputers that support both workloads.
 
 But so far for the sales presentation, let's get back to reality...
@@ -523,7 +523,7 @@ compute blade of LUMI-C will be on two different switches even though in the nod
 are numbered consecutively. For LUMI-G both nodes on a blade will be on a different pair of switches 
 and each node is connected to two switches. Thw switch blades are also water cooled (each one can 
 consume up to 250W). No currently possible configuration of the Cray EX system needs that 
-all swtich positions in the switch chassis.
+all switch positions in the switch chassis.
 
 This does not mean that the extra positions cannot be useful in the future. If not for an interconnect,
 one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based storage via blades as the 
@@ -542,7 +542,7 @@ This slide shows LUMI fully assembled (as least as it was at the end of 2022).
 At the front there are 5 rows of cabinets similar to the ones in the exploded Cray EX picture 
 on the previous slide.
 Each row has 2 CDUs and 6 cabinets with compute nodes. 
-The first row, the one with the wolve, contains all nodes of LUMI-C, while the other four 
+The first row, the one with the wolf, contains all nodes of LUMI-C, while the other four 
 rows, with the letters of LUMI, contain the GPU accelerator nodes.
 At the back of the room there are more 
 regular server racks that house the storage, management nodes, some special compute nodes , etc.
