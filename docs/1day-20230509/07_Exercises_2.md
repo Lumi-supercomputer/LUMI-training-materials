@@ -16,24 +16,24 @@
 
 2. Try Slurm allocations with `hybrid_check` tool program from the LUMI Software Stack. The program is preinstalled on the system. 
 
-Use the simple job script to run parallel program with multiple tasks (MPI ranks) and threads (OpenMP). Test task/threads affinity with `sbatch` submission on the CPU partition.
+	Use the simple job script to run parallel program with multiple tasks (MPI ranks) and threads (OpenMP). Test task/threads affinity with `sbatch` submission on the CPU partition.
+	
+	```
+	#!/bin/bash -l
+	#SBATCH --partition=small           # Partition (queue) name
+	#SBATCH --nodes=1                   # Total number of nodes
+	#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+	#SBATCH --cpus-per-task=16          # 16 threads per task
+	#SBATCH --time=5                    # Run time (minutes)
+	#SBATCH --account=<project_id>      # Project for billing
 
-```
-#!/bin/bash -l
-#SBATCH --partition=small           # Partition (queue) name
-#SBATCH --nodes=1                   # Total number of nodes
-#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-#SBATCH --cpus-per-task=16          # 16 threads per task
-#SBATCH --time=5                    # Run time (minutes)
-#SBATCH --account=<project_id>      # Project for billing
+	module load LUMI/22.12
+	module load lumi-CPEtools
 
-module load LUMI/22.12
-module load lumi-CPEtools
+	srun hybrid_check -n -r
+	``` 
 
-srun hybrid_check -n -r
-``` 
-
-Be careful with copy/paste of script body while it may brake some specific characters.
+	Be careful with copy/paste of script body while it may brake some specific characters.
 
 	??? Solution "Click to see the solution."
 		
