@@ -49,7 +49,7 @@ one core for the OS and driver processes.
 
 This also implies that some software that works perfectly fine on the login nodes may not
 work on the compute nodes. E.g., there is no `/run/user/$UID` directory and we have experienced
-that DBUS also does not work as one should expect.
+that D-Bus (which stands for Desktop-Bus) also does not work as one should expect.
 
 Large HPC clusters also have a small system image, so don't expect all the bells-and-whistles 
 from a Linux workstation to be present on a large supercomputer.
@@ -236,7 +236,7 @@ It can be compared with what Intel is doing with oneAPI MKL which also offers GP
 the traditional MKL routines.
 
 Another separate component of the scientific and mathematical libraries is FFTW3, 
-Fastest Fourier Transfoerms in the West, which comes with
+Fastest Fourier Transforms in the West, which comes with
 optimized versions for all CPU architectures supported by recent HPE Cray machines.
 
 Finally, the scientific and math libraries also contain HDF5 and netCDF libraries
@@ -259,7 +259,7 @@ the MPICH 3.4 ABI (which includes Intel MPI) it should be possible to exchange t
 library for the Cray one to have optimised communication on the Cray Slingshot interconnect.
 
 Cray MPI contains many tweaks specifically for Cray systems.
-HPE Cray claim improved algorithms for many collectives, an asynchornous
+HPE Cray claim improved algorithms for many collectives, an asynchronous
 progress engine to improve overlap of communications and computations, 
 customizable collective buffering when using MPI-IO, and
 optimized remote memory access (MPI one-sided communication) which also supports
@@ -370,7 +370,7 @@ simply pass those to those compilers.
 ## Selecting the version of the CPE
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Slecting the version of the CPE](img/LUMI-1day-20230509-02-CPE/Dia11.png){ loading=lazy }
+  ![Slide Selecting the version of the CPE](img/LUMI-1day-20230509-02-CPE/Dia11.png){ loading=lazy }
 </figure>
 
 The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `22.08` for the version
@@ -450,12 +450,12 @@ MPI and LibSci module and may load some other modules also.
 The following table gives an overview of the available `PrgEnv-*` modules and the compilers they
 activate:
 
-| PrgEnv      | Description                               | Comiler module | Compilers                            |
-|-------------|-------------------------------------------|----------------|--------------------------------------|
-| PrgEnv-cray | Cray Compiling Environment                | `cce`          | `craycc`, `crayCC`, `crayftn`        |
-| PrgEnv-gnu  | GNU Compiler Collection                   | `gcc`          | `gcc`, `g++`, `gfortran`             |
-| PrgEnv-aocc | AMD Optimizing Compilers<br>(CPU only)    | `aocc`         | `clang`, `clang++`, `flang`          |
-| PrgEnv-amd  | AMD ROCm LLVM compilers <br>(GPU support) | `amd`          | `amdclang`, `amdclang++`, `amdflang` |
+| PrgEnv      | Description                               | Compiler module | Compilers                            |
+|-------------|-------------------------------------------|-----------------|--------------------------------------|
+| PrgEnv-cray | Cray Compiling Environment                | `cce`           | `craycc`, `crayCC`, `crayftn`        |
+| PrgEnv-gnu  | GNU Compiler Collection                   | `gcc`           | `gcc`, `g++`, `gfortran`             |
+| PrgEnv-aocc | AMD Optimizing Compilers<br>(CPU only)    | `aocc`          | `clang`, `clang++`, `flang`          |
+| PrgEnv-amd  | AMD ROCm LLVM compilers <br>(GPU support) | `amd`           | `amdclang`, `amdclang++`, `amdflang` |
 
 There is also a second module that offers the AMD ROCm environment, `rocm`. That module
 has to be used with `PrgEnv-cray` and `PrgEnv-gnu` to enable MPI-aware GPU,
@@ -634,7 +634,7 @@ reloading the module adapts `LD_LIBRARY_PATH` to the current value of `CRAY_LD_L
 module after loading all other modules should fix this issue for most if not all software.
 
 The second solution would be to use rpath-linking for the Cray PE libraries, which can be done by setting
-the `CRAY_ADD_RPATH`enviornment variable:
+the `CRAY_ADD_RPATH`environment variable:
 ```
 export CRAY_ADD_RPATH=yes
 ```
