@@ -139,7 +139,7 @@ The important line for the hierarchy in the output are the lines starting with
 Remember that we said that each module has a corresponding module file. Just as binaries
 on a system, these are organised in a directory structure, and there is a path, in this
 case MODULEPATH, that determines where Lmod will look for module files. The hierarchy is
-implemented with a directory structure and the environment variable MODIULEPATH, and
+implemented with a directory structure and the environment variable MODULEPATH, and
 when the `cce/15.0.0` module was unloaded and `aocc/3.2.0` module was loaded, that 
 MODULEPATH was changed. As a result, the version of the cray-mpich module for the 
 `cce/15.0.0` compiler became unavailable, but one with the same module name for the
@@ -258,7 +258,7 @@ and leaving out a lot of the output, one would have gotten:
 
 ![module spider 1](../img/03_mod_ms_3.png)
 
-On the second screen we see, e.g., the ARMForge mdoule which was available in just a single version
+On the second screen we see, e.g., the ARMForge module which was available in just a single version
 at that time, and then Autoconf where the version is in blue and followed by `(E)`. This denotes
 that the Autoconf package is actually provided as an extension of another module, and one of the next
 examples will tell us how to figure out which one.
@@ -470,7 +470,7 @@ two tools that can be used to fetch files from the internet.
     easy to go back to the software package page itself for more information. Hence you can use
     the search box to search for packages that may not be installed on the system.
 
-    The example given above though, searchinf for `https, would not work via that box as most
+    The example given above though, searching for `https, would not work via that box as most
     EasyBuild recipes include https web links to refer to, e.g., documentation and would be 
     shown in the result.
 
