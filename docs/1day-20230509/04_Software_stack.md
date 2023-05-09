@@ -82,7 +82,7 @@ Environment but we decided not to take the risk and **build our software for a s
 programming environment**, which is also a better fit with the typical tools used to manage a scientific 
 software stack such as EasyBuild and Spack as they also prefer precise versions for all dependencies and
 compilers etc. We also made the stack very easy to extend. So we have **many base libraries and some packages
-already pre-installed** but also provide an **easy and very transparant way to install additional packages in
+already pre-installed** but also provide an **easy and very transparent way to install additional packages in
 your project space in exactly the same way as we do for the central stack**, with the same performance but the
 benefit that the installation can be customised more easily to the needs of your project. Not everybody needs
 the same configuration of GROMACS or LAMMPS or other big packages, and in fact a one-configuration-that-works-for-everybody
@@ -100,14 +100,14 @@ Europe and hence a good match with a EuroHPC project as EuroHPC wants to develop
 from hardware to application software, and Spack, a package developed in the USA national labs.
 We chose to go with **EasyBuild as our primary tool** for which we also do some development. 
 However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
-that you may be acustomed with from clusters at your home institution. **It uses toolchains
+that you may be accustomed with from clusters at your home institution. **It uses toolchains
 specifically for the HPE Cray programming environment** so recipes need to be adapted. We do offer an
 **growing library of Cray-specific installation recipes** though.
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that **your modules appear in your module view** without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
 for your project as we cannot automatically determine a suitable place. **We do offer some help so set up
-Spack also but it is mostly offered "as is" an we will not do bugfixing or development in Spack
+Spack also but it is mostly offered "as is" an we will not do bug-fixing or development in Spack
 package files.**
 
 
@@ -677,7 +677,7 @@ eb VASP-6.3.0-cpeGNU-22.08.eb –r .
 </figure>
 
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
-in your `$EBU_USER_PREFIX` subdirectory if you want the latest and greates before it is in
+in your `$EBU_USER_PREFIX` subdirectory if you want the latest and greatest before it is in
 the centrally maintained clone of the repository. All you need to do is
 ```bash
 cd $EBU_USER_PREFIX
@@ -709,7 +709,7 @@ as EasyBuild can install downloaded binaries or relocatable RPMs.
 And if you know the structure of those directories, this is also a place where
 you could manually put the downloaded installation files for licensed software.
 
-Moreover, EasyBuild also keeps **copies of all installed easconfig files in two locations**.
+Moreover, EasyBuild also keeps **copies of all installed easyconfig files in two locations**.
 
 1.  There is a **copy in `$EBU_USER_PREFIX/ebrepo_files`**. And in fact, EasyBuild will use this version
     first if you try to re-install and did not delete this version first. This is a policy
