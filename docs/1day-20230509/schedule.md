@@ -19,6 +19,8 @@
             LUMI Hardware Architecture
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../01_Architecture">Notes</a>
+            and
+            <a href="../files/LUMI-1day-20230509-01-architecture.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -27,6 +29,8 @@
             The HPE Cray Programming Environment
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../02_CPE">Notes</a>
+            and
+            <a href="../files/LUMI-1day-20230509-02-CPE.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -35,6 +39,8 @@
             Lmod modules
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../03_Modules">Notes</a>
+            and
+            <a href="../files/LUMI-1day-20230509-03-modules.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -47,6 +53,8 @@
             Managing software on LUMI
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../04_Software_stack">Notes</a>
+            and
+            <a href="../files/LUMI-1day-20230509-04-software.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>

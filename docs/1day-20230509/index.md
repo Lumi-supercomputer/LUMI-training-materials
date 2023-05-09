@@ -34,6 +34,17 @@
 -   You're all set to go!
 
 
+## Downloads
+
+-   [LUMI Architecture](files/LUMI-1day-20230509-01-architecture.pdf)
+
+-   [HPE Cray Programming Environment](files/LUMI-1day-20230509-02-CPE.pdf)
+
+-   [Modules on LUMI](files/LUMI-1day-20230509-03-modules.pdf)
+
+-   [LUMI Software Stacks](files/LUMI-1day-20230509-04-software.pdf)
+
+
 ## Notes
 
 -   [LUMI architecture](01_Architecture.md)
