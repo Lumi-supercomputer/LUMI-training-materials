@@ -33,6 +33,8 @@ module load lumi-CPEtools
 srun hybrid_check -n -r
 ``` 
 
+Be careful with copy/paste of script body while it may brake some specific characters.
+
 	??? Solution "Click to see the solution."
 		
 		Save script contents into `job.sh` file (you can use `nano` console text editor for instance), remember to use valid project account name.
