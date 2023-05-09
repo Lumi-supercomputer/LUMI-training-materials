@@ -480,6 +480,9 @@ For the compilers and compiler wrappers, the following man pages are relevant:
 | PrgEnv-aocc/PrgEnv-amd | -            | -            | -              |
 | Compiler wrappers      | `man cc`     | `man CC`     | `man ftn`      |
 
+Recently, HPE Cray have also created 
+[a web version of some of the CPE documentation](https://cpe.ext.hpe.com/docs/).
+
 Some compilers also support the `--help` flag, e.g., `amdclang --help`. For the wrappers,
 the switch `-help` should be used instead as the double dash version is passed to the 
 compiler.
