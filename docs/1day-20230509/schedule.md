@@ -57,7 +57,7 @@
         </td>
     </tr>
     <tr>
-        <td>10:45</td>
+        <td>12:15</td>
         <td><em>Lunch break</em></td>
     </tr>
     <tr>
