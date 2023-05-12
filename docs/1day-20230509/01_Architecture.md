@@ -89,12 +89,64 @@ Early on a small partition for containerised micro-services managed with
 Kubernetes was also planned, but that may never materialize due to lack of 
 people to set it up and manage it.
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide LUMI is...](img/LUMI-1day-20230509-01-architecture/Dia3.png){ loading=lazy }
+</figure>
+
+LUMI is a pre-exascale supercomputer, and not a superfast PC nor a compute cloud architecture.
+
+Each of these architectures have their own strengths and weaknesses and offer different 
+compromises and it is key to chose the right infrastructure for the job and use the right 
+tools for each infrastructure.
+
+Just some examples of using the wrong tools or infrastructure:
+
+-   We've had users who were disappointed about the speed of a single core and were expecting
+    that this would be much faster than their PCs. Supercomputers however are optimised for 
+    performance per Watt and get their performance from using lots of cores through well-designed
+    software. If you want the fastest core possible, you'll need a gaming PC.
+
+-   Even the GPU may not be that much faster for some tasks than GPUs in gaming PCs, especially since
+    an MI250x should be treated as two GPUs for most practical purposes. The better double precision
+    floating point operations and matrix operations, also at full precision, requires transistors also 
+    that on some other GPUs are used for rendering hardware or for single precision compute units.
+
+-   A user complained that they did not succeed in getting their nice remote development environment to
+    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
+    It was a very nice environment but really made for local development and remote development in a 
+    cloud environment with virtual machines individually protected by personal firewalls and was 
+    not only hard to get working on a supercomputer but also insecure.
+
+-   CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
+    HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
+    published a paper with their experiences and it was mostly disappointment. The HPC infrastructure
+    didn't fit their model for software distribution and performance was poor. Basically their solution
+    was designed around the strengths of a typical cloud infrastructure and relied precisely on those things
+    that did make their cloud infrastructure more expensive than the HPC infrastructure they tested. It relied
+    on fast local disks that require a proper management layer in the software, (ab)using the file system as
+    a database for unstructured data, a software distribution mechanism that requires an additional daemon
+    running permanently on the compute nodes (and local storage on those nodes), ...
+
+True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
+are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
+It is also a shred infrastructure but with a much more lightweight management layer than a cloud infrastructure
+and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
+other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also build according
+to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
+and application level. They perform best when streaming data through the machine at all levels of the 
+memory hierarchy and are not built at all for random access to small bits of data (where the definition of
+"small" depends on the level in the memory hierarchy).
+
+At several points in this course you will see how this impacts what you can do with a supercomputer and
+how you work with a supercomputer.
+
+In this section of the course we will now build up LUMI step by step.
 
 
 ## Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU](img/LUMI-1day-20230509-01-architecture/Dia3.png){ loading=lazy }
+  ![Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU](img/LUMI-1day-20230509-01-architecture/Dia4.png){ loading=lazy }
 </figure>
 
 The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
@@ -117,7 +169,7 @@ double precision) rather than the 32 some Intel processors are capable of.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU (2)](img/LUMI-1day-20230509-01-architecture/Dia4.png){ loading=lazy }
+  ![Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU (2)](img/LUMI-1day-20230509-01-architecture/Dia5.png){ loading=lazy }
 </figure>
 
 The full processor package for the AMD EPYC processors used in LUMI have
@@ -150,7 +202,7 @@ cores spread over all CCDs are used.
 ## Building LUMI: a LUMI-C node
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide LUMI-C node](img/LUMI-1day-20230509-01-architecture/Dia5.png){ loading=lazy }
+  ![Slide LUMI-C node](img/LUMI-1day-20230509-01-architecture/Dia6.png){ loading=lazy }
 </figure>
 
 A compute node is then built out of two such processor packages, connected 
@@ -165,7 +217,7 @@ high performance Slingshot interconnect though.
 ### A strong hierarchy in the node
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Strong hierarchy](img/LUMI-1day-20230509-01-architecture/Dia6.png){ loading=lazy }
+  ![Slide Strong hierarchy](img/LUMI-1day-20230509-01-architecture/Dia7.png){ loading=lazy }
 </figure>
 
 As can be seen from the node architecture in the previous slide, the CPU compute
@@ -208,7 +260,7 @@ application.
 ### Hierarchy: delays in numbers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Delays in numbers](img/LUMI-1day-20230509-01-architecture/Dia7.png){ loading=lazy }
+  ![Slide Delays in numbers](img/LUMI-1day-20230509-01-architecture/Dia8.png){ loading=lazy }
 </figure>
 
 This slide shows the ACPI System Locality distance Information Table (SLIT)
@@ -229,7 +281,7 @@ really need (and you will be billed for them).
 ## Building LUMI: Concept LUMI-G node
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Concept LUMI-G node](img/LUMI-1day-20230509-01-architecture/Dia8.png){ loading=lazy }
+  ![Slide Concept LUMI-G node](img/LUMI-1day-20230509-01-architecture/Dia9.png){ loading=lazy }
 </figure>
 
 This slide shows a conceptual view of a LUMI-G compute node. This node is
@@ -295,7 +347,7 @@ But so far for the sales presentation, let's get back to reality...
 ## Building LUMI: What a LUMI-G node really looks like
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Real LUMI-G node](img/LUMI-1day-20230509-01-architecture/Dia9.png){ loading=lazy }
+  ![Slide Real LUMI-G node](img/LUMI-1day-20230509-01-architecture/Dia10.png){ loading=lazy }
 </figure>
 
 Or the full picture with the bandwidths added to it:
@@ -382,7 +434,7 @@ and as we shall see later in the course, exploiting this is a bit tricky at the 
 ### What the future looks like...
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide The future we're preparing for...](img/LUMI-1day-20230509-01-architecture/Dia10.png){ loading=lazy }
+  ![Slide The future we're preparing for...](img/LUMI-1day-20230509-01-architecture/Dia11.png){ loading=lazy }
 </figure>
 
 Some users may be annoyed by the "small" amount of memory on each node. Others
@@ -436,7 +488,7 @@ rumoured to do exactly that in its latest generations, including the M-family ch
 ## Building LUMI: The Slingshot interconnect
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Slingshot interconnect](img/LUMI-1day-20230509-01-architecture/Dia11.png){ loading=lazy }
+  ![Slide Slingshot interconnect](img/LUMI-1day-20230509-01-architecture/Dia12.png){ loading=lazy }
 </figure>
 
 All nodes of LUMI, including the login, management and storage nodes, are linked
@@ -488,7 +540,7 @@ a third hop in the destination group to the switch the destination node is attac
 ## Assembling LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide HPE Cray EX System](img/LUMI-1day-20230509-01-architecture/Dia12.png){ loading=lazy }
+  ![Slide HPE Cray EX System](img/LUMI-1day-20230509-01-architecture/Dia13.png){ loading=lazy }
 </figure>
 
 Let's now have a look at how everything connects together to the supercomputer LUMI.
@@ -534,7 +586,7 @@ compute blades.
 ## LUMI assembled
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide LUMI](img/LUMI-1day-20230509-01-architecture/Dia13.png){ loading=lazy }
+  ![Slide LUMI](img/LUMI-1day-20230509-01-architecture/Dia14.png){ loading=lazy }
 </figure>
 
 This slide shows LUMI fully assembled (as least as it was at the end of 2022).
