@@ -208,9 +208,13 @@ LUMI-C compute nodes and zen3 + MI250X for
 the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
 zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.
 
-In the distant future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
+In the far future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.
+
+We also have an extensible software stack based on **Spack** which has been pre-configured to use the compilers
+from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
+support nor do we do any bugfixing in Spack.
 
 
 ### 3 ways to access the Cray Programming environment on LUMI.
@@ -273,8 +277,8 @@ First there are the **LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules**. Each of t
 version of the LUMI stack.
 
 The **second level consists of partition modules**. There is partition/L for the login and large memory nodes,
-partition/C for the regular compute nodes, partition/EAP for the early access platform and in the future
-we will have partition/D for the visualisation nodes and partition/G for the AMD GPU nodes.
+partition/C for the regular compute nodes and partition/G for the AMD GPU nodes.
+We may have a separate partition for the visualisation nodes in the future but that is not clear yet.
 
 There is also a **hidden partition/common module** in which we install software that is available everywhere, 
 but we advise you to be careful to install software in there in your own installs as it is risky to rely on
@@ -349,7 +353,7 @@ or in your personal or project stack.
 Note however that the **build-in easyconfig files that come with EasyBuild do not work on LUMI** at
 the moment.
 
--   For the GNU toolchain we would have problems with MPI. EasyBuild there uses Open MPI and that
+-   For the GNU toolchain we would have problems with MPI. EasyBuild uses Open MPI and that
     needs to be configured differently to work well on LUMI, and there are also still issues with
     getting it to collaborate with the resource manager as it is installed on LUMI.
 -   The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the

@@ -529,6 +529,14 @@ The `(L)` means that a module is currently loaded.
 
 The `(S)` means that the module is a sticky module.
 
+Next to the `rocm` module you see `(D:5.0.2:5.2.0)`. 
+The `D` means that this version of the module, `5.2.3`, is currently the default on
+the system. The two version numbers next to this module show that the module can also 
+be loaded as `rocm/5.0.2` and `rocm/5.2.0`. These are two modules that were removed
+from the system during the last update of the system, but version 5.2.3 can be loaded
+as a replacement of these modules so that software that used the removed modules may
+still work without recompiling.
+
 At the end of the overview the extensions are also shown. If this would be fully implemented on LUMI, the list
 might become very long. There is a way in Lmod to hide that output but unfortunately it does not work on LUMI yet
 due to another bug in the already old version of Lmod.
