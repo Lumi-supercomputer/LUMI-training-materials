@@ -4,7 +4,10 @@
 
 -   [Schedule](schedule.md)
 
--   [HedgeDoc for off-line questions](https://md.sigma2.no/lumi-intro-course-9may23)
+-   [HedgeDoc for off-line questions](https://md.sigma2.no/lumi-intro-course-16may23?edit)
+
+    Notes from the May 9 session are summarised and archived on the
+    ["Questions from the Hedgedoc document of the 9 May 2020 session"](notes_20230509.md) page.
 
 
 ## Setting up for the exercises
