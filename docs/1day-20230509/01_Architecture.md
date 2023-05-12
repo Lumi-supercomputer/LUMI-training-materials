@@ -10,12 +10,73 @@ jobs that can scale.
   ![Slide LUMI is...](img/LUMI-1day-20230509-01-architecture/Dia2.png){ loading=lazy }
 </figure>
 
-LUMI is in the first place a EuroHPC pre-exascale machine, build to prepare for 
-the exascale era and to fit in the EuroHPC ecosystem. The EuroHPC JU tries to
+LUMI is a pre-exascale supercomputer, and not a superfast PC nor a compute cloud architecture.
+
+Each of these architectures have their own strengths and weaknesses and offer different 
+compromises and it is key to chose the right infrastructure for the job and use the right 
+tools for each infrastructure.
+
+Just some examples of using the wrong tools or infrastructure:
+
+-   We've had users who were disappointed about the speed of a single core and were expecting
+    that this would be much faster than their PCs. Supercomputers however are optimised for 
+    performance per Watt and get their performance from using lots of cores through well-designed
+    software. If you want the fastest core possible, you'll need a gaming PC.
+
+-   Even the GPU may not be that much faster for some tasks than GPUs in gaming PCs, especially since
+    an MI250x should be treated as two GPUs for most practical purposes. The better double precision
+    floating point operations and matrix operations, also at full precision, requires transistors also 
+    that on some other GPUs are used for rendering hardware or for single precision compute units.
+
+-   A user complained that they did not succeed in getting their nice remote development environment to
+    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
+    It was a very nice environment but really made for local development and remote development in a 
+    cloud environment with virtual machines individually protected by personal firewalls and was 
+    not only hard to get working on a supercomputer but also insecure.
+
+-   CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
+    HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
+    published a paper with their experiences and it was mostly disappointment. The HPC infrastructure
+    didn't fit their model for software distribution and performance was poor. Basically their solution
+    was designed around the strengths of a typical cloud infrastructure and relied precisely on those things
+    that did make their cloud infrastructure more expensive than the HPC infrastructure they tested. It relied
+    on fast local disks that require a proper management layer in the software, (ab)using the file system as
+    a database for unstructured data, a software distribution mechanism that requires an additional daemon
+    running permanently on the compute nodes (and local storage on those nodes), ...
+
+True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
+are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
+It is also a shred infrastructure but with a much more lightweight management layer than a cloud infrastructure
+and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
+other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also build according
+to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
+and application level. They perform best when streaming data through the machine at all levels of the 
+memory hierarchy and are not built at all for random access to small bits of data (where the definition of
+"small" depends on the level in the memory hierarchy).
+
+At several points in this course you will see how this impacts what you can do with a supercomputer and
+how you work with a supercomputer.
+
+
+## LUMI spec sheet: A modular system
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide LUMI is...](img/LUMI-1day-20230509-01-architecture/Dia3.png){ loading=lazy }
+</figure>
+
+So we've already seen that LUMI is in the first place a EuroHPC pre-exascale machine.
+LUMI is built to prepare for the exascale era and to fit in the EuroHPC ecosystem. 
+But it does not even mean
+that it has to cater to all pre-exascale compute needs. The EuroHPC JU tries to
 build systems that have some flexibility, but also does not try to cover 
 all needs with a single machine. They are building 3 pre-exascale systems
 with different architecture to explore multiple architectures and to cater
 to a more diverse audience.
+
+LUMI is also a very modular machine designed according to the principles explored
+in a series of European projects, and in particular
+[DEEP and its successors](https://www.deep-projects.eu/)) that explored
+the cluster-booster concept.
 
 LUMI is in the first place a huge GPGPU supercomputer. The GPU partition of
 LUMI, called LUMI-G, contains 2560 nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250x
@@ -30,11 +91,7 @@ stellar.
 
 LUMI also has a large CPU-only partition, called LUMI-C, for jobs that do not run well on GPUs,
 but also integrated enough with the GPU partition that it is possible to have
-applications that combine both node types, something that has been explored
-previously in several European projects 
-(e.g., [DEEP and its successors](https://www.deep-projects.eu/)) that explored
-the cluster-booster concept (for which LUMI-C takes the role of cluster and LUMI-G
-of booster).
+applications that combine both node types.
 LUMI-C consists of 1536 nodes with 2 64-core AMD EPYC 7763 CPUs. 32 of those nodes
 have 1TB of RAM (with some of these nodes actually reserved for special purposes
 such as connecting to a Quantum computer), 128 have 512 GB and 1376 have
@@ -89,56 +146,6 @@ Early on a small partition for containerised micro-services managed with
 Kubernetes was also planned, but that may never materialize due to lack of 
 people to set it up and manage it.
 
-<figure markdown style="border: 1px solid #000">
-  ![Slide LUMI is...](img/LUMI-1day-20230509-01-architecture/Dia3.png){ loading=lazy }
-</figure>
-
-LUMI is a pre-exascale supercomputer, and not a superfast PC nor a compute cloud architecture.
-
-Each of these architectures have their own strengths and weaknesses and offer different 
-compromises and it is key to chose the right infrastructure for the job and use the right 
-tools for each infrastructure.
-
-Just some examples of using the wrong tools or infrastructure:
-
--   We've had users who were disappointed about the speed of a single core and were expecting
-    that this would be much faster than their PCs. Supercomputers however are optimised for 
-    performance per Watt and get their performance from using lots of cores through well-designed
-    software. If you want the fastest core possible, you'll need a gaming PC.
-
--   Even the GPU may not be that much faster for some tasks than GPUs in gaming PCs, especially since
-    an MI250x should be treated as two GPUs for most practical purposes. The better double precision
-    floating point operations and matrix operations, also at full precision, requires transistors also 
-    that on some other GPUs are used for rendering hardware or for single precision compute units.
-
--   A user complained that they did not succeed in getting their nice remote development environment to
-    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
-    It was a very nice environment but really made for local development and remote development in a 
-    cloud environment with virtual machines individually protected by personal firewalls and was 
-    not only hard to get working on a supercomputer but also insecure.
-
--   CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
-    HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
-    published a paper with their experiences and it was mostly disappointment. The HPC infrastructure
-    didn't fit their model for software distribution and performance was poor. Basically their solution
-    was designed around the strengths of a typical cloud infrastructure and relied precisely on those things
-    that did make their cloud infrastructure more expensive than the HPC infrastructure they tested. It relied
-    on fast local disks that require a proper management layer in the software, (ab)using the file system as
-    a database for unstructured data, a software distribution mechanism that requires an additional daemon
-    running permanently on the compute nodes (and local storage on those nodes), ...
-
-True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
-are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
-It is also a shred infrastructure but with a much more lightweight management layer than a cloud infrastructure
-and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
-other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also build according
-to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
-and application level. They perform best when streaming data through the machine at all levels of the 
-memory hierarchy and are not built at all for random access to small bits of data (where the definition of
-"small" depends on the level in the memory hierarchy).
-
-At several points in this course you will see how this impacts what you can do with a supercomputer and
-how you work with a supercomputer.
 
 In this section of the course we will now build up LUMI step by step.
 
