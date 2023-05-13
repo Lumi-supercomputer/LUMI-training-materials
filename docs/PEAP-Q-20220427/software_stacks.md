@@ -1,7 +1,7 @@
 # LUMI Software Stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 2](img/LUMI-PEAPQ-EasyBuild-20220427/Dia2.png){ loading=lazy }
+  ![Slide 2](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia2.png){ loading=lazy }
 </figure>
 
 In this part of the training, we cover:
@@ -17,7 +17,7 @@ In this part of the training, we cover:
 ### Design considerations
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 3](img/LUMI-PEAPQ-EasyBuild-20220427/Dia3.png){ loading=lazy }
+  ![Slide 3](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia3.png){ loading=lazy }
 </figure>
 
 -   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
@@ -77,7 +77,7 @@ In this part of the training, we cover:
 ### The LUMI solution
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 4](img/LUMI-PEAPQ-EasyBuild-20220427/Dia4.png){ loading=lazy }
+  ![Slide 4](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia4.png){ loading=lazy }
 </figure>
 
 We tried to take all these considerations into account and came up with a solution that may look **a
@@ -119,7 +119,7 @@ Spack also but activating Spack for installation is your project directory is no
 ### Software policies
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 5](img/LUMI-PEAPQ-EasyBuild-20220427/Dia5.png){ loading=lazy }
+  ![Slide 5](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia5.png){ loading=lazy }
 </figure>
 
 As any site, we also have a number of policies about software installation, and we're still further
@@ -195,7 +195,7 @@ after the course.
 ### Organisation of the software in software stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 6](img/LUMI-PEAPQ-EasyBuild-20220427/Dia6.png){ loading=lazy }
+  ![Slide 6](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia6.png){ loading=lazy }
 </figure>
 
 On LUMI we have several software stacks.
@@ -225,7 +225,7 @@ the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for 
 #### Bare environment and CrayEnv
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 7](img/LUMI-PEAPQ-EasyBuild-20220427/Dia7.png){ loading=lazy }
+  ![Slide 7](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia7.png){ loading=lazy }
 </figure>
 
 Right after login you have a **very bare environment available with the Cray Programming Environment
@@ -246,7 +246,7 @@ Environment **works exactly as you'd expect from this course**.
 #### LUMI stack
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 8](img/LUMI-PEAPQ-EasyBuild-20220427/Dia8.png){ loading=lazy }
+  ![Slide 8](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia8.png){ loading=lazy }
 </figure>
 
 The **third way** to access the Cray Programming Environment is through the **LUMI software stacks**, where each stack
@@ -272,7 +272,7 @@ compilers we used.
 #### LUMI stack module organisation
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 9](img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png){ loading=lazy }
+  ![Slide 9](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia9.png){ loading=lazy }
 </figure>
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
@@ -307,7 +307,7 @@ explicitly load the partition/L module.
 ### Exploring modules with Lmod
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 10](img/LUMI-PEAPQ-EasyBuild-20220427/Dia10.png){ loading=lazy }
+  ![Slide 10](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia10.png){ loading=lazy }
 </figure>
 
 Contrary to some other module systems, or even some other Lmod installations, **not all modules are
@@ -344,7 +344,7 @@ Lmod has **several tools to search for modules**.
 ***Demo moment 1***
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 11](img/LUMI-PEAPQ-EasyBuild-20220427/Dia11.png){ loading=lazy }
+  ![Slide 11](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia11.png){ loading=lazy }
 </figure>
 
 (The content of this slide is really meant to be shown in practice on a command line.)
@@ -393,7 +393,7 @@ There are three ways to use `module spider`, discovering software in more and mo
 ### Module keyword command
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 12](img/LUMI-PEAPQ-EasyBuild-20220427/Dia12.png){ loading=lazy }
+  ![Slide 12](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia12.png){ loading=lazy }
 </figure>
 
 `module keyword` will search for a module using a keyword but it is **currently not very useful on
@@ -414,7 +414,7 @@ installations.
 ### Sticky modules and module purge
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 13](img/LUMI-PEAPQ-EasyBuild-20220427/Dia13.png){ loading=lazy }
+  ![Slide 13](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia13.png){ loading=lazy }
 </figure>
 
 You may have been taught that `module purge` is a command that unloads all modules and on some
@@ -447,7 +447,7 @@ display style of the modules**.
 ### Changing how the module list is displayed
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 14](img/LUMI-PEAPQ-EasyBuild-20220427/Dia14.png){ loading=lazy }
+  ![Slide 14](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia14.png){ loading=lazy }
 </figure>
 
 You may have noticed already that by default you **don't see the directories in which the module
@@ -482,7 +482,7 @@ things work or to use any module that was designed for us to maintain the system
 ### Installing software on HPC systems
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 15](img/LUMI-PEAPQ-EasyBuild-20220427/Dia15.png){ loading=lazy }
+  ![Slide 15](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia15.png){ loading=lazy }
 </figure>
 
 Software on HPC systems is **rarely installed from RPMs** for various reasons.
@@ -512,7 +512,7 @@ And they do **take care of dependency handling** in a way that is compatible wit
 ### Extending the LUMI stack with EasyBuild
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 16](img/LUMI-PEAPQ-EasyBuild-20220427/Dia16.png){ loading=lazy }
+  ![Slide 16](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia16.png){ loading=lazy }
 </figure>
 
 On LUMI EasyBuild is our primary software installation tool. We selected this as there is
@@ -551,7 +551,7 @@ We're also **working on presenting a list of supported software in the documenta
 ### Step 1: Where to install
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 17](img/LUMI-PEAPQ-EasyBuild-20220427/Dia17.png){ loading=lazy }
+  ![Slide 17](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia17.png){ loading=lazy }
 </figure>
 
 Let's now discuss how you can extend the central LUMI software stack with packages that you
@@ -594,7 +594,7 @@ a different partition module than the one that is auto-loaded by the `LUMI` modu
 ***Demo moment 2***
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 18](img/LUMI-PEAPQ-EasyBuild-20220427/Dia18.png){ loading=lazy }
+  ![Slide 18](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia18.png){ loading=lazy }
 </figure>
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
@@ -640,7 +640,7 @@ module avail
 ### Step 2: Install the software - Note
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 19](img/LUMI-PEAPQ-EasyBuild-20220427/Dia19.png){ loading=lazy }
+  ![Slide 19](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia19.png){ loading=lazy }
 </figure>
 
 There is a little problem though that you may run into. Sometimes the module does not
@@ -670,7 +670,7 @@ you figure out that the problem we discovered has no influence on your work.
 ### More advanced work
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 20](img/LUMI-PEAPQ-EasyBuild-20220427/Dia20.png){ loading=lazy }
+  ![Slide 20](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia20.png){ loading=lazy }
 </figure>
 
 You can also install some EasyBuild recipes that you got from support. For this it is best to
@@ -702,7 +702,7 @@ eb –r . VASP-6.3.0-cpeGNU-21.12.eb
 ### More advanced work (2): Repositories
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 21](img/LUMI-PEAPQ-EasyBuild-20220427/Dia21.png){ loading=lazy }
+  ![Slide 21](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia21.png){ loading=lazy }
 </figure>
 
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
@@ -726,7 +726,7 @@ easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 ### More advanced work (3): Reproducibility
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 22](img/LUMI-PEAPQ-EasyBuild-20220427/Dia22.png){ loading=lazy }
+  ![Slide 22](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia22.png){ loading=lazy }
 </figure>
 
 EasyBuild also takes care of a **high level of reproducibility of installations**.
@@ -760,7 +760,7 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
 ### EasyBuild training for support team members
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 22](img/LUMI-PEAPQ-EasyBuild-20220427/Dia23.png){ loading=lazy }
+  ![Slide 22](https://462000265.lumidata.eu/peap-q-20220427/img/LUMI-PEAPQ-EasyBuild-20220427/Dia23.png){ loading=lazy }
 </figure>
 
 Since there were a lot of registrations from local support team members, I want to dedicate one slide
