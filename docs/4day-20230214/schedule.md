@@ -22,8 +22,8 @@ DAY 1
     <tr>
         <td>09:00&nbsp;&nbsp;</td>
         <td>Welcome and introduction<br>
-        <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)(</em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/00_Introduction.mp4</code> on LUMI only.</em>
+        <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)</em>
+        <br><em><a href="../video_00_Introduction">Recording</a></em>
         </td>
     </tr>
     <tr>
@@ -206,7 +206,7 @@ DAY 2
         <em>Presenter: Kurt Lust (LUST)</em>
         <br><em><a href="https://462000265.lumidata.eu/4day-20230214/files/LUMI-Software-20230215.pdf">Slides for download (PDF)</a></em>
         <br><em><a href="../software_stacks">Notes available</a></em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/09_LUMI_Software_Stack.mp4</code> on LUMI only.</em>
+        <br><em><a href="../video_09_LUMI_Software_Stack">Recording</a>
         </td>
     </tr>
     <tr>
@@ -217,7 +217,7 @@ DAY 2
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
         <em>Presenter: Jørn Dietze (LUST)</em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/10_LUMI_User_Support.mp4</code> on LUMI only.</em>
+        <br><em><a href="../video_10_LUMI_User_Support">Recording</a>
     </td>
     </tr>
     <tr>
