@@ -2,8 +2,8 @@
 
 ## Downloads
 
--   [Slides (PDF, 5.6M)](files/EasyBuild-tutorial-CSC-22.pdf)
+-   [Slides (PDF, 5.6M)](https://462000265.lumidata.eu/easybuild-csc-20220509/files/EasyBuild-tutorial-CSC-22.pdf)
 
 ## Notes
 
--   [Course notes](https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/)
+-   [Course notes](https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/)
