@@ -23,6 +23,13 @@
     system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
 
 
+## Videos
+
+-   [Welcome and introduction](video_00_Introduction.md)
+-   [Additional software on LUMI](video_09_LUMI_Software_Stack.md)
+-   [LUMI support and LUMI documentation](video_10_LUMI_User_Support.md)
+
+
 ## Other material only available on LUMI
 
 The following materials are available to members of the `project_465000388` project only:
