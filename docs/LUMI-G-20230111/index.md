@@ -6,7 +6,7 @@
 
 ## Downloads
 
--   Slides [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem (PDF, 10M)](files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf)
+-   Slides [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem (PDF, 10M)](https://462000265.lumidata.eu/lumi-g-20230111/files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf)
 -   [Additional notes and exercises from the AMD session](https://hackmd.io/@gmarkoma/HyAx9y2ci)
 -   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
     [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your

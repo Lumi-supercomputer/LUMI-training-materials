@@ -55,7 +55,7 @@
         <li>Porting Applications to HIP </li>
         <li>ROCm libraries </li>
     </ul>
-    <em><a href="files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
+    <em><a href="https://462000265.lumidata.eu/lumi-g-20230111/files/LUMIG_training_AMD_ecosystem_11_01_2023.pdf">Slides</a> and 
     <a href="https://hackmd.io/@gmarkoma/HyAx9y2ci">additional notes and exercises</a></em><br>
     <em>Recording: <code>/project/project_465000320/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code> on LUMI only.</em>
 </tr>
