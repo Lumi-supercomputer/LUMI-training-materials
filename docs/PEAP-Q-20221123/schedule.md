@@ -10,7 +10,7 @@
     <td>09:30&nbsp;&nbsp;</td>
     <td>Welcome, introduction to the course <br>
     <em>Presenter: Kurt Lust (LUST)</em><br>
-    <em><a href="../files/LUMI-PEAPQ-intro-20221124.pdf">Slides</a> available online.</em>
+    <em><a href="https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-intro-20221124.pdf">Slides</a> available online.</em>
     </td>
 </tr>
 <tr>
@@ -152,7 +152,7 @@
         <li>Containers for Python, R, VNC (container wrappers)</li>
     </ul>
     <em>Presenter: Kurt Lust (LuST)</em><br>
-    <em><a href="../files/LUMI-PEAPQ-software-20221124.pdf">Slides</a> and <a href="../software_stacks/">notes</a> available online.</em>
+    <em><a href="https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-software-20221124.pdf">Slides</a> and <a href="../software_stacks/">notes</a> available online.</em>
     </td>
 </tr>
 <tr>
@@ -164,7 +164,7 @@
         <li>Some typical/frequent support questions of users on LUMI-C?</li>
     </ul>
     <em>Presenter: Jørn Dietze (LUST)</em><br>
-    <em><a href="../files/LUMI-PEAPQ-support-20221124.pdf">Slides</a> available online.</em>
+    <em><a href="https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-support-20221124.pdf">Slides</a> available online.</em>
     </td>
 </tr>
 <tr>

@@ -8,9 +8,9 @@
 
 ## Downloads
 
--   [Course introduction (PDF, 612k)](files/LUMI-PEAPQ-intro-20221124.pdf)
--   [LUMI Software Stacks slides (PDF, 4.4M)](files/LUMI-PEAPQ-software-20221124.pdf)
--   [LUMI Support slides (PDF, 1M)](files/LUMI-PEAPQ-support-20221124.pdf)
+-   [Course introduction (PDF, 612k)](https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-intro-20221124.pdf)
+-   [LUMI Software Stacks slides (PDF, 4.4M)](https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-software-20221124.pdf)
+-   [LUMI Support slides (PDF, 1M)](https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-support-20221124.pdf)
 
 ## Notes
 
