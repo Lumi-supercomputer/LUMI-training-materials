@@ -32,7 +32,7 @@
     tar -xf exercises-20230509.tar.gz
     ```
 
-    [Link to the exercises](https://462000265.lumidata.eu/1day-20230509/files/exercises-20230509.tar.gz)
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/1day-20230509/files/exercises-20230509.tar.gz)
 
 -   You're all set to go!
 

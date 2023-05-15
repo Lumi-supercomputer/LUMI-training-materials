@@ -376,7 +376,7 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
 -   Search for information for the package ParaView and quickly read through the page
 
 ??? Solution "Click to see the solution."
-    [Link to the Paraview documentation](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/ParaView/)
+    [Link to the ParaView documentation](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/ParaView/)
 
     It is an example of a package for which we have both user-level and some technical information. The page
     will first show some license information, then the actual user information which in case of this package
