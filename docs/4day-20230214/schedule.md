@@ -22,8 +22,8 @@ DAY 1
     <tr>
         <td>09:00&nbsp;&nbsp;</td>
         <td>Welcome and introduction<br>
-        <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)(</em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/00_Introduction.mp4</code> on LUMI only.</em>
+        <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)</em>
+        <br><em><a href="../video_00_Introduction">Recording</a></em>
         </td>
     </tr>
     <tr>
@@ -204,9 +204,9 @@ DAY 2
             <li>Containers for Python, R, VNC (container wrappers)</li>
         </ul>
         <em>Presenter: Kurt Lust (LUST)</em>
-        <br><em>Slide file: <code>/project/project_465000388/slides/LUST/LUMI-Software-20230215.pdf</code> on LUMI only.</em>
+        <br><em><a href="https://462000265.lumidata.eu/4day-20230214/files/LUMI-Software-20230215.pdf">Slides for download (PDF)</a></em>
         <br><em><a href="../software_stacks">Notes available</a></em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/09_LUMI_Software_Stack.mp4</code> on LUMI only.</em>
+        <br><em><a href="../video_09_LUMI_Software_Stack">Recording</a>
         </td>
     </tr>
     <tr>
@@ -217,7 +217,7 @@ DAY 2
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
         <em>Presenter: Jørn Dietze (LUST)</em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/10_LUMI_User_Support.mp4</code> on LUMI only.</em>
+        <br><em><a href="../video_10_LUMI_User_Support">Recording</a>
     </td>
     </tr>
     <tr>
@@ -294,7 +294,7 @@ DAY 3
         <td>13:30</td>
         <td>Introduction to AMD ROCm<sup>TM</sup> ecosystem<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <br><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
+        <br><em><a href="https://462000265.lumidata.eu/4day-20230214/files/01_introduction_amd_rocm.pdf">Slides for download (PDF)</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -312,7 +312,7 @@ DAY 3
         <td>15:30</td>
         <td>AMD Debugger: ROCgdb<br/>
         <em>Presenter: Bob Robey (AMD)</em>
-        <br><em><a href="../files/02_Rocgdb_Tutorial.pdf">Slides for download</a></em>
+        <br><em><a href="https://462000265.lumidata.eu/4day-20230214/files/02_Rocgdb_Tutorial.pdf">Slides for download (PDF)</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/15_AMD_Rocgdb_Tutorial.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -326,7 +326,7 @@ DAY 3
         <td>16:25</td>
         <td>Introduction to Rocprof Profiling Tool<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <br><em><a href="../files/03_intro_rocprof.pdf">Slides for download</a></em>
+        <br><em><a href="https://462000265.lumidata.eu/4day-20230214/files/03_intro_rocprof.pdf">Slides for download (PDF)</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/16_Introduction_Rocprof.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -406,7 +406,7 @@ DAY 4
         <td>Introduction to OmniTools<br/>
         (late start due to technical problems)
         <br><em>Presenter: Suyash Tandon (AMD)</em>
-        <br><em><a href="../files/04_intro_omnitools_new.pdf">Slides for download</a></em>
+        <br><em><a href="https://462000265.lumidata.eu/4day-20230214/files/04_intro_omnitools_new.pdf">Slides for download (PDF)</a></em>
         <br><em>Recording: <code>/project/project_465000388/recordings/19_Introduction_to_OmniTools.mp4</code> on LUMI only.</em>
        </td>
         </td>

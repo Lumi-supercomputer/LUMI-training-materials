@@ -440,7 +440,7 @@ Every last Wednesday in a month.
 
 ###  AMD hands-on exercises
 
-Files for  excersises on lumi are [available for download (tar file, 56k)](files/LUMI_G-AMD-Exercises.tar).
+Files for  excersises on lumi are [available for download (tar file, 56k)](https://462000265.lumidata.eu/lumi-g-20220823/files/LUMI_G-AMD-Exercises.tar).
 The README contains basic instructions
 
 ### General Q&A

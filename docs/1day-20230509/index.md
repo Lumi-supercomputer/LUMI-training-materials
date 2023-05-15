@@ -28,26 +28,26 @@
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/files/exercises-20230509.tar.gz
+    wget https://462000265.lumidata.eu/1day-20230509/files/exercises-20230509.tar.gz
     tar -xf exercises-20230509.tar.gz
     ```
 
-    [Link to the exercises](files/exercises-20230509.tar.gz)
+    [Link to the exercises](https://462000265.lumidata.eu/1day-20230509/files/exercises-20230509.tar.gz)
 
 -   You're all set to go!
 
 
 ## Slide downloads
 
--   [LUMI Architecture](files/LUMI-1day-20230509-01-architecture.pdf)
+-   [LUMI Architecture](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-01-architecture.pdf)
 
--   [HPE Cray Programming Environment](files/LUMI-1day-20230509-02-CPE.pdf)
+-   [HPE Cray Programming Environment](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-02-CPE.pdf)
 
--   [Modules on LUMI](files/LUMI-1day-20230509-03-modules.pdf)
+-   [Modules on LUMI](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-03-modules.pdf)
 
--   [LUMI Software Stacks](files/LUMI-1day-20230509-04-software.pdf)
+-   [LUMI Software Stacks](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf)
 
--   [Running jobs](files/LUMI-1day-20230509-06-running_jobs.pdf)
+-   [Running jobs](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf)
 
 
 ## Notes

@@ -10,7 +10,7 @@ In this section we discuss
 ### Design considerations
 
 <figure markdown style="border: 1px solid #000">
-  ![Software stack design considerations](img/LUMI-1day-20230509-04-software/Dia2.png){ loading=lazy }
+  ![Software stack design considerations](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia2.png){ loading=lazy }
 </figure>
 
 -   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
@@ -71,7 +71,7 @@ In this section we discuss
 ### The LUMI solution
 
 <figure markdown style="border: 1px solid #000">
-  ![The LUMI solution](img/LUMI-1day-20230509-04-software/Dia3.png){ loading=lazy }
+  ![The LUMI solution](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia3.png){ loading=lazy }
 </figure>
 
 We tried to take all these considerations into account and came up with a solution that may look **a
@@ -114,7 +114,7 @@ package files.**
 ### Software policies
 
 <figure markdown style="border: 1px solid #000">
-  ![Policies](img/LUMI-1day-20230509-04-software/Dia4.png){ loading=lazy }
+  ![Policies](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia4.png){ loading=lazy }
 </figure>
 
 As any site, we also have a number of policies about software installation, and we're still further
@@ -190,7 +190,7 @@ but it may by some from CSC also be known as Tykky.
 ### Organisation of the software in software stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![Organisation"Software Stacks](img/LUMI-1day-20230509-04-software/Dia5.png){ loading=lazy }
+  ![Organisation"Software Stacks](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia5.png){ loading=lazy }
 </figure>
 
 On LUMI we have several software stacks.
@@ -222,7 +222,7 @@ support nor do we do any bugfixing in Spack.
 #### Bare environment and CrayEnv
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing the Cray PE on LUMI slide 1](img/LUMI-1day-20230509-04-software/Dia6.png){ loading=lazy }
+  ![Accessing the Cray PE on LUMI slide 1](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia6.png){ loading=lazy }
 </figure>
 
 Right after login you have a **very bare environment available with the Cray Programming Environment
@@ -243,7 +243,7 @@ Environment **works exactly as you'd expect from this course**.
 #### LUMI stack
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing the Cray PE on LUMI slide 2](img/LUMI-1day-20230509-04-software/Dia7.png){ loading=lazy }
+  ![Accessing the Cray PE on LUMI slide 2](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia7.png){ loading=lazy }
 </figure>
 
 The **third way** to access the Cray Programming Environment is through the **LUMI software stacks**, where each stack
@@ -268,7 +268,7 @@ compilers we used.
 #### LUMI stack module organisation
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing the Cray PE on LUMI slide 3](img/LUMI-1day-20230509-04-software/Dia8.png){ loading=lazy }
+  ![Accessing the Cray PE on LUMI slide 3](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia8.png){ loading=lazy }
 </figure>
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
@@ -303,7 +303,7 @@ explicitly load the partition/L module.
 ### Installing software on HPC systems
 
 <figure markdown style="border: 1px solid #000">
-  ![Installing software on HPC systems](img/LUMI-1day-20230509-04-software/Dia9.png){ loading=lazy }
+  ![Installing software on HPC systems](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia9.png){ loading=lazy }
 </figure>
 
 Software on HPC systems is **rarely installed from RPMs** for various reasons.
@@ -333,7 +333,7 @@ And they do **take care of dependency handling** in a way that is compatible wit
 ### Extending the LUMI stack with EasyBuild
 
 <figure markdown style="border: 1px solid #000">
-  ![Extending the LUMI stack with EasyBuild](img/LUMI-1day-20230509-04-software/Dia10.png){ loading=lazy }
+  ![Extending the LUMI stack with EasyBuild](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia10.png){ loading=lazy }
 </figure>
 
 On LUMI EasyBuild is our primary software installation tool. We selected this as there is
@@ -380,7 +380,7 @@ Spack, e.g., because it likes to write in its own directories while running.
 ### EasyBuild recipes - easyconfigs
 
 <figure markdown style="border: 1px solid #000">
-  ![EasyBuild recipes - easyconfigs](img/LUMI-1day-20230509-04-software/Dia11.png){ loading=lazy }
+  ![EasyBuild recipes - easyconfigs](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia11.png){ loading=lazy }
 </figure>
 
 EasyBuild uses a build recipe for each individual package, or better said, each individual module
@@ -406,7 +406,7 @@ Most or all of these steps can be influenced by parameters in the easyconfig.
 ### The toolchain concept
 
 <figure markdown style="border: 1px solid #000">
-  ![The toolchain concept](img/LUMI-1day-20230509-04-software/Dia12.png){ loading=lazy }
+  ![The toolchain concept](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia12.png){ loading=lazy }
 </figure>
 
 EasyBuild uses the toolchain concept. A toolchain consists of compilers, an MPI implementation
@@ -430,7 +430,7 @@ before.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![The toolchain concept 2](img/LUMI-1day-20230509-04-software/Dia13.png){ loading=lazy }
+  ![The toolchain concept 2](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia13.png){ loading=lazy }
 </figure>
 
 There is also a special toolchain called the SYSTEM toolchain that uses the compiler
@@ -469,7 +469,7 @@ this may work.
 ### EasyConfig names and module names
 
 <figure markdown style="border: 1px solid #000">
-  ![easyconfig names and module names](img/LUMI-1day-20230509-04-software/Dia14.png){ loading=lazy }
+  ![easyconfig names and module names](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia14.png){ loading=lazy }
 </figure>
 
 There is a convention for the naming of an EasyConfig as shown on the slide. This is not
@@ -511,7 +511,7 @@ Hence this easyconfig file will generate the module
 #### Step 1: Where to install
 
 <figure markdown style="border: 1px solid #000">
-  ![Installing: Where to install](img/LUMI-1day-20230509-04-software/Dia15.png){ loading=lazy }
+  ![Installing: Where to install](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia15.png){ loading=lazy }
 </figure>
 
 Let's now discuss how you can extend the central LUMI software stack with packages that you
@@ -542,7 +542,7 @@ who want to use the software should set that variable.
 #### Step 2: Configure the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Installing: Configure the environment](img/LUMI-1day-20230509-04-software/Dia16.png){ loading=lazy }
+  ![Installing: Configure the environment](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia16.png){ loading=lazy }
 </figure>
 
 The next step is to configure your environment. First load the proper version of the LUMI
@@ -569,7 +569,7 @@ the proper value before loading the `LUMI` module.**
 #### Step 3: Install the software.
 
 <figure markdown style="border: 1px solid #000">
-  ![Installing: Install the software](img/LUMI-1day-20230509-04-software/Dia18.png){ loading=lazy }
+  ![Installing: Install the software](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia18.png){ loading=lazy }
 </figure>
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
@@ -615,7 +615,7 @@ module avail
 #### Step 3: Install the software - Note
 
 <figure markdown style="border: 1px solid #000">
-  ![Installing: Install the software](img/LUMI-1day-20230509-04-software/Dia29.png){ loading=lazy }
+  ![Installing: Install the software](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia29.png){ loading=lazy }
 </figure>
 
 There is a little problem though that you may run into. Sometimes the module does not
@@ -645,7 +645,7 @@ you figure out that the problem we discovered has no influence on your work.
 ### More advanced work
 
 <figure markdown style="border: 1px solid #000">
-  ![More advanced work](img/LUMI-1day-20230509-04-software/Dia30.png){ loading=lazy }
+  ![More advanced work](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia30.png){ loading=lazy }
 </figure>
 
 You can also install some EasyBuild recipes that you got from support. For this it is best to
@@ -677,7 +677,7 @@ eb VASP-6.3.0-cpeGNU-22.08.eb –r .
 ### More advanced work (2): Repositories
 
 <figure markdown style="border: 1px solid #000">
-  ![More advanced work (2): Repositories](img/LUMI-1day-20230509-04-software/Dia31.png){ loading=lazy }
+  ![More advanced work (2): Repositories](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia31.png){ loading=lazy }
 </figure>
 
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
@@ -701,7 +701,7 @@ easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 ### More advanced work (3): Reproducibility
 
 <figure markdown style="border: 1px solid #000">
-  ![More advanced work (3): Reproducibility](img/LUMI-1day-20230509-04-software/Dia32.png){ loading=lazy }
+  ![More advanced work (3): Reproducibility](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia32.png){ loading=lazy }
 </figure>
 
 EasyBuild also takes care of a **high level of reproducibility of installations**.
@@ -734,7 +734,7 @@ Moreover, EasyBuild also keeps **copies of all installed easyconfig files in two
 ### EasyBuild tips and tricks
 
 <figure markdown style="border: 1px solid #000">
-  ![EasyBuild tips and tricks](img/LUMI-1day-20230509-04-software/Dia33.png){ loading=lazy }
+  ![EasyBuild tips and tricks](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia33.png){ loading=lazy }
 </figure>
 
 Updating the version of a package often requires only trivial changes in the easyconfig file.
@@ -764,7 +764,7 @@ build or modify recipes. It sometimes also tells why we did things in a particul
 ### EasyBuild training for advanced users and developers
 
 <figure markdown style="border: 1px solid #000">
-  ![EasyBuild training](img/LUMI-1day-20230509-04-software/Dia34.png){ loading=lazy }
+  ![EasyBuild training](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia34.png){ loading=lazy }
 </figure>
 
 Pointers to all information about EasyBuild can be found on the EasyBuild web site 

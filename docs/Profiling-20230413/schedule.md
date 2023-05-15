@@ -27,7 +27,7 @@
         <td>13:00</td>
         <td>Introduction to ROC-prof profiler<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <br/><em><a href="../files/02_intro_rocprof.pdf">Slides for download</a></em>
+        <br/><em><a href="https://462000265.lumidata.eu/profiling-20230413/files/02_intro_rocprof.pdf">Slides for download (PDF)</a></em>
         <br/><em>Recording: <code>/project/project_465000502/recordings/02_Intro_rocprof.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -35,7 +35,7 @@
         <td>13:30</td>
         <td>Introduction to OmniTrace<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <br/><em><a href="../files/03_intro_omnitrace.pdf">Slides for download</a></em>
+        <br/><em><a href="https://462000265.lumidata.eu/profiling-20230413/files/03_intro_omnitrace.pdf">Slides for download (PDF)</a></em>
         <br/><em>Recording: <code>/project/project_465000502/recordings/03_Intro_OmniTrace.mp4</code> on LUMI only.</em>
         </td>
     </tr>
@@ -48,7 +48,7 @@
         <td>14:15</td>
         <td>Introduction to Omniperf and Hierarchical Roofline on AMD Instinct<sup>TM</sup> MI200 GPUs<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
-        <br><em><a href="../files/04_intro_omniperf_roofline.pdf">Slides for download</a></em>
+        <br><em><a href="https://462000265.lumidata.eu/profiling-20230413/files/04_intro_omniperf_roofline.pdf">Slides for download (PDF)</a></em>
         <br><em>Recording: <code>/project/project_465000502/recordings/04_Intro_OmniPerf.mp4</code> on LUMI only.</em>
         </td>
     </tr>

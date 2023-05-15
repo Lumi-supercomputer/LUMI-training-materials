@@ -1,7 +1,7 @@
 # LUMI Software Stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 2](img/LUMI-PEAPQ-software-20221124/Dia2.png){ loading=lazy }
+  ![Slide 2](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia2.png){ loading=lazy }
 </figure>
 
 In this part of the training, we cover:
@@ -17,7 +17,7 @@ In this part of the training, we cover:
 ### Design considerations
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 3](img/LUMI-PEAPQ-software-20221124/Dia3.png){ loading=lazy }
+  ![Slide 3](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia3.png){ loading=lazy }
 </figure>
 
 -   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
@@ -77,7 +77,7 @@ In this part of the training, we cover:
 ### The LUMI solution
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 4](img/LUMI-PEAPQ-software-20221124/Dia4.png){ loading=lazy }
+  ![Slide 4](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia4.png){ loading=lazy }
 </figure>
 
 We tried to take all these considerations into account and came up with a solution that may look **a
@@ -121,7 +121,7 @@ but we already did the work of ensuring that Spack is correctly configured for t
 ### Software policies
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 5](img/LUMI-PEAPQ-software-20221124/Dia5.png){ loading=lazy }
+  ![Slide 5](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia5.png){ loading=lazy }
 </figure>
 
 As any site, we also have a number of policies about software installation, and we're still further
@@ -197,7 +197,7 @@ after the course.
 ### Organisation of the software in software stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 6](img/LUMI-PEAPQ-software-20221124/Dia6.png){ loading=lazy }
+  ![Slide 6](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia6.png){ loading=lazy }
 </figure>
 
 On LUMI we have several software stacks.
@@ -232,7 +232,7 @@ the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for 
 #### Bare environment and CrayEnv
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 7](img/LUMI-PEAPQ-software-20221124/Dia7.png){ loading=lazy }
+  ![Slide 7](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia7.png){ loading=lazy }
 </figure>
 
 Right after login you have a **very bare environment available with the Cray Programming Environment
@@ -253,7 +253,7 @@ Environment **works exactly as you'd expect from this course**.
 #### LUMI stack
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 8](img/LUMI-PEAPQ-software-20221124/Dia8.png){ loading=lazy }
+  ![Slide 8](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia8.png){ loading=lazy }
 </figure>
 
 The **third way** to access the Cray Programming Environment is through the **LUMI software stacks**, where each stack
@@ -279,7 +279,7 @@ compilers we used.
 #### LUMI stack module organisation
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 9](img/LUMI-PEAPQ-software-20221124/Dia9.png){ loading=lazy }
+  ![Slide 9](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia9.png){ loading=lazy }
 </figure>
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
@@ -314,7 +314,7 @@ explicitly load the partition/L module.
 ### Exploring modules with Lmod
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 10](img/LUMI-PEAPQ-software-20221124/Dia10.png){ loading=lazy }
+  ![Slide 10](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia10.png){ loading=lazy }
 </figure>
 
 Contrary to some other module systems, or even some other Lmod installations, **not all modules are
@@ -351,7 +351,7 @@ Lmod has **several tools to search for modules**.
 ***Demo moment 1 (when infrastructure for a demo is available)***
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 11](img/LUMI-PEAPQ-software-20221124/Dia11.png){ loading=lazy }
+  ![Slide 11](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia11.png){ loading=lazy }
 </figure>
 
 (The content of this slide is really meant to be shown in practice on a command line.)
@@ -409,50 +409,50 @@ There are three ways to use `module spider`, discovering software in more and mo
     ```
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 12](img/LUMI-PEAPQ-software-20221124/Dia12.png){ loading=lazy }
+      ![Slide 12](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia12.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 13](img/LUMI-PEAPQ-software-20221124/Dia13.png){ loading=lazy }
+      ![Slide 13](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia13.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 14](img/LUMI-PEAPQ-software-20221124/Dia14.png){ loading=lazy }
+      ![Slide 14](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia14.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 15](img/LUMI-PEAPQ-software-20221124/Dia15.png){ loading=lazy }
+      ![Slide 15](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia15.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 16](img/LUMI-PEAPQ-software-20221124/Dia16.png){ loading=lazy }
+      ![Slide 16](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia16.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 17](img/LUMI-PEAPQ-software-20221124/Dia17.png){ loading=lazy }
+      ![Slide 17](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia17.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 18](img/LUMI-PEAPQ-software-20221124/Dia18.png){ loading=lazy }
+      ![Slide 18](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia18.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 19](img/LUMI-PEAPQ-software-20221124/Dia19.png){ loading=lazy }
+      ![Slide 19](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia19.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 20](img/LUMI-PEAPQ-software-20221124/Dia20.png){ loading=lazy }
+      ![Slide 20](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia20.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 21](img/LUMI-PEAPQ-software-20221124/Dia21.png){ loading=lazy }
+      ![Slide 21](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia21.png){ loading=lazy }
     </figure>
 
 
 ### Module keyword command
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 22](img/LUMI-PEAPQ-software-20221124/Dia22.png){ loading=lazy }
+  ![Slide 22](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia22.png){ loading=lazy }
 </figure>
 
 `module keyword` will search for a module using a keyword but it is **currently not very useful on
@@ -478,19 +478,19 @@ installations.
     ```
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 23](img/LUMI-PEAPQ-software-20221124/Dia23.png){ loading=lazy }
+      ![Slide 23](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia23.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 24](img/LUMI-PEAPQ-software-20221124/Dia24.png){ loading=lazy }
+      ![Slide 24](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia24.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 25](img/LUMI-PEAPQ-software-20221124/Dia25.png){ loading=lazy }
+      ![Slide 25](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia25.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 26](img/LUMI-PEAPQ-software-20221124/Dia26.png){ loading=lazy }
+      ![Slide 26](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia26.png){ loading=lazy }
     </figure>
 
 
@@ -498,7 +498,7 @@ installations.
 ### Sticky modules and module purge
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 27](img/LUMI-PEAPQ-software-20221124/Dia27.png){ loading=lazy }
+  ![Slide 27](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia27.png){ loading=lazy }
 </figure>
 
 You may have been taught that `module purge` is a command that unloads all modules and on some
@@ -522,21 +522,21 @@ force-unload them with `module --force purge` or `module --force unload` for ind
     ```
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 1](img/LUMI-PEAPQ-software-20221124/Dia28.png){ loading=lazy }
+      ![module av slide 1](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia28.png){ loading=lazy }
     </figure>
 
     Note the very descriptive titles in the above screenshot.
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 2](img/LUMI-PEAPQ-software-20221124/Dia29.png){ loading=lazy }
+      ![module av slide 2](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia29.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 3](img/LUMI-PEAPQ-software-20221124/Dia30.png){ loading=lazy }
+      ![module av slide 3](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia30.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 4](img/LUMI-PEAPQ-software-20221124/Dia31.png){ loading=lazy }
+      ![module av slide 4](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia31.png){ loading=lazy }
     </figure>
 
     The letter "D" next to a name denotes that this is the default version,
@@ -571,7 +571,7 @@ display style of the modules**.
 ### Changing how the module list is displayed
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 33](img/LUMI-PEAPQ-software-20221124/Dia33.png){ loading=lazy }
+  ![Slide 33](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia33.png){ loading=lazy }
 </figure>
 
 You may have noticed already that by default you **don't see the directories in which the module
@@ -645,7 +645,7 @@ things work or to use any module that was designed for us to maintain the system
 ### Installing software on HPC systems
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 34](img/LUMI-PEAPQ-software-20221124/Dia34.png){ loading=lazy }
+  ![Slide 34](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia34.png){ loading=lazy }
 </figure>
 
 Software on HPC systems is **rarely installed from RPMs** for various reasons.
@@ -675,7 +675,7 @@ And they do **take care of dependency handling** in a way that is compatible wit
 ### Extending the LUMI stack with EasyBuild
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 35](img/LUMI-PEAPQ-software-20221124/Dia35.png){ loading=lazy }
+  ![Slide 35](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia35.png){ loading=lazy }
 </figure>
 
 On LUMI EasyBuild is our primary software installation tool. We selected this as there is
@@ -716,7 +716,7 @@ LUST or available in the main EasyConfig repository LUMI-EasyBuild-contrib in
 ### Step 1: Where to install
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 36](img/LUMI-PEAPQ-software-20221124/Dia36.png){ loading=lazy }
+  ![Slide 36](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia36.png){ loading=lazy }
 </figure>
 
 Let's now discuss how you can extend the central LUMI software stack with packages that you
@@ -747,7 +747,7 @@ who want to use the software should set that variable.
 ### Step 2: Configure the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 38](img/LUMI-PEAPQ-software-20221124/Dia38.png){ loading=lazy }
+  ![Slide 38](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia38.png){ loading=lazy }
 </figure>
 
 Once that environment variable is set, all you need to do to activate EasyBuild is to load
@@ -766,7 +766,7 @@ a different partition module than the one that is auto-loaded by the `LUMI` modu
 ***Demo moment 2***
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 39](img/LUMI-PEAPQ-software-20221124/Dia39.png){ loading=lazy }
+  ![Slide 39](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia39.png){ loading=lazy }
 </figure>
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
@@ -810,43 +810,43 @@ module avail
 ???+demo "Demo of the EasyBuild installation of GROMACS"
 
     <figure markdown style="border: 1px solid #000">
-      ![eb --search](img/LUMI-PEAPQ-software-20221124/Dia40.png){ loading=lazy }
+      ![eb --search](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia40.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -S](img/LUMI-PEAPQ-software-20221124/Dia41.png){ loading=lazy }
+      ![eb -S](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia41.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -D](img/LUMI-PEAPQ-software-20221124/Dia42.png){ loading=lazy }
+      ![eb -D](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia42.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -D](img/LUMI-PEAPQ-software-20221124/Dia43.png){ loading=lazy }
+      ![eb -D](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia43.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia44.png){ loading=lazy }
+      ![eb -r](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia44.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia45.png){ loading=lazy }
+      ![eb -r](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia45.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia46.png){ loading=lazy }
+      ![eb -r](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia46.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia47.png){ loading=lazy }
+      ![eb -r](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia47.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia48.png){ loading=lazy }
+      ![eb -r](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia48.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb -r](img/LUMI-PEAPQ-software-20221124/Dia49.png){ loading=lazy }
+      ![eb -r](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia49.png){ loading=lazy }
     </figure>
 
 
@@ -856,7 +856,7 @@ module avail
 ### Step 3: Install the software - Note
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 50](img/LUMI-PEAPQ-software-20221124/Dia50.png){ loading=lazy }
+  ![Slide 50](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia50.png){ loading=lazy }
 </figure>
 
 There is a little problem though that you may run into. Sometimes the module does not
@@ -888,7 +888,7 @@ of the package that better suits your needs.
 ### More advanced work
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 51](img/LUMI-PEAPQ-software-20221124/Dia51.png){ loading=lazy }
+  ![Slide 51](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia51.png){ loading=lazy }
 </figure>
 
 You can also install some EasyBuild recipes that you got from support. For this it is best to
@@ -920,7 +920,7 @@ eb VASP-6.3.2-cpeGNU-22.08.eb -r .
 ### More advanced work (2): Repositories
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 52](img/LUMI-PEAPQ-software-20221124/Dia52.png){ loading=lazy }
+  ![Slide 52](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia52.png){ loading=lazy }
 </figure>
 
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
@@ -944,7 +944,7 @@ easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 ### More advanced work (3): Reproducibility
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 53](img/LUMI-PEAPQ-software-20221124/Dia53.png){ loading=lazy }
+  ![Slide 53](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia53.png){ loading=lazy }
 </figure>
 
 EasyBuild also takes care of a **high level of reproducibility of installations**.
@@ -983,7 +983,7 @@ Moreover, EasyBuild also keeps **copies of all installed easconfig files in two 
 ### EasyBuild training for advanced users and developers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 54](img/LUMI-PEAPQ-software-20221124/Dia54.png){ loading=lazy }
+  ![Slide 54](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia54.png){ loading=lazy }
 </figure>
 
 Since there were a lot of registrations from local support team members, I want to dedicate one slide
@@ -1006,7 +1006,7 @@ organisations. The latest version of the training materials is currently availab
 ## Containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 55](img/LUMI-PEAPQ-software-20221124/Dia55.png){ loading=lazy }
+  ![Slide 55](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia55.png){ loading=lazy }
 </figure>
 
 Let's now switch to using containers on LUMI. 
@@ -1031,7 +1031,7 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 ## What do containers not provide
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 56](img/LUMI-PEAPQ-software-20221124/Dia56.png){ loading=lazy }
+  ![Slide 56](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia56.png){ loading=lazy }
 </figure>
 
 What is being discussed in this subsection may be a bit surprising.
@@ -1070,7 +1070,7 @@ investment represents 32 million EURO and a lot of science can be done for that 
 ## But what can they then do on LUMI?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 57](img/LUMI-PEAPQ-software-20221124/Dia57.png){ loading=lazy }
+  ![Slide 57](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia57.png){ loading=lazy }
 </figure>
 
 
@@ -1103,7 +1103,7 @@ neglect it it is up to you to solve the problems that occur.
 ## Managing containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 58](img/LUMI-PEAPQ-software-20221124/Dia58.png){ loading=lazy }
+  ![Slide 58](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia58.png){ loading=lazy }
 </figure>
 
 On LUMI, we currently support only one container runtime.
@@ -1142,13 +1142,13 @@ but this directory is also automatically cleaned when you log out from your last
     Let's try the `singularity pull docker://julia` command:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 59](img/LUMI-PEAPQ-software-20221124/Dia59.png){ loading=lazy }
+      ![Slide 59](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia59.png){ loading=lazy }
     </figure>
 
     We do get a lot of warnings but usually this is perfectly normal and usually they can be safely ignored.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 60](img/LUMI-PEAPQ-software-20221124/Dia60.png){ loading=lazy }
+      ![Slide 60](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia60.png){ loading=lazy }
     </figure>
 
     The process ends with the creation of the file `jula_latest.sif`. 
@@ -1156,12 +1156,12 @@ but this directory is also automatically cleaned when you log out from your last
     Note however that the process has left a considerable number of files in `~/.singularity ` also:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 61](img/LUMI-PEAPQ-software-20221124/Dia61.png){ loading=lazy }
+      ![Slide 61](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia61.png){ loading=lazy }
     </figure>
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 62](img/LUMI-PEAPQ-software-20221124/Dia62.png){ loading=lazy }
+  ![Slide 62](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia62.png){ loading=lazy }
 </figure>
 
 There is currently no support for building containers on LUMI and I do not expect that to change quickly.
@@ -1177,7 +1177,7 @@ OS kernel on LUMI.
 ## Interacting with containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 63](img/LUMI-PEAPQ-software-20221124/Dia63.png){ loading=lazy }
+  ![Slide 63](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia63.png){ loading=lazy }
 </figure>
 
 There are basically three ways to interact with containers.
@@ -1191,7 +1191,7 @@ singularity shell container.sif
 ???+demo "Demo singularity shell"
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 64](img/LUMI-PEAPQ-software-20221124/Dia64.png){ loading=lazy }
+      ![Slide 64](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia64.png){ loading=lazy }
     </figure>
 
     In this screenshot we checked the contents of the `/opt` directory before and after the
@@ -1210,7 +1210,7 @@ singularity exec container.sif uname -a
 ???+demo "Demo singularity exec"
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 65](img/LUMI-PEAPQ-software-20221124/Dia65.png){ loading=lazy }
+      ![Slide 65](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia65.png){ loading=lazy }
     </figure>
 
     In this screenshot we execute the `uname -a` command before and with the
@@ -1241,7 +1241,7 @@ singularity inspect --runscript container.sif
 ???+demo "Demo singularity run"
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 66](img/LUMI-PEAPQ-software-20221124/Dia66.png){ loading=lazy }
+      ![Slide 66](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia66.png){ loading=lazy }
     </figure>
 
     In this screenshot we start the julia interface in the container using
@@ -1265,7 +1265,7 @@ flag or via the `SINGULARITY_BIND` or `SINGULARITY_BINDPATH` environment variabl
 ## Running containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 67](img/LUMI-PEAPQ-software-20221124/Dia67.png){ loading=lazy }
+  ![Slide 67](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia67.png){ loading=lazy }
 </figure>
 
 Just as for other jobs, you need to use Slurm to run containers on the compute nodes.
@@ -1302,7 +1302,7 @@ support on systems that rely on OFI and do not support UCX.
 ## Enhancements to the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 68](img/LUMI-PEAPQ-software-20221124/Dia68.png){ loading=lazy }
+  ![Slide 68](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia68.png){ loading=lazy }
 </figure>
 
 To make life easier, LUST with the support of CSC did implement some modules
@@ -1332,7 +1332,7 @@ that we are developing and that will be made available via the
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 69](img/LUMI-PEAPQ-software-20221124/Dia69.png){ loading=lazy }
+  ![Slide 69](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia69.png){ loading=lazy }
 </figure>
 
 The second tool is a container that we provide with some bash functions
@@ -1387,7 +1387,7 @@ We will not raise your file quota if it is to house such installation in your `/
     |Now you can follow the commands on the slides below:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 70](img/LUMI-PEAPQ-software-20221124/Dia70.png){ loading=lazy }
+      ![Slide 70](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia70.png){ loading=lazy }
     </figure>
 
     On the slide above we prepared the environment.
@@ -1403,29 +1403,29 @@ We will not raise your file quota if it is to house such installation in your `/
     the process:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 71](img/LUMI-PEAPQ-software-20221124/Dia71.png){ loading=lazy }
+      ![Slide 71](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia71.png){ loading=lazy }
     </figure>
 
     The tool will first build the conda installation in a temprorary work directory
     and also uses a base container for that purpose.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 72](img/LUMI-PEAPQ-software-20221124/Dia72.png){ loading=lazy }
+      ![Slide 72](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia72.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 73](img/LUMI-PEAPQ-software-20221124/Dia73.png){ loading=lazy }
+      ![Slide 73](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia73.png){ loading=lazy }
     </figure>
 
     The conda installation itself though is stored in a SquashFS file that is then
     used by the container.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 74](img/LUMI-PEAPQ-software-20221124/Dia74.png){ loading=lazy }
+      ![Slide 74](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia74.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 75](img/LUMI-PEAPQ-software-20221124/Dia75.png){ loading=lazy }
+      ![Slide 75](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia75.png){ loading=lazy }
     </figure>
 
     In the slide above we see the installation contains both a singularity container
@@ -1435,7 +1435,7 @@ We will not raise your file quota if it is to house such installation in your `/
     that run those commands in the container with the SquashFS file system mounted in it.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide 76](img/LUMI-PEAPQ-software-20221124/Dia76.png){ loading=lazy }
+      ![Slide 76](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia76.png){ loading=lazy }
     </figure>
 
     So as you can see above, we can simply use the `python3` command without realising
@@ -1447,7 +1447,7 @@ The wrapper module also offers a pip-based command to build upon the Cray Python
 ## Conclusion: Container limitations on LUMI-C
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide 77](img/LUMI-PEAPQ-software-20221124/Dia77.png){ loading=lazy }
+  ![Slide 77](https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia77.png){ loading=lazy }
 </figure>
 
 To conclude the information on using singularity containers on LUMI,

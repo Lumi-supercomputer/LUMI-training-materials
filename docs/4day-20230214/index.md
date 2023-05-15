@@ -11,16 +11,23 @@
 
 ## Downloads
 
--   Slides presentation ["LUMI Software Stacks"](files/LUMI-Software-20230215.pdf) 
+-   Slides presentation ["LUMI Software Stacks"](https://462000265.lumidata.eu/4day-20230214/files/LUMI-Software-20230215.pdf) 
     (but you may prefer [reading the notes](software_stacks.md))
 -   Slides AMD:
-    -   [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](files/01_introduction_amd_rocm.pdf)
-    -   [AMD Debugger: ROCgdb](files/02_Rocgdb_Tutorial.pdf)
-    -   [Introduction to Rocporf Profiling Tool](files/03_intro_rocprof.pdf)
-    -   [Introduction to OmniTools](files/04_intro_omnitools_new.pdf)
+    -   [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](https://462000265.lumidata.eu/4day-20230214/files/01_introduction_amd_rocm.pdf)
+    -   [AMD Debugger: ROCgdb](https://462000265.lumidata.eu/4day-20230214/files/02_Rocgdb_Tutorial.pdf)
+    -   [Introduction to Rocporf Profiling Tool](https://462000265.lumidata.eu/4day-20230214/files/03_intro_rocprof.pdf)
+    -   [Introduction to OmniTools](https://462000265.lumidata.eu/4day-20230214/files/04_intro_omnitools_new.pdf)
 -   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
     [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
     system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
+
+
+## Videos
+
+-   [Welcome and introduction](video_00_Introduction.md)
+-   [Additional software on LUMI](video_09_LUMI_Software_Stack.md)
+-   [LUMI support and LUMI documentation](video_10_LUMI_User_Support.md)
 
 
 ## Other material only available on LUMI
