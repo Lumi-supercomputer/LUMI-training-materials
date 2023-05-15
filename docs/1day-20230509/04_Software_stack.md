@@ -583,6 +583,23 @@ We now also have the [LUMI Software Library](https://lumi-supercomputer.github.i
 which lists all software that we manage via EasyBuild and make available either pre-installed on
 the system or as an EasyBuild recipe for user installation.
 
+!!! Note "Output of the search commands:"
+
+    `eb --search GROMACS` produces:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb --search GROMACS](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia19.png){ loading=lazy }
+    </figure>
+
+    while `eb -S GROMACS` produces:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -S GROMACS](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia20.png){ loading=lazy }
+    </figure>
+
+    The information provided by both variants of the search command is the same, but `-S` presents the information in a more
+    compact form.
+
 Now let's take the variant `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`. 
 This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
 from `LUMI/22.08`, and a build meant for CPU-only systems. The `-CPU` extension is not
@@ -599,11 +616,46 @@ look for dependencies in a preset search path. The installation of dependencies 
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.
 
+The output of this command looks like:
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia21.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D (2)](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia22.png){ loading=lazy }
+</figure>
+
+
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
 But it will do so automatically when we run
 ```bash
 eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb
 ```
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia23.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (2)](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia24.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (3)](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia25.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (4)](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia26.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (5)](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia27.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (6)](https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia28.png){ loading=lazy }
+</figure>
 
 This takes too long to wait for, but once it finished the software should be available
 and you should be able to see the module in the output of
