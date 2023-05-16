@@ -32,6 +32,8 @@ nav:
       - Exercises 1: 1day-20230509/05_Exercises_1.md
       - Running jobs: 1day-20230509/06_Running_jobs.md
       - Exercises 2: 1day-20230509/07_Exercises_2.md
+      - I/O and file systems: 1day-20230509/08_Lustre_intro.md
+      - LUMI support and docs: 1day-20230509/09_LUMI_support.md
   - Profiling April 2013:
       - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:

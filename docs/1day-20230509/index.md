@@ -49,6 +49,10 @@
 
 -   [Running jobs](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf)
 
+-   [Introduction to Lustre and Best Practices](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-08-Lustre-intro.pdf)
+
+-   [LUMI User Support](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-09-Lumi-support.pdf)
+
 
 ## Notes
 

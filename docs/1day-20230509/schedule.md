@@ -106,8 +106,8 @@
     </tr>
     <tr>
         <td>
-            14:45 CEST
-            <br/><em>15:45 EEST</em>
+            15:15 CEST
+            <br/><em>16:15 EEST</em>
         </td>
         <td>
             Hands-on
@@ -116,20 +116,22 @@
     </tr>
     <tr>
         <td>
-            15:15 CEST
-            <br/><em>16:15 EEST</em>
+            15:30 CEST
+            <br/><em>16:39 EEST</em>
         </td>
         <td><em>Break</em></td>
     </tr>
     <tr>
         <td>
-            15:30 CEST
-            <br/><em>16:30 EEST</em>
+            15:40 CEST
+            <br/><em>16:40 EEST</em>
         </td>
         <td>
             I/O and file systems
             <br/><em>Presenter: Jørn Dietze</em>
-            <!--<br/><a href="../08_IO">Notes</a>-->
+            <br/>
+            <!-- <a href="../06_Running_jobs">Notes</a> and-->
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-08-Lustre-intro.pdf">slides (PDF)</a>
         </td>
     </tr>
      <tr>
@@ -140,7 +142,9 @@
         <td>
             How to get support and documentation
             <br/><em>Presenter: Jørn Dietze</em>
-            <!--<br/><a href="../09_Support">Notes</a>-->
+            <br/>
+            <!-- <a href="../06_Running_jobs">Notes</a> and-->
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-09-Lumi-support.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
