@@ -71,10 +71,10 @@
         <td>
             LUMI Software Stacks
             <br/><em>Presenter: Kurt Lust</em>
-            <br/><a href="../04_Software_stack">Notes</a>
+            <br/><a href="../04_Software_stacks">Notes</a>
             and
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf">slides (PDF)</a>
-            <br/><a href="../video_04_LUMI_Software_Stack/">Recording:</a>
+            <br/><a href="../video_04_LUMI_Software_Stacks/">Recording:</a>
         </td>
     </tr>
     <tr>

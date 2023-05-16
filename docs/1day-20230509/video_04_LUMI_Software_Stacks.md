@@ -8,4 +8,4 @@
 Additional materials
 
 -   [Slides (PDF)](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf)
--   [Notes](04_Software_stack.md)
+-   [Notes](04_Software_stacks.md)
