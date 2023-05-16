@@ -1,5 +1,8 @@
 # Exercises 1: Modules, the HPE Cray PE and EasyBuild
 
+See [the instructions](index.md#setting-up-for-the-exercises)
+to set up for the exercises.
+
 ## Exercises on the use of modules
 
 1.  The `Bison` program installed in the OS image is pretty old (version 3.0.4) and
