@@ -8,11 +8,10 @@
             09:00 CEST&nbsp;&nbsp;
             <br/><em>10:00 EEST</em>
         </td>
-        <td>Welcome and introduction<br>
-        <!-- 
-        <em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST)</em>
-        <br><em>Recording: <code>/project/project_465000388/recordings/00_Introduction.mp4</code> on LUMI only.</em>
-        -->
+        <td>
+            Welcome and introduction
+            <br/><em>Presenter: Jørn Dietze (LUST)</em>
+            <br/><a href="../video_00_Introduction/">Recording:</a>
         </td>
     </tr>
     <tr>
@@ -26,7 +25,8 @@
             <br/><a href="../01_Architecture">Notes</a>
             and
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-01-architecture.pdf">slides (PDF)</a>
-        </td>
+            <br/><a href="../video_01_LUMI_Architecture/">Recording:</a>
+         </td>
     </tr>
     <tr>
         <td>
@@ -39,6 +39,7 @@
             <br/><a href="../02_CPE">Notes</a>
             and
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-02-CPE.pdf">slides (PDF)</a>
+            <br/><a href="../video_02_HPE_Cray_Programming_Environment/">Recording:</a>
         </td>
     </tr>
     <tr>
@@ -52,6 +53,7 @@
             <br/><a href="../03_Modules">Notes</a>
             and
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-03-modules.pdf">slides (PDF)</a>
+            <br/><a href="../video_03_Modules_on_LUMI/">Recording:</a>
         </td>
     </tr>
     <tr>
@@ -72,6 +74,7 @@
             <br/><a href="../04_Software_stack">Notes</a>
             and
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf">slides (PDF)</a>
+            <br/><a href="../video_04_LUMI_Software_Stack/">Recording:</a>
         </td>
     </tr>
     <tr>
@@ -102,6 +105,7 @@
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf">slides (PDF)</a>
+            <br/><a href="../video_06_Running_Jobs_on_LUMI/">Recording:</a>
         </td>
     </tr>
     <tr>
