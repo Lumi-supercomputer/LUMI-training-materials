@@ -1,4 +1,4 @@
-# Running Jobs on LUMI
+# LUMI User Support
 
 *Presenter: Jørn Dietze (LUST)*
 

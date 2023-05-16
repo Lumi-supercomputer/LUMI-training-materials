@@ -1,4 +1,4 @@
-# The LUMI architecture
+# The LUMI Architecture
 
 In this presentation, we will build up LUMI part by part, stressing those
 aspects that are important to know to run on LUMI efficiently and define

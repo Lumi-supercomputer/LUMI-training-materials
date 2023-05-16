@@ -1,4 +1,4 @@
-# Introduction to Lustre and Best PRactices
+# Introduction to Lustre and Best Practices
 
 *Presenter: Jørn Dietze (LUST)*
 
