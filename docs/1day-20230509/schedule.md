@@ -21,7 +21,7 @@
             <br/><em>10:10 EEST</em>
         </td>
         <td>
-            LUMI Hardware Architecture
+            LUMI Architecture
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../01_Architecture">Notes</a>
             and
@@ -34,7 +34,7 @@
             <br/><em>10:40 EEST</em>
         </td>
         <td>
-            The HPE Cray Programming Environment
+            HPE Cray Programming Environment
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../02_CPE">Notes</a>
             and
@@ -47,7 +47,7 @@
             <br/><em>11:10 EEST</em>
         </td>
         <td>
-            Lmod modules
+            Modules on LUMI
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../03_Modules">Notes</a>
             and
@@ -67,7 +67,7 @@
             <br/><em>12:00 EEST</em>
         </td>
         <td>
-            Managing software on LUMI
+            LUMI Software Stacks
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../04_Software_stack">Notes</a>
             and
@@ -97,7 +97,7 @@
             <br/><em>14:15 EEST</em>
         </td>
         <td>
-            Running jobs
+            Running jobs on LUMI
             <br/><em>Presenter: Maciej Szpindler</em>
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->
@@ -127,7 +127,7 @@
             <br/><em>16:40 EEST</em>
         </td>
         <td>
-            I/O and file systems
+            Introduction to Lustre and Best Practices
             <br/><em>Presenter: Jørn Dietze</em>
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->
@@ -140,7 +140,7 @@
             <br/><em>16:50 EEST</em>
         </td>
         <td>
-            How to get support and documentation
+            LUMI User Support
             <br/><em>Presenter: Jørn Dietze</em>
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->

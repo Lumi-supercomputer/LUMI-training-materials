@@ -47,7 +47,7 @@
 
 -   [LUMI Software Stacks](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf)
 
--   [Running jobs](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf)
+-   [Running jobs on LUMI](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf)
 
 -   [Introduction to Lustre and Best Practices](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-08-Lustre-intro.pdf)
 
@@ -66,7 +66,7 @@
 
 -   [Exercises 1: Modules, Cray PE and EasyBuild](05_Exercises_1.md)
 
--   [Exercises 2: Running jobs](07_Exercises_2.md)
+-   [Exercises 2: Running jobs with Slurm](07_Exercises_2.md)
 
 -   [Questions from the Hedgedoc document of the 9 May 2020 session](notes_20230509.md)
 
