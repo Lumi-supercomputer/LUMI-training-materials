@@ -25,7 +25,7 @@
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../01_Architecture">Notes</a>
             and
-            <a href="../files/LUMI-1day-20230509-01-architecture.pdf">slides (PDF)</a>
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-01-architecture.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -38,7 +38,7 @@
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../02_CPE">Notes</a>
             and
-            <a href="../files/LUMI-1day-20230509-02-CPE.pdf">slides (PDF)</a>
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-02-CPE.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -51,7 +51,7 @@
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../03_Modules">Notes</a>
             and
-            <a href="../files/LUMI-1day-20230509-03-modules.pdf">slides (PDF)</a>
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-03-modules.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@
             <br/><em>Presenter: Kurt Lust</em>
             <br/><a href="../04_Software_stack">Notes</a>
             and
-            <a href="../files/LUMI-1day-20230509-04-software.pdf">slides (PDF)</a>
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
@@ -101,7 +101,7 @@
             <br/><em>Presenter: Maciej Szpindler</em>
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->
-            <a href="../files/LUMI-1day-20230509-06-running_jobs.pdf">slides (PDF)</a>
+            <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf">slides (PDF)</a>
         </td>
     </tr>
     <tr>
