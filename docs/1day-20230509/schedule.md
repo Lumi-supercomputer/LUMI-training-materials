@@ -136,6 +136,7 @@
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-08-Lustre-intro.pdf">slides (PDF)</a>
+            <br/><a href="../video_08_Introduction_to_Lustre_and_Best_Practices/">Recording:</a>
         </td>
     </tr>
      <tr>
@@ -149,6 +150,7 @@
             <br/>
             <!-- <a href="../06_Running_jobs">Notes</a> and-->
             <a href="https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-09-Lumi-support.pdf">slides (PDF)</a>
+            <br/><a href="../video_09_LUMI_User_Support/">Recording:</a>
         </td>
     </tr>
     <tr>
