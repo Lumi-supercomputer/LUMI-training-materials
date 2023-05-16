@@ -106,8 +106,8 @@
     </tr>
     <tr>
         <td>
-            14:30 CEST
-            <br/><em>15:30 EEST</em>
+            14:45 CEST
+            <br/><em>15:45 EEST</em>
         </td>
         <td>
             Hands-on
@@ -116,15 +116,15 @@
     </tr>
     <tr>
         <td>
-            15:00 CEST
-            <br/><em>16:00 EEST</em>
+            15:15 CEST
+            <br/><em>16:15 EEST</em>
         </td>
         <td><em>Break</em></td>
     </tr>
     <tr>
         <td>
-            15:15 CEST
-            <br/><em>16:15 EEST</em>
+            15:30 CEST
+            <br/><em>16:30 EEST</em>
         </td>
         <td>
             I/O and file systems
@@ -134,8 +134,8 @@
     </tr>
      <tr>
         <td>
-            15:35 CEST
-            <br/><em>16:35 EEST</em>
+            15:50 CEST
+            <br/><em>16:50 EEST</em>
         </td>
         <td>
             How to get support and documentation
@@ -145,8 +145,8 @@
     </tr>
     <tr>
         <td>
-            16:00 CEST
-            <br/><em>17:00 EEST</em>
+            16:15 CEST
+            <br/><em>17:15 EEST</em>
         </td>
         <td>General Q&A</td>
     </tr>
