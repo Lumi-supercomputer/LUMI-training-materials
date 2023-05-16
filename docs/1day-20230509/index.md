@@ -4,10 +4,13 @@
 
 -   [Schedule](schedule.md)
 
--   [HedgeDoc for off-line questions](https://md.sigma2.no/lumi-intro-course-16may23?edit)
+-   [Questions from the Hedgedoc document of the 9 May 2020 session](notes_20230509.md)
 
-    Notes from the May 9 session are summarised and archived on the
-    ["Questions from the Hedgedoc document of the 9 May 2020 session"](notes_20230509.md) page.
+    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-9may23?view) (may disappear over time)
+
+-   [Questions from the Hedgedoc document of the 16 May 2020 session](notes_20230516.md)
+
+    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-16may23?view) (may disappear over time)
 
 
 ## Setting up for the exercises
@@ -50,40 +53,4 @@
 | Exercises 2 | / | [notes](07_Exercises_2.md) | / |
 | Introduction to Lustre and Best Practices | [slides](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-08-Lustre-intro.pdf) | / | [recording](video_08_Introduction_to_Lustre_and_Best_Practices.md) |
 | LUMI User Support | [slides](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-09-Lumi-support.pdf) | / | [recording](video_09_LUMI_User_Support) |
-
-
-## Slide downloads
-
--   [LUMI Architecture](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-01-architecture.pdf)
-
--   [HPE Cray Programming Environment](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-02-CPE.pdf)
-
--   [Modules on LUMI](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-03-modules.pdf)
-
--   [LUMI Software Stacks](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-04-software.pdf)
-
--   [Running jobs on LUMI](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-06-running_jobs.pdf)
-
--   [Introduction to Lustre and Best Practices](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-08-Lustre-intro.pdf)
-
--   [LUMI User Support](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-09-Lumi-support.pdf)
-
-
-## Notes
-
--   [LUMI architecture](01_Architecture.md)
-
--   [The HPE Cray Programming Environment](02_CPE.md)
-  
--   [Lmod modules](03_Modules.md)
-  
--   [Managing software on LUMI](04_Software_stack.md)
-
--   [Exercises 1: Modules, Cray PE and EasyBuild](05_Exercises_1.md)
-
--   [Exercises 2: Running jobs with Slurm](07_Exercises_2.md)
-
--   [Questions from the Hedgedoc document of the 9 May 2020 session](notes_20230509.md)
-
-
 
