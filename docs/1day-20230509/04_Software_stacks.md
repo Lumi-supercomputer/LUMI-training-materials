@@ -1,4 +1,4 @@
-# Managing software on LUMI
+# LUMI Software Stacks
 
 In this section we discuss
 

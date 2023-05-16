@@ -1,4 +1,4 @@
-# Lmod modules
+# Modules on LUMI
 
 !!! Note "Intended audience"
     As this course is designed for people already familiar with HPC systems and

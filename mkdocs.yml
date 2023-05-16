@@ -26,14 +26,14 @@ nav:
   - "1-day May 2023":
       - 1day-20230509/index.md
       - LUMI Architecture: 1day-20230509/01_Architecture.md
-      - CPE: 1day-20230509/02_CPE.md
-      - Lmod modules: 1day-20230509/03_Modules.md
-      - Managing software: 1day-20230509/04_Software_stack.md
+      - HPE Cray PE: 1day-20230509/02_CPE.md
+      - Modules: 1day-20230509/03_Modules.md
+      - Software stacks: 1day-20230509/04_Software_stacks.md
       - Exercises 1: 1day-20230509/05_Exercises_1.md
       - Running jobs: 1day-20230509/06_Running_jobs.md
       - Exercises 2: 1day-20230509/07_Exercises_2.md
       - I/O and file systems: 1day-20230509/08_Lustre_intro.md
-      - LUMI support and docs: 1day-20230509/09_LUMI_support.md
+      - LUMI support: 1day-20230509/09_LUMI_support.md
   - Profiling April 2013:
       - Profiling-20230413/index.md
   - Comprehensive LUMI February 2023:
