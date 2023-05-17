@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/PEAP-Q-20221123/software_stacks/">
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/4day-20230530/software_stacks/">
       
       
-        <link rel="prev" href="../hedgedoc_notes/">
-      
-      
-        <link rel="next" href="../../LUMI-G-20220823/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
@@ -254,7 +250,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../4day-20230530/">Comprehensive LUMI May-June 2023</a>
+          <a href="../">Comprehensive LUMI May-June 2023</a>
           
         </div>
       
@@ -607,16 +603,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
       
       
         
@@ -635,7 +629,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">PEAP-Q November 2022</a>
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -643,7 +637,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           PEAP-Q November 2022
@@ -658,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../schedule/" class="md-nav__link">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
       </a>
     </li>
@@ -672,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hedgedoc_notes/" class="md-nav__link">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
         HedgeDoc notes
       </a>
     </li>
@@ -684,307 +678,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          LUMI Software Stacks
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
         LUMI Software Stacks
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-software-stacks-on-lumi" class="md-nav__link">
-    The software stacks on LUMI
-  </a>
-  
-    <nav class="md-nav" aria-label="The software stacks on LUMI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#design-considerations" class="md-nav__link">
-    Design considerations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-lumi-solution" class="md-nav__link">
-    The LUMI solution
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-policies" class="md-nav__link">
-    Software policies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#organisation-of-the-software-in-software-stacks" class="md-nav__link">
-    Organisation of the software in software stacks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-ways-to-access-the-cray-programming-environment-on-lumi" class="md-nav__link">
-    3 ways to access the Cray Programming environment on LUMI.
-  </a>
-  
-    <nav class="md-nav" aria-label="3 ways to access the Cray Programming environment on LUMI.">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bare-environment-and-crayenv" class="md-nav__link">
-    Bare environment and CrayEnv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lumi-stack" class="md-nav__link">
-    LUMI stack
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lumi-stack-module-organisation" class="md-nav__link">
-    LUMI stack module organisation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lmod-on-lumi" class="md-nav__link">
-    Lmod on LUMI
-  </a>
-  
-    <nav class="md-nav" aria-label="Lmod on LUMI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exploring-modules-with-lmod" class="md-nav__link">
-    Exploring modules with Lmod
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#module-spider-command" class="md-nav__link">
-    Module spider command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#module-keyword-command" class="md-nav__link">
-    Module keyword command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sticky-modules-and-module-purge" class="md-nav__link">
-    Sticky modules and module purge
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-how-the-module-list-is-displayed" class="md-nav__link">
-    Changing how the module list is displayed
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#easybuild-to-extend-the-lumi-software-stack" class="md-nav__link">
-    EasyBuild to extend the LUMI software stack
-  </a>
-  
-    <nav class="md-nav" aria-label="EasyBuild to extend the LUMI software stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-software-on-hpc-systems" class="md-nav__link">
-    Installing software on HPC systems
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extending-the-lumi-stack-with-easybuild" class="md-nav__link">
-    Extending the LUMI stack with EasyBuild
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-1-where-to-install" class="md-nav__link">
-    Step 1: Where to install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-configure-the-environment" class="md-nav__link">
-    Step 2: Configure the environment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-install-the-software" class="md-nav__link">
-    Step 3: Install the software.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-install-the-software-note" class="md-nav__link">
-    Step 3: Install the software - Note
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-advanced-work" class="md-nav__link">
-    More advanced work
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-advanced-work-2-repositories" class="md-nav__link">
-    More advanced work (2): Repositories
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-advanced-work-3-reproducibility" class="md-nav__link">
-    More advanced work (3): Reproducibility
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#easybuild-training-for-advanced-users-and-developers" class="md-nav__link">
-    EasyBuild training for advanced users and developers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#containers-on-lumi" class="md-nav__link">
-    Containers on LUMI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-do-containers-not-provide" class="md-nav__link">
-    What do containers not provide
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#but-what-can-they-then-do-on-lumi" class="md-nav__link">
-    But what can they then do on LUMI?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-containers" class="md-nav__link">
-    Managing containers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-containers" class="md-nav__link">
-    Interacting with containers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-containers-on-lumi" class="md-nav__link">
-    Running containers on LUMI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enhancements-to-the-environment" class="md-nav__link">
-    Enhancements to the environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion-container-limitations-on-lumi-c" class="md-nav__link">
-    Conclusion: Container limitations on LUMI-C
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1379,6 +1077,35 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#easybuild-recipes-easyconfigs" class="md-nav__link">
+    EasyBuild recipes - easyconfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-toolchain-concept" class="md-nav__link">
+    The toolchain concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easyconfig-names-and-module-names" class="md-nav__link">
+    EasyConfig names and module names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software" class="md-nav__link">
+    Installing software
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1-where-to-install" class="md-nav__link">
     Step 1: Where to install
   </a>
@@ -1406,6 +1133,11 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#more-advanced-work" class="md-nav__link">
     More advanced work
@@ -1423,6 +1155,13 @@
           <li class="md-nav__item">
   <a href="#more-advanced-work-3-reproducibility" class="md-nav__link">
     More advanced work (3): Reproducibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-tips-tricks" class="md-nav__link">
+    EasyBuild tips &amp; tricks
   </a>
   
 </li>
@@ -1512,7 +1251,7 @@
 
 <h1 id="lumi-software-stacks">LUMI Software Stacks<a class="headerlink" href="#lumi-software-stacks" title="Permanent link">&para;</a></h1>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 2" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia2.png" /></p>
+<p><img alt="What this talk is about" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia2.png" /></p>
 </figure>
 <p>In this part of the training, we cover:</p>
 <ul>
@@ -1521,11 +1260,12 @@
 <li>Advanced Lmod use to make the best out of the software stacks</li>
 <li>Creating your customised environment with EasyBuild, the tool that we use to install
     most software.</li>
+<li>Some remarks about using containers on LUMI.</li>
 </ul>
 <h2 id="the-software-stacks-on-lumi">The software stacks on LUMI<a class="headerlink" href="#the-software-stacks-on-lumi" title="Permanent link">&para;</a></h2>
 <h3 id="design-considerations">Design considerations<a class="headerlink" href="#design-considerations" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 3" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia3.png" /></p>
+<p><img alt="Design consideration" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia3.png" /></p>
 </figure>
 <ul>
 <li>
@@ -1536,10 +1276,11 @@
     and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. </li>
 <li>It also uses a <strong>relatively new GPU architecture</strong>, AMD CDNA2, with an immature software ecosystem. 
     The GPU nodes are really <strong>GPU-first</strong>, with the <strong>interconnect cards connected directly to the GPU packages</strong> 
-    and only one CPU socket, and another feature which is relatively new: a <strong>fully cache-coherent unified memory</strong>
+    and only one CPU socket, and another feature which is relatively new: the option to use a <strong>coherent unified memory</strong>
     space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
     only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
-    for some USA pre-exascale systems, and of course in the Apple M1 but then without the NUMA character.</li>
+    for some USA pre-exascale systems, and of course in Apple Silicon M-series but then without the NUMA character
+    (except maybe for the Ultra version that consists of two dies).</li>
 <li>LUMI is also <strong>inhomogeneous</strong> because some nodes have zen2 processors while the two main compute partitions
     have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
     NVIDIA GPUs. </li>
@@ -1565,8 +1306,8 @@ conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox I
     LUMI, and to work with restricted rights.</strong> And in fact, LUMI User Support team members also have very limited additional
     rights on the machine compared to regular users or support people from the local organisations.
     LUST is currently 9 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
-    installation and support only... (I give this number because it was mentioned in a recent talk in an
-    EasyBuild user meeting.)</p>
+    installation and support only... (I give this number because it was mentioned in a a talk in the
+    EasyBuild user meeting in 2022.)</p>
 </li>
 <li>
 <p>The Cray Programming Environment is also a <strong>key part of LUMI</strong> and the environment for which we get
@@ -1590,16 +1331,18 @@ conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox I
 </ul>
 <h3 id="the-lumi-solution">The LUMI solution<a class="headerlink" href="#the-lumi-solution" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 4" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia4.png" /></p>
+<p><img alt="The LUMI solution" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia4.png" /></p>
 </figure>
 <p>We tried to take all these considerations into account and came up with a solution that may look <strong>a
-little unconventional</strong> to many users.</p>
+little unconventional</strong> to many users, but one that is followed by more and more big centres.</p>
 <p>In principle there should be a high degree of compatibility between releases of the HPE Cray Programming
 Environment but we decided not to take the risk and <strong>build our software for a specific release of the 
 programming environment</strong>, which is also a better fit with the typical tools used to manage a scientific 
 software stack such as EasyBuild and Spack as they also prefer precise versions for all dependencies and
-compilers etc. We also made the stack very easy to extend. So we have <strong>many base libraries and some packages
-already pre-installed</strong> but also provide an <strong>easy and very transparant way to install additional packages in
+compilers etc. This did turn out to be a good decision after the system update of March 2023 as some
+packages were incapable of picking up new libraries.
+We also made the stack very easy to extend. So we have <strong>many base libraries and some packages
+already pre-installed</strong> but also provide an <strong>easy and very transparent way to install additional packages in
 your project space in exactly the same way as we do for the central stack</strong>, with the same performance but the
 benefit that the installation can be customised more easily to the needs of your project. Not everybody needs
 the same configuration of GROMACS or LAMMPS or other big packages, and in fact a one-configuration-that-works-for-everybody
@@ -1615,19 +1358,18 @@ Europe and hence a good match with a EuroHPC project as EuroHPC wants to develop
 from hardware to application software, and Spack, a package developed in the USA national labs.
 We chose to go with <strong>EasyBuild as our primary tool</strong> for which we also do some development. 
 However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
-that you may be acustomed with from clusters at your home institution. <strong>It uses toolchains
+that you may be accustomed with from clusters at your home institution. <strong>It uses toolchains
 specifically for the HPE Cray programming environment</strong> so recipes need to be adapted. We do offer an
 <strong>growing library of Cray-specific installation recipes</strong> though.
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that <strong>your modules appear in your module view</strong> without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
-for your project as we cannot automatically determine a suitable place. 
-<strong>We have a pre-configured Spack installation also but do not do any package development in Spack ourselves.
-The setup is meant for users familiar with Spack who can also solve problems that occur on the road,
-but we already did the work of ensuring that Spack is correctly configured for the HPE Cray compilers.</strong></p>
+for your project as we cannot automatically determine a suitable place. <strong>We do offer some help so set up
+Spack also but it is mostly offered "as is" an we will not do bug-fixing or development in Spack
+package files.</strong></p>
 <h3 id="software-policies">Software policies<a class="headerlink" href="#software-policies" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 5" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia5.png" /></p>
+<p><img alt="Software policies" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia5.png" /></p>
 </figure>
 <p>As any site, we also have a number of policies about software installation, and we're still further
 developing them as we gain experience in what we can do with the amount of people we have and what we
@@ -1638,11 +1380,11 @@ community</strong>. </p>
 <li>This is partly caused by the <strong>distributed user management</strong> as we do not even have the necessary
     information to determine if a particular user can use a particular license, so we must shift that 
     responsibility to people who have that information, which is often the PI of your project.</li>
-<li>You also have to take into account that up to 20% of LUMI is reserved for industry use which makes 
+<li>You also have to take into account that <strong>up to 20% of LUMI is reserved for industry</strong> use which makes 
     negotiations with software vendors rather difficult as they will want to push us onto the industrial
     rather than academic pricing as they have no guarantee that we will obey to the academic license
     restrictions. </li>
-<li>And lastly, <strong>we don't have an infinite budget</strong>. There was a questionaire send out to 
+<li>And lastly, <strong>we don't have an infinite budget</strong>. There was a questionnaire send out to 
     some groups even before the support team was assembled and that contained a number of packages that
     by themselves would likely consume our whole software budget for a single package if I look at the 
     size of the company that produces the package and the potential size of their industrial market. 
@@ -1661,11 +1403,12 @@ high performance from the interconnect. For example,</p>
     libraries needs to be ported. </li>
 <li>Binaries that do only contain NVIDIA code paths, even if the programming
     model is supported on AMD GPUs, will not run on LUMI. </li>
-<li>The final LUMI interconnect requires <strong>libfabric</strong>
-    using a specific provider for the NIC used on LUMI, so any software compiled with an MPI library that
+<li>The LUMI interconnect requires <strong>libfabric</strong>
+    using a specific provider for the NIC used on LUMI, the so-called Cassini provider, 
+    so any software compiled with an MPI library that
     requires UCX, or any other distributed memory model build on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. </li>
-<li>Even intro-node interprocess communication can already cause problems as there are three different kernel extensions
+<li>Even intra-node interprocess communication can already cause problems as there are three different kernel extensions
     that provide more efficient interprocess messaging than the standard Linux mechanism. Many clusters
     use <strong>knem</strong> for that but on LUMI <strong>xpmem</strong> is used. So software that is not build to support xpmem will
     also fall back to the default mechanism or fail. </li>
@@ -1676,55 +1419,51 @@ high performance from the interconnect. For example,</p>
     As has been discussed earlier in the course, LUMI runs SUSE Linux and not Ubuntu which is popular on 
     workstations or a Red Hat-derived Linux popular on many clusters. Subtle differences between Linux 
     versions can cause compatibility problems that in some cases can be solved with containers. But containers
-    won't help you if they are build for different kernel extensions, driver versions and hardware interfaces.</li>
+    won't help you if they are build for different kernel extensions and hardware interfaces.</li>
 <li>The <strong>compute nodes also lack some Linux daemons</strong> that may be present on smaller clusters. HPE Cray use an
     optimised Linux version called COS or Cray Operating System on the compute nodes. It is optimised to
     reduce OS jitter and hence to enhance scalability of applications as that is after all the primary
     goal of a pre-exascale machine. But that implies that certain Linux daemons that your software may 
     expect to find are not present on the compute nodes. D-bus comes to mind.</li>
 </ul>
-<p>Also, the LUNI user support team is <strong>too small to do all software installations</strong> which is why we currently
+<p>Also, the LUMI user support team is <strong>too small to do all software installations</strong> which is why we currently
 state in our policy that a LUMI user should be capable of installing their software themselves or have
 another support channel. We cannot install every single piece of often badly documented research-quality
 code that was never meant to be used by people who don't understand the code.</p>
-<p>Another soft compatibility problem that has not yet been mentioned is that software that <strong>accesses hundreds
+<p>Another soft compatibility problem that I did not yet mention is that software that <strong>accesses tens
 of thousands of small files and abuses the file system as a database</strong> rather than using structured
 data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
 also require to <strong>containerize conda and Python installations</strong>. We do offer a container-based wrapper
 that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the <code>cray-python</code> module. The link to the documentation of the tool that we call
+the Python provided by the <code>cray-python</code> module. On LUMI the tool is called
 <a href="https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/">lumi-container-wrapper</a>
-but may by some from CSC also be known as Tykky is in the handout of the slides that you can get
-after the course.</p>
+but it may by some from CSC also be known as Tykky.</p>
 <h3 id="organisation-of-the-software-in-software-stacks">Organisation of the software in software stacks<a class="headerlink" href="#organisation-of-the-software-in-software-stacks" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 6" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia6.png" /></p>
+<p><img alt="Organisation: Software stacks" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia6.png" /></p>
 </figure>
 <p>On LUMI we have several software stacks.</p>
 <p><strong>CrayEnv</strong> is the software stack for users who only need the <strong>Cray Programming Environment</strong> but want a <strong>more
 recent set of build tools etc</strong> than the OS provides. We also take care of a few issues that we will discuss
 on the next slide that are present right after login on LUMI.</p>
 <p>Next we have the <strong>stacks called "LUMI"</strong>. Each one corresponds to a <strong>particular release of the HPE Cray
-Programming Environment</strong>. It is the stack in which we install software using the that programming environment
+Programming Environment</strong>. It is the stack in which we install software using that programming environment
 and mostly EasyBuild. <strong>The Cray Programming Environment modules are still used, but they are accessed through
-a replacement for the PrgEnv modules that is managed by EasyBuild</strong>. We have <strong>tuned versions for the 4 types
+a replacement for the PrgEnv modules that is managed by EasyBuild</strong>. We have <strong>tuned versions for the 3 types
 of hardware in the regular LUMI system</strong>: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
-LUMI-C compute nodes, zen 2 combined with NVIDIA GPUs for the visualisation nodes and zen3 + MI250X for
-the LUMI-G partition. There is also some support for the early access platform which has zen2 CPUs combined
-with MI100 GPUs but we don't pre-install software in there at the moment except for some build tools and
-some necessary tools for ROCm as these nodes are not meant to run codes on and as due to installation 
-restrictions we cannot yet use the GPU compilers with EasyBuild the way we should do that on the final system.</p>
-<p>We also provide the <strong>spack</strong> modules which provide some support to install software with <a href="https://spack.io/">Spack</a>. This stack is 
-meant for users who are very familiar with Spack and can deal with the problems Spack may throw at you. We have
-no intent to debug or modify Spack package files ourselves, but did an effort to configure Spack to use the
-compilers provided by the HPE Cray PE.</p>
+LUMI-C compute nodes and zen3 + MI250X for
+the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
+zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.</p>
 <p>In the far future we will also look at <strong>a stack based on the common EasyBuild toolchains as-is</strong>, but we do expect
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
+<p>We also have an extensible software stack based on <strong>Spack</strong> which has been pre-configured to use the compilers
+from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
+support nor do we do any bugfixing in Spack.</p>
 <h3 id="3-ways-to-access-the-cray-programming-environment-on-lumi">3 ways to access the Cray Programming environment on LUMI.<a class="headerlink" href="#3-ways-to-access-the-cray-programming-environment-on-lumi" title="Permanent link">&para;</a></h3>
 <h4 id="bare-environment-and-crayenv">Bare environment and CrayEnv<a class="headerlink" href="#bare-environment-and-crayenv" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 7" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia7.png" /></p>
+<p><img alt="Accessing the Cray PE: BAre and CrayEnv" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia7.png" /></p>
 </figure>
 <p>Right after login you have a <strong>very bare environment available with the Cray Programming Environment
 with the PrgEnv-cray module loaded</strong>. It gives you basically <strong>what you can expect on a typical Cray system</strong>.
@@ -1741,7 +1480,7 @@ sure that those tools don't create conflicts with software in other stacks. But 
 Environment <strong>works exactly as you'd expect from this course</strong>.</p>
 <h4 id="lumi-stack">LUMI stack<a class="headerlink" href="#lumi-stack" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 8" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia8.png" /></p>
+<p><img alt="Accessing the Cray PE: LUMI stack" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia8.png" /></p>
 </figure>
 <p>The <strong>third way</strong> to access the Cray Programming Environment is through the <strong>LUMI software stacks</strong>, where each stack
 is <strong>based on a particular release of the HPE Cray Programming Environment</strong>. We advise against mixing with modules
@@ -1770,7 +1509,7 @@ toolchains</strong> instead as indicated by the following table:</p>
 <tr>
 <td align="left"><code>PrgEnv-aocc</code></td>
 <td align="left"><code>cpeAOCC</code></td>
-<td align="left">AMD CPU compilers</td>
+<td align="left">AMD CPU compilers (login nodes and LUMI-C only)</td>
 </tr>
 <tr>
 <td align="left"><code>PrgEnv-amd</code></td>
@@ -1780,20 +1519,19 @@ toolchains</strong> instead as indicated by the following table:</p>
 </tbody>
 </table>
 <p>The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
-And we sometimes use this to work around problems in Cray-provided modules that we cannot change. E.g.,
-the <code>PrgEnv-aocc/21.12</code> module can successfully use the <code>aocc/3.1.0</code> compilers.</p>
+And we sometimes use this to work around problems in Cray-provided modules that we cannot change. </p>
 <p>This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.</p>
 <h4 id="lumi-stack-module-organisation">LUMI stack module organisation<a class="headerlink" href="#lumi-stack-module-organisation" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 9" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia9.png" /></p>
+<p><img alt="The LUMI software stack" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia9.png" /></p>
 </figure>
 <p>To manage the heterogeneity in the hardware, the LUMI software stack uses <strong>two levels of modules</strong></p>
-<p>First there are the <strong>LUMI/21.12 and LUMI/22.08 modules</strong>. Each of the LUMI modules loads a particular
+<p>First there are the <strong>LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules</strong>. Each of the LUMI modules loads a particular
 version of the LUMI stack.</p>
 <p>The <strong>second level consists of partition modules</strong>. There is partition/L for the login and large memory nodes,
-partition/C for the regular compute nodes, partition/G for the GPU nodes and in the future
-we may have partition/D for the visualisation nodes.</p>
+partition/C for the regular compute nodes and partition/G for the AMD GPU nodes.
+We may have a separate partition for the visualisation nodes in the future but that is not clear yet.</p>
 <p>There is also a <strong>hidden partition/common module</strong> in which we install software that is available everywhere, 
 but we advise you to be careful to install software in there in your own installs as it is risky to rely on
 software in one of the regular partitions, and impossible in our EasyBuild setup.</p>
@@ -1811,10 +1549,10 @@ explicitly load the partition/L module.</p>
 <h2 id="lmod-on-lumi">Lmod on LUMI<a class="headerlink" href="#lmod-on-lumi" title="Permanent link">&para;</a></h2>
 <h3 id="exploring-modules-with-lmod">Exploring modules with Lmod<a class="headerlink" href="#exploring-modules-with-lmod" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 10" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia10.png" /></p>
+<p><img alt="Exploring modules with Lmod" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia10.png" /></p>
 </figure>
 <p>Contrary to some other module systems, or even some other Lmod installations, <strong>not all modules are
-immediately available for loading</strong>. So don't be disappointed by the small number of modules you will see with
+immediately available for loading</strong>. So don't be disappointed by the few modules you will see with
 <code>module available</code> right after login. Lmod has a <strong>so-called hierarchical setup</strong> that tries to protect
 you from being confronted with all modules at the same time, even those that may conflict with 
 each other, and we use that to some extent on LUMI. Lmod <strong>distinguishes between installed modules and
@@ -1843,7 +1581,7 @@ the way the Lmod developer intended so that some features do not function as the
 <h3 id="module-spider-command">Module spider command<a class="headerlink" href="#module-spider-command" title="Permanent link">&para;</a></h3>
 <p><strong><em>Demo moment 1 (when infrastructure for a demo is available)</em></strong></p>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 11" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia11.png" /></p>
+<p><img alt="module spider" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia11.png" /></p>
 </figure>
 <p>(The content of this slide is really meant to be shown in practice on a command line.)</p>
 <p>There are three ways to use <code>module spider</code>, discovering software in more and more detail.</p>
@@ -1861,30 +1599,35 @@ the way the Lmod developer intended so that some features do not function as the
 <li>
 <p><code>module spider</code> with the name of a package will show all versions of that package installed on
     the system. This is also case-insensitive. Let's try for instance <code>module spider gnuplot</code>. This
-    will show 10 versions of GNUplot. There are two installations of GNUplot 5.4.2 and eight of 5.4.3. The 
+    will show 17 versions of GNUplot. There are 12 installations of GNUplot 5.4.3 (of which 3 with Spack,
+    their name has a different structure) and five of 5.4.6. The 
     remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
     versions for two or three compilers is that no two compiler modules can be loaded simultaneously,
     and this offers a solution to use multiple tools without having to rebuild your environment for
     every tool, and hence also to combine tools. </p>
-<p>Now try <code>module spider CMake</code>. We see that there are four versions, 3.21.2, 3.22.2, 3.23.2 and 3.24.0, but now
-they are shown in blue with an "E" behind the name. That is because there is no module called
-<code>CMake</code> on LUMI. Instead the tool is provided by another module that in this case contains
+<p>Now try <code>module spider CMake</code>. We see that there are four versions,3.22.2, 3.23.2, 3.24.0 and 3.25.2, 
+that are shown in blue with an "E" behind the name. That is because these are not provided 
+by a module called
+<code>CMake</code> on LUMI, but by another module that in this case contains
 a collection of popular build tools and that we will discover shortly.</p>
+<p>There are also a couple of regular modules called <code>cmake</code> that come from software installed
+differently.</p>
 </li>
 <li>
 <p>The third use of <code>module spider</code> is with the full name of a module. Try for instance
-    <code>module spider gnuplot/5.4.3-cpeGNU-22.08</code>. This will now show full help information for
+    <code>module spider gnuplot/5.4.6-cpeGNU-22.12</code>. This will now show full help information for
     the specific module, including what should be done to make the module available. For 
-    this GNUplot module we see that there are two ways to load the module: By loading <code>LUMI/22.08</code> 
-    combined with <code>partition/C</code> or by loading <code>LUMI/22.08</code> combined with <code>partition/L</code>. So use only
+    this GNUplot module we see that there are three ways to load the module: By loading <code>LUMI/22.12</code> 
+    combined with <code>partition/C</code>, by loading <code>LUMI/22.12</code> combined with <code>partition/G</code>
+    or by loading <code>LUMI/22.12</code> combined with <code>partition/L</code>. So use only
     a single line, but chose it in function of the other modules that you will also need. In this case
-    it means that that version of GNUplot is available in the <code>LUMI/22.08</code> stack which we could already
+    it means that that version of GNUplot is available in the <code>LUMI/22.12</code> stack which we could already
     have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
     partition. This does however not always work with the Cray Programming Environment modules.</p>
 <p>We can also use <code>module spider</code> with the name and version of an extension. So try
-<code>module spider CMake/3.24.0</code>. This will now show us that this tool is in the <code>buildtools/22.08</code>
-module (among others) and give us 6 different options to load that module as it is provided in the <code>CrayEnv</code>
-and the <code>LUMI/22.08</code> software stacks and for all partitions (basically because we don't do
+<code>module spider CMake/3.25.2</code>. This will now show us that this tool is in the <code>buildtools/22.12</code>
+module (among others) and give us 4 different options to load that module as it is provided in the <code>CrayEnv</code>
+and the <code>LUMI/22.12</code> software stacks and for all partitions (basically because we don't do
 processor-specific optimisations for these tools).</p>
 </li>
 </ol>
@@ -1894,107 +1637,138 @@ processor-specific optimisations for these tools).</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>spider
 module<span class="w"> </span>spider<span class="w"> </span>gnuplot
 module<span class="w"> </span>spider<span class="w"> </span>cmake
-module<span class="w"> </span>spider<span class="w"> </span>gnuplot/5.4.3-cpeGNU-22.08
-module<span class="w"> </span>spider<span class="w"> </span>CMake/3.24.0
+module<span class="w"> </span>spider<span class="w"> </span>gnuplot/5.4.6-cpeGNU-22.12
+module<span class="w"> </span>spider<span class="w"> </span>CMake/3.25.2
 </code></pre></div>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 12" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia12.png" />
+  <img alt="module spider demo slide 1" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia12.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 13" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia13.png" />
+  <img alt="module spider demo slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia13.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 14" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia14.png" />
+  <img alt="module spider demo slide 3" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia14.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 15" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia15.png" />
+  <img alt="module spider demo slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia15.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 16" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia16.png" />
+  <img alt="module spider demo slide 5" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia16.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 17" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia17.png" />
+  <img alt="module spider demo slide 6" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia17.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 18" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia18.png" />
+  <img alt="module spider demo slide 7" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia18.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 19" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia19.png" />
+  <img alt="module spider demo slide 8" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia19.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 20" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia20.png" />
+  <img alt="module spider demo slide 9" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia20.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 21" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia21.png" />
+  <img alt="module spider demo slide 10" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia21.png" />
 </figure></p>
 </details>
 <h3 id="module-keyword-command">Module keyword command<a class="headerlink" href="#module-keyword-command" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 22" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia22.png" /></p>
+<p><img alt="module keyword command" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia22.png" /></p>
 </figure>
-<p><code>module keyword</code> will search for a module using a keyword but it is <strong>currently not very useful on
-LUMI</strong> because of a bug in the current version of Cray Lmod which is solved in the more recent versions.
-Currently the output contains a lot of irrelevant modules, basically all extensions of modules
-on the system.</p>
-<p>What <code>module keyword</code> really does is search in the <strong>module description and help</strong> for the word that 
-you give as an argument. Try for instance <code>module keyword https</code> and you'll see two relevant tools,
-<code>cURL</code> and <code>wget</code>, two tools that can be used to download files to LUMI via several protocols in use
-on the internet.</p>
-<p>On LUMI <strong>we do try to put enough information in the module files</strong> to make this a suitable additional
-way to discover software that is already installed on the system, more so than in regular EasyBuild
-installations.</p>
+<p>Lmod has a second way of searching for modules: <code>module keyword</code>, but unfortunately it does not
+yet work very well on LUMI as the version of Lmod is rather old and still has some bugs in the
+processing of the command. </p>
+<p>The <code>module keyword</code> command searches in some of the information included in module files for the
+given keyword, and shows in which modules the keyword was found.</p>
+<p>We do an effort to put enough information in the modules to make this a suitable additional way
+to discover software that is installed on the system.</p>
 <details class="demo" open="open">
 <summary>Demo module keyword</summary>
 <p>Try the following command:</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>keyword<span class="w"> </span>https
 </code></pre></div>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 23" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia23.png" />
+  <img alt="module keyword demo slide 1" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia23.png" />
+</figure></p>
+<p>The bug in the Lmod 8.3 version on LUMI is that all extensions are shown in the output 
+while they are irrelevant. </p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module keyword demo slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia24.png" />
+</figure></p>
+<p>On the second screen though we see <code>cURL</code> which is a tool to download files over,
+among others, https.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module keyword demo slide 3" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia25.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 24" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia24.png" />
+  <img alt="module keyword demo slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia26.png" />
 </figure></p>
+<p>And the fourth screen <code>wget</code> which is also a tool to download files from the internet
+over an https connection.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 25" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia25.png" />
-</figure></p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 26" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia26.png" />
+  <img alt="module keyword demo slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia27.png" />
 </figure></p>
 </details>
 <h3 id="sticky-modules-and-module-purge">Sticky modules and module purge<a class="headerlink" href="#sticky-modules-and-module-purge" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 27" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia27.png" /></p>
+<p><img alt="Sticky modules and module purge" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia28.png" /></p>
 </figure>
-<p>You may have been taught that <code>module purge</code> is a command that unloads all modules and on some
-systems they <strong>might tell you in trainings not to use it because it may also remove some basic 
-modules that you need to use the system</strong>. On LUMI for instance there is an <code>init-lumi</code> module that
-does some of the setup of the module system and should be reloaded after a normal <code>module purge</code>.
-On Cray systems <code>module purge</code> will also unload the target modules while those are typically not
-loaded by the <code>PrgEnv</code> modules so you'd need to reload them by hand before the <code>PrgEnv</code> modules
-would work.</p>
-<p>Lmod however does have the concept of <strong>"sticky modules"</strong>. These are not unloaded by <code>module purge</code>
-but are re-loaded, so unloaded and almost immediately loaded again, though you can always
-force-unload them with <code>module --force purge</code> or <code>module --force unload</code> for individual modules.</p>
+<p>On some systems you will be taught to avoid <code>module purge</code> as many HPC systems do their default user
+configuration also through modules. This advice is often given on Cray systems as it is a common
+practice to preload a suitable set of target modules and a programming environment.
+On LUMI both are used. A default programming environment and set of target modules suitable for the
+login nodes is preloaded when you log in to the system, and next the <code>init-lumi</code> module is loaded
+which in turn makes the LUMI software stacks available that we will discuss in the next session.</p>
+<p>Lmod however has a trick that help to avoid removing necessary modules and it is called sticky modules.
+When issuing the <code>module purge</code> command these modules are automatically reloaded. It is very important to
+realise that those modules will not just be kept "as is" but are in fact unloaded and loaded again as
+we shall see later that this may have consequences. It is still possible to force unload all these modules
+using <code>module --force purge</code> or selectively unload those using <code>module --force unload</code>.</p>
+<p>The sticky property is something that is defined in the module file and not used by the module files
+ot the HPE Cray Programming Environment, but we shall see that there is a partial workaround for this in
+some of the LUMI software stacks. The <code>init-lumi</code> module mentioned above though is a sticky module, as are
+the modules that activate a software stack so that you don't have to start from scratch if you have already
+chosen a software stack but want to clean up your environment.</p>
 <details class="demo" open="open">
 <summary>Demo</summary>
 <p>Try the following command:</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>av
 </code></pre></div>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 1" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia28.png" />
+  <img alt="module av slide 1" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia29.png" />
 </figure></p>
 <p>Note the very descriptive titles in the above screenshot.</p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 2" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia29.png" />
-</figure></p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 3" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia30.png" />
-</figure></p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 4" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia31.png" />
-</figure></p>
 <p>The letter "D" next to a name denotes that this is the default version,
-the letter "L" denotes that the module is loaded.</p>
+the letter "L" denotes that the module is loaded, but we'll come back to 
+that later also.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module av slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia30.png" />
+</figure></p>
+<p>Note the two categories for the PE modules. The target modules get their own block.
+The screen below also shows <code>(D:5.0.2:5.2.0)</code> next to the <code>rocm</code> module. 
+The <code>D</code> means that this version of the module, <code>5.2.3</code>, is currently the default on
+the system. The two version numbers next to this module show that the module can also 
+be loaded as <code>rocm/5.0.2</code> and <code>rocm/5.2.0</code>. These are two modules that were removed
+from the system during the last update of the system, but version 5.2.3 can be loaded
+as a replacement of these modules so that software that used the removed modules may
+still work without recompiling.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module av slide 3" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia31.png" />
+</figure></p>
+<p>In the next screen we see the modules for the software stack that we have just discussed.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module av slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia32.png" />
+</figure></p>
+<p>And the screen below shows the extensions of modules (like the CMake tool we've tried to locate
+before)</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module av slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia33.png" />
+</figure></p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="module av slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia34.png" />
+</figure></p>
+<p>At the end of the output we also get some information about the meaning of the 
+letters used in the display.</p>
 <p>Try the following commands and carefully observe the output:</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LUMI/22.08<span class="w"> </span>buildtools
 module<span class="w"> </span>list
@@ -2013,14 +1787,14 @@ display style of the modules</strong>. </p>
     modules also but as <code>CrayEnv</code> is not just left untouched but reloaded instead, the load of <code>CrayEnv</code>
     will load a suitable set of target modules for the node you're on again. But any customisations that
     you did for cross-compiling will be lost. </li>
-<li>Similary in the LUMI stacks, as the <code>LUMI</code> module itself
+<li>Similarly in the LUMI stacks, as the <code>LUMI</code> module itself
     is reloaded, it will also reload a partition module. However, that partition module might not be the 
     one that you had loaded but it will be the one that the LUMI module deems the best for the node you're
     on, and you may see some confusing messages that look like an error message but are not.</li>
 </ul>
 <h3 id="changing-how-the-module-list-is-displayed">Changing how the module list is displayed<a class="headerlink" href="#changing-how-the-module-list-is-displayed" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 33" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia33.png" /></p>
+<p><img alt="Changing how the module list is displayed" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia35.png" /></p>
 </figure>
 <p>You may have noticed already that by default you <strong>don't see the directories in which the module
 files reside</strong> as is the case on many other clusters. Instead we try to show <strong>labels that tell you
@@ -2059,8 +1833,8 @@ module<span class="w"> </span>load<span class="w"> </span>ModuleColour/on
 </code></pre></div>
 </details>
 <p>We also <strong>hide some modules from regular users</strong> because we think they are not useful at all for regular
-users or not useful in the context you're in at the moment. For instance, when working in the <code>LUMI/22.08</code>
-stack we prefer that users use the Cray programming environment modules that come with release 22.08 of that
+users or not useful in the context you're in at the moment. For instance, when working in the <code>LUMI/22.12</code>
+stack we prefer that users use the Cray programming environment modules that come with release 22.12 of that
 environment, and cannot guarantee compatibility of other modules with already installed software, so
 we hide the other ones from view.
 You can still load them if you know they exist but 
@@ -2070,7 +1844,7 @@ things work or to use any module that was designed for us to maintain the system
 <details class="demo" open="open">
 <summary>Demo</summary>
 <p>Try the following commands:</p>
-<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LUMI/22.08
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LUMI/22.12
 module<span class="w"> </span>avail
 module<span class="w"> </span>load<span class="w"> </span>ModulePowerUser
 module<span class="w"> </span>avail
@@ -2080,11 +1854,11 @@ module<span class="w"> </span>avail
 <h2 id="easybuild-to-extend-the-lumi-software-stack">EasyBuild to extend the LUMI software stack<a class="headerlink" href="#easybuild-to-extend-the-lumi-software-stack" title="Permanent link">&para;</a></h2>
 <h3 id="installing-software-on-hpc-systems">Installing software on HPC systems<a class="headerlink" href="#installing-software-on-hpc-systems" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 34" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia34.png" /></p>
+<p><img alt="Installing software on HPC systems" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia36.png" /></p>
 </figure>
 <p>Software on HPC systems is <strong>rarely installed from RPMs</strong> for various reasons.
 Generic RPMs are <strong>rarely optimised for the specific CPU</strong> of the system as they have to work on a range
-of systems and as including optimised code paths in a single executable for multiple architectures is
+of systems and including optimised code paths in a single executable for multiple architectures is
 hard to even impossible. 
 Secondly generic RPMs <strong>might not even work with the specific LUMI environment</strong>. They may not fully
 support the SlingShot interconnect and hence run at reduced speed, or they may need particular
@@ -2105,7 +1879,7 @@ and select appropriate versions for your work.
 And they do <strong>take care of dependency handling</strong> in a way that is compatible with modules.</p>
 <h3 id="extending-the-lumi-stack-with-easybuild">Extending the LUMI stack with EasyBuild<a class="headerlink" href="#extending-the-lumi-stack-with-easybuild" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 35" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia35.png" /></p>
+<p><img alt="Extending the LUMI stack with EasyBuild" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia37.png" /></p>
 </figure>
 <p>On LUMI EasyBuild is our primary software installation tool. We selected this as there is
 already a lot of experience with EasyBuild in several LUMI consortium countries and as
@@ -2119,29 +1893,165 @@ EasyBuild and configure it for installation in a way that is compatible with the
 LUMI stack.
 EasyBuild will then use existing modules for dependencies if those are already on the system
 or in your personal or project stack.</p>
-<p>Note however that the <strong>built-in easyconfig files that come with EasyBuild do not work on LUMI</strong> at
+<p>Note however that the <strong>build-in easyconfig files that come with EasyBuild do not work on LUMI</strong> at
 the moment.</p>
 <ul>
-<li>For the GNU toolchain we would have problems with MPI. EasyBuild there uses Open MPI and that
+<li>For the GNU toolchain we would have problems with MPI. EasyBuild uses Open MPI and that
     needs to be configured differently to work well on LUMI, and there are also still issues with
     getting it to collaborate with the resource manager as it is installed on LUMI.</li>
 <li>The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the
     AMD CPUs are a problematic cocktail. There have recently been performance and correctness problems 
-    with the MKL math library and also failures some versions of Intel MPI, 
+    with the MKL math library and also failures with some versions of Intel MPI, 
     and you need to be careful selecting compiler options and not use <code>-xHost</code>
-    with the classic compilers or the Intel compiler will simply optimize for a two decades old CPU.</li>
+    or the Intel compiler will simply optimize for a two decades old CPU.</li>
 </ul>
 <p>Instead we make our <strong>own EasyBuild build recipes</strong> that we also make available in the 
 <a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib">LUMI-EasyBuild-contrib GitHub repository</a>.
 The EasyBuild configuration done by the EasyBuild-user module will find a copy of that repository
 on the system or in your own install directory. The latter is useful if you always want the very
-latest, before we deploy it on the system. 
-We also maintain a list of all EasyBuild recipes installed in the central stack maintained by
-LUST or available in the main EasyConfig repository LUMI-EasyBuild-contrib in 
-<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">the LUMI Software Library</a>.</p>
-<h3 id="step-1-where-to-install">Step 1: Where to install<a class="headerlink" href="#step-1-where-to-install" title="Permanent link">&para;</a></h3>
+latest, before we deploy it on the system. </p>
+<p>We also have the
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
+which documents all software for which we have EasyBuild recipes available. 
+This includes both the pre-installed software and the software for which we provide recipes in the
+<a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib">LUMI-EasyBuild-contrib GitHub repository</a>,
+and even instructions for some software that is not suitable for installation through EasyBuild or
+Spack, e.g., because it likes to write in its own directories while running.</p>
+<h3 id="easybuild-recipes-easyconfigs">EasyBuild recipes - easyconfigs<a class="headerlink" href="#easybuild-recipes-easyconfigs" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 36" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia36.png" /></p>
+<p><img alt="EasyBuild recipes - easyconfigs" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia38.png" /></p>
+</figure>
+<p>EasyBuild uses a build recipe for each individual package, or better said, each individual module
+as it is possible to install more than one software package in the same module. That installation
+description relies on either a generic or a specific installation process provided by an easyblock.
+The build recipes are called easyconfig files or simply easyconfigs and are Python files with 
+the extension <code>.eb</code>. </p>
+<p>The typical steps in an installation process are:</p>
+<ol>
+<li>Downloading sources and patches. For licensed software you may have to provide the sources as
+    often they cannot be downloaded automatically.</li>
+<li>A typical configure - build - test - install process, where the test process is optional and
+    depends on the package providing useable pre-installation tests.</li>
+<li>An extension mechanism can be used to install perl/python/R extension packages</li>
+<li>Then EasyBuild will do some simple checks (some default ones or checks defined in the recipe)</li>
+<li>And finally it will generate the module file using lots of information specified in the 
+    EasyBuild recipe.</li>
+</ol>
+<p>Most or all of these steps can be influenced by parameters in the easyconfig.</p>
+<h3 id="the-toolchain-concept">The toolchain concept<a class="headerlink" href="#the-toolchain-concept" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="The toolchain concept" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia39.png" /></p>
+</figure>
+<p>EasyBuild uses the toolchain concept. A toolchain consists of compilers, an MPI implementation
+and some basic mathematics libraries. The latter two are optional in a toolchain. All these 
+components have a level of exchangeability as there are language standards, as MPI is standardised,
+and the math libraries that are typically included are those that provide a standard API for which
+several implementations exist. All these components also have in common that it is risky to combine 
+pieces of code compiled with different sets of such libraries and compilers because there can
+be conflicts in names in the libraries.</p>
+<p>On LUMI we don't use the standard EasyBuild toolchains but our own toolchains specifically for Cray
+and these are precisely the <code>cpeCray</code>, <code>cpeGNU</code>, <code>cpeAOCC</code> and <code>cpeAMD</code> modules already mentioned 
+before.</p>
+<table>
+<thead>
+<tr>
+<th align="left">HPE Cray PE</th>
+<th align="left">LUMI toolchain</th>
+<th align="left">What?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>PrgEnv-cray</code></td>
+<td align="left"><code>cpeCray</code></td>
+<td align="left">Cray Compiler Environment</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-gnu</code></td>
+<td align="left"><code>cpeGNU</code></td>
+<td align="left">GNU C/C++ and Fortran</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-aocc</code></td>
+<td align="left"><code>cpeAOCC</code></td>
+<td align="left">AMD CPU compilers (login nodes and LUMI-C only)</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-amd</code></td>
+<td align="left"><code>cpeAMD</code></td>
+<td align="left">AMD ROCm GPU compilers (LUMI-G only)</td>
+</tr>
+</tbody>
+</table>
+<figure style="border: 1px solid #000">
+<p><img alt="The toolchain concept 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia40.png" /></p>
+</figure>
+<p>There is also a special toolchain called the SYSTEM toolchain that uses the compiler
+provided by the operating system. This toolchain does not fully function in the same way as the other
+toolchains when it comes to handling dependencies of a package and is therefore a bit harder to use.
+The EasyBuild designers had in mind that this compiler would only be used to bootstrap an
+EasyBuild-managed software stack, but we do use it for a bit more on LUMI as it offers us a
+relatively easy way to compile some packages also for the CrayEnv stack and do this in a way
+that they interact as little as possible with other software.</p>
+<p>It is not possible to load packages from different cpe toolchains at the same time.
+This is an EasyBuild restriction, because mixing libraries compiled with different compilers
+does not always work. This could happen, e.g., if a package compiled with the Cray Compiling
+Environment and one compiled with the GNU compiler collection would both use a particular 
+library, as these would have the same name and hence the last loaded one would be used
+by both executables (we don't use rpath or runpath linking in EasyBuild for those familiar
+with that technique).</p>
+<p>However, as we did not implement a hierarchy in the Lmod implementation of our software stack
+at the toolchain level, the module system will not protect you from these mistakes. 
+When we set up the software stack, most people in the support team considered it too misleading
+and difficult to ask users to first select the toolchain they want to use and then see the 
+software for that toolchain.</p>
+<p>It is however possible to combine packages compiled with one CPE-based toolchain with packages
+compiled with teh system toolchain, but we do avoid mixing those when linking as that may cause
+problems. The reason is that we try to use as much as possible static linking in the SYSTEM
+toolchain so that these packages are as independent as possible.</p>
+<p>And with some tricks it might also be possible to combine packages from the LUMI software stack
+with packages compiled with Spack, but one should make sure that no Spack packages are available
+when building as mixing libraries could cause problems. Spack uses rpath linking which is why
+this may work.</p>
+<h3 id="easyconfig-names-and-module-names">EasyConfig names and module names<a class="headerlink" href="#easyconfig-names-and-module-names" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="easyconfig names and module names" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia41.png" /></p>
+</figure>
+<p>There is a convention for the naming of an EasyConfig as shown on the slide. This is not
+mandatory, but EasyBuild will fail to automatically locate easyconfigs for dependencies 
+of a package that are not yet installed if the easyconfigs don't follow the naming
+convention. Each part of the name also corresponds to a parameter in the easyconfig 
+file.</p>
+<p>Consider, e.g., the easyconfig file <code>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb</code>.</p>
+<ol>
+<li>The first part of the name, <code>GROMACS</code>, is the name of the package, specified by the
+    <code>name</code> parameter in the easyconfig, and is after installation also the name of the
+    module.</li>
+<li>The second part, <code>2021.4</code>, is the version of GROMACS and specified by the
+    <code>version</code> parameter in the easyconfig.</li>
+<li>
+<p>The next part, <code>cpeCray-22.08</code> is the name and version of the toolchain,
+    specified by the <code>toolchain</code> parameter in the easyconfig. The version of the
+    toolchain must always correspond to the version of the LUMI stack. So this is
+    an easyconfig for installation in <code>LUMI/22.08</code>.</p>
+<p>This part is not present for the SYSTEM toolchain</p>
+</li>
+<li>
+<p>The final part, <code>-PLUMED-2.8.0-CPU</code>, is the version suffix and used to provide
+    additional information and distinguish different builds with different options
+    of the same package. It is specified in the <code>versionsuffix</code> parameter of the
+    easyconfig.</p>
+<p>This part is optional.</p>
+</li>
+</ol>
+<p>The version, toolchain + toolchain version and versionsuffix together also combine
+to the version of the module that will be generated during the installation process.
+Hence this easyconfig file will generate the module 
+<code>GROMACS/2021.4-cpeCray-22.08-PLUMED-2.8.0-CPE</code>.</p>
+<h3 id="installing-software">Installing software<a class="headerlink" href="#installing-software" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-where-to-install">Step 1: Where to install<a class="headerlink" href="#step-1-where-to-install" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Step 1: Where to install" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia42.png" /></p>
 </figure>
 <p>Let's now discuss how you can extend the central LUMI software stack with packages that you
 need for your project.</p>
@@ -2159,28 +2069,38 @@ module system and EasyBuild will not find it when they need it. So a good choice
 something like 
 <code>export EBU_USER_PREFIX=/project/project_465000000/EasyBuild</code>. 
 You have to do this <strong>before</strong> loading the <code>LUMI</code> module as it is then already used to ensure that
-user modules are included in the module search path. You can do this in your <code>.bash_profile</code> or
+user modules are included in the module search path. You can do this in your <code>.profile</code> or
 <code>.bashrc</code>. 
 This variable is not only <strong>used by EasyBuild-user</strong> to know where to install software, but also 
 by the <code>LUMI</code> - or actually <strong>the <code>partition</code> - module to find software</strong> so all users in your project
 who want to use the software should set that variable.</p>
-<h3 id="step-2-configure-the-environment">Step 2: Configure the environment<a class="headerlink" href="#step-2-configure-the-environment" title="Permanent link">&para;</a></h3>
+<h4 id="step-2-configure-the-environment">Step 2: Configure the environment<a class="headerlink" href="#step-2-configure-the-environment" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 38" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia38.png" /></p>
+<p><img alt="Step 2: Configure the environment" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia43.png" /></p>
 </figure>
-<p>Once that environment variable is set, all you need to do to activate EasyBuild is to load
+<p>The next step is to configure your environment. First load the proper version of the LUMI
+stack for which you want to install software, and you may want to change to the proper
+partition also if you are cross-compiling.</p>
+<p>Once you have selected the software stack and partition, all you need to do to activate EasyBuild to install
+additional software is to load
 the <code>LUMI</code> module, load a partition module if you want a different one from the default, and 
 then load the <code>EasyBuild-user</code> module. In fact, if you switch to a different <code>partition</code> 
 or <code>LUMI</code> module after loading <code>EasyBuild-user</code> EasyBuild will still be correctly reconfigured 
-for the new stack and new partition. 
-Cross-compilation which is installing software for a different partition than the one you're
+for the new stack and new partition. </p>
+<p>Cross-compilation which is installing software for a different partition than the one you're
 working on does not always work since there is so much software around with installation scripts
 that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
 a different partition module than the one that is auto-loaded by the <code>LUMI</code> module.</p>
-<h3 id="step-3-install-the-software">Step 3: Install the software.<a class="headerlink" href="#step-3-install-the-software" title="Permanent link">&para;</a></h3>
+<p><strong>Note that the <code>EasyBuild-user</code> module is only needed for the installation process. For using
+the software that is installed that way it is sufficient to ensure that <code>EBU_USER_PREFIX</code> has
+the proper value before loading the <code>LUMI</code> module.</strong></p>
+<figure style="border: 1px solid #000">
+<p><img alt="Step 2: Configure the environment - Demo" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia44.png" /></p>
+</figure>
+<h4 id="step-3-install-the-software">Step 3: Install the software.<a class="headerlink" href="#step-3-install-the-software" title="Permanent link">&para;</a></h4>
 <p><strong><em>Demo moment 2</em></strong></p>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 39" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia39.png" /></p>
+<p><img alt="Step 3: Install the software" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia45.png" /></p>
 </figure>
 <p>Let's look at GROMACS as an example. I will not try to do this completely live though as the 
 installation takes 15 or 20 minutes.
@@ -2188,25 +2108,26 @@ First we need to figure out for which versions of GROMACS we already have suppor
 At the moment we have to use <code>eb -S</code> or <code>eb --search</code> for that. So in our example this is
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--search<span class="w"> </span>GROMACS
 </code></pre></div>
-This process is not optimal and will be improved in the future. We are developing a system that
-will instead give an overview of available EasyBuild recipes on the documentation web site.</p>
+We now also have the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
+which lists all software that we manage via EasyBuild and make available either pre-installed on
+the system or as an EasyBuild recipe for user installation.</p>
 <p>Now let's take the variant <code>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb</code>. 
 This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
 from <code>LUMI/22.08</code>, and a build meant for CPU-only systems. The <code>-CPU</code> extension is not
-always added for CPU-only system, but in case of GROMACS we do expect that GPU builds for
-LUMI will become available early on in the deployment of LUMI-G so we've already added
-a so-called version suffix to distinguish between CPU and GPU versions.
+always added for CPU-only system, but in case of GROMACS there already is a GPU version
+for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
+that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb<span class="w"> </span>–D
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>–r<span class="w"> </span>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb<span class="w"> </span>–D
 </code></pre></div>
 The <code>-D</code> flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the <code>-r</code> argument is needed to tell EasyBuild to also 
-look for dependencies in a preset search path. The search for dependencies is not automatic
+look for dependencies in a preset search path. The installation of dependencies is not automatic
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.</p>
 <p>Looking at the output we see that EasyBuild will also need to install <code>PLUMED</code> for us.
 But it will do so automatically when we run
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb<span class="w"> </span>-r
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>–r<span class="w"> </span>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb
 </code></pre></div></p>
 <p>This takes too long to wait for, but once it finished the software should be available
 and you should be able to see the module in the output of
@@ -2215,40 +2136,40 @@ and you should be able to see the module in the output of
 <details class="demo" open="open">
 <summary>Demo of the EasyBuild installation of GROMACS</summary>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb --search" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia40.png" />
+  <img alt="eb --search" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia46.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -S" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia41.png" />
+  <img alt="eb -S" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia47.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -D" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia42.png" />
+  <img alt="eb -D" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia48.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -D" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia43.png" />
+  <img alt="eb -D" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia49.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia44.png" />
+  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia50.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia45.png" />
+  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia51.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia46.png" />
+  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia52.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia47.png" />
+  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia53.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia48.png" />
+  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia54.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia49.png" />
+  <img alt="eb -r" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia55.png" />
 </figure></p>
 </details>
 <p><strong><em>End of demo moment 2</em></strong></p>
-<h3 id="step-3-install-the-software-note">Step 3: Install the software - Note<a class="headerlink" href="#step-3-install-the-software-note" title="Permanent link">&para;</a></h3>
+<h4 id="step-3-install-the-software-note">Step 3: Install the software - Note<a class="headerlink" href="#step-3-install-the-software-note" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 50" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia50.png" /></p>
+<p><img alt="Step 3: Install the software - Note" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia56.png" /></p>
 </figure>
 <p>There is a little problem though that you may run into. Sometimes the module does not
 show up immediately. This is because Lmod keeps a cache when it feels that Lmod searches
@@ -2269,17 +2190,15 @@ Do this in the central stack and either you have to chose a different name or ri
 jobs as the software would become unavailable during the re-installation and also jobs may get
 confused if they all of a sudden find different binaries. However, have this in your own stack
 extension and you can update whenever it suits your project best or even not update at all if 
-you figure out that the problem we discovered has no influence on your work. OFten you also don't need
-to be an EasyBuild expert to adapt the build recipe to install, e.g., a slgithly different version
-of the package that better suits your needs.</p>
+you figure out that the problem we discovered has no influence on your work.</p>
 <h3 id="more-advanced-work">More advanced work<a class="headerlink" href="#more-advanced-work" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 51" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia51.png" /></p>
+<p><img alt="More advanced work" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia57.png" /></p>
 </figure>
 <p>You can also install some EasyBuild recipes that you got from support. For this it is best to
 create a subdirectory where you put those files, then go into that directory and run 
 something like
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>my_recipe.eb<span class="w"> </span>-r<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>my_recipe.eb<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span>
 </code></pre></div>
 The dot after the <code>-r</code> is very important here as it does tell EasyBuild to also look for 
 dependencies in the current directory, the directory where you have put the recipes you got from
@@ -2295,14 +2214,14 @@ For instance,
 will tell you for which versions of VASP we already have build instructions, but you will still have
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
 directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>VASP-6.3.2-cpeGNU-22.08.eb<span class="w"> </span>-r<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>VASP-6.3.0-cpeGNU-22.08.eb<span class="w"> </span>–r<span class="w"> </span>.<span class="w"> </span>
 </code></pre></div></p>
 <h3 id="more-advanced-work-2-repositories">More advanced work (2): Repositories<a class="headerlink" href="#more-advanced-work-2-repositories" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 52" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia52.png" /></p>
+<p><img alt="More advanced work (2)" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia58.png" /></p>
 </figure>
 <p>It is also possible to have your own clone of the <code>LUMI-EasyBuild-contrib</code> GitHub repository
-in your <code>$EBU_USER_PREFIX</code> subdirectory if you want the latest and greates before it is in
+in your <code>$EBU_USER_PREFIX</code> subdirectory if you want the latest and greatest before it is in
 the centrally maintained clone of the repository. All you need to do is
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$EBU_USER_PREFIX</span>
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib.git
@@ -2317,7 +2236,7 @@ The structure should also be compatible with the structure that EasyBuild uses, 
 easyconfig files go in <code>$EBU_USER_PREFIX/easybuild/easyconfigs</code>.</p>
 <h3 id="more-advanced-work-3-reproducibility">More advanced work (3): Reproducibility<a class="headerlink" href="#more-advanced-work-3-reproducibility" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 53" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia53.png" /></p>
+<p><img alt="More advanced work (3)" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia59.png" /></p>
 </figure>
 <p>EasyBuild also takes care of a <strong>high level of reproducibility of installations</strong>.</p>
 <p>It will <strong>keep a copy of all the downloaded sources</strong> in the <code>$EBU_USER_PREFIX/sources</code>
@@ -2325,16 +2244,11 @@ subdirectory, and use that source file again rather than downloading it again. O
 in some cases those "sources" could be downloaded tar files with binaries instead
 as EasyBuild can install downloaded binaries or relocatable RPMs.
 And if you know the structure of those directories, this is also a place where
-you could manually put the downloaded installation files for licensed software.
-Also, there are rare cases in which EasyBuild cannot save the sources because
-they are automatically downloaded during the installation procedure outside the control
-of EasyBuild with no way to teach EasyBuild where to download those files and place them to
-avoid them to be downloaded automatically. This is, e.g., often te case for software written
-in Rust.</p>
-<p>Moreover, EasyBuild also keeps <strong>copies of all installed easconfig files in two locations</strong>.</p>
+you could manually put the downloaded installation files for licensed software.</p>
+<p>Moreover, EasyBuild also keeps <strong>copies of all installed easyconfig files in two locations</strong>.</p>
 <ol>
 <li>There is a <strong>copy in <code>$EBU_USER_PREFIX/ebrepo_files</code></strong>. And in fact, EasyBuild will use this version
-    first if you try to re-install and did not delete this version first. This is also a policy
+    first if you try to re-install and did not delete this version first. This is a policy
     we set on LUMI which has <strong>both its advantages and disadvantages</strong>. The <strong>advantage</strong> is that it ensures
     that the <strong>information that EasyBuild has about the installed application is compatible with what is
     in the module files</strong>. But the <strong>disadvantage</strong> of course is that if you install an EasyConfig file
@@ -2349,12 +2263,37 @@ in Rust.</p>
     also the directory where you will find the extensive log file with all commands executed during
     the installation and their output.</li>
 </ol>
+<h3 id="easybuild-tips-tricks">EasyBuild tips &amp; tricks<a class="headerlink" href="#easybuild-tips-tricks" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="EasyBuild additional tips&amp;tricks" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia60.png" /></p>
+</figure>
+<p>Updating the version of a package often requires only trivial changes in the easyconfig file.
+However, we do tend to use checksums for the sources so that we can detect if the available
+sources have changed. This may point to files being tampered with, or other changes that might
+need us to be a bit more careful when installing software and check a bit more again. 
+Should the checksum sit in the way, you can always disable it by using 
+<code>--ignore-checksums</code> with the <code>eb</code> command.</p>
+<p>Updating an existing recipe to a new toolchain might be a bit more involving as you also have
+to make build recipes for all dependencies. When we update a toolchain on the system, we
+often bump the versions of all installed libraries to one of the latest versions to have
+most bug fixes and security patches in the software stack, so you need to check for those
+versions also to avoid installing yet another unneeded version of a library.</p>
+<p>We provide documentation on the available software that is either pre-installed or can be
+user-installed with EasyBuild in the 
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>.
+For most packages this documentation does also contain information about the license.
+The user documentation for some packages gives more information about how to use the
+package on LUMI, or sometimes also about things that do not work.
+The documentation also shows all EasyBuild recipes, and for many packages there is 
+also some technical documentation that is more geared towards users who want to
+build or modify recipes. It sometimes also tells why we did things in a particular way.</p>
 <h3 id="easybuild-training-for-advanced-users-and-developers">EasyBuild training for advanced users and developers<a class="headerlink" href="#easybuild-training-for-advanced-users-and-developers" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 54" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia54.png" /></p>
+<p><img alt="EasyBuild training" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia61.png" /></p>
 </figure>
-<p>Since there were a lot of registrations from local support team members, I want to dedicate one slide
-to them also.</p>
+<p>I also want to give some pointers to more information in case you want to learn a lot more
+about, e.g., developing support for your code in EasyBuild, or for support people who want
+to adapt our EasyConfigs for users requesting a specific configuration of a package.</p>
 <p>Pointers to all information about EasyBuild can be found on the EasyBuild web site 
 <a href="https://easybuild.io/">easybuild.io</a>. This
 page also includes links to training materials, both written and as recordings on YouTube, and the
@@ -2362,18 +2301,18 @@ EasyBuild documentation.</p>
 <p>Generic EasyBuild training materials are available on 
 <a href="https:/easybuilders.github.io/easybuild-tutorial/">easybuilders.github.io/easybuild-tutorial</a>.
 The site also contains a LUST-specific tutorial oriented towards Cray systems.</p>
-<p>In the past we also organised a training for CSC staff and staff from other local support 
-organisations. The latest version of the training materials is currently available on
-<a href="https://klust.github.io/easybuild-tutorial/">klust.github.io/easybuild-tutorial</a>.</p>
+<p>There is also a later course developed by LUST for developers of EasyConfigs for LUMI
+that can be found on 
+<a href="https://lumi-supercomputer.github.io/easybuild-tutorial/">lumi-supercomputer.github.io/easybuild-tutorial</a>.</p>
 <h2 id="containers-on-lumi">Containers on LUMI<a class="headerlink" href="#containers-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 55" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia55.png" /></p>
+<p><img alt="Containers on LUMI" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia62.png" /></p>
 </figure>
 <p>Let's now switch to using containers on LUMI. 
 This section is about using containers on the login nodes and compute nodes. 
 Some of you may have heard that there were plans to also have an OpenShift Kubernetes container cloud
 platform for running microservices but at this point it is not clear if and when this will materialize
-due to a lack of manpower to get this running and then to support this.</p>
+due to a lack of personpower to get this running and then to support this.</p>
 <p>In this section, we will </p>
 <ul>
 <li>
@@ -2393,7 +2332,7 @@ due to a lack of manpower to get this running and then to support this.</p>
 <p>Remember though that the compute nodes of LUMI are an HPC infrastructure and not a container cloud!</p>
 <h2 id="what-do-containers-not-provide">What do containers not provide<a class="headerlink" href="#what-do-containers-not-provide" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 56" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia56.png" /></p>
+<p><img alt="What do containers not provide" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia63.png" /></p>
 </figure>
 <p>What is being discussed in this subsection may be a bit surprising.
 Containers are often marketed as a way to provide reproducible science and as an easy way to transfer
@@ -2406,9 +2345,9 @@ CPU type, some floating point computations may produce slightly different result
 this may even be the case between two runs on exactly the same hardware and software.</p>
 <p>But full portability is a much greater myth. Containers are really only guaranteed to be portable between similar systems.
 They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
-in the container, but that is where it stops. Containers are usually build for a particular CPU architecture and GPU
+in the container, but that is where it stops. Containers are usually built for a particular CPU architecture and GPU
 architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
-there is in fact more: containers talk to other hardware to, and on an HPC system the first piece of hardware that comes
+there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
 to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
 kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
 TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
@@ -2424,7 +2363,7 @@ possible. You may not care much about 10% or 20% performance difference on your 
 investment represents 32 million EURO and a lot of science can be done for that money...</p>
 <h2 id="but-what-can-they-then-do-on-lumi">But what can they then do on LUMI?<a class="headerlink" href="#but-what-can-they-then-do-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 57" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia57.png" /></p>
+<p><img alt="But what can they then do on LUMI?" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia64.png" /></p>
 </figure>
 <ul>
 <li>
@@ -2445,7 +2384,7 @@ work to do, and all the file caching mechanisms can also work much better.</p>
     a multi-user HPC system. HPC systems want a lightweight <code>/usr</code> etc. structure as that part of the system
     software is often stored in a RAM disk, and to reduce boot times. Moreover, different users may need
     different versions of a software library so it cannot be installed in its default location in the system
-    library. However, some software is ill-behaved and doesn't allowed to be relocated to a different directory,
+    library. However, some software is ill-behaved and cannot be relocated to a different directory,
     and in these cases containers help you to build a private installation that does not interfere with other
     software on the system.</p>
 </li>
@@ -2456,7 +2395,7 @@ want to run in those containers. We provide some advice on how to build a proper
 neglect it it is up to you to solve the problems that occur.</p>
 <h2 id="managing-containers">Managing containers<a class="headerlink" href="#managing-containers" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 58" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia58.png" /></p>
+<p><img alt="Managing containers" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia65.png" /></p>
 </figure>
 <p>On LUMI, we currently support only one container runtime.</p>
 <p>Docker is not available, and will never be on the regular compute nodes as it requires elevated privileges
@@ -2464,7 +2403,7 @@ to run the container which cannot be given safely to regular users of the system
 <p>Singularity is currently the only supported container runtime and is available on the login nodes and
 the compute nodes. It is a system command that is installed with the OS, so no module has to be loaded
 to enable it. We can also offer only a single version of singularity or its close cousin AppTainer 
-as singularity/AppTainer simply don't support running multiple versions, and currently the version that
+as singularity/AppTainer simply don't really like running multiple versions next to one another, and currently the version that
 we offer is determined by what is offered by the OS.</p>
 <p>To work with containers on LUMI you will either need to pull the container from a container registry,
 e.g., <a href="https://hub.docker.com/">DockerHub</a>, or bring in the container by copying the singularity <code>.sif</code> file.</p>
@@ -2483,32 +2422,37 @@ but this directory is also automatically cleaned when you log out from your last
 <details class="demo" open="open">
 <summary>Demo singularity pull</summary>
 <p>Let's try the <code>singularity pull docker://julia</code> command:</p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 59" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia59.png" />
+<p><!-- Used a 105x23 window size -->
+<figure markdown style="border: 1px solid #000">
+  <img alt="Demo singularity pull slide 1" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia66.png" />
 </figure></p>
 <p>We do get a lot of warnings but usually this is perfectly normal and usually they can be safely ignored.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 60" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia60.png" />
+  <img alt="Demo singularity pull slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia67.png" />
 </figure></p>
 <p>The process ends with the creation of the file <code>jula_latest.sif</code>. </p>
 <p>Note however that the process has left a considerable number of files in <code>~/.singularity</code> also:</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 61" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia61.png" />
+  <img alt="Demo singularity pull slide 3" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia68.png" />
 </figure></p>
 </details>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 62" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia62.png" /></p>
+<p><img alt="Managing containers (2)" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia69.png" /></p>
 </figure>
-<p>There is currently no support for building containers on LUMI and I do not expect that to change quickly.
-It would require enabling some features in the Linux kernel that have seen some very serious security
-vulnerabilities in recent years.</p>
+<p>There is currently limited support for building containers on LUMI and I do not expect that to change quickly.
+Container build strategies that require elevated privileges, and even those that require fakeroot, cannot
+be supported for security reasons. 
+Enabling features that are known to have had several serious security vulnerabilities in the recent past, ot that
+themselves are unsecure by design and could allow users to do more on the system than a regular user should
+be able to do, will never be supported.</p>
 <p>So you should pull containers from a container repository, or build the container on your own workstation
 and then transfer it to LUMI.</p>
-<p>We are also working on a number of base images to build upon, where the base images are tested with the
+<p>There is some support for building on top of an existing singularity container.
+We are also working on a number of base images to build upon, where the base images are tested with the
 OS kernel on LUMI.</p>
 <h2 id="interacting-with-containers">Interacting with containers<a class="headerlink" href="#interacting-with-containers" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 63" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia63.png" /></p>
+<p><img alt="Interacting with containers" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia70.png" /></p>
 </figure>
 <p>There are basically three ways to interact with containers.</p>
 <p>If you have the sif file already on the system you can enter the container with an interactive shell:</p>
@@ -2517,7 +2461,7 @@ OS kernel on LUMI.</p>
 <details class="demo" open="open">
 <summary>Demo singularity shell</summary>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 64" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia64.png" />
+  <img alt="Demo singularity shell" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia71.png" />
 </figure></p>
 <p>In this screenshot we checked the contents of the <code>/opt</code> directory before and after the
 <code>singularity shell julia_latest.sif</code> command. This shows that we are clearly in a different
@@ -2531,7 +2475,7 @@ container has the <code>uname</code> executable installed in it,</p>
 <details class="demo" open="open">
 <summary>Demo singularity exec</summary>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 65" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia65.png" />
+  <img alt="Demo singularity exec" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia72.png" />
 </figure></p>
 <p>In this screenshot we execute the <code>uname -a</code> command before and with the
 <code>singularity exec julia_latest.sif</code> command. There are some slight differences in the
@@ -2551,10 +2495,10 @@ running a container means. You can check if it is present and what it does with 
 <details class="demo" open="open">
 <summary>Demo singularity run</summary>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 66" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia66.png" />
+  <img alt="Demo singularity run" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia73.png" />
 </figure></p>
 <p>In this screenshot we start the julia interface in the container using
-<code>singularity run</code>. The second command shows that the contianer indeed
+<code>singularity run</code>. The second command shows that the container indeed
 includes a script to tell singularity what <code>singularity run</code> should do.</p>
 </details>
 <p>You want your container to be able to interact with the files in your account on the system.
@@ -2569,7 +2513,7 @@ either using the
 flag or via the <code>SINGULARITY_BIND</code> or <code>SINGULARITY_BINDPATH</code> environment variables.</p>
 <h2 id="running-containers-on-lumi">Running containers on LUMI<a class="headerlink" href="#running-containers-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 67" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia67.png" /></p>
+<p><img alt="/running containers on LUMI" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia74.png" /></p>
 </figure>
 <p>Just as for other jobs, you need to use Slurm to run containers on the compute nodes.</p>
 <p>For MPI containers one should use <code>srun</code> to run the <code>singularity exec</code> command, e.g,,</p>
@@ -2578,15 +2522,16 @@ ${CONTAINER_PATH} mp_mpi_binary ${APP_PARAMS}
 </code></pre></div>
 <p>(and replace the environment variables above with the proper bind arguments for <code>--bind</code>, container file and
 parameters for the command that you want to run in the container).</p>
-<p>On LUMI, the software that you run in the container should be compatible with Cray MPICH, ie.e, use the
+<p>On LUMI, the software that you run in the container should be compatible with Cray MPICH, i.e., use the
 MPICH ABI (currently Cray MPICH is based on MPICH 3.4). It is then possible to tell the container to use
 Cray MPICH (from outside the container) rather than the MPICH variant installed in the container, so that
 it can offer optimal performance on the LUMI SlingShot 11 interconnect.</p>
 <p>Open MPI containers are currently not well supported on LUMI and we do not recommend using them.
-We have no good solutions at the moment to run them with good performance. We only have a partial 
-solution for the CPU nodes, and on the GPU nodes Open MPI is very problematic at the moment.
-This is both due to some design issues in the design of Open MPI, and also to some piece of software
-that recent versions of Open MPI require but that HPE does not yet support on Cray EX systems.
+We only have a partial solution for the CPU nodes that is not tested in all scenarios, 
+and on the GPU nodes Open MPI is very problematic at the moment.
+This is due to some design issues in the design of Open MPI, and also to some piece of software
+that recent versions of Open MPI require but that HPE only started supporting recently on Cray EX systems
+and that we haven't been able to fully test.
 Open MPI has a slight preference for the UCX communication library over the OFI libraries, and 
 currently full GPU support requires UCX. Moreover, binaries using Open MPI often use the so-called
 rpath linking process so that it becomes a lot harder to inject an Open MPI library that is installed
@@ -2596,7 +2541,7 @@ use the SlingShot 11 interconnect so work is going on for better support for OFI
 support on systems that rely on OFI and do not support UCX.</p>
 <h2 id="enhancements-to-the-environment">Enhancements to the environment<a class="headerlink" href="#enhancements-to-the-environment" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 68" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia68.png" /></p>
+<p><img alt="Environment enhancements" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia75.png" /></p>
 </figure>
 <p>To make life easier, LUST with the support of CSC did implement some modules
 that are either based on containers or help you run software with containers.</p>
@@ -2613,12 +2558,15 @@ To find the EasyConfig files, load the <code>EasyBuild-user</code> module and
 run</p>
 <div class="highlight"><pre><span></span><code>eb --search singularity-bindings
 </code></pre></div>
-<p>Soon you'll also be able to find more information on the design of this module
-and the contents of the EasyConfig files in the software library documentation
-that we are developing and that will be made available via the
-<a href="https://docs.lumi-supercomputer.eu/software/">"Software" section in the LUMI documentation</a>.</p>
+<p>You can also check the 
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-bindings/">page for the module in the LUMI Software Library</a>.</p>
+<p>You may need to change the EasyConfig for your specific purpose though.
+E.g., the singularity command line option <code>--rocm</code> to import the ROCm installation
+from the system doesn't fully work (and in fact, as we have alternative ROCm versions
+on the system cannot work in all cases) but that can also be fixed by extending
+the <code>singularity-bindings</code> module (or by just manually setting the proper environment variables).</p>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 69" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia69.png" /></p>
+<p><img alt="Environment enhancements (2)" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia76.png" /></p>
 </figure>
 <p>The second tool is a container that we provide with some bash functions
 to start a VNC server as temporary way to be able to use some GUI programs
@@ -2659,7 +2607,7 @@ dependencies:
 <p>and create an empty subdirectory <code>conda-cont-1</code>.</p>
 <p>|Now you can follow the commands on the slides below:</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 70" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia70.png" />
+  <img alt="demo lumi-container-wrapper slide 1" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia77.png" />
 </figure></p>
 <p>On the slide above we prepared the environment.</p>
 <p>Now lets run the command </p>
@@ -2669,30 +2617,27 @@ dependencies:
 The screenshots don't show the full output as some parts of the screen get overwritten during
 the process:</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 71" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia71.png" />
+  <img alt="demo lumi-container-wrapper slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia78.png" />
 </figure></p>
 <p>The tool will first build the conda installation in a temprorary work directory
 and also uses a base container for that purpose.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 72" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia72.png" />
-</figure></p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 73" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia73.png" />
+  <img alt="demo lumi-container-wrapper slide 3" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia79.png" />
 </figure></p>
 <p>The conda installation itself though is stored in a SquashFS file that is then
 used by the container.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 74" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia74.png" />
+  <img alt="demo lumi-container-wrapper slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia80.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 75" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia75.png" />
+  <img alt="demo lumi-container-wrapper slide 65" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia81.png" />
 </figure></p>
 <p>In the slide above we see the installation contains both a singularity container
 and a SquashFS file. They work together to get a working conda installation.</p>
 <p>The <code>bin</code> directory seems to contain the commands, but these are in fact scripts 
 that run those commands in the container with the SquashFS file system mounted in it.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="Slide 76" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia76.png" />
+  <img alt="demo lumi-container-wrapper slide 6" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia82.png" />
 </figure></p>
 <p>So as you can see above, we can simply use the <code>python3</code> command without realising
 what goes on behind the screen...</p>
@@ -2700,7 +2645,7 @@ what goes on behind the screen...</p>
 <p>The wrapper module also offers a pip-based command to build upon the Cray Python modules already present on the system</p>
 <h2 id="conclusion-container-limitations-on-lumi-c">Conclusion: Container limitations on LUMI-C<a class="headerlink" href="#conclusion-container-limitations-on-lumi-c" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide 77" loading="lazy" src="https://462000265.lumidata.eu/peap-q-20221123/img/LUMI-PEAPQ-software-20221124/Dia77.png" /></p>
+<p><img alt="Container limitations on LUMI" loading="lazy" src="https://462000265.lumidata.eu/4day-20230530/img/LUMI-4day-20230530-software/Dia83.png" /></p>
 </figure>
 <p>To conclude the information on using singularity containers on LUMI,
 we want to repeat the limitations:</p>
@@ -2716,10 +2661,10 @@ we want to repeat the limitations:</p>
 <p>In particular a generic container may not offer sufficiently good support for the 
 SlingShot 11 interconnect on LUMI which requires OFI (libfabric) with the right 
 network provider (the so-called Cassini provider) for optimal performance.
-The software in teh container may fall back to TCP sockets resulting in poor 
+The software in the container may fall back to TCP sockets resulting in poor 
 performance and scalability for communication-heavy programs.</p>
-<p>For containers with an MPI implementation that follows the MPICH aBI the solution
-is often to tell it to use the Cray MPICH libraries fro the system instead.</p>
+<p>For containers with an MPI implementation that follows the MPICH ABI the solution
+is often to tell it to use the Cray MPICH libraries from the system instead.</p>
 </li>
 <li>
 <p>Building containers is currently not supported on LUMI due to security concerns.</p>

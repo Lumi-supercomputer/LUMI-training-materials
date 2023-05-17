@@ -161,6 +161,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://github.com/klust/LUMI-training-materials/4day-20230530/</loc>
+         <lastmod>2023-05-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/klust/LUMI-training-materials/4day-20230530/schedule/</loc>
+         <lastmod>2023-05-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/klust/LUMI-training-materials/4day-20230530/software_stacks/</loc>
+         <lastmod>2023-05-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://github.com/klust/LUMI-training-materials/EasyBuild-CSC-20220509/</loc>
          <lastmod>2023-05-17</lastmod>
          <changefreq>daily</changefreq>
