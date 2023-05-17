@@ -1,0 +1,1980 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/PEAP-Q-20220427/hackmd_notes/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../software_stacks/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>hackmd notes - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#copy-of-the-shared-notes-for-course-detailed-introduction-to-lumi-c-architecture-and-environment-april-2728" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              hackmd notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../1day-20230509/">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        Exercises 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../4day-20230214/">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20220823/">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        hackmd notes
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="copy-of-the-shared-notes-for-course-detailed-introduction-to-lumi-c-architecture-and-environment-april-2728">Copy of the shared notes for course "Detailed introduction to LUMI-C architecture and environment (April 27/28)"<a class="headerlink" href="#copy-of-the-shared-notes-for-course-detailed-introduction-to-lumi-c-architecture-and-environment-april-2728" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#copy-of-the-shared-notes-for-course-detailed-introduction-to-lumi-c-architecture-and-environment-april-2728">Copy of the shared notes for course "Detailed introduction to LUMI-C architecture and environment (April 27/28)"</a></li>
+<li><a href="#useful-info">Useful info</a><ul>
+<li><a href="#zoom">Zoom</a></li>
+<li><a href="#slides-and-exercises">Slides and Exercises</a></li>
+</ul>
+</li>
+<li><a href="#notes-questions-answers-per-session">Notes, questions &amp; answers per session</a><ul>
+<li><a href="#april-27-all-times-cest">April 27 (all times CEST)</a><ul>
+<li><a href="#0900-welcome-introduction-to-the-course">09:00   Welcome, introduction to the course</a></li>
+<li><a href="#0910-how-the-lumi-user-support-team-works">09:10   How the LUMI User Support Team works</a></li>
+<li><a href="#0920-introduction-to-the-hpe-cray-hardware-and-programming-environment">09:20   Introduction to the HPE Cray Hardware and Programming Environment</a><ul>
+<li><a href="#hpe-cray-ex-hardware-talk">HPE Cray EX hardware talk</a></li>
+<li><a href="#programming-environment-talk">Programming environment talk</a></li>
+</ul>
+</li>
+<li><a href="#1030-break-30-minutes">10:30  break (30 minutes)</a></li>
+<li><a href="#1100-first-steps-to-running-on-cray-ex-hardware">11:00   First steps to running on Cray EX Hardware</a></li>
+<li><a href="#1210-lunch-break-80-minutes">12:10  lunch break (80 minutes)</a></li>
+<li><a href="#1330-overview-of-compilers-and-libraries">13:30   Overview of compilers and libraries</a></li>
+<li><a href="#1500-break-30-minutes">15:00  break (30 minutes)</a></li>
+<li><a href="#1530-advanced-application-placement">15:30   Advanced Application Placement</a></li>
+<li><a href="#1630-open-questions-answers-participants-are-encouraged-to-continue-with-exercises-in-case-there-should-be-no-questions">16:30   Open Questions &amp; Answers (participants are encouraged to continue with exercises in case there should be no questions)</a></li>
+<li><a href="#1700-end-of-first-course-day">17:00  End of first course day</a></li>
+</ul>
+</li>
+<li><a href="#april-28-all-times-cest">April 28 (all times CEST)</a><ul>
+<li><a href="#0900-performance-and-debugging-tools-incl-exercises-and-a-break">09:00   Performance and Debugging Tools incl exercises and a break</a><ul>
+<li><a href="#0900-introduction-to-perftools-perftools-lite-module-and-demo">09:00 Introduction to Perftools -- Perftools-lite module and demo</a></li>
+<li><a href="#0955-advanced-performance-analysis-iii-perftools-variable-scoping-and-compiler">09:55 Advanced Performance Analysis I/II — Perftools, variable scoping and compiler</a></li>
+<li><a href="#1045-advanced-performance-analysis-iiii-communication-imbalance-apprentice2-hardware-counters-perftools-api-feedback-with-reveal-openmp-demo">10:45 Advanced Performance Analysis II/II — Communication Imbalance, Apprentice2, Hardware Counters, Perftools API, Feedback with Reveal, OpenMP, demo</a></li>
+<li><a href="#1130-debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat-demo">11:30 Debugging at Scale -- gdb4hpc, valgrind4hpc, ATP, stat, demo</a></li>
+</ul>
+</li>
+<li><a href="#1200-lunch-break-60-minutes">12:00  lunch break (60 minutes)</a></li>
+<li><a href="#1300-understanding-cray-mpi-on-slingshot-rank-reordering-and-mpmd-launch">13:00   Understanding Cray MPI on Slingshot, rank reordering and MPMD launch</a></li>
+<li><a href="#1400-io-optimisation-parallel-io">14:00   I/O Optimisation — Parallel I/O</a></li>
+<li><a href="#1445-break-30-minutes">14:45  break (30 minutes)</a></li>
+<li><a href="#1515-additional-software-on-lumi-c">15:15   Additional software on LUMI-C</a></li>
+<li><a href="#1615-lumi-documentation-how-to-get-help-how-to-write-good-support-requests">16:15   LUMI documentation, how to get help, how to write good support requests</a></li>
+<li><a href="#1620-what-are-typicalfrequent-support-questions-of-users-on-lumi-c">16:20   What are typical/frequent support questions of users on LUMI-C?</a></li>
+<li><a href="#1635-open-questions-answers-participants-are-encouraged-to-continue-with-exercises-in-case-there-should-be-no-questions">16:35   Open Questions &amp; Answers (participants are encouraged to continue with exercises in case there should be no questions)</a></li>
+<li><a href="#1700-end-of-second-course-day">17:00  End of second course day</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#any-other-notes">Any other notes</a><ul>
+<li><a href="#course-page">Course page</a></li>
+<li><a href="#misc">Misc</a></li>
+</ul>
+</li>
+<li><a href="#questions">Questions</a></li>
+</ul>
+</div>
+<h1 id="useful-info">Useful info<a class="headerlink" href="#useful-info" title="Permanent link">&para;</a></h1>
+<h2 id="zoom">Zoom<a class="headerlink" href="#zoom" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Link distributed via email</li>
+</ul>
+<h2 id="slides-and-exercises">Slides and Exercises<a class="headerlink" href="#slides-and-exercises" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Links, info on how to access them will be provided directly to participants</p>
+</li>
+<li>
+<p>Slides from the LUST presentations are on <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/">lumi-supercomputer.github.io/LUMI-training-materials</a>, and in particular on <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20220427/">this page</a>.</p>
+</li>
+</ul>
+<p>During the course some materials were temprorarily available but do expect those to have become inaccessible when reading this:</p>
+<ul>
+<li>Slides appeared at: <code>/users/richards/workshop/slides</code></li>
+<li>Exercise materials were available at  <code>/users/richards/workshop/exercises</code> and for the performance tools sessions at
+    <code>/users/anielloesp/exercises</code></li>
+</ul>
+<p>The following instruction was only valid during the course. If you want to do this after the course you can
+no longer use the reservation and you have to submit regular jobs on a project you are
+member of in the regular partitions and queues:</p>
+<ul>
+<li>In the jobscripts please add <code>#SBATCH --reservation=lumi_course</code> and use one of your project accounts, 
+    e.g., <code>project_46{2,5}0000xx</code> (<code>#SBATCH -A project_46{2,5}000xyz</code>). Remove/comment out 
+    <code>#SBATCH -p standard</code> and <code>#SBATCH -q standard</code>).</li>
+</ul>
+<h1 id="notes-questions-answers-per-session">Notes, questions &amp; answers per session<a class="headerlink" href="#notes-questions-answers-per-session" title="Permanent link">&para;</a></h1>
+<h2 id="april-27-all-times-cest">April 27 (all times CEST)<a class="headerlink" href="#april-27-all-times-cest" title="Permanent link">&para;</a></h2>
+<h3 id="0900-welcome-introduction-to-the-course">09:00   Welcome, introduction to the course<a class="headerlink" href="#0900-welcome-introduction-to-the-course" title="Permanent link">&para;</a></h3>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li><strong>Q:</strong> 1.5h in a row is rather long (both morning and afternoon sessions) in one go. Will there be some excercises or other breaks in between? Just 5mins or so to stretch a bit.<ul>
+<li><strong>A:</strong> not planned, sorry (we will take this into account for a future course)</li>
+</ul>
+</li>
+</ul>
+<h3 id="0910-how-the-lumi-user-support-team-works">09:10   How the LUMI User Support Team works<a class="headerlink" href="#0910-how-the-lumi-user-support-team-works" title="Permanent link">&para;</a></h3>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li><strong>Q:</strong> who are the dedicated Experts in Sweden? <ul>
+<li><strong>A:</strong> Peter Larsson at KTH, Stockholm, is the LUST member for Sweden; but the idea behind LUST is not that the person from your country should answer your questions, but the person who has most experience with the topic.</li>
+</ul>
+</li>
+</ul>
+<h3 id="0920-introduction-to-the-hpe-cray-hardware-and-programming-environment">09:20   Introduction to the HPE Cray Hardware and Programming Environment<a class="headerlink" href="#0920-introduction-to-the-hpe-cray-hardware-and-programming-environment" title="Permanent link">&para;</a></h3>
+<p><em>Session info: Focus on the HPE Cray EX hardware architecture and software stack.
+Tutorial on the Cray module environment and compiler wrapper scripts.</em></p>
+<h4 id="hpe-cray-ex-hardware-talk">HPE Cray EX hardware talk<a class="headerlink" href="#hpe-cray-ex-hardware-talk" title="Permanent link">&para;</a></h4>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> are you supporting or will you support interactive notebooks on compute nodes? (moving question to software session tomorrow)</p>
+<ul>
+<li><strong>A:</strong> It is not yet supported now but part of the planned Open OnDemand service that will be rolled out after the summer. 
+    It may use just a few nodes meant specifically for data analysis and visualisation (LUMI-D), with the option to launch regular jobs from your notebooks. </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Is the AMD CPU on LUMI-G nodes the same as the one on LUMI-C nodes?</p>
+<ul>
+<li><strong>A:</strong> no, GPU nodes have AMD Trento CPUs (more details at https://www.lumi-supercomputer.eu/lumis-full-system-architecture-revealed/ ... 
+   also https://docs.olcf.ornl.gov/systems/crusher_quick_start_guide.html#crusher-quick-start-guide may provide some insights about GPU nodes, 
+   but final design remains to be seen). Both CPUs are zen3 though, but with a special I/O die for the one on LUMI-G to provide the 
+   InfinityFabric connection to the GPUs for the unified cache coherent memory architecture.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> on the AMD GPUs, how will you handle the situation of commercial software extensively used MATLAB for instance (just one example) 
+    that don't have a version for that?</p>
+<ul>
+<li><strong>A:</strong> As every machine in the world, not all software is compatible with all hardware and that is why EuroHPC has multiple clusters. 
+     There is in fact more than just the GPU that could cause compatibility problems with MATLAB. LUMI has specific requirements for MPI 
+     also that may not be met by software only available as binaries.  </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Do you know what other EuroHPC cluster offers NVIDIA GPUs?</p>
+<ul>
+<li><strong>A:</strong> Leonardo (pre-exascale), Meluxina (petascale), Vega (petascale), Karolina (petascale), 
+    Deucalion (when ready, petascale). An overview is on 
+    <a href="https://eurohpc-ju.europa.eu/discover-eurohpc-ju#ecl-inpage-211">the EuroHPC JU web site, "Discover EuroHPC JU" page</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Does the slingshot network handle IPMI (iLO and OOB management) as well?</p>
+<ul>
+<li><strong>A:</strong> There is a separate network for system management as far as I know.</li>
+<li><strong>A(Harvey, HPE):</strong> This is the answer I got from a colleague, don't shoot the messenger: 
+    <a href="https://www.slideshare.net/eurolinux/ipmi-is-dead-long-live-redfish#:~:text=Redfish%20is%20an%20IPMI%20replacement,is%20scalable%2C%20discoverable%20and%20extensible">Slides "IPMI is dead, long live RedFish</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> How is the boost of CPU's configured at Lumi-c by default.</p>
+<ul>
+<li><strong>A:</strong> Slurm has the <code>--cpu-freq</code> flag to control   the CPU frequency (see <a href="https://slurm.schedmd.com/sbatch.html#OPT_cpu-freq=">here (<code>--cpu-freq</code>)</a>. 
+    In general you can expect boosting to be enabled on compute nodes but core boost policy is quite complex.  </li>
+</ul>
+</li>
+</ul>
+<h4 id="programming-environment-talk">Programming environment talk<a class="headerlink" href="#programming-environment-talk" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Remark 1:</strong> There is not only the CMake integration, but pkg-config is also Cray-specific. If you try to replace it with your own version the compiler wrappers may fail.</p>
+</li>
+<li>
+<p><strong>Remark 2:</strong> On licenses, LUMI has a license for ARM Forge but we are still struggling with the installation, so some patience required.</p>
+</li>
+<li>
+<p><strong>Remark 3:</strong> The AMD compiler modules on the system do not all work. AOCC 2.2 that came with the 21.05 version of the system works 
+    but will be removed at one of the next maintenance intervals. 3.0 has a module on the system but no binaries, and the 
+    module of 3.1.0 is broken. That can be dealt with by instead using the LUMI/21.12 software stack and then the cpeAOCC 
+    module (see a presentation on the second day about the LUMI software stacks).</p>
+<ul>
+<li><strong>A (Alfio, HPE):</strong> I have tried the <code>PrgEnv-aocc/8.2.0</code> module (<code>module swap PrgEnv-cray PrgEnv-aocc</code>) and indeed 
+    it doesn't load the corresponding <code>cray-mpich</code> module. To solve this problem, I have to set the variable
+    <div class="highlight"><pre><span></span><code>export MODULEPATH=/opt/cray/pe/lmod/modulefiles/comnet/aocc/3.0/ofi/1.0:$MODULEPATH
+</code></pre></div>
+    and then I can run <code>module load cray-mpich</code>. I've tested with a Fortran application and it runs.</li>
+<li><strong>A (Kurt, LUST):</strong> The solution above solves only part of the problem. There are other modules you might need that
+    will also fail to load. The <code>LUMI/21.12</code> software stack contains a more robust workaround in the <code>cpeAOCC/21.12</code> toolchain.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> Question about the Cray Developer Environment: Do the 3rd party packages have a different support deal that the ones developed by Cray?</p>
+<ul>
+<li><strong>A:</strong> Unclear to LUST, we have not seen the contracts. But the installation files do come via HPE and we did notice 
+    that some builds are definitely HPE Cray-specific (choice of options and supported technologies, names of binaries to 
+    avoid conflicts with other tools, ...). But basically we cannot expect HPE to debug the GNU compiler while we can expect 
+    them to do bug fixes for the CCE compiler. And since AMD is also involved in the project, we can go to them with compiler 
+    bugs in the AMD compilers. ARM Forge is a different story, it is obtained from ARM directly and not via HPE.</li>
+<li><strong>A(Harvey, HPE):</strong> The developers will forward bugs for some of the components not developed internally, 
+    it depends. For AMD we have a special relationship with them that we can use for LUMI. All of the integration 
+    pieces (modules) are supported.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> what about h5py?</p>
+<ul>
+<li><strong>A:</strong> It is not included in the Cray branded module.
+     <div class="highlight"><pre><span></span><code>module load cray-python/3.9.4.2
+python -c &#39;import h5py&#39;
+pip3 list
+</code></pre></div></li>
+<li><strong>A:</strong> It may be one that needs to be compiled from sources, and may also depend on which of the HDF5 configurations 
+    you need for the software that you may want your Python code to talk to.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> how about Julia, Rust, golang?</p>
+<ul>
+<li><strong>A:</strong> <ul>
+<li>We had Rust but removed it again from the software stack due to problems with installing Rust. 
+    The whole Rust installation process is very HPC-unfreiendly (and we are not the only one suffering with this, 
+    I know this from the meetings about the software management/installation tool that we use). </li>
+<li>Golang due to its poor memory use is not even an HPC language. </li>
+<li>Julia would be interesting, but for now it looks best to do this via containers as the installation process 
+    from sources is complicated.      </li>
+</ul>
+</li>
+<li><strong>Comment:</strong> I guess one could place binaries of Julia in the work directory?</li>
+<li><strong>Answer:</strong> I don't know, Julia binaries may require other libraries to be installed that are not installed on 
+    the Cray system. It does special things to link to some mathematical libraries and to MPI.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> There was a brief mention of singularity containers and using MPI with containers. Will HPE provide a basic 
+    singularity recipe for using MPI on LUMI? This would be a useful starting point for building containers for various 
+    application (e.g. machine learning with Horovod support). Experience shows it can be quite tricky to get this working, 
+    having right versions etc.</p>
+<ul>
+<li><strong>A:</strong> We're working on that. Basically, currently Open MPI is a big problem and we have failed to get it to work 
+    reliably with our network and SLURM. For containers that support MPICH 3 we already have a (currently still undocumented) 
+    module available that users can adapt and then install to set some environment variables to tell the container 
+    to use the Cray MPICH library instaed (relying on ABI compatibility with plain MPICH). After the course, try 
+    <code>eb --search singularity-bindings</code> (tomorrow we will explain what this means). You may even adapt this EasyConfig yourself
+    before installing to include additional bindings that you may need before installing it with EasyBuild.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Have you also considered conda environments, especially when it comes to complex Python dependencies?</p>
+<ul>
+<li><strong>A:</strong> We are providing dedicated wrapper for containerized conda and pip based environments. 
+    It will be mentioned tomorrow afternoon. But again, not everything installed via Conda might work as Conda 
+    may try to use libraries that are not compatible with LUMI. More info in the
+    <a href="https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/">LUMI documentation, lumi-container-wrapper page</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Singularity is available but Docker does not seem to be available?</p>
+<ul>
+<li><strong>A:</strong> Docker was mentioned from administration perspective. From the user perspective singularity is the choice. 
+    For most docker containers simple <code>singularity pull</code> command should be enough for conversion. 
+    For instance <code>singularity pull docker://julia</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Regarding MPI : is there any native OpenMPI implementation available?</p>
+<ul>
+<li><strong>A:</strong> Not really. We have some workarounds but in large scale it is expected to fail.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What with Intel compilers, MKL Intel and Julia language?</p>
+<ul>
+<li><strong>A:</strong> Harvey will describe current status on the Intel development tools in the compilers talk.</li>
+<li><strong>A:</strong> We have no support for Intel in our contract with HPE and Intel will also not support it on 
+    AMD processors. If the reason why you want Intel is the classic Fortran compiler, you should really 
+    consider modifying the code as their classic compiler is end-of-line anyway and the new one has a 
+    completely different front-end so different compatibility problems. </li>
+<li><strong>A:</strong> MKL is known to produce wrong results on the AMD processors and there are performance problems 
+    that need hacks that are not user-friendly to force it to take an AVX2 code path rather than one for 
+    the Pentium 4 from 15 years ago. At the University of Antwerp, where I work, most DFT packages for 
+    instance produce wrong results with Intel on AMD Rome CPUs that we could correct by using FFTW instead 
+    of MKL for FFT. 
+    Juli<strong>A:</strong> see above, the question has already been asked, we'd like to support this but the installation 
+    procedure is a bit complicated and we cannot do everything in the first year.</li>
+</ul>
+</li>
+</ul>
+<h3 id="1030-break-30-minutes"><em>10:30  break (30 minutes)</em><a class="headerlink" href="#1030-break-30-minutes" title="Permanent link">&para;</a></h3>
+<h3 id="1100-first-steps-to-running-on-cray-ex-hardware">11:00   First steps to running on Cray EX Hardware<a class="headerlink" href="#1100-first-steps-to-running-on-cray-ex-hardware" title="Permanent link">&para;</a></h3>
+<p><em>Session info: Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement.
+Exercises: about 40 minutes</em></p>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> you don't need to specify the number of tasks for this script? just the number of nodes?</p>
+<ul>
+<li><strong>A:</strong> Just checked and the slide is indeed wrong. The #SBATCH lines will create only 2 task slots I think 
+    so srun will fail to then use 256. (Harvey: Which slide was this?) (Kurt: One of the first but I don't remember 
+    the page number, in the July version of the course it was slide 6 and the first example of a job script) Harvey: 
+    The jobs are specifying nodes (--nodes/N). We will check at end of talk.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Does Gromacs get some benefits from the hardware threads (--hint)?</p>
+<ul>
+<li><strong>A:</strong> Can you be a bit clearer? Turning threads on or off? My expectation is that it would be case dependend, 
+    but I doubt as GROMACS already puts a very high stress on the CPU. (And we know that some GROMACS jobs trigger a 
+    hardware problem in some nodes that HPE is still working on because of the high load they put on the CPU.) </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Using --exclusive on small/eap partitions would always reserve full nodes, right?</p>
+<ul>
+<li><strong>A:</strong> For binding exercises/jobs this flag is needed.</li>
+<li><strong>A:</strong> Using <code>--exclusive</code> on small defeats the whole purpose of the small partition which is all about having 
+    resources available for programs that cannot use a whole node. Also note that you will be billed for the whole 
+    node of course. On the EAP it is very asocial behaviour as we have only few such nodes available so it should only 
+    be done for short jobs if there is really no other option available. Note also that the EAP is not really a 
+    benchmarking platform.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Will <code>--cpus-per-task</code> set the <code>OMP_NUM_THREADS</code> variable?</p>
+<ul>
+<li><strong>A:</strong> It does not. And while on some systems the Open MP runtime recognizes from the CPU sets how much threads 
+    should be created, this does not always work on LUMI as that mechanism cannot recognize between <code>--hint=multithread</code> 
+    and <code>--hint=nomultithread</code> so you may get twice the number of threads you want. We'll put a program in the software 
+    stack that shows you what srun would do by running a quick program not requiring many billing units, but it is not yet 
+    there as I am waiting for some other software to go into the same module that is not finished yet.</li>
+<li><strong>A:</strong> SLURM does set <code>SLURM_THREADS_PER_CORE</code> and <code>SLURM_CPUS_PER_TASK</code> environment variables that you can use to 
+    set <code>OMP_NUM_THREADS</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Is there "seff" command (exist in Puhti) to check resources used by batch job?</p>
+<ul>
+<li><strong>A:</strong> No, it is something we've looked into but it turns out that that script needs a SLURM setup that we do not 
+    have on LUMI and that it is not something we could install without sysadmin support. And currently the LUMI 
+    sysadmins install the system the way HPE tells them to, which means that there are some SLURM plugins that 
+    are on puhti or mahti but not on LUMI. I guess we'll see the sacct command later in the course and that can 
+    tell you what the total and average CPU time consumed by a job is so that you can get some idea about efficiency. </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> can we use mpprun instead of srun?</p>
+<ul>
+<li><strong>A:</strong> No. <code>srun</code> is the only parallel executor supported.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Why is SMT not turned off by default if it is not beneficial in most cases?</p>
+<ul>
+<li><strong>A:</strong> I would say it is turned off by default (for both <code>small</code> and <code>standard</code> partitions). </li>
+<li><strong>A:</strong> SMT tends to be most beneficial for code that runs at a low "instructions per clock", so branchy 
+    code (like databases) or code that has very bad memory access patterns, and hence creates pipeline stalls. 
+    For well written scientific codes that do proper streaming of data it tends to make matters worse rather 
+    than better as you effectively half the amount of cache available per thread and as a single thread per 
+    core already keeps the memory units busy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Compiling the pi/C example gives <code>warning: Cray does not optimize for target 'znver3' [-Wunsupported-target-opt]</code> 
+    Is this something to worry about? Does it mean it will not optimize for AMD at all?</p>
+<ul>
+<li><strong>A:</strong> I think you are using the wrong CCE module? The latest one (cce/13.0.0) that came with the 21.12 programming 
+    environment can optimise for zen3, but older versions didn't. <em>Indeed, I had some other modules loaded. 
+    Just loading <code>PrgEnv-cray/8.1.0</code> makes the warning disappear.</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> <a href="https://github.com/SchedMD/slurm/blob/master/contribs/slurm_completion_help/slurm_completion.sh">Bash completion for Slurm</a> 
+    does not seem to be setup on Lumi? Are there plans to install it?</p>
+<ul>
+<li><strong>A:</strong> No idea. This is something that has to be done at the sysadmin level, not at the level that the support team can do. 
+    Given the security constraints for a machine like LUMI and the desire to have a setup at the system level which is 
+    fully supported by HPE, there is a very strict border between what is possible at the user interface level and what sysadmins 
+    should do, and are willing to do as some features are turned off explicitly for security reasons. This, e.g., explains 
+    some of the restrictions there are on LUMI working with containers. But if you really really want it I guess you could install 
+    it in your account and activate from your .bashrc. Just sourcing the file seems to work. </li>
+</ul>
+</li>
+</ul>
+<h3 id="1210-lunch-break-80-minutes"><em>12:10  lunch break (80 minutes)</em><a class="headerlink" href="#1210-lunch-break-80-minutes" title="Permanent link">&para;</a></h3>
+<h3 id="1330-overview-of-compilers-and-libraries">13:30   Overview of compilers and libraries<a class="headerlink" href="#1330-overview-of-compilers-and-libraries" title="Permanent link">&para;</a></h3>
+<p><em>Session info: An introduction to the compiler suites available. Including examples of how to get additional information 
+about the compilation process. Special attention is given the Cray Compilation Environment (CCE) noting options 
+relevant to porting and performance. CCE classic to Clang transition
+Exercises: about 20 minutes</em></p>
+<p><strong>Remark 1:</strong> Slide 7 (3 ways of dynamic linking) is a really important one. It implies that you will sometimes 
+be using a different version of a library at run time than you think unless you use the third approach. It also 
+implies the behaviour of a code may change when the default programming environment on the system is changed if 
+you use the first apporach.</p>
+<p><strong>Remark 2:</strong> The Cray Fortran compiler is actually one of the most strict compilers around when it comes to 
+standard compliance. Many codes that don't fully follow the standards fail to compile.</p>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> would one expect a more performant code with dynamic vs. static linking?</p>
+<ul>
+<li><strong>A:</strong> I think on modern CPUs the main difference will be the performance during loading (static is faster 
+    as you have only one file to open and read). There are differences in the code generated (e.g., you have 
+    to use position independent code for a shared library) but I would expect that the performance impact 
+    of that will be very low or none on modern architectures as CPUs have simply been optimised to work well 
+    with the memory models for shared libraries. I haven't benchmarked it though. </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> I am trying to compile my library on LUMI. According the recommendation, I have loaded PrgEnv-cray/8.2.0. 
+    Since I am using waf compiler tool, that does not recognise cc/CC wrappers, so I have specified clang++ to be c++ compiler.
+    <div class="highlight"><pre><span></span><code>onvysock@uan02:~/meric&gt; CC --version
+Cray clang version 13.0.0  (24b043d62639ddb4320c86db0b131600fdbc6ec6)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/share/../bin
+
+onvysock@uan02:~/meric&gt; clang++ --version
+Cray clang version 13.0.0  (24b043d62639ddb4320c86db0b131600fdbc6ec6)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/bin
+</code></pre></div>
+    Despite using the clang++ the compilation fails that it does not find C++ header file. It seems to me, that C compiler is used instead of C++.
+    <div class="highlight"><pre><span></span><code>[ 2/82] Compiling src/meric/meric.cpp
+14:57:01 runner [&#39;clang++&#39;, &#39;-O0&#39;, &#39;-g&#39;, &#39;-std=c++11&#39;, &#39;-fPIC&#39;, &#39;-fopenmp&#39;, &#39;-I/pfs/lustrep2/users/onvysock/meric/include/&#39;, &#39;-DMERIC_PATH=&quot;/pfs/lustrep2/users/onvysock/meric&quot;&#39;, &#39;-DVERBOSE&#39;, &#39;../src/meric/meric.cpp&#39;, &#39;-c&#39;, &#39;-o/pfs/lustrep2/users/onvysock/meric/build/src/meric/meric.cpp.1.o&#39;]
+
+In file included from ../src/meric/meric.cpp:2:
+../src/meric/meric.h:5:10: fatal error: &#39;iostream&#39; file not found
+#include &lt;iostream&gt;
+         ^~~~~~~~~~
+1 error generated.
+</code></pre></div>
+    Do you have any idea what can be wrong?</p>
+<ul>
+<li><strong>A:</strong> I was expecting this problem would be solved by now, but the Cray compilers need additional options 
+    to find their own include files. These are added automatically by the wrappers. I'm not sure if I have compiled 
+    programs with waf already on LUMI (I hate all those alternative tools that are incomplete) but most install 
+    utilities have a way to tell them which compiler to use. <code>cc</code> can show the commands that it would generate 
+    using the <code>-craype-verbose</code> flag so you could see which libraries and include files it tries to use but from 
+    what I remember this is cumbersome. I checked the tool that we use to manage software installations and I do 
+    not that it seems to support Waf which means that there must be a way to set environmen variables or command 
+    line options to select the compiler.</li>
+<li><strong>A (Alfio):</strong> the flag is actually <code>-craype-verbose</code>, e.g.
+    <div class="highlight"><pre><span></span><code>$ CC -craype-verbose test.cc 
+clang++ -march=znver2 -dynamic -D__CRAY_X86_ROME -D__CRAYXT_COMPUTE_LINUX_TARGET --gcc-toolchain=/opt/cray/pe/gcc/8.1.0/snos -isystem /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/lib/clang/13.0.0/include -isystem /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs -Wl,-rpath=/opt/cray/pe/cce/13.0.0/cce/x86_64/lib -Wl,-rpath=/opt/cray/pe/gcc-libs test.cc -I/opt/cray/pe/libsci/21.08.1.2/CRAY/9.0/x86_64/include -I/opt/cray/pe/mpich/8.1.12/ofi/cray/10.0/include -I/opt/cray/pe/dsmml/0.2.2/dsmml//include -I/opt/cray/xpmem/2.2.40-2.1_3.9__g3cf3325.shasta/include -L/opt/cray/pe/libsci/21.08.1.2/CRAY/9.0/x86_64/lib -L/opt/cray/pe/mpich/8.1.12/ofi/cray/10.0/lib -L/opt/cray/pe/dsmml/0.2.2/dsmml//lib -L/opt/cray/pe/cce/13.0.0/cce/x86_64/lib/pkgconfig/../ -L/opt/cray/xpmem/2.2.40-2.1_3.9__g3cf3325.shasta/lib64 -Wl,--as-needed,-lsci_cray_mpi,--no-as-needed -Wl,--as-needed,-lsci_cray,--no-as-needed -ldl -Wl,--as-needed,-lmpi_cray,--no-as-needed -Wl,--as-needed,-ldsmml,--no-as-needed -lxpmem -Wl,--as-needed,-lstdc++,--no-as-needed -Wl,--as-needed,-lpgas-shmem,--no-as-needed -lquadmath -lmodules -lfi -lcraymath -lf -lu -lcsup -Wl,--as-needed,-lpthread,-latomic,--no-as-needed -Wl,--as-needed,-lm,--no-as-needed -Wl,--disable-new-dtags 
+</code></pre></div></li>
+<li><strong>RE1:</strong> To be honest I am not sure, what is your advice. Should I add the include paths when compiling with clang++ 
+    (I did a fast browse and did not find the standard c++ headers in the paths mentioned in the Alfio's answer)? 
+    Should I wait for someone to fix the clang++ utility? Should I load a compiler module instead of PrgEnv module?</li>
+<li><strong>A: (Alfio):</strong> I'm not really familiar with the tool, apologize in advance for any naive suggestion... 
+    Could you try <code>CXX=CC ../../waf configure build</code>? I tried it with a simple C++ example in the waf repository 
+    and it correctly reports <code>Checking for 'clang++' (C++ compiler)    : CC</code></li>
+<li><strong>RE1.1:</strong> This is not a problem of waf. Try the following:
+    <div class="highlight"><pre><span></span><code>$ module load PrgEnv-cray/8.2.0
+$ vim hello.cpp
+    #include &lt;iostream&gt;
+    int main()
+    {
+        std::cout &lt;&lt; &quot;Hello LUMI\n&quot;;
+        return 0;
+    }
+$ clang++ -std=c++11 hello.cpp
+    hello.cpp:1:10: fatal error: &#39;iostream&#39; file not found
+    #include &lt;iostream&gt;
+            ^~~~~~~
+    1 error generated.
+$ CC -std=c++11 hello.cpp
+$ ./a.out
+Hello LUMI
+$
+</code></pre></div>
+    <strong>What solution do you suggest to use, if I do not want to use <code>CC</code> but directly <code>clang++</code>?</strong>
+    If you prefer, we may use another channel for communication.</li>
+<li><strong>A:</strong> So, if you want directly use clang++, you should be aware that it comes from the Cray compiler, so you really need the wrappers. For instance:
+    <div class="highlight"><pre><span></span><code>$ which clang
+/opt/cray/pe/cce/13.0.0/cce-clang/x86_64/bin/clang
+</code></pre></div>
+    If you need a plain clang, then I suggest to use the AOCC clang:
+    <div class="highlight"><pre><span></span><code>$ module load aocc-mixed
+</code></pre></div>
+    and then you can compile with <code>clang++</code>  the example above.</li>
+<li><strong>RE2:</strong> I did not do a deep research, so it could be possible, that waf support Cray compiler wrapper, 
+    however as an easy solution I did just specify the <code>clang++</code>, which equals to <code>CC</code>.</li>
+<li><strong>A (Alfio):</strong> Have you seen <a href="https://stackoverflow.com/questions/28620263/specify-c-compiler-in-waf">this</a>?</li>
+<li><strong>RE2.1:</strong> My library compilation process supports clang++, but the CC wrapper is not working for me. 
+    I know how to tell waf, which compiler to use based on what the CC wrapper returns. The source of the 
+    problem is not in the waf, see RE1.1.</li>
+<li><strong>A:</strong> I've checked what EasyBuild does, tested myself and also searched a bit on the web and it looks like Waf 
+    indeed simply uses the environment variables in the way that <code>configure</code> does to specify the compilers so it 
+    should be possible to use statements like <code>export CC='cc'</code> and <code>export CXX='CC'</code> to tell Waf to use the wrappers.
+    Using the <code>waf</code> command line options (if that is what you are doing) is NOT enough to say 
+    With this on a C++ demo program the output does show
+    <div class="highlight"><pre><span></span><code>Checking for &#39;g++&#39; (C++ compiler)        : not found
+Checking for &#39;clang++&#39; (C++ compiler)    : CC
+</code></pre></div>
+    Whis is exactly what I want to see, and continuing this with <code>waf configure build -vvv</code> clearly shows once 
+    more that Waf is using the <code>CC</code> wrapper. In general, I'd say never trust autodetection of compilers when 
+    running configure/build tools because you'll often end up using the worst one on your system. Any decent 
+    tool has a way to specify the name of the compiler and compiler flags, at least when used in the proper 
+    way by the developers creating the build recipe. All the software we have at the moment on LUMI is build 
+    using the Cray wrappers except for software where I explicitly wanted the system gcc to be able to run 
+    completely independent of the Cray PE.</li>
+<li><strong>A:</strong> And <code>clang++</code> does not equal to <code>CC</code>. <code>CC</code> does a lot more.</li>
+<li><strong>RE2.2: Can you please share your wscript? The part that checks for the CXX.</strong></li>
+<li><strong>A:</strong> I simply ran some examples from the Waf examples, e.g., 
+   <a href="https://gitlab.com/ita1024/waf/-/blob/master/demos/c%2B%2B/wscript">the C++ one</a> with the current version 
+   of Waf (2.0.23) and telling it via the <code>CXX</code> environment variable to use <code>CC</code> as I described above. I'm not
+   a Waf specialist, but I guess it is the
+   <div class="highlight"><pre><span></span><code><span class="n">opt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;compiler_cxx&#39;</span><span class="p">)</span>
+</code></pre></div>
+   or
+   <div class="highlight"><pre><span></span><code><span class="n">conf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;compiler_cxx&#39;</span><span class="p">)</span>
+</code></pre></div>
+   lines that activate the routines that do the magic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Is the BLIS library available?</p>
+<ul>
+<li><strong>A:</strong> We have a recipe so that a user can install it but we don't want to make it available by default 
+    in the central stack as it would conflict with libraries already build with Cray LibSci. 
+    A look at the symbols in Cray LibSci shows that is uses a mix of OpenBLAS and BLIS. </li>
+</ul>
+</li>
+</ul>
+<h3 id="1500-break-30-minutes"><em>15:00  break (30 minutes)</em><a class="headerlink" href="#1500-break-30-minutes" title="Permanent link">&para;</a></h3>
+<h3 id="1530-advanced-application-placement">15:30   Advanced Application Placement<a class="headerlink" href="#1530-advanced-application-placement" title="Permanent link">&para;</a></h3>
+<p><em>Session info: More detailed treatment of Slurm binding technology and OpenMP controls.
+Exercises: about 30 minutes</em></p>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> If it is only "marginally slower" that suggest that very little extra perfomance can be obtained by 
+    doing the explicit binding? Ok, now he is saying something else. Suggest to ask at end of presentation.</p>
+<ul>
+<li><strong>A:</strong> crossing socket boundaries may lead to significantly lower performance</li>
+<li><strong>A:</strong> depends on the particular case</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> (slide 16) Are you assuming --exclusive or other kind of full-node-access here?</p>
+<ul>
+<li><strong>A:</strong> yes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> which binding mechanism has a higher priority OpenMP or SLURM?</p>
+<ul>
+<li><strong>A:</strong> Slurm will set a cgroup, you can't escape that. But also depends on which plugins are enabled.</li>
+</ul>
+</li>
+</ul>
+<h3 id="1630-open-questions-answers-participants-are-encouraged-to-continue-with-exercises-in-case-there-should-be-no-questions">16:30   Open Questions &amp; Answers (participants are encouraged to continue with exercises in case there should be no questions)<a class="headerlink" href="#1630-open-questions-answers-participants-are-encouraged-to-continue-with-exercises-in-case-there-should-be-no-questions" title="Permanent link">&para;</a></h3>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> Is there a mechanism for requesting packages such as MUMPS?</p>
+<ul>
+<li><strong>A:</strong> should be addressed tomorrow.</li>
+<li><strong>A:</strong> Checked for MUMPS. The likely reasons why we don't have that yet ready (besides that it has not yet 
+    been requested) is that we have given priority to packages for which a friendly site with a similar system 
+    provides build instructions in a way that we can easily adapt to LUMI, and a frightening element on the web 
+    site that actually asks you to specify some information about how MUMPS will be used before downloading 
+    which we as support people rather than users obviously cannot answer with any accuracy. 
+    Though it looks like the download isn't really protected.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> would you provide tools such as Extrae as modules? Or maybe users would install them?</p>
+<ul>
+<li><strong>A:</strong> likely answered in tomorrows talk on additional software</li>
+<li><strong>A:</strong> if someone struggles to build/install a software package LUST+CoE can help, for example, 
+    by asking around (what experiences on other systems have been made)</li>
+<li><strong>A:</strong> The reality is also that the support team of 9 FTE is way too small to do all software 
+    installations for all projects as the expected number is very high given that many countries assign 
+    lots of small projects. We have to do more than just software installations, and we are only a fraction 
+    of the size of the software support team of larger centres as, e.g., Jülich. So we have to rely a lot on 
+    users doing their own installations, possibly with the help of local support teams from the countries they 
+    come from, and hopefully then contributing their experiences so that we can make them available to others.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> I want to build/compile CP2K 9.1, may be need assistance for that</p>
+<ul>
+<li><strong>A:</strong> we already have a recipe (easyconfig) for that, should be more clear after tomorrows talk on additional software</li>
+<li><strong>A (Alfio, HPE):</strong> CoE has expertise with CP2K too.
+        That's they way I use to install CP2K v9.1 on LUMI:
+        +   <code>module swap PrgEnv-cray PrgEnv-gnu</code> (GNU is supported by CP2K)
+        +   <code>module load cray-fftw</code>
+        +   <code>git clone --recursive --branch  v9.1.0 https://github.com/cp2k/cp2k.git</code>
+        +   <code>cd cp2k/tools/toolchain</code>
+        +   <code>./install_cp2k_toolchain.sh --enable-cray</code> (use <code>./install_cp2k_toolchain.sh --help</code> to get more help on what to install). Note that this takes a while to complete.
+        +   <code>cp install/arch/local.psmp ../../arch/</code>
+        +   <code>cd ../../</code>
+        +   Change the <code>arch/local.psmp</code> file by adding <code>-fallow-argument-mismatch</code> flag to <code>FCDEBFLAGS</code> variable
+        +   <code>make ARCH=local VERSION=psmp</code></li>
+<li><strong>A:</strong> LUST may have had a support request for CP2K 9.1 recently</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> will programs like LAMMPS, ABINIT, SIESTA be available as modules?</p>
+<ul>
+<li><strong>A:</strong> Status for these applications:<ul>
+<li>Limited support for LAMMPS, only few plugins, configuration based on input we got from CSCS who have a system 
+    similar to LUMI-C. Some of the plugins are supported by neither EasyBuild nor Spack, the two frameworks for HPC 
+    software installation that we use or consult for installation procedures. </li>
+<li>ABINIT is available as easyconfig and discussions are going on with the ABINIT authors to improve the installation. 
+    The developers have already got access via the Belgian share on LUMI.</li>
+<li>SIEST<strong>A:</strong> Kind of problematic. I've seen it fail on user tests even though the compile succeeded without any 
+    terrifying warning. They also had the brilliant idea to change the build process to one that is harder to support 
+    in tools such as Spack and EasyBuild. Therefore Spack for now stopped supporting Siesta at version 4.0.2 which 
+    is 4 years old. EasyBuild kind of supports newer versions but only in combination with some libraries that are 
+    different from what we use on the system, and do to the nature of the new build process it is difficult to adapt 
+    the EasyBuild code in a generic way but also to write a robust automated build process specifically for the Cray PE. 
+    We'd need working manual installation procedures before even looking at how we can automate the procedure and maintain it. 
+    There are <a href="https://github.com/hpc-uk/build-instructions/tree/main/apps/SIESTA">some instructions to compile Siesta with PrgEnv-gnu on the Archer2 GitHub</a> 
+    but we'd need a Siesta expert to see if this is just the most basic build or includes options that Siesta 
+    might provide. At first sight it does not include METIS, ELAP, MUMPS, PEXSI or flook that are mentioned in 
+    the 4.1.5 manual as libraries that provide additional functionality.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Are there Easybuild recipes to install the Cray PE/tools?</p>
+<ul>
+<li><strong>A:</strong> No. This is no free software and installed in a very different way. EasyBuild can use the the Cray PE as external software though. </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> I think for Lammps and other softwares alike would be better to have a short guide suggesting the best 
+    combination of compilers, libraries and slurm options that would give the best performance in a general way</p>
+<ul>
+<li><strong>A:</strong> not easy to provide general answers. The right combination of compilers and libraries and the right Slurm 
+    options will often depend on the particular test case. E.g., due to different vectorisation and loop unrolling 
+    strategies one compiler may be better on one problem that leads to shorter loops and another may be better on 
+    another problem with the same code that leads to longer loops. The amount of parallelism and certainly how to 
+    tune a hybrid run combining MPI with threads will depend a lot on the test case.</li>
+<li><strong>A:</strong> maybe better to provide guidance on how to determine these options on a case by case basis</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> is there a supercomputer similar to LUMI in the world?</p>
+<ul>
+<li><strong>A:</strong> to some extend yes, Frontier (ORNL, US), Dardel (KTH, SE), Setonix (Pawsey, Australia), 
+    Adastra (CINES, Montpellier, France). For LUMI-C there is Archer2 (EPCC, UK) and Eiger (CSCS, Switzerland). 
+    The software stack for LUMI was originally developed on Eiger as otherwise it would have taken half a year or 
+    so from the start of the pilot to have something that is properly designed and working.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What is important to participants in terms of applications (standard applications or own applications)?</p>
+<ul>
+<li><strong>A:</strong> Looking at the proposals submitted in the latest round in Belgium, it was about 50-50. </li>
+</ul>
+</li>
+</ul>
+<h3 id="1700-end-of-first-course-day"><em>17:00  End of first course day</em><a class="headerlink" href="#1700-end-of-first-course-day" title="Permanent link">&para;</a></h3>
+<p>See you tomorrow at 07:00 UTC, 08:00 EPCC, 09:00 CEST or 10:00 EEST.</p>
+<h2 id="april-28-all-times-cest">April 28 (all times CEST)<a class="headerlink" href="#april-28-all-times-cest" title="Permanent link">&para;</a></h2>
+<h3 id="0900-performance-and-debugging-tools-incl-exercises-and-a-break">09:00   Performance and Debugging Tools incl exercises and a break<a class="headerlink" href="#0900-performance-and-debugging-tools-incl-exercises-and-a-break" title="Permanent link">&para;</a></h3>
+<p><em>Session info: Includes following content broken up with Exercises/Demos and a break</em>
++ <em>Introduction to perftools</em>
++ <em>Pertfools lite modules</em>
++ <em>Loop work estimates</em>
++ <em>Reveal for performance data display, compiler feedback and automatedscoping</em>
++ <em>Debugging tools at scale</em></p>
+<h4 id="0900-introduction-to-perftools-perftools-lite-module-and-demo">09:00 Introduction to Perftools -- Perftools-lite module and demo<a class="headerlink" href="#0900-introduction-to-perftools-perftools-lite-module-and-demo" title="Permanent link">&para;</a></h4>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> I would be really interested in some comments about HIP and OpenMP offload profiling as long as power 
+    consumption tracking with the tools</p>
+<ul>
+<li><strong>A:</strong> Noted but this course is not about LUMI-G.</li>
+<li><strong>A:</strong> Sure, we have EAP though</li>
+<li><strong>A:</strong> These tools can be used with the AMD GPUs but we don't plan to cover that in this course.</li>
+<li><strong>A:</strong> routine-level power consumption available, not sure about data transfers</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> When do the GPU partition will be available? For early access and then production?</p>
+<ul>
+<li><strong>A:</strong> LUMI-G: not before August (pilot), general availability fall 2022. The Early Access Platform, EAP, 
+    (MI100, available already, any existing project on LUMI-C has access). The EAP is designed for porting code, 
+    not for production runs or benchmarking. Especially inter-node communication is very poor at the moment which 
+    makes benchmarking this completely irrelevant, and the GPUs in the EAP are sufficiently different that much 
+    benchmarking and really fine-tuning on them may also prove to be irrelevant on the MI250X.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Is there a tool to track specific I/O events (like volume of data written or read along the run) ?</p>
+<ul>
+<li><strong>A:</strong> perftools reports include a table addressing I/O, this will be shown later.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Do you also advise to compare the performance of the exec generated with perftools-lite (only sampling) 
+    with the original executable without any monitoring? In other words, can there be a significant overhead with just application sampling?</p>
+<ul>
+<li><strong>A:</strong> always good to have one reference run</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Can the perftools-lite tools also be used with MPMD execution?</p>
+<ul>
+<li><strong>A:</strong> yes, has been done in the past</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What should you do if you notice that perftools-lite introduces a significant overhead compared to an executable 
+    without any profiling hooks?</p>
+<ul>
+<li><strong>A:</strong> More likely if you trace very small, frequently called functions, you can specify not to profile certain functions.</li>
+<li><strong>Q2:</strong> Can this be done with perftools-lite?</li>
+<li><strong>A:</strong> perftools is needed to select/exclude certain functions , however this applies to tracing, it is less likely 
+    that a lite sampling experiment will skew the performance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What is the purpose of the perftools-base module that is loaded by default?</p>
+<ul>
+<li><strong>A:</strong> <code>man perftools-base</code> (HPE Cray really likes man pages rather than web-based documentation). One of the functions 
+    is to make the other perftools modules available in the Lmod hierarchy. It is a rather common practice on Cray systems 
+    to load it by default, so we follow this "convention" so that people who are familiar with the Cray Programming Environment 
+    find more or less what they expect. </li>
+<li><strong>A:</strong> It provides the command-line tools but unlike the full perftools module it does not affect any compilations.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Is it possible to install <code>perftools-*</code> in our machine so that we can get the interactive output? 
+    (I mean this "Apprentice" program)</p>
+<ul>
+<li><strong>A:</strong> /opt/cray/pe/perftools/default/share/desktop_installers contains Apprentice2 for Windows and macOS 
+    and Reveal for macOS. Some remote connect capability of these does not work with ssh keys at the moment but you 
+    can run apprentice2 on .ap2 files you copy to your desktop/laptop.</li>
+<li><strong>A:</strong> We also have the lumi-vnc module to run graphical programs on LUMI via a VNC client or web browser 
+    (try <code>module help lumi-vnc</code>), and later this year (hopefully) there should also be Open OnDemand to offer 
+    a frontend to LUMI to run GUI programs without too much trouble. </li>
+<li><strong>Q2:</strong> but not a Linux version, it seems (I guess this would require the full Cray stack to be installed, though)</li>
+<li><strong>A:</strong> This comes up from time to time but it is not clear how large the community is of people who want this 
+    and at the moment there is no commitment to provide Linux clients. We will feed this back.</li>
+<li><strong>A:</strong> The problem may also be that release engineering for Linux can be very hard for GUI packages that are not 
+    spread through RPM or other repositories as you can never be sure which libraries are present on a Linux machine 
+    due to all the distributions and all the installation options. One of the reasons we are so slow in setting up 
+    GUI-based applications on LUMI and to get the visualisation nodes available to users is precisely that we run 
+    into these problems all the time. You may have to use one of the modern containerised solutions for that.</li>
+<li><strong>C:</strong> <em>The first argument is a bit surprizing, given that I would expect the HPC community to be a bit more 
+    Linux-oriented than the average public. But I totally agree that getting a GUI to run on Linux is a hell of a job, so thank you for your answers :)</em></li>
+<li><strong>C:</strong> The reality is that macOS is very popular in the HPC community because it offers you a UNIX-like environment, 
+    good development tools, but also good office tools that you also need in your work, and that Windows is on the rise 
+    since it has become rather good for development on Linux also thanks to WSL and WSL2. ComputeCanada makes their 
+    HPC software stack that they serve via CernVM FS also available to their users in Canada on Windows simply via WSL2...</li>
+</ul>
+</li>
+</ul>
+<h4 id="0955-advanced-performance-analysis-iii-perftools-variable-scoping-and-compiler">09:55 Advanced Performance Analysis I/II — Perftools, variable scoping and compiler<a class="headerlink" href="#0955-advanced-performance-analysis-iii-perftools-variable-scoping-and-compiler" title="Permanent link">&para;</a></h4>
+<h4 id="1045-advanced-performance-analysis-iiii-communication-imbalance-apprentice2-hardware-counters-perftools-api-feedback-with-reveal-openmp-demo">10:45 Advanced Performance Analysis II/II — Communication Imbalance, Apprentice2, Hardware Counters, Perftools API, Feedback with Reveal, OpenMP, demo<a class="headerlink" href="#1045-advanced-performance-analysis-iiii-communication-imbalance-apprentice2-hardware-counters-perftools-api-feedback-with-reveal-openmp-demo" title="Permanent link">&para;</a></h4>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> Is there a way to "customize" the profiling : for example if the runtime is n sec, start the profiling 
+    at t0 and stop it at t1 with 0&lt;t0&lt;t1&lt;n, i. e. produce a profiling from t0 to t0+t1? it may be usefull for 
+    tracing for example a small number of itérations (rather than all itérations) and also for avoiding to generate too much data to proceed later with GUI.</p>
+<ul>
+<li><strong>A:</strong> You can use an API to control which parts of an application are profiled (between begin/end calls). 
+    This is covered in the talk and one of the exercise directories. The two aspects of this are first that you 
+    can collection off and on, secondly wrapping particular parts of an application between begin/end calls such that this will appear separately in the report.</li>
+<li><strong>A:</strong> Using specific time stamps is not directly possible with the API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Regarding the himeno example; What is the importance of distributing processes over NUMA domains?</p>
+<ul>
+<li><strong>A:</strong> By default, processes are not cyclically distributed over NUMA domains. Might use <code>--cpu-bind=verbose</code> 
+    as srun option to obtain binding information. </li>
+</ul>
+</li>
+</ul>
+<h4 id="1130-debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat-demo">11:30 Debugging at Scale -- gdb4hpc, valgrind4hpc, ATP, stat, demo<a class="headerlink" href="#1130-debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat-demo" title="Permanent link">&para;</a></h4>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> Is there any reason not to setup ATP by default so that it can capture any unexpected crash?</p>
+<ul>
+<li><strong>A:</strong> ATP has a low overhead, but it has some. So, it's up to the user to make the decision to include it or not.</li>
+<li><strong>A:</strong> It adds a signal handler. That might interfere with the application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Will DDT be available on LUMI?</p>
+<ul>
+<li><strong>A:</strong> Yes ARM forge will be available on LUMI. No ETA for the installation at the moment.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Will totalview be also treated in the same way as DDT? Will the user have to bring its own license to use it on 
+    Lumi if I understood well?</p>
+<ul>
+<li><strong>A:</strong> DDT will be available as a part of the ARM Forge. I do not believe TotalView would be available.</li>
+<li><strong>A:</strong> No, we've looked at TotalView also but we cannot buy every debugger/profiler and in fact
+    at that time there were not even realistic plans for support for the architecture that we have
+    (didn't check if this has changed though).</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Is it possible/advised to enable by default both ATP and perftools-lite?</p>
+<ul>
+<li><strong>A:</strong> ATP could be enabled by default, there might be the odd interaction with application signal handlers to watch out for.</li>
+<li><strong>A:</strong> I (Harvey) don't recommend having profiling enabled by default as this affects how applications 
+    are built and run and generates extra data that people might not want. </li>
+</ul>
+</li>
+</ul>
+<h3 id="1200-lunch-break-60-minutes"><em>12:00  lunch break (60 minutes)</em><a class="headerlink" href="#1200-lunch-break-60-minutes" title="Permanent link">&para;</a></h3>
+<h3 id="1300-understanding-cray-mpi-on-slingshot-rank-reordering-and-mpmd-launch">13:00   Understanding Cray MPI on Slingshot, rank reordering and MPMD launch<a class="headerlink" href="#1300-understanding-cray-mpi-on-slingshot-rank-reordering-and-mpmd-launch" title="Permanent link">&para;</a></h3>
+<p><em>Session info: High level overview of Cray MPI on Slingshot, useful environment variable controls.
+Rank reordering and MPMD application launch.
+Exercises: about 20 minutes</em></p>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> When will the Slingshot upgrade take place?</p>
+<ul>
+<li><strong>A:</strong> ~ end of May, from then UCX won't be available</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Can <code>MPICH_RANK_REORDER</code> environment variables also be used to control binding inside a node, for example spreading across sockets?</p>
+<ul>
+<li><strong>A:</strong> don't think so</li>
+<li><strong>Q2:</strong> I phrased my question wrong. Suppose in a single node you bind processes to cores 0,32,64,96. 
+    Can you then use <code>MPICH_RANK_REORDER</code> to control mapping of ranks to those processes? Admittedly, this will 
+    have a smaller impact compared to inter-node communication, but it is possible that communication 
+    between 0-64 is slower than between 0-32.</li>
+<li><strong>A:</strong> This is a very good question and I have been thinking we should start looking at this from the perspective 
+    of node structure in addtion to on/off node considerations.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What is the difference between <code>MPICH_RANK_REORDER_METHOD</code> and <code>srun --distribution</code>? 
+    Apparently the former takes precedence over the latter.</p>
+<ul>
+<li><strong>A:</strong> I'd say: srun will map Slurm tasks on the resources of the job, and <code>MPICH_RANK_REORDER_METHOD</code> 
+    will then influence the mapping of MPI ranks on Slurm tasks with the default being rank i on task i.</li>
+<li><strong>A:</strong> (Harvey) I really need to test this as I could imagine that distribution to nodes could be 
+    done from scratch but the custom mapping might be done from SLURM-set mapping already there.</li>
+</ul>
+</li>
+</ul>
+<h3 id="1400-io-optimisation-parallel-io">14:00   I/O Optimisation — Parallel I/O<a class="headerlink" href="#1400-io-optimisation-parallel-io" title="Permanent link">&para;</a></h3>
+<p><em>Session info:</em>
+<em>Introduction into the structure of the Lustre Parallel file system. Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. Examples of using MPI-IO to improve overall application performance.</em></p>
+<p><em>Advanced Parallel I/O considerations</em>
++ <em>Further considerations of parallel I/O and other APIs.</em></p>
+<p><em>Being nice to Lustre</em></p>
+<ul>
+<li><em>Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</em></li>
+</ul>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> What is the ratio between IO node to compute nodes on Lumi?</p>
+<ul>
+<li>What do you mean by IO node?</li>
+<li>IO nodes is probably not the right terminologiy here indeed. I used the terminology from the decommissioned BGQ system.</li>
+<li>I/O node == some node that is only used for I/O transfers???</li>
+<li><strong>A:</strong> don't think that there are such special nodes on LUMI-C, however some other partition, for example, 
+    LUMI-K (?) might be used (don't know if these partitions have better network connections for I/O)</li>
+<li><strong>A:</strong> The I/O servers on one of the slides where it said that you only do I/O from some processes are 
+    not hardware I/O servers, but your processes of which some take care of the I/O. Is that the source of the confusion?</li>
+<li>Probably. If I request a collective IO with MPIIO, which fraction of my processes will then be in charge of communicating with the file server?</li>
+<li><strong>A:</strong> maybe depends on the implementation of MPI-IO (and stripe_size, stripe_count) --&gt; in other words: "don't know"</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What is the optimize number of files per compute nodes for MPIIO?</p>
+<ul>
+<li><strong>A:</strong> maybe one file per process? </li>
+<li><strong>Q2:</strong> This would overflow the meta data server if for instance 100 000 processes write 100 000 files at 
+    the same time. The other extreme would be 100 000 files wrting collectively in one single shared file. Is there an optimum where a subset of processes would write to their own share file?</li>
+<li><strong>A:</strong> probably there is an optimum, but difficult to provide one answer to all possible scenarios</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> It seems there is no metadata striping: <code>lfs getdirstripe .</code> gives <code>lmv_stripe_count: 0 lmv_stripe_offset: 0 lmv_hash_type: none</code> 
+    Is this a deliberate choice? How do you ensure load balancing across MDTs? I see generally MDT0000 already is used more than MDT0001.</p>
+<ul>
+<li><strong>A:</strong> second MDT seems to be there for redundancy only</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> What is performance for writing small files to MDTs (https://doc.lustre.org/lustre_manual.xhtml#dataonmdt)?</p>
+<ul>
+<li><strong>A:</strong> It is probably a non-issue on LUMI as the file policies are such that the use of small files is strongly 
+    discouraged due to bad experiences on other CSC systems. You will be forced to use different strategies than putting 
+    10M small files on the system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Do you use PFL (Progressive File Layouts - https://doc.lustre.org/lustre_manual.xhtml#pfl)? If so when do you recomend it?</p>
+<ul>
+<li><strong>A:</strong> With <code>lfs getstripe -d .</code> you can see the current settings; I see <code>stripe_count=1</code> and no PFL.</li>
+<li><strong>A:</strong> (Harvey) I don't have the answer but we can ask about this. I would expect some delay in any case 
+    for features to be enabled in the Lustre that HPE provides even if they have been available for some time.</li>
+<li><strong>A:</strong> I tried <code>lfs setstripe -E 4M -c 1 -E 64M -c 4 -E -1 -c -1 -i 4 /my/dir</code> and it seems to work. 
+    So I think PFLs are possible, but the default striping settings do not use it.</li>
+</ul>
+</li>
+</ul>
+<h3 id="1445-break-30-minutes"><em>14:45  break (30 minutes)</em><a class="headerlink" href="#1445-break-30-minutes" title="Permanent link">&para;</a></h3>
+<h3 id="1515-additional-software-on-lumi-c">15:15   Additional software on LUMI-C<a class="headerlink" href="#1515-additional-software-on-lumi-c" title="Permanent link">&para;</a></h3>
+<p><em>Session info:</em></p>
+<ul>
+<li><em>Software stacks and policies</em></li>
+<li><em>Advanced Lmod use</em></li>
+<li><em>Installing software with EasyBuild (concepts, contributed recipes)</em></li>
+<li><em>Containers for Python, R, VNC (container wrappers)</em></li>
+</ul>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li><strong>Q:</strong> Are the EasyBlocks adapted for LUMI? Do you expect users will need to modify those as well?<ul>
+<li><strong>A1:</strong> some easyblocks have been adapted for LUMI, see https://github.com/Lumi-supercomputer/LUMI-SoftwareStack/tree/main/easybuild/easyblocks </li>
+</ul>
+</li>
+</ul>
+<h3 id="1615-lumi-documentation-how-to-get-help-how-to-write-good-support-requests">16:15   LUMI documentation, how to get help, how to write good support requests<a class="headerlink" href="#1615-lumi-documentation-how-to-get-help-how-to-write-good-support-requests" title="Permanent link">&para;</a></h3>
+<h3 id="1620-what-are-typicalfrequent-support-questions-of-users-on-lumi-c">16:20   What are typical/frequent support questions of users on LUMI-C?<a class="headerlink" href="#1620-what-are-typicalfrequent-support-questions-of-users-on-lumi-c" title="Permanent link">&para;</a></h3>
+<h3 id="1635-open-questions-answers-participants-are-encouraged-to-continue-with-exercises-in-case-there-should-be-no-questions">16:35   Open Questions &amp; Answers (participants are encouraged to continue with exercises in case there should be no questions)<a class="headerlink" href="#1635-open-questions-answers-participants-are-encouraged-to-continue-with-exercises-in-case-there-should-be-no-questions" title="Permanent link">&para;</a></h3>
+<p><strong>Q&amp;A</strong></p>
+<ul>
+<li>
+<p><strong>Q:</strong> Would LUST be interested in EB recipes contributed from users?</p>
+<ul>
+<li><strong>A:</strong> definitely yes</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Will mail server for slurm be installed on LUMI? so, when the calculation finish will notify by email (#SBATCH --mail-type=END)</p>
+<ul>
+<li><strong>A:</strong> need to ask system admins</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> A question about the material from yesterday: When is it safe to use the mixed compiler modules and when it is not? 
+    I would expect it to be safe for C, but can see problems combining C++ code from different compilers 
+    (name mangling issues?) or Fortran code. Can you give any advice?</p>
+<ul>
+<li><strong>A:</strong> The real use case here is that you normally have a programming environment loaded and are using the wrappers 
+    but want to use another compiler to build something directly without the wrappers, typically PrgEnv-cray for the 
+    former and a newer-than-system gcc for the latter. For example you might want to build cmake with gcc but don't 
+    need to swap the whole environemnt to gnu and use the wrappers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Any plans for LUMI Users Group or something similar?</p>
+<ul>
+<li><strong>A:</strong> Exchange of solutions, experiences, etc. I was thinking online.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> Quick question: to compile a code which targets Lumi-C, I suppose the modules <code>LUMI/21.08 partition/C</code> should be the right ones</p>
+<ul>
+<li><strong>A:</strong> yes, but better start using <code>LUMI/21.12</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> In my experience, EasyBuild is not necessarily the best tool to fix compilation problems. 
+    Do you have tips for when an existing easyblock does not work on LUMI? For example try a manual build first, 
+    and afterwards add it to EasyBuild for reproducibility?</p>
+<ul>
+<li><strong>A:</strong> (Answered in person)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1700-end-of-second-course-day"><em>17:00  End of second course day</em><a class="headerlink" href="#1700-end-of-second-course-day" title="Permanent link">&para;</a></h3>
+<h1 id="any-other-notes">Any other notes<a class="headerlink" href="#any-other-notes" title="Permanent link">&para;</a></h1>
+<h2 id="course-page">Course page<a class="headerlink" href="#course-page" title="Permanent link">&para;</a></h2>
+<p>https://www.lumi-supercomputer.eu/events/detailed-introduction-to-lumi-c-april-2022/</p>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
+<p><a href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20220427/">Download the LUST slides</a></p>
+<h1 id="questions">Questions<a class="headerlink" href="#questions" title="Permanent link">&para;</a></h1>
+<ul>
+<li>
+<p><strong>Q:</strong> How to get login to LUMI? (for users with a Finnish allocation)</p>
+<ul>
+<li><strong>A:</strong> See https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/ </li>
+</ul>
+</li>
+<li>
+<p><strong>Q:</strong> I have registerd my public key to mycsc.fi page few days back, but I still not recived the username. 
+    Can I use my csc username (the one i use for puhti and mahti) to get login into lumi?</p>
+<ul>
+<li><strong>A:</strong> Best option is to send a support request for this. If you let us know the username for puhti/mahti 
+    we might check if it is created on LUMI already.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>

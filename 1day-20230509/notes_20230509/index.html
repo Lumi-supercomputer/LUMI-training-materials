@@ -1,0 +1,1198 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/1day-20230509/notes_20230509/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>Questions session 9 May 2023 - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#questions-session-9-may-2023" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Questions session 9 May 2023
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Exercises_1/" class="md-nav__link">
+        Exercises 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../4day-20230214/">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20220823/">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20220427/">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-hardware" class="md-nav__link">
+    LUMI Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-environment-module-system" class="md-nav__link">
+    Programming Environment &amp; Module System
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-and-installing-software" class="md-nav__link">
+    Using and Installing Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-session-1" class="md-nav__link">
+    Exercise session 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-jobs" class="md-nav__link">
+    Running jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="questions-session-9-may-2023">Questions session 9 May 2023<a class="headerlink" href="#questions-session-9-may-2023" title="Permanent link">&para;</a></h1>
+<h2 id="lumi-hardware">LUMI Hardware<a class="headerlink" href="#lumi-hardware" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>"Real LUMI-G node" slide presented the CPU with two threads per core. I assume it is just to give full insight, what the CPU allows, but you are not using hyper-threading, right?</p>
+<p><strong>Answer:</strong> SMT is activated but not used by default excepted if you ask for it in your job script with <code>--hint=multithread</code>. The same applies to LUMI-C nodes.</p>
+</li>
+</ol>
+<h2 id="programming-environment-module-system">Programming Environment &amp; Module System<a class="headerlink" href="#programming-environment-module-system" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Is there a way to reload all sticky modules (with one command), if you first have unloaded all sticky modules.</p>
+<p><strong>Answer:</strong> If you have "force purged" all modules, you can get the default environment with <code>module restore</code> but it will not reload non-default sticky modules you may have loaded previously.</p>
+</li>
+</ol>
+<h2 id="using-and-installing-software">Using and Installing Software<a class="headerlink" href="#using-and-installing-software" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Is "lumi-container-wrapper" related to https://cotainr.readthedocs.io/en/latest/ by DeiC from Denmark?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>No. It is a different tool. It's the LUMI version of the <a href="https://docs.csc.fi/computing/containers/tykky/">tykky</a> tool available on the CSC Puhti and Mahti clusters.</p>
+</li>
+<li>
+<p>The cotainr tool from DeiC is also available though (see the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/">LUMI Software Library page</a>) but we're waiting for them to test it on newer versions of the Cray PE.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What does RPM stand for?</p>
+<p><strong>Answer:</strong> RPM stands for Redhat Package Manager. It is a popular tool for distributing Linux software as binaries for direct installation in the OS image.</p>
+</li>
+<li>
+<p>If I installed a software and prepared a module file by myself, is there a place I can contribute my module to the LUMI user community? Maybe it can save time when a new LUMI user is struggling installing the same exact software.</p>
+<p><strong>Answer:</strong> Yes, of course. We have a GitHub repository for that. https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/
+    Just create a pull request there and we will have a look and merge it</p>
+</li>
+<li>
+<p>What options --try-toolchain-version=22.08 --robot help us with?</p>
+<p><strong>Answer:</strong> These options should work as in the regular EasyBuild. (and the <code>-r</code> I used is the abbreviation of <code>--robot</code>)</p>
+<p>In fact, because I want a reproducible build environment most EasyConfigs that we offer also use the buildtools module, but as the version I use the <code>toolchain_version</code> variable so that that dependency is automatically adapted also. We bundle several build tools not only to have less modules, but also to have to adapt fewer dependency versions...</p>
+</li>
+<li>
+<p>Which changes were made in <code>lumi-container-wrapper</code> compared to <code>tykky</code>?</p>
+<p><strong>Answer:</strong> It uses a different base container better suited for LUMI and for Python it is configure to build upon cray-python.</p>
+</li>
+<li>
+<p>For how long will this project (project_465000522) be available?</p>
+<p><strong>Answer:</strong> It will stay active for the  next two days (terminates on May, 11th).   </p>
+</li>
+<li>
+<p>I have installed cp2k with easybuil, but I'm not able to run any programs, because it stops running in between and error file shows Segmentation fault - invalid memory reference? This is a problem I am not figuring out how to solve. Any help regarding this.</p>
+<p><strong>Answer:</strong> Too few details to say a lot. You may have made errors during installation though most of those errors would lead to different errors. However, you may have hit a bug in CP2K also, or a bug in the PRogramming Environment. We have several users who have successfully used our recipes, but they may have been trying different things with CP2K. Our configuration for CP2K (at least the CPU version) is also based on the configuration used on a similar Cray system at CSCS which is one of the machines used by the CP2K developers...</p>
+<p>This is also more the type of problem that is better handled through a ticket though it is unclear from the description if we can do a lot about it.</p>
+</li>
+</ol>
+<h2 id="exercise-session-1">Exercise session 1<a class="headerlink" href="#exercise-session-1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Lmod shows "LUMI/23.03  partition/D" as the only available pre-requisite with LUMI/23.03 for the VNC module. Yet, despite this I am able to:</p>
+<pre><code>module load LUMI/23.03  partition/L
+module load lumi-vnc
+</code></pre>
+<p>Does this mean that Lmod is just not able to show all of the possible pre-requisite combinations? Or will <code>lumi-vnc</code> turn out not to work correctly with <code>partition/L</code>?</p>
+<p><strong>Answer:</strong> <code>partition/D</code> should not even be shown, that is a bug in the software installation that I need to correct. </p>
+<p>But a nice find. The output is confusing because LMOD gets confused by some hidden software stacks and partitions. It actually also shows a line <code>init-lumi/0.2</code> which is a module that you have loaded automatically at login. And this in turns means that having this module is enough to use <code>lumi-vnc</code>, i.e., it works everywhere even without any <code>LUMI</code> stack or <code>CrayEnv</code>.</p>
+</li>
+<li>
+<p>In general, if I set export EBU_USER_PREFIX for project directory, do I also need to set another one for the scratch?</p>
+<p><strong>Answer:</strong> No, it points to the root of the software installation which is one clear place. The reason to install in <code>.project</code> and not in <code>/scratch</code> is that you want the software installation to be available for your whole project. If you check the disk use policies in <a href="https://docs.lumi-supercomputer.eu/storage/#lumi-network-file-system-disk-storage-areas">the storage section of the docs</a> you'd see that data on <code>/scratch</code> is not meant to be there for the whole project but can be erased after 90 days which is not what you want with your software installation.</p>
+</li>
+</ol>
+<h2 id="running-jobs">Running jobs<a class="headerlink" href="#running-jobs" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Is it possible to get an exemption from the the maximum 2 day allocation?</p>
+<p><strong>Answer:</strong> No. No exceptions are made at all. We don't want nodes to be monopolized by a user and it makes maintenance more difficult. Moreover, given the intrinsic instability of large clusters it is essential that jobs use codes that store intermediate states from which can be restarted.</p>
+<pre><code>Users have been using dependent jobs with success to automatically start the follow-on job after the previous one ends.
+</code></pre>
+</li>
+<li>
+<p>Is it not possible to use the <code>singularity build</code> command?</p>
+<p><strong>Answer:</strong> Not all options of <code>singularity build</code> work. Any build requiring fakeroot will fail as that is disabled due to security concerns.</p>
+</li>
+<li>
+<p>Does this (binding tasks to resrouces) mean that it will be necessary to use custom bindings to align tasks with specific NUMA domains on each CPU? (Since NUMA domains seem to be a level in-between cores and sockets)</p>
+<p><strong>Answer:</strong> If you are using all cores on an exclusive node the standard ways in which Slurm distributes processes and threads may do just what you want.</p>
+<p>Even if, e.g., it would turn out that it is better to use only 75% of the cores and you would be using 16 MPI processes with 6 threads per process, then a creative solution is to ask Slurm for 8 cores per task and then set <code>OMP_NUM_THREADS=6</code> to only start 6 threads. There are often creative solutions.</p>
+<p>Some clusters will redefine the socket to coincide with the NUMA domain but it looks like this is not done on LUMI.</p>
+</li>
+<li>
+<p>Where do we look up the specific NUMA domain / GPU correspondence? In the LUMI documentation? Or perhaps by a command in LUMI?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>See this <a href="https://docs.lumi-supercomputer.eu/assets/images/lumig-cpu-gpu-links.svg">image</a> from the <a href="https://docs.lumi-supercomputer.eu/hardware/lumig/">LUMI-G hardware</a> documentation page. It presents the numbering from the point of view of the GPUs and CPU.</p>
+</li>
+<li>
+<p>See also <code>rocm-smi --showtoponuma</code> (on a LUMI-G node)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If we enable hardware threads for a job/allocation, does "--cpus-per-task" become HW threads?</p>
+<p><strong>Answer:</strong> Yes:
+<div class="highlight"><pre><span></span><code># 2 HWT per core, all cores allocated 
+$ srun -pstandard --cpus-per-task=256 --hint=multithread --pty bash -c &#39;taskset -c -p $$&#39;
+pid 161159&#39;s current affinity list: 0-255
+
+# 2 HWT per core but only the first 64 cores allocated 
+$ srun -pstandard --cpus-per-task=128 --hint=multithread --pty bash -c &#39;taskset -c -p $$&#39;
+pid 161411&#39;s current affinity list: 0-63,128-191
+</code></pre></div></p>
+</li>
+<li>
+<p>Is it possible to make sure a job requesting 16 cores is allocated all cores in one NUMA domain?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>Is your question for sub-node allocations (small and small-g partitions)?</p>
+<ul>
+<li>Yes, the question is not relevant for production runs, it was only out of interest. It is something to be aware of during scaling tests for example.<ul>
+<li>Our advise to users in our local compute centre who have to do scaling tests to submit a proposal for time on LUMI (or our Tier-1 systems) is to use exclusive nodes to avoid surprises and reduce randomness. The most objective way is probably if you want to do a test on 16 nodes to run 8 such tests next to one another to fill up the node. Because there is another issue also. I haven't tried if the options to fix the clock speed from Slurm work on LUMI, but depending on the other work that is going on in a socket the clock speed of the cores may vary. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>I doubt there is a way to do that for the sub-node allocation partitions. I can't find one that works at the moment. Binding really only works well on job-exclusive nodes. For me this is a shortcomming of Slurm as it doesn't have enough levels in its hierarchy for modern clusters.</p>
+</li>
+<li>
+<p>For a sub-node allocation, you will get random cores depending on which cores are available:
+<div class="highlight"><pre><span></span><code>$ srun -psmall --cpus-per-task=16 --pty bash -c &#39;taskset -c -p $$&#39;
+pid 46818&#39;s current affinity list: 44-46,50,52-63
+
+$ srun -pstandard --cpus-per-task=16 --pty bash -c &#39;taskset -c -p $$&#39;
+pid 220496&#39;s current affinity list: 0-15
+</code></pre></div></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>To access /scratch/ from a container, we have to mount it. However, we need the full path and not just the symlink. Where do we find the full path? </p>
+<p><strong>Answer:</strong> You can use <code>file /scratch/project_465000522</code> for example. Don't try to mount the whole scratch. That will not work. The <code>project_*</code> subdirectories in <code>/scratch</code> are distributed across the 4 file systems of LUMI-P. <code>ls -l /scratch/project_465000522</code> will actually show you which file system is serving that project's scratch directory.</p>
+</li>
+<li>
+<p>The documentation page states that "Automatic cleaning of project scratch and fast storage is not active at the moment". Is this still true, and will the users be informed if this changes?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>This is still true today and usually users are informed about changes but with short notice. Quota were also disabled for a while due to problems after an upgrade last July but solving those problems became a higher priority when abuse was noticed, and there was only 14 days notice. So abusing scratch and flash for long-term storage is asking for increasing the priority of that part of the LUMI setup working... I'd say, don't count on it as the message may arrive as well when you are on a holiday.</p>
+</li>
+<li>
+<p>For slightly longer time storage but still limited to the lifetime of your project there is also the object storage. However, at the moment only rather basic tools to use that storage are already available.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What is the preferred way for transferring data between LUMI and some external server or other supercomputer e.g. CSC Mahti?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>
+<p>Mahti is so close to LUMI (as far as I know even in the same data centre but a different hall) that connection latency should not limit bandwidth so that you can just use sftp.</p>
+<p>I believe the CSC documentation also contains information on how to access the allas object storage from LUMI. Using allas as intermediate system is also an option. Or the LUMI-O storage but at the moment allas is both more developed and better documented. (For readers: allas is a CSC object system only available to users that are CSC clients and not to other users of LUMI.)</p>
+</li>
+<li>
+<p>For supercomputers that are "farther away" from LUMI where bandwidth is a problem when using sftp, it looks like the LUMI-O object storage is a solution as the tools that read from the object storage use so-called "multi-stream transport" so that they can better deal with connections with a high latency. The documentation on how to access the LUMI object storage from elsewhere needs work though.</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>

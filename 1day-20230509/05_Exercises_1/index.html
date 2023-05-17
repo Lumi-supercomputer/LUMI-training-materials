@@ -1,0 +1,1659 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/1day-20230509/05_Exercises_1/">
+      
+      
+        <link rel="prev" href="../04_Software_stacks/">
+      
+      
+        <link rel="next" href="../06_Running_jobs/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>Exercises 1 - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercises-1-modules-the-hpe-cray-pe-and-easybuild" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exercises 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Exercises 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Exercises 1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-the-use-of-modules" class="md-nav__link">
+    Exercises on the use of modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-compiling-software-by-hand" class="md-nav__link">
+    Exercises on compiling software by hand
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises on compiling software by hand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-1-a-simple-hello-world-program" class="md-nav__link">
+    Compilation of a program 1: A simple "Hello, world" program
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-2-a-program-with-blas" class="md-nav__link">
+    Compilation of a program 2: A program with BLAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-3-a-hybrid-mpiopenmp-program" class="md-nav__link">
+    Compilation of a program 3: A hybrid MPI/OpenMP program
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information-in-the-lumi-software-library" class="md-nav__link">
+    Information in the LUMI Software Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-software-with-easybuild" class="md-nav__link">
+    Installing software with EasyBuild
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing software with EasyBuild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-a-simple-program-without-dependencies-with-easybuild" class="md-nav__link">
+    Installing a simple program without dependencies with EasyBuild
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-an-easyconfig-given-to-you-by-lumi-user-support" class="md-nav__link">
+    Installing an EasyConfig given to you by LUMI User Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-with-uninstalled-dependencies" class="md-nav__link">
+    Installing software with uninstalled dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../4day-20230214/">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20220823/">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20220427/">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-the-use-of-modules" class="md-nav__link">
+    Exercises on the use of modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-compiling-software-by-hand" class="md-nav__link">
+    Exercises on compiling software by hand
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises on compiling software by hand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-1-a-simple-hello-world-program" class="md-nav__link">
+    Compilation of a program 1: A simple "Hello, world" program
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-2-a-program-with-blas" class="md-nav__link">
+    Compilation of a program 2: A program with BLAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-3-a-hybrid-mpiopenmp-program" class="md-nav__link">
+    Compilation of a program 3: A hybrid MPI/OpenMP program
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information-in-the-lumi-software-library" class="md-nav__link">
+    Information in the LUMI Software Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-software-with-easybuild" class="md-nav__link">
+    Installing software with EasyBuild
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing software with EasyBuild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-a-simple-program-without-dependencies-with-easybuild" class="md-nav__link">
+    Installing a simple program without dependencies with EasyBuild
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-an-easyconfig-given-to-you-by-lumi-user-support" class="md-nav__link">
+    Installing an EasyConfig given to you by LUMI User Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-with-uninstalled-dependencies" class="md-nav__link">
+    Installing software with uninstalled dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="exercises-1-modules-the-hpe-cray-pe-and-easybuild">Exercises 1: Modules, the HPE Cray PE and EasyBuild<a class="headerlink" href="#exercises-1-modules-the-hpe-cray-pe-and-easybuild" title="Permanent link">&para;</a></h1>
+<p>See <a href="../#setting-up-for-the-exercises">the instructions</a>
+to set up for the exercises.</p>
+<h2 id="exercises-on-the-use-of-modules">Exercises on the use of modules<a class="headerlink" href="#exercises-on-the-use-of-modules" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>The <code>Bison</code> program installed in the OS image is pretty old (version 3.0.4) and
+    we want to use a newer one. Is there one available on LUMI?</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<div class="highlight"><pre><span></span><code>module spider Bison
+</code></pre></div>
+<p>tells us that there are indeed newer versions available on the system. </p>
+<p>The versions that have a compiler name (usually <code>gcc</code>) in their name followed
+by some seemingly random characters are installed with Spack and not in the
+CrayEnv or LUMI environments.</p>
+<p>To get more information about <code>Bison/3.8.2</code>: </p>
+<div class="highlight"><pre><span></span><code>module spider Bison/3.8.2
+</code></pre></div>
+<p>tells us that Bison 3.8.2 is provided by a couple of <code>buildtools</code> modules and available
+in all partitions in several versions of the <code>LUMI</code> software stack and in <code>CrayEnv</code>.</p>
+<p>Alternatively, in this case</p>
+<div class="highlight"><pre><span></span><code>module keyword Bison
+</code></pre></div>
+<p>would also have shown that Bison is part of several versions of the <code>buildtools</code> module.</p>
+<p>The <code>module spider</code> command is often the better command if you use names that with a high 
+likelihood could be the name of a package, while <code>module keyword</code> is often the better choice
+for words that are more a keyword. But if one does not return the solution it is a good idea 
+to try the other one also.</p>
+</details>
+</li>
+<li>
+<p>The <code>htop</code> command is a nice alternative for the <code>top</code> command with a more powerful user interface.
+    However, typing <code>htop</code> on the command line produces an error message. Can you find and run <code>htop</code>?</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<p>We can use either <code>module spider htop</code> or <code>module keyword htop</code> to find out that <code>htop</code> is indeed
+available on the system. With <code>module keyword htop</code> we'll find out immediately that it is in the 
+<code>systools</code> modules and some of those seem to be numbered after editions of the LUMI stack suggesting
+that they may be linked to a stack, with <code>module spider</code> you'll first see that it is an extension of
+a module and see the versions. You may again see some versions installed with Spack.</p>
+<p>Let's check further for <code>htop/3.2.1</code> that should exist according to <code>module spider htop</code>:</p>
+<div class="highlight"><pre><span></span><code>module spider htop/3.2.1
+</code></pre></div>
+<p>tells us that this version of <code>htop</code> is available in all partitions of <code>LUMI/22.08</code> and <code>LUMI/22.06</code>,
+and in <code>CrayEnv</code>. Let us just run it in the <code>CrayEnv</code> environment:</p>
+<div class="highlight"><pre><span></span><code>module load CrayEnv
+module load systools/22.08
+htop
+</code></pre></div>
+<p>(You can quit <code>htop</code> by pressing <code>q</code> on the keyboard.)</p>
+</details>
+</li>
+<li>
+<p>In the future LUMI will offer Open OnDemand as a browser-based interface to LUMI that will also enable
+    running some graphical programs. At the moment the way to do this is through a so-called VNC server.
+    Do we have such a tool on LUMI, and if so, how can we use it?</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<p><code>module spider VNC</code> and <code>module keyword VNC</code> can again both be used to check if there is software
+available to use VNC. Both will show that there is a module <code>lumi-vnc</code> in several versions. If you 
+try loading the older ones of these (the version number points at the date of some scripts) you will
+notice that some produce a warning as they are deprecated. However, when installing a new version we 
+cannot remove older ones in one sweep, and users may have hardcoded full module names in scripts they
+use to set their environment, so we chose to not immediate delete these older versions.</p>
+<p>One thing you can always try to get more information about how to run a program, is to ask for the help
+information of the module. For this to work the module must first be available, or you have to use 
+<code>module spider</code> with the full name of the module. We see that version <code>20230110</code> is the newest version
+of the module, so let's try that one:</p>
+<div class="highlight"><pre><span></span><code>module spider lumi-vnc/20230110
+</code></pre></div>
+<p>The output may look a little strange as it mentions <code>init-lumi</code> as one of the modules that you can load.
+That is because this tool is available even outside <code>CrayEnv</code> or the LUMI stacks. But this command also
+shows a long help test telling you how to use this module (though it does assume some familiarity with how
+X11 graphics work on Linux).</p>
+<p>Note that if there is only a single version on the system, as is the case for the course in May 2023,
+the <code>module spider VNC</code> command without specific version or correct module name will already display the
+help information.</p>
+</details>
+</li>
+<li>
+<p>Search for the <code>bzip2</code> tool (and not just the <code>bunzip2</code> command as we also need the <code>bzip2</code> command) and make 
+    sure that you can use software compiled with the Cray compilers in the LUMI stacks in the same session.</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<div class="highlight"><pre><span></span><code>module spider bzip2
+</code></pre></div>
+<p>shows that there are versions of <code>bzip2</code> for several of the <code>cpe*</code> toolchains and in several versions
+of the LUMI software stack.</p>
+<p>Of course we prefer to use a recent software stack, the <code>22.08</code> or <code>22.12</code> (but as of early May 2023, 
+there is a lot more software ready-to-install for <code>22.08</code>). 
+And since we want to use other software
+compiled with the Cray compilers also, we really want a <code>cpeCray</code> version to avoid conflicts between 
+different toolchains. So the module we want to load is <code>bzip2/1.0.8-cpeCray-22.08</code>.</p>
+<p>To figure out how to load it, use</p>
+<div class="highlight"><pre><span></span><code>module spider bzip2/1.0.8-cpeCray-22.08
+</code></pre></div>
+<p>and see that (as expected from the name) we need to load <code>LUMI/22.08</code> and can then use it in any of the
+partitions.</p>
+</details>
+</li>
+</ol>
+<h2 id="exercises-on-compiling-software-by-hand">Exercises on compiling software by hand<a class="headerlink" href="#exercises-on-compiling-software-by-hand" title="Permanent link">&para;</a></h2>
+<p><em>These exercises are optional during the session, but useful if you expect 
+to be compiling software yourself. The source files mentioned can be found in
+the subdirectory CPE of the download.</em></p>
+<h3 id="compilation-of-a-program-1-a-simple-hello-world-program">Compilation of a program 1: A simple "Hello, world" program<a class="headerlink" href="#compilation-of-a-program-1-a-simple-hello-world-program" title="Permanent link">&para;</a></h3>
+<p>Four different implementations of a simple "Hello, World!" program are provided in the <code>CPE</code> subdirectory:</p>
+<ul>
+<li><code>hello_world.c</code> is an implementation in C,</li>
+<li><code>hello_world.cc</code> is an implementation in C++,</li>
+<li><code>hello_world.f</code> is an implementation in Fortran using the fixed format source form,</li>
+<li><code>hello_world.f90</code> is an implementation in Fortran using the more modern free format source form.</li>
+</ul>
+<p>Try to compile these programs using the programming environment of your choice.</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<p>We'll use the default version of the programming environment (22.12 at the moment of the
+course in May 2023), but in case you want to use
+a particular version, e.g., the 22.08 version, and want to be very sure that all modules are
+loaded correctly from the start you could consider using</p>
+<div class="highlight"><pre><span></span><code>module load cpe/22.08
+module load cpe/22.08
+</code></pre></div>
+<p>So note that we do twice the same command as the first iteration does not always succeed to reload
+all modules in the correct version. Do not combine both lines into a single <code>module load</code> statement
+as that would again trigger the bug that prevents all modules to be reloaded in the first iteration.</p>
+<p>The sample programs that we asked you to compile do not use the GPU. So there are three programming
+environments that we can use: <code>PrgEnv-gnu</code>, <code>PrgEnv-cray</code> and <code>PrgEnv-aocc</code>. All three will work,
+and they work almost the same.</p>
+<p>Let's start with an easy case, compiling the C version of the program with the GNU C compiler.
+For this all we need to do is</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
+cc hello_world.c
+</code></pre></div>
+<p>which will generate an executable named <code>a.out</code>. 
+If you are not comfortable using the default version of <code>gcc</code> (which produces the warning message when
+loading the <code>PrgEnv-gnu</code> module) you can always load the <code>gcc/11.2.0</code> module instead after loading
+<code>PrgEnv-gnu</code>.</p>
+<p>Of course it is better to give the executable a proper
+name which can be done with the <code>-o</code> compiler option:</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
+cc hello_world.c -o hello_world.x
+</code></pre></div>
+<p>Try running this program:</p>
+<div class="highlight"><pre><span></span><code>./hello_world.x
+</code></pre></div>
+<p>to see that it indeed works. We did forget another important compiler option, but we'll discover
+that in the next exercise.</p>
+<p>The other programs are equally easy to compile using the compiler wrappers:</p>
+<div class="highlight"><pre><span></span><code>CC hello_world.cc -o hello_world.x
+ftn hello_world.f -o hello_world.x
+ftn hello_world.f90 -o hello_world.x
+</code></pre></div>
+</details>
+<h3 id="compilation-of-a-program-2-a-program-with-blas">Compilation of a program 2: A program with BLAS<a class="headerlink" href="#compilation-of-a-program-2-a-program-with-blas" title="Permanent link">&para;</a></h3>
+<p>In the <code>CPE</code> subdirectory you'll find the C program <code>matrix_mult_C.c</code>
+and the Fortran program <code>matrix_mult_F.f90</code>. Both do the same thing: a matrix-matrix
+multiplication using the 6 different orders of the three nested loops involved in
+doing a matrix-matrix multiplication, and a call to the BLAS routine DGEMM that does the same
+for comparison.</p>
+<p>Compile either of these programs using the Cray LibSci library for the BLAS routine.
+Do not use OpenMP shared memory parallelisation. The code does not use MPI.</p>
+<p>The resulting executable takes one command line argument, the size of the square matrix.
+Run the script using <code>1000</code> for the matrix size and see what happens.</p>
+<p>Note that the time results may be very unreliable as we are currently doing this on the login
+nodes. In the session of Slurm you'll learn how to request compute nodes and it might be
+interesting to redo this on a compute node with a larger matrix size as the with a matrix size
+of 1000 all data may stay in the third level cache and you will not notice the differences that
+you should note. Also, because these nodes are shared with a lot of people any benchmarking
+is completely unreliable.</p>
+<p>If this program takes more than half a minute or so before the first result line in the table,
+starting with <code>ijk-variant</code>, is printed, you've very likely done something wrong (unless the load
+on the system is extreme). In fact, if you've done things well the time reported for the
+<code>ijk</code>-variant should be well under 3 seconds for both the C and Fortran versions...</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<p>Just as in the previous exercise, this is a pure CPU program so we can chose between the
+same three programming environments.</p>
+<p>The one additional "difficulty" is that we need to link with the BLAS library. This is very easy however in 
+the HPE Cray PE if you use the compiler wrappers rather than calling the compilers yourself:
+you only need to make sure that the <code>cray-libsci</code> module is loaded and the wrappers will take
+care of the rest. And on most systems (including LUMI) this module will be loaded automatically
+when you load the <code>PrgEnv-*</code> module.</p>
+<p>To compile with the GNU C compiler, all you need to do is</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
+cc -O3 matrix_mult_C.c -o matrix_mult_C_gnu.x
+</code></pre></div>
+<p>will generate the executable <code>matrix_mult_C_gnu.x</code>.</p>
+<p>Note that we add the <code>-O3</code> option and it is very important to add either <code>-O2</code> or <code>-O3</code> as by default
+the GNU compiler will generate code without any optimization for debugging purposes, and that code is
+in this case easily five times or more slower. So if you got much longer run times than indicated this
+is likely the mistake that you made.</p>
+<p>To use the Cray C compiler instead only one small change is needed: Loading a different programming 
+environment module:</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-cray
+cc -O3 matrix_mult_C.c -o matrix_mult_C_cray.x
+</code></pre></div>
+<p>will generate the executable <code>matrix_mult_C_cray.x</code>.</p>
+<p>Likewise for the AMD AOCC compiler we can try with loading yet another <code>PrgEnv-*</code> module:</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-aocc
+cc -O3 matrix_mult_C.c -o matrix_mult_C_aocc.x
+</code></pre></div>
+<p>but it turns out that this fails with linker error messages about not being able to find the
+<code>sin</code> and <code>cos</code> functions. When using the AOCC compiler the <code>libm</code> library with basic math functions is
+not linked automatically, but this is easily done by adding the <code>-lm</code> flag:</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-aocc
+cc -O3 matrix_mult_C.c -lm -o matrix_mult_C_aocc.x
+</code></pre></div>
+<p>For the Fortran version of the program we have to use the <code>ftn</code> compiler wrapper instead, and the issue
+with the math libraries in the AOCC compiler does not occur. So we get</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
+ftn -O3 matrix_mult_F.f90 -o matrix_mult_F_gnu.x
+</code></pre></div>
+<p>for the GNU Fortran compiler,</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-cray
+ftn -O3 matrix_mult_F.f90 -o matrix_mult_F_cray.x
+</code></pre></div>
+<p>for the Cray Fortran compiler and</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-aocc
+ftn -O3 matrix_mult_F.f90 -o matrix_mult_F_aocc.x
+</code></pre></div>
+<p>for the AMD Fortran compiler.</p>
+<p>When running the program you will see that even though the 6 different loop orderings 
+produce the same result, the time needed to compile the matrix-matrix product is very
+different and those differences would be even more pronounced with bigger matrices
+(which you can do after the session on using Slurm).</p>
+<p>The exercise also shows that not all codes are equal even if they produce a result of the
+same quality. The six different loop orderings run at very different speed, and none of our
+simple implementations can beat a good library, in this case the BLAS library included in
+LibSci.</p>
+<p>The results with the Cray Fortran compiler are particularly interesting. The result for
+the BLAS library is slower which we do not yet understand, but it also turns out that 
+for four of the six loop orderings we get the same result as with the BLAS library DGEMM
+routine. It looks like the compiler simply recognized that this was code for a matrix-matrix
+multiplication and replaced it with a call to the BLAS library. The Fortran 90 matrix
+multiplication is also replaced by a call of the DGEMM routine. To confirm all this,
+unload the <code>cray-libsci</code> module and try to compile again and you will see five error
+messages about not being able to find DGEMM.</p>
+</details>
+<h3 id="compilation-of-a-program-3-a-hybrid-mpiopenmp-program">Compilation of a program 3: A hybrid MPI/OpenMP program<a class="headerlink" href="#compilation-of-a-program-3-a-hybrid-mpiopenmp-program" title="Permanent link">&para;</a></h3>
+<p>The file <code>mpi_omp_hello.c</code> is a hybrid MPI and OpenMP C program that sends a message
+from each thread in each MPI rank. It is basically a simplified version of the
+programs found in the <code>lumi-CPEtools</code> modules that can be used to quickly check 
+the core assignment in a hybrid MPI and OpenMP job (see later in this tutorial).
+It is again just a CPU-based program.</p>
+<p>Compile the program with your favourite C compiler on LUMI.</p>
+<p>We have not yet seen how to start an MPI program. However, you can run the executable
+on the login nodes and it will then contain just a single MPI rank. </p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<p>In the HPE Cray PE environment, you don't use <code>mpicc</code> to compile a C MPI program,
+but you just use the <code>cc</code> wrapper as for any other C program. To enable MPI you 
+have to make sure that the <code>cray-mpich</code> module is loaded. This module will usually
+be loaded by loading one of the <code>PrgEnv-*</code> modules, but only if the right network
+target module, which is <code>craype-network-ofi</code>, is also already loaded. </p>
+<p>Compiling the program is very simple:</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
+cc -O3 -fopenmp mpi_omp_hello.c -o mpi_omp_hello_gnu.x
+</code></pre></div>
+<p>to compile with the GNU C compiler, </p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-cray
+cc -O3 -fopenmp mpi_omp_hello.c -o mpi_omp_hello_cray.x
+</code></pre></div>
+<p>to compile with the Cray C compiler, and</p>
+<div class="highlight"><pre><span></span><code>module load PrgEnv-aocc
+cc -O3 -fopenmp mpi_omp_hello.c -o mpi_omp_hello_aocc.x
+</code></pre></div>
+<p>to compile with the AMD AOCC compiler.</p>
+<p>To run the executables it is not
+even needed to have the respective <code>PrgEnv-*</code> module loaded since the binaries
+will use a copy of the libraries stored in a default directory, though there have
+been bugs in the past preventing this to work with <code>PrgEnv-aocc</code>.</p>
+</details>
+<h2 id="information-in-the-lumi-software-library">Information in the LUMI Software Library<a class="headerlink" href="#information-in-the-lumi-software-library" title="Permanent link">&para;</a></h2>
+<p>Explore the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>.</p>
+<ul>
+<li>Search for information for the package ParaView and quickly read through the page</li>
+</ul>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<p><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/ParaView/">Link to the ParaView documentation</a></p>
+<p>It is an example of a package for which we have both user-level and some technical information. The page
+will first show some license information, then the actual user information which in case of this package
+is very detailed and long. But it is also a somewhat complicated package to use. It will become easier
+when LUMI evolves a bit further, but there will always be some pain. Next comes the more technical
+part: Links to the EasyBuild recipe and some information about how we build the package.</p>
+<p>We currently only provide ParaView in the cpeGNU toolchain. This is because it has a lot of dependencies
+that are not trivial to compile and to port to the other compilers on the system, and EasyBuild is 
+strict about mixing compilers basically because it can cause a lot of problems, e.g., due to conflicts
+between OpenMP runtimes.</p>
+</details>
+<h2 id="installing-software-with-easybuild">Installing software with EasyBuild<a class="headerlink" href="#installing-software-with-easybuild" title="Permanent link">&para;</a></h2>
+<p><em>These exercises are based on material from the <a href="http://tutorial.easybuild.io/">EasyBuild tutorials</a>
+(and we have a <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/">special version for LUMI</a> also).</em></p>
+<p><em>Note</em>: If you want to be able to uninstall all software installed through the exercises
+easily, we suggest you make a separate EasyBuild installation for the course, e.g.,
+in <code>/scratch/project_465000523/$USER/eb-course</code> if you make the exercises during the course:</p>
+<ul>
+<li>Start from a clean login shell with only the standard modules loaded.</li>
+<li>
+<p>Set <code>EBU_USER_PREFIX</code>: </p>
+<div class="highlight"><pre><span></span><code>export EBU_USER_PREFIX=/scratch/project_465000523/$USER/eb-course
+</code></pre></div>
+<p>You'll need to do that in every shell session where you want to install or use that software.</p>
+</li>
+<li>
+<p>From now on you can again safely load the necessary <code>LUMI</code> and <code>partition</code> modules for the exercise.</p>
+</li>
+<li>
+<p>At the end, when you don't need the software installation anymore, you can simply remove the directory
+    that you just created.</p>
+<div class="highlight"><pre><span></span><code>rm -rf /scratch/project_465000523/$USER/eb-course
+</code></pre></div>
+</li>
+</ul>
+<h3 id="installing-a-simple-program-without-dependencies-with-easybuild">Installing a simple program without dependencies with EasyBuild<a class="headerlink" href="#installing-a-simple-program-without-dependencies-with-easybuild" title="Permanent link">&para;</a></h3>
+<p>The LUMI Software Library contains the package <code>eb-tutorial</code>. Install the version of
+the package for the <code>cpeCray</code> toolchain in the 22.08 version of the software stack.</p>
+<p><em>At the time of this course, in early May 2023, we're still working on EasyBuild build
+recipes for the 22.12 version of the software stack.</em></p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<ul>
+<li>
+<p>We can check the 
+    <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/e/eb-tutorial">eb-tutorial page</a>
+    in the 
+    <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs">LUMI Software Library</a>
+    if we want to see more information about the package.</p>
+<p>You'll notice that there are versions of the EasyConfigs for <code>cpeGNU</code> and <code>cpeCray</code>.
+As we want to install software with the <code>cpeCray</code> toolchain for <code>LUMI/22.08</code>, we'll
+need the <code>cpeCray-22.08</code> version which is the EasyConfig
+<code>eb-tutorial-1.0.1-cpeCray-22.08.eb</code>.</p>
+</li>
+<li>
+<p>Obviously we need to load the <code>LUMI/22.08</code> module. If we would like to install software
+    for the CPU compute nodes, you need to also load <code>partition/C</code>.
+    To be able to use EasyBuild, we also need the <code>EasyBuild-user</code> module.</p>
+<div class="highlight"><pre><span></span><code>module load LUMI/22.08 partition/C
+module load EasyBuild-user
+</code></pre></div>
+</li>
+<li>
+<p>Now all we need to do is run the <code>eb</code> command from EasyBuild to install the software.</p>
+<p>Let's however take the slow approach and first check if what dependencies the package needs:</p>
+<div class="highlight"><pre><span></span><code>eb eb-tutorial-1.0.1-cpeCray-22.08.eb -D
+</code></pre></div>
+<p>We can do this from any directory as the EasyConfig file is already in the LUMI Software Library
+and will be located automatically by EasyBuild. You'll see that all dependencies are already on 
+the system so we can proceed with the installation:</p>
+<div class="highlight"><pre><span></span><code>eb eb-tutorial-1.0.1-cpeCray-22.08.eb 
+</code></pre></div>
+</li>
+<li>
+<p>After this you should have a module <code>eb-tutorial/1.0.1-cpeCray-22.08</code> but it may not show up 
+    yet due to the caching of Lmod. Try</p>
+<div class="highlight"><pre><span></span><code>module av eb-tutorial/1.0.1-cpeCray-22.08
+</code></pre></div>
+<p>If this produces an error message complaining that the module cannot be found, it is time to clear
+the Lmod cache:</p>
+<div class="highlight"><pre><span></span><code>rm -rf $HOME/.lmod.d/.cache
+</code></pre></div>
+</li>
+<li>
+<p>Now that we have the module, we can check what it actually does:</p>
+<div class="highlight"><pre><span></span><code>module help eb-tutorial/1.0.1-cpeCray-22.08
+</code></pre></div>
+<p>and we see that it provides the <code>eb-tutorial</code> command.</p>
+</li>
+<li>
+<p>So let's now try to run this command:</p>
+<div class="highlight"><pre><span></span><code>module load eb-tutorial/1.0.1-cpeCray-22.08
+eb-tutorial
+</code></pre></div>
+<p>Note that if you now want to install one of the other versions of this module, EasyBuild will
+complain that some modules are loaded that it doesn't like to see, including the <code>eb-tutorial</code>
+module and the <code>cpeCray</code> modules so it is better to unload those first:</p>
+<div class="highlight"><pre><span></span><code>module unload cpeCray eb-tutorial
+</code></pre></div>
+</li>
+</ul>
+</details>
+<h3 id="installing-an-easyconfig-given-to-you-by-lumi-user-support">Installing an EasyConfig given to you by LUMI User Support<a class="headerlink" href="#installing-an-easyconfig-given-to-you-by-lumi-user-support" title="Permanent link">&para;</a></h3>
+<p>Sometimes we have no solution ready in the LUMI Software Library, but we prepare one or more
+custom EasyBuild recipes for you. Let's mimic this case. In practice we would likely send 
+those as attachments to a mail from the ticketing system and you would be asked to put
+them in a separate directory (basically since putting them at the top of your home
+directory would in some cases let EasyBuild search your whole home directory for dependencies
+which would be a very slow process).</p>
+<p>You've been given two EasyConfig files to install a tool called <code>py-eb-tutorial</code> which is in fact
+a Python package that uses the <code>eb-tutorial</code> package installed in the previous exercise. These
+EasyConfig files are in the <code>EasyBuild</code> subdirectory of the exercises for this course.
+In the first exercise you are asked to install the version of <code>py-eb-tutorial</code> for the
+<code>cpeCray/22.08</code> toolchain.</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<ul>
+<li>
+<p>Go to the <code>EasyBuild</code> subdirectory of the exercises and check that it indeed contains the
+    <code>py-eb-tutorial-1.0.0-cpeCray-22.08-cray-python-3.9.12.1.eb</code> and
+    <code>py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb</code> files.
+    It is the first one that we need for this exercise.</p>
+<p>You can see that we have used a very long name as we are also using a version suffix to
+make clear which version of Python we'll be using.</p>
+</li>
+<li>
+<p>Let's first check for the dependencies (out of curiosity):</p>
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeCray-22.08-cray-python-3.9.12.1.eb -D
+</code></pre></div>
+<p>and you'll see that all dependencies are found (at least if you made the previous exercise 
+successfully). You may find it strange that it shows no Python module but that is because
+we are using the <code>cray-python</code> module which is not installed through EasyBuild and only
+known to EasyBuild as an external module.</p>
+</li>
+<li>
+<p>And now we can install the package:</p>
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeCray-22.08-cray-python-3.9.12.1.eb
+</code></pre></div>
+</li>
+<li>
+<p>To use the package all we need to do is to load the module and to run the command that it
+    defines:</p>
+<div class="highlight"><pre><span></span><code>module load py-eb-tutorial/1.0.0-cpeCray-22.08-cray-python-3.9.12.1
+py-eb-tutorial
+</code></pre></div>
+<p>with the same remark as in the previous exercise if Lmod fails to find the module.</p>
+<p>You may want to do this step in a separate terminal session set up the same way, or you
+will get an error message in the next exercise with EasyBuild complaining that there are
+some modules loaded that should not be loaded.</p>
+</li>
+</ul>
+</details>
+<h3 id="installing-software-with-uninstalled-dependencies">Installing software with uninstalled dependencies<a class="headerlink" href="#installing-software-with-uninstalled-dependencies" title="Permanent link">&para;</a></h3>
+<p>Now you're asked to also install the version of <code>py-eb-tutorial</code> for the <code>cpeGNU</code> toolchain in <code>LUMI/22.08</code>
+(and the solution given below assumes you haven'ty accidentally installed the wrong EasyBuild recipe in one
+of the previous two exercises).</p>
+<details class="solution">
+<summary>Click to see the solution.</summary>
+<ul>
+<li>
+<p>We again work in the same environment as in the previous two exercises. Nothing has changed here.
+    Hence if not done yet we need</p>
+<div class="highlight"><pre><span></span><code>module load LUMI/22.08 partition/C
+module load EasyBuild-user
+</code></pre></div>
+</li>
+<li>
+<p>Now go to the <code>EasyBuild</code> subdirectory of the exercises (if not there yet from the previous
+    exercise) and check what the <code>py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb</code> needs:</p>
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb -D
+</code></pre></div>
+<p>We'll now see that there are two missing modules. Not only is the 
+<code>py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1</code> that we try to install missing, but also the
+<code>eb-tutorial/1.0.1-cpeGNU-22.08</code>. EasyBuild does however manage to find a recipe from which this module
+can be built in the pre-installed build recipes.</p>
+</li>
+<li>
+<p>We can install both packages separately, but it is perfectly possible to install both packages in a single
+    <code>eb</code> command by using the <code>-r</code> option to tell EasyBuild to also install all dependencies.</p>
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb -r
+</code></pre></div>
+</li>
+<li>
+<p>At the end you'll now notice (with <code>module avail</code>) that both the module 
+    <code>eb-tutorial/1.0.1-cpeGNU-22.08</code> and <code>py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1</code>
+    are now present.</p>
+<p>To run you can use</p>
+<div class="highlight"><pre><span></span><code>module load py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1
+py-eb-tutorial
+</code></pre></div>
+</li>
+</ul>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>
