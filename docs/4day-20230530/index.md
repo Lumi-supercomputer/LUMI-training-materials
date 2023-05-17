@@ -2,7 +2,9 @@
 
 ## Course organisation
 
--   [Course schedule](schedule.md)
+-   [Schedule (PDF)](https://462000265.lumidata.eu/4day-20230530/files/2023-05_General-LUMI-Training-Agenda.pdf)
+
+    [Dynamic schedule (adapted as the course progresses)](schedule.md)
 
      *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
      if that file is only available on LUMI.*

@@ -1,7 +1,5 @@
 # Course schedule
 
-<em>All times EEST (time in Tallinn and Helsinki). Subtract one hour for CEST.</em>
-
 <ul>
     <li><a href="#Day1">Day 1</a>
     <li><a href="#Day2">Day 2</a>
