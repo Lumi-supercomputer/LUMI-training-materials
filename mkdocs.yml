@@ -31,6 +31,8 @@ theme:
 
 nav:
   - Home: index.md
+  - Comprehensive LUMI May-June 2023:
+      - 4day-20230530/index.md
   - "1-day May 2023":
       - 1day-20230509/index.md
       - LUMI Architecture: 1day-20230509/01_Architecture.md
