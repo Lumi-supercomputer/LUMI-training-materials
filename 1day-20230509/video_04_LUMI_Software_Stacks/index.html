@@ -1,4 +1,6 @@
 
+
+
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -8,11 +10,11 @@
       
       
       
-        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/1day-20230509/video_04_LUMI_Software_Stacks/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_04_LUMI_Software_Stacks/">
       
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
@@ -49,38 +51,112 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
+  
       
 
     
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", function(ev) {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
     
     
+
+  
+  
+  
+    
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMI training materials - LUMI Software Stacks" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_04_LUMI_Software_Stacks/" />
+  <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@LUMIhpc" />
+  <meta name="twitter:creator" content="@LUMIhpc" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI Software Stacks" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+
+  <style>
+    [data-md-color-primary="lumi"] {
+      --md-primary-fg-color: hsla(0, 0%, 100%, 1);
+      --md-primary-fg-color--light: hsla(0, 0%, 100%, 0.7);
+      --md-primary-fg-color--dark: hsla(0, 0%, 0%, 0.07);
+      --md-primary-bg-color: hsla(0, 0%, 0%, 0.87);
+      --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+      --md-button-bg-color: hsla(207,100%,28%, 1);
+      --md-button-bg-color--light: hsla(207,100%,38%, 1);
+      --md-typeset-a-color: hsla(207,100%,28%, 1);
+    }
+    
+    [data-md-color-accent="lumi"] {
+      --md-accent-fg-color: hsla(0,0%,0%, 1);
+      --md-accent-fg-color--transparent: hsla(0,0%,0%, 0.1);
+      --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+      --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    }
+  </style>
+
+  
+
+
+  
+  
+
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/extra-a8af0af3d0.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
+    />
+    <link
+      rel="stylesheet"
+      id="typekit-fonts-css"
+      href="https://use.typekit.net/nlo5lta.css?ver=5.5.3"
+      type="text/css" media="all"
+    />
+
   </head>
   
   
     
     
-      
     
     
     
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lumi" data-md-color-accent="lumi">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -107,7 +183,28 @@
     <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -129,14 +226,6 @@
         </div>
       </div>
     </div>
-    
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
-          
-        
-      </form>
     
     
     
@@ -201,7 +290,28 @@
     <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
 
     </a>
     LUMI training materials
@@ -967,21 +1077,37 @@
         
       </main>
       
-        <footer class="md-footer">
+        
+
+
+
+
+<footer class="md-footer">
+
+  
+
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
+
       
-        <div class="md-social">
+    <div class="md-footer-copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" 
+             style="border-width:0" 
+             src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+        />
+      </a>
+      This work is licensed under a&nbsp;
+      <a rel="license" 
+         href="http://creativecommons.org/licenses/by/4.0/"
+      >
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </div>
+
+      
+      <div class="md-social">
   
     
     
@@ -1008,7 +1134,6 @@
     </a>
   
 </div>
-      
     </div>
   </div>
 </footer>
