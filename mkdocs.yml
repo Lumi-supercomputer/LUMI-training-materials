@@ -6,7 +6,7 @@ theme:
   greetings: Welcome to the LUMI training materials"
   custom_dir: site_customisations
   language: en
-  logo: assets/favicon-LUMI.png
+  #logo: assets/favicon-LUMI.png
   features:
     - navigation.instant
     - navigation.tracking
@@ -15,11 +15,14 @@ theme:
     - navigation.indexes
     - header.autohide
     - toc.follow
+  favicon: assets/favicon-LUMI.png
+  font: false
+  palette:
+    scheme: default
+    primary: lumi
+    accent: lumi
   icon:
     logo: logo
-  palette:
-    - primary: black
-  icon:
     admonition:
       demo: fontawesome/solid/computer-mouse
       exercise: fontawesome/solid/screwdriver-wrench
