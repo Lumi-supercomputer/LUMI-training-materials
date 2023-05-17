@@ -1,0 +1,1611 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/4day-20230214/hedgedoc_notes_day4/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>Notes from the HedgeDoc page - day 4 - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notes-from-the-hedgedoc-page-day-4" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notes from the HedgeDoc page - day 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../1day-20230509/">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        Exercises 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20220823/">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20220427/">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-perftools" class="md-nav__link">
+    Introduction to Perftools
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Perftools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-performance-analysis" class="md-nav__link">
+    Advanced performance analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced performance analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-amd-omnitrace" class="md-nav__link">
+    Introduction to AMD Omnitrace
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to AMD Omnitrace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise_1" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-amd-omniperf" class="md-nav__link">
+    Introduction to AMD Omniperf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-in-action-an-example-with-pytorch" class="md-nav__link">
+    Tools in Action - An Example with Pytorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-qa" class="md-nav__link">
+    General Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="notes-from-the-hedgedoc-page-day-4">Notes from the HedgeDoc page - day 4<a class="headerlink" href="#notes-from-the-hedgedoc-page-day-4" title="Permanent link">&para;</a></h1>
+<p>These are the notes from the LUMI training,
+1114-17.02.2023, 9:00--17:30 (CET) on Zoom.</p>
+<ul>
+<li><a href="../hedgedoc_notes_day1/">Day 1</a></li>
+<li><a href="../hedgedoc_notes_day2/">Day 2</a></li>
+<li><a href="../hedgedoc_notes_day3/">Day 3</a></li>
+<li><a href="./">Day 4</a>: This page</li>
+</ul>
+<h2 id="introduction-to-perftools">Introduction to Perftools<a class="headerlink" href="#introduction-to-perftools" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>A question from the first day, sorry :-) My Fortran code with OpenMP offload does not compile with -O2 (cray compiler) due to inlining issues; is it possible to quench inlining for a specific routine only? </p>
+<ul>
+<li>(Harvey) <code>man inline</code>
+    it might apply to whole file though so need to check, manpage might indicate this.</li>
+<li>The ipa compiler option (man crayftn) also affects inlining.<ul>
+<li>yes, I discovered it does not compile due to inling, ao I reduced to level 1, 2 gives errors as well..</li>
+<li>Thank you!</li>
+</ul>
+</li>
+<li>(Peter) Setting <code>__attribute__((noinline))</code> before the subroutine can be done in standard Clang, at least. CrayCC seems to accept it when I compile a simple program.</li>
+<li>It might also be worth to compile with -O2 but just turn of inlining with the appropriate compiler option (-hipa0 I believe for Fortran).</li>
+</ul>
+</li>
+<li>
+<p>Would it be possible to use a pointer / annotate / ??? to visually guide the narration through complex slides ? not sure whether technically possible</p>
+<ul>
+<li>(Harvey) It looks like Zoom does now have this capability but it has to be enabled before sharing a presentation and is embedded in menus,  I really don't want to interrupt Alfio to try this live but we will look into this.  Thanks for the suggestion.</li>
+<li>(not Harvey) It is certainly possible but depending on the software that is used for the presentation and the way of sharing (just a window or the whole screen) it requires additional software that the speaker may not have installed.<ul>
+<li>okay</li>
+</ul>
+</li>
+<li>It's a remark to take with us should there once again be a fully virtual course but it looks like the next two will be in-person with broadcast and then the technique that works for the room will determine how slides are broadcast.<ul>
+<li>thank you</li>
+<li>I second the suggestion/request for future courses, it was especially difficult to follow through Alfio's slides. Maybe consider a different meeting software (one more targeted at teaching like BigBlueButton which supports the pointer) in the future? At least for me on Linux it is hit-and-miss if Zoom finds my audio (no problems with BBB or jitsi or even Teams, though)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Is there a maximum duration of the measurement session supported, more or less?</p>
+<ul>
+<li>Not in time terms but you can use a lot of disk space with a very large number of ranks and specifically if you turn off the statistics aggregation in time.  There are controls to help here, for example only tracing a subset of the ranks or turning on and off collection at certain points.</li>
+</ul>
+</li>
+<li>
+<p>Where can I find the apprentice downloads?</p>
+<ul>
+<li>On LUMI, in <code>$CRAYPAT_ROOT/share/desktop_installers/</code> (with <code>perftools-base</code> loaded, which is loaded in the login environment)</li>
+<li>See also <code>module help perftools-base</code>.</li>
+<li>(Note that on LUMI the perftools default is the latest version installed. If you were using a system somewhere else with a newer perftools available than the default you can download the desktop installer of the latest version.)</li>
+<li>(Kurt) Actually the above about the default is only true at login and at the moment as currently it is indeed the latest version of the PE which is the default at login. If you load a <code>cpe</code> module of an older environmont (<code>cpe/21.12</code> for example) the default version of <code>perftools-base</code> will be the one that came with that release of the PE, and the same holds if you use the an older version of the <code>LUMI</code> software stacks.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>General remarks</p>
+<ul>
+<li>Exercise notes and files including pdf and Readme with instructions on LUMI at <code>project/project_465000388/exercies/HPE</code></li>
+<li>Directories for this exercise: <code>perftools-lite</code>, <code>perftools-lite-gpu</code></li>
+<li>Copy the files to your home or project folder before working on the exercises.</li>
+<li>In some exercises you have source additional files to load the right modules necessary, check the README file.</li>
+<li>To run slurm jobs, set the necessary variables for this course by <code>source /project/project_465000388/exercises/HPE/lumi_g.sh</code> (GPU) or <code>source /project/project_465000388/exercises/HPE/lumi_c.sh</code> (CPU)</li>
+</ul>
+<p>Exercise: </p>
+<ul>
+<li>Follow the readme and get familiar with the perftools-lite commands and outputs</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>Can we connect jupyternotebook on Lumi? How to set the environments?  </p>
+<ul>
+<li>Answered on Tuesday already. At your own risk at the moment, and you'll have to use ssh tunneling to connect to the Jupyter Notebook. A better solution will come when Open OnDemand is installed. Keep in mind that LUMI is not meant to be an interactive workstation, so big Jupyter sessions have to go on the compute node and it is walltime that is being billed, so you'll pay for the time that Jupyter is waiting for your input which is not a very efficient way of using a supercomputer... It is more meant to prepare data and some simple postprocessing, but doing most of the work in regular jobs.<ul>
+<li>Follow up: When launching Jupyter from compute nodes, is it possible to forward on the login node the ports? I tried and the SSH fails (asks for password) <code>ssh -N -L 5000:localhost:5000 -i ID_FILE uan4</code></li>
+</ul>
+</li>
+<li>You'd be running ssh on the client where you want to run the browser connecting to your Jupyter Notebook, loging in to one of the login nodes but doing the port forwarding to the compute node. See what happens when you use the <code>lumi-vnc</code> module on a compute node for instance. So something along the lines 
+    <div class="highlight"><pre><span></span><code>ssh -N -L :nid001060:5000 -i ID_FILE myname@lumi.csc.fi
+</code></pre></div><ul>
+<li>Running SSH from the local machine indeed works, but we have to know the nid in advance. I was thinking to do the tunneling in two steps, first from the compute node, and then complete it from the local machine. This way it can be automated. (Yes, local machine would be remote forwarding)</li>
+</ul>
+</li>
+<li>That will not work, tunneling has to go in the right direction. Maybe with -R. But also be aware that the port that you want on the login node has a high chance of being taken already. The correct process is to (1) log on to LUMI and start your job that starts the Jupyter Notebook, then (2) look on what node the job is running (possible to see with Slurm commands) and (3) then start your ssh tunnel as given above.<ul>
+<li>Understood, thanks!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>what exactly is "exclusive time" mentioned in report ?</p>
+<ul>
+<li>you have inclusive and exclusive time per each function: the latter is the amount of time spent purely in that function, excluding time spent in child functions (inclusive is the opposite).</li>
+</ul>
+</li>
+<li>
+<p>What tool is suitable for tracing memory allocations/free? </p>
+<ul>
+<li>you can use the perftools and analyse the memory traffic. Check the man page for pat_build, option -g memory (and wait for next talk on pat_build description).</li>
+<li>If you are more interested in debugging memory allocations then valgrind/valgrind4hpc might be more relevant</li>
+<li>I would be interested to detect where the allocations and frees happen (for analysing different applications, without knowing the details from source codes)<ul>
+<li>wrapping them would it be an option? https://stackoverflow.com/questions/262439/create-a-wrapper-function-for-malloc-and-free-in-c I think jemalloc has something similar too (no sure though), see https://github.com/jemalloc/jemalloc/wiki/Use-Case%3A-Heap-Profiling</li>
+</ul>
+</li>
+<li>I'm not aware of that, I'll check it, thank you</li>
+</ul>
+</li>
+<li>
+<p>Are the perftools available also outside LUMI, e.g. outside Cray environment?</p>
+<ul>
+<li>No they are not. They are designed for analysis of large scale applications in the HPE Cray EX environment, there are a lot of dependencies and assumptions (fast file system for example), I'm not sure it would be that easy to do this.</li>
+<li>You can get the HPE Cray PE for certain HPE servers also but it is a commercial product and I don't know the pricing. I know a non-Cray HPE cluster that has them though.<ul>
+<li>yes, I'm thinking about non-Cray HPE cluster. Can you reveal what is the name of that non-Cray HPE cluster with perftools installed? I think I've heard about HLRS, but not sure.</li>
+</ul>
+</li>
+<li>HLRS doesn't have them from what I remember (I worked on that machine two years ago). That is a cluster that was ordered before the HPE-Cray merger I believe. It has some older modules from HPE, like aan HPE MPI implementation. Unless things have changed recently. But Lucia, a very recent cluster in Belgium (and not a EuroHPC cluster), came with the HPE Cray PE so likely also perftools (I don't have an account on that machine so I cannot verify). Not sure if Karolina, one of the EuroHPC petascale systems and also an HPE system has them.<ul>
+<li>Karolina unfortunately doesn't have them</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>pat[WARNING][0]: performance counters are disabled because PAPI initialization failed ; perftool-lite-gpu can not measure gpu performance and hardware counters with papi together?</p>
+<ul>
+<li>This is OK, it will explained in the next presentation. LUMI doesn't allow hardware counters at the moment due to a security issue, but the rest of tracing information is fine. It is not a problem of the perftools, it is OS setup defined by LUMI system administration that does not allow performance counters (PAPI events are not available).<ul>
+<li>understood, thank you! papi_avail is quite martinet here.. is this so on all partitions?</li>
+</ul>
+</li>
+<li>LUST people can confirm, but I see that the put the kernel in paranoid mode on all compute nodes, so I would say yes... </li>
+<li>Indeed yes at the moment. They were disabled after some security issues were discovered.<ul>
+<li>Thank you!!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>why "pat_report expfile.lite-samples" has no more information?</p>
+<ul>
+<li>could you elaborate more?<ul>
+<li>based on readme "More information can be retrieved with pat_report expfile.lite-samples.*/"", but it is empty file?</li>
+</ul>
+</li>
+<li>OK, you are running <code>pat_report expfile.lite-samples.*/</code> and don't see the output?<ul>
+<li>ok now</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>my_output.lite-loops.* is empty!, I cant see any output after run?</p>
+<ul>
+<li>is it still running maybe? <ul>
+<li>yes, thank you</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Can I see how many GPUs per rank from the summary and their ID? </p>
+<ul>
+<li>summary of craypat? Well, I would suggest to use the tools we presented for the affinity checking... <ul>
+<li>Yes and it worked perfectly thank you! But I would like to check with other tools if possible, and I guess that the kernel performances are summarized over GPUs here, maybe there is an option to resolve this information?</li>
+</ul>
+</li>
+<li>No sure, really. Check the man pages. If it is something we can get from rocprof, then I would say yes (assuming that craypat can do over MPI ranks). I have to check... Update: it seems it not possible, at least I cannot find anything useful for multigpus.. <ul>
+<li>Thank you very much! </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>There is an issue with OpenMP offload region?
+    <div class="highlight"><pre><span></span><code>Warnings:
+OpenMP regions included 2 regions with no end address, and
+2 regions with an invalid address range, and they were ignored.
+
+An exit() call or a STOP statement can cause missing end addresses.
+Invalid address ranges indicate a problem with data collection.
+</code></pre></div></p>
+<ul>
+<li>This is a warning that it says you are using a STOP within the parallel region. Is it one of our example?<ul>
+<li>yes, I am in perftools-lite-gpu/ directory</li>
+</ul>
+</li>
+<li>This warning means that somehow the loop completed and the end address could not be recorded. If the reason is not clear by inspection of the loop (and it is hard to work out where it is) I'm afraid it needs knowledge of the perftools internals to investigate this further.</li>
+<li>OK, we will look into it. What matters is that you get the info you need in the profile of course.</li>
+</ul>
+</li>
+<li>
+<p>Related to the previous question on hardware counters. - if HW counters are disabled, how to identify the node-level performance efficiency (w.r.t. HW capabilities)? And follow-up: is it planned to enable the HW counters access (what timeframe if yes)?</p>
+<ul>
+<li>There is no time frame as we don't know when the security concerns that triggered disabling them will be resolved.<ul>
+<li>Can you please elaborate more on the security issue?</li>
+</ul>
+</li>
+<li>We have representatives from the LUMI Support Team here but policies around the system are set by the CSC staff managing the system and they are not represented in this training, and even then might not want to comment. If you want to make your voice heard that this capability should be enabled then you could put in a ticket.</li>
+<li>(Kurt) I cannot really say much as this is decided and followed up by the sysadmins, not by us. It is well known however that hardware counters can often be abused to get information about other processes running on the CPU which can be abused. But as that should have been known already when LUMI was set up and the counters were enabled initially, it appears that there has been more than that, or active exploits, that may have driven that decision. I'd hope a solution could be that some nodes are set aside with exclusive use, but maintining different settings on different nodes of the same type is always risky by itself, and it may have been decided that you could still gain crucial information about the OS... LUMI is a shared machine so we also have to take the right for privacy and the fact that we also have to cater to industrial research into account and hence that safety of data of other users is important. A shared machine always comes with compromises...</li>
+</ul>
+</li>
+<li>
+<p>Sorry, this question is still related to the CPU-GPU affinity check that I would like to run with an alternative approach than hello_jobstep. My concern is motivated by this result that I get when I check the affinity, by using a batch job and environmnet we are using for some tests on LUMI
+    <div class="highlight"><pre><span></span><code>Lmod is automatically replacing &quot;gcc/11.2.0&quot; with &quot;cce/14.0.2&quot;.
+
+ROCR_VISIBLE_DEVICES: 0,1,2,3,4,5,6,7
+MPI 000 - OMP 000 - HWT 001 - Node nid005031 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1
+MPI 001 - OMP 000 - HWT 002 - Node nid005031 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6
+MPI 002 - OMP 000 - HWT 003 - Node nid005031 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9
+MPI 003 - OMP 000 - HWT 004 - Node nid005031 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID ce
+</code></pre></div></p>
+<p>Am I initializing something wrong in the environment? Do the MPI ranks see the same GPU? I see different BUS_ID</p>
+<ul>
+<li>(Alfio) Yes, indeed. These are different GPUs. What options slurm you are using?</li>
+<li>(Alfio) I see, you are using SLURM <code>--gpu-bind=per_task:1</code>. Although I am not sure SLURM does the right configuration, you should know that SLURM makes cgroups, so each rank gets its GPU, which has ID 0. So it seems fine. Note that in our examples we don't rely on SLURM options, but it is good you are testing the affinity program ;) (that's the goal of the entire discussion, always check!)
+    <div class="highlight"><pre><span></span><code>&gt; #SBATCH --job-name=myjob2             # Job name
+&gt; #SBATCH --partition=eap              # Partition (queue) name
+&gt; #SBATCH --nodes=1                    # Total number of nodes
+&gt; #SBATCH --exclusive
+&gt; #SBATCH --ntasks-per-node=4          # Number of mpi tasks per node  -8va..
+&gt; #SBATCH --cpus-per-task=1            # Number of cores (threads) per task
+&gt; #SBATCH --gpus-per-task=1
+&gt; #SBATCH --time=02:00:00              # Run time (d-hh:mm:ss)
+&gt; #SBATCH --gpu-bind=per_task:1
+</code></pre></div></li>
+<li>The ROCR runtime is enumerating the GPUS per task that are available.  So only one available and the numbering starts at 0.  You can see from the BUS ids in the output that there are different physical GPUs.<ul>
+<li>I compared with another job script that follows your example, and I see the same bus_id for each rank of the naive example. So the CPU-GPU affinity is suboptimal (?) [rank 0 : GPU 0 , rank 1 : GPU 1 ...]</li>
+</ul>
+</li>
+<li>(Alfio) same bus_id? Are you using select_gpu script? We don't rely on SLURM GPU affinity in our examples...</li>
+<li>I am intending to edit the acheck binding code to add GPU information, not done yet.</li>
+</ul>
+</li>
+</ol>
+<h2 id="advanced-performance-analysis">Advanced performance analysis<a class="headerlink" href="#advanced-performance-analysis" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Is there any user guide or tutorials for the advanced perftools (except the man/help pages of commands)?<ul>
+<li>These slides are the best material<ul>
+<li>Any plans?</li>
+</ul>
+</li>
+<li>(Alfio) https://support.hpe.com/hpesc/public/docDisplay?docId=a00114942en_us&amp;page=About_the_Performance_Analysis_Tools_User_Guide.html<ul>
+<li>Thank you, looks nice</li>
+</ul>
+</li>
+<li>There is more documentation on that site but it is a very hard one to find things on. There are, e.g., also PDF manuals.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>General remarks:</p>
+<ul>
+<li>Exercise notes and files including pdf and Readme with instructions on LUMI at <code>project/project_465000388/exercies/HPE</code></li>
+<li>Directory for this exercise: <code>perftools</code></li>
+<li>Copy the files to your home or project folder before working on the exercises.</li>
+<li>In some exercises you have source additional files to load the right modules necessary, check the README file.</li>
+<li>To run slurm jobs, set the necessary variables for this course by <code>source /project/project_465000388/exercises/HPE/lumi_g.sh</code> (GPU) or <code>source /project/project_465000388/exercises/HPE/lumi_c.sh</code> (CPU)</li>
+</ul>
+<p>Exercise:</p>
+<ul>
+<li><strong>Follow the Readme.md files in each subfolder of <code>perftools</code> and get familiar with the <code>perftools</code> commands and outputs</strong></li>
+</ul>
+</div>
+<h2 id="introduction-to-amd-omnitrace">Introduction to AMD Omnitrace<a class="headerlink" href="#introduction-to-amd-omnitrace" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Related again to the hardware counter issues: Is there a workaround to get at least some basic metrics, e.g. IPC or bandwidth, with the disabled counters?</p>
+<ul>
+<li>Not that I know. Sampling-based tracing cannot generate these. I'm not sure if the kernel setting has also disabled all hardware counters on the GPUs though, worth testing.</li>
+<li>Omnitrace does have a variety of data collection methods including hardware counters and sampling. Some of these capabilities are still available even if hardware counters are blocked. </li>
+</ul>
+</li>
+<li>
+<p>Is ommitrace installed on LUMI as a module?</p>
+<ul>
+<li>Not yet. It is installed in a project directory for the exercises following the talk.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercise_1">Exercise<a class="headerlink" href="#exercise_1" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Find the instructions <a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA?view#Omnitrace">here</a>.
+Try the <em>Omnitrace</em> section.</p>
+<p>The slides of the presentation are available on LUMI at <code>/projappl/project_465000388/slides/AMD/</code></p>
+</div>
+<ol>
+<li>
+<p>When can the users expect Omnitrace to become available? Okey, there is the easyconfig available in a branch omnitrace.</p>
+<ul>
+<li>We have two levels in the stack depending on how stable a package is, how many configurations are needed to cover all uses, and to what extent we can offer support for it. The reality is that we get requests for so many different tools that we can no longer follow it all with the central support team, let alone update it every time a new version of the PE is installed, and users would already want this to also happen more frequently.<ul>
+<li>The answer in the Zoom session went far from the question. Simply was asking, if you will provide the eb file. But I found it. ~~https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/blob/omnitrace/easybuild/easyconfigs/o/omnitrace/omnitrace-1.7.3.eb~~</li>
+</ul>
+</li>
+<li>Yes, we are looking into it. No committed date yet, when it will be ready. The version you refer to above is not supported and in a branch where development happens.</li>
+<li>You can try to install it with the <code>spack</code> module also, but when I tried right now (<code>spack install omnitrace</code>) the installation failed ("missing boost"), likely some problem with the upstream package.py.</li>
+</ul>
+</li>
+<li>
+<p>I am having an issue trying to allocate resources <code>salloc: error: Job submit/allocate failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)</code> even trying for 10 mins allocation.</p>
+<ul>
+<li>
+<p>The lumi_g.sh file in the HPE exercises directory will setup Slurm for the LUMI-G nodes using the course project etc. If you have not loaded that can you share the Slurm options you used?</p>
+<ul>
+<li>Used before, with sourced the lumi_g , now after re-sourcing it returns: 
+    <div class="highlight"><pre><span></span><code>salloc: error: Job submit/allocate failed: Requested node configuration is not available
+salloc: Job allocation 2933626 has been revoked.
+</code></pre></div>
+    I am trying <code>salloc -N 1 -p small-g -t 120:00 -A project_465000388</code></li>
+</ul>
+</li>
+<li>
+<p>Did you have a previous salloc active? Yes and I cancelled it with <code>scancel &lt;jobid&gt;</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>I am trying "srun -n 1 --gpus 1 omnitrace-avail --categories omnitrace", but an error message is generated "/project/project_465000388/software/omnitrace/1.7.3/bin/omnitrace-avail: error while loading shared libraries: libamdhip64.so.5: cannot open shared object file: No such file or directory" +3</p>
+<ul>
+<li>some hip module missing?<ul>
+<li><code>module load rocm</code> seemed to fix it</li>
+</ul>
+</li>
+<li>yes, should be mentioned in the instructions..</li>
+</ul>
+</li>
+<li>
+<p>Is this output expected?
+    <div class="highlight"><pre><span></span><code>srun -n 1 omnitrace-avail -G omnitrace_all.cfg --all
+/project/project_465000388/software/omnitrace/1.7.3/bin/omnitrace-avail: /project/project_465000388/software/omnitrace/1.7.3/lib/libroctracer64.so.4: no version information available (required by /project/project_465000388/software/omnitrace/1.7.3/bin/omnitrace-avail)
+/project/project_465000388/software/omnitrace/1.7.3/bin/omnitrace-avail: /project/project_465000388/software/omnitrace/1.7.3/lib/libroctracer64.so.4: no version information available (required by /project/project_465000388/software/omnitrace/1.7.3/bin/omnitrace-avail)
+[omnitrace] /proc/sys/kernel/perf_event_paranoid has a value of 3. Disabling PAPI (requires a value &lt;= 2)...
+[omnitrace] In order to enable PAPI support, run &#39;echo N | sudo tee /proc/sys/kernel/perf_event_paranoid&#39; where N is &lt;= 2
+[omnitrace][avail] No HIP devices found. GPU HW counters will not be available
+</code></pre></div></p>
+<ul>
+<li>I'm afraid you may not have loaded ROCm properly into your environment.</li>
+<li>I loaded rocm/5.0.2 module and exported the PATH and LD_LIBRARY_PATH environments as mentioned in instructions in an interactive job (salloc)</li>
+<li>What was your salloc command?<ul>
+<li>just sourced lumi_g.sh with longer walltime</li>
+</ul>
+</li>
+<li>(Alfio) see previous questions on hardware counters, PAPI events are not available on LUMI. 
+  Have you added <code>--gres</code> option to allocate GPUs?<ul>
+<li>I'm aware of that, but not sure if related to e.g. <code>no version information available</code> or <code>No HIP devices found</code></li>
+<li>with <code>srun -n 1 --gres=gpu:8  omnitrace-avail -G omnitrace_all.cfg --all</code> the command hangs after the "PAPI not supported" lines</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="introduction-to-amd-omniperf">Introduction to AMD Omniperf<a class="headerlink" href="#introduction-to-amd-omniperf" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>What is the issue with the GUI of OmniPerf?</p>
+<ul>
+<li>
+<p>It is browser based and starts a web server. The port on which the server runs is very easy to guess as the software uses a deterministic rule to try out ports, and access to the port is not protected by a password or better mechanism, so it is very easy to hack into an OmniPerf session of another user. As a support team, we do not want to take any responsibility for that so will not support it until better security in the package is in place.</p>
+<p>If you run the GUI on your laptop it might be best to ensure that access to your laptop is also restricted by a firewall or other people on the network you're on might be able to break into your session. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>I find this tool very interesting, is there any HPC site supporting it? (centralized support)</p>
+<ul>
+<li>I don't know, I also cannot find the tool in the Frontier documentation so we are likely not the only one with concerns...</li>
+<li>ORNL has the tool they used it to many hackathons </li>
+<li>https://www.olcf.ornl.gov/wp-content/uploads/AMD_Hierarchical_Roofline_ORNL_10-12-22.pdf they had also an event just for roofline</li>
+</ul>
+</li>
+<li>
+<p>When I am executing "srun -n 1 --gpus 1 omniperf profile -n vcopy_all -- ./vcopy 1048576 256", an error is generated "ROOFLINE ERROR: Unable to locate expected binary (/pfs/lustrep1/projappl/project_465000388/software/omniperf/bin/utils/rooflines/roofline-sle15sp3-mi200-rocm5))." It looks like : "ls: cannot access '/pfs/lustrep1/projappl/project_465000388/software/omniperf/bin/utils/rooflines/roofline-sle15sp3-mi200-rocm5': Permission denied"</p>
+<ul>
+<li>Permissions on the file are indeed wrong, I've messaged the owner of the files to change them.</li>
+<li>Try again please<ul>
+<li>yes, it works OK now</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="tools-in-action-an-example-with-pytorch">Tools in Action - An Example with Pytorch<a class="headerlink" href="#tools-in-action-an-example-with-pytorch" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Can we get ROCm 5.3.3 on the system?</p>
+<ul>
+<li>It is there but we cannot guarantee it will always play nicely with the HPE Cray PE nor that it will always work correctly as in the past there have been problems with hard-coded paths in some libraries etc. We cannot actively support it.</li>
+<li>
+<p>It is available in the CrayEnv or LUMI/22.08 + partition/G environments.</p>
+<p><div class="highlight"><pre><span></span><code>module load CrayEnv
+module load rocm/5.3.3
+</code></pre></div>
+or
+<div class="highlight"><pre><span></span><code>module load LUMI/22.08
+module load partition/G
+module load rocm/5.3.3
+</code></pre></div></p>
+<p>Note that, with MIOpen and this module, you will use the rocm installed in <code>/opt/rocm</code> for kernels JIT compilation due to some hardcoded paths in the MIOpen library.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>This looks really interesting, can the presentation be uploaded?</p>
+<ul>
+<li>As with all presentations the video will be uploaded some time after the session. Slides should come also but they have some problems with slow upload speed from the machine from which they were trying.<ul>
+<li>Thanks   </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>(Harvey) Loved the srun command which flew by too fast to catch fully, I adapted it a little to avoid the hex map...
+    <div class="highlight"><pre><span></span><code>&gt; srun -c 7 -N 1 -n 4 bash -c &#39;echo &quot;Task $SLURM_PROCID RVD $ROCR_VISIBLE_DEVICES `taskset -c -p $$`&quot;&#39; | sed &#39;s/pid.*current //&#39;
+Task 0 RVD 0,1,2,3,4,5,6,7 affinity list: 1-7
+Task 2 RVD 0,1,2,3,4,5,6,7 affinity list: 15-21
+Task 3 RVD 0,1,2,3,4,5,6,7 affinity list: 22-28
+Task 1 RVD 0,1,2,3,4,5,6,7 affinity list: 8-14
+</code></pre></div></p>
+</li>
+<li>
+<p>A late question on Perftools... should I use a particular approach if I compile my app with autotools? Or loading the module is enough?</p>
+<ul>
+<li>If you pass the compiler wrappers to configure script, i.e., <code>CC=cc CXX=CC FC=ftn F90=ftn</code> it should be enough to load the module. </li>
+<li>One small caveat: some autotools (and the same for CMake etc.) installation "scripts" do not follow all the conventions of those tools and in that case there can be difficulties. I have seen tools that had the compiler name or compiler options hardcoded instead of using the environment variables...<ul>
+<li>I confess I raised this question because I was trying measuring the application with perftools-lite, but without instrumenting and I get no report. Compiling with the module loaded fails but I did not reconfigure</li>
+</ul>
+</li>
+<li>Then it is rather likely you were using the system gcc, or if you were using PrgEnv-gnu it may have found that gcc. That is usually first in the search list when autotools tries to locate the compiler itselves. Which is kind of strange as the original name of the C compiler on UNIX was actually <code>cc</code> (but there was no C++ in those days, when dinosaurs like "Mainframus Rex" and "Digitalus PDP" still roamed the earth).<ul>
+<li>I am afraid is something nastier.. is parallel compilation discouraged with instrumentation?</li>
+</ul>
+</li>
+<li>For C or C++ code it would surprise me, but for fortran code parallel compilation (if you mean things like <code>make -j 16</code>) does not always work, independent from the fact that you are using instrumentation.   <ul>
+<li>It is Fortran.. hope sequential compilations solves, thank you for the help!</li>
+<li>sequential worked, at least to compile.. Can I understand somehow that the binary is instrumented? From ldd *.exe I don't know what to look for.</li>
+</ul>
+</li>
+<li>In a very simple Fortran test program that I tried, I see that among others <code>libpapi.so.6.0</code> is now shown in the output of <code>ldd</code> which is definitely a library that has to do with instrumentation.</li>
+</ul>
+</li>
+<li>
+<p>When we are pip installing a package that requires some compilation step using PyTorch as dependency (e.g. https://github.com/rusty1s/pytorch_scatter), what is the preferred approach to make sure that we are using the right compiler and flags for LUMI?</p>
+<ul>
+<li>There is unfortunately no fixed rule for Python. There are compilers hard-coded in a Python configuration file, but not all install scripts for <code>pip</code> look at these. Others will honour the environment variables given in the previous question. As a software installer, I despise Python as installing packages has become a complete mess with like 10 different official ways of installing packages in as many different styles of installation and yet packages that find something else to try. So it is sometimes really a case-by-case answer. And given that AI applications have a tradition of coming up with strange installation procedures...</li>
+<li>Please send us a ticket if you want us to have a closer look. We need more time than what such a QA provide to give you a proper answer regarding this particular package.<ul>
+<li>Thanks, will do! I completely agree with the broken packaging and distribution system of Python, but it seems that they are trying to amend with some recent PEPs (don't remember the numbers though).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="general-qa">General Q&amp;A<a class="headerlink" href="#general-qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>For how long the access to this course account at lumi (project_465000388) and materials (in particular, to go through all exercises) will be available after the last day of the course? Do we expect to have updated instructions/ guidelines (cleaned from "bugs" &amp; more clearly written text) for exercises? or still to follow the older versions (and trying to find on what was/is missing and to fix somehow)?</p>
+<ul>
+<li>The data: I think for three months at least. But access to the compute time allocated to the project ends automatically at the end of the day.<ul>
+<li>It would be really valuable if we could run the exercises for 1-2 more days </li>
+<li>Agree (Thanasis) - keep it running for the weekend (+1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Is this example Samuel is showing available somewhere?</p>
+<ul>
+<li>not the large example which was used to show a real application</li>
+<li>He promised a smaller example (easier managable) applicable to LUMI. Looking forward for that.</li>
+</ul>
+</li>
+<li>
+<p>Can we get examples from Samuel's presentation?</p>
+<ul>
+<li>I can share scripts and slides - the application would need to go with something more simple with no license issues.<ul>
+<li>Thanks alot</li>
+</ul>
+</li>
+<li>Look in <code>/project/project_465000388/slides/AMD/pytorch-based-examples</code></li>
+</ul>
+</li>
+<li>
+<p>When compiling for LUMI AMD GPU, what is the difference between the flags <code>--offload-arch=gfx90a</code> and <code>--amdgpu-target=gfx90a</code>? (sorry for the mistake)</p>
+<ul>
+<li>Answer from AMD in the session: <code>--amdgpu-target</code> is the older one that is deprecated.</li>
+<li>I saw it when compiling pip packages (see above) as output when <code>--debug --verbose</code> and on the frontier docs.<ul>
+<li>OK, thanks </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Are there BLAS / LAPACK besides Cray LibSci available? </p>
+<ul>
+<li>Both OpenBLAS and BLIS tend to work well by themselves on LUMI (for CPU calculations), but watch out if you mix e.g. OpenBLAS and LibSci because they can contain identical symbols. Intel MKL works, in some cases, with some "hacks", but it can be difficult, hit and miss...<ul>
+<li>In which module are they included?</li>
+</ul>
+</li>
+<li>You can install some of them in your own home/project directory with Spack if you want, e.g. <code>spack install openblas</code>.</li>
+<li>And there are EasyBuild recipes for some of them also, check the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Libary</a> mentioned a few times over the course, but these will almost certainly cause problems when linked with other modules build with EasyBuild that employ BLAS or Lapack (but then the same would hold if you would start mixing spack generated libraries that are generated with a different BLAS and/or LAPACK library). We do not install software that so clearly can conflict with other software that we installed in the central stack.<ul>
+<li>Ok, thanks. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>It would be cool to have a GH repo for the docs where we can send pull requests to.</p>
+<ul>
+<li>Our docs are hosted on GH and you can find the link in the bottom right (click on the little GH logo). https://github.com/Lumi-supercomputer/lumi-userguide/</li>
+<li>Pull request are of course the best but we are also grateful for issues about improvements or topics missing.<ul>
+<li>Very cool thanks! p.s. are typos fixes also accepted?</li>
+</ul>
+</li>
+<li>Sure. We will carefully review all PR and if we can support the changes, we will definitely merge it.</li>
+</ul>
+</li>
+<li>
+<p>We are porting an C++ MPI app to LUMI and getting MPI errors like:
+    (Cray MPI)
+    <div class="highlight"><pre><span></span><code>Assertion failed in file ../src/mpid/ch4/netmod/include/../ofi/ofi_events.c at line 379: dtp_ != NULL
+MPICH ERROR [Rank 1800] [job id 2932607.0] [Fri Feb 17 14:38:57 2023] [nid001179] - Abort(1): Internal error
+</code></pre></div>
+    or (AOCC)
+    <div class="highlight"><pre><span></span><code>MPICH ERROR [Rank 6088] [job id 2618312.0] [Sun Jan 22 20:58:44 2023] [nid001271] - Abort(404369807) (rank 6088 in comm 0): Fatal error in PMPI_Waitany: Other MPI error, error stack:
+PMPI_Waitany(277)..............: MPI_Waitany(count=13, req_array=0x2b7b970, index=0x7ffcc40da984, status=0x7ffcc40da988) failed
+PMPI_Waitany(245)..............: 
+MPIDI_Progress_test(80)........: 
+MPIDI_OFI_handle_cq_error(1062): OFI poll failed (ofi_events.c:1064:MPIDI_OFI_handle_cq_error:Input/output error - PTLTE_NOT_FOUND)
+</code></pre></div></p>
+<ul>
+<li>Please submit a ticket.<ul>
+<li>ok</li>
+</ul>
+</li>
+<li>We've had the same issue and opened a ticket but as you say the team is small and could not really dive deep because any suggestion the LUST team offered did not work. Would be interested it this problem is resolved.<ul>
+<li>Can you write the ticket number here, will review next week (or as per comment below)<ul>
+<li>"LUMI #1059 MPICH errors". Send by my colleague at UCL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>This is an issue that probably requires a software upgrade that is outside the control of LUST. Sending a ticket is still useful as it help us detect recurring issues. The issue is with HPE already and discussed with the HPE person that assists the sysadmins as the OFI poll errors are very low level. They also often result from a failure on another node of your job. </p>
+<p>These errors are also not related to any specific compiler but come from errors that occur in layers underneath the MPI libraries.</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>

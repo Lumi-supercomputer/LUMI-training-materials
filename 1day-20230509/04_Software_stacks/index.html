@@ -1,0 +1,2157 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/1day-20230509/04_Software_stacks/">
+      
+      
+        <link rel="prev" href="../03_Modules/">
+      
+      
+        <link rel="next" href="../05_Exercises_1/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>Software stacks - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lumi-software-stacks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software stacks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Software stacks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Software stacks
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-software-stacks-on-lumi" class="md-nav__link">
+    The software stacks on LUMI
+  </a>
+  
+    <nav class="md-nav" aria-label="The software stacks on LUMI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-considerations" class="md-nav__link">
+    Design considerations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-lumi-solution" class="md-nav__link">
+    The LUMI solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-policies" class="md-nav__link">
+    Software policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organisation-of-the-software-in-software-stacks" class="md-nav__link">
+    Organisation of the software in software stacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ways-to-access-the-cray-programming-environment-on-lumi" class="md-nav__link">
+    3 ways to access the Cray Programming environment on LUMI.
+  </a>
+  
+    <nav class="md-nav" aria-label="3 ways to access the Cray Programming environment on LUMI.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bare-environment-and-crayenv" class="md-nav__link">
+    Bare environment and CrayEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lumi-stack" class="md-nav__link">
+    LUMI stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lumi-stack-module-organisation" class="md-nav__link">
+    LUMI stack module organisation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easybuild-to-extend-the-lumi-software-stack" class="md-nav__link">
+    EasyBuild to extend the LUMI software stack
+  </a>
+  
+    <nav class="md-nav" aria-label="EasyBuild to extend the LUMI software stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-on-hpc-systems" class="md-nav__link">
+    Installing software on HPC systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-the-lumi-stack-with-easybuild" class="md-nav__link">
+    Extending the LUMI stack with EasyBuild
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-recipes-easyconfigs" class="md-nav__link">
+    EasyBuild recipes - easyconfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-toolchain-concept" class="md-nav__link">
+    The toolchain concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easyconfig-names-and-module-names" class="md-nav__link">
+    EasyConfig names and module names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing" class="md-nav__link">
+    Installing
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-where-to-install" class="md-nav__link">
+    Step 1: Where to install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-the-environment" class="md-nav__link">
+    Step 2: Configure the environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-the-software" class="md-nav__link">
+    Step 3: Install the software.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-the-software-note" class="md-nav__link">
+    Step 3: Install the software - Note
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-advanced-work" class="md-nav__link">
+    More advanced work
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-advanced-work-2-repositories" class="md-nav__link">
+    More advanced work (2): Repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-advanced-work-3-reproducibility" class="md-nav__link">
+    More advanced work (3): Reproducibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-tips-and-tricks" class="md-nav__link">
+    EasyBuild tips and tricks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-training-for-advanced-users-and-developers" class="md-nav__link">
+    EasyBuild training for advanced users and developers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Exercises_1/" class="md-nav__link">
+        Exercises 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../4day-20230214/">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20220823/">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20220427/">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-software-stacks-on-lumi" class="md-nav__link">
+    The software stacks on LUMI
+  </a>
+  
+    <nav class="md-nav" aria-label="The software stacks on LUMI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-considerations" class="md-nav__link">
+    Design considerations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-lumi-solution" class="md-nav__link">
+    The LUMI solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-policies" class="md-nav__link">
+    Software policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organisation-of-the-software-in-software-stacks" class="md-nav__link">
+    Organisation of the software in software stacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ways-to-access-the-cray-programming-environment-on-lumi" class="md-nav__link">
+    3 ways to access the Cray Programming environment on LUMI.
+  </a>
+  
+    <nav class="md-nav" aria-label="3 ways to access the Cray Programming environment on LUMI.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bare-environment-and-crayenv" class="md-nav__link">
+    Bare environment and CrayEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lumi-stack" class="md-nav__link">
+    LUMI stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lumi-stack-module-organisation" class="md-nav__link">
+    LUMI stack module organisation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easybuild-to-extend-the-lumi-software-stack" class="md-nav__link">
+    EasyBuild to extend the LUMI software stack
+  </a>
+  
+    <nav class="md-nav" aria-label="EasyBuild to extend the LUMI software stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-on-hpc-systems" class="md-nav__link">
+    Installing software on HPC systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-the-lumi-stack-with-easybuild" class="md-nav__link">
+    Extending the LUMI stack with EasyBuild
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-recipes-easyconfigs" class="md-nav__link">
+    EasyBuild recipes - easyconfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-toolchain-concept" class="md-nav__link">
+    The toolchain concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easyconfig-names-and-module-names" class="md-nav__link">
+    EasyConfig names and module names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing" class="md-nav__link">
+    Installing
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-where-to-install" class="md-nav__link">
+    Step 1: Where to install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-the-environment" class="md-nav__link">
+    Step 2: Configure the environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-the-software" class="md-nav__link">
+    Step 3: Install the software.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-the-software-note" class="md-nav__link">
+    Step 3: Install the software - Note
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-advanced-work" class="md-nav__link">
+    More advanced work
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-advanced-work-2-repositories" class="md-nav__link">
+    More advanced work (2): Repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-advanced-work-3-reproducibility" class="md-nav__link">
+    More advanced work (3): Reproducibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-tips-and-tricks" class="md-nav__link">
+    EasyBuild tips and tricks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easybuild-training-for-advanced-users-and-developers" class="md-nav__link">
+    EasyBuild training for advanced users and developers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lumi-software-stacks">LUMI Software Stacks<a class="headerlink" href="#lumi-software-stacks" title="Permanent link">&para;</a></h1>
+<p>In this section we discuss</p>
+<ul>
+<li>Several of the ways in which we offer software on LUMI</li>
+<li>Managing software in our primary software stack which is based on EasyBuild</li>
+</ul>
+<h2 id="the-software-stacks-on-lumi">The software stacks on LUMI<a class="headerlink" href="#the-software-stacks-on-lumi" title="Permanent link">&para;</a></h2>
+<h3 id="design-considerations">Design considerations<a class="headerlink" href="#design-considerations" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Software stack design considerations" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia2.png" /></p>
+</figure>
+<ul>
+<li>
+<p>LUMI is a <strong>very leading edge</strong> and also an <strong>inhomogeneous machine</strong>. Leading edge often implies
+    <strong>teething problems</strong> and inhomogeneous doesn't make life easier either.</p>
+<ol>
+<li>It uses a <strong>novel interconnect</strong> which is an extension of Ethernet rather than being based on InfiniBand, 
+    and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. </li>
+<li>It also uses a <strong>relatively new GPU architecture</strong>, AMD CDNA2, with an immature software ecosystem. 
+    The GPU nodes are really <strong>GPU-first</strong>, with the <strong>interconnect cards connected directly to the GPU packages</strong> 
+    and only one CPU socket, and another feature which is relatively new: the option to use a <strong>coherent unified memory</strong>
+    space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
+    only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
+    for some USA pre-exascale systems, and of course in Apple Silicon M-series but then without the NUMA character
+    (except maybe for the Ultra version that consists of two dies).</li>
+<li>LUMI is also <strong>inhomogeneous</strong> because some nodes have zen2 processors while the two main compute partitions
+    have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
+    NVIDIA GPUs. </li>
+</ol>
+<p>Given the novel interconnect and GPU we do expect that both system and application
+software will be immature at first and <strong>evolve quickly</strong>, hence we needed a setup that enables us
+to remain very agile, which leads to different compromises compared to a software stack for a more
+conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.</p>
+</li>
+<li>
+<p>Users also come to LUMI from <strong>11 different channels</strong>, not counting subchannels as some countries have
+    multiple organisations managing allocations, and those channels all have different expectations about
+    what LUMI should be and what kind of users should be served. For our major stakeholder, the EuroHPC JU,
+    LUMI is a pre-exascale system meant to prepare users and applications to make use of future even large
+    systems, while some of the LUMI consortium countries see LUMI more as an extension of their tier-1 or
+    even tier-2 machines.</p>
+</li>
+<li>
+<p>The central support team of LUMI is also <strong>relatively small compared to the nature of LUMI</strong> with its
+    many different partitions and storage services and the expected number of projects and users. 
+    Support from users coming in via the national channels will rely a lot on efforts from <strong>local organisations</strong>
+    also. <strong>So we must set up a system so that they can support their users without breaking things on
+    LUMI, and to work with restricted rights.</strong> And in fact, LUMI User Support team members also have very limited additional
+    rights on the machine compared to regular users or support people from the local organisations.
+    LUST is currently 9 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
+    installation and support only... (I give this number because it was mentioned in a a talk in the
+    EasyBuild user meeting in 2022.)</p>
+</li>
+<li>
+<p>The Cray Programming Environment is also a <strong>key part of LUMI</strong> and the environment for which we get
+    support from HPE Cray. It is however different from more traditional environments such as a typical
+    Intel oneAPI installation of a typical installation build around the GNU Compiler Collection and Open MPI
+    or MPICH. The programming environment is <strong>installed with the operating system</strong> rather than through the
+    user application software stack hence not managed through the tools used for the application software
+    stack, and it also works differently with its <strong>universal compiler wrappers</strong> that are typically configured
+    through modules. </p>
+</li>
+<li>
+<p>We also see an increasing <strong>need for customised setups</strong>. Everybody wants a central stack as long as their
+    software is in there but not much more as otherwise it is hard to find, and as long as software is 
+    configured in the way they are used to. And everybody would like LUMI to look as much as possible 
+    as their home system. But this is of course impossible. Moreover, there are more and more conflicts
+    between software packages and modules are only a partial solution to this problem. The success of
+    containers, conda and Python virtual environments is certainly to some extent explained by the 
+    need for more customised setups and the need for multiple setups as it has become nearly impossible
+    to combine everything in a single setup due to conflicts between packages and the dependencies they need.</p>
+</li>
+</ul>
+<h3 id="the-lumi-solution">The LUMI solution<a class="headerlink" href="#the-lumi-solution" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="The LUMI solution" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia3.png" /></p>
+</figure>
+<p>We tried to take all these considerations into account and came up with a solution that may look <strong>a
+little unconventional</strong> to many users.</p>
+<p>In principle there should be a high degree of compatibility between releases of the HPE Cray Programming
+Environment but we decided not to take the risk and <strong>build our software for a specific release of the 
+programming environment</strong>, which is also a better fit with the typical tools used to manage a scientific 
+software stack such as EasyBuild and Spack as they also prefer precise versions for all dependencies and
+compilers etc. We also made the stack very easy to extend. So we have <strong>many base libraries and some packages
+already pre-installed</strong> but also provide an <strong>easy and very transparent way to install additional packages in
+your project space in exactly the same way as we do for the central stack</strong>, with the same performance but the
+benefit that the installation can be customised more easily to the needs of your project. Not everybody needs
+the same configuration of GROMACS or LAMMPS or other big packages, and in fact a one-configuration-that-works-for-everybody
+may even be completely impossible due to conflicting options that cannot be used together.</p>
+<p>For the <strong>module system</strong> we could chose between two systems supported by HPE Cray. They support 
+Environment Modules with module files based on the TCL scripting language, but only the old version
+that is no longer really developed and not the newer versions 4 and 5 developed in France, and Lmod,
+a module system based on the LUA scripting language that also support many TCL module files through a
+translation layer. <strong>We chose to go with Lmod</strong> as LUA is an easier and more modern language to work with
+and as Lmod is much more powerful than Environment Modules 3, certainly for <strong>searching modules</strong>.</p>
+<p>To manage the software installations we could chose between EasyBuild, which is mostly developed in
+Europe and hence a good match with a EuroHPC project as EuroHPC wants to develop a European HPC technology stack
+from hardware to application software, and Spack, a package developed in the USA national labs.
+We chose to go with <strong>EasyBuild as our primary tool</strong> for which we also do some development. 
+However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
+that you may be accustomed with from clusters at your home institution. <strong>It uses toolchains
+specifically for the HPE Cray programming environment</strong> so recipes need to be adapted. We do offer an
+<strong>growing library of Cray-specific installation recipes</strong> though.
+The whole setup of EasyBuild is done such that you can build on top of the central software stack
+and such that <strong>your modules appear in your module view</strong> without having to add directories by hand
+to environment variables etc. You only need to point to the place where you want to install software
+for your project as we cannot automatically determine a suitable place. <strong>We do offer some help so set up
+Spack also but it is mostly offered "as is" an we will not do bug-fixing or development in Spack
+package files.</strong></p>
+<h3 id="software-policies">Software policies<a class="headerlink" href="#software-policies" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Policies" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia4.png" /></p>
+</figure>
+<p>As any site, we also have a number of policies about software installation, and we're still further
+developing them as we gain experience in what we can do with the amount of people we have and what we
+cannot do.</p>
+<p>LUMI uses a <strong>bring-your-on-license model except for a selection of tools that are useful to a larger
+community</strong>. </p>
+<ul>
+<li>This is partly caused by the <strong>distributed user management</strong> as we do not even have the necessary
+    information to determine if a particular user can use a particular license, so we must shift that 
+    responsibility to people who have that information, which is often the PI of your project.</li>
+<li>You also have to take into account that <strong>up to 20% of LUMI is reserved for industry</strong> use which makes 
+    negotiations with software vendors rather difficult as they will want to push us onto the industrial
+    rather than academic pricing as they have no guarantee that we will obey to the academic license
+    restrictions. </li>
+<li>And lastly, <strong>we don't have an infinite budget</strong>. There was a questionnaire send out to 
+    some groups even before the support team was assembled and that contained a number of packages that
+    by themselves would likely consume our whole software budget for a single package if I look at the 
+    size of the company that produces the package and the potential size of their industrial market. 
+    So we'd have to make choices and with any choice for a very specialised package you favour a few 
+    groups. And there is also a political problem as without doubt the EuroHPC JU would prefer that we
+    invest in packages that are developed by European companies or at least have large development
+    teams in Europe.</li>
+</ul>
+<p>The LUMI User Support Team <strong>tries to help with installations of recent software</strong> but <strong>porting or bug
+correction in software is not our task</strong>. As a user, you have to realise that <strong>not all Linux or even
+supercomputer software will work on LUMI</strong>. This holds even more for software that comes only as
+a binary. The <strong>biggest problems are the GPU and anything that uses distributed memory</strong> and requires
+high performance from the interconnect. For example,</p>
+<ul>
+<li>software that use NVIDIA proprietary programming models and
+    libraries needs to be ported. </li>
+<li>Binaries that do only contain NVIDIA code paths, even if the programming
+    model is supported on AMD GPUs, will not run on LUMI. </li>
+<li>The LUMI interconnect requires <strong>libfabric</strong>
+    using a specific provider for the NIC used on LUMI, the so-called Cassini provider, 
+    so any software compiled with an MPI library that
+    requires UCX, or any other distributed memory model build on top of UCX, will not work on LUMI, or at
+    least not work efficiently as there might be a fallback path to TCP communications. </li>
+<li>Even intra-node interprocess communication can already cause problems as there are three different kernel extensions
+    that provide more efficient interprocess messaging than the standard Linux mechanism. Many clusters
+    use <strong>knem</strong> for that but on LUMI <strong>xpmem</strong> is used. So software that is not build to support xpmem will
+    also fall back to the default mechanism or fail. </li>
+<li>Also, the MPI implementation needs to <strong>collaborate
+    with certain modules in our Slurm installation</strong> to start correctly and experience has shown that this
+    can also be a source of trouble as the fallback mechanisms that are often used do not work on LUMI. </li>
+<li><strong>Containers solve none of these problems</strong>. There can be more subtle compatibility problems also. 
+    As has been discussed earlier in the course, LUMI runs SUSE Linux and not Ubuntu which is popular on 
+    workstations or a Red Hat-derived Linux popular on many clusters. Subtle differences between Linux 
+    versions can cause compatibility problems that in some cases can be solved with containers. But containers
+    won't help you if they are build for different kernel extensions and hardware interfaces.</li>
+<li>The <strong>compute nodes also lack some Linux daemons</strong> that may be present on smaller clusters. HPE Cray use an
+    optimised Linux version called COS or Cray Operating System on the compute nodes. It is optimised to
+    reduce OS jitter and hence to enhance scalability of applications as that is after all the primary
+    goal of a pre-exascale machine. But that implies that certain Linux daemons that your software may 
+    expect to find are not present on the compute nodes. D-bus comes to mind.</li>
+</ul>
+<p>Also, the LUMI user support team is <strong>too small to do all software installations</strong> which is why we currently
+state in our policy that a LUMI user should be capable of installing their software themselves or have
+another support channel. We cannot install every single piece of often badly documented research-quality
+code that was never meant to be used by people who don't understand the code.</p>
+<p>Another soft compatibility problem that I did not yet mention is that software that <strong>accesses tens
+of thousands of small files and abuses the file system as a database</strong> rather than using structured
+data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
+also require to <strong>containerize conda and Python installations</strong>. We do offer a container-based wrapper
+that offers a way to install conda packages or to install Python packages with pip on top of 
+the Python provided by the <code>cray-python</code> module. On LUMI the tool is called
+<a href="https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/">lumi-container-wrapper</a>
+but it may by some from CSC also be known as Tykky.</p>
+<h3 id="organisation-of-the-software-in-software-stacks">Organisation of the software in software stacks<a class="headerlink" href="#organisation-of-the-software-in-software-stacks" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Organisation&quot;Software Stacks" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia5.png" /></p>
+</figure>
+<p>On LUMI we have several software stacks.</p>
+<p><strong>CrayEnv</strong> is the software stack for users who only need the <strong>Cray Programming Environment</strong> but want a <strong>more
+recent set of build tools etc</strong> than the OS provides. We also take care of a few issues that we will discuss
+on the next slide that are present right after login on LUMI.</p>
+<p>Next we have the <strong>stacks called "LUMI"</strong>. Each one corresponds to a <strong>particular release of the HPE Cray
+Programming Environment</strong>. It is the stack in which we install software using that programming environment
+and mostly EasyBuild. <strong>The Cray Programming Environment modules are still used, but they are accessed through
+a replacement for the PrgEnv modules that is managed by EasyBuild</strong>. We have <strong>tuned versions for the 3 types
+of hardware in the regular LUMI system</strong>: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
+LUMI-C compute nodes and zen3 + MI250X for
+the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
+zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.</p>
+<p>In the far future we will also look at <strong>a stack based on the common EasyBuild toolchains as-is</strong>, but we do expect
+problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
+the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
+<p>We also have an extensible software stack based on <strong>Spack</strong> which has been pre-configured to use the compilers
+from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
+support nor do we do any bugfixing in Spack.</p>
+<h3 id="3-ways-to-access-the-cray-programming-environment-on-lumi">3 ways to access the Cray Programming environment on LUMI.<a class="headerlink" href="#3-ways-to-access-the-cray-programming-environment-on-lumi" title="Permanent link">&para;</a></h3>
+<h4 id="bare-environment-and-crayenv">Bare environment and CrayEnv<a class="headerlink" href="#bare-environment-and-crayenv" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Accessing the Cray PE on LUMI slide 1" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia6.png" /></p>
+</figure>
+<p>Right after login you have a <strong>very bare environment available with the Cray Programming Environment
+with the PrgEnv-cray module loaded</strong>. It gives you basically <strong>what you can expect on a typical Cray system</strong>.
+There aren't many tools available, basically <strong>mostly only the tools in the base OS image and some tools that
+we are sure will not impact software installed in one of the software stacks</strong>.
+The set of target modules loaded is the one for the login nodes and not tuned to any particular node type.
+<strong>As a user you're fully responsible for managing the target modules</strong>, reloading them when needed or loading the
+appropriate set for the hardware you're using or want to cross-compile for.</p>
+<p>The <strong>second way</strong> to access the Cray Programming Environment is through the <strong>CrayEnv software stack</strong>. This stack
+offers an <strong>"enriched" version of the Cray environment</strong>. It <strong>takes care of the target modules</strong>: Loading or reloading
+CrayEnv will reload an optimal set of target modules for the node you're on. It also provides <strong>some additional 
+tools</strong> like newer build tools than provided with the OS. They are offered here and not in the bare environment to be
+sure that those tools don't create conflicts with software in other stacks. But otherwise the Cray Programming 
+Environment <strong>works exactly as you'd expect from this course</strong>.</p>
+<h4 id="lumi-stack">LUMI stack<a class="headerlink" href="#lumi-stack" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Accessing the Cray PE on LUMI slide 2" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia7.png" /></p>
+</figure>
+<p>The <strong>third way</strong> to access the Cray Programming Environment is through the <strong>LUMI software stacks</strong>, where each stack
+is <strong>based on a particular release of the HPE Cray Programming Environment</strong>. We advise against mixing with modules
+that came with other versions of the Cray PE, but they <strong>remain accessible</strong> although they are hidden from the default
+view for regular users. It ia also better to <strong>not use the PrgEnv modules, but the equivalent LUMI EasyBuild 
+toolchains</strong> instead as indicated by the following table:</p>
+<table>
+<thead>
+<tr>
+<th align="left">HPE Cray PE</th>
+<th align="left">LUMI toolchain</th>
+<th align="left">What?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>PrgEnv-cray</code></td>
+<td align="left"><code>cpeCray</code></td>
+<td align="left">Cray Compiler Environment</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-gnu</code></td>
+<td align="left"><code>cpeGNU</code></td>
+<td align="left">GNU C/C++ and Fortran</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-aocc</code></td>
+<td align="left"><code>cpeAOCC</code></td>
+<td align="left">AMD CPU compilers (login nodes and LUMI-C only)</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-amd</code></td>
+<td align="left"><code>cpeAMD</code></td>
+<td align="left">AMD ROCm GPU compilers (LUMI-G only)</td>
+</tr>
+</tbody>
+</table>
+<p>The cpeCray etc modules also load the MPI libraries and Cray LibSci just as the PrgEnv modules do.
+And we sometimes use this to work around problems in Cray-provided modules that we cannot change. </p>
+<p>This is also the environment in which we install most software, and from the name of the modules you can see which
+compilers we used.</p>
+<h4 id="lumi-stack-module-organisation">LUMI stack module organisation<a class="headerlink" href="#lumi-stack-module-organisation" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Accessing the Cray PE on LUMI slide 3" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia8.png" /></p>
+</figure>
+<p>To manage the heterogeneity in the hardware, the LUMI software stack uses <strong>two levels of modules</strong></p>
+<p>First there are the <strong>LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules</strong>. Each of the LUMI modules loads a particular
+version of the LUMI stack.</p>
+<p>The <strong>second level consists of partition modules</strong>. There is partition/L for the login and large memory nodes,
+partition/C for the regular compute nodes and partition/G for the AMD GPU nodes.
+We may have a separate partition for the visualisation nodes in the future but that is not clear yet.</p>
+<p>There is also a <strong>hidden partition/common module</strong> in which we install software that is available everywhere, 
+but we advise you to be careful to install software in there in your own installs as it is risky to rely on
+software in one of the regular partitions, and impossible in our EasyBuild setup.</p>
+<p>The LUMI module will <strong>automatically load the best partition module</strong> for the current hardware whenever it
+is loaded or reloaded. So if you want to cross-compile, you can do so by loading a different partition 
+module after loading the LUMI module, but you'll have to reload every time you reload the LUMI module.</p>
+<p>Hence you should also <strong>be very careful in your job scripts</strong>. On LUMI the environment from the login nodes
+is used when your job starts, so unless you switched to the suitable partition for the compute nodes,
+your job will start with the software stack for the login nodes. If in your job script you reload the 
+LUMI module it will instead switch to the software stack that corresponds to the type of compute node
+you're using and more optimised binaries can be available. If for some reason you'd like to use the
+same software on LUMI-C and on the login or large memory nodes and don't want two copies of locally
+installed software, you'll have to make sure that after reloading the LUMI module in your job script you
+explicitly load the partition/L module.</p>
+<h2 id="easybuild-to-extend-the-lumi-software-stack">EasyBuild to extend the LUMI software stack<a class="headerlink" href="#easybuild-to-extend-the-lumi-software-stack" title="Permanent link">&para;</a></h2>
+<h3 id="installing-software-on-hpc-systems">Installing software on HPC systems<a class="headerlink" href="#installing-software-on-hpc-systems" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Installing software on HPC systems" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia9.png" /></p>
+</figure>
+<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> for various reasons.
+Generic RPMs are <strong>rarely optimised for the specific CPU</strong> of the system as they have to work on a range
+of systems and including optimised code paths in a single executable for multiple architectures is
+hard to even impossible. 
+Secondly generic RPMs <strong>might not even work with the specific LUMI environment</strong>. They may not fully
+support the SlingShot interconnect and hence run at reduced speed, or they may need particular
+kernel modules or daemons that are not present on the system or they may not work well with
+the resource manager on the system. We expect this to happen especially with packages that 
+require specific MPI versions.
+Moreover, LUMI is a <strong>multi-user system</strong> so there is usually <strong>no "one version fits all"</strong>.
+And we need a <strong>small system image as nodes are diskless</strong> which means that RPMs need to be
+relocatable so that they can be installed elsewhere.</p>
+<p>Spack and EasyBuild are the two most popular HPC-specific software build and installation
+frameworks. 
+These two systems <strong>usually install packages from sources</strong> so that the software can be adapted
+to the underlying hardware and operating system.
+They do offer a <strong>mean to communicate and execute installation instructions easily</strong> so that in
+practice once a package is well supported by these tools a regular user can install them also.
+Both packages make <strong>software available via modules</strong> so that you can customise your environment
+and select appropriate versions for your work. 
+And they do <strong>take care of dependency handling</strong> in a way that is compatible with modules.</p>
+<h3 id="extending-the-lumi-stack-with-easybuild">Extending the LUMI stack with EasyBuild<a class="headerlink" href="#extending-the-lumi-stack-with-easybuild" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Extending the LUMI stack with EasyBuild" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia10.png" /></p>
+</figure>
+<p>On LUMI EasyBuild is our primary software installation tool. We selected this as there is
+already a lot of experience with EasyBuild in several LUMI consortium countries and as
+it is also a tool developed in Europe which makes it a nice fit with EuroHPC's goal of
+creating a fully European HPC ecosystem.</p>
+<p>EasyBuild is <strong>fully integrated in the LUMI software stack</strong>. Loading the LUMI module will
+not only make centrally installed packages available, but also packages installed in
+your personal or project stack. Installing packages in that space
+is done by loading the EasyBuild-user module that will load a suitable version of
+EasyBuild and configure it for installation in a way that is compatible with the
+LUMI stack.
+EasyBuild will then use existing modules for dependencies if those are already on the system
+or in your personal or project stack.</p>
+<p>Note however that the <strong>build-in easyconfig files that come with EasyBuild do not work on LUMI</strong> at
+the moment.</p>
+<ul>
+<li>For the GNU toolchain we would have problems with MPI. EasyBuild uses Open MPI and that
+    needs to be configured differently to work well on LUMI, and there are also still issues with
+    getting it to collaborate with the resource manager as it is installed on LUMI.</li>
+<li>The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the
+    AMD CPUs are a problematic cocktail. There have recently been performance and correctness problems 
+    with the MKL math library and also failures with some versions of Intel MPI, 
+    and you need to be careful selecting compiler options and not use <code>-xHost</code>
+    or the Intel compiler will simply optimize for a two decades old CPU.</li>
+</ul>
+<p>Instead we make our <strong>own EasyBuild build recipes</strong> that we also make available in the 
+<a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib">LUMI-EasyBuild-contrib GitHub repository</a>.
+The EasyBuild configuration done by the EasyBuild-user module will find a copy of that repository
+on the system or in your own install directory. The latter is useful if you always want the very
+latest, before we deploy it on the system. </p>
+<p>We also have the
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
+which documents all software for which we have EasyBuild recipes available. 
+This includes both the pre-installed software and the software for which we provide recipes in the
+<a href="https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib">LUMI-EasyBuild-contrib GitHub repository</a>,
+and even instructions for some software that is not suitable for installation through EasyBuild or
+Spack, e.g., because it likes to write in its own directories while running.</p>
+<h3 id="easybuild-recipes-easyconfigs">EasyBuild recipes - easyconfigs<a class="headerlink" href="#easybuild-recipes-easyconfigs" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="EasyBuild recipes - easyconfigs" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia11.png" /></p>
+</figure>
+<p>EasyBuild uses a build recipe for each individual package, or better said, each individual module
+as it is possible to install more than one software package in the same module. That installation
+description relies on either a generic or a specific installation process provided by an easyblock.
+The build recipes are called easyconfig files or simply easyconfigs and are Python files with 
+the extension <code>.eb</code>. </p>
+<p>The typical steps in an installation process are:</p>
+<ol>
+<li>Downloading sources and patches. For licensed software you may have to provide the sources as
+    often they cannot be downloaded automatically.</li>
+<li>A typical configure - build - test - install process, where the test process is optional and
+    depends on the package providing useable pre-installation tests.</li>
+<li>An extension mechanism can be used to install perl/python/R extension packages</li>
+<li>Then EasyBuild will do some simple checks (some default ones or checks defined in the recipe)</li>
+<li>And finally it will generate the module file using lots of information specified in the 
+    EasyBuild recipe.</li>
+</ol>
+<p>Most or all of these steps can be influenced by parameters in the easyconfig.</p>
+<h3 id="the-toolchain-concept">The toolchain concept<a class="headerlink" href="#the-toolchain-concept" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="The toolchain concept" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia12.png" /></p>
+</figure>
+<p>EasyBuild uses the toolchain concept. A toolchain consists of compilers, an MPI implementation
+and some basic mathematics libraries. The latter two are optional in a toolchain. All these 
+components have a level of exchangeability as there are language standards, as MPI is standardised,
+and the math libraries that are typically included are those that provide a standard API for which
+several implementations exist. All these components also have in common that it is risky to combine 
+pieces of code compiled with different sets of such libraries and compilers because there can
+be conflicts in names in the libraries.</p>
+<p>On LUMI we don't use the standard EasyBuild toolchains but our own toolchains specifically for Cray
+and these are precisely the <code>cpeCray</code>, <code>cpeGNU</code>, <code>cpeAOCC</code> and <code>cpeAMD</code> modules already mentioned 
+before.</p>
+<table>
+<thead>
+<tr>
+<th align="left">HPE Cray PE</th>
+<th align="left">LUMI toolchain</th>
+<th align="left">What?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>PrgEnv-cray</code></td>
+<td align="left"><code>cpeCray</code></td>
+<td align="left">Cray Compiler Environment</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-gnu</code></td>
+<td align="left"><code>cpeGNU</code></td>
+<td align="left">GNU C/C++ and Fortran</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-aocc</code></td>
+<td align="left"><code>cpeAOCC</code></td>
+<td align="left">AMD CPU compilers (login nodes and LUMI-C only)</td>
+</tr>
+<tr>
+<td align="left"><code>PrgEnv-amd</code></td>
+<td align="left"><code>cpeAMD</code></td>
+<td align="left">AMD ROCm GPU compilers (LUMI-G only)</td>
+</tr>
+</tbody>
+</table>
+<figure style="border: 1px solid #000">
+<p><img alt="The toolchain concept 2" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia13.png" /></p>
+</figure>
+<p>There is also a special toolchain called the SYSTEM toolchain that uses the compiler
+provided by the operating system. This toolchain does not fully function in the same way as the other
+toolchains when it comes to handling dependencies of a package and is therefore a bit harder to use.
+The EasyBuild designers had in mind that this compiler would only be used to bootstrap an
+EasyBuild-managed software stack, but we do use it for a bit more on LUMI as it offers us a
+relatively easy way to compile some packages also for the CrayEnv stack and do this in a way
+that they interact as little as possible with other software.</p>
+<p>It is not possible to load packages from different cpe toolchains at the same time.
+This is an EasyBuild restriction, because mixing libraries compiled with different compilers
+does not always work. This could happen, e.g., if a package compiled with the Cray Compiling
+Environment and one compiled with the GNU compiler collection would both use a particular 
+library, as these would have the same name and hence the last loaded one would be used
+by both executables (we don't use rpath or runpath linking in EasyBuild for those familiar
+with that technique).</p>
+<p>However, as we did not implement a hierarchy in the Lmod implementation of our software stack
+at the toolchain level, the module system will not protect you from these mistakes. 
+When we set up the software stack, most people in the support team considered it too misleading
+and difficult to ask users to first select the toolchain they want to use and then see the 
+software for that toolchain.</p>
+<p>It is however possible to combine packages compiled with one CPE-based toolchain with packages
+compiled with teh system toolchain, but we do avoid mixing those when linking as that may cause
+problems. The reason is that we try to use as much as possible static linking in the SYSTEM
+toolchain so that these packages are as independent as possible.</p>
+<p>And with some tricks it might also be possible to combine packages from the LUMI software stack
+with packages compiled with Spack, but one should make sure that no Spack packages are available
+when building as mixing libraries could cause problems. Spack uses rpath linking which is why
+this may work.</p>
+<h3 id="easyconfig-names-and-module-names">EasyConfig names and module names<a class="headerlink" href="#easyconfig-names-and-module-names" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="easyconfig names and module names" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia14.png" /></p>
+</figure>
+<p>There is a convention for the naming of an EasyConfig as shown on the slide. This is not
+mandatory, but EasyBuild will fail to automatically locate easyconfigs for dependencies 
+of a package that are not yet installed if the easyconfigs don't follow the naming
+convention. Each part of the name also corresponds to a parameter in the easyconfig 
+file.</p>
+<p>Consider, e.g., the easyconfig file <code>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb</code>.</p>
+<ol>
+<li>The first part of the name, <code>GROMACS</code>, is the name of the package, specified by the
+    <code>name</code> parameter in the easyconfig, and is after installation also the name of the
+    module.</li>
+<li>The second part, <code>2021.4</code>, is the version of GROMACS and specified by the
+    <code>version</code> parameter in the easyconfig.</li>
+<li>
+<p>The next part, <code>cpeCray-22.08</code> is the name and version of the toolchain,
+    specified by the <code>toolchain</code> parameter in the easyconfig. The version of the
+    toolchain must always correspond to the version of the LUMI stack. So this is
+    an easyconfig for installation in <code>LUMI/22.08</code>.</p>
+<p>This part is not present for the SYSTEM toolchain</p>
+</li>
+<li>
+<p>The final part, <code>-PLUMED-2.8.0-CPU</code>, is the version suffix and used to provide
+    additional information and distinguish different builds with different options
+    of the same package. It is specified in the <code>versionsuffix</code> parameter of the
+    easyconfig.</p>
+<p>This part is optional.</p>
+</li>
+</ol>
+<p>The version, toolchain + toolchain version and versionsuffix together also combine
+to the version of the module that will be generated during the installation process.
+Hence this easyconfig file will generate the module 
+<code>GROMACS/2021.4-cpeCray-22.08-PLUMED-2.8.0-CPE</code>.</p>
+<h3 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-where-to-install">Step 1: Where to install<a class="headerlink" href="#step-1-where-to-install" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Installing: Where to install" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia15.png" /></p>
+</figure>
+<p>Let's now discuss how you can extend the central LUMI software stack with packages that you
+need for your project.</p>
+<p>The default location for the EasyBuild user modules and software is in <code>$HOME/EasyBuild</code>. This is not
+the ideal place though as then the software is not available for other users in your project, and
+as the size of your home directory is also limited and cannot be expanded. The home file system on LUMI 
+is simply not meant to install software. However, as LUMI users can have multiple projects there is no
+easy way to figure out automatically where else to install software.</p>
+<p>The best place to install software is in your project directory so that it also becomes available
+for the whole project. After all, a project is meant to be a collaboration between all participants
+on a scientific problem. You'll need to point LUMI to the right location though and that has to
+be done by setting the environment variable <code>EBU_USER_PREFIX</code> to point to the location where you
+want to have your custom installation. Also don't forget to export that variable as otherwise the
+module system and EasyBuild will not find it when they need it. So a good choice would be 
+something like 
+<code>export EBU_USER_PREFIX=/project/project_465000000/EasyBuild</code>. 
+You have to do this <strong>before</strong> loading the <code>LUMI</code> module as it is then already used to ensure that
+user modules are included in the module search path. You can do this in your <code>.profile</code> or
+<code>.bashrc</code>. 
+This variable is not only <strong>used by EasyBuild-user</strong> to know where to install software, but also 
+by the <code>LUMI</code> - or actually <strong>the <code>partition</code> - module to find software</strong> so all users in your project
+who want to use the software should set that variable.</p>
+<h4 id="step-2-configure-the-environment">Step 2: Configure the environment<a class="headerlink" href="#step-2-configure-the-environment" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Installing: Configure the environment" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia16.png" /></p>
+</figure>
+<p>The next step is to configure your environment. First load the proper version of the LUMI
+stack for which you want to install software, and you may want to change to the proper
+partition also if you are cross-compiling.</p>
+<p>Once you have selected the software stack and partition, all you need to do to activate EasyBuild to install
+additional software is to load
+the <code>LUMI</code> module, load a partition module if you want a different one from the default, and 
+then load the <code>EasyBuild-user</code> module. In fact, if you switch to a different <code>partition</code> 
+or <code>LUMI</code> module after loading <code>EasyBuild-user</code> EasyBuild will still be correctly reconfigured 
+for the new stack and new partition. </p>
+<p>Cross-compilation which is installing software for a different partition than the one you're
+working on does not always work since there is so much software around with installation scripts
+that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
+a different partition module than the one that is auto-loaded by the <code>LUMI</code> module.</p>
+<p><strong>Note that the <code>EasyBuild-user</code> module is only needed for the installation process. For using
+the software that is installed that way it is sufficient to ensure that <code>EBU_USER_PREFIX</code> has
+the proper value before loading the <code>LUMI</code> module.</strong></p>
+<h4 id="step-3-install-the-software">Step 3: Install the software.<a class="headerlink" href="#step-3-install-the-software" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Installing: Install the software" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia18.png" /></p>
+</figure>
+<p>Let's look at GROMACS as an example. I will not try to do this completely live though as the 
+installation takes 15 or 20 minutes.
+First we need to figure out for which versions of GROMACS we already have support.
+At the moment we have to use <code>eb -S</code> or <code>eb --search</code> for that. So in our example this is
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--search<span class="w"> </span>GROMACS
+</code></pre></div>
+We now also have the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
+which lists all software that we manage via EasyBuild and make available either pre-installed on
+the system or as an EasyBuild recipe for user installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Output of the search commands:</p>
+<p><code>eb --search GROMACS</code> produces:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="eb --search GROMACS" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia19.png" />
+</figure></p>
+<p>while <code>eb -S GROMACS</code> produces:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="eb -S GROMACS" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia20.png" />
+</figure></p>
+<p>The information provided by both variants of the search command is the same, but <code>-S</code> presents the information in a more
+compact form.</p>
+</div>
+<p>Now let's take the variant <code>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb</code>. 
+This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
+from <code>LUMI/22.08</code>, and a build meant for CPU-only systems. The <code>-CPU</code> extension is not
+always added for CPU-only system, but in case of GROMACS there already is a GPU version
+for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
+that we could distinguish between GPU and CPU-only versions.
+To install it, we first run 
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>–r<span class="w"> </span>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb<span class="w"> </span>–D
+</code></pre></div>
+The <code>-D</code> flag tells EasyBuild to just perform a check for the dependencies that are needed
+when installing this package, while the <code>-r</code> argument is needed to tell EasyBuild to also 
+look for dependencies in a preset search path. The installation of dependencies is not automatic
+since there are scenarios where this is not desired and it cannot be turned off as easily as
+it can be turned on.</p>
+<p>The output of this command looks like:</p>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia21.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D (2)" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia22.png" /></p>
+</figure>
+<p>Looking at the output we see that EasyBuild will also need to install <code>PLUMED</code> for us.
+But it will do so automatically when we run
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>–r<span class="w"> </span>GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb
+</code></pre></div></p>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia23.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (2)" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia24.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (3)" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia25.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (4)" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia26.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (5)" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia27.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (6)" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia28.png" /></p>
+</figure>
+<p>This takes too long to wait for, but once it finished the software should be available
+and you should be able to see the module in the output of
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>avail
+</code></pre></div></p>
+<h4 id="step-3-install-the-software-note">Step 3: Install the software - Note<a class="headerlink" href="#step-3-install-the-software-note" title="Permanent link">&para;</a></h4>
+<figure style="border: 1px solid #000">
+<p><img alt="Installing: Install the software" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia29.png" /></p>
+</figure>
+<p>There is a little problem though that you may run into. Sometimes the module does not
+show up immediately. This is because Lmod keeps a cache when it feels that Lmod searches
+become too slow and often fails to detect that the cache is outdated.
+The easy solution is then to simply remove the cache which is in <code>$HOME/.lmod.d/.cache</code>, 
+which you can do with 
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$HOME</span>/.lmod.d/.cache
+</code></pre></div>
+And we have seen some very rare cases where even that did not help likely because some
+internal data structures in Lmod where corrupt. The easiest way to solve this is to simply
+log out and log in again and rebuild your environment.</p>
+<p>Installing software this way is <strong>100% equivalent to an installation in the central software
+tree</strong>. The application is compiled in exactly the same way as we would do and served from the
+same file systems. But it helps <strong>keep the output of <code>module avail</code> reasonably short</strong> and <strong>focused
+on your projects</strong>, and it <strong>puts you in control of installing updates</strong>. For instance, we may find out
+that something in a module does not work for some users and that it needs to be re-installed. 
+Do this in the central stack and either you have to chose a different name or risk breaking running
+jobs as the software would become unavailable during the re-installation and also jobs may get
+confused if they all of a sudden find different binaries. However, have this in your own stack
+extension and you can update whenever it suits your project best or even not update at all if 
+you figure out that the problem we discovered has no influence on your work.</p>
+<h3 id="more-advanced-work">More advanced work<a class="headerlink" href="#more-advanced-work" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="More advanced work" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia30.png" /></p>
+</figure>
+<p>You can also install some EasyBuild recipes that you got from support. For this it is best to
+create a subdirectory where you put those files, then go into that directory and run 
+something like
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>my_recipe.eb<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span>
+</code></pre></div>
+The dot after the <code>-r</code> is very important here as it does tell EasyBuild to also look for 
+dependencies in the current directory, the directory where you have put the recipes you got from
+support, but also in its subdirectories so for speed reasons you should not do this just in your
+home directory but in a subdirectory that only contains those files.</p>
+<p>In some cases you will have to download sources by hand as packages don't allow to download 
+software unless you sign in to their web site first. This is the case for a lot of licensed software,
+for instance, for VASP. We'd likely be in violation of the license if we would put the download somewhere
+where EasyBuild can find it, and it is also a way for us to ensure that you have a license for VASP.
+For instance, 
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--search<span class="w"> </span>VASP
+</code></pre></div>
+will tell you for which versions of VASP we already have build instructions, but you will still have
+to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
+directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>VASP-6.3.0-cpeGNU-22.08.eb<span class="w"> </span>–r<span class="w"> </span>.<span class="w"> </span>
+</code></pre></div></p>
+<h3 id="more-advanced-work-2-repositories">More advanced work (2): Repositories<a class="headerlink" href="#more-advanced-work-2-repositories" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="More advanced work (2): Repositories" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia31.png" /></p>
+</figure>
+<p>It is also possible to have your own clone of the <code>LUMI-EasyBuild-contrib</code> GitHub repository
+in your <code>$EBU_USER_PREFIX</code> subdirectory if you want the latest and greatest before it is in
+the centrally maintained clone of the repository. All you need to do is
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$EBU_USER_PREFIX</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib.git
+</code></pre></div>
+and then of course keep the repository up to date.</p>
+<p>And it is even possible to maintain your own GitHub repository.
+The only restrictions are that it should also be in <code>$EBU_USER_PREFIX</code> and that
+the subdirectory should be called <code>UserRepo</code>, but that doesn't stop you from using
+a different name for the repository on GitHub. After cloning your GitHub version you
+can always change the name of the directory.
+The structure should also be compatible with the structure that EasyBuild uses, so
+easyconfig files go in <code>$EBU_USER_PREFIX/easybuild/easyconfigs</code>.</p>
+<h3 id="more-advanced-work-3-reproducibility">More advanced work (3): Reproducibility<a class="headerlink" href="#more-advanced-work-3-reproducibility" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="More advanced work (3): Reproducibility" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia32.png" /></p>
+</figure>
+<p>EasyBuild also takes care of a <strong>high level of reproducibility of installations</strong>.</p>
+<p>It will <strong>keep a copy of all the downloaded sources</strong> in the <code>$EBU_USER_PREFIX/sources</code>
+subdirectory, and use that source file again rather than downloading it again. Of course
+in some cases those "sources" could be downloaded tar files with binaries instead
+as EasyBuild can install downloaded binaries or relocatable RPMs.
+And if you know the structure of those directories, this is also a place where
+you could manually put the downloaded installation files for licensed software.</p>
+<p>Moreover, EasyBuild also keeps <strong>copies of all installed easyconfig files in two locations</strong>.</p>
+<ol>
+<li>There is a <strong>copy in <code>$EBU_USER_PREFIX/ebrepo_files</code></strong>. And in fact, EasyBuild will use this version
+    first if you try to re-install and did not delete this version first. This is a policy
+    we set on LUMI which has <strong>both its advantages and disadvantages</strong>. The <strong>advantage</strong> is that it ensures
+    that the <strong>information that EasyBuild has about the installed application is compatible with what is
+    in the module files</strong>. But the <strong>disadvantage</strong> of course is that if you install an EasyConfig file
+    without being in the subdirectory that contains that file, <strong>it is easily overlooked that it
+    is installing based on the EasyConfig in the <code>ebrepo_files</code> subdirectory</strong> and not based on the
+    version of the recipe that you likely changed and is in your user repository or one of the 
+    other repositories that EasyBuild uses.</li>
+<li>The second copy is with the installed software in <code>$EBU_USER_PREFIX/SW</code> in a subdirectory
+    called <code>easybuild</code>. This subdirectory is meant to have all information about how EasyBuild
+    installed the application, also some other files that play a role in the installation process, and hence
+    to help in reproducing an installation or checking what's in an existing installation. It is
+    also the directory where you will find the extensive log file with all commands executed during
+    the installation and their output.</li>
+</ol>
+<h3 id="easybuild-tips-and-tricks">EasyBuild tips and tricks<a class="headerlink" href="#easybuild-tips-and-tricks" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="EasyBuild tips and tricks" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia33.png" /></p>
+</figure>
+<p>Updating the version of a package often requires only trivial changes in the easyconfig file.
+However, we do tend to use checksums for the sources so that we can detect if the available
+sources have changed. This may point to files being tampered with, or other changes that might
+need us to be a bit more careful when installing software and check a bit more again. 
+Should the checksum sit in the way, you can always disable it by using 
+<code>--ignore-checksums</code> with the <code>eb</code> command.</p>
+<p>Updating an existing recipe to a new toolchain might be a bit more involving as you also have
+to make build recipes for all dependencies. When we update a toolchain on the system, we
+often bump the versions of all installed libraries to one of the latest versions to have
+most bug fixes and security patches in the software stack, so you need to check for those
+versions also to avoid installing yet another unneeded version of a library.</p>
+<p>We provide documentation on the available software that is either pre-installed or can be
+user-installed with EasyBuild in the 
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>.
+For most packages this documentation does also contain information about the license.
+The user documentation for some packages gives more information about how to use the
+package on LUMI, or sometimes also about things that do not work.
+The documentation also shows all EasyBuild recipes, and for many packages there is 
+also some technical documentation that is more geared towards users who want to
+build or modify recipes. It sometimes also tells why we did things in a particular way.</p>
+<h3 id="easybuild-training-for-advanced-users-and-developers">EasyBuild training for advanced users and developers<a class="headerlink" href="#easybuild-training-for-advanced-users-and-developers" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="EasyBuild training" loading="lazy" src="https://462000265.lumidata.eu/1day-20230509/img/LUMI-1day-20230509-04-software/Dia34.png" /></p>
+</figure>
+<p>Pointers to all information about EasyBuild can be found on the EasyBuild web site 
+<a href="https://easybuild.io/">easybuild.io</a>. This
+page also includes links to training materials, both written and as recordings on YouTube, and the
+EasyBuild documentation.</p>
+<p>Generic EasyBuild training materials are available on 
+<a href="https:/easybuilders.github.io/easybuild-tutorial/">easybuilders.github.io/easybuild-tutorial</a>.
+The site also contains a LUST-specific tutorial oriented towards Cray systems.</p>
+<p>There is also a later course developed by LUST for developers of EasyConfigs for LUMI
+that can be found on 
+<a href="https://lumi-supercomputer.github.io/easybuild-tutorial/">lumi-supercomputer.github.io/easybuild-tutorial</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>

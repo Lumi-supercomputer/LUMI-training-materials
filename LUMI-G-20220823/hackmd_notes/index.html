@@ -1,0 +1,1849 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/LUMI-G-20220823/hackmd_notes/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../EasyBuild-CSC-20220509/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>hackmd notes - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lumi-g-pilot-training" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              hackmd notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../1day-20230509/">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        Exercises 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../4day-20230214/">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          hackmd notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        hackmd notes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-information" class="md-nav__link">
+    General Information
+  </a>
+  
+    <nav class="md-nav" aria-label="General Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-public-hpc-coffee-break" class="md-nav__link">
+    Next public HPC coffee break
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slides-and-other-material-temporary-location" class="md-nav__link">
+    Slides and other material (temporary location)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+    <nav class="md-nav" aria-label="Q&amp;A">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ice-breaker-what-is-the-most-important-topic-you-want-to-learn-about-today" class="md-nav__link">
+    Ice breaker: What is the most important topic you want to learn about today?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-the-cray-ex-hardware-and-programming-environment-on-lumi-g" class="md-nav__link">
+    Introduction to the Cray EX Hardware and Programming Environment on LUMI-G
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-steps-for-running-on-lumi-g" class="md-nav__link">
+    First steps for running on LUMI-G
+  </a>
+  
+    <nav class="md-nav" aria-label="First steps for running on LUMI-G">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remarks-for-this-section" class="md-nav__link">
+    Remarks for this section
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-the-amd-rocmtm-ecosystem" class="md-nav__link">
+    Introduction to the AMD ROCm(TM) Ecosystem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amd-hands-on-exercises" class="md-nav__link">
+    AMD hands-on exercises
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-qa" class="md-nav__link">
+    General Q&amp;A
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20220427/">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-information" class="md-nav__link">
+    General Information
+  </a>
+  
+    <nav class="md-nav" aria-label="General Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-public-hpc-coffee-break" class="md-nav__link">
+    Next public HPC coffee break
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slides-and-other-material-temporary-location" class="md-nav__link">
+    Slides and other material (temporary location)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+    <nav class="md-nav" aria-label="Q&amp;A">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ice-breaker-what-is-the-most-important-topic-you-want-to-learn-about-today" class="md-nav__link">
+    Ice breaker: What is the most important topic you want to learn about today?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-the-cray-ex-hardware-and-programming-environment-on-lumi-g" class="md-nav__link">
+    Introduction to the Cray EX Hardware and Programming Environment on LUMI-G
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-steps-for-running-on-lumi-g" class="md-nav__link">
+    First steps for running on LUMI-G
+  </a>
+  
+    <nav class="md-nav" aria-label="First steps for running on LUMI-G">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remarks-for-this-section" class="md-nav__link">
+    Remarks for this section
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-the-amd-rocmtm-ecosystem" class="md-nav__link">
+    Introduction to the AMD ROCm(TM) Ecosystem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amd-hands-on-exercises" class="md-nav__link">
+    AMD hands-on exercises
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-qa" class="md-nav__link">
+    General Q&amp;A
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lumi-g-pilot-training">LUMI-G Pilot Training<a class="headerlink" href="#lumi-g-pilot-training" title="Permanent link">&para;</a></h1>
+<p>23.8.2022 9:00--17:30 (CEST)</p>
+<div class="toc">
+<ul>
+<li><a href="#lumi-g-pilot-training">LUMI-G Pilot Training</a><ul>
+<li><a href="#general-information">General Information</a><ul>
+<li><a href="#next-public-hpc-coffee-break">Next public HPC coffee break</a></li>
+<li><a href="#schedule">Schedule</a></li>
+<li><a href="#slides-and-other-material-temporary-location">Slides and other material (temporary location)</a></li>
+</ul>
+</li>
+<li><a href="#qa">Q&amp;A</a><ul>
+<li><a href="#ice-breaker-what-is-the-most-important-topic-you-want-to-learn-about-today">Ice breaker: What is the most important topic you want to learn about today?</a></li>
+<li><a href="#introduction-to-the-cray-ex-hardware-and-programming-environment-on-lumi-g">Introduction to the Cray EX Hardware and Programming Environment on LUMI-G</a></li>
+<li><a href="#first-steps-for-running-on-lumi-g">First steps for running on LUMI-G</a><ul>
+<li><a href="#remarks-for-this-section">Remarks for this section</a></li>
+</ul>
+</li>
+<li><a href="#introduction-to-the-amd-rocmtm-ecosystem">Introduction to the AMD ROCm(TM) Ecosystem</a></li>
+<li><a href="#amd-hands-on-exercises">AMD hands-on exercises</a></li>
+<li><a href="#general-qa">General Q&amp;A</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="general-information">General Information<a class="headerlink" href="#general-information" title="Permanent link">&para;</a></h2>
+<h3 id="next-public-hpc-coffee-break">Next public HPC coffee break<a class="headerlink" href="#next-public-hpc-coffee-break" title="Permanent link">&para;</a></h3>
+<p><strong>31.8.22, 13:00-13:45 (CEST), 14:00--14:45(EEST)</strong>
+Meet the LUMI user support team, discuss problems, give feedback or suggestions on how to improve services, and get advice for your projects.</p>
+<p>Every last Wednesday in a month.
+<a href="https://cscfi.zoom.us/j/68857034104?pwd=UE9xV0FmemQ2QjZiQVFrbEpSSnVBQT09">Join via Zoom</a></p>
+<h3 id="schedule">Schedule<a class="headerlink" href="#schedule" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>9:00-9:10</strong>: Introduction<ul>
+<li>Course organisation</li>
+<li>Demonstration of how to use hackmd</li>
+</ul>
+</li>
+<li><strong>9:10-10:15</strong>: Introduction to the Cray EX Hardware and Programming Environment on LUMI-G ([name=Harvey])<ul>
+<li>HPE Cray EX hardware architecture and software stack</li>
+<li>The Cray programming environment and compiler wrapper scripts</li>
+<li>An introduction to the compiler suites for GPUs</li>
+</ul>
+</li>
+<li><strong>10:15-10:45</strong>: Break</li>
+<li><strong>10:45-12:00</strong>: First steps for running on LUMI-G<ul>
+<li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li>
+<li>MPI update for GPUs/SS11 (GPU-aware communications)</li>
+<li>Profiling tools</li>
+</ul>
+</li>
+<li><strong>12:00-14:00: Lunch break</strong></li>
+<li><strong>14:00-15:45</strong>: AMD topics ([name=George] &amp; [name=Samuel])<ul>
+<li>GPU Hardware intro</li>
+<li>Introduction to ROCm and HIP</li>
+<li>Porting Applications to HIP</li>
+<li>ROCm libraries</li>
+<li>Profiling </li>
+<li>Debugging</li>
+</ul>
+</li>
+<li><strong>15:30-16:00</strong>: Break</li>
+<li><strong>16:00-16:45</strong>: Continuation of AMD topics + examples &amp; hands-on exercises</li>
+<li><strong>16:45-17:30</strong>: General Questions &amp; Answers</li>
+</ul>
+<h3 id="slides-and-other-material-temporary-location">Slides and other material (temporary location)<a class="headerlink" href="#slides-and-other-material-temporary-location" title="Permanent link">&para;</a></h3>
+<ul>
+<li>HPE slides and excercises on lumi at <code>/users/lazzaroa/hackathon</code> </li>
+<li>AMD slides: https://www.dropbox.com/s/umcjwr6hhn06ivl/LUMIG_training_AMD_ecosystem_23_08_2022.pdf?dl=0</li>
+<li>AMD excersises on lumi at <code>/users/gmarkoman/training</code> The README contains basic instructions</li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<h3 id="ice-breaker-what-is-the-most-important-topic-you-want-to-learn-about-today">Ice breaker: What is the most important topic you want to learn about today?<a class="headerlink" href="#ice-breaker-what-is-the-most-important-topic-you-want-to-learn-about-today" title="Permanent link">&para;</a></h3>
+<ul>
+<li>I want to learn how to bind GPUs to CPU cores</li>
+<li>Profiling and Debugging +6</li>
+<li>AMD GPU Unified Memory performance, Page Migration Mechanism, memory prefetching (eg. hipMemPrefetchAsync), comparison of differences between the newest AMD and NVIDIA archs with respect to Unified Memory</li>
+<li>General use of the system</li>
+<li>Any significant ROCm issues known? +1</li>
+<li>GPU aware MPI on LUMI. +2 </li>
+<li>How to compile my application for CPU/GPU execution</li>
+<li>How to build software in user's space under different software stacks?</li>
+<li>
+<p>What are the problems with LUMI-G that lead to the postponing of the pilot phase? Appart from hardware issues, can these issues impact users running in rocm containers?</p>
+</li>
+<li>
+<p>How to edit this document (without logging in)?</p>
+<ul>
+<li>You can click the "Pencil" button in the top left.</li>
+</ul>
+</li>
+</ul>
+<h3 id="introduction-to-the-cray-ex-hardware-and-programming-environment-on-lumi-g">Introduction to the Cray EX Hardware and Programming Environment on LUMI-G<a class="headerlink" href="#introduction-to-the-cray-ex-hardware-and-programming-environment-on-lumi-g" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Will pilots be restricted to a max of 100 nodes/run or is larger possible?</p>
+<ul>
+<li>For the CPU pilots there were special arrangements for very big runs towards the end of the pilot phase so I guess that could be arranged<ul>
+<li>Great, thanks, we (UTU) are very interested in very large runs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>How are the MI250X seen in a program? 1 or 2 GPUs?</p>
+<ul>
+<li>2, more description in the next lecture<ul>
+<li>So a program will have to be multi-gpu to use it at maximum?<ul>
+<li>Not sure I understand the question, let's discuss this in the next lecture. There are 4 Mi250X on the node, a total of 8 GCDs. From the software point of view these are 8 GPUs. You can use ranks attached to each gpu or use multi-gpu within the same process.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Benchmarks vs NVIDIA (node vs node &amp; gpu vs gpu // fundamental ops &amp; application ie pytorch)</p>
+<ul>
+<li>One of the purposes of the pilot phase is actually that you establish such benchmarks. We do not have much numbers yet.  </li>
+</ul>
+</li>
+<li>
+<p>Is Simultaneous Multi-Threading enabled on CPU</p>
+<ul>
+<li>Yes, there are 128 hardware threads</li>
+<li>You need to use the slurm option `--threads-per-core=2</li>
+</ul>
+</li>
+<li>
+<p>Does slurm schedule multi-node jobs on nodes which have the lowest node to node latency in the dragonfly network?</p>
+<ul>
+<li>I doubt. It is not the case on the CPU nodes, so I doubt it will be the case on the GPUs. In fact, every dual GPU node blade connects to 4 switches but it is not clear to me if every node already connects to 4 swithces or if both nodes each connect to two switches. SLURM does try to give nodes that are close in the numbering which means that they are in one so-called group (within a rack). There are still other problems with the Slurm configuration though.</li>
+<li>You can configure Slurm to try to keep workloads to 'switches' (a Slurm concept). So you can associate a switch to a group of physical switches.</li>
+</ul>
+</li>
+<li>
+<p>debugger: what's the maximum job size of ddt's license ?</p>
+<ul>
+<li>256 MPI ranks (each rank can use 1 GPU), i.e. max 32 nodes. There is also the gdb4hpc debugger from HPE Cray, which has no limit</li>
+<li>We don't have a version that is ready for AMD GPUs though at the moment.</li>
+</ul>
+</li>
+<li>
+<p>Known issues with ROCm / HIP complex numbers? What version of ROCm?</p>
+<ul>
+<li>Any issue in particular that you are referring to here?</li>
+</ul>
+</li>
+<li>
+<p>What version of ROCm? </p>
+<ul>
+<li>Currently 5.0.2 but it changes all the time. We're still figuring out why 5.1 did not get installed as that should be supported on the version of the OS that we have.  </li>
+</ul>
+</li>
+<li>
+<p>Does the GPU-aware MPI do packing and unpacking for derived datatypes on the GPU? Does it support Unified Memory (passing pointers to UM)?</p>
+<ul>
+<li>The system has an unified memory pool - GPU memory pointer can not only be used in MPI but also in your CPU code.</li>
+<li>HPE is beeter position to answer how that packing/unpacking is implemented - not sure if that is offloaded to the GPU.<ul>
+<li>(HPE) I will ask to MPI experts..</li>
+<li>Thanks! My experience is that for example with OpenMPI and MVAPCIH2-GDR with NVIDIA archs, the packing and unpacking for derived data types is not done on the GPUs. This means that with Unified Memory, recurring page faults occur (because packing/unpacking is done on the CPU, and requires CPU accessing the data from the GPU). This can make derived MPI datatypes very slow, and we actually had to move back to continuous MPI datatypes (eg. MPI_BYTE), this gave a huge performance increase (3x whole program performance) with CUDA and NVIDIA cards. But it would be good to know whether things are different with AMD cards and cray MPI implementation?</li>
+<li>[HPE] Can you provide a little more detail about the datatypes involved, are they vector constructions for example.</li>
+<li>MPI_Type_create_struct and MPI_Type_create_hvector are used at least I think, I don't remember the exact details anymore, the code is here: https://github.com/parflow/parflow/blob/master/pfsimulator/amps/mpi1/amps_pack.c<ul>
+<li>(HPE) MPI expert reply: we currently do not offload datatype pack/unpact to the GPU. Users can allocate memory via hipMallocManaged or cudaMallocManaged and pass those pointers to MPI.  Users need to set MPICH_GPU_MANAGED_MEMORY_SUPPORT_ENABLED=1  for such codes (check <code>man mpi</code> for details).<ul>
+<li>Thanks, Will there be page faults, or is the data prefetched to the CPU without page faults for packing/unpacking? Does it crash if hipMalloc is used instead of hipMallocManaged when using those derived datatypes?<ul>
+<li>Sorry, you have to try, we don't have performance numbers...</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Maybe I mis - what is the difference between cray-python and python?</p>
+<ul>
+<li>cray-python is a just an installation that is linked to the cray libsci library for numpy/scipy/pandas</li>
+<li>System python should never be used, it comes with a miminum of packages and is not meant to be build upon.</li>
+<li>cray-python can be loaded with the module system</li>
+</ul>
+</li>
+<li>
+<p>Will there be multiple rocm modules available? </p>
+<ul>
+<li>Likely through different versions of the programming environment, the Cray compilers and Cray MPICH require specific versions. </li>
+<li>(Kurt for LUST) I checked what the current rocm/5.0.2 module does and it actually does not even support multiple versions of ROCm on the system as it uses <code>/opt/rocm</code> rather <code>/opt/rocm-5.0.2</code> which in turn may have to do with a ROCm problem, i..e., hard-coded paths in the ROCm code that don't support installing in other directories. Now if tomorrow the sysadmins would install ROCm 5.2.0 and then use <code>/etc/alternatives</code> to make that version the default, the 5.0.2 module would actually be loading 5.2.0 instead...</li>
+</ul>
+</li>
+<li>
+<p>What is the preferred way to monitor GPU usage and memory across multiple nodes?</p>
+<ul>
+<li>See later sessions, this is more a question for the end</li>
+<li>Usually <code>rocm-smi</code> is how you go about this, or you can instrument your application to collect stats. I used to do monitoring by SSHing to the allocated nodes but that is not available on LUMI. A possibility is to create a script such as (rocm-monitor) :
+  <div class="highlight"><pre><span></span><code>#!/bin/bash
+
+while true ; do
+   date &gt; ~/rocm-smi-$(hostname)
+ rocm-smi &gt;&gt; ~/rocm-smi-$(hostname)
+ sleep 1
+done
+</code></pre></div>
+  then you can use in your submission script:
+  <div class="highlight"><pre><span></span><code>mpids=&#39;&#39;
+if [ $SLURM_LOCALID -eq 0 ] ; then
+  rocm-monitor &amp;
+  mpids=$!
+fi
+
+... do your thing
+
+for p in $mpids ; do
+  kill $p
+done
+</code></pre></div>
+  And in a login node you can <code>watch -n1 cat ~/rocm-smi-*</code></li>
+</ul>
+</li>
+<li>
+<p>Is there a difference between <code>hipMalloc</code> and <code>hipMallocManaged</code> for LUMI environment? 
+    If I remember right, the pointer to hipMalloc'd memory can be used in host code as well 
+    with AMD GPUs (this is different from NVIDIA archs).</p>
+<ul>
+<li>One difference is that with hipMallocManaged the migration happens with the declaration while 
+    with hipMalloc the migration will happen on demand. On the dev, the first access could be 
+    slighlty slower than the next ones.</li>
+</ul>
+<p><em>Follow-up question:</em> Can you confirm that with <code>hipMalloc</code> the migration happens only when the data is needed? 
+This would be the opposite of how it works with NVIDIA archs.</p>
+<ul>
+<li>Yes, not every time, just the first time, then no need to migrate again</li>
+</ul>
+<p><em>Insisting:</em>  Are you 100% sure you did not mix the hipMalloc and hipMallocManaged functions? 
+With NVIDIA archs they work the other way around.</p>
+<ul>
+<li>
+<p>Trying to clarify:</p>
+<ul>
+<li><code>hipmalloc</code> - page lives in the GPU and is migrated to main memory on demand</li>
+<li><code>hiphostalloc</code> - page lives in main memory and is migrated to the GPU on demand</li>
+<li><code>hipmallocmanaged</code> - page is migrated when it is touch and then resides in the destination memory</li>
+</ul>
+</li>
+<li>
+<p>I think what is meant is that the first time you touch memory allocated in the GPU in the GPU, 
+    you have a small hit in BW to have the shared memory system to workout the consistency logic. </p>
+</li>
+<li>
+<p>Just for completion - unified memory is on by default on the nodes. If you disable it (HSA_XNACK=0)
+    then a page fault will result in segfault in the first two cases. That could be useful if you want 
+    to make sure you are not relying on the unified memory by mistake, i.e you are not using a main memory 
+    pointer on the GPU or vice-versa. </p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>craype-x86-rome</code>: are the cpus of the cn zen3/milan cpus ? would you recommend to load <code>craype-x86-milan</code> instead ?</p>
+<ul>
+<li>Actually, there is <code>craype-x86-trento</code>. More in the next slides</li>
+</ul>
+</li>
+<li>
+<p>Will complete start to finish tutorials be available (i.e. MNIST JAX example including loading modules / installing packages / running)? </p>
+<ul>
+<li>Likely not, except probably for very specific packages. It is impossible to maintain such documentation 
+    with a small team as we are a small team and with the rapid rate of compiler updates that we can expect 
+    in the next year. We do try to develop EasyBuild recipes for software though, and offer Spack for those 
+    who know how to use it (but do not intend to implement packages in Spack ourselves). The reality is that 
+    given the very new technology on LUMI, it will be a rapidly changing system initially and not one for 
+    those who expect an environment that is stable for a longer period of time. </li>
+</ul>
+</li>
+</ol>
+<h3 id="first-steps-for-running-on-lumi-g">First steps for running on LUMI-G<a class="headerlink" href="#first-steps-for-running-on-lumi-g" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>How to profile python programs?</p>
+<ul>
+<li>(HPE) I'm not sure about this, <code>pat_run</code> might tell you something, we plan to have a discussion about Python 
+    support in the CoE/LUST team so I will keep this in mind.</li>
+</ul>
+</li>
+<li>
+<p>How to do MPI allreduce on pure GPUs and hybrid case?</p>
+<ul>
+<li>Copy data to GPU, then allreduce will be handled on GPU, also in hybrid case 
+     (if some data is in main memory)</li>
+</ul>
+</li>
+<li>
+<p>About gpu_bind.sh: is there a reason why gpus are not attached to the numa nodes in a friendler way (gpu0 to numa0, etc...) ? because of the nic ?</p>
+<ul>
+<li>I guess hardware design and routing issues may have created this mess...</li>
+</ul>
+</li>
+<li>
+<p>When I run the following simple test found in https://github.com/csc-training/summerschool/blob/master/gpu-hip/memory-prefetch/solution/prefetch.cpp 
+    on the NVIDIA-based system, I always get more or less the following kind of timings:
+    <div class="highlight"><pre><span></span><code>Mahti timings (NVIDIA A100)
+The results are OK! (0.990s - ExplicitMemCopy)
+The results are OK! (0.744s - ExplicitMemPinnedCopy)
+The results are OK! (0.040s - ExplicitMemNoCopy)
+The results are OK! (2.418s - UnifiedMemNoPrefetch)
+The results are OK! (1.557s - UnifiedMemPrefetch)
+The results are OK! (0.052s - UnifiedMemNoCopy)
+</code></pre></div>
+    However, on the LUMI with AMD GPUs, everything else looks good, but I don't understand why the 
+    latter two cases are so slow. For example, putting a <code>hipMemPrefetchAsync</code> (that should speed up things), 
+    looks to make it much slower in the second last case. In the last case, using <code>hipMemset</code> for a pointer to 
+    a Unified Memory appears extremely slow:
+    <div class="highlight"><pre><span></span><code>LUMI timings
+The results are OK! (0.748s - ExplicitMemCopy)
+The results are OK! (0.537s - ExplicitMemPinnedCopy)
+The results are OK! (0.044s - ExplicitMemNoCopy)
+The results are OK! (0.609s - UnifiedMemNoPrefetch)
+The results are OK! (3.561s - UnifiedMemPrefetch)
+The results are OK! (18.889s - UnifiedMemNoCopy)
+</code></pre></div>
+    Any explanation?</p>
+<ul>
+<li>
+<p>(AMD) I'm looking into it - not have an explanation ready to go as of now.</p>
+</li>
+<li>
+<p>(LUST) could an environment variable such as <code>HSA_XNACK=1</code> be needed here?</p>
+<ul>
+<li>Setting <code>HSA_XNACK=1</code> makes things worse:
+    <div class="highlight"><pre><span></span><code>The results are OK! (3.357s - ExplicitMemCopy)
+The results are OK! (0.547s - ExplicitMemPinnedCopy)
+The results are OK! (0.070s - ExplicitMemNoCopy)
+The results are OK! (3.373s - UnifiedMemNoPrefetch)
+The results are OK! (3.950s - UnifiedMemPrefetch)
+The results are OK! (21.824s - UnifiedMemNoCopy)
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Do any modules need to be loaded to run <code>rocm-smi</code>? I get the following error:
+    <div class="highlight"><pre><span></span><code>ERROR:root:Driver not initialized (amdgpu not found in modules)
+</code></pre></div></p>
+<ul>
+<li>
+<p>(HPE) Are you running on the compute node?</p>
+<ul>
+<li>R: Yes, but I think it should also run on the login node. I used to be able to run this both on compute nodes and login nodes. </li>
+</ul>
+</li>
+<li>
+<p>(HPE) Login do not have GPUs and drivers. I'm running this (use your project ID):
+    <div class="highlight"><pre><span></span><code>srun --nodes=1 --ntasks-per-node=1 -p pilot -A project_462000031 -t &quot;00:10:00&quot; --ntasks=1 --gres=gpu:8 rocm-smi
+</code></pre></div>
+    On the login you can get the help though.</p>
+</li>
+</ul>
+<p>Ok thank you. But why do I need to run this with <code>srun</code>? </p>
+<ul>
+<li>The <code>srun</code> command gets you to the compute node.</li>
+</ul>
+<p>Ok sorry for the confusion. My question is why doesn't this work with <code>salloc</code>? 
+I ask for an interactive session, then cannot run rocm-smi there.</p>
+<ul>
+<li>So, <code>salloc</code> does reserves nodes for you, but you are still on the login node. 
+    You need <code>srun</code> to "access" the compute nodes. Example:
+    <div class="highlight"><pre><span></span><code>[13:21:26] ≈≈XXXXXX@uan04:~ &gt; salloc --nodes=1 --ntasks-per-node=1 -p pilot -A project_XXXXXXXX -t &quot;00:10:00&quot; --ntasks=1 --gres=gpu:8 
+salloc: Pending job allocation 1442086
+salloc: job 1442086 queued and waiting for resources
+salloc: job 1442086 has been allocated resources
+salloc: Granted job allocation 1442086
+ho[13:21:29] XXXXXXXX@uan04:~ &gt; hostname
+uan04
+[13:21:30] XXXXXXXX@uan04:~ &gt; srun hostname
+nid005015    
+</code></pre></div>
+    Does it make clear? Uan is the login node, nodes with nidXXX are compute nodes.</li>
+</ul>
+<p>Yes that is clear, thank you. On other clusters, salloc usually gives a shell on a compute node in my 
+experience. But I assume this is not the case here because ssh is not enabled.</p>
+<ul>
+<li>
+<p>You can connect via srun shell, just in case... I think the difference in salloc is because the 
+    login nodes are shared between LUMI-C and LUMI-G...</p>
+</li>
+<li>
+<p>(Someone from LUST) <code>salloc</code> on LUMI behaves as I am used from other clusters and a SLURM training 
+    we got from SchedMD at my home university so I am not that surprised. It has nothing to do with ssh. 
+    On the contrary, the reason why ssh is not enabled is that it does not necessarily take to the right 
+    CPU set and the resources that are controlled by SLURM.</p>
+</li>
+<li>
+<p>(HPE) I think the salloc behaviour is site configurable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>I am wondering if the GPUDirect RDMA is supported on LUMI-G?</p>
+<ul>
+<li>I think the osu device to device copy that Alfio showed indicates this is the case.</li>
+<li>(HPE) Yes, it is supported.</li>
+</ul>
+</li>
+<li>
+<p>Are containers supported on lumi-g? With rdma ?</p>
+<ul>
+<li>[HPE] this is something we are looking at, but I don't think we have checked on the current software stack.</li>
+</ul>
+</li>
+</ol>
+<h4 id="remarks-for-this-section">Remarks for this section<a class="headerlink" href="#remarks-for-this-section" title="Permanent link">&para;</a></h4>
+<ul>
+<li>There are xthi-like programs in the <code>lumi-CPEtools</code> modules. Load the module and check <code>man lumi-CPEtools</code> for more information.</li>
+</ul>
+<h3 id="introduction-to-the-amd-rocmtm-ecosystem">Introduction to the AMD ROCm<sup>(TM)</sup> Ecosystem<a class="headerlink" href="#introduction-to-the-amd-rocmtm-ecosystem" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>(Q)</strong>: Is there a GPU memory pool allocator (that uses either hipMalloc or hipMallocManaged) for AMD GPUs?</p>
+<p><strong>(A)</strong>: Can you clarify what exactly you are looking for - you mean an allocator for a given language or runtime?            </p>
+<p><strong>(Q)</strong>: The point of pool allocator is to allocate a large memory pool which is reused. 
+So that recurrent alloc and free-calls do not recurrently allocate and free memory at 
+the system level, but instead just reuse the memory pool. I think CUDA recently added 
+memory pools (cf. cudaDeviceSetMemPool and cudaMallocAsync), but I have not used these yet. 
+Previously I have used Rapids Memory Manager with NVIDIA cards. This is really important 
+with applications which do recurring allocations and deallocations in a loop. For example 
+in the paper <a href="https://link.springer.com/content/pdf/10.1007/s10596-021-10051-4.pdf">"Leveraging HPC accelerator architectures with modern techniques - huydrologic modeling on 
+GPUs with ParFlow"</a>, 
+simply using GPU memory pool allocator gave additional 5x speed-up for the whole program 
+performance (instead of allocating and freeing things recurringly with cudaMallocManaged and cudaFree).</p>
+<p><strong>(Q)</strong>: I see, you have hipDeviceSetMemPool but that is in 
+<a href="https://docs.amd.com/bundle/HIP_Supported_CUDA_API_Guide_v5.2/page/CUDA_Runtime_API_functions_supported_by_HIP.html">rocm 5.2.0</a>, 
+unfortunately that is not the version on LUMI but it is possible to install in user space 
+and have it to work with the existing driver. Apart from that there are many runtimes that 
+do similar things, I don't have an exaustive list. There are many libraries and portability 
+layers that come up with their own memory management - if there is one in particular you think 
+is worth us to look at I (Sam) am happy to do so.</p>
+<p><strong>(Q)</strong>: Is that rocm5.2 also supporting memory pools for AMD GPUs, or only for NVIDIA GPUs? 
+The whole point is really to avoid having to write your own memory manager and using an 
+existing one, preferably one that is directly offered by HIP.</p>
+<p><strong>(A)</strong>: Didn't try it but if it goes in HIP should be supported on AMD Instinct GPUs.</p>
+<p><strong>(Q)</strong>: Do you know any libraries which would provide hipMallocManaged pool allocator for 
+AMD GPUs? I am not sure if the CUDA/HIP pools in rocm5.2 support Unified Memory.</p>
+<p><strong>(A)</strong>:Just found Umpire (https://computing.llnl.gov/projects/umpire) which appears to support HIP+Unified Memory pool allocation</p>
+</li>
+<li>
+<p>Will tools like GPUFORT be available on LUMI?</p>
+<ul>
+<li>We strive to provide many development tools on LUMI-G, but in the beginning, 
+    during the pilot phase, you are expected to install some of the tools that you need 
+    by yourself. GPUFORT seems like a research project, so might not want to "officially" 
+    support itif it is difficult to use. Regarding OpenACC in general (the use case for 
+    GPUFORT?), Cray's Fortran compiler does support OpenACC offloading to the AMD GPUs, 
+    so this might be a better approach.</li>
+</ul>
+</li>
+<li>
+<p>If there performance difference hipforrtran vs fortran + hip ?</p>
+<ul>
+<li>There should not - hipfortran is awrapper exactly for fortran + hip.</li>
+</ul>
+</li>
+<li>
+<p>Question for HPE: Does the gcc that comes with the PE support OpenMP offload on AMD?</p>
+<ul>
+<li>No, the first version with Mi250X will be GCC 13. I do expect support in the PE when GNU will support the GPU.</li>
+</ul>
+</li>
+<li>
+<p><strong>(Q)</strong>: Is there JAX support / tests? </p>
+<p><strong>(A)</strong>: I'm not familiar with this or the XLA dependencies,  else might be able to answer.</p>
+<p><strong>(Q)</strong>: There is <a href="https://github.com/google/jax/issues/2012">a known issue on AMD</a>, seems to be unstable.</p>
+</li>
+<li>
+<p>Does any AMD profiling app give backtrace for Unified Memory page fault locations?</p>
+<ul>
+<li>Unfortunatly, I am not aware of a way for one to do that with the profile. You can 
+    try disabling unified memory (<code>export HSA_XNACK=0</code>) and see where code crashes and get the backtrace then.</li>
+</ul>
+</li>
+<li>
+<p>Is Perfetto available as a desktop application? Or can I look at AMD profiles offline somehow?</p>
+<ul>
+<li>Even though Perfetto runs on the browser, it does run locally. If you want to have your instance 
+    served locally you can use a docker container, this is the image I use:
+    <div class="highlight"><pre><span></span><code>FROM eu.gcr.io/perfetto-ci/sandbox
+
+RUN set -eux ; \
+cd /opt ; \
+git clone -b v20.1 https://github.com/google/perfetto
+
+WORKDIR /opt/perfetto
+RUN set -eux ; \
+tools/install-build-deps --ui
+
+RUN set -eux ; \
+ui/build
+
+RUN set -eux ; \
+sed -i &#39;s/127\.0\.0\.1/0.0.0.0/g&#39; ui/build.js
+
+EXPOSE 10000
+ENTRYPOINT []
+CMD [&quot;./ui/run-dev-server&quot;, &quot;-n&quot;]
+</code></pre></div>
+    build with
+    <div class="highlight"><pre><span></span><code>#!/bin/bash
+
+docker network rm \
+lan-restricted
+
+docker network create \
+-o &quot;com.docker.network.bridge.enable_ip_masquerade&quot;=&quot;false&quot; \
+lan-restricted
+
+docker run -p 10000:10000 --name myperfetto --network  lan-restricted myperfetto
+</code></pre></div>
+    This will create a local server for Perfetto</li>
+</ul>
+</li>
+<li>
+<p>Is the following warning expected when running rocm-smi?
+    <div class="highlight"><pre><span></span><code>======================= ROCm System Management Interface =======================
+================================= Concise Info =================================
+GPU  Temp   AvgPwr  SCLK    MCLK     Fan  Perf  PwrCap  VRAM%  GPU%  
+0    39.0c  88.0W   800Mhz  1600Mhz  0%   auto  560.0W    0%   0%    
+1    45.0c  N/A     800Mhz  1600Mhz  0%   auto  0.0W      0%   0%    
+2    43.0c  85.0W   800Mhz  1600Mhz  0%   auto  560.0W    0%   0%    
+3    41.0c  N/A     800Mhz  1600Mhz  0%   auto  0.0W      0%   0%    
+4    44.0c  82.0W   800Mhz  1600Mhz  0%   auto  560.0W    0%   0%    
+5    41.0c  N/A     800Mhz  1600Mhz  0%   auto  0.0W      0%   0%    
+6    41.0c  83.0W   800Mhz  1600Mhz  0%   auto  560.0W    0%   0%    
+7    40.0c  N/A     800Mhz  1600Mhz  0%   auto  0.0W      0%   0%    
+================================================================================
+WARNING:                 One or more commands failed
+============================= End of ROCm SMI Log ==============================
+</code></pre></div></p>
+<ul>
+<li>The warning likely comes from SLURM because <code>rocm-smi</code> returns non-zero exit codes?</li>
+</ul>
+</li>
+<li>
+<p>What is the timeline of the pilot phase? When exactly does it start and when does it end?</p>
+<ul>
+<li>It will start on September 26th and last for a month.</li>
+</ul>
+</li>
+</ol>
+<h3 id="amd-hands-on-exercises">AMD hands-on exercises<a class="headerlink" href="#amd-hands-on-exercises" title="Permanent link">&para;</a></h3>
+<p>Files for  excersises on lumi are <a href="https://462000265.lumidata.eu/lumi-g-20220823/files/LUMI_G-AMD-Exercises.tar">available for download (tar file, 56k)</a>.
+The README contains basic instructions</p>
+<h3 id="general-qa">General Q&amp;A<a class="headerlink" href="#general-qa" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>How to bind correctly mpi-rank &lt;-&gt; gpu-id?
+    select_gpu.sh
+    <div class="highlight"><pre><span></span><code>#!/bin/bash
+
+GPUSID=&quot;4 5 2 3 6 7 0 1&quot;
+GPUSID=(${GPUSID})
+if [ ${#GPUSID[@]} -gt 0 -a -n &quot;${SLURM_NTASKS_PER_NODE}&quot; ]; then
+    export ROCR_VISIBLE_DEVICES=${GPUSID[$((SLURM_LOCALID / ($SLURM_NTASKS_PER_NODE / ${#GPUSID[@]})))]}
+fi
+
+exec $*
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>#SBATCH --job-name=NAME          # &lt;--- SET 
+#SBATCH --output=&quot;NAME.%J.out&quot;   # &lt;--- SET
+#SBATCH --error=&quot;NAME.%J.err&quot;    # &lt;--- SET
+#SBATCH --nodes=2                # &lt;--- SET: Number of nodes, each noode has 8 GPUs
+#SBATCH --ntasks=16              # &lt;--- SET: Number of processes you want to use, MUST be nodes*8 !!!
+#SBATCH --gpus=16                # &lt;--- SET: MUST be the same as ntasks !!!
+#SBATCH --time=15:00             # &lt;--- SET: Walltime HH:MM:SS
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=your@email   # &lt;--- SET: if you want to get e-mail notification
+#SBATCH --partition=eap 
+#SBATCH --account=project_465000150 
+#SBATCH --cpus-per-task=1        # Do not modify
+#SBATCH --ntasks-per-node=8      # Do not modify
+
+# Set environment
+export MPICH_GPU_SUPPORT_ENABLED=1 
+
+# the simple call
+srun -n 16 ./td-wslda-3d input.txt
+
+# I mapping provided above.
+
+--------------------------------------------------------------------
+# START OF THE MAIN FUNCTION
+# CODE: TD-WSLDA-3D
+# PROCESS ip=6 RUNNING ON NODE nid005100 USES device-id=6
+# PROCESS ip=1 RUNNING ON NODE nid005100 USES device-id=1
+# PROCESS ip=7 RUNNING ON NODE nid005100 USES device-id=7
+# PROCESS ip=5 RUNNING ON NODE nid005100 USES device-id=5
+# PROCESS ip=4 RUNNING ON NODE nid005100 USES device-id=4
+# PROCESS ip=3 RUNNING ON NODE nid005100 USES device-id=3
+# PROCESS ip=2 RUNNING ON NODE nid005100 USES device-id=2
+# PROCESS ip=12 RUNNING ON NODE nid005104 USES device-id=4
+# PROCESS ip=13 RUNNING ON NODE nid005104 USES device-id=5
+# PROCESS ip=15 RUNNING ON NODE nid005104 USES device-id=7
+# PROCESS ip=8 RUNNING ON NODE nid005104 USES device-id=0
+# PROCESS ip=14 RUNNING ON NODE nid005104 USES device-id=6
+# PROCESS ip=10 RUNNING ON NODE nid005104 USES device-id=2
+# PROCESS ip=11 RUNNING ON NODE nid005104 USES device-id=3
+# PROCESS ip=9 RUNNING ON NODE nid005104 USES device-id=1
+# PROCESS ip=0 RUNNING ON NODE nid005100 USES device-id=0
+...
+</code></pre></div>
+</li>
+<li>
+<p>What has changed over the past 2 weeks (software and or hardware) ? I was running PyTorch code 
+    using <a href="https://hub.docker.com/r/rocm/pytorch">this container</a> more or less reliably at the beginning of the pre pilot phase using rccl backend. I haven't touched it since and tried again today and I seem to have network issues:</p>
+<div class="highlight"><pre><span></span><code>nid005000:30599:30731 [0] /long_pathname_so_that_rpms_can_package_the_debug_info/data/driver/rccl/src/include/socket.h:415 NCCL WARN Net : Connect to 10.120.24.10&lt;52061&gt; failed : No route to host
+</code></pre></div>
+<p>Any ideas?</p>
+<ul>
+<li>(AMD): Try <code>export NCCL_SOCKET_IFNAME=hsn0,hsn1,hsn2,hsn3</code> let RCCL focus on the right 
+    network interfaces. Also <code>export NCCL_DEBUG=INFO</code> to get more info. <code>export NCCL_DEBUG_SUBSYS=INIT,COLL</code>.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>

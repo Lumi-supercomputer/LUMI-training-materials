@@ -1,0 +1,1706 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/klust/LUMI-training-materials/4day-20230214/hedgedoc_notes_day3/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>Notes from the HedgeDoc page - day 3 - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notes-from-the-hedgedoc-page-day-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notes from the HedgeDoc page - day 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../1day-20230509/">1-day May 2023</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-day May 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        LUMI Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        Exercises 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        Running jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        Exercises 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        I/O and file systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        LUMI support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Profiling April 2013
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Comprehensive LUMI February 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Comprehensive LUMI February 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20230111/">LUMI-G January 2023</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G January 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q November 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
+        HedgeDoc notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../LUMI-G-20220823/">LUMI-G August 2022</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          LUMI-G August 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../EasyBuild-CSC-20220509/">EasyBuild May 2022</a>
+          
+            <label for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          EasyBuild May 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        Course notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../PEAP-Q-20220427/">PEAP-Q April 2022</a>
+          
+            <label for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          PEAP-Q April 2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        hackmd notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        LUMI Software Stacks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization-improving-single-core-efficiency" class="md-nav__link">
+    Performance Optimization: Improving single-core efficiency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat" class="md-nav__link">
+    Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-optimisation-parallel-io" class="md-nav__link">
+    I/O Optimisation - Parallel I/O
+  </a>
+  
+    <nav class="md-nav" aria-label="I/O Optimisation - Parallel I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise_1" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-the-amd-rocmtm-ecosystem" class="md-nav__link">
+    Introduction to the AMD ROCmTM ecosystem
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to the AMD ROCmTM ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amd-debugging-rocgdb" class="md-nav__link">
+    AMD Debugging: ROCgdb
+  </a>
+  
+    <nav class="md-nav" aria-label="AMD Debugging: ROCgdb">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise_2" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-rocprof-profiling-tool" class="md-nav__link">
+    Introduction to Rocprof Profiling Tool
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Rocprof Profiling Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercises_1" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="notes-from-the-hedgedoc-page-day-3">Notes from the HedgeDoc page - day 3<a class="headerlink" href="#notes-from-the-hedgedoc-page-day-3" title="Permanent link">&para;</a></h1>
+<p>These are the notes from the LUMI training,
+1114-17.02.2023, 9:00--17:30 (CET) on Zoom.</p>
+<ul>
+<li><a href="../hedgedoc_notes_day1/">Day 1</a></li>
+<li><a href="../hedgedoc_notes_day2/">Day 2</a></li>
+<li><a href="./">Day 3</a>: This page</li>
+<li><a href="../hedgedoc_notes_day4/">Day 4</a></li>
+</ul>
+<h2 id="performance-optimization-improving-single-core-efficiency">Performance Optimization: Improving single-core efficiency<a class="headerlink" href="#performance-optimization-improving-single-core-efficiency" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Sorry, I have a question from yesterday.  I run the hello_jobstep example, and for each rank RT_GPU_ID is zero, while GPU_ID is the one expected. Probably it is not so clear to me the meaning of RT_GPU_ID, but why is it zero? Thank you!
+    PS: I found this https://github.com/olcf-tutorials/jsrun_quick_start_guide/blob/master/README.md ; is this number zero for all GPU_IDs because this is the only GPU seen by the rank?</p>
+<ul>
+<li>So, RT is the runtime value taken from the get <code>hipGetDevice</code>. Now, you run by forcing <code>ROCR_VISIBLE_DEVICES</code> to a given GPU per each rank (via the select_gpu scripts). Let's assume we do <code>ROCR_VISIBLE_DEVICES=2</code>, then at runtime you will access a single GPU whose id is 0. If you set <code>ROCR_VISIBLE_DEVICES=2,3</code>, then runtime ID will be <code>0, 1</code>. I'm not sure if I'm confusing you... You can find more examples at <code>https://docs.olcf.ornl.gov/systems/crusher_quick_start_guide.html#mapping-1-task-per-gpu</code>.<ul>
+<li>I think I understood! Thank you very much!</li>
+</ul>
+</li>
+<li>This is why that code can print the busid of the GPU, so that you can tell which physical GPU was being used.</li>
+</ul>
+</li>
+<li>
+<p>I might have missed it, but what is the motivation for padding arrays? Don't we destroy the locality of our original arrays if there is something in-between ?</p>
+<ul>
+<li>(Alfio) this is for memory access, you access the data in cache lines (64 bytes), so you want to align your data for that size. Note that also MI250x can require data alignemnt. I think AMD will discuss that. A CPU example: https://stackoverflow.com/questions/3994035/what-is-aligned-memory-allocation</li>
+<li>(Harvey) The point (as noted below) is that often you index into both arrays by the same offset and both of those accesses might collide on cache resources. The point of the presentation is to really give you a feel for the transformations the compilers can and might do so that if you start to delve into optimizing an important part of your code then this is useful to understand, even if you just look at compiler commentry and optimization options and don't want to consider restructuring the code. The compilers (and hardware) get better and better all the time.</li>
+<li>(Kurt) A data element at a particular address cannot end up everywhere in cache, but only in a limited set of cache elements (for L1/L2 cache often only 4 or 8 locations). Now with the original declarations, assume that array A starts at address addr_a, then array B will start at address addr_b = addr_a + 64<em>64</em>8 (number of elements in the array times 8 bytes per data element). Alignment of B will still be OK if that for A is OK (and actually for modern CPUs doesn't matter too much according to two experts of Erlangen I recnetly talked to). But as addr_b = addr_A + 2^15, so shifted by a power of two, it is rather likely that B(1,1) ends up in the same small set of cache lines as A(1,1), and the same for C(1,1). So doing operations in the same index region in A, B and C simultaneously may have the effect that they kick each other out of the cache. This is most easily seen if we would have cache associativity 1 (imaginary case), where each data element can be in only one cache location, and with a cache size of 2^15 bytes. Then B(1,1) and C(1,1) would map to the same cache location as A(1,1) and even doing something simple as C(i,j) = sin(A(i,j)) + cos(B(i,j)) would cause cache conflicts. By shifting with 128 bytes as in the example this is avoided. </li>
+</ul>
+</li>
+<li>
+<p>How do you know what loop unroll level and strip mining size to use? Trial and error? Or is there some information to look for?</p>
+<ul>
+<li>(Alfio) Most of the compilers are doing a good job already. It really depends on the instructions of the loop (number of loads/store and computation intensity). You can check the listings to check what the compiler is doing for you and then you can add some directives to try to force more unrolling. Unrolling by hand is quite unsual nowadays...</li>
+<li>(Kurt) But it is one of those points were selecting the right architecture in the compiler can make a difference, and something that will definitely matter with Zen4 (which we do not have on LUMI). But the AVX-512 instruction set supported by Zen4 (code named Genoa) has features that enable the compiler to generate more elegant loop unrolling code. Some users may think that there cannot be a difference since the vector units still process in 256-bit chunks in that version of the CPU, but it is one of those cases where using new instructions can improve performance, which is why I stressed so much yesterday that it is important to optimize for the architecture. For zen2 and zen3, even though the core design is different and latencies for instructions have changed, I don't know if the differences are large enough that the compiler would chose for different unrolling strategies. In a course on program optimization I recently took we got an example where it turned out that AVX-512 even when restricted to 256 bit registers had a big advantage over AVX-2 even though with both instruction sets you get the same theoretical peak performance on the processor we were using for the training (which was in Intel Skylake, it was not on LUMI).</li>
+</ul>
+</li>
+</ol>
+<h2 id="debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<a class="headerlink" href="#debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Is STAT and ATP for cray compiler only?<ul>
+<li>They are not restricted to just the Cray compiler<ul>
+<li>Are all the tools in this morning lecture for cray compiler only? I anticipate the question :)</li>
+</ul>
+</li>
+<li>No, you can use with any compilers (PrgEnv's)<ul>
+<li>Thank you!</li>
+</ul>
+</li>
+<li>Please be aware that there are some known issues with the current software on LUMI so some of these tools are not operating properly. Until the software can be updated we recommend using gdb4hpc.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>General remarks:
+-   Exercise notes and files including pdf and Readme with instructions on LUMI at <code>project/project_465000388/exercies/HPE</code>
+-   Directory for this exercise: <code>debugging</code>
+-   Copy the files to your home or project folder before working on the exercises.
+-   In some exercises you have source additional files to load the right modules necessary, check the README file.</p>
+<ul>
+<li>To run slurm jobs, set the necessary variables for this course by <code>source /project/project_465000388/exercises/HPE/lumi_g.sh</code> (GPU) or <code>source /project/project_465000388/exercises/HPE/lumi_c.sh</code> (CPU)</li>
+</ul>
+<p>Exercise:</p>
+<ol>
+<li><strong>deadlock</strong> subfolder: gdb4hpc for CPU example
+     Don't forget to <code>source /project/project_465000388/exercises/HPE/lumi_c.sh</code></li>
+<li>subfolder: environment variables for GPU example
+     Don't forget to <code>source /project/project_465000388/exercises/HPE/lumi_g.sh</code> &amp; load GPU modules</li>
+</ol>
+</div>
+<ol>
+<li>
+<p>launcher-args -N2 is the one identical to srun argument list ? (in valgrind4hpc call)</p>
+<ul>
+<li>yes: it sets the number of nodes used for the underlying srun command used by valgrind4hpc<ul>
+<li>but -n1 is given by valgrid arg</li>
+</ul>
+</li>
+<li>yes -n is the number of processes used by valgrind4hpc (and also the number of processes for the underlying srun command used by valgrind4hpc)<ul>
+<li>valgrind4hpc –n1 --launcher-args... gives me cannot find exec n1</li>
+<li>when I post the code line I cannot edit anymore; trying to modify pi_threads.slurm; added module load; put the srun args into --launcher-args; but -n1 seems to be a problem</li>
+</ul>
+</li>
+<li>The launcher-args are for you to specify extra arguments about the distribution of the tasks (you don't put -n though)</li>
+</ul>
+</li>
+<li>
+<p>With gdb4hpc in an interactive job, how to check I'm on the allocated compute node and not the login node? (hostname doesn't work there)</p>
+<ul>
+<li>the launch command in gdb4hpc uses an underlying srun command and thus, used the ressources of the salloc command <ul>
+<li>ok thanks, and theoretically in case of multiple allocated jobs, how to select which to use?</li>
+</ul>
+</li>
+<li>focus p{0}, check the slides (page 24). The man page is also giving some good examples<ul>
+<li>Sorry, I don't understand how to use the focus comand to select a job (not process). On page 24 I can see only how to select set of processes.</li>
+</ul>
+</li>
+<li>Ah, you want to attach to an existing job? <ul>
+<li>yes, I mean if I allocate multiple interactive jobs and then I want to launch gdb4hpc on one of them</li>
+</ul>
+</li>
+<li>You have to run gdb4hpc in the same salloc. You start salloc and then run the app under gdb4hpc. <ul>
+<li>ok, probably I have to check how really salloc works, I'm PBS user, thanks</li>
+</ul>
+</li>
+<li>So, salloc gives you a set of reserved nodes and it will return with a shell on the login node. Then you can run <code>srun</code> to submit to the reserved nodes. The equivalent on batch processing is sbatch.<ul>
+<li>oh I see, I was confused with the login shell - so even its a login, it is already linked with the particular interactive job (allocated nodes), right?</li>
+</ul>
+</li>
+<li>correct, everyting you run after salloc with <code>srun</code> (gdb4hpc or valgrind4hpc use srun under the hood) will run on the reserved nodes. You can check that with salloc you get a lot of <code>SLURM_</code> environment variables set by SLURM, for example <code>echo $SLURM_NODELIST</code><ul>
+<li>ok, understand, cool tip, thank you</li>
+</ul>
+</li>
+<li>the corresponding PBS is <code>qsub -I</code>, if recall correctly...<ul>
+<li>yes, but it returns directly the first node shell</li>
+</ul>
+</li>
+<li>ah, this can be configured on SLURM too (sysadmin SLURM conf). However, on LUMI you will still remain on the login node.</li>
+</ul>
+</li>
+<li>
+<p>When in an gdb4hpc session, I can switch to one process with <code>focus $p{0}</code>. But how do I get a listing of that process to see the source of where it is stuck or breaked?</p>
+<ul>
+<li>this is the standard gdb command then, for instance <code>where</code></li>
+<li>use the list (short 1) gdb command. Since you "have" a focus on 0, gdb will list source file for process 0</li>
+</ul>
+</li>
+<li>
+<p>For the valgrind4hpc exercise, I did it a first time and got the expected output, then I fixed the code, recompiled and ran the ./hello directly to make sure it worked. However when running valgring4hpc again I still get the same output as the first time (whereas this time obviously there was no more bug): is there something I should have reset to get the correct output instead of:
+    <div class="highlight"><pre><span></span><code>HEAP SUMMARY:
+  in use at exit: 16 bytes in 1 blocks
+
+LEAK SUMMARY:
+   definitely lost: 16 bytes in 1 blocks
+   indirectly lost: 0 bytes in 0 blocks
+     possibly lost: 0 bytes in 0 blocks
+   still reachable: 0 bytes in 0 blocks
+
+ERROR SUMMARY: 31 errors from 109 contexts (suppressed 1259
+</code></pre></div></p>
+<ul>
+<li>you have the same error on the 16 bytes lost because you do not free(test) in both cases. But the invalid write of size 4 are removed if you change test[6]= and test[10]= by for example test[2]= and test[3]=<ul>
+<li>OK, so now I added free(test) and things seem to have improved:
+    <div class="highlight"><pre><span></span><code>All heap blocks were freed -- no leaks are possible
+
+ERROR SUMMARY: 30 errors from 54 contexts (suppressed 1259)
+</code></pre></div>
+    so there is no more leak and all blocks were freed, but why are there still 30 errors???</li>
+</ul>
+</li>
+<li>these are in the libraries, no related to users. You can expect masking of those errors in the future.</li>
+<li>yes the library where the errors occur in the outputs is /usr/lib64/libcxi.so.1 and you can see the errors are in cxil_* functions from this library</li>
+</ul>
+</li>
+</ol>
+<h2 id="io-optimisation-parallel-io">I/O Optimisation - Parallel I/O<a class="headerlink" href="#io-optimisation-parallel-io" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>How does Lustre work with HDF5?</p>
+<ul>
+<li>HDF5 is built on top of MPI-IO, which means that HDF5 will make good use of all the underlying infrastructure provided for Lustre by MPI-IO.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercise_1">Exercise<a class="headerlink" href="#exercise_1" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Remarks:</p>
+<ul>
+<li>Exercise notes and files including pdf and Readme with instructions on LUMI at <code>project/project_465000388/exercies/HPE</code></li>
+<li>Directory for this exercise: <code>io_lustre</code></li>
+<li>Copy the files to your home or project folder before working on the exercises.</li>
+<li>In some exercises you have source additional files to load the right modules necessary, check the README file.</li>
+<li>To run slurm jobs, set the necessary variables for this course by <code>source /project/project_465000388/exercises/HPE/lumi_g.sh</code> (GPU) or <code>source /project/project_465000388/exercises/HPE/lumi_c.sh</code> (CPU)</li>
+</ul>
+<p>Exercise</p>
+<ul>
+<li>Try out different Lustre striping parameters and use relevant MPI environment variables<ul>
+<li>Do the environmental variables (like MPICH_MPIIO_HINTS) always prevail over what could be explicitely set in the code/script?</li>
+</ul>
+</li>
+</ul>
+</div>
+<ol>
+<li>Do the environmental variables (like MPICH_MPIIO_HINTS) always prevail over what could be explicitely set in the code/script?<ul>
+<li>If you set striping on a file by lfs setstripe then that is fixed. For a directory then I expect an API or the envar to override the default policy when files are created.</li>
+<li>I'm not sure if the envar will override something set explicity in an API, for example hints passed to an Open function, I would doubt it.</li>
+</ul>
+</li>
+</ol>
+<h2 id="introduction-to-the-amd-rocmtm-ecosystem">Introduction to the AMD ROCm<sup>TM</sup> ecosystem<a class="headerlink" href="#introduction-to-the-amd-rocmtm-ecosystem" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>When we use <code>gres=gpu:2</code> are we guaranteed that the two dies will be on the same card?</p>
+<ul>
+<li>I doubt. The scheduler is not very good at assigning only a part of a GPU node. And the same actually holds for the CPU where you are not guaranteed to have all cores in, e.g., the same socket even if your allocations can fit into a single socket. If you are performance concerned you should really allocate nodes exclusively and then organise multiple jobs within the node yourself if you want to make good use of your GPU billing units.</li>
+</ul>
+</li>
+<li>
+<p>Is there some slurm option gpus per node?</p>
+<ul>
+<li>I'm not sure how you would like to use it, as we only have one type of GPU node and as you would be billed the full node anyway even if you would use only two GPUs on a node as noone else can use them?<ul>
+<li>Good point. </li>
+</ul>
+</li>
+<li>It actually exists in Slurm and you will see it in some examples in the documentation but it is one of those options that should be used with care as you may get more than you want. </li>
+</ul>
+</li>
+<li>
+<p>hipcc calls nvcc on nvidia platforms. What is it calling on amd platforms? Is it hip-clang?</p>
+<ul>
+<li>It is calling clang - HIP support has been upstreamed to the clang compiler.</li>
+<li>Basic idea is that <code>hipcc</code> calls <code>clang++ -xhip</code>. In practice it adds more flags. If you are really curious about what <code>hipcc</code> is doing, you can have a look at the <a href="https://github.com/ROCm-Developer-Tools/HIPCC">source code</a>.</li>
+</ul>
+</li>
+<li>
+<p>On CUDA we can set --gpu-architecture=all, to compile for all supported architectures by this CUDA Toolkit version, this way our code is more portable. Is there a HIP equivalent to compile for all supported AMD architectures by this HIP version? I know we can set multiple architectures (using multiple uses of -offload-arch=), but is there also a way not to have to list them one by one (this would also make it future proof, so that we would not need to add new GPU architectures)?</p>
+<ul>
+<li>AMD can confirm but I don't think there is an equivalent to <code>--gpu-architecture=all</code> for the AMD GPUs compilation.</li>
+<li>No, there is not, as there is no promise of backward compatibility between ISAs for the different GPUs. Typically the relevant/tested targets are listed in the build system of an application. If not set explicitly, the tools will try to determine the GPUs available on the machine where the compile job is running. The GPUs are detected by the ROCm tools <code>rocminfo</code> and <code>rocm_agent_enumerate</code>. This means that the right automatic GPU identification happens if you compile in the compute nodes. I'd say, is always a good practice to list explicitly the targets.</li>
+<li>On the login nodes you can "trick" the <code>rocm_agent_enumerator</code> by setting an environment variable (<code>ROCM_TARGET_LST</code>) that points to a file with a list of targets. These targets will then be used by hipcc.</li>
+</ul>
+</li>
+<li>
+<p>4 SIMD per CU. Does this mean that 4 wavefronts are needed to utilize the CU 100%?</p>
+<ul>
+<li>No. You have 4 x 16-wide SIMD units. The wavefront is 64 wide. Each SIMD unit takes 4 cycles to process an instruction, as you have 4 of them you can imagine that, throughput wise, you have one wavefront being computed in each cycle.<ul>
+<li>So the wavefront execution is splitted among the 4 SIMD units?</li>
+</ul>
+</li>
+<li>Correct, having said that, most likely you want several wavefronts running to enable them to hide latencies from each other. </li>
+</ul>
+</li>
+<li>
+<p>What about the support for C++17 stdpar (GPU offloading) on LUMI. Is it possible? </p>
+<ul>
+<li>Need to get back to you on that and check if the current version of clang enables that. I can say however that the thrust paradigm is supported and very much where the std::par inspiration comes from. </li>
+</ul>
+</li>
+</ol>
+<h3 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Find the instructions <a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">here</a></p>
+</div>
+<ol>
+<li>
+<p>I'm just compiled the exercise vectoradd.cpp, but I'm getting the following output:
+    <div class="highlight"><pre><span></span><code>$<span class="w"> </span>make<span class="w"> </span>vectoradd_hip.exe<span class="w"> </span>
+/opt/rocm/hip/bin/hipcc<span class="w"> </span>--offload-arch<span class="o">=</span>gfx90a<span class="w"> </span>-g<span class="w">   </span>-c<span class="w"> </span>-o<span class="w"> </span>vectoradd_hip.o<span class="w"> </span>vectoradd_hip.cpp
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+/opt/rocm/hip/bin/hipcc<span class="w"> </span>--offload-arch<span class="o">=</span>gfx90a<span class="w"> </span>vectoradd_hip.o<span class="w"> </span>-o<span class="w"> </span>vectoradd_hip.exe
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+</code></pre></div>
+    But to my surprise I was able to submit and run the example:
+    <div class="highlight"><pre><span></span><code>$<span class="w"> </span>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>./vectoradd_hip.exe<span class="w"> </span>
+<span class="w"> </span>System<span class="w"> </span>minor<span class="w"> </span><span class="m">0</span>
+<span class="w"> </span>System<span class="w"> </span>major<span class="w"> </span><span class="m">9</span>
+<span class="w"> </span>agent<span class="w"> </span>prop<span class="w"> </span>name<span class="w"> </span>
+hip<span class="w"> </span>Device<span class="w"> </span>prop<span class="w"> </span>succeeded<span class="w"> </span>
+PASSED!
+</code></pre></div>
+    The questions are: </p>
+<ul>
+<li>Is this normal? </li>
+<li>am I forgetting something?</li>
+</ul>
+<p>Just for reference, I have loaded my PrgEnv as follows:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-p<span class="w"> </span>small-g<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">10</span>:00<span class="w"> </span>-A<span class="w"> </span>project_465000388
+salloc:<span class="w"> </span>Pending<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">2907604</span>
+salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">2907604</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
+salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">2907604</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>allocated<span class="w"> </span>resources
+salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">2907604</span>
+$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>rocm
+$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>craype-accel-amd-gfx90a
+$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>PrgEnv-amd
+</code></pre></div>
+<ul>
+<li>
+<p>These are error messages coming from Perl which I assume is used in the hipcc wrapper. This error message has little to do with our system and likely more to do with information that your client PC passes to LUMI. When I log on to LUMI I have LANG set to <code>en_US.UTF-8</code> but I remember having problems one one system (don't remember if it was LUMI) when logging in from my Mac as it tried to pass a locale that was not supported on the system I was logging on into. It is not something you will correct with loading modules.</p>
+</li>
+<li>
+<p>The LOCAL warnings are harmless when it comes to the code generation. I have in my SSH configuration:
+    <div class="highlight"><pre><span></span><code>Host<span class="w"> </span>lumi*
+SetEnv<span class="w"> </span><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&quot;C&quot;</span>
+</code></pre></div></p>
+</li>
+<li>You could also try <code>export LC_ALL=en_US.utf8</code> or some other language.</li>
+</ul>
+</li>
+<li>
+<p>I get the following output when I request <code>hipcc --version</code>: 
+    <div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>PrgEnv-amd
+$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>craype-accel-amd-gfx90a
+$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>rocm
+$<span class="w"> </span>hipcc<span class="w"> </span>--version
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+HIP<span class="w"> </span>version:<span class="w"> </span><span class="m">5</span>.0.13601-ded05588
+AMD<span class="w"> </span>clang<span class="w"> </span>version<span class="w"> </span><span class="m">14</span>.0.0<span class="w"> </span><span class="o">(</span>https://github.com/RadeonOpenCompute/llvm-project<span class="w"> </span>roc-5.0.2<span class="w"> </span><span class="m">22065</span><span class="w"> </span>030a405a181176f1a7749819092f4ef8ea5f0758<span class="o">)</span>
+Target:<span class="w"> </span>x86_64-unknown-linux-gnu
+Thread<span class="w"> </span>model:<span class="w"> </span>posix
+InstalledDir:<span class="w"> </span>/opt/rocm-5.0.2/llvm/bin
+</code></pre></div></p>
+<ul>
+<li>See the previous question, it is the same issue.</li>
+</ul>
+</li>
+<li>
+<p>I'm getting annoying output from the hipify-perl.sh script</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$ROCM_PATH</span>/hip/bin/hipify-perl<span class="w"> </span>-inplace<span class="w"> </span>-print-stats<span class="w">  </span>nbody-orig.cu<span class="w"> </span>
+perl:<span class="w"> </span>warning:<span class="w"> </span>Setting<span class="w"> </span>locale<span class="w"> </span>failed.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>your<span class="w"> </span>locale<span class="w"> </span>settings:
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span>,
+<span class="w">    </span><span class="nv">LANG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="nb">unset</span><span class="o">)</span>
+<span class="w">    </span>are<span class="w"> </span>supported<span class="w"> </span>and<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>system.
+perl:<span class="w"> </span>warning:<span class="w"> </span>Falling<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>standard<span class="w"> </span>locale<span class="w"> </span><span class="o">(</span><span class="s2">&quot;C&quot;</span><span class="o">)</span>.
+<span class="w">  </span>info:<span class="w"> </span>converted<span class="w"> </span><span class="m">10</span><span class="w"> </span>CUDA-&gt;HIP<span class="w"> </span>refs<span class="w"> </span><span class="o">(</span><span class="w"> </span>error:0<span class="w"> </span>init:0<span class="w"> </span>version:0<span class="w"> </span>device:0<span class="w"> </span>context:0<span class="w"> </span>module:0<span class="w"> </span>memory:4<span class="w"> </span>virtual_memory:0<span class="w"> </span>stream_ordered_memory:0<span class="w"> </span>addressing:0<span class="w"> </span>stream:0<span class="w"> </span>event:0<span class="w"> </span>external_resource_interop:0<span class="w"> </span>stream_memory:0<span class="w"> </span>execution:0<span class="w"> </span>graph:0<span class="w"> </span>occupancy:0<span class="w"> </span>texture:0<span class="w"> </span>surface:0<span class="w"> </span>peer:0<span class="w"> </span>graphics:0<span class="w"> </span>interactions:0<span class="w"> </span>profiler:0<span class="w"> </span>openGL:0<span class="w"> </span>D3D9:0<span class="w"> </span>D3D10:0<span class="w"> </span>D3D11:0<span class="w"> </span>VDPAU:0<span class="w"> </span>EGL:0<span class="w"> </span>thread:0<span class="w"> </span>complex:0<span class="w"> </span>library:0<span class="w"> </span>device_library:0<span class="w"> </span>device_function:3<span class="w"> </span>include:0<span class="w"> </span>include_cuda_main_header:0<span class="w"> </span>type:0<span class="w"> </span>literal:0<span class="w"> </span>numeric_literal:2<span class="w"> </span>define:0<span class="w"> </span>extern_shared:0<span class="w"> </span>kernel_launch:1<span class="w"> </span><span class="o">)</span>
+<span class="w">  </span>warning:0<span class="w"> </span>LOC:91<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;nbody-orig.cu&#39;</span>
+<span class="w">  </span>hipMemcpy<span class="w"> </span><span class="m">2</span>
+<span class="w">  </span>hipLaunchKernelGGL<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>hipFree<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>hipMemcpyDeviceToHost<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>hipMalloc<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>hipMemcpyHostToDevice<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p>but I can see that the script produced the expected modifications. Is there a way to correct this so I can obtain the expected output?</p>
+<ul>
+<li>See the two previous questions</li>
+<li>did you login from a Mac?</li>
+<li>setting LANGUAGE=C or something like that should fix the problem. This is a Linux issue that your LANGUAGE is not set. It was also an issue mentioned in previous days. I'd have to look up the exact syntax and variables to set. I think there was a solution posted a day or two ago that if you are on a Mac you can set something in the terminal program to set these variables.</li>
+</ul>
+</li>
+<li>
+<p>make gives error; does it need additional modules ? I sourced the setup_LUMI-G.sh</p>
+<ul>
+<li>You can use the ROCm stack directly without using the CPE modules if you want if you don't need integration with MPI etc.. There are a set of module commands at the top of the document.</li>
+<li>See below, the order of modules at the top of the docuement are not correct.<ul>
+<li>but where should the vectoradd example be made ? </li>
+<li>Ah, sorry, make was trying to execute vectoradd; which failed; so the build must be done one a gpu node ?</li>
+<li>where to do need to salloc here ?</li>
+<li>I made and salloc -n1 --gres=gpu:1 now; module swapped to PrgEnv-amd; make clean &amp; make vector... ; then srun -n 1 ./vector...exe; error message ierror while loading shared libraries: libamdhip64.so.5</li>
+</ul>
+</li>
+<li>execute module load rocm<ul>
+<li>okay, PASSED; thanks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>I get the error: Lmod has detected the following error:  Cannot load module "amd/5.0.2" because these module(s) are loaded:
+    rocm</p>
+<ul>
+<li>unload rocm. I suggest to load <code>PrgEnv-amd</code></li>
+<li>The rocm module of the Cray PE is for use with the GNU and Cray compilers. The <code>amd</code> module is the compiler module for <code>PrgEnv-amd</code> and provides these tools already.<ul>
+<li>When I try 'module load PrgEnv-amd', I got the same error</li>
+</ul>
+</li>
+<li>Then use the universal trick in case of errors: Log out and log in again to have a proper clean shell as you've probably screwed up something in your modules. Just after login, <code>PrgEnv-amd</code> should load properly unless you screwed up something your <code>.profile</code> or <code>.bashrc</code> file.</li>
+<li>Another solution is to modify the LD_LIBRARY_PATH</li>
+<li>export LD_LIBRARY_PATH=/opt/rocm/llvm/lib:$LD_LIBRARY_PATH </li>
+<li>The error is because the front-end has rocm 5.0.2 and the compute node has rocm 5.1.0. Going to /opt/rocm avoids the problem. You can also compile on the compute node (srun make) and it will avoid the problem.</li>
+</ul>
+</li>
+<li>
+<p>Module swap PrgEnv-cray PrgEnv-amd causes this error ?
+    <div class="highlight"><pre><span></span><code>Lmod has detected the following error:  Cannot load module &quot;amd/5.0.2&quot; because these module(s) are loaded:
+rocm
+
+While processing the following module(s):
+Module fullname   Module Filename
+---------------   ---------------
+amd/5.0.2         /opt/cray/pe/lmod/modulefiles/core/amd/5.0.2.lua
+PrgEnv-amd/8.3.3  /opt/cray/pe/lmod/modulefiles/core/PrgEnv-amd/8.3.3.lua&#39;
+</code></pre></div></p>
+<ul>
+<li>same as the previous question, unload rocm. Note that PrgEnv-amd is using rocm under the hood<ul>
+<li>When I try 'module load PrgEnv-amd', I got the same error</li>
+</ul>
+</li>
+<li>Did you run <code>module unload rocm</code> first?</li>
+</ul>
+</li>
+<li>
+<p>When the command is applied <code>salloc -N 1 -p small-g --gpus=1 -t 10:00 -A project_465000388</code>, I am getting the following error message <code>salloc: error: Job submit/allocate failed: Requested node configuration is not available</code></p>
+<ul>
+<li>This works for me. Try to reset your environment see if it helps.<ul>
+<li>logout &amp; login again to lumi, it works fine now, thank you!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Can somone confirm the correct order of the module commands listed at the top of the training page. https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA</p>
+<ul>
+<li>
+<p>Yes, indeed, the order is incorrect. Please use:
+    <div class="highlight"><pre><span></span><code>module rm rocm
+module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+module load rocm
+</code></pre></div></p>
+<p>(I have confirmed that is the right order)</p>
+<ul>
+<li>what about ? source /project/project_465000388/exercises/HPE/lumi_g.sh</li>
+</ul>
+</li>
+<li>
+<p>This file is to set SLURM, no relation with modules. And it was for the HPE exercises</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nob question: where are located the perl scripts to test hipify the examples?</p>
+<ul>
+<li>/opt/rocm/bin/hipify-perl They are inside ROCm bin directory </li>
+</ul>
+</li>
+<li>
+<p>I am getting errors when I try to run for instance <code>./stream</code>:
+    <div class="highlight"><pre><span></span><code>srun: Job xxx step creation still disabled, retrying (Requested nodes are busy)
+</code></pre></div>
+    What does it mean (I did the salloc, etc.)?</p>
+<ul>
+<li>try <code>srun -n 1 ./stream</code><ul>
+<li>This is what I did</li>
+</ul>
+</li>
+<li>was the salloc success? or maybe you wait for a free node? run: srun -n 1 hostname<ul>
+<li>I had the impression that I was allocated a node, but srun -n 1 hostname is stalled</li>
+</ul>
+</li>
+<li>ok run salloc again and wait to be sure  <ul>
+<li>Did everything again and now I get this error:
+    <div class="highlight"><pre><span></span><code>srun: error: nid005062: task 0: Segmentation fault (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=2908932.4
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Once I  login to LUMI, I got the following modules:
+    <div class="highlight"><pre><span></span><code>Currently Loaded Modules:
+  1) craype-x86-rome      3) craype-network-ofi       5) xpmem/2.4.4-2.3_9.1__gff0e1d9.shasta   7) craype/2.7.17      9) cray-mpich/8.1.18      11) PrgEnv-cray/8.3.3      13) lumi-tools/23.01 (S)
+  2) libfabric/1.15.0.0   4) perftools-base/22.06.0   6) cce/14.0.2                             8) cray-dsmml/0.2.2  10) cray-libsci/22.08.1.1  12) ModuleLabel/label (S)  14) init-lumi/0.1    (S)
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+</code></pre></div>
+    Supposing that now I want to run on the GPU partition, what's the recommend modules I should load or swap? I've seen a few ways of loading the modules, but I wonder if there's one recommended way of doing that. Specifically I'd like to run a code with HIP and GPU-aware MPI. Also, what should I do if I'm to install a new library using the interactive node.</p>
+<ul>
+<li>You have a few different options. You can run with the Cray and AMD and I think the GNU Programming Environments. The modules need to loaded in the proper order or a fix used for the path to work around the different rocm paths on the front-end and the compute node. Your choice between these three options is usually driven by what your code is usually compiled with. All of them have rocm support for the HIP code. The only question is if there is an issue with GPU-aware MPI, but I think it works with all of them.</li>
+<li>You can enable GPU-aware MPI via <code>export MPICH_GPU_SUPPORT_ENABLED=1</code>. Check HPE slides on MPI (day 2) for more details.</li>
+</ul>
+</li>
+<li>
+<p>For Exercise 2: Code conversion from CUDA to HIP using HIPify tools (10 min) it says that <code>hipify-perl.sh is in $ROCM_PATH/hip/bin</code> however I cannot see it in <code>/opt/rocm/hip/bin</code>: is it <code>hipify-perl</code> (without <code>.sh</code>) that we should use? </p>
+<ul>
+<li>yes sorry use <code>hipify-perl</code>   -   I think this changed with ROCm versions. This version is <code>hipify-perl</code> and later ones use <code>hipify-perl.sh</code><ul>
+<li>could be, I will check </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="amd-debugging-rocgdb">AMD Debugging: ROCgdb<a class="headerlink" href="#amd-debugging-rocgdb" title="Permanent link">&para;</a></h2>
+<ol>
+<li>(How) does ROCgdb with multiple nodes/GPUS? or what are the differences to gdb4hpc in the end?<ul>
+<li>(Alfio) gdb4hpc enables debugging of MPI applications, then you can use it to debug GPU kernels too. For GPU, gdb4hpc uses rocgdb</li>
+<li>note that we do need a software update to enable GPU kernel debugging (breaking inside the kernel) with gdb4hpc at the moment</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercise_2">Exercise<a class="headerlink" href="#exercise_2" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Find the instructions <a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA?view#Debugging">here</a>
+Try the debugging section.</p>
+<p>To get the <code>saxpy.cpp</code> file:</p>
+<ul>
+<li>Get the exercise: <code>git clone https://github.com/AMD/HPCTrainingExamples.git</code></li>
+<li>Go to <code>HPCTrainingExamples/HIP/saxpy</code></li>
+</ul>
+<p>Also try the TUI (graphical interface) with <code>rocgdb -tui</code> interface
+Hint: Get an interactive session on the compute node to use the TUI interface with: 
+<div class="highlight"><pre><span></span><code>srun --interactive --pty [--jobid=&lt;jobid&gt;] bash
+</code></pre></div>
+which assumes that you already have an allocation with <code>salloc</code>.</p>
+<p>The slides of the presentation are available on LUMI at <code>/projappl/project_465000388/slides/AMD/02_Rocgdb_Tutorial.pdf</code></p>
+</div>
+<ol>
+<li>Where exactly "saxpy" (Go to HPCTrainingExamples/HIP/saxpy) is located? in /project/project_465000388/exercises/AMD/HIP-Examples/ ?<ul>
+<li>Get the exercise: 
+    <div class="highlight"><pre><span></span><code>git clone https://github.com/AMD/HPCTrainingExamples.git
+</code></pre></div></li>
+<li>Go to <code>HPCTrainingExamples/HIP/saxpy</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="introduction-to-rocprof-profiling-tool">Introduction to Rocprof Profiling Tool<a class="headerlink" href="#introduction-to-rocprof-profiling-tool" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>It is a more general question, rather than practical. Some of us participate in EU projects and utilise AMDs technology, can you suggest how we can effectively implement Digital Twin Objects $applications, using this monitoring interface? Just suggetions =&gt; We can discuss it tomorrow during the Q&amp;A!</p>
+<ul>
+<li>(Harvey) For anyone interested in CSC/LUMI connection here have a look at https://stories.ecmwf.int/finlands-csc-leads-international-partnership-to-deliver-destination-earths-climate-change-adaptation-digital-twin/index.html</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercises_1">Exercises<a class="headerlink" href="#exercises_1" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Find the instructions <a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA?view#Rocprof">here</a>.
+Try the <em>rocprof</em> section.</p>
+<p>The slides of the presentation are available on LUMI at <code>/projappl/project_465000388/slides/AMD/03_intro_rocprof.pdf</code></p>
+</div>
+<ol>
+<li>
+<p>Can you refer where/when the "manual" from your colleague will be published?</p>
+<ul>
+<li>What do you mean by manual?<ul>
+<li>The presenter mentioned, that some of his colleagues is preparing some kind of manual about rocm profiling (probably metrics, counters, etc.). I would be interested in that, so I'm basically just asking where to look.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>I am getting an error message that the module called "rocminfo" is not loaded (when "rocprof --stats nbody-orig 65536" is executed)</p>
+<ul>
+<li>rocminfo should be in the path, not a module. Could this be a path or environment problem? <ul>
+<li>rocprof --stats nbody-orig 65536
+    <div class="highlight"><pre><span></span><code>RPL: on &#39;230216_180254&#39; from &#39;/opt/rocm-5.0.2/rocprofiler&#39; in &#39;/...path.../HPCTrainingExamples/HIPIFY/mini-nbody/hip&#39;
+RPL: profiling &#39;&quot;nbody-orig&quot; &quot;65536&quot;&#39;
+RPL: input file &#39;&#39;
+RPL: output dir &#39;/tmp/rpl_data_230216_180254_38827&#39;
+RPL: result dir &#39;/tmp/rpl_data_230216_180254_38827/input_results_230216_180254&#39;
+65536, 6227.599
+Traceback (most recent call last):
+File &quot;/opt/rocm-5.0.2/rocprofiler/bin/tblextr.py&quot;, line 777, in &lt;module&gt;
+    metadata_gen(sysinfo_file, &#39;rocminfo&#39;)
+File &quot;/opt/rocm-5.0.2/rocprofiler/bin/tblextr.py&quot;, line 107, in metadata_gen
+    raise Exception(&#39;Could not run command: &quot;&#39; + sysinfo_cmd + &#39;&quot;&#39;)
+Exception: Could not run command: &quot;rocminfo&quot;
+Profiling data corrupted: &#39; /tmp/rpl_data_230216_180254_38827/input_results_230216_180254/results.txt&#39;
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Definitely a path problem due to the mismatch in ROCm versions. Try
+    <div class="highlight"><pre><span></span><code>export LD_LIBRARY_PATH=/opt/rocm/llvm/lib:$LD_LIBRARY_PATH
+</code></pre></div>
+    You can see that it is trying to load rocm 5.0.2. Loading the modules in the right order will also fix the problem. You can see this by doing a srun ls -l /opt and you will see that compute nodes have /opt/rocm-5.1.0.</p>
+<ul>
+<li>But there is only rocm/5.0.2 available, it is loaded by default (checked with module list)
+    Which order is correct??</li>
+</ul>
+</li>
+<li>
+<p>Try
+    <div class="highlight"><pre><span></span><code>module rm rocm
+module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+module load rocm
+</code></pre></div></p>
+</li>
+<li>login nodes have rocm/5.0.2, while compute nodes have rocm/5.1.0. Try <code>export PATH=/opt/rocm:$PATH</code> (same for LD_LIBRARY_PATH). Check question 19.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+    
+  </body>
+</html>
