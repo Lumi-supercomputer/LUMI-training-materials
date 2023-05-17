@@ -20,7 +20,10 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>09:00&nbsp;&nbsp;</td>
+        <td style="width:8em">
+            09:00 EEST
+            <br/><em>08:00 CEST</em>
+        </td>
         <td>Welcome and introduction<br>
         <em>Presenters: Emmanuel Ory (LUST), Harvey Richardson (HPE)(</em>
         <!--
@@ -29,7 +32,10 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>09:15</td>
+        <td>
+            09:15 EEST
+            <br/><em>08:15 CEST</em>
+        </td>
         <td>HPE Cray EX architecture<br/>
         <em>Presenter: Harvey Richardson (HPE)</em>
         <!--
@@ -39,7 +45,10 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>10:15</td>
+        <td>
+            10:15 EEST
+            <br/><em>09:15 CEST</em>
+        </td>
         <td>Programming Environment and Modules<br/>
         <em>Presenter: Harvey Richardson (HPE)</em>
         <!--
@@ -49,12 +58,18 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>10:45</td>
+        <td>
+            10:45 EEST
+            <br/><em>09:45 CEST</em>
+        </td>
         <td><em>break (15 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>11:00</td>
+        <td>
+            11:00 EEST
+            <br/><em>10:00 CEST</em>
+        </td>
         <td>Running Applications
         <ul>
             <li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li> 
@@ -67,18 +82,27 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>11:20</td>
+        <td>
+            11:20 EEST
+            <br/><em>10:20 CEST</em>
+        </td>
         <td><b>Exercises (session #1)</b>
         <br/><em> Exercises are in <code>/project/project_465000524/exercises/HPE</code> on LUMI only.
         </td>
     </tr>
     <tr>
-        <td>12:00</td>
+        <td>
+            12:00 EEST
+            <br/><em>11:00 CEST</em>
+        </td>
         <td><em>lunch break (90 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>13:30</td>
+        <td>
+            13:30 EEST
+            <br/><em>12:30 CEST</em>
+        </td>
         <td>Compilers and Parallel Programming Models 
         <ul>
             <li>An introduction to the compiler suites available, including examples of how to get additional information about the compilation process.</li>
@@ -93,12 +117,18 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>14:30</td>
+        <td>
+            14:30 EEST
+            <br/><em>13:30 CEST</em>
+        </td>
         <td><b>Exercises (session #2)</b>
         </td>
     </tr>
     <tr>
-        <td>15:00</td>
+        <td>
+            15:00 EEST
+            <br/><em>14:00 CEST</em>
+        </td>
         <td><em>break (15 minutes)</em>
         <!--
         <ul>
@@ -108,7 +138,10 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>15:15</td>
+        <td>
+            15:15 EEST
+            <br/><em>14:15 CEST</em>
+        </td>
         <td>Cray Scientific Libraries 
         <ul>
             <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
@@ -121,17 +154,23 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>15:45</td>
+        <td>
+            15:45 EEST
+            <br/><em>14:45 CEST</em>
+        </td>
         <td><b>Exercises (session #3)</b>
         </td>
     </tr>
     <tr>
-        <td>15:15</td>
+        <td>
+            15:15 EEST
+            <br/><em>14:15 CEST</em>
+        </td>
         <td>OpenACC and OpenMP offload with Cray Compilation Environment 
         <ul>
             <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
         </ul>
-        <!-- <em>Presenter: Alfio Lazzaro (HPE)</em> -->
+        <em>Presenter: Alfio Lazzaro (HPE)</em>
         <!--
         <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/06_Directives_Programming.pdf</code> on LUMI only.</em>
         <br/><em>Recording: <code>/project/project_465000524/recordings/06_Directives_programming.mp4</code> on LUMI only.</em>
@@ -139,12 +178,18 @@ DAY 1
         </td>
     </tr>
     <tr>
-        <td>17:00</td>
+        <td>
+            17:00 EEST
+            <br/><em>16:00 CEST</em>
+        </td>
         <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
         </td>
     </tr>
     <tr>
-        <td>17:30</td>
+        <td>
+            17:30 EEST
+            <br/><em>16:30 CEST</em>
+        </td>
         <td><em>End of the course day</em>
         </td>
     </tr>
@@ -157,7 +202,10 @@ DAY 2
         </td>
     </tr>
     <tr>
-        <td>9:00</td>
+        <td>
+            09:00 EEST
+            <br/><em>08:00 CEST</em>
+        </td>
         <td>Advanced Application Placement
         <ul>
             <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
@@ -170,16 +218,25 @@ DAY 2
         </td>
     </tr>
     <tr>
-        <td>10:00</td>
+        <td>
+            10:00 EEST
+            <br/><em>09:00 CEST</em>
+        </td>
         <td><b>Exercises (session #4)</b>
         </td>
     </tr>
     <tr>
-        <td>10:30</td>
+        <td>
+            10:30 EEST
+            <br/><em>09:30 CEST</em>
+        </td>
         <td><em>break (15 minutes)</em></td>
     </tr>
     <tr>
-        <td>10:45</td>
+        <td>
+            10:45 EEST
+            <br/><em>09:45 CEST</em>
+        </td>
         <td>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<br/>
         <em>Presenter: Thierry Braconnier (HPE)</em>
         <!--
@@ -189,16 +246,25 @@ DAY 2
         </td>
     </tr>
     <tr>
-        <td>11:30</td>
+        <td>
+            11:30 EEST
+            <br/><em>10:30 CEST</em>
+        </td>
         <td><b>Exercises (session #5)</b></td>
     </tr>
    <tr>
-        <td>12:00</td>
+        <td>
+            12:00 EEST
+            <br/><em>11:00 CEST</em>
+        </td>
         <td><em>lunch break (90 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>13:30</td>
+        <td>
+            13:30 EEST
+            <br/><em>12:30 CEST</em>
+        </td>
         <td>Additional software on LUMI
         <ul>
             <li>Software policy.</li>
@@ -215,12 +281,18 @@ DAY 2
         </td>
     </tr>
     <tr>
-        <td>15:00</td>
+        <td>
+            15:00 EEST
+            <br/><em>14:00 CEST</em>
+        </td>
         <td><em>break (15 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>15:30</td>
+        <td>
+            15:30 EEST
+            <br/><em>14:30 CEST</em>
+        </td>
         <td>Introduction to AMD ROCm<sup>TM</sup> ecosystem<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <!--
@@ -230,7 +302,10 @@ DAY 2
         </td>
     </tr>
     <tr>
-        <td>16:30</td>
+        <td>
+            16:30 EEST
+            <br/><em>15:30 CEST</em>
+        </td>
         <td><b>Exercises (session #6)</b>
         <!--
         <br/><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
@@ -238,12 +313,18 @@ DAY 2
         </td>
     </tr>
    <tr>
-        <td>17:00</td>
+        <td>
+            17:00 EEST
+            <br/><em>16:00 CEST</em>
+        </td>
         <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
         </td>
     </tr>
     <tr>
-        <td>17:30</td>
+        <td>
+            17:30 EEST
+            <br/><em>16:30 CEST</em>
+        </td>
         <td><em>End of the course day</em>
         </td>
     </tr>
@@ -256,7 +337,10 @@ DAY 3
         </td>
     </tr>
     <tr>
-        <td>09:00</td>
+        <td>
+            09:00 EEST
+            <br/><em>08:00 CEST</em>
+        </td>
         <td>Introduction to Perftools
         <ul>
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
@@ -270,18 +354,27 @@ DAY 3
         </td>
     </tr>
     <tr>
-        <td>09:40</td>
+        <td>
+            09:40 EEST
+            <br/><em>08:40 CEST</em>  
+        </td>
         <td><b>Exercises (session #7)</b>
         <br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
         </td>
     </tr>
     <tr>
-        <td>10:10</td>
+        <td>
+            10:10 EEST
+            <br/><em>09:10 CEST</em>
+        </td>
         <td><em>break</em>
         </td>
     </tr>
     <tr>
-        <td>10:30</td>
+        <td>
+            10:30 EEST
+            <br/><em>09:30 CEST</em>
+        </td>
         <td>Advanced Performance Analysis
         <ul>
             <li>Automatic performance analysis and loop work estimated with perftools</li>
@@ -296,18 +389,27 @@ DAY 3
         </td>
     </tr>
     <tr>
-        <td>11:30</td>
+        <td>
+            11:30 EEST
+            <br/><em>10:30 CEST</em>
+        </td>
         <td><b>Exercises (session #8)</b>
         <br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
         </td>
     </tr>
    <tr>
-        <td>12:00</td>
+        <td>
+            12:00 EEST
+            <br/><em>11:00 CEST</em>
+        </td>
         <td><em>lunch break</em>
         </td>
     </tr>
     <tr>
-        <td>13:15</td>
+        <td>
+            13:15 EEST
+            <br/><em>12:15 CEST</em>
+        </td>
         <td>Understanding Cray MPI on Slingshot, rank reordering and MPMD launch
         <ul>
             <li>High level overview of Cray MPI on Slingshot</li>
@@ -322,7 +424,10 @@ DAY 3
     </td>
     </tr>
     <tr>
-        <td>14:15</td>
+        <td>
+            14:15 EEST
+            <br/><em>13:15 CEST</em>
+        </td>
         <td><b>Exercises (session #9)</b>
         <!--
         <br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
@@ -330,13 +435,19 @@ DAY 3
         </td>
     </tr>
     <tr>
-        <td>14:45</td>
+        <td>
+            14:45 EEST
+            <br/><em>13:45 CEST</em>
+        </td>
         <td><em>break</em>
         </td>
     <tr>
-        <td>15:00</td>
-        <td>AMD ROCgdb debugger and Rocprof profiling tool<br/>
-        <!-- <em>Presenter: Bob Robey (AMD)</em> -->
+        <td>
+            15:00 EEST
+            <br/><em>14:00 CEST</em>
+        </td>
+        <td>AMD ROCgdb debugger<br/>
+        <em>Presenter: George Markomanolis (AMD)</em>
         <!--
         <br/><em><a href="../files/02_Rocgdb_Tutorial.pdf">Slides for download</a></em>
         <br/><em>Recording: <code>/project/project_465000524/recordings/15_AMD_Rocgdb_Tutorial.mp4</code> on LUMI only.</em>
@@ -344,13 +455,19 @@ DAY 3
         </td>
     </tr>
     <tr>
-        <td>15:30</td>
+        <td>
+            15:30 EEST
+            <br/><em>14:30 CEST</em>
+        </td>
         <td><b>Exercises (session #10)</b>
         <!-- <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em> -->
         </td>
     </tr>
     <tr>
-        <td>16:00</td>
+        <td>
+            16:00 EEST
+            <br/><em>15:00 CEST</em>
+        </td>
         <td>Introduction to Rocprof Profiling Tool<br/>
         <em>Presenter: George Markomanolis (AMD)</em>
         <!--
@@ -360,18 +477,27 @@ DAY 3
         </td>
     </tr>
     <tr>
-        <td>16:30</td>
+        <td>
+            16:30 EEST
+            <br/><em>15:30 CEST</em>
+        </td>
         <td><b>Exercises (session #11)</b>
         <!-- <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em> -->
         </td>
     </tr>
     <tr>
-        <td>17:00</td>
+        <td>
+            17:00 EEST
+            <br/><em>16:00 CEST</em>
+        </td>
         <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
         </td>
     </tr>
     <tr>
-        <td>17:30</td>
+        <td>
+            17:30 EEST
+            <br/><em>16:30 CEST</em>
+        </td>
         <td><em>End of the course day</em>
         </td>
     </tr>
@@ -384,9 +510,12 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>9:00</td>
+        <td>
+            09:00 EEST
+            <br/><em>08:00 CEST</em>
+        </td>
         <td>Introduction to Python on Cray EX
-        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         <!--
         <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/11_IO_medium_LUMI.pdf</code> on LUMI only.</em>
         <br/><em>Recording: <code>/project/project_465000524/recordings/13_IO_Optimization.mp4</code> on LUMI only.</em>
@@ -394,7 +523,10 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>9:15</td>
+        <td>
+            09:15 EEST
+            <br/><em>08:15 CEST</em>
+        </td>
         <td>I/O Optimizing Large Scale I/O
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
@@ -413,18 +545,27 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>10:15</td>
+        <td>
+            10:15 EEST
+            <br/><em>09:15 CEST</em>
+        </td>
         <td><b>Exercises (session #12)</b></td>
     </tr>
     <tr>
-        <td>10:45</td>
+        <td>
+            10:45 EEST
+            <br/><em>09:45 CEST</em>
+        </td>
         <td><em>break</em>
         </td>
     </tr>
     <tr>
-        <td>11:00</td>
-        <td>Performance Optimization: Improving Single-core Efficiency<br/>
-        <em>Presenter: Jean Pourroy (HPE)</em>
+        <td>
+            11:00 EEST
+            <br/><em>10:00 CEST</em>
+        </td>
+        <td>Performance Optimization: Improving Single-core Efficiency
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
         <!--
         <br><em>Slide file: <code>/project/project_465000524/slides/HPE/09_cpu_performance_optimization.pdf</code> on LUMI only.</em>
         <br><em>Recording: <code>/project/project_465000524/recordings/11_CPU_Performance_Optimization.mp4</code> on LUMI only.</em>
@@ -432,19 +573,28 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>11:45</td>
+        <td>
+            11:45 EEST
+            <br/><em>10:45 CEST</em>
+        </td>
         <td><b>Exercises (session #13)</b>
         </td>
     </tr>
      <tr>
-        <td>12:00</td>
+        <td>
+            12:00 EEST
+            <br/><em>11:00 CEST</em>
+        </td>
         <td><em>lunch break (75 minutes)</em>
         </td>
     </tr>
     <tr>
-        <td>13:15</td>
-        <td>Introduction to OmniTrace<br/>
-        <!-- <br/><em>Presenter: Suyash Tandon (AMD)</em> -->
+        <td>
+            13:15 EEST
+            <br/><em>12:15 CEST</em>
+        </td>
+        <td>Introduction to OmniTrace
+        <br/><em>Presenter: George Markomanolis (AMD)</em>
         <!--
         <br/><em><a href="../files/04_intro_omnitools_new.pdf">Slides for download</a></em>
         <br/><em>Recording: <code>/project/project_465000524/recordings/19_Introduction_to_OmniTools.mp4</code> on LUMI only.</em>
@@ -453,32 +603,47 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>13:40</td>
+        <td>
+            13:40 EEST
+            <br/><em>12:40 CEST</em>
+        </td>
         <td><b>Exercises (session #14)</b>
         <!-- <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em> -->
         </td>
     </tr>
     <tr>
-        <td>14:00</td>
-        <td>Introduction do AMD Omniperf<br/>
-        <em>Presenter: George Markomanolis (AMD)</em>
+        <td>
+            14:00 EEST
+            <br/><em>13:00 CEST</em> 
+        </td>
+        <td>Introduction do AMD Omniperf
+        <br/><em>Presenter: George Markomanolis (AMD)</em>
         <!--
         <br/><em>Recording: <code>/project/project_465000524/recordings/20_Introduction_to_Omniperf.mp4</code> on LUMI only.</em>
         -->
         </td>
     </tr>
     <tr>
-        <td>14:25</td>
+        <td>
+            14:25 EEST
+            <br/><em>13:25 CEST</em> 
+        </td>
         <td><b>Exercises (session #15)</b>
         </td>
     </tr>
     <tr>
-        <td>14:45</td>
+        <td>
+            14:45 EEST
+            <br/><em>13:45 CEST</em> 
+        </td>
         <td><em>break</em>
         </td>
     </tr>
     <tr>
-        <td>15:00</td>
+        <td>
+            15:00 EEST
+            <br/><em>14:00 CEST</em> 
+        </td>
         <td>Best practices: GPU Optimization, tips & tricks / demo
         <br/><em>Presenter: Samuel Antao (AMD)</em>
         <!--
@@ -488,25 +653,34 @@ DAY 4
         </td>
     </tr>
     <tr>
-        <td>16:30</td>
+        <td>
+            16:30 EEST
+            <br/><em>15:30 CEST</em> 
+        </td>
         <td>LUMI support and LUMI documentation.
         <ul>
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
-        <em>Presenter: X (LUST)</em>
+        <em>Presenters: Anne Vomm and Mihkel Tiks (LUST)</em>
         <!--
         <br><em>Recording: <code>/project/project_465000524/recordings/10_LUMI_User_Support.mp4</code> on LUMI only.</em>
         -->
     </td>
     </tr>
      <tr>
-        <td>17:00</td>
+        <td>
+            17:00 EEST
+            <br/><em>16:00 CEST</em> 
+        </td>
         <td>Open Questions & Answers (participants are encouraged to continue with exercises in case there should be no questions)
         </td>
     </tr>
     <tr>
-        <td>17:30</td>
+        <td>
+            17:30 EEST
+            <br/><em>16:30 CEST</em> 
+        </td>
         <td><em>End of the course</em>
         </td>
     </tr>
