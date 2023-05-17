@@ -1,9 +1,12 @@
 site_name: "LUMI training materials"
-site_url: https://github.com/klust/LUMI-training-materials
+site_url: https://lumi-supercomputer.github.io/LUMI-training-materials
 
 theme:
   name: material
-  # logo: img/easybuild_logo.png
+  greetings: Welcome to the LUMI training materials"
+  custom_dir: site_customisations
+  language: en
+  logo: assets/favicon-LUMI.png
   features:
     - navigation.instant
     - navigation.tracking
@@ -12,6 +15,8 @@ theme:
     - navigation.indexes
     - header.autohide
     - toc.follow
+  icon:
+    logo: logo
   palette:
     - primary: black
   icon:
