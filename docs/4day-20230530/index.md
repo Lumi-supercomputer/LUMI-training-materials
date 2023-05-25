@@ -2,6 +2,10 @@
 
 ## Course organisation
 
+-   Location: TalTech IT Kolledž, Raja 4c, Tallinn, Estonia, room ICO-221
+
+    [Public transportation in Tallinn](https://visittallinn.ee/eng/visitor/plan/transport/public-transport)
+
 -   [Schedule (PDF)](https://462000265.lumidata.eu/4day-20230530/files/2023-05_General-LUMI-Training-Agenda.pdf)
 
     [Dynamic schedule (adapted as the course progresses)](schedule.md)
@@ -9,8 +13,14 @@
      *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
      if that file is only available on LUMI.*
 
-<!-- 
+<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
+
+-   There are two Slurm reservations for the course:
+
+    -   CPU nodes: `training_cpu`
+    -   GPU nodes: `training-gpu`
+
 -->
 
 ## Downloads
