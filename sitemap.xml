@@ -2,287 +2,477 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/01_Architecture/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/02_CPE/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/03_Modules/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/04_Software_stacks/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/05_Exercises_1/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/06_Running_jobs/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/07_Exercises_2/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/08_Lustre_intro/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/09_LUMI_support/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/notes_20230509/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/notes_20230516/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/schedule/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_00_Introduction/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_01_LUMI_Architecture/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_02_HPE_Cray_Programming_Environment/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_03_Modules_on_LUMI/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_04_LUMI_Software_Stacks/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_06_Running_Jobs_on_LUMI/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_08_Introduction_to_Lustre_and_Best_Practices/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/video_09_LUMI_User_Support/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/hedgedoc_notes_day1/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/hedgedoc_notes_day2/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/hedgedoc_notes_day3/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/hedgedoc_notes_day4/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/schedule/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/software_stacks/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/video_00_Introduction/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/video_09_LUMI_Software_Stack/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230214/video_10_LUMI_User_Support/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_00_Introduction/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_01_HPE_Cray_EX_Architecture/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_02_Programming_Environment_and_Modules/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_03_Running_Applications/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_04_Exercises_1/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_models/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_06_Exercises_2/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_07_Cray_Scientific_Libraries/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_08_Exercises_3/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_09_Offload_CCE/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_01_Advanceed_Application_Placement/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_02_Exercises_4/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Debugging_at_Scale/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_04_Exercises_5/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_05_LUMI_Software_Stacks/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_06_Introduction_to_AMD_ROCm_Ecosystem/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_07_Exercises_6/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_01_Introduction_to_Perftools/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_02_Exercises_7/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_03_Advanced_Performance_Analysis/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_04_Exercises_8/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_05_Cray_MPI_on_Slingshot/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_06_Exercises_9/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_07_AMD_ROCgdb_Debugger/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_08_Exercises_10/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_09_Introduction_to_Rocprof_Profiling_Tool/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_10_Exercises_11/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_01_Introduction_to_Python_on_Cray_EX/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_IO_Optimization_Parallel_IO/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_03_Exercises_12/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_04_Performance_Optimization_Improving_Single_Core/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_05_Exercises_13/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_06_AMD_Ominitrace/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_07_Exercises_14/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_08_AMD_Ominiperf/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_09_Exercises_15/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_10_Best_Practices_GPU_Optimization/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_11_LUMI_Support_and_Documentation/</loc>
+         <lastmod>2023-05-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/notes_2_05_LUMI_Software_Stacks/</loc>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/schedule/</loc>
-         <lastmod>2023-05-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/software_stacks/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/EasyBuild-CSC-20220509/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/LUMI-G-20220823/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/LUMI-G-20220823/hackmd_notes/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/LUMI-G-20230111/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/LUMI-G-20230111/hedgedoc_notes/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/LUMI-G-20230111/schedule/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20220427/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20220427/demo_software_stakcs_mdp/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20220427/hackmd_notes/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20220427/software_stacks/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/demo_software_stacks_mdp/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/hedgedoc_notes/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/schedule/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/software_stacks/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_00_Introduction/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_13_LUMI_Software_Stack/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_14_LUMI_User_Support/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/where_to_eat/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/hedgedoc_notes/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/schedule/</loc>
-         <lastmod>2023-05-25</lastmod>
+         <lastmod>2023-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
