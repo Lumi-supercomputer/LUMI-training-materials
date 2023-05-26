@@ -528,7 +528,7 @@ DAY 4
             09:15 EEST
             <br/><em>08:15 CEST</em>
         </td>
-        <td><b>I/O Optimizing Large Scale I/O</b>
+        <td><b>I/O Optimization - Parallel I/O</b>
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
             <li>Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. </li>
@@ -646,7 +646,7 @@ DAY 4
             <br/><em>14:00 CEST</em> 
         </td>
         <td><b>Best practices: GPU Optimization, tips & tricks / demo</b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         <!--
         <br/><em>Some examples from the presentation: <code>/pfs/lustrep1/projappl/project_465000524/slides/AMD/pytorch-based-examples</code> on LUMI only.</em>
         <br/><em>Recording: <code>/project/project_465000524/recordings/21_Tools_in_Action_Pytorch_Demo.mp4</code> on LUMI only.</em>
