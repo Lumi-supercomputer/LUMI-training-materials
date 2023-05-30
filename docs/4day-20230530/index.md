@@ -35,11 +35,11 @@ downloaded from LUMI.
 | [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [slides](extra_1_02_Programming_Environment_and_Modules.md) | / |
 | [Running Applications](extra_1_03_Running_Applications.md) | [slides](extra_1_03_Running_Applications.md) | / |
 | [Exercises #1](extra_1_04_Exercises_1.md) | / | / |
-<!--
-| [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_models.md) | [slides](extra_1_05_Compilers_and_Parallel_Programming_models.md) | / |
+| [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [slides](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / |
 | [Exercises #2](extra_1_06_Exercises_2.md) | / | / |
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [slides](extra_1_07_Cray_Scientific_Libraries.md) | / |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / |
+<!--
 | [OpenACC and OpenMP offlocad with Cray Compilation Environfment](extra_1_09_Offload_CCE.md) | [slides](extra_1_09_Offload_CCE.md) | / |
 | [Advanced Application Placement](extra_2_01_Advanceed_Application_Placement.md) | [slides](extra_2_01_Advanceed_Application_Placement.md) | / |
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / |

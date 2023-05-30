@@ -63,4 +63,11 @@ No materials available at the moment.
     -Wl,--as-needed,-lsci_amd_mpi,--no-as-needed -Wl,--as-needed,-lsci_amd,--no-as-needed -ldl -Wl,
     --as-needed,-lmpi_amd,--no-as-needed -lmpi_gtl_hsa -Wl,--as-needed,-ldsmml,--no-as-needed -lxpmem
     ```
-
+    
+    **Reply** After quite a bit of testing, I found that repeated loading of modules `LUMI/22.08, PrgEnv-amd, partition/G` sometimes ended up loading also the module `cray-libsci/22.08.1.1` which results in the broken link flags. Switching to `cray-libsci/22.12.1.1` gives the correct flags again. But indeed, it's not deterministic which combo of modules you get unless you do a force purge first.
+    
+    **[Kurt]** As we shall also see tomorrow this is the wrong way of using the LUMI modules. You should not use the PrgEnv-* modules with the LUMI modules unlwss you understand what is happening and you should load the partition module immediately after the LUMI module.
+    
+    Due to the way Lmod works loading modules that change the defaults such as the cpe modules and the LUMI modules should not be used in a single module statement with modules for which you want the default version without specifying any version. What you see in different behaviour is likely the result of sometimes loading in a single module call and sometimes not. It may be better to switch to using the full CPE 22.12 set though. There are a few broken links in the LibSci installation for AMD in 22.08.
+    
+   

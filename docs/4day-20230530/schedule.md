@@ -116,8 +116,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            14:30 EEST
-            <br/><em>13:30 CEST</em>
+            14:40 EEST
+            <br/><em>13:40 CEST</em>
         </td>
         <td><b>Exercises (session #2)</b>
         </td>
@@ -161,8 +161,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            15:15 EEST
-            <br/><em>14:15 CEST</em>
+            16:15 EEST
+            <br/><em>15:15 CEST</em>
         </td>
         <td><b>OpenACC and OpenMP offload with Cray Compilation Environment</b>
         <ul>
