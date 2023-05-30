@@ -44,8 +44,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            10:15 EEST
-            <br/><em>09:15 CEST</em>
+            10:00 EEST
+            <br/><em>09:00 CEST</em>
         </td>
         <td><b>Programming Environment and Modules</b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
@@ -57,16 +57,16 @@ DAY 1
     </tr>
     <tr>
         <td>
-            10:45 EEST
-            <br/><em>09:45 CEST</em>
+            10:30 EEST
+            <br/><em>09:30 CEST</em>
         </td>
-        <td><b><em>Break (15 minutes)</em></b>
+        <td><b><em>Break (20 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            11:00 EEST
-            <br/><em>10:00 CEST</em>
+            10:50 EEST
+            <br/><em>09:40 CEST</em>
         </td>
         <td><b>Running Applications</b>
         <ul>
@@ -81,8 +81,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            11:20 EEST
-            <br/><em>10:20 CEST</em>
+            11:15 EEST
+            <br/><em>10:15 CEST</em>
         </td>
         <td><b>Exercises (session #1)</b>
         <!--<br/><em> Exercises are in <code>/project/project_465000524/exercises/HPE</code> on LUMI only.-->
