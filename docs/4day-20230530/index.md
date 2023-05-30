@@ -13,7 +13,6 @@
      *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
      if that file is only available on LUMI.*
 
-<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
 
 -   There are two Slurm reservations for the course:
@@ -21,7 +20,6 @@
     -   CPU nodes: `training_cpu`
     -   GPU nodes: `training-gpu`
 
--->
 
 ## Course materials
 
