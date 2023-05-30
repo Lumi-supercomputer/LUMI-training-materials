@@ -34,7 +34,7 @@ Slides from the LUST talks are available [on these pages](index.md)
 ### Course introduction
 
 *Presenter: Kurt Lust*<br>
-*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-intro-20221124.pdf)*
+*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/00_LUST_Course_intro.pdf)*
 
 1. Do you know the current allocation per country ? (I wonder how much Belgium contributes to LUMI)
     - Belgium: 7.4% of the total budget.
@@ -241,7 +241,7 @@ Slides from the LUST talks are available [on these pages](index.md)
 ### Lust presentation: LUMI software stack
 
 *Presenter: Kurt Lust*<br>
-*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-software-20221124.pdf) and [notes](software_stacks.md)*
+*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/L13_LUST_LUMI_Software.pdf) and [notes](software_stacks.md)*
 
 29. `Error: ~/exercises/VH1-io/VH1-io/run> sbatch run_vh1-io.slurm sbatch: error: Invalid directive found in batch script: e.g` Do I need to change something in run_vh1-io.slurm before submitting?
     - Yes, you have to at least adapt the account, partition and reservation. qos has to be deleted (reservation is also optional). 
@@ -263,7 +263,7 @@ Slides from the LUST talks are available [on these pages](index.md)
 ### LUST presentation: LUMI support
 
 *Presenter: Jorn Dietze*<br>
-*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-support-20221124.pdf)*
+*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/14_LUST_LUMI_Support.pdf)*
 
 34. Will porting calls be available just for academic users? What about (potential) industrial users?
     - There are other EuroHPC inititiaves that specifically aim to support industrial users (like the national competence centres). An industrial project for the LUMI porting program could be considered if it is open research and the software is then publicly available for all (and I think without a big license cost). 
