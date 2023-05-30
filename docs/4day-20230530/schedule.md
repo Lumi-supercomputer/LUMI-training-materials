@@ -34,7 +34,7 @@ DAY 1
             09:15 EEST
             <br/><em>08:15 CEST</em>
         </td>
-        <td><b>HPE Cray EX architecture</b>
+        <td><b>The HPE Cray EX architecture</b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
         <!--
         <br/><em>Slide files: <code>/project/project_465000524/slides/HPE/01_EX_Architecture.pdf</code> on LUMI only.</em>
