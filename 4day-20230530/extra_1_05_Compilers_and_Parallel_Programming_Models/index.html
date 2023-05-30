@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_models/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_Models/">
       
       
       
@@ -91,7 +91,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUMI training materials - Compilers and Parallel Programming Models" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_models/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_Models/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1020,11 +1035,33 @@
 <p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
 <ul>
 <li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-1_05_Compilers_and_Parallel_Programming_Models.pdf</code></li>
+<li><code>/project/project_465000524/slides/HPE/04_Compilers_and_Programming_Models.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Rocm has two backends, HIP and OpenCL that cannot be made available at the same time, i.e. the packages conflict. Could you give some background why is that and why OpenCL and HIP in Rocm cannot coexist?</p>
+<p><strong>Answer</strong> [Sam AMD] I believe OpenCL and HIP supporting libraries can coexist in the system. Having the two models coexist in the same application I'll have to investigate as I didn't try that before.</p>
+</li>
+<li>
+<p>So what approach should one use to compile code which uses MPI, OpenMP threads (but no OpenMP offload), and HIP all in one code and in the same source code files as well?</p>
+<p><strong>Answer</strong> [Sam AMD] If you are building HIP code in the source file you need to rule out GNU. I'd try with the Cray wrappers (CC) with <code>-x hip</code> to point out you want that to be interpreted as an HIP source code. Because you care about OpenMP you need to enable it with -fopenmp. You could always use the ROCm clang and link MPI in if you feel confortable with it. Order matters: <code>-fopenmp</code> needs to come prior to <code>-x hip</code>.</p>
+<p><strong>Reply</strong> Currently Loaded Modules:</p>
+<p>```
+1) craype-accel-amd-gfx90a   3) craype/2.7.19      5) libfabric/1.15.2.0   7) cray-mpich/8.1.23       9) PrgEnv-cray/8.3.3  11) craype-x86-trento 2) cce/15.0.0                4) cray-dsmml/0.2.2   6) craype-network-ofi   8) cray-libsci/22.12.1.1  10) rocm/5.2.3
+````</p>
+<p>I compile with:
+<code>CC -g -O3 -fopenmp -x hip</code>
+Trying to link with:
+<code>CC -fopenmp --hip-link -o executable sourceobjects.o libraries</code>
+I get
+Warning: Ignoring device section hip-amdgcn-amd-amdhsa-gfx90a</p>
+</li>
+</ol>
 
 
 
