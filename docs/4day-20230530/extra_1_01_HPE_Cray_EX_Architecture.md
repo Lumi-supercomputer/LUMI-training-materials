@@ -4,7 +4,7 @@
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-1_01_HPE_Cray_EX_Architecuture.pdf`
-    -   `/project\project_465000524/slide/HPE/01_EX_Architecture.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000524/slides/HPE/01_EX_Architecture.pdf` (temporary, for the lifetime of the project)
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
