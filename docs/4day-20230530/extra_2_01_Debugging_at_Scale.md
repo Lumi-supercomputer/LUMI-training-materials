@@ -11,4 +11,7 @@ These materials can only be distributed to actual users of LUMI (active user acc
 
 ## Q&A
 
-/
+3. Which tool should I use /study to get an output of specific parameters or a N-dimensional field for further debugging?
+
+    **Answer [Alfio]** gdb4hpc is your friend. You can print values.
+
