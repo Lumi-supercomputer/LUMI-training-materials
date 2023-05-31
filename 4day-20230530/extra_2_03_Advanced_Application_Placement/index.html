@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1026,6 +1041,18 @@
 </li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<div class="admonition remark">
+<p class="admonition-title">Remark</p>
+<p>The <code>lumi-CPEtools</code> module (in the LUMI software stacks, see this afternoon) contains an alternative for <code>xthi</code> but not yet for the <code>hello_jobstep</code> tool.</p>
+</div>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Why is it not possible to hardcode binding on system level? Are there usecases where no binding or non-standard bindings are preffered?</p>
+<p><strong>Answer</strong> We want to give the freedom to users as there are non-standard use cases. Sometimes it is better to have all threads in the same NUMA domain, sometimes you want to spread that.</p>
+<p>And for the GPU mapping: you'd need to ask the Slurm developers... Even getting good defaults in Slurm is hard. We'd really have to be able to always allocate in multiples of chiplets each with the matching GPU.</p>
+</li>
+</ol>
 
 
 
