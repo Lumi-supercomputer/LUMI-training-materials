@@ -211,8 +211,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            10:00 EEST
-            <br/><em>09:00 CEST</em>
+            09:45 EEST
+            <br/><em>08:45 CEST</em>
         </td>
         <td><b>Exercises (session #4)</b>
         </td>

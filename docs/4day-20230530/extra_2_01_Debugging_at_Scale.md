@@ -7,3 +7,8 @@
     -   `/project/project_465000524/slides/HPE/08_debugging_at_scale.pdf` (temporary, for the lifetime of the project)
 
 These materials can only be distributed to actual users of LUMI (active user account).
+
+
+## Q&A
+
+/
