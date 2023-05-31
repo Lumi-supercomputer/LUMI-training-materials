@@ -161,8 +161,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:15 EEST
-            <br/><em>15:15 CEST</em>
+            16:10 EEST
+            <br/><em>15:10 CEST</em>
         </td>
         <td><b>OpenACC and OpenMP offload with Cray Compilation Environment</b>
         <ul>
@@ -177,8 +177,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            17:00 EEST
-            <br/><em>16:00 CEST</em>
+            16:45 EEST
+            <br/><em>15:45 CEST</em>
         </td>
         <td><b>Open Questions & Answers</b> 
         <br/>Participants are encouraged to continue with exercises in case there should be no questions.
@@ -205,15 +205,8 @@ DAY 2
             09:00 EEST
             <br/><em>08:00 CEST</em>
         </td>
-        <td><b>Advanced Application Placement</b>
-        <ul>
-            <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
-        </ul>
-        <em>Presenter: Jean Pourroy (HPE)</em>
-        <!--
-        <br><em>Slide file: <code>/project/project_465000524/slides/HPE/07_Advanced_Placement.pdf</code> on LUMI only.</em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/07_Advanced_Placement.mp4</code> on LUMI only.</em>
-        -->
+        <td><b>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</b>
+        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -236,11 +229,14 @@ DAY 2
             10:45 EEST
             <br/><em>09:45 CEST</em>
         </td>
-        <td><b>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</b>
-        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        <td><b>Advanced Application Placement</b>
+        <ul>
+            <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
+        </ul>
+        <em>Presenter: Jean Pourroy (HPE)</em>
         <!--
-        <br><em>Slide file: <code>/project/project_465000524/slides/HPE/10_debugging_at_scale.pdf</code> on LUMI only.</em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/12_Debugging_at_Scale.mp4</code> on LUMI only.</em>
+        <br><em>Slide file: <code>/project/project_465000524/slides/HPE/07_Advanced_Placement.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000524/recordings/07_Advanced_Placement.mp4</code> on LUMI only.</em>
         -->
         </td>
     </tr>
