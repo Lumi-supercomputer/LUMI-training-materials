@@ -43,8 +43,8 @@ downloaded from LUMI.
 | [Debugging at Scale](extra_2_01_Debugging_at_Scale.md) | [slides](extra_2_01_Debugging_at_Scale.md) | / | 
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / |
 | [Advanced Application Placement](extra_2_03_Advanced_Application_Placement.md) | [slides](extra_2_03_Advanced_Application_Placement.md) | / |
-<!--
 | [Exercises #5](extra_2_04_Exercises_5.md) | / | / |
+<!--
 | [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_05_software_stacks.pdf) | [notes](notes_2_05_LUMI_Software_Stacks.md) | 
 | [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [slides](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | / |
 | [Exercises #6](extra_2_07_Exercises_6.md) | / | / |

@@ -219,15 +219,15 @@ DAY 2
     </tr>
     <tr>
         <td>
-            10:30 EEST
-            <br/><em>09:30 CEST</em>
+            10:15 EEST
+            <br/><em>09:15 CEST</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b></td>
     </tr>
     <tr>
         <td>
-            10:45 EEST
-            <br/><em>09:45 CEST</em>
+            10:30 EEST
+            <br/><em>09:30 CEST</em>
         </td>
         <td><b>Advanced Application Placement</b>
         <ul>
