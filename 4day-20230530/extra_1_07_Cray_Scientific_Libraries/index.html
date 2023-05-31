@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1026,6 +1041,13 @@
 </li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Is it a good practice to run converted CUDA library by HIP in AMD GPUs? if no, any other better solution?</p>
+<p><strong>Answer</strong> Usually it is a good starting point, especially if you know the code. But there are differences that you should take into account to optimise the code. E.g., the "warp size" is 64 instead of 32.</p>
+</li>
+</ol>
 
 
 
