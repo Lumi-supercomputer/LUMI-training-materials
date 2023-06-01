@@ -444,20 +444,19 @@ DAY 3
     </tr>
     <tr>
         <td>
-            16:00 EEST
-            <br/><em>15:00 CEST</em>
+            15:45 EEST
+            <br/><em>14:45 CEST</em>
         </td>
-        <td><b>Introduction to Rocprof Profiling Tool</b>
+        <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to Rocprof Profiling Tool</a></b>
         <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            16:30 EEST
-            <br/><em>15:30 CEST</em>
+            16:25 EEST
+            <br/><em>15:25 CEST</em>
         </td>
-        <td><b>Exercises (session #11)</b>
-        <!-- <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em> -->
+        <td><b><a href="../extra_3_10_Exercises_11/">Exercises (session #11)</a></b>
         </td>
     </tr>
     <tr>

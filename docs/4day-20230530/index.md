@@ -56,8 +56,8 @@ downloaded from LUMI.
 | [AMD ROCgdb Debugger](extra_3_07_AMD_ROCgdb_Debugger.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_07_AMD_ROCgdb_Debugger.pdf) | / |
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / |
 | [Introduction to Rocprof Profiling Tool](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / |
-<!--
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / |
+<!--
 | [Introduction to Python on Cray EX](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [slides]() | / |
 | [I/O Optimization - Parallel I/O](extra_4_02_IO_Optimization_Parallel_IO.md) | [slides](extra_4_02_IO_Optimization_Parallel_IO.md) | / | 
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / |
