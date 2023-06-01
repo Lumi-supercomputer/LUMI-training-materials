@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_00_Introduction/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/04_Intro_OmniPerf/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>Welcome and introduction - LUMI training materials</title>
+        <title>Introduction to Omniperf - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Welcome and introduction" />
+  <meta property="og:title" content="LUMI training materials - Introduction to Omniperf" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_00_Introduction/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/04_Intro_OmniPerf/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Welcome and introduction" />
+  <meta name="twitter:title" content="LUMI training materials - Introduction to Omniperf" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-and-introduction" class="md-skip">
+        <a href="#introduction-to-omniperf" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome and introduction
+              Introduction to Omniperf
             
           </span>
         </div>
@@ -598,7 +598,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          <a href="../">Profiling April 2013</a>
           
         </div>
       
@@ -730,16 +730,12 @@
         
           
         
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">PEAP-Q November 2022</a>
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -762,36 +758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../schedule/" class="md-nav__link">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    Remarks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1048,15 +1038,46 @@
                   
 
 
-<h1 id="welcome-and-introduction">Welcome and introduction<a class="headerlink" href="#welcome-and-introduction" title="Permanent link">&para;</a></h1>
-<p><em>Presenters: Kurt Lust (LUST)</em></p>
-<video src="https://462000265.lumidata.eu/peap-q-20221123/recordings/00_LUST_Course_intro.mp4" controls="controls">
-</video>
-
-<p>Additional materials</p>
+<h1 id="introduction-to-omniperf">Introduction to Omniperf<a class="headerlink" href="#introduction-to-omniperf" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-intro-20221124.pdf">Slides (PDF)</a></li>
+<li>
+<p><a href="https://462000265.lumidata.eu/profiling-20230413/files/04_intro_omniperf_roofline.pdf">Slides</a></p>
+</li>
+<li>
+<p>Recording in <code>/appl/local/training/profiling-20230413/recordings/04_Intro_OmniPerf.mp4</code></p>
+</li>
 </ul>
+<h2 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For security reasons it is best to run <code>omniperf analyze</code> on a single user machine that 
+is protected by a firewall (which is why we do not want to install it visibly on LUMI). 
+It opens an unprotected port to a webserver so everybody with access to LUMI can easily 
+guess the port number and get access to some of your data that way.</p>
+</div>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Not related to omniperf. On <code>tranining/exercises/HPE/openacc-mpi-demos</code> after doing <code>sbatch job.slurm</code>.
+    <div class="highlight"><pre><span></span><code>srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0x01FFFFFFFFFFFFFE01FFFFFFFFFFFFFE.
+srun: error: Task launch for StepId=3372350.2 failed on node nid007281: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+</code></pre></div></p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>let me fix it, I will report here when it is done (for the record, this is due to the today's change in Slurm)... done, please check.<ul>
+<li>what change in slurm happened today?</li>
+<li>LUMI admins somehow reverted a change in Slurm that came in with the update where SLURM no longer propagates cpus-per-task if set in an SBATCH job comment into the srun. The old behaviour was restored but we tested the scripts yesterday. There was a user email this morning.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Slide 43, the kernels performance are good or not? There is a threshold in terms of distance from boundaries?</p>
+<p><strong>Answer</strong></p>
+<p>Will be in the recording. The performance is not very good (and take into account the scales are logarithmic so the dots are very far from the boundary).</p>
+</li>
+</ol>
 
 
 

@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/software_stacks/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/notes_13_LUMI_Software_Stacks/">
       
       
-        <link rel="prev" href="../hedgedoc_notes/">
-      
-      
-        <link rel="next" href="../../LUMI-G-20220823/">
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
@@ -95,7 +91,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUMI training materials - LUMI Software Stacks" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/software_stacks/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/notes_13_LUMI_Software_Stacks/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -717,25 +713,19 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
       
       
         
           
             
-          
-        
-          
-        
           
         
           
@@ -753,7 +743,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           PEAP-Q November 2022
@@ -771,330 +761,6 @@
       <a href="../schedule/" class="md-nav__link">
         Schedule
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          LUMI Software Stacks
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        LUMI Software Stacks
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-software-stacks-on-lumi" class="md-nav__link">
-    The software stacks on LUMI
-  </a>
-  
-    <nav class="md-nav" aria-label="The software stacks on LUMI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#design-considerations" class="md-nav__link">
-    Design considerations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-lumi-solution" class="md-nav__link">
-    The LUMI solution
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#software-policies" class="md-nav__link">
-    Software policies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#organisation-of-the-software-in-software-stacks" class="md-nav__link">
-    Organisation of the software in software stacks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-ways-to-access-the-cray-programming-environment-on-lumi" class="md-nav__link">
-    3 ways to access the Cray Programming environment on LUMI.
-  </a>
-  
-    <nav class="md-nav" aria-label="3 ways to access the Cray Programming environment on LUMI.">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bare-environment-and-crayenv" class="md-nav__link">
-    Bare environment and CrayEnv
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lumi-stack" class="md-nav__link">
-    LUMI stack
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lumi-stack-module-organisation" class="md-nav__link">
-    LUMI stack module organisation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lmod-on-lumi" class="md-nav__link">
-    Lmod on LUMI
-  </a>
-  
-    <nav class="md-nav" aria-label="Lmod on LUMI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exploring-modules-with-lmod" class="md-nav__link">
-    Exploring modules with Lmod
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#module-spider-command" class="md-nav__link">
-    Module spider command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#module-keyword-command" class="md-nav__link">
-    Module keyword command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sticky-modules-and-module-purge" class="md-nav__link">
-    Sticky modules and module purge
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-how-the-module-list-is-displayed" class="md-nav__link">
-    Changing how the module list is displayed
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#easybuild-to-extend-the-lumi-software-stack" class="md-nav__link">
-    EasyBuild to extend the LUMI software stack
-  </a>
-  
-    <nav class="md-nav" aria-label="EasyBuild to extend the LUMI software stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-software-on-hpc-systems" class="md-nav__link">
-    Installing software on HPC systems
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extending-the-lumi-stack-with-easybuild" class="md-nav__link">
-    Extending the LUMI stack with EasyBuild
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-1-where-to-install" class="md-nav__link">
-    Step 1: Where to install
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-configure-the-environment" class="md-nav__link">
-    Step 2: Configure the environment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-install-the-software" class="md-nav__link">
-    Step 3: Install the software.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-install-the-software-note" class="md-nav__link">
-    Step 3: Install the software - Note
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-advanced-work" class="md-nav__link">
-    More advanced work
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-advanced-work-2-repositories" class="md-nav__link">
-    More advanced work (2): Repositories
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#more-advanced-work-3-reproducibility" class="md-nav__link">
-    More advanced work (3): Reproducibility
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#easybuild-training-for-advanced-users-and-developers" class="md-nav__link">
-    EasyBuild training for advanced users and developers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#containers-on-lumi" class="md-nav__link">
-    Containers on LUMI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-do-containers-not-provide" class="md-nav__link">
-    What do containers not provide
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#but-what-can-they-then-do-on-lumi" class="md-nav__link">
-    But what can they then do on LUMI?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-containers" class="md-nav__link">
-    Managing containers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interacting-with-containers" class="md-nav__link">
-    Interacting with containers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-containers-on-lumi" class="md-nav__link">
-    Running containers on LUMI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enhancements-to-the-environment" class="md-nav__link">
-    Enhancements to the environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion-container-limitations-on-lumi-c" class="md-nav__link">
-    Conclusion: Container limitations on LUMI-C
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 

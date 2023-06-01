@@ -19,7 +19,7 @@
     
     
       
-        <title>PRogramming Environment and Modules - LUMI training materials</title>
+        <title>Programming Environment and Modules - LUMI training materials</title>
       
     
     
@@ -89,7 +89,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - PRogramming Environment and Modules" />
+  <meta property="og:title" content="LUMI training materials - Programming Environment and Modules" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_02_Programming_Environment_and_Modules/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - PRogramming Environment and Modules" />
+  <meta name="twitter:title" content="LUMI training materials - Programming Environment and Modules" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PRogramming Environment and Modules
+              Programming Environment and Modules
             
           </span>
         </div>
@@ -730,10 +730,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -764,34 +760,6 @@
     <li class="md-nav__item">
       <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1048,15 +1031,32 @@
                   
 
 
-<h1 id="programming-environment-and-modules">PRogramming Environment and Modules<a class="headerlink" href="#programming-environment-and-modules" title="Permanent link">&para;</a></h1>
+<h1 id="programming-environment-and-modules">Programming Environment and Modules<a class="headerlink" href="#programming-environment-and-modules" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Harvey Richardson (HPE)</em></p>
 <ul>
 <li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-1_02_Programming_Environment_and_Modules.pdf</code></li>
+<li><code>/project/project_465000524/slides/HPE/02_PE_and_Modules.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>What are the differences between <code>module</code> and <code>spack</code>? When should we install software using <code>module</code> and <code>spack</code>?</p>
+<p><strong>Answer</strong> By default we install software using EasyBuild which is done via the LUMI modules. Spack is provided as an alternative without much support for those who know Spack. It is configured to use the compilers on the system, but we will not do any debugging or package development in Spack. A bit more about this in the presentation on LUMI software stacks on Wednesday afternoon (day 2). Spack can also generate module files, if you want, but it is not mandatory, and other options might be better (Spack environments or <code>spack load</code>).</p>
+</li>
+<li>
+<p>Regarding module load. Are <code>CDO command</code>, <code>NCO command</code>, and <code>ncview</code> modules available? If so, how can one correctly load them? Any documentation available?
+    <em>seems that they are available via easy build  https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/</em></p>
+<p><strong>Answer</strong> See the presentation on the afternoon of day 2 about how to find software on LUMI and how we deal with software and all possible configurations, and how to install with EasyBuild.</p>
+</li>
+<li>
+<p>What is the difference between <code>PrgEnv-xxx</code> and <code>CCE</code>?</p>
+<p><strong>Answer</strong> PrgEnv-... set up the whole environment: Compiler, MPI and LibSci and the compiler wrappers. CCE is just the compiler module corresponding to PrgEnv-cray, but does not yet offer MPI, LibSci or the compiler wrappers.</p>
+</li>
+</ol>
 
 
 

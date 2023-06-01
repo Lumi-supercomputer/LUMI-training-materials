@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_14_LUMI_User_Support/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/00_Introduction/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>LUMI support and LUMI documentation - LUMI training materials</title>
+        <title>Introduction - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - LUMI support and LUMI documentation" />
+  <meta property="og:title" content="LUMI training materials - Introduction" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/video_14_LUMI_User_Support/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/00_Introduction/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - LUMI support and LUMI documentation" />
+  <meta name="twitter:title" content="LUMI training materials - Introduction" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lumi-support-and-lumi-documentation" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LUMI support and LUMI documentation
+              Introduction
             
           </span>
         </div>
@@ -598,7 +598,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Profiling-20230413/">Profiling April 2013</a>
+          <a href="../">Profiling April 2013</a>
           
         </div>
       
@@ -730,16 +730,12 @@
         
           
         
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">PEAP-Q November 2022</a>
+          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -762,36 +758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../schedule/" class="md-nav__link">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1048,15 +1031,33 @@
                   
 
 
-<h1 id="lumi-support-and-lumi-documentation">LUMI support and LUMI documentation<a class="headerlink" href="#lumi-support-and-lumi-documentation" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Jørn Dietze (LUST)</em></p>
-<video src="https://462000265.lumidata.eu/peap-q-20221123/recordings/14_LUST_LUMI_Support.mp4" controls="controls">
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<video src="https://462000265.lumidata.eu/profiling-20230413/recordings/00_Introduction.mp4" controls="controls">
 </video>
 
-<p>Additional materials</p>
 <ul>
-<li><a href="https://462000265.lumidata.eu/peap-q-20221123/files/LUMI-PEAPQ-support-20221124.pdf">Slides (PDF)</a></li>
+<li>The video is also available as <code>/appl/local/training/profiling-20230413/recordings/00_Introduction.mp4</code></li>
 </ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Can I ask for incresing the home directory capacity?</p>
+<p><strong>Answer</strong>: No. The home directory cannot be extended, not in capacity and not in number of files as it is also the only directory that is not billed. The home directory is only for stricly personal files and typically the type of stuff that Linux software tends to put in home directories such as caches. The project directory is the directory to install software, work on code, etc., and the scratch and flash directory are for temporary data. You can always create a subdirectory for yourself in your project directory and take away the group read rights if you need more personal space.</p>
+</li>
+<li>
+<p><code>/project/project_465000502/slides</code> is empty now, right? Thanks.</p>
+<p><strong>Answer</strong> Yes. HPE tends to upload the slides only at the end of the presentation.
+           PDF file is now copied.</p>
+</li>
+<li>
+<p>How one can see <code>/project/project_465000502/</code> on LUMI?
+    When I do <code>ls</code> in the terminal, I do not see this folder.</p>
+<p><strong>Answer</strong> Did you accept the project invite you got earlier this week? And if you have a Finnish user account you will now have a second userid and that is the one you have to use.</p>
+<p>Did you try to <code>cd</code> into <code>/project/project_465000502</code>? That directory is <strong>not</strong> a subdirectory of your home directory!</p>
+<div class="highlight"><pre><span></span><code>cd /project/project_465000502
+</code></pre></div>
+</li>
+</ol>
 
 
 

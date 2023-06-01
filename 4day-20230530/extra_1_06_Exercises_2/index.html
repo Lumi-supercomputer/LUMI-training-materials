@@ -730,10 +730,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -764,34 +760,6 @@
     <li class="md-nav__item">
       <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1049,7 +1032,18 @@
 
 
 <h1 id="exercise-session-2">Exercise session 2<a class="headerlink" href="#exercise-session-2" title="Permanent link">&para;</a></h1>
-<p>No materials available at the moment.</p>
+<p>The exercises are basically the same as in 
+<a href="../extra_1_04_Exercises_1/">session #1</a>. You can now play with different
+programming models and optimisation options.</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>I changed my environment to <code>PrgEnv-gnu</code>, and trying to run the <code>Makefile</code>, but it gave me this message <code>Makefile:7: *** Currently PrgEnv-gnu is not supported, switch to PrgEnv-cray or use Makefile.allcompilers.  Stop.</code>. Could you please guide me how to run make for the gnu?</p>
+<p><strong>Answer</strong> <code>make -f Makefile.allcompilers</code></p>
+<p><strong>Follow up</strong> it gave me this: <code>make: Nothing to be done for 'all'.</code></p>
+<p><strong>Answer</strong> You need to get rid of the previous compilation with       <code>make -f Makefile.allcompilers clean</code></p>
+</li>
+</ol>
 
 
 

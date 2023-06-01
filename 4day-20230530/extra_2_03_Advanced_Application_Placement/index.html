@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_01_Advanceed_Application_Placement/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Advanced_Application_Placement/">
       
       
       
@@ -91,7 +91,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUMI training materials - Advanced Application Placement" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_01_Advanceed_Application_Placement/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Advanced_Application_Placement/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -730,10 +730,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -764,34 +760,6 @@
     <li class="md-nav__item">
       <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1052,11 +1035,24 @@
 <p><em>Presenter: Jean Pourroy (HPE)</em></p>
 <ul>
 <li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-2_03_Advanced_Application_Placement.pdf</code></li>
+<li><code>/project/project_465000524/slides/HPE/07_Advanced_Placement.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<div class="admonition remark">
+<p class="admonition-title">Remark</p>
+<p>The <code>lumi-CPEtools</code> module (in the LUMI software stacks, see this afternoon) contains an alternative for <code>xthi</code> but not yet for the <code>hello_jobstep</code> tool.</p>
+</div>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Why is it not possible to hardcode binding on system level? Are there usecases where no binding or non-standard bindings are preffered?</p>
+<p><strong>Answer</strong> We want to give the freedom to users as there are non-standard use cases. Sometimes it is better to have all threads in the same NUMA domain, sometimes you want to spread that.</p>
+<p>And for the GPU mapping: you'd need to ask the Slurm developers... Even getting good defaults in Slurm is hard. We'd really have to be able to always allocate in multiples of chiplets each with the matching GPU.</p>
+</li>
+</ol>
 
 
 

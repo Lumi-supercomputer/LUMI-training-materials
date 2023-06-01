@@ -730,10 +730,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -764,34 +760,6 @@
     <li class="md-nav__item">
       <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1050,6 +1033,67 @@
 
 <h1 id="exercise-session-1">Exercise session 1<a class="headerlink" href="#exercise-session-1" title="Permanent link">&para;</a></h1>
 <p>No materials available at the moment.</p>
+<ul>
+<li>
+<p>Exercise materials in 
+    <code>/project/project_465000524/exercises/HPE/day1/ProgrammingModels</code>.</p>
+<p>See <code>/project/project_465000524/exercises/HPE/day1/ProgrammingModelExamples_SLURM.pdf</code></p>
+</li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>sprun command in the very end of the exercise pdf, is that a typo ?</p>
+<pre><code>**Answer** Yes
+</code></pre>
+</li>
+<li>
+<p>I have following modules loaded on a GPU node:</p>
+<div class="highlight"><pre><span></span><code>Currently Loaded Modules:
+  1) init-lumi/0.2     (S)   4) cce/15.0.0         7) libfabric/1.15.2.0  10) cray-libsci/22.12.1.1    13) rocm/5.2.3
+  2) lumi-tools/23.04  (S)   5) craype/2.7.19      8) craype-network-ofi  11) PrgEnv-cray/8.3.3
+  3) ModuleLabel/label (S)   6) cray-dsmml/0.2.2   9) cray-mpich/8.1.23   12) craype-accel-amd-gfx90a
+</code></pre></div>
+<p>When I compile the <code>pi_hip</code> target, I get a warning:
+<div class="highlight"><pre><span></span><code>No supported cpu target is set, CRAY_CPU_TARGET=x86-64 will be used.
+</code></pre></div>
+Is this ok, am I missing a module to set this variable, or should it be set manually?</p>
+<p><strong>Answer</strong> Can you try with a fresh shell? I've just tried and it works:
+<div class="highlight"><pre><span></span><code>&gt; module load craype-accel-amd-gfx90a rocm
+&gt; make acc
+cc -o pi_openmp_device pi_openmp_device.c -fopenmp
+CC -xhip -o pi_hip pi_hip.cpp
+In file included from pi_hip.cpp:9:
+</code></pre></div>
+Ignore the warnings...</p>
+</li>
+<li>
+<p>With <code>lumi_c.sh, PrgEnv-cray, craype-x86-milan, craype-accel-host</code>: C_timers/pi_mpi compiles, but running it results in:
+    <div class="highlight"><pre><span></span><code>MPICH ERROR [Rank 0] [job id 3605521.0] [Tue May 30 12:41:09 2023] [nid002042] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+(Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+</code></pre></div>
+    (serial and openmpi tests worked fine)</p>
+<p><strong>Answer</strong> Could you list your modules? You should not use <code>craype-accel-host</code> if you are running a CPU code on LUMI_c.</p>
+</li>
+<li>
+<p>With <code>PrgEnv-amd, craype-x86-milan, rocm/5.2.3</code>: compilation fails because <code>CC --cray-print-opts=libs</code> returns a string which includes, among others, <code>-lsci_amd -lsci_amd,-lflangrti,-lflang,-lpgmath -ldl</code> (note the commas and missing spacs between flags) and this is seen in the error <code>ld.lld: error: unable to find library -lsci_amd,-lflangrti,-lflang,-lpgmath</code>. A workaround is to set <code>HIPCC_LINK_FLAGS_APPEND</code> manually and call <code>hipcc</code> directly, but the <code>CC</code> call should be fixed for this combo.</p>
+<p><strong>Answer</strong> [Alfio HPE] I cannot reproduce this problem, could you provide the list of modules? This is what I get:
+<div class="highlight"><pre><span></span><code>&gt; CC --cray-print-opts=libs
+-L/opt/cray/pe/mpich/8.1.23/ofi/amd/5.0/lib -L/opt/cray/pe/mpich/8.1.23/gtl/lib 
+-L/opt/cray/pe/libsci/22.12.1.1/AMD/4.0/x86_64/lib -L/opt/rocm/lib64 -L/opt/rocm/lib -L/opt/rocm/rocprofiler/lib 
+-L/opt/rocm/rocprofiler/tool -L/opt/rocm/roctracer/lib -L/opt/rocm/roctracer/tool -L/opt/rocm/hip/lib 
+-L/opt/cray/xpmem/2.5.2-2.4_3.20__gd0f7936.shasta/lib64 -L/opt/cray/pe/dsmml/0.2.2/dsmml//lib -lamdhip64 
+-Wl,--as-needed,-lsci_amd_mpi,--no-as-needed -Wl,--as-needed,-lsci_amd,--no-as-needed -ldl -Wl,
+--as-needed,-lmpi_amd,--no-as-needed -lmpi_gtl_hsa -Wl,--as-needed,-ldsmml,--no-as-needed -lxpmem
+</code></pre></div></p>
+<p><strong>Reply</strong> After quite a bit of testing, I found that repeated loading of modules <code>LUMI/22.08, PrgEnv-amd, partition/G</code> sometimes ended up loading also the module <code>cray-libsci/22.08.1.1</code> which results in the broken link flags. Switching to <code>cray-libsci/22.12.1.1</code> gives the correct flags again. But indeed, it's not deterministic which combo of modules you get unless you do a force purge first.</p>
+<p><strong>[Kurt]</strong> As we shall also see tomorrow this is the wrong way of using the LUMI modules. You should not use the PrgEnv-* modules with the LUMI modules unlwss you understand what is happening and you should load the partition module immediately after the LUMI module.</p>
+<p>Due to the way Lmod works loading modules that change the defaults such as the cpe modules and the LUMI modules should not be used in a single module statement with modules for which you want the default version without specifying any version. What you see in different behaviour is likely the result of sometimes loading in a single module call and sometimes not. It may be better to switch to using the full CPE 22.12 set though. There are a few broken links in the LibSci installation for AMD in 22.08.</p>
+</li>
+</ol>
 
 
 

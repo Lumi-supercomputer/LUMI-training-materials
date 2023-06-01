@@ -730,10 +730,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -764,34 +760,6 @@
     <li class="md-nav__item">
       <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1049,7 +1032,34 @@
 
 
 <h1 id="exercise-session-3">Exercise session 3<a class="headerlink" href="#exercise-session-3" title="Permanent link">&para;</a></h1>
-<p>No materials available at the moment.</p>
+<p>See <code>/project/project_465000524/slides/HPE/Exercises.pf</code>.
+The files for the exercises are in
+<code>/project/project_465000524/exercises/HPE/day1/libsci_acc</code>.</p>
+<p>Test with LibSci_ACC, check the different interfaces and environment variables.</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Do we still need to modify the job script? I logged in (to get a fresh shell), did <code>source lumi_g.sh</code> and submitted the script. 
+The LibSci_ACC automatic interface runs terminates with:
+    <div class="highlight"><pre><span></span><code>srun: error: nid007242: task 3: Bus error
+srun: launch/slurm: _step_signal: Terminating StepId=3606826.1
+slurmstepd: error: *** STEP 3606826.1 ON nid007242 CANCELLED AT 2023-05-30T15:48:22 ***
+srun: error: nid007242: tasks 0,2: Terminated
+srun: error: nid007242: task 1: Bus error (core dumped)
+</code></pre></div>
+    Similar problem for the third run (Adding avoiding heuristics on input data).</p>
+<p>The run titled "Adding MPI G2G enabled" runs fine again, and with 8s seems faster than what was shown in the presentation.</p>
+<p><strong>Update</strong></p>
+<p>The <code>job.slurm</code> file for this exercise has been updated compared to this morning, after making the following changes
+<div class="highlight"><pre><span></span><code>25,26c25
+&lt; module load cray-libsci_acc/22.08.1.1
+&lt; export LD_LIBRARY_PATH=${CRAY_LD_LIBRARY_PATH}:${LD_LIBRARY_PATH}
+---
+&gt; module load cray-libsci_acc
+</code></pre></div>
+the problem that was mentiond above goes away.</p>
+</li>
+</ol>
 
 
 

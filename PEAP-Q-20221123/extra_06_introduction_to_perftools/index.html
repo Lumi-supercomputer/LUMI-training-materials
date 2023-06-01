@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_models/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/extra_06_introduction_to_perftools/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>Compilers and Parallel Programming Models - LUMI training materials</title>
+        <title>Introduction to Perftools - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Compilers and Parallel Programming Models" />
+  <meta property="og:title" content="LUMI training materials - Introduction to Perftools" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_1_05_Compilers_and_Parallel_Programming_models/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/extra_06_introduction_to_perftools/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Compilers and Parallel Programming Models" />
+  <meta name="twitter:title" content="LUMI training materials - Introduction to Perftools" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#compilers-and-parallel-programming-models" class="md-skip">
+        <a href="#introduction-to-perftools" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Compilers and Parallel Programming Models
+              Introduction to Perftools
             
           </span>
         </div>
@@ -360,7 +360,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Comprehensive LUMI May-June 2023</a>
+          <a href="../../4day-20230530/">Comprehensive LUMI May-June 2023</a>
           
         </div>
       
@@ -730,16 +730,12 @@
         
           
         
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          <a href="../">PEAP-Q November 2022</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -762,36 +758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+      <a href="../schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1048,15 +1038,47 @@
                   
 
 
-<h1 id="compilers-and-parallel-programming-models">Compilers and Parallel Programming Models<a class="headerlink" href="#compilers-and-parallel-programming-models" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
+<h1 id="introduction-to-perftools">Introduction to Perftools<a class="headerlink" href="#introduction-to-perftools" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
-</ul>
+<li>
+<p>Slide file in  <code>/appl/local/training/peap-q-20221123/files/06_introduction_to_perftools.pdf</code></p>
+</li>
+<li>
+<p>Recording in <code>/appl/local/training/peap-q-20221123/recordings/06_introduction_to_perftools.mp4</code></p>
 </li>
 </ul>
-<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Can <code>perftools-lite</code> also be used with the gcc compilers?</p>
+<ul>
+<li>yes, there is support for all the compilers offered on the machine. </li>
+<li>the 'loops' variant only works with CCE as it needs extra information from the compiler.</li>
+</ul>
+</li>
+<li>
+<p>Can <code>perftools</code> also output per-MPI-rank timings or only (as shown in the presentation) averaged over all processes?</p>
+<pre><code>* you can get per rank timings in the text output with appropriate options to pat_reoprt. Conversely, you can have a look at apprentice2 which has a nice way of showing per-rank timings.
+</code></pre>
+<ul>
+<li>there is an option pe=ALL that will show timings per rank/PE</li>
+</ul>
+</li>
+<li>
+<p>The output of the statistics will tell you the name of the subroutine, line number, will it also tell you the name of the file where this is from ?</p>
+<ul>
+<li>with the <code>-O ca+src</code> option to <code>pat_report</code> you can get the source information.</li>
+</ul>
+</li>
+</ol>
+<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
+<p>The exercises for this session are in the <code>perftools/perftools-lite</code> subdirectory.</p>
+<div class="admonition info">
+<p class="admonition-title">Apprentice2 and Reveal downloads</p>
+<p>With <code>perftools-base</code> loaded (and it is loaded by default), you can also find the Apprentice2 downloads in <code>$CRAYPAT_ROOT/share/desktop_installers</code> or 
+<code>$CRAY_PERFTOOLS_PREFIX/share/desktop_installers</code>.
+Copy them to your local machine and install them there.</p>
+</div>
 
 
 

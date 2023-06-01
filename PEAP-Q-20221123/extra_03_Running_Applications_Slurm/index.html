@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Debugging_at_Scale/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/extra_03_Running_Applications_Slurm/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat - LUMI training materials</title>
+        <title>Running Applications - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat" />
+  <meta property="og:title" content="LUMI training materials - Running Applications" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Debugging_at_Scale/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/PEAP-Q-20221123/extra_03_Running_Applications_Slurm/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat" />
+  <meta name="twitter:title" content="LUMI training materials - Running Applications" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat" class="md-skip">
+        <a href="#running-applications" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat
+              Running Applications
             
           </span>
         </div>
@@ -360,7 +360,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Comprehensive LUMI May-June 2023</a>
+          <a href="../../4day-20230530/">Comprehensive LUMI May-June 2023</a>
           
         </div>
       
@@ -730,16 +730,12 @@
         
           
         
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../PEAP-Q-20221123/">PEAP-Q November 2022</a>
+          <a href="../">PEAP-Q November 2022</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -762,36 +758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+      <a href="../schedule/" class="md-nav__link">
         Schedule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/hedgedoc_notes/" class="md-nav__link">
-        HedgeDoc notes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PEAP-Q-20221123/software_stacks/" class="md-nav__link">
-        LUMI Software Stacks
       </a>
     </li>
   
@@ -1035,6 +1003,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1048,15 +1038,55 @@
                   
 
 
-<h1 id="debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<a class="headerlink" href="#debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Thierry Braconnier (HPE)</em></p>
+<h1 id="running-applications">Running Applications<a class="headerlink" href="#running-applications" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
-</ul>
+<li>
+<p>Slide file in  <code>/appl/local/training/peap-q-20221123/files/03_Running_Applications_Slurm.pdf</code></p>
+</li>
+<li>
+<p>Recording in <code>/appl/local/training/peap-q-20221123/recordings/03_Running_Applications_Slurm.mp4</code></p>
 </li>
 </ul>
-<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>I would like to know whether it is possible to run FEM simulation software (e.g., COMSOL Multiphysics) on LUMI?</p>
+<ul>
+<li>As long as it is installed correctly then I see no reason why not. It has been run on other Cray EX systems. The only complication here will be the commerical license.  LUMI does not have its own license, you would have to provide your own. There might be some complications right now, because the compute nodes do not have internet access, which would block access to the license server. We hope that internet access will be enabled on the compute nodes soon.</li>
+</ul>
+</li>
+<li>
+<p>Is it something like MC (Midnight Commander) installed?</p>
+</li>
+<li>No, and midnight commander specifically has some annoying dependencies so it will not come quickly in a way that integrates properly with all the other software on LUMI.</li>
+<li>You can see your files and transfer to and from LUMI using tools like <a href="https://filezilla-project.org/">filezilla</a> and the host <code>sftp://lumi.csc.fi</code></li>
+<li>And for people on a connection with sufficiently low latency Visual Studio Code also works. The client-server connection seems to fail easily though on connections with a higher latency. It is also more for editing remotely in a user friendly way than browsing files or running commands. But we do understand that mc is awesome for some people.</li>
+<li>In the future there will also be an <a href="https://openondemand.org/">Open OnDemand</a> interface to LUMI.</li>
+<li>
+<p>MC is ok but Krusader is better</p>
+</li>
+<li>
+<p>and WinSCP?</p>
+<ul>
+<li>That is client software to run on your PC. It should work. </li>
+<li>In general, until we have Open OnDemand, the support for running GUI software on LUMI is very limited. And after that it will not be brilliant either, as an interface such as GNOME is not ideal to run on multiuser login nodes due to the resources it needs but also due to how it works internally.</li>
+</ul>
+</li>
+<li>
+<p>Would it be alright to test the building of licensed software such as VASP during the course and the EasyBuild system you have in place? (and benchmark with very small test run of course)</p>
+<ul>
+<li>Please don't run benchmarks of your own software on the project account. If you already have another project, use that one instead.</li>
+<li>You can install and run VASP but need to bring your own license file. See also <a href="https://docs.lumi-supercomputer.eu/software/guides/vasp/">here</a> or the future page in the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/v/VASP/">LUMI Software Library</a>.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Exercises are available at <code>/project/project_465000297/exercises/ProgrammingModels/</code>
+Copy the files to your home folder before unpacking them.</p>
+</div>
+<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
+<p>A tar file with exercises is available as <code>/appl/local/training/peap-q-20221123/files/exercises-1day-20221123.tar.gz</code>. </p>
 
 
 
