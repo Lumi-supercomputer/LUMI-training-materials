@@ -343,10 +343,6 @@ DAY 3
             <li>Demo: Visualization of performance data with Apprentice2</kli>
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
-        <!--
-        <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/12_introduction_to_perftools.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/17_Introduction_to_Perftools.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -355,8 +351,7 @@ DAY 3
             <br/><em>08:40 CEST</em>  
         </td>
         <td><b>Exercises (session #7)</b>
-        <!--<br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>-->
-        </td>
+       </td>
     </tr>
     <tr>
         <td>

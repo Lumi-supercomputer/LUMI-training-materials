@@ -48,8 +48,8 @@ downloaded from LUMI.
 | [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [slides](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | / |
 | [Exercises #6](extra_2_07_Exercises_6.md) | / | / |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [slides](extra_3_01_Introduction_to_Perftools.md) | / | 
-<!--
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / |
+<!--
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [slides](extra_3_03_Advanced_Performance_Analysis.md) | / | 
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / |
 | [Understanding Cray MPI on Slingshot](extra_3_05_Cray_MPI_on_Slingshot.md) | [slides](extra_3_05_Cray_MPI_on_Slingshot.md) | / |
