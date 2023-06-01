@@ -439,8 +439,7 @@ DAY 3
             15:30 EEST
             <br/><em>14:30 CEST</em>
         </td>
-        <td><b>Exercises (session #10)</b>
-        <!-- <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em> -->
+        <td><b><a href="../extra_3_08_Exercises_10/">Exercises (session #10)</a></b>
         </td>
     </tr>
     <tr>
@@ -450,10 +449,6 @@ DAY 3
         </td>
         <td><b>Introduction to Rocprof Profiling Tool</b>
         <br/><em>Presenter: Samuel Antao (AMD)</em>
-        <!--
-        <br><em><a href="../files/03_intro_rocprof.pdf">Slides for download</a></em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/16_Introduction_Rocprof.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>

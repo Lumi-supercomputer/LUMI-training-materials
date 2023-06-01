@@ -1,6 +1,9 @@
 # Introduction to Rocprof Profiling Tool
 
-*Presenter: George Markomanolis (AMD)*
+*Presenter: Samuel Antao (AMD)*
+
+-   [Slides on the web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf)
 
 -   Slides available on LUMI as:
-    -   `/project/project_465000524/slides/AMD/TODO`
+    -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf`
+    -   `/project/project_465000524/slides/AMD/session-2-intro_rocprof.pdf` (temporary, for the lifetime of the project)
