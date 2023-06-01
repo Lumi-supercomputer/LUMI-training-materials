@@ -50,10 +50,10 @@ downloaded from LUMI.
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [slides](extra_3_01_Introduction_to_Perftools.md) | / | 
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / |
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [slides](extra_3_03_Advanced_Performance_Analysis.md) | / | 
-<!--
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / |
 | [Understanding Cray MPI on Slingshot](extra_3_05_Cray_MPI_on_Slingshot.md) | [slides](extra_3_05_Cray_MPI_on_Slingshot.md) | / |
 | [Exercises #9](extra_3_06_Exercises_9.md) | / | / |
+<!--
 | [AMD ROCgdb Debugger](extra_3_07_AMD_ROCgdb_Debugger.md) | [slides](extra_3_07_AMD_ROCgdb_Debugger.md) | / |
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / |
 | [Introduction to Rocprof Profiling Tool](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [slides](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | / |

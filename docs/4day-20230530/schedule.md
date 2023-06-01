@@ -337,7 +337,7 @@ DAY 3
             09:00 EEST
             <br/><em>08:00 CEST</em>
         </td>
-        <td><b>Introduction to Perftools</b>
+        <td><b><a href="../extra_3_01_Introduction_to_Perftools/">Introduction to Perftools</a></b>
         <ul>
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
             <li>Demo: Visualization of performance data with Apprentice2</kli>
@@ -350,7 +350,7 @@ DAY 3
             09:40 EEST
             <br/><em>08:40 CEST</em>  
         </td>
-        <td><b>Exercises (session #7)</b>
+        <td><b><a href="../extra_3_02_Exercises_7/">Exercises (session #7)</a></b>
        </td>
     </tr>
     <tr>
@@ -366,7 +366,7 @@ DAY 3
             10:30 EEST
             <br/><em>09:30 CEST</em>
         </td>
-        <td><b>Advanced Performance Analysis</b>
+        <td><b><a href="../extra_3_03_Advanced_Performance_Analysis/">Advanced Performance Analysis</a></b>
         <ul>
             <li>Automatic performance analysis and loop work estimated with perftools</li>
             <li>Communication Imbalance, Hardware Counters, Perftools API, OpenMP</li>
@@ -384,7 +384,7 @@ DAY 3
             11:30 EEST
             <br/><em>10:30 CEST</em>
         </td>
-        <td><b>Exercises (session #8)</b>
+        <td><b><a href="../extra_3_04_Exercises_8/">Exercises (session #8)</a></b>
         <!--<br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>-->
         </td>
     </tr>
@@ -401,17 +401,13 @@ DAY 3
             13:15 EEST
             <br/><em>12:15 CEST</em>
         </td>
-        <td><b>Understanding Cray MPI on Slingshot, rank reordering and MPMD launch</b>
+        <td><b><a href="../extra_3_05_Cray_MPI_on_Slingshot/">Understanding Cray MPI on Slingshot, rank reordering and MPMD launch</a></b>
         <ul>
             <li>High level overview of Cray MPI on Slingshot</li>
             <li>Useful environment variable controls</li>
             <li>Rank reordering and MPMD application launch</li>
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em>
-        <!--
-        <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/08_cray_mpi_MPMD_medium.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/08_MPI_Topics.mp4</code> on LUMI only.</em>
-        -->
     </td>
     </tr>
     <tr>
@@ -419,10 +415,7 @@ DAY 3
             14:15 EEST
             <br/><em>13:15 CEST</em>
         </td>
-        <td><b>Exercises (session #9)</b>
-        <!--
-        <br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>
-        -->
+        <td><b><a href="../extra_3_06_Exercises_9/">Exercises (session #9)</a></b>
         </td>
     </tr>
     <tr>
@@ -439,10 +432,6 @@ DAY 3
         </td>
         <td><b>AMD ROCgdb debugger</b>
         <br/><em>Presenter: George Markomanolis (AMD)</em>
-        <!--
-        <br/><em><a href="../files/02_Rocgdb_Tutorial.pdf">Slides for download</a></em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/15_AMD_Rocgdb_Tutorial.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
