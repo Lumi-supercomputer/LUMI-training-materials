@@ -45,7 +45,7 @@ downloaded from LUMI.
 | [Advanced Application Placement](extra_2_03_Advanced_Application_Placement.md) | [slides](extra_2_03_Advanced_Application_Placement.md) | / |
 | [Exercises #5](extra_2_04_Exercises_5.md) | / | / |
 | [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_05_software_stacks.pdf) | [notes](notes_2_05_LUMI_Software_Stacks.md) | 
-| [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [slides](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | / |
+| [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / |
 | [Exercises #6](extra_2_07_Exercises_6.md) | / | / |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [slides](extra_3_01_Introduction_to_Perftools.md) | / | 
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / |
@@ -53,8 +53,8 @@ downloaded from LUMI.
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / |
 | [Understanding Cray MPI on Slingshot](extra_3_05_Cray_MPI_on_Slingshot.md) | [slides](extra_3_05_Cray_MPI_on_Slingshot.md) | / |
 | [Exercises #9](extra_3_06_Exercises_9.md) | / | / |
+| [AMD ROCgdb Debugger](extra_3_07_AMD_ROCgdb_Debugger.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_07_AMD_ROCgdb_Debugger.pdf) | / |
 <!--
-| [AMD ROCgdb Debugger](extra_3_07_AMD_ROCgdb_Debugger.md) | [slides](extra_3_07_AMD_ROCgdb_Debugger.md) | / |
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / |
 | [Introduction to Rocprof Profiling Tool](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [slides](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | / |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / |

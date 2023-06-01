@@ -430,8 +430,8 @@ DAY 3
             15:00 EEST
             <br/><em>14:00 CEST</em>
         </td>
-        <td><b>AMD ROCgdb debugger</b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD ROCgdb debugger</a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -449,7 +449,7 @@ DAY 3
             <br/><em>15:00 CEST</em>
         </td>
         <td><b>Introduction to Rocprof Profiling Tool</b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         <!--
         <br><em><a href="../files/03_intro_rocprof.pdf">Slides for download</a></em>
         <br><em>Recording: <code>/project/project_465000524/recordings/16_Introduction_Rocprof.mp4</code> on LUMI only.</em>

@@ -2,12 +2,14 @@
 
 *Presenter: Samuel Antao (AMD)*
 
+-   [Slides on the web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
+
 -   Slides available on LUMI as:
+    -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
     -   `/project/project_465000524/slides/AMD/session-1-intro_hip_programming.pdf` (temporary, for the lifetime of the project)
 
+
 ## Q&A
-
-
 
 1.  Are CUDA applications using tensor cores (through cuBLAS or similar libraries) expected to translate well to HIP/ROCm code using matrix cores (AMD’s equivalent to NVIDIA tensor cores)? What is the current status regarding support for matrix cores on HIP/ROCm libraries?
 
