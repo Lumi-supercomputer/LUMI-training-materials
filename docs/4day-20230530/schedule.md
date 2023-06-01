@@ -280,7 +280,7 @@ DAY 2
             15:00 EEST
             <br/><em>14:00 CEST</em>
         </td>
-        <td><b><em>Break (15 minutes)</em></b>
+        <td><b><em>Break (30 minutes)</em></b>
         </td>
     </tr>
     <tr>
@@ -289,7 +289,7 @@ DAY 2
             <br/><em>14:30 CEST</em>
         </td>
         <td><b>Introduction to AMD ROCm<sup>TM</sup> ecosystem</b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         <!--
         <br/><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
         <br/><em>Recording: <code>/project/project_465000524/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
