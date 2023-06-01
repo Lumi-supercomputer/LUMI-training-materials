@@ -22,11 +22,8 @@ DAY 1
             09:00 EEST
             <br/><em>08:00 CEST</em>
         </td>
-        <td><b>Welcome and introduction</b>
+        <td><b><a href="../extra_1_00_Introduction/">Welcome and introduction</a></b>
         <br/><em>Presenters: Emmanuel Ory (LUST), Harvey Richardson (HPE)(</em>
-        <!--
-        <br/><em>Recording: <code>/project/project_465000524/recordings/00_Introduction.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -34,12 +31,8 @@ DAY 1
             09:15 EEST
             <br/><em>08:15 CEST</em>
         </td>
-        <td><b>The HPE Cray EX architecture</b>
+        <td><b><a href="../extra_1_01_HPE_Cray_EX_Architecture/">The HPE Cray EX architecture</a></b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
-        <!--
-        <br/><em>Slide files: <code>/project/project_465000524/slides/HPE/01_EX_Architecture.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/01_Cray_EX_Architecture.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -47,12 +40,8 @@ DAY 1
             10:00 EEST
             <br/><em>09:00 CEST</em>
         </td>
-        <td><b>Programming Environment and Modules</b>
+        <td><b><a href="../extra_1_02_Programming_Environment_and_Modules/">Programming Environment and Modules</a></b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
-        <!--
-        <br/><em>Slide files: <code>/project/project_465000524/slides/HPE/02_PE_and_Modules.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/02_Programming_Environment_and_Modules.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -68,15 +57,11 @@ DAY 1
             10:50 EEST
             <br/><em>09:40 CEST</em>
         </td>
-        <td><b>Running Applications</b>
+        <td><b><a href="../extra_1_03_Running_Applications/">Running Applications</a></b>
         <ul>
             <li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li> 
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em>
-        <!--
-        <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/03_Running_Applications_Slurm.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/03_Running_Applications.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -84,7 +69,7 @@ DAY 1
             11:15 EEST
             <br/><em>10:15 CEST</em>
         </td>
-        <td><b>Exercises (session #1)</b>
+        <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1)</a></b>
         <!--<br/><em> Exercises are in <code>/project/project_465000524/exercises/HPE</code> on LUMI only.-->
         </td>
     </tr>
@@ -101,17 +86,13 @@ DAY 1
             13:30 EEST
             <br/><em>12:30 CEST</em>
         </td>
-        <td><b>Compilers and Parallel Programming Models</b>
+        <td><b><a href="../extra_1_05_Compilers_and_Parallel_Programming_Models/">Compilers and Parallel Programming Models</a></b>
         <ul>
             <li>An introduction to the compiler suites available, including examples of how to get additional information about the compilation process.</li>
             <li>Cray Compilation Environment (CCE) and options relevant to porting and performance. CCE classic to Clang transition.</li>
             <li>Description of the Parallel Programming models.</li>
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
-        <!--
-        <br/><em>Slide files: <code>/project/project_465000524/slides/HPE/04_Compilers_and_Programming_Models.pdf</code> on LUMI only.</em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/04_Compilers_and_Programming_Models.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -119,7 +100,7 @@ DAY 1
             14:40 EEST
             <br/><em>13:40 CEST</em>
         </td>
-        <td><b>Exercises (session #2)</b>
+        <td><b><a href="../extra_1_06_Exercises_2/">Exercises (session #2)</a></b>
         </td>
     </tr>
     <tr>
@@ -129,10 +110,6 @@ DAY 1
         </td>
         <td><b><em>Break (15 minutes)</em></b>
         <!--
-        <ul>
-            <li>Exercises on programming models: Try swapping compilers and some GPU programs.</li>
-        </ul>
-        -->
         </td>
     </tr>
     <tr>
@@ -140,15 +117,11 @@ DAY 1
             15:15 EEST
             <br/><em>14:15 CEST</em>
         </td>
-        <td><b>Cray Scientific Libraries</b>
+        <td><b><a href="../extra_1_07_Cray_Scientific_Libraries/">Cray Scientific Libraries</a></b>
         <ul>
             <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
-        <!--
-        <br/><em>Slide files: <code>/project/project_465000524/slides/HPE/05_Libraries.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/05_Libraries.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -156,7 +129,7 @@ DAY 1
             15:45 EEST
             <br/><em>14:45 CEST</em>
         </td>
-        <td><b>Exercises (session #3)</b>
+        <td><b><a href="../extra_1_08_Exercises_3/">Exercises (session #3)</a></b>
         </td>
     </tr>
     <tr>
@@ -164,15 +137,11 @@ DAY 1
             16:10 EEST
             <br/><em>15:10 CEST</em>
         </td>
-        <td><b>OpenACC and OpenMP offload with Cray Compilation Environment</b>
+        <td><b><a href="../extra_1_09_Offload_CCE/">OpenACC and OpenMP offload with Cray Compilation Environment</a></b>
         <ul>
             <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
-        <!--
-        <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/06_Directives_Programming.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/06_Directives_programming.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -205,7 +174,7 @@ DAY 2
             09:00 EEST
             <br/><em>08:00 CEST</em>
         </td>
-        <td><b>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</b>
+        <td><b><a href="../extra_2_01_Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
         <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
@@ -214,7 +183,7 @@ DAY 2
             09:45 EEST
             <br/><em>08:45 CEST</em>
         </td>
-        <td><b>Exercises (session #4)</b>
+        <td><b><a href="../extra_2_02_Exercises_4/">Exercises (session #4)</a></b>
         </td>
     </tr>
     <tr>
@@ -229,7 +198,7 @@ DAY 2
             10:30 EEST
             <br/><em>09:30 CEST</em>
         </td>
-        <td><b>Advanced Application Placement</b>
+        <td><b><a href="../extra_2_03_Advanced_Application_Placement/">Advanced Application Placement</a></b>
         <ul>
             <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
         </ul>
@@ -245,7 +214,7 @@ DAY 2
             11:30 EEST
             <br/><em>10:30 CEST</em>
         </td>
-        <td><b>Exercises (session #5)</b></td>
+        <td><b><a href="../extra_2_04_Exercises_5/">Exercises (session #5)</a></b></td>
     </tr>
    <tr>
         <td>
@@ -260,7 +229,7 @@ DAY 2
             13:30 EEST
             <br/><em>12:30 CEST</em>
         </td>
-        <td><b>Additional software on LUMI</b>
+        <td><b><a href="../extra_2_05_LUMI_Software_Stacks/">LUMI Software Stacks</a></b>
         <ul>
             <li>Software policy.</li>
             <li>Software environment on LUMI.</li>
@@ -268,11 +237,6 @@ DAY 2
             <li>Containers for Python, R, VNC (container wrappers)</li>
         </ul>
         <em>Presenter: Kurt Lust (LUST)</em>
-        <!--
-        <br><em>Slide file: <code>/project/project_465000524/slides/LUST/LUMI-Software-20230215.pdf</code> on LUMI only.</em>
-        <br><em><a href="../software_stacks">Notes available</a></em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/09_LUMI_Software_Stack.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -288,12 +252,8 @@ DAY 2
             15:30 EEST
             <br/><em>14:30 CEST</em>
         </td>
-        <td><b>Introduction to AMD ROCm<sup>TM</sup> ecosystem</b>
+        <td><b><a href="../extra_2_06_Introduction_to_AMD_ROCm_Ecosystem/">Introduction to AMD ROCm<sup>TM</sup> ecosystem</a></b>
         <br/><em>Presenter: Samuel Antao (AMD)</em>
-        <!--
-        <br/><em><a href="../files/01_introduction_amd_rocm.pdf">Slides for download</a></em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/14_Introduction_AMD_ROCm.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -301,10 +261,7 @@ DAY 2
             16:30 EEST
             <br/><em>15:30 CEST</em>
         </td>
-        <td><b>Exercises (session #6)</b>
-        <!--
-        <br/><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em>
-        -->
+        <td><b><a href="../extra_2_07_Exercises_6/">Exercises (session #6)</a></b>
         </td>
     </tr>
    <tr>
