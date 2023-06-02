@@ -518,7 +518,7 @@ DAY 4
             <br/><em>12:15 CEST</em>
         </td>
         <td><b><a href="../extra_4_06_AMD_Ominitrace/">Introduction to OmniTrace</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
       </td>
         </td>
     </tr>
@@ -535,19 +535,16 @@ DAY 4
             14:00 EEST
             <br/><em>13:00 CEST</em> 
         </td>
-        <td><b>Introduction do AMD Omniperf</b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
-        <!--
-        <br/><em>Recording: <code>/project/project_465000524/recordings/20_Introduction_to_Omniperf.mp4</code> on LUMI only.</em>
-        -->
+        <td><b><a href="../extra_4_08_AMD_Ominiperf/">Introduction do AMD Omniperf</a></b>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            14:25 EEST
-            <br/><em>13:25 CEST</em> 
+            14:30 EEST
+            <br/><em>13:30 CEST</em> 
         </td>
-        <td><b>Exercises (session #15)</b>
+        <td><b><a href="../extra_4_09_Exercises_15/">Exercises (session #15)</a></b>
         </td>
     </tr>
     <tr>
