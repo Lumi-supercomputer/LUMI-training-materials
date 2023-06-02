@@ -9,6 +9,24 @@
     -   `/project/project_465000524/slides/AMD/session-1-intro_hip_programming.pdf` (temporary, for the lifetime of the project)
 
 
+!!! Note
+    ROCm 5.5 for the brave:
+
+    ```
+    module purge
+    module load CrayEnv
+    module load PrgEnv-cray/8.3.3
+    module load craype-accel-amd-gfx90a
+    module load gcc/11.2.0 
+
+    module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+    module load suse-repo-deps
+    module load rocm/5.5.0.lua
+    ```
+
+    (Not provided by LUST and as it says, for the brave, problems can be expected...)
+
+
 ## Q&A
 
 1.  Are CUDA applications using tensor cores (through cuBLAS or similar libraries) expected to translate well to HIP/ROCm code using matrix cores (AMD’s equivalent to NVIDIA tensor cores)? What is the current status regarding support for matrix cores on HIP/ROCm libraries?

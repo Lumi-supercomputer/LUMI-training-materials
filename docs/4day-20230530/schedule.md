@@ -517,22 +517,17 @@ DAY 4
             13:15 EEST
             <br/><em>12:15 CEST</em>
         </td>
-        <td><b>Introduction to OmniTrace</b>
+        <td><b><a href="../extra_4_06_AMD_Ominitrace/">Introduction to OmniTrace</a></b>
         <br/><em>Presenter: George Markomanolis (AMD)</em>
-        <!--
-        <br/><em><a href="../files/04_intro_omnitools_new.pdf">Slides for download</a></em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/19_Introduction_to_OmniTools.mp4</code> on LUMI only.</em>
-       -->
-       </td>
+      </td>
         </td>
     </tr>
     <tr>
         <td>
-            13:40 EEST
-            <br/><em>12:40 CEST</em>
+            13:45 EEST
+            <br/><em>12:45 CEST</em>
         </td>
-        <td><b>Exercises (session #14)</b>
-        <!-- <br><em><a href="https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA">Notes and exercises AMD</a></em> -->
+        <td><b><a href="../extra_4_07_Exercises_14/">Exercises (session #14)</a></b>
         </td>
     </tr>
     <tr>

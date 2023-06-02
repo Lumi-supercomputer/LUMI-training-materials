@@ -62,13 +62,13 @@ downloaded from LUMI.
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / |
 | [I/O Optimization - Parallel I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [slides](extra_4_04_IO_Optimization_Parallel_IO.md) | / | 
 | [Exercises #13](extra_4_05_Exercises_13.md) | / | / |
-<!--
-| [AMD Omnitrace](extra_4_06_AMD_Ominitrace.md) | [slides](extra_4_06_AMD_Ominitrace.md) | / | 
+| [AMD Omnitrace](extra_4_06_AMD_Ominitrace.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) | / | 
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / |
+<!--
 | [AMD Omniperf](extra_4_08_AMD_Ominiperf.md) | [slides](extra_4_08_AMD_Ominiperf.md) | / | 
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / |
 | [Best practices: GPU Optimization, tips & tricks / demo](extra_4_10_Best_Practices_GPU_Optimization.md) | [slides](extra_4_10_Best_Practices_GPU_Optimization.md) | / | 
-| [LUMI support and LUMI documentation](extra_4_11_LUMI_Support_and_Documentation.md) | [slides](extra_4_11_LUMI_Support_and_Documentation.md) | / | 
+| [LUMI support and LUMI documentation](extra_4_11_LUMI_Support_and_Documentation.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_11_LUMI_Support_and_Documentation.pdf) | / | 
 
 -->
 
