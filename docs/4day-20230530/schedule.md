@@ -446,6 +446,22 @@ DAY 4
             09:00 EEST
             <br/><em>08:00 CEST</em>
         </td>
+        <td><b>Performance Optimization: Improving Single-core Efficiency</b>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:45 EEST
+            <br/><em>08:45 CEST</em>
+        </td>
+        <td><b>Exercises (session #12)</b></td>
+    </tr>
+     <tr>
+        <td>
+            10:00 EEST
+            <br/><em>09:00 CEST</em>
+        </td>
         <td><b>Introduction to Python on Cray EX</b>
         <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         <!--
@@ -456,8 +472,16 @@ DAY 4
     </tr>
     <tr>
         <td>
-            09:15 EEST
-            <br/><em>08:15 CEST</em>
+            10:15 EEST
+            <br/><em>09:15 CEST</em>
+        </td>
+        <td><b><em>Break</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:30 EEST
+            <br/><em>09:30 CEST</em>
         </td>
         <td><b>I/O Optimization - Parallel I/O</b>
         <ul>
@@ -476,38 +500,10 @@ DAY 4
         -->
         </td>
     </tr>
-    <tr>
+   <tr>
         <td>
-            10:15 EEST
-            <br/><em>09:15 CEST</em>
-        </td>
-        <td><b>Exercises (session #12)</b></td>
-    </tr>
-    <tr>
-        <td>
-            10:45 EEST
-            <br/><em>09:45 CEST</em>
-        </td>
-        <td><b><em>Break</em></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            11:00 EEST
-            <br/><em>10:00 CEST</em>
-        </td>
-        <td><b>Performance Optimization: Improving Single-core Efficiency</b>
-        <br/><em>Presenter: Jean Pourroy (HPE)</em>
-        <!--
-        <br><em>Slide file: <code>/project/project_465000524/slides/HPE/09_cpu_performance_optimization.pdf</code> on LUMI only.</em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/11_CPU_Performance_Optimization.mp4</code> on LUMI only.</em>
-        -->
-        </td>
-    </tr>
-    <tr>
-        <td>
-            11:45 EEST
-            <br/><em>10:45 CEST</em>
+            11:30 EEST
+            <br/><em>10:30 CEST</em>
         </td>
         <td><b>Exercises (session #13)</b>
         </td>
