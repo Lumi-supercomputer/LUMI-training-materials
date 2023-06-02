@@ -6,12 +6,12 @@
 
     [Public transportation in Tallinn](https://visittallinn.ee/eng/visitor/plan/transport/public-transport)
 
--   [Schedule (PDF)](https://462000265.lumidata.eu/4day-20230530/files/2023-05_General-LUMI-Training-Agenda.pdf)
+-   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20230530/files/2023-05_General-LUMI-Training-Agenda.pdf)
 
     [Dynamic schedule (adapted as the course progresses)](schedule.md)
 
-     *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
-     if that file is only available on LUMI.*
+     *The dynamic schedule also contains links to pages with information about the course materials, but 
+     those links are also available below on this page.*
 
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
 
@@ -64,9 +64,9 @@ downloaded from LUMI.
 | [Exercises #13](extra_4_05_Exercises_13.md) | / | / |
 | [AMD Omnitrace](extra_4_06_AMD_Ominitrace.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) | / | 
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / |
-| [AMD Omniperf](extra_4_08_AMD_Ominiperf.md) | [slides]((https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) (from p. 62) | / | 
+| [AMD Omniperf](extra_4_08_AMD_Ominiperf.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) (from p. 62) | / | 
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / |
-| [Best practices: GPU Optimization, tips & tricks / demo](extra_4_10_Best_Practices_GPU_Optimization.md) | [slides](extra_4_10_Best_Practices_GPU_Optimization.md) | / | 
+| [Best practices: GPU Optimization, tips & tricks / demo](extra_4_10_Best_Practices_GPU_Optimization.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_10_Best_Practices_GPU_Optimization.pdf) | / | 
 | [LUMI support and LUMI documentation](extra_4_11_LUMI_Support_and_Documentation.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_11_LUMI_Support_and_Documentation.pdf) | / | 
 
 
