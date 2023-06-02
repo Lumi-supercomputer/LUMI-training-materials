@@ -560,12 +560,8 @@ DAY 4
             15:00 EEST
             <br/><em>14:00 CEST</em> 
         </td>
-        <td><b>Best practices: GPU Optimization, tips & tricks / demo</b>
+        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
-        <!--
-        <br/><em>Some examples from the presentation: <code>/pfs/lustrep1/projappl/project_465000524/slides/AMD/pytorch-based-examples</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/21_Tools_in_Action_Pytorch_Demo.mp4</code> on LUMI only.</em>
-        -->
         </td>
     </tr>
     <tr>
@@ -573,15 +569,12 @@ DAY 4
             16:30 EEST
             <br/><em>15:30 CEST</em> 
         </td>
-        <td><b>LUMI support and LUMI documentation</b>
+        <td><b><a href="../extra_4_11_LUMI_Support_and_Documentation/">LUMI support and LUMI documentation</a></b>
         <ul>
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
-        <em>Presenters: Anne Vomm and Mihkel Tiks (LUST)</em>
-        <!--
-        <br><em>Recording: <code>/project/project_465000524/recordings/10_LUMI_User_Support.mp4</code> on LUMI only.</em>
-        -->
+        <em>Presenter: Anne Vomm (LUST)</em>
     </td>
     </tr>
      <tr>

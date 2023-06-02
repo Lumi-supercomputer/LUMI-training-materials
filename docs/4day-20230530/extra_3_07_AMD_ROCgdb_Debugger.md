@@ -1,6 +1,7 @@
 # AMD ROCgdb debugger
 
-*Presenter: Samuel Antao (AMD)*
+<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
+*Presenter:* Samuel Antão (AMD)
 
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_07_AMD_ROCgdb_Debugger.pdf)
 

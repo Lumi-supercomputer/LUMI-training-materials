@@ -1,6 +1,6 @@
 # LUMI support and LUMI documentation
 
-*Presenters: Anne Vomm and Mihkel Tiks*
+*Presenter: Anne Vomm*
 
 -   [Slides (PDF)](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_11_LUMI_Support_and_Documentation.pdf)
 

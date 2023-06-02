@@ -1,6 +1,7 @@
 # AMD Omniperf
 
-*Presenter: Samuel Antao (AMD)*
+<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
+*Presenter:* Samuel Antão (AMD)
 
 Slides in the same stack as the OmniTrace ones, starting from slide 62:
 
