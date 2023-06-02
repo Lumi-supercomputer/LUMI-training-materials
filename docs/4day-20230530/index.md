@@ -57,12 +57,12 @@ downloaded from LUMI.
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / |
 | [Introduction to Rocprof Profiling Tool](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / |
-<!--
-| [Introduction to Python on Cray EX](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [slides]() | / |
-| [I/O Optimization - Parallel I/O](extra_4_02_IO_Optimization_Parallel_IO.md) | [slides](extra_4_02_IO_Optimization_Parallel_IO.md) | / | 
+| [Performance Optimization: Improving single-core](extra_4_01_Performance_Optimization_Improving_Single_Core.md) | [slides](extra_4_01_Performance_Optimization_Improving_Single_Core.md) | / | 
+| [Introduction to Python on Cray EX](extra_4_02_Introduction_to_Python_on_Cray_EX.md) | [slides](extra_4_02_Introduction_to_Python_on_Cray_EX.md) | / |
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / |
-| [Performance Optimization: Improving single-core](extra_4_04_Performance_Optimization_Improving_Single_Core.md) | [slides](extra_4_04_Performance_Optimization_Improving_Single_Core.md) | / | 
+| [I/O Optimization - Parallel I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [slides](extra_4_04_IO_Optimization_Parallel_IO.md) | / | 
 | [Exercises #13](extra_4_05_Exercises_13.md) | / | / |
+<!--
 | [AMD Omnitrace](extra_4_06_AMD_Ominitrace.md) | [slides](extra_4_06_AMD_Ominitrace.md) | / | 
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / |
 | [AMD Omniperf](extra_4_08_AMD_Ominiperf.md) | [slides](extra_4_08_AMD_Ominiperf.md) | / | 
