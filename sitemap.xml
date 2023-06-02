@@ -306,12 +306,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_01_Introduction_to_Python_on_Cray_EX/</loc>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_01_Performance_Optimization_Improving_Single_Core/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_IO_Optimization_Parallel_IO/</loc>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_Introduction_to_Python_on_Cray_EX/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -321,7 +321,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_04_Performance_Optimization_Improving_Single_Core/</loc>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_04_IO_Optimization_Parallel_IO/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
