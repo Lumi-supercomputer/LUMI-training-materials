@@ -109,7 +109,6 @@ DAY 1
             <br/><em>14:00 CEST</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b>
-        <!--
         </td>
     </tr>
     <tr>
