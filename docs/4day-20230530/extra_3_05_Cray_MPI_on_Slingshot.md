@@ -1,4 +1,4 @@
-# Understanding Cray MPI on Slingshot, rank reordering and MPMD launch
+# MPI Topics on the HPE Cray EX Supercomputer
 
 *Presenter: Harvey Richardson (HPE)*
 

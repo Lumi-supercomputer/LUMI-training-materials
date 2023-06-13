@@ -1,4 +1,4 @@
-# OpenACC and OpenMP Offload with the Cray Compilation Environment
+# CCE Offloading Models
 
 *Presenter: Alfio Lazzaro (HPE)*
 

@@ -1,4 +1,4 @@
-# Best practices: GPU Optimization, tips & tricks / demo
+# Tools in Action - An Example with Pytorch
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antão (AMD)

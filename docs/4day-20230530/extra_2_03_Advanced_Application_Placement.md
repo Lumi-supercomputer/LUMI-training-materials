@@ -1,4 +1,4 @@
-# Advanced Application Placement
+# Advanced Placement
 
 *Presenter: Jean Pourroy (HPE)*
 

@@ -1,4 +1,4 @@
-# The HPE Cray EX Architecture
+# HPE Cray EX Architecture
 
 *Presenter: Harvey Richardson (HPE)*
 

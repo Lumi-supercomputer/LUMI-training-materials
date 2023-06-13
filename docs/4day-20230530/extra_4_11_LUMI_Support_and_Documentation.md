@@ -1,4 +1,4 @@
-# LUMI support and LUMI documentation
+# LUMI User Support
 
 *Presenter: Anne Vomm*
 

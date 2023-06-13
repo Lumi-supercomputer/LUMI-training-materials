@@ -1,4 +1,4 @@
-# Introduction to the AMD ROCm<sup>TM</sup> Ecosystem
+# Introduction to HIP Programming
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antão (AMD)

@@ -1,4 +1,4 @@
-# Introduction to Rocprof Profiling Tool
+# Introduction to ROC-Profiler (rocprof)
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antão (AMD)
