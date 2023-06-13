@@ -5,6 +5,9 @@
 
 Slides in the same stack as the OmniTrace ones, starting from slide 62:
 
+<video src="https://462000265.lumidata.eu/4day-20230530/recordings/4_08_AMD_Ominiperf.mp4" controls="controls">
+</video>
+
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf)
 
 -   Slides available on LUMI as:

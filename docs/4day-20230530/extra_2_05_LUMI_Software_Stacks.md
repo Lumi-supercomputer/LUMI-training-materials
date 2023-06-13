@@ -2,6 +2,9 @@
 
 *Presenter: Kurt Lust (LUST)*
 
+<video src="https://462000265.lumidata.eu/4day-20230530/recordings/2_05_LUMI_Software_Stacks.mp4" controls="controls">
+</video>
+
 -   [Notes](notes_2_05_LUMI_Software_Stacks.md)
 -   [Slides (PDF)](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_05_software_stacks.pdf)
 

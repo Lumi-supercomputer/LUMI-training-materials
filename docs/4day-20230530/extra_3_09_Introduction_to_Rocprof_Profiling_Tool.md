@@ -3,6 +3,9 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antão (AMD)
 
+<video src="https://462000265.lumidata.eu/4day-20230530/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4" controls="controls">
+</video>
+
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf)
 
 -   Slides available on LUMI as:
