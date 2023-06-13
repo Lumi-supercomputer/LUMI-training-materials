@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_IO_Optimization_Parallel_IO/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_04_IO_Optimization_Parallel_IO/">
       
       
       
@@ -91,7 +91,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUMI training materials - I/O Optimization - Parallel I/O" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_IO_Optimization_Parallel_IO/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_04_IO_Optimization_Parallel_IO/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1020,11 +1035,40 @@
 <p><em>Presenter: Harvey Richardson (HPE)</em></p>
 <ul>
 <li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-4_04_IO_Optimization_Parallel_IO.pdf</code></li>
+<li><code>/project/project_465000524/slides/HPE/14_Python_Frameworks.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
+<li>Recording available on LUMI as:
+    <code>/appl/local/training/4day-20230530/recordings/4_04_IO_Optimization_Parallel_IO.mp4</code></li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Could you please elaborate on using HDF5. What are pros and cons compared to using raw FS? Can it improve performance on LUMI?</p>
+<ul>
+<li>Passed to the speaker in the talk, will be in the recording.</li>
+</ul>
+</li>
+<li>
+<p>I have a dataset of 5 million files ranging from several KB to tens of GB, 50 TB in total. I am looking into optimilly merging files. What is a reasonable number of files and reasonable file sizes to aim at? Would it be ok if those files will range from several KB to several TB, or shall I try to balance them by size?</p>
+<ul>
+<li>Passed to the speaker in the talk, will be in the recording.</li>
+</ul>
+</li>
+<li>
+<p>I see that my previous question was too specific. But could you please give some general advice what is a reasonable range of file sizes on LUSTRE? And may it cause problems to work with files of several TB and of several KB at the same time in parallel (and independent) processes?</p>
+<p><strong>Answer:</strong> The previous question was not too specific but not specific enough as the right answer depends on a lot of factors. Whether working with files of multiple TBs and files of multiple Kb's simultaneously is problematic or not also depends on how you use them and how many small files there are. I'd say that in general it may be better to organise them in a directory structure where small and big files are in different directories so that you can set optimal striping parameters for both. But then again this matters less if you use the Lustre API or the MPI I/O hints discussed in the talk when creating the large files. Then you could set the directory striping parameters to something that corresponds with the small files (there was a slide giving some hints depending on the number of files) and use the API to set a proper striping for the large files. Getting good performance from large files requires a different way of working with the files then getting good performance from small files. E.g., when I read sub-megabyte files I read them in a single operation (which may not be that important anymore with better buffering in the OS) and then process the files in-memory (for text files in C this would mean using sscanf instead of fscanf, etc.)</p>
+<p>The correct answer really depends on more details.</p>
+</li>
+<li>
+<p>There are modules called <code>cray-hdf5-parallel</code> on LUMI. Does that imply the <code>cray-hdf5</code> modules do not support parallel I/O?</p>
+<ul>
+<li>for HPD5 to get the parallel support you need the parallel version</li>
+</ul>
+</li>
+</ol>
 
 
 

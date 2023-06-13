@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1017,7 +1032,56 @@
 
 
 <h1 id="exercise-session-7">Exercise session 7<a class="headerlink" href="#exercise-session-7" title="Permanent link">&para;</a></h1>
-<p>No materials available at the moment.</p>
+<ul>
+<li>
+<p>See <code>/project/project_465000524/slides/HPE/Exercises.pdf</code> for the exercises.</p>
+</li>
+<li>
+<p>Files are in 
+    <code>/project/project_465000524/exercises/HPE/day3</code></p>
+</li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>I tried perfools-lite on another example and got the following message from pat-report:</p>
+<div class="highlight"><pre><span></span><code>Observation:  MPI Grid Detection
+
+    There appears to be point-to-point MPI communication in a 4 X 128
+    grid pattern. The 24.6% of the total execution time spent in MPI
+    functions might be reduced with a rank order that maximizes
+    communication between ranks on the same node. The effect of several
+    rank orders is estimated below.
+
+    No custom rank order was found that is better than the RoundRobin
+    order.
+
+    Rank Order    On-Node    On-Node  MPICH_RANK_REORDER_METHOD
+                 Bytes/PE  Bytes/PE%
+                            of Total
+                            Bytes/PE
+
+    RoundRobin  1.517e+11    100.00%  0
+          Fold  1.517e+11    100.00%  2
+           SMP  0.000e+00      0.00%  1
+</code></pre></div>
+<p>Normally for this code, SMP rank ordering should make sure that collective communication is all intra-node and inter-node communication is limited to point-to-point MPI calls. So I don't really get why the recommendation is to switch to RoundRobin (if I understand this remark correctly)? Is this recommendation only based on analysing point-to-point communication?</p>
+<p><strong>Answer</strong>: Yes, you understood the remark correctly. This warning means that Cray PAT detected a suboptimal communication topology and according to the tool estimate, a round-robin rank ordering should maximize intra-node communications. There is a session about that at the beginning of the afternoon.</p>
+<p><strong>Reply</strong>: I would be very surprised if round-robin rank ordering would be beneficial in this case. I tried to run a job with it, but this failed with:</p>
+<p><div class="highlight"><pre><span></span><code>srun: error: task 256 launch failed: Error configuring interconnect
+</code></pre></div>
+and similar lines for each task.
+The job script looks as follows:</p>
+<div class="highlight"><pre><span></span><code>module load LUMI/22.12 partition/C
+module load cpeCray/22.12
+module load cray-hdf5-parallel/1.12.2.1
+module load cray-fftw/3.3.10.3
+
+export MPICH_RANK_REORDER_METHOD=0
+srun ${executable}
+</code></pre></div>
+</li>
+</ol>
 
 
 

@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_01_Introduction_to_Python_on_Cray_EX/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_Introduction_to_Python_on_Cray_EX/">
       
       
       
@@ -91,7 +91,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUMI training materials - Introduction to Python on Cray EX" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_01_Introduction_to_Python_on_Cray_EX/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_4_02_Introduction_to_Python_on_Cray_EX/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1020,11 +1035,26 @@
 <p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
 <ul>
 <li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/HPE/TODO</code></li>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-4_02_Introduction_to_Python_on_Cray_EX.pdf</code></li>
+<li><code>/project/project_465000524/slides/HPE/13_Python_Frameworks.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
+<li>Recording available on LUMI as:
+    <code>/appl/local/training/4day-20230530/recordings/4_02_Introduction_to_Python_on_Cray_EX.mp4</code></li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Are Pytorch and Tensorflow installed on LUMI, or users shall install those themselves? I couldn't find any related modules with "module spider pytorch" or "module keyword pytorch". </p>
+<ul>
+<li>https://docs.lumi-supercomputer.eu/software/packages/pytorch/</li>
+<li>Most users want PyTorch with additional packages anyway so need a customised installation.</li>
+<li>(Christian) I would highly recommend to use a <a href="https://docs.lumi-supercomputer.eu/software/containers/singularity/">Singularity/Apptainer container</a>. Take a look at the <a href="https://hub.docker.com/u/rocm">ROCm dockerhub containers</a> to see if they fit your needs. If you need a more customized container and are used to conda/pip environments, have a look at <a href="https://https://cotainr.readthedocs.io/en/latest/user_guide/conda_env.html">cotainr</a> which makes it very easy to build a container based on your conda/pip environment (just remember that you have make your conda/pip environment compatible with LUMI, e.g. installing a ROCm-enabled PyTorch wheel). On LUMI cotainr is available via <code>module load LUMI</code>, <code>module load cotainr</code>.</li>
+<li>(Christian) You may also use the container based modules from the <a href="https://docs.lumi-supercomputer.eu/software/local/csc/">local CSC software stack</a>. Just be aware that these are primarily intended for the CSC users. Support for this local software stack is provided by CSC - the LUMI User Support Team can only provide very limited support.</li>
+</ul>
+</li>
+</ol>
 
 
 

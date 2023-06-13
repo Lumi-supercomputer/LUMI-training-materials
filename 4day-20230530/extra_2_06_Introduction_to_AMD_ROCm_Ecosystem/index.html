@@ -19,7 +19,7 @@
     
     
       
-        <title>Introduction to the AMD ROCmTM Ecosystem - LUMI training materials</title>
+        <title>Introduction to HIP Programming - LUMI training materials</title>
       
     
     
@@ -89,7 +89,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Introduction to the AMD ROCmTM Ecosystem" />
+  <meta property="og:title" content="LUMI training materials - Introduction to HIP Programming" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_06_Introduction_to_AMD_ROCm_Ecosystem/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Introduction to the AMD ROCmTM Ecosystem" />
+  <meta name="twitter:title" content="LUMI training materials - Introduction to HIP Programming" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-the-amd-rocmtm-ecosystem" class="md-skip">
+        <a href="#introduction-to-hip-programming" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to the AMD ROCm<sup>TM</sup> Ecosystem
+              Introduction to HIP Programming
             
           </span>
         </div>
@@ -1031,14 +1031,39 @@
                   
 
 
-<h1 id="introduction-to-the-amd-rocmtm-ecosystem">Introduction to the AMD ROCm<sup>TM</sup> Ecosystem<a class="headerlink" href="#introduction-to-the-amd-rocmtm-ecosystem" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Samuel Antao (AMD)</em></p>
+<h1 id="introduction-to-hip-programming">Introduction to HIP Programming<a class="headerlink" href="#introduction-to-hip-programming" title="Permanent link">&para;</a></h1>
+<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
+<p><em>Presenter:</em> Samuel Antão (AMD)</p>
+<video src="https://462000265.lumidata.eu/4day-20230530/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
+</video>
+
 <ul>
-<li>Slides available on LUMI as:<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf">Slides on the web</a></p>
+</li>
+<li>
+<p>Slides available on LUMI as:</p>
+<ul>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf</code></li>
 <li><code>/project/project_465000524/slides/AMD/session-1-intro_hip_programming.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ROCm 5.5 for the brave:</p>
+<div class="highlight"><pre><span></span><code>module purge
+module load CrayEnv
+module load PrgEnv-cray/8.3.3
+module load craype-accel-amd-gfx90a
+module load gcc/11.2.0 
+
+module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+module load suse-repo-deps
+module load rocm/5.5.0.lua
+</code></pre></div>
+<p>(Not provided by LUST and as it says, for the brave, problems can be expected...)</p>
+</div>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>

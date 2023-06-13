@@ -19,7 +19,7 @@
     
     
       
-        <title>Introduction to Rocprof Profiling Tool - LUMI training materials</title>
+        <title>Introduction to ROC-Profiler (rocprof) - LUMI training materials</title>
       
     
     
@@ -89,7 +89,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Introduction to Rocprof Profiling Tool" />
+  <meta property="og:title" content="LUMI training materials - Introduction to ROC-Profiler (rocprof)" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_3_09_Introduction_to_Rocprof_Profiling_Tool/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Introduction to Rocprof Profiling Tool" />
+  <meta name="twitter:title" content="LUMI training materials - Introduction to ROC-Profiler (rocprof)" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-rocprof-profiling-tool" class="md-skip">
+        <a href="#introduction-to-roc-profiler-rocprof" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to Rocprof Profiling Tool
+              Introduction to ROC-Profiler (rocprof)
             
           </span>
         </div>
@@ -1003,6 +1003,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1016,14 +1031,31 @@
                   
 
 
-<h1 id="introduction-to-rocprof-profiling-tool">Introduction to Rocprof Profiling Tool<a class="headerlink" href="#introduction-to-rocprof-profiling-tool" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: George Markomanolis (AMD)</em></p>
+<h1 id="introduction-to-roc-profiler-rocprof">Introduction to ROC-Profiler (rocprof)<a class="headerlink" href="#introduction-to-roc-profiler-rocprof" title="Permanent link">&para;</a></h1>
+<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
+<p><em>Presenter:</em> Samuel Antão (AMD)</p>
+<video src="https://462000265.lumidata.eu/4day-20230530/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4" controls="controls">
+</video>
+
 <ul>
-<li>Slides available on LUMI as:<ul>
-<li><code>/project/project_465000524/slides/AMD/TODO</code></li>
+<li>
+<p><a href="https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf">Slides on the web</a></p>
+</li>
+<li>
+<p>Slides available on LUMI as:</p>
+<ul>
+<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf</code></li>
+<li><code>/project/project_465000524/slides/AMD/session-2-intro_rocprof.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="https://perfetto.dev/">Perfetto</a>, the "program" used to visualise the output of omnitrace, is not a regular application but 
+<a href="https://ui.perfetto.dev/">a browser application</a>. Some browsers nowadays offer the option to install it on your
+system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).</p>
+</div>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 
 
 
