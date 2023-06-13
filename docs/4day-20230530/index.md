@@ -28,46 +28,46 @@ Course materials include the Q&A of each session, slides when available and note
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
 
-| Presentation | slides | notes |
-|:-------------|:-------|:------|
-| [Introduction](extra_1_00_Introduction.md) | / | / |
-| [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [slides](extra_1_01_HPE_Cray_EX_Architecture.md) | / |
-| [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [slides](extra_1_02_Programming_Environment_and_Modules.md) | / |
-| [Running Applications](extra_1_03_Running_Applications.md) | [slides](extra_1_03_Running_Applications.md) | / |
-| [Exercises #1](extra_1_04_Exercises_1.md) | / | / |
-| [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [slides](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / |
-| [Exercises #2](extra_1_06_Exercises_2.md) | / | / |
-| [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [slides](extra_1_07_Cray_Scientific_Libraries.md) | / |
-| [Exercises #3](extra_1_08_Exercises_3.md) | / | / |
-| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [slides](extra_1_09_Offload_CCE.md) | / |
-| [Debugging at Scale](extra_2_01_Debugging_at_Scale.md) | [slides](extra_2_01_Debugging_at_Scale.md) | / | 
-| [Exercises #4](extra_2_02_Exercises_4.md) | / | / |
-| [Advanced Placement](extra_2_03_Advanced_Application_Placement.md) | [slides](extra_2_03_Advanced_Application_Placement.md) | / |
-| [Exercises #5](extra_2_04_Exercises_5.md) | / | / |
-| [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_05_software_stacks.pdf) | [notes](notes_2_05_LUMI_Software_Stacks.md) | 
-| [Introduction to HIP Programming](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / |
-| [Exercises #6](extra_2_07_Exercises_6.md) | / | / |
-| [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [slides](extra_3_01_Introduction_to_Perftools.md) | / | 
-| [Exercises #7](extra_3_02_Exercises_7.md) | / | / |
-| [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [slides](extra_3_03_Advanced_Performance_Analysis.md) | / | 
-| [Exercises #8](extra_3_04_Exercises_8.md) | / | / |
-| [MPI Topics on the HPE Cray EX Supercomputer](extra_3_05_Cray_MPI_on_Slingshot.md) | [slides](extra_3_05_Cray_MPI_on_Slingshot.md) | / |
-| [Exercises #9](extra_3_06_Exercises_9.md) | / | / |
-| [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_07_AMD_ROCgdb_Debugger.pdf) | / |
-| [Exercises #10](extra_3_08_Exercises_10.md) | / | / |
-| [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / |
-| [Exercises #11](extra_3_10_Exercises_11.md) | / | / |
-| [Performance Optimization: Improving single-core Efficiency](extra_4_01_Performance_Optimization_Improving_Single_Core.md) | [slides](extra_4_01_Performance_Optimization_Improving_Single_Core.md) | / | 
-| [Python and Frameworks](extra_4_02_Introduction_to_Python_on_Cray_EX.md) | [slides](extra_4_02_Introduction_to_Python_on_Cray_EX.md) | / |
-| [Exercises #12](extra_4_03_Exercises_12.md) | / | / |
-| [Optimizing Large Scale I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [slides](extra_4_04_IO_Optimization_Parallel_IO.md) | / | 
-| [Exercises #13](extra_4_05_Exercises_13.md) | / | / |
-| [Introduction to OmniTrace](extra_4_06_AMD_Ominitrace.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) (until p. 61) | / | 
-| [Exercises #14](extra_4_07_Exercises_14.md) | / | / |
-| [Introduction to Omniperf](extra_4_08_AMD_Ominiperf.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) (from p. 62) | / | 
-| [Exercises #15](extra_4_09_Exercises_15.md) | / | / |
-| [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_10_Best_Practices_GPU_Optimization.pdf) | / | 
-| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [slides](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_11_LUMI_Support_and_Documentation.pdf) | / | 
+| Presentation | slides | notes | recording |
+|:-------------|:-------|:------|:----------|
+| [Introduction](extra_1_00_Introduction.md) | / | / | [web](extra_1_00_Introduction.md) |
+| [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) | / | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) |
+| [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [lumi](extra_1_02_Programming_Environment_and_Modules.md) | / | [lumi](extra_1_02_Programming_Environment_and_Modules.md) |
+| [Running Applications](extra_1_03_Running_Applications.md) | [lumi](extra_1_03_Running_Applications.md) | / | [lumi](extra_1_03_Running_Applications.md) |
+| [Exercises #1](extra_1_04_Exercises_1.md) | / | / | / |
+| [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) |
+| [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
+| [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
+| [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
+| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
+| [Debugging at Scale](extra_2_01_Debugging_at_Scale.md) | [lumi](extra_2_01_Debugging_at_Scale.md) | / |  [lumi](extra_2_01_Debugging_at_Scale.md) |
+| [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
+| [Advanced Placement](extra_2_03_Advanced_Application_Placement.md) | [lumi](extra_2_03_Advanced_Application_Placement.md) | / | [lumi](extra_2_03_Advanced_Application_Placement.md) |
+| [Exercises #5](extra_2_04_Exercises_5.md) | / | / | / |
+| [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_05_software_stacks.pdf) | [web](notes_2_05_LUMI_Software_Stacks.md) |  [web](extra_2_05_LUMI_Software_Stacks.md) |
+| [Introduction to HIP Programming](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) |
+| [Exercises #6](extra_2_07_Exercises_6.md) | / | / | / |
+| [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
+| [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |
+| [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [lumi](extra_3_03_Advanced_Performance_Analysis.md) | / |  [lumi](extra_3_03_Advanced_Performance_Analysis.md) |
+| [Exercises #8](extra_3_04_Exercises_8.md) | / | / | / |
+| [MPI Topics on the HPE Cray EX Supercomputer](extra_3_05_Cray_MPI_on_Slingshot.md) | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) | / | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) |
+| [Exercises #9](extra_3_06_Exercises_9.md) | / | / | / |
+| [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_07_AMD_ROCgdb_Debugger.pdf) | / | [web](extra_3_07_AMD_ROCgdb_Debugger.md) |
+| [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
+| [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
+| [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
+| [Performance Optimization: Improving single-core Efficiency](extra_4_01_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_01_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_01_Performance_Optimization_Improving_Single_Core.md) |
+| [Python and Frameworks](extra_4_02_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_02_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_02_Introduction_to_Python_on_Cray_EX.md) |
+| [Exercises #12](extra_4_03_Exercises_12.md) | / | / | / |
+| [Optimizing Large Scale I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) |
+| [Exercises #13](extra_4_05_Exercises_13.md) | / | / | / |
+| [Introduction to OmniTrace](extra_4_06_AMD_Ominitrace.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) (until p. 61) | / |  [web](extra_4_06_AMD_Ominitrace.md) |
+| [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
+| [Introduction to Omniperf](extra_4_08_AMD_Ominiperf.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf) (from p. 62) | / |  [web](extra_4_08_AMD_Ominiperf.md) |
+| [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
+| [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
+| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
 
 
 
