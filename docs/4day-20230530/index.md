@@ -70,62 +70,63 @@ downloaded from LUMI.
 | [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
 
 
+## Making the exercises after the course
 
-<!--
+### HPE
 
-## Downloads
+The exercise material remains available in the course archive on LUMI:
 
--   Will come as the course progresses and in the weeks after the course.
+-   The PDF notes in `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_HPE.pdf`
 
+-   The other files for the exercises in either a
+    bzip2-compressed tar file `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_HPE.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_HPE.tar`.
 
--   Slides presentation ["LUMI Software Stacks"](files/LUMI-Software-20230215.pdf) 
-    (but you may prefer [reading the notes](software_stacks.md))
--   Slides AMD:
-    -   [Introduction to the AMD ROCm<sup>TM</sup> Ecosystem](files/01_introduction_amd_rocm.pdf)
-    -   [AMD Debugger: ROCgdb](files/02_Rocgdb_Tutorial.pdf)
-    -   [Introduction to Rocporf Profiling Tool](files/03_intro_rocprof.pdf)
-    -   [Introduction to OmniTools](files/04_intro_omnitools_new.pdf)
--   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
-    [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
-    system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
+To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
+```
+tar -xf /appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_HPE.tar.bz2
+```
 
-## Other material only available on LUMI
+in the directory where you want to work on the exercises. This will create the `exercises/HPE` subdirectory
+from the training project. 
 
-The following materials are available to members of the `project_465000524` project only:
-
-
--   Slides of presentations given by HPE people are in
-    <code>/project/project_465000524/slides/HPE</code> on LUMI
--   Exercises from the HPE sessions are in
-    <code>/project/project_465000524/exercises/HPE</code> on LUMI
-
-The following materials can only be found on LUMI and are only accessible to members of project_465000524:
-
--   Introduction to the Cray EX Hardware and Programming Environment on LUMI-G
-    -   Slides: <code>/project/project_465000524/slides/HPE/01_Intro_EX_Architecture_and_PE.pdf</code>
-    -   Recording: <code>/project/project_465000524/recordings/01_Intro_EX_Architecture_and_PE.mp4</code> 
--   Running Applications on LUMI-G
-    -   Slides: <code>/project/project_465000524/slides/HPE/02_Running_Applications_and_Tools.pdf</code>
-    -   Recording: <code>/project/project_465000524/recordings/02_Running_Applications_and_Tools.mp4</code>
--   Introduction to AMD ROCm<sup>TM</sup> Ecosystem
-    -   Recording: <code>/project/project_465000524/recordings/03_Introduction_to_the_AMD_ROCmTM_ecosystem.mp4</code>
--   Exercises are in <code>/project/project_465000524/exercises</code>
+However, instead of running the `lumi_c.sh` or `liumi_g.sh` scripts that only work for the course as 
+they set the course project as the active project for Slurm and also set a reservation, use the
+`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
+projects.
 
 
-## Notes
+### AMD 
 
--   Notes from the HedgeDOC pages (*Published with delay*)
-    -   [Day 1](hedgedoc_notes_day1.md)
-    -   [Day 2](hedgedoc_notes_day2.md)
-    -   [Day 3](hedgedoc_notes_day3.md)
-    -   [Day 4](hedgedoc_notes_day4.md)
+There are [online notes about the AMD exercises](https://hackmd.io/@gmarkoma/lumi_training_ee).
+A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-Exercises_AMD.pdf)
+and is particularly usefull should the online notes become unavailable.
 
--   [Notes on the presentation "LUMI Software Stacks"](notes_2_05_LUMI_Software_Stacks.md)
+The other files for the exercises are available in 
+either a bzip2-compressed tar file `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_AMD_.tar.bz2` or
+an uncompressed tar file `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_AMD.tar` and can also be downloaded. 
+( [bzip2-compressed tar download](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-Exercises_AMD.tar.bz2) or 
+[uncompressed tar download](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-Exercises_AMD.tar))
 
+To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
--   [Additional notes and exercises from the AMD session](https://hackmd.io/rhopZnwTSm2xIYM3OUhwUA) (External link!)
--->
+```
+tar -xf /appl/local/training/4day-20230530/files/LUMI-4day-20230530-Exercises_AMD.tar.bz2
+```
+
+in the directory where you want to work on the exercises. This will create the `exercises/AMD` subdirectory
+from the training project. You can do so in the same directory where you installed the HPE exercises.
+
+The software that was installed in the training project is also available as a bzip2-compressed tar archive
+on LUMI as `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-Software_AMD.tar.bz2`. You can install it in the
+same directory where you installed the files but beware when interpreting instructions as the path to the
+software installation is different now.
+
+!!! Warning
+    The software and exercises were tested thoroughly at the time of the course. LUMI however is in
+    continuous evolution and changes to the system may break exercises and software
+
 
 ## External material for exercises
 
