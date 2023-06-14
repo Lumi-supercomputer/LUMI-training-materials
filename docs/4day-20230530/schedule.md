@@ -31,7 +31,7 @@ DAY 1
             09:15 EEST
             <br/><em>08:15 CEST</em>
         </td>
-        <td><b><a href="../extra_1_01_HPE_Cray_EX_Architecture/">The HPE Cray EX architecture</a></b>
+        <td><b><a href="../extra_1_01_HPE_Cray_EX_Architecture/">HPE Cray EX architecture</a></b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
@@ -109,7 +109,6 @@ DAY 1
             <br/><em>14:00 CEST</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b>
-        <!--
         </td>
     </tr>
     <tr>
@@ -137,7 +136,7 @@ DAY 1
             16:10 EEST
             <br/><em>15:10 CEST</em>
         </td>
-        <td><b><a href="../extra_1_09_Offload_CCE/">OpenACC and OpenMP offload with Cray Compilation Environment</a></b>
+        <td><b><a href="../extra_1_09_Offload_CCE/">CCE Offloading Models</a></b>
         <ul>
             <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
         </ul>
@@ -198,7 +197,7 @@ DAY 2
             10:30 EEST
             <br/><em>09:30 CEST</em>
         </td>
-        <td><b><a href="../extra_2_03_Advanced_Application_Placement/">Advanced Application Placement</a></b>
+        <td><b><a href="../extra_2_03_Advanced_Application_Placement/">Advanced Placement</a></b>
         <ul>
             <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
         </ul>
@@ -252,8 +251,12 @@ DAY 2
             15:30 EEST
             <br/><em>14:30 CEST</em>
         </td>
-        <td><b><a href="../extra_2_06_Introduction_to_AMD_ROCm_Ecosystem/">Introduction to AMD ROCm<sup>TM</sup> ecosystem</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <td><b><a href="../extra_2_06_Introduction_to_AMD_ROCm_Ecosystem/">Introduction to HIP Programming</a></b>
+        <ul>
+            <li/> The AMD ROCm<sup>TM</sup> ecosystem
+            <li/> HIP programming
+        </ul>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -358,7 +361,7 @@ DAY 3
             13:15 EEST
             <br/><em>12:15 CEST</em>
         </td>
-        <td><b><a href="../extra_3_05_Cray_MPI_on_Slingshot/">Understanding Cray MPI on Slingshot, rank reordering and MPMD launch</a></b>
+        <td><b><a href="../extra_3_05_Cray_MPI_on_Slingshot/">MPI Topics on the HPE Cray EX Supercomputer</a></b>
         <ul>
             <li>High level overview of Cray MPI on Slingshot</li>
             <li>Useful environment variable controls</li>
@@ -387,8 +390,8 @@ DAY 3
             15:00 EEST
             <br/><em>14:00 CEST</em>
         </td>
-        <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD ROCgdb debugger</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -404,8 +407,8 @@ DAY 3
             15:45 EEST
             <br/><em>14:45 CEST</em>
         </td>
-        <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to Rocprof Profiling Tool</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -455,7 +458,10 @@ DAY 4
             09:50 EEST
             <br/><em>08:50 CEST</em>
         </td>
-        <td><b><a href="../extra_4_02_Introduction_to_Python_on_Cray_EX/">Introduction to Python on Cray EX</a></b>
+        <td><b><a href="../extra_4_02_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
+        <ul>
+            <li/>Cray Python for the Cray EX
+        </ul>
         <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
@@ -479,7 +485,7 @@ DAY 4
             10:30 EEST
             <br/><em>09:30 CEST</em>
         </td>
-        <td><b><a href="../extra_4_04_IO_Optimization_Parallel_IO/">I/O Optimization - Parallel I/O</a></b>
+        <td><b><a href="../extra_4_04_IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
             <li>Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. </li>
@@ -535,7 +541,7 @@ DAY 4
             14:00 EEST
             <br/><em>13:00 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_08_AMD_Ominiperf/">Introduction do AMD Omniperf</a></b>
+        <td><b><a href="../extra_4_08_AMD_Ominiperf/">Introduction to Omniperf</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
@@ -560,7 +566,7 @@ DAY 4
             15:00 EEST
             <br/><em>14:00 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo</a></b>
+        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Tools in Action - An Example with Pytorch</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
@@ -569,7 +575,7 @@ DAY 4
             16:30 EEST
             <br/><em>15:30 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_11_LUMI_Support_and_Documentation/">LUMI support and LUMI documentation</a></b>
+        <td><b><a href="../extra_4_11_LUMI_Support_and_Documentation/">LUMI User Support</a></b>
         <ul>
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>

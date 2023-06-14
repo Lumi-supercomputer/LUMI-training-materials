@@ -1,13 +1,19 @@
-# Introduction to the AMD ROCm<sup>TM</sup> Ecosystem
+# Introduction to HIP Programming
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antão (AMD)
+
+<video src="https://462000265.lumidata.eu/4day-20230530/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
+</video>
 
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
     -   `/project/project_465000524/slides/AMD/session-1-intro_hip_programming.pdf` (temporary, for the lifetime of the project)
+
+-   Video also available on LUMI as
+    `/appl/local/training/4day-20230530/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`
 
 
 !!! Note

@@ -5,6 +5,8 @@
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-3_01_Introduction_to_Perftools.pdf`
     -   `/project/project_465000524/slides/HPE/09_introduction_to_perftools.pdf` (temporary, for the lifetime of the project)
+-   Recording available on LUMI as:
+    `/appl/local/training/4day-20230530/recordings/3_01_Introduction_to_Perftools.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
