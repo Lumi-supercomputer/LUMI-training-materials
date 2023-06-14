@@ -11,3 +11,11 @@
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-4_06_AMD_Omnitrace.pdf`
     -   `/project/project_465000524/slides/AMD/session-3-tutorial_omnitools.pdf` (temporary, for the lifetime of the project)
+
+-   Video also available on LUMI as
+    `/appl/local/training/4day-20230530/recordings/4_06_AMD_Ominitrace.mp4`
+
+
+## Q&A
+
+/

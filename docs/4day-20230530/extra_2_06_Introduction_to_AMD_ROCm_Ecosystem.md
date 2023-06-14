@@ -12,6 +12,9 @@
     -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
     -   `/project/project_465000524/slides/AMD/session-1-intro_hip_programming.pdf` (temporary, for the lifetime of the project)
 
+-   Video also available on LUMI as
+    `/appl/local/training/4day-20230530/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`
+
 
 !!! Note
     ROCm 5.5 for the brave:

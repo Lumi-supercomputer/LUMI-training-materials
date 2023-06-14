@@ -2,9 +2,6 @@
 
 *Presenter: Alfio Lazzaro (HPE)*
 
-<video src="https://462000265.lumidata.eu/4day-20230530/recordings/1_00_Introduction.mp4" controls="controls">
-</video>
-
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20230530/files/LUMI-4day-20230530-3_01_Introduction_to_Perftools.pdf`
     -   `/project/project_465000524/slides/HPE/09_introduction_to_perftools.pdf` (temporary, for the lifetime of the project)
