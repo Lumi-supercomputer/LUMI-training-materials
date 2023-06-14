@@ -3,7 +3,7 @@
 Most recently completed main training events:
 
 -   4-day comprehensive LUMI training aimed at developers and advanced users:
-    [Comprehensive general LUMI course (February 14-17, 2023)](4day-20230214/index.md)
+    [Comprehensive general LUMI course (MAy 30 - June 2, 2023)](4day-20230530/index.md)
 
 -   1-day LUMI training aimed at regular users:
     [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
@@ -15,6 +15,7 @@ In reverse chronological order:
 
 -   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
 -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
+-   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
 -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
 -   [Comprehensive general LUMI course (February 14-17, 2023)](4day-20230214/index.md)
 -   [LUMI-G Training (January 11, 2023)](LUMI-G-20230111/index.md)
