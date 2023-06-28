@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_01_Debugging_at_Scale/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20230628-user-coffee-break-AI/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat - LUMI training materials</title>
+        <title>Current state of running AI workloads on LUMI (June 28, 2023) - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat" />
+  <meta property="og:title" content="LUMI training materials - Current state of running AI workloads on LUMI (June 28, 2023)" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/extra_2_01_Debugging_at_Scale/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20230628-user-coffee-break-AI/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat" />
+  <meta name="twitter:title" content="LUMI training materials - Current state of running AI workloads on LUMI (June 28, 2023)" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat" class="md-skip">
+        <a href="#current-state-of-running-ai-workloads-on-lumi-june-28-2023" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat
+              Current state of running AI workloads on LUMI (June 28, 2023)
             
           </span>
         </div>
@@ -360,7 +360,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../User-Coffee-Breaks/">User Coffee Breaks</a>
+          <a href="../">User Coffee Breaks</a>
           
         </div>
       
@@ -405,7 +405,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Comprehensive LUMI May-June 2023</a>
+          <a href="../../4day-20230530/">Comprehensive LUMI May-June 2023</a>
           
         </div>
       
@@ -1093,21 +1093,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#qa" class="md-nav__link">
-    Q&amp;A
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1121,25 +1106,14 @@
                   
 
 
-<h1 id="debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat<a class="headerlink" href="#debugging-at-scale-gdb4hpc-valgrind4hpc-atp-stat" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Thierry Braconnier (HPE)</em></p>
+<h1 id="current-state-of-running-ai-workloads-on-lumi-june-28-2023">Current state of running AI workloads on LUMI (June 28, 2023)<a class="headerlink" href="#current-state-of-running-ai-workloads-on-lumi-june-28-2023" title="Permanent link">&para;</a></h1>
+<p><em>Presenters:</em> Christian Schou Oxvig and René Løwe Jacobsen (LUST &amp; DeiC)</p>
+<video src="https://462000265.lumidata.eu/user-coffee-breaks/recordings/20230628-user-coffee-break-AI.mp4" controls="controls">
+</video>
+
 <ul>
-<li>Slides available on LUMI as:<ul>
-<li><code>/appl/local/training/4day-20230530/files/LUMI-4day-20230530-2_01_Debugging_at_Scale.pdf</code></li>
-<li><code>/project/project_465000524/slides/HPE/08_debugging_at_scale.pdf</code> (temporary, for the lifetime of the project)</li>
+<li><a href="https://462000265.lumidata.eu/user-coffee-breaks/files/20230628-user-coffee-break-AI.pdf">Slides (PDF)</a></li>
 </ul>
-</li>
-<li>Recording available on LUMI as:
-    <code>/appl/local/training/4day-20230530/recordings/2_01_Debugging_at_Scale.mp4</code></li>
-</ul>
-<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
-<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Which tool should I use /study to get an output of specific parameters or a N-dimensional field for further debugging?</p>
-<p><strong>Answer [Alfio]</strong> gdb4hpc is your friend. You can print values.</p>
-</li>
-</ol>
 
 
 
