@@ -9,7 +9,13 @@ Most recently completed main training events:
     [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 
 
-## Overview of the regular trainings
+## LUMI User Coffee Break Talks
+
+In reverse chronological order:
+
+-   [Current state of running AI workloads on LUMI (June 28, 2023)](User-Coffee-Breaks/20230628-user-coffee-break-AI.md)
+
+## Archive of the regular trainings
 
 In reverse chronological order:
 

@@ -31,6 +31,8 @@ theme:
 
 nav:
   - Home: index.md
+  - User Coffee Breaks:
+      - User-Coffee-Breaks/index.md
   - Comprehensive LUMI May-June 2023:
       - 4day-20230530/index.md
   - "1-day May 2023":
