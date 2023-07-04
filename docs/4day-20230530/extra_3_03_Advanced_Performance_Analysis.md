@@ -10,7 +10,6 @@
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
-<!-- Note: Edit the sound in the recording. The first 20 minutes of this talk were accidentally recorded with the wrong mic actuvated and more silent than the remainder of the talk. -->
 
 ## Q&A
 

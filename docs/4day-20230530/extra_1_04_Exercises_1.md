@@ -1,7 +1,5 @@
 # Exercise session 1
 
-No materials available at the moment.
-
 -   Exercise materials in 
     `/project/project_465000524/exercises/HPE/day1/ProgrammingModels` for the lifetime of 
     the project and only for project members.
