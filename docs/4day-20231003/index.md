@@ -129,6 +129,10 @@ software installation is different now.
     continuous evolution and changes to the system may break exercises and software
 
 
+## Links to documentation
+
+[The links to all documentation mentioned during the talks is on a separate page](documentation.md).
+
 ## External material for exercises
 
 Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:
