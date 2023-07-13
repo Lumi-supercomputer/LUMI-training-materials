@@ -18,23 +18,49 @@ tools for each infrastructure.
 
 Just some examples of using the wrong tools or infrastructure:
 
--   We've had users who were disappointed about the speed of a single core and were expecting
+-   **The single thread performance of the CPU is lower than on a high-end PC.** 
+    We've had users who were disappointed about the speed of a single core and were expecting
     that this would be much faster than their PCs. Supercomputers however are optimised for 
     performance per Watt and get their performance from using lots of cores through well-designed
     software. If you want the fastest core possible, you'll need a gaming PC.
 
--   Even the GPU may not be that much faster for some tasks than GPUs in gaming PCs, especially since
+    *E.g., the AMD 5800X is a popular CPU for high end gaming PCs using the same core architecture 
+    as the CPUs in the LUMI. It runs at a
+    base clock of 3.8 GHz and a boost clock of 4.7 GHz if only one core is used and the system has
+    proper cooling. The 7763 used in the compute nodes of LUMI-C runs at a base clock of 2.45 GHz
+    and a boost clock of 3.5 GHz. If you have only one single core job to run on your PC, you'll
+    be able to reach that boost clock while on LUMI you'd probably need to have a large part of
+    the node for yourself, and even then the performance for jobs that are not memory bandwidth
+    limited will be lower than that of the gaming PC.*
+
+-   **For some data formats the GPU performance may be lower also than on a high end gaming PC.**
+    This is even more so because
     an MI250x should be treated as two GPUs for most practical purposes. The better double precision
-    floating point operations and matrix operations, also at full precision, requires transistors also 
+    floating point operations and matrix operations, also at full precision, require transistors also 
     that on some other GPUs are used for rendering hardware or for single precision compute units.
 
--   A user complained that they did not succeed in getting their nice remote development environment to
+    *E.g., a single GPU die of the MI250X (half a GPU) has a peak FP32 performance at the boost clock
+    of almost 24 TFlops or 48 TFlops
+    in the packed format which is actually hard for a compiler to exploit, while the high-end AMD
+    graphics GPU RX 7900 XTX claims 61 TFlops at the boost clock. But the FP64 performance of one MI250X 
+    die is also close to 24 TFlops in vector math, while the RX 7900 XTX does less than 2 TFlops
+    in that data format which is important for a lot of scientific computing applications.*
+
+-   **Compute GPUs and rendering GPUs are different beasts these days.**
+    We had a user who wanted to use the ray tracing units to do rendering. The MI250X does not
+    have texture units or ray tracing units though. It is not a real graphics processor anymore.
+
+-   **The environment is different also. It is not that because it runs some Linux it handles are your
+    Linux software.**
+    A user complained that they did not succeed in getting their nice remote development environment to
     work on LUMI. The original author of these notes took a test license and downloaded a trial version.
     It was a very nice environment but really made for local development and remote development in a 
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.
 
--   CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
+-   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
+    of their architecture.**  
+    CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
     HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
     published a paper with their experiences and it was mostly disappointment. The HPC infrastructure
     didn't fit their model for software distribution and performance was poor. Basically their solution
@@ -76,13 +102,17 @@ to a more diverse audience.
 LUMI is also a very modular machine designed according to the principles explored
 in a series of European projects, and in particular
 [DEEP and its successors](https://www.deep-projects.eu/)) that explored
-the cluster-booster concept.
+the cluster-booster concept. E.g., in a complicated multiphysics simulation 
+you could be using regular CPU nodes for the physics that cannot be GPU-accelerated
+communicating with compute GPU nodes for the physics that can be GPU-accelerated,
+then add a number of CPU nodes to do the I/O and a specialised render GPU node for
+in-situ visualisation.
 
 LUMI is in the first place a huge GPGPU supercomputer. The GPU partition of
 LUMI, called LUMI-G, contains 2560 nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250x
 GPUs. Each node has 512 GB of RAM attached to the CPU (the maximum the CPU can handle
 without compromising bandwidth) and 128 GB of HBM2e memory per GPU. Each GPU node
-has a theoretical peak performance of 200 TFlops in single (FP32) or double (FP64)
+has a theoretical peak performance of nearly 200 TFlops in single (FP32) or double (FP64)
 precision vector arithmetic (and twice that with the packed FP32 format, but that 
 is not well supported so this number is not often quoted). The matrix units are
 capable of about 400 TFlops in FP32 or FP64. However, compared to the NVIDIA GPUs,
@@ -97,10 +127,21 @@ have 1TB of RAM (with some of these nodes actually reserved for special purposes
 such as connecting to a Quantum computer), 128 have 512 GB and 1376 have
 256 GB of RAM.
 
+LUMI also has two smaller groups of nodes for interactive data analytics. 
+8 of those nodes have two 
+64-core Zen2/Rome CPUs with 4 TB of RAM per node, while 8 others have dual 64-core
+Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. Currently we are working
+on an Open OnDemand based service to make some fo those facilities
+available. Note though that these nodes are meant for a very specific use,
+so it is not that we will also be offering, e.g., GPU compute facilities
+on NVIDIA hardware, and that these are shared resources that should not be
+monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).
+
 LUMI also has a 7 PB flash based file system running the Lustre parallel file system.
 This system is often denoted as LUMI-F. The bandwidth of that system is 1740 GB/s. 
 Note however that this is still a remote file system with a parallel file system on it,
-so do not expect that it will behave as the local SSD in your laptop. But that is 
+so do not expect that it will behave as the local SSD in your laptop. 
+But that is 
 also the topic of another session in this course.
 
 The main work storage is provided by 4 20 PB hard disk based Lustre file systems
@@ -110,6 +151,10 @@ as LUMI-P.
 Big parallel file systems need to be used in the proper way to be able to offer the
 performance that one would expect from their specifications. This is important enough that 
 we have a separate session about that in this course.
+
+An object based file system similar to the Allas service of CSC that some
+of the Finnish users may be familiar with is also being worked on. At the 
+moment the interface to that system is still rather primitive.
 
 Currently LUMI has 4 login nodes, called user access nodes in the HPE Cray
 world. They each have 2 64-core AMD EPYC 7742 processors and 1 TB of RAM.
@@ -128,24 +173,9 @@ is developed by HPE Cray, so not the Mellanox/NVIDIA InfiniBand that you may
 be familiar with from many smaller clusters, and as we shall discuss later
 this also influences how you work on LUMI.
 
-Some services for LUMI are still in the planning.
-
-LUMI also has nodes for interactive data analytics. 8 of those have two 
-64-core Zen2/Rome CPUs with 4 TB of RAM per node, while 8 others have dual 64-core
-Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. Currently we are working
-on an Open OnDemand based service to make some fo those facilities
-available. Note though that these nodes are meant for a very specific use,
-so it is not that we will also be offering, e.g., GPU compute facilities
-on NVIDIA hardware, and that these are shared resources that should not be
-monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).
-
-An object based file system similar to the Allas service of CSC that some
-of the Finnish users may be familiar with is also being worked on.
-
 Early on a small partition for containerised micro-services managed with
 Kubernetes was also planned, but that may never materialize due to lack of 
 people to set it up and manage it.
-
 
 In this section of the course we will now build up LUMI step by step.
 
@@ -213,7 +243,7 @@ cores spread over all CCDs are used.
 </figure>
 
 A compute node is then built out of two such processor packages, connected 
-though 4 16-bit wide Infinity Fabric connections with a total theoretical
+through 4 16-bit wide Infinity Fabric connections with a total theoretical
 bandwidth of 144 GB/s in each direction. So note that the bandwidth in
 each direction is less than the memory bandwidth of a socket. Again, it is
 not really possible to use the full memory bandwidth of a node using just cores
@@ -235,7 +265,8 @@ thread and process pinning in this tutorial course.
 
 At the coarsest level, each core supports two hardware threads (what Intel calls
 hyperthreads). Those hardware threads share all the resources of a core, including the 
-L1 data and instruction caches and the L2 cache. 
+L1 data and instruction caches and the L2 cache, execution units and space for
+register renaming. 
 At the next level, a Core Complex Die contains (up to) 8 cores. These cores share
 the L3 cache and the link to the memory/IO die. 
 Next, as configured on the LUMI compute nodes, there are 2 Core Complex Dies in a
@@ -299,11 +330,13 @@ NVIDIA V100 GPUs.
 
 Each GPU node consists of one 64-core AMD EPYC CPU and 4 AMD MI250x GPUs. 
 So far nothing special. However, two elements make this compute node very
-special. The GPUs are not connected to the CPU though a PCIe bus. Instead
+special. First, the GPUs are not connected to the CPU though a PCIe bus. Instead
 they are connected through the same links that AMD uses to link the GPUs together,
 or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
-Infinity Fabric. This enables CPU and GPU to access each others memory 
-rather seamlessly and to implement coherent caches across the whole system.
+Infinity Fabric. This enables unified memory across CPU and GPUS and 
+provides partial cache coherency across the system. The CPUs coherently
+cache the DPU DDR and GPU HBM memory, but each GPU only coherently caches 
+its own local memory.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (through a PCIe interface on the GPU) rather
 than two the CPU. The CPUs have a shorter path to the communication 
@@ -342,6 +375,8 @@ why the latest generation is called "Hopper" for compute and "Ada Lovelace" for 
 Several of the functional blocks in the Ada Lovelace architecture are missing in the Hopper 
 architecture to make room for more compute power and double precision compute units. E.g.,
 Hopper does not contain the ray tracing units of Ada Lovelace.
+The Intel Data Center GPU Max code named "Ponte Vecchio" is the only current GPU for 
+HPC that still offers full hardware rendering support (and even ray tracing).
 
 Graphics on one hand and HPC and AI on the other hand are becoming separate workloads for which
 manufacturers make different, specialised cards, and if you have applications that need both,
@@ -361,7 +396,7 @@ Or the full picture with the bandwidths added to it:
 
 <figure>
   <img 
-    src="https://462000265.lumidata.eu/1day-202310xx/img/lumig-node-architecture.svg" 
+    src="https://462000265.lumidata.eu/1day-202310xx/img/lumig-node-architecture-rings.svg" 
     width="842"
     alt="LUMI-G compute nodes overview"
   >
@@ -400,11 +435,16 @@ link to a Grace CPU), while each MI250x package has only 5 such links available 
 
 Note also that even though the connection between MI250x packages is all-to-all, the connection
 between GPU dies is all but all-to-all. as each GPU die connects to only 3 other GPU dies.
-There are basically two rings that don't need to share links in the topology, and then some extra
+There are basically two bidirectional rings that don't need to share links in the topology, and then some extra
 connections. The rings are:
 
--   1 - 0 - 6 - 7 - 5 - 4 - 2 - 3 - 1
--   1 - 5 - 4 - 2 - 3 - 7 - 6 - 0 - 1
+-   Green ring: 1 - 0 - 6 - 7 - 5 - 4 - 2 - 3 - 1
+-   Red ring: 1 - 0 - 2 - 3 - 7 - 6 - 4 - 5 - 1
+<!--
+    Note the bit flip pattern in the latter: 001 - 000 - 010 - 011 - 111 - 110 - 100 - 101 - 001
+-->
+
+These rings play a role in the inter-GPU communication in AI applications using RCCL.
 
 Each compute die is also connected to one CPU Core Complex Die (or as documentation of the
 node sometimes says, L3 cache region). This connection only runs at the same speed as the links
@@ -448,12 +488,13 @@ Some users may be annoyed by the "small" amount of memory on each node. Others
 may be annoyed by the limited CPU capacity on a node compared to some systems 
 with NVIDIA GPUs. It is however very much in line with the cluster-booster
 philosophy already mentioned a few times, and it does seem to be the future
-according to both AMD and Intel. In fact, it looks like with respect to memory 
+according to AMD (with Intel also working into that direction). 
+In fact, it looks like with respect to memory 
 capacity things may even get worse.
 
 We saw the first little steps of bringing GPU and CPU closer together and 
 integrating both memory spaces in the USA pre-exascale systems Summit and Sierra.
-The LUMI-G node which was really designed for the first USA exascale systems
+The LUMI-G node which was really designed for one of the first USA exascale systems
 continues on this philosophy, albeit with a CPU and GPU from a different manufacturer.
 Given that manufacturing large dies becomes prohibitively expensive in newer semiconductor
 processes and that the transistor density on a die is also not increasing at the same
@@ -463,30 +504,31 @@ So multi-die designs are here to stay, and as is already the case in the AMD CPU
 different dies may be manufactured with different processes for economical reasons.
 
 Moreover, a closer integration of CPU and GPU would not only make programming easier
-as memory management becomes easier, it would also enable some code to run on GPU 
-accelerators that is currently bottlenecked by memory transfers between GPU and CPU.
+as memory management becomes easier, it would also enable some codes to run on GPU 
+accelerators that are currently bottlenecked by memory transfers between GPU and CPU.
 
 AMD at its 2022 Investor day and at CES 2023 in early January, and Intel at an Investor
 day in 2022 gave a glimpse of how they see the future. The future is one where one or
 more CPU dies, GPU dies and memory controllers are combined in a single package
 and - contrary to the Grace Hopper design of NVIDIA - where CPU and GPU share 
-memory controllers. At CES 2023, AMD already showed a MI300 package that will be
+memory controllers. At CES 2023, AMD already showed a MI300A package that will be
 used in El Capitan, one of the next USA exascale systems (the third one if Aurora
 gets built in time). It employs 13 chiplets in two layers, linked to (still only) 8 
-memory stacks (albeit of a slightly faster type than on the MI250x). The 4 dies on the
-bottom layer are likely the controllers for memory and inter-GPU links as they produce
-the least heat, while it was announced that the GPU would feature 24 Zen4 cores, so the top 
-layer consists likely of 3 CPU and 6 GPU chiplets. It looks like the AMD design may 
-have no further memory beyond the 8 HBM stacks, likely providing 128 GB of RAM.
+memory stacks (albeit of a slightly faster type than on the MI250x). 
+The 4 chiplets on the
+bottom layer are the memory controllers and inter-GPU links (an they can be at the
+bottom as they produce less heat). Furthermore each package features 6 GPU dies and
+3 Zen4 "Genoa" CPU dies. The MI300A still uses only 8 HBM stacks and is also limited
+to 16 GB stacks, providing a total of 128 GB of RAM.
 
-Intel has shown only very conceptual drawings of its Falcon Shores chip which it calls
-an XPU, but those drawings suggest that that chip will also support some low-bandwidth
+Intel at some point has shown only very conceptual drawings of its Falcon Shores chip 
+which it calls an XPU, but those drawings suggest that that chip will also support some low-bandwidth
 but higher capacity external memory, similar to the approach taken in some Sapphire 
 Rapids Xeon processors that combine HBM memory on-package with DDR5 memory outside 
 the package. Falcon Shores will be the next generation of Intel GPUs for HPC, after 
-Ponte Vecchio which will be used in the Aurora supercomputer. It is currently not clear
-though if Intel will already use the integrated CPU+GPU model for the Falcon Shores generation
-or if this is getting postponed.
+Ponte Vecchio which will be used in the Aurora supercomputer. It is currently very likely
+though that Intel will revert to a traditional design for Falcon Shores and push
+out the integrated CPU+GPU model to a later generation.
 
 However, a CPU closely integrated with accelerators is nothing new as Apple Silicon is 
 rumoured to do exactly that in its latest generations, including the M-family chips.
@@ -551,6 +593,10 @@ a third hop in the destination group to the switch the destination node is attac
 </figure>
 
 Let's now have a look at how everything connects together to the supercomputer LUMI.
+It does show that LUMI is not your standard cluster build out of standard servers.
+
+LUMI is built very compactly to minimise physical distance between nodes and to reduce
+the cabling mess typical for many clusters.
 LUMI does use a custom rack design for the compute nodes that is also fully water cooled.
 It is build out of units that can contain up to 4 custom cabinets, and a cooling distribution
 unit (CDU). The size of the complex as depicted in the slide is approximately 12 m<sup>2</sup>.
@@ -559,7 +605,7 @@ columns is all the power circuitry. Each compute chassis can contain 8 compute b
 that are mounted vertically. Each compute blade can contain multiple nodes, depending on
 the type of compute blades. HPE Cray have multiple types of compute nodes, also with 
 different types of GPUs. In fact, the Aurora supercomputer which uses Intel CPUs and GPUs and
-El Capitan, which uses the MI300 series of APU (integrated CPU and GPU) will use the same
+El Capitan, which uses the MI300A APUs (integrated CPU and GPU) will use the same
 design with a different compute blade. Each LUMI-C compute blade contains 4 compute nodes
 and two network interface cards, with each network interface card implementing two Slingshot
 interfaces and connecting to two nodes. A LUMI-G compute blade contains two nodes and
@@ -580,7 +626,9 @@ blade. Hence for LUMI-C two switch blades are needed in each switch chassis as e
 those nodes have 8 network interfaces. Note that this also implies that the nodes on the same 
 compute blade of LUMI-C will be on two different switches even though in the node numbering they
 are numbered consecutively. For LUMI-G both nodes on a blade will be on a different pair of switches 
-and each node is connected to two switches. Thw switch blades are also water cooled (each one can 
+and each node is connected to two switches. So when you get a few sequentially numbered nodes, they
+will not be on a single switch (LUMI-C) or switch pair (LUMI-G).
+The switch blades are also water cooled (each one can 
 consume up to 250W). No currently possible configuration of the Cray EX system needs that 
 all switch positions in the switch chassis.
 
