@@ -1,8 +1,9 @@
 # The HPE Cray Programming Environment
 
-Every user needs to know the basics about the programming environment as after all
-most software is installed through the programming environment, and to some extent
-it also determines how programs should be run.
+In this session we discuss some of the basics of the operating system and
+programming environment on LUMI. Whether you like it or not, every user
+of a supercomputer like LUMI gets confronted with these elements at some
+point.
 
 ## Why do I need to know this?
 
@@ -112,7 +113,7 @@ Long ago, Cray designed its own processors and hence had to develop their own
 compilers. They kept doing so, also when they moved to using more standard components,
 and had a lot of expertise in that field, especially when it comes to the needs of 
 scientific codes, programming models that are almost only used in scientific computing
-or stem from such projects, and as they develop their own interconnects, it does make sense
+or stem from such projects. As they develop their own interconnects, it does make sense
 to also develop an MPI implementation that can use the interconnect in an optimal way.
 They also have a long tradition in developing performance measurement and analysis tools 
 and debugging tools that work in the context of HPC.
@@ -150,6 +151,16 @@ ROCm stack are also available on the system while some others can be user-instal
 Furthermore there are some third party tools available on LUMI,
 including [Linaro Forge](https://www.linaroforge.com/) (previously ARM Forge) and
 [Vampir](https://vampir.eu/) and some open source profiling tools.
+
+Specifically **not** on LUMI are the Intel and NVIDIA programming environments, nor is the
+regular Intel oneAPI HPC Toolkit. The classic Intel compilers pose problems on AMD CPUs
+as `-xHost` cannot be relied on, but it appears that the new compilers that are based on
+Clang and an LLVM backend behave better. Various MKL versions are also troublesome, with
+different workarounds for different versions, though here also it seems that Intel now has 
+code that works well on AMD for many MKL routines. We have experienced problems with Intel 
+MPI when testing it on LUMI though in principle it should be possible to use Cray MPICH as
+they are derived from the same version of MPICH. The NVIDIA programming environment doesn't make sense on an AMD GPU system, but it could have been usefull for some visualisation software on the 
+visualisation nodes.
 
 We will now discuss some of these components in a little bit more detail, but refer
 to the 4-day trainings that we organise three times a year with HPE for more material.
@@ -193,7 +204,8 @@ Information is available via
 man intro_openacc
 ```
 AMD and HPE Cray still recommend moving to OpenMP which is a much broader supported standard.
-There are no plans to also support OpenACC in the C/C++ compiler.
+There are no plans to also support OpenACC in the Cray C/C++ compiler, nor are there any 
+plans for support by AMD in the ROCm stack.
 
 The CCE compilers also offer support for some PGAS (Partitioned Global Address Space) languages.
 UPC 1.2 is supported, as is Fortran 2008 coarray support. These implementations do not require a
@@ -230,7 +242,7 @@ of a double precision result with nearly a factor of two for those problems that
 iterative refinement. If you are familiar with numerical analysis, you probably know that the matrix should
 not be too ill-conditioned for that.
 
-There is also a GPU-optimized version of LibSci, called LibSCi_ACC, which contains a subset of the
+There is also a GPU-optimized version of LibSci, called LibSci_ACC, which contains a subset of the
 routines of LibSci. We don't have much experience in the support team with this library though.
 It can be compared with what Intel is doing with oneAPI MKL which also offers GPU versions of some of
 the traditional MKL routines.
@@ -242,6 +254,10 @@ optimized versions for all CPU architectures supported by recent HPE Cray machin
 Finally, the scientific and math libraries also contain HDF5 and netCDF libraries
 in sequential and parallel versions.
 
+Cray used to offer more pre-installed third party libraries for which the only added value
+was that they compiled the binaries. Instead they now offer
+[build scripts in a GitHub repository](https://github.com/Cray/pe-scripts).
+
 
 ## Cray MPI
 
@@ -250,7 +266,7 @@ in sequential and parallel versions.
 </figure>
 
 HPE Cray build their own MPI library with optimisations for their own interconnects.
-The Cray MPI library is derived from the ANL MPICH 3.4 code base and fully support the 
+The Cray MPI library is derived from the ANL MPICH 3.4 code base and fully supports the 
 ABI (Application Binary Interface) of that application which implies that in principle
 it should be possible to swap the MPI library of applications build with that ABI with
 the Cray MPICH library. Or in other words, if you can only get a binary distribution of
@@ -638,6 +654,14 @@ the `CRAY_ADD_RPATH`environment variable:
 ```
 export CRAY_ADD_RPATH=yes
 ```
+
+However, there is also a good side to the standard Cray PE behaviour. Updates of the underlying
+operating system or network software stack may break older versions of the MPI library. By letting
+the applications use the default libraries and updating the defaults to a newer version, most
+applications will still run while they would fail if any of the two tricks to force the use
+of the intended library version are used. This has actually happened after a big LUMI update in
+March 2023, when all software that used rpath-linking had to be rebuild as the MPICH library
+that was present before the update did not longer work.
 
 
 ## Warning 2: Order matters
