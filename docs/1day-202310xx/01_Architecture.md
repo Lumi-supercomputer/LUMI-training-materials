@@ -4,6 +4,41 @@ In this presentation, we will build up LUMI part by part, stressing those
 aspects that are important to know to run on LUMI efficiently and define
 jobs that can scale.
 
+## Why do I kneed to know this?
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Why know...](https://465000095.lumidata.eu/intro-202310xx/img/LUMI-BE-Intro-202310XX-01-architecture/WhyKnow.png){ loading=lazy }
+</figure>
+
+You may wonder why you need to know about system architecture if all you want to do is to run 
+some programs.
+
+A supercomputer is not simply a scaled-ups smartphone or PC that will offer good performance
+automatically. But it is a very expensive infrastructure, with an investment of 160M EURO for LUMI
+and an estimated total operation cost of 150M EURO. So it is important to use the computer
+efficiently.
+
+And that efficiency comes not for free. Instead in most cases it is important to properly map an 
+application on the available resources to run efficiently.  The way an application is developed
+is important for this, but it is not the only factor. Every application needs some user help 
+to run in the most efficient way, and that requires an understanding of
+
+1.  The hardware architecture of the supercomputer, which is something that we discuss in this
+    section.
+
+2.  The middleware: the layers of software that sit between the application on one hand and the
+    hardware and operating system on the other hand. This is a topic of discussion in several sessions
+    of this course.
+
+3.  The application. This is very domain-specific and application-specific and hence cannot be the
+    topic of a general course like this one. In fact, there are so many different applications and
+    often considerable domain knowledge is required so that a small support team like the one of 
+    LUMI cannot provide that information. It is up to scientific communities to organise such trainings,
+    and then up to users to combine the knowledge of an application obtained from such a course with the
+    knowledge about the computer you want to use and its middleware obtained from courses such as this one
+    or our 4-day more advanced course.
+
+
 ## LUMI is ...
 
 <figure markdown style="border: 1px solid #000">
