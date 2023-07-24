@@ -13,7 +13,12 @@
   ![Module environments](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-03-modules/ModuleEnvironments.png)
 </figure>
 
-Modules are commonly used on HPC systems to enable users to create 
+An HPC cluster is a multi-user machine. Different users may need different 
+versions of the same application, and each user has their own preferences for
+the environment. Hence there is no "one size fits all" for HPC and mechanisms
+are needed to support the diverse requirements of multiple users on a single machine.
+This is where modules play an important role.
+They  are commonly used on HPC systems to enable users to create 
 custom environments and select between multiple versions of applications.
 Note that this also implies that applications on HPC systems are often not
 installed in the regular directories one would expect from the documentation
@@ -23,7 +28,7 @@ possible from the system installation to keep the image that has to be loaded
 on the compute nodes small.
 
 Another use of modules not mentioned on the slide is to configure the programs
-that is being activated. E.g., some packages expect certain additional environment
+that are being activated. E.g., some packages expect certain additional environment
 variables to be set and modules can often take care of that also.
 
 There are 3 systems in use for module management.
@@ -173,6 +178,7 @@ The family property is something that is defined in the module file. It is commo
 used on systems with multiple compilers and multiple MPI implementations to ensure 
 that each compiler and each MPI implementation can have a logical name without 
 encoding that name in the version string (like needing to have `compiler/gcc-11.2.0`
+or `compiler/gcc/11.2.0`
 rather than `gcc/11.2.0`), while still having an easy way to avoid having two 
 compilers or MPI implementations loaded at the same time. 
 On LUMI, the conflicting module of the same family will be unloaded automatically
@@ -210,7 +216,7 @@ Now you may wonder: If a module cannot be simply named after the package it cont
 it contains several ones, how can I then find the appropriate module to load?
 Lmod has a solution for that through the so-called **extension** mechanism. An Lmod module
 can define extensions, and some of the search commands for modules will also search in the extensions
-of a module. Unfortunately, the HP{E Cray PE cray-python and cray-R modules do not provide that 
+of a module. Unfortunately, the HPE Cray PE cray-python and cray-R modules do not provide that 
 information at the moment as they too contain several packages that may benefit from linking
 to optimised math libraries.
 
@@ -328,7 +334,7 @@ This produces:
 
 The output again shows that the search is not case sensitive which is fortunate as uppercase and lowercase
 letters are not always used in the same way on different clusters. Some management tools for scientific software
-stacks will only use lowercase letters, while the package we use on LUMI often uses both.
+stacks will only use lowercase letters, while the package we use for the LUMI software stacks often uses both.
 
 We see that there are a lot of versions installed on the system and that the version actually contains more 
 information (e.g., `-cpeGNU-22.12`) that we will explain in the next part of this course. But you might of
@@ -492,7 +498,7 @@ On LUMI both are used. A default programming environment and set of target modul
 login nodes is preloaded when you log in to the system, and next the `init-lumi` module is loaded
 which in turn makes the LUMI software stacks available that we will discuss in the next session.
 
-Lmod however has a trick that help to avoid removing necessary modules and it is called sticky modules.
+Lmod however has a trick that helps to avoid removing necessary modules and it is called sticky modules.
 When issuing the `module purge` command these modules are automatically reloaded. It is very important to
 realise that those modules will not just be kept "as is" but are in fact unloaded and loaded again as
 we shall see later that this may have consequences. It is still possible to force unload all these modules
