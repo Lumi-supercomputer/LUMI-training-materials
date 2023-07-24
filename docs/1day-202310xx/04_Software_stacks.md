@@ -20,7 +20,7 @@ In this section we discuss
         and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. 
     2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with an immature software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
-        and only one CPU socket, and another feature which is relatively new: the option to use a **coherent unified memory**
+        and only one CPU socket, and another feature which is relatively new: the option to use a **partly coherent fully unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
         only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
         for some USA pre-exascale systems, and of course in Apple Silicon M-series but then without the NUMA character
@@ -98,6 +98,7 @@ and as Lmod is much more powerful than Environment Modules 3, certainly for **se
 To manage the software installations we could chose between EasyBuild, which is mostly developed in
 Europe and hence a good match with a EuroHPC project as EuroHPC wants to develop a European HPC technology stack
 from hardware to application software, and Spack, a package developed in the USA national labs.
+Both have their own strengths and weaknesses.
 We chose to go with **EasyBuild as our primary tool** for which we also do some development. 
 However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
 that you may be accustomed with from clusters at your home institution. **It uses toolchains
@@ -106,9 +107,15 @@ specifically for the HPE Cray programming environment** so recipes need to be ad
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that **your modules appear in your module view** without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
-for your project as we cannot automatically determine a suitable place. **We do offer some help so set up
-Spack also but it is mostly offered "as is" an we will not do bug-fixing or development in Spack
-package files.**
+for your project as we cannot automatically determine a suitable place. 
+
+**We do offer some help so set up
+Spack also but it is mostly offered "as is" and we will not do bug-fixing or development in Spack
+package files.** Spack is very attractive for users who want to set up a personal environment with
+fully customised versions of the software rather than the rather fixed versions provided by EasyBuild
+for every version of the software stack. It is possible to specify versions for the main packages
+that you need and then let Spack figure out a minimal compatible set of dependencies to install 
+those packages.
 
 
 ### Software policies
@@ -131,7 +138,7 @@ community**.
     negotiations with software vendors rather difficult as they will want to push us onto the industrial
     rather than academic pricing as they have no guarantee that we will obey to the academic license
     restrictions. 
--   And lastly, **we don't have an infinite budget**. There was a questionnaire send out to 
+-   And lastly, **we don't have an infinite budget**. There was a questionnaire sent out to 
     some groups even before the support team was assembled and that contained a number of packages that
     by themselves would likely consume our whole software budget for a single package if I look at the 
     size of the company that produces the package and the potential size of their industrial market. 
@@ -153,7 +160,7 @@ high performance from the interconnect. For example,
 -   The LUMI interconnect requires **libfabric**
     using a specific provider for the NIC used on LUMI, the so-called Cassini provider, 
     so any software compiled with an MPI library that
-    requires UCX, or any other distributed memory model build on top of UCX, will not work on LUMI, or at
+    requires UCX, or any other distributed memory model built on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. 
 -   Even intra-node interprocess communication can already cause problems as there are three different kernel extensions
     that provide more efficient interprocess messaging than the standard Linux mechanism. Many clusters
@@ -171,7 +178,7 @@ high performance from the interconnect. For example,
     optimised Linux version called COS or Cray Operating System on the compute nodes. It is optimised to
     reduce OS jitter and hence to enhance scalability of applications as that is after all the primary
     goal of a pre-exascale machine. But that implies that certain Linux daemons that your software may 
-    expect to find are not present on the compute nodes. D-bus comes to mind.
+    expect to find are not present on the compute nodes. D-Bus comes to mind.
 
 Also, the LUMI user support team is **too small to do all software installations** which is why we currently
 state in our policy that a LUMI user should be capable of installing their software themselves or have
@@ -187,6 +194,7 @@ the Python provided by the `cray-python` module. On LUMI the tool is called
 [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/)
 but it may by some from CSC also be known as Tykky.
 
+
 ### Organisation of the software in software stacks
 
 <figure markdown style="border: 1px solid #000">
@@ -195,7 +203,7 @@ but it may by some from CSC also be known as Tykky.
 
 On LUMI we have several software stacks.
 
-**CrayEnv** is the software stack for users who only need the **Cray Programming Environment** but want a **more
+**CrayEnv** is the minimal software stack for users who only need the **Cray Programming Environment** but want a **more
 recent set of build tools etc** than the OS provides. We also take care of a few issues that we will discuss
 on the next slide that are present right after login on LUMI.
 
@@ -240,6 +248,7 @@ tools** like newer build tools than provided with the OS. They are offered here 
 sure that those tools don't create conflicts with software in other stacks. But otherwise the Cray Programming 
 Environment **works exactly as you'd expect from this course**.
 
+
 #### LUMI stack
 
 <figure markdown style="border: 1px solid #000">
@@ -265,6 +274,7 @@ And we sometimes use this to work around problems in Cray-provided modules that 
 This is also the environment in which we install most software, and from the name of the modules you can see which
 compilers we used.
 
+
 #### LUMI stack module organisation
 
 <figure markdown style="border: 1px solid #000">
@@ -273,14 +283,17 @@ compilers we used.
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
 
-First there are the **LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules**. Each of the LUMI modules loads a particular
-version of the LUMI stack.
+First there are the **LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules**. 
+Each of the LUMI modules loads a particular version of the LUMI stack.
 
-The **second level consists of partition modules**. There is partition/L for the login and large memory nodes,
-partition/C for the regular compute nodes and partition/G for the AMD GPU nodes.
-We may have a separate partition for the visualisation nodes in the future but that is not clear yet.
+The **second level consists of partition modules**. 
+There is partition/L for the login and large memory nodes,
+partition/C for the regular compute nodes and 
+partition/G for the AMD GPU nodes.
+There may be a separate partition for the visualisation nodes in the future 
+but that is not clear yet.
 
-There is also a **hidden partition/common module** in which we install software that is available everywhere, 
+There is also a **hidden partition/common module** in which software is installed that is available everywhere, 
 but we advise you to be careful to install software in there in your own installs as it is risky to rely on
 software in one of the regular partitions, and impossible in our EasyBuild setup.
 
@@ -313,10 +326,11 @@ hard to even impossible.
 Secondly generic RPMs **might not even work with the specific LUMI environment**. They may not fully
 support the SlingShot interconnect and hence run at reduced speed, or they may need particular
 kernel modules or daemons that are not present on the system or they may not work well with
-the resource manager on the system. We expect this to happen especially with packages that 
-require specific MPI versions.
+the resource manager on the system. 
+This is expected to happen especially with packages that require specific MPI versions
+or implementations.
 Moreover, LUMI is a **multi-user system** so there is usually **no "one version fits all"**.
-And we need a **small system image as nodes are diskless** which means that RPMs need to be
+And LUMI needs a **small system image as nodes are diskless** which means that RPMs need to be
 relocatable so that they can be installed elsewhere.
 
 Spack and EasyBuild are the two most popular HPC-specific software build and installation
@@ -336,7 +350,8 @@ And they do **take care of dependency handling** in a way that is compatible wit
   ![Extending the LUMI stack with EasyBuild](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-04-software/EasyBuildExtendingLUMIStack.png){ loading=lazy }
 </figure>
 
-On LUMI EasyBuild is our primary software installation tool. We selected this as there is
+On LUMI EasyBuild is the primary software installation tool. 
+EasyBuild was selected this as there is
 already a lot of experience with EasyBuild in several LUMI consortium countries and as
 it is also a tool developed in Europe which makes it a nice fit with EuroHPC's goal of
 creating a fully European HPC ecosystem.
@@ -353,14 +368,17 @@ or in your personal or project stack.
 Note however that the **build-in easyconfig files that come with EasyBuild do not work on LUMI** at
 the moment.
 
--   For the GNU toolchain we would have problems with MPI. EasyBuild uses Open MPI and that
+-   For the GNU toolchain there would be problems with MPI. EasyBuild uses Open MPI and that
     needs to be configured differently to work well on LUMI, and there are also still issues with
     getting it to collaborate with the resource manager as it is installed on LUMI.
 -   The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the
     AMD CPUs are a problematic cocktail. There have recently been performance and correctness problems 
     with the MKL math library and also failures with some versions of Intel MPI, 
     and you need to be careful selecting compiler options and not use `-xHost`
-    or the Intel compiler will simply optimize for a two decades old CPU.
+    or the classic Intel compilers will simply optimize for a two decades old CPU.
+    The situation is better with the new LLVM-based compilers though, and it looks like
+    very recent versions of MKL are less AMD-hostile. Problems have also been reported
+    with Intel MPI running on LUMI.
 
 Instead we make our **own EasyBuild build recipes** that we also make available in the 
 [LUMI-EasyBuild-contrib GitHub repository](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib).
@@ -456,8 +474,9 @@ and difficult to ask users to first select the toolchain they want to use and th
 software for that toolchain.
 
 It is however possible to combine packages compiled with one CPE-based toolchain with packages
-compiled with teh system toolchain, but we do avoid mixing those when linking as that may cause
-problems. The reason is that we try to use as much as possible static linking in the SYSTEM
+compiled with the system toolchain, but you should avoid mixing those when linking as that may cause
+problems. The reason that it works when running software is because static linking
+is used as much as possible in the SYSTEM
 toolchain so that these packages are as independent as possible.
 
 And with some tricks it might also be possible to combine packages from the LUMI software stack
@@ -574,8 +593,8 @@ the proper value before loading the `LUMI` module.**
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
 installation takes 15 or 20 minutes.
-First we need to figure out for which versions of GROMACS we already have support.
-At the moment we have to use `eb -S` or `eb --search` for that. So in our example this is
+First we need to figure out for which versions of GROMACS there is already support on LUMI.
+One can use `eb -S` or `eb --search` for that. So in our example this is
 ``` bash
 eb --search GROMACS
 ```
@@ -670,18 +689,6 @@ module avail
   ![Installing: Install the software](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-04-software/EasyBuildInstallingStep3Note.png){ loading=lazy }
 </figure>
 
-There is a little problem though that you may run into. Sometimes the module does not
-show up immediately. This is because Lmod keeps a cache when it feels that Lmod searches
-become too slow and often fails to detect that the cache is outdated.
-The easy solution is then to simply remove the cache which is in `$HOME/.lmod.d/.cache`, 
-which you can do with 
-```bash
-rm -rf $HOME/.lmod.d/.cache
-```
-And we have seen some very rare cases where even that did not help likely because some
-internal data structures in Lmod where corrupt. The easiest way to solve this is to simply
-log out and log in again and rebuild your environment.
-
 Installing software this way is **100% equivalent to an installation in the central software
 tree**. The application is compiled in exactly the same way as we would do and served from the
 same file systems. But it helps **keep the output of `module avail` reasonably short** and **focused
@@ -692,6 +699,19 @@ jobs as the software would become unavailable during the re-installation and als
 confused if they all of a sudden find different binaries. However, have this in your own stack
 extension and you can update whenever it suits your project best or even not update at all if 
 you figure out that the problem we discovered has no influence on your work.
+
+Lmod does keep a user cache of modules. EasyBuild will try to erase that cache after a
+software installation to ensure that the newly installed module(s) show up immediately.
+We have seen some very rare cases where clearing the cache did not help likely because some
+internal data structures in Lmod where corrupt. The easiest way to solve this is to simply
+log out and log in again and rebuild your environment.
+
+In case you see strange behaviour using modules you can also try to manually
+remove the Lmod user cache which is in `$HOME/.lmod.d/.cache`.
+You can do this with 
+```bash
+rm -rf $HOME/.lmod.d/.cache
+```
 
 
 ### More advanced work
@@ -747,7 +767,8 @@ the subdirectory should be called `UserRepo`, but that doesn't stop you from usi
 a different name for the repository on GitHub. After cloning your GitHub version you
 can always change the name of the directory.
 The structure should also be compatible with the structure that EasyBuild uses, so
-easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
+easyconfig files go in `$EBU_USER_PREFIX/UserRepo/easybuild/easyconfigs`.
+
 
 
 ### More advanced work (3): Reproducibility
@@ -759,7 +780,9 @@ easyconfig files go in `$EBU_USER_PREFIX/easybuild/easyconfigs`.
 EasyBuild also takes care of a **high level of reproducibility of installations**.
 
 It will **keep a copy of all the downloaded sources** in the `$EBU_USER_PREFIX/sources`
-subdirectory, and use that source file again rather than downloading it again. Of course
+subdirectory (unless the sources are already available elswhere where EasyBuild can find them,
+e.g., in the system EasyBuild sources directory), 
+and use that source file again rather than downloading it again. Of course
 in some cases those "sources" could be downloaded tar files with binaries instead
 as EasyBuild can install downloaded binaries or relocatable RPMs.
 And if you know the structure of those directories, this is also a place where
