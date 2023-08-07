@@ -74,9 +74,10 @@ plugins:
   # necessary for search to work
   - search
   # redirects to avoid broken URLs in original version of the tutorial (June 2020)
-  #- redirects:
-  #    redirect_maps:
-  #        practical_information.md: 2020-06-isc20/practical_information.md
+  - redirects:
+      redirect_maps:
+          comprehensive-latest/index.md: 4day-20230530/index.md
+          intro-latest/index.md: 1day-20230509/index.md
 
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
