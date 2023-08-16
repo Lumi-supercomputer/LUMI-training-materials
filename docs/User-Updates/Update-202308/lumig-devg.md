@@ -15,6 +15,9 @@ Therefore the following policy changes will be implemented:
 -   The maximum number of jobs is unmodified. Users can have only one running job in this
     partition.
 
+**User action: Some job scripts may require changes and you may have to move to a different
+partition if you were not using dev-g in the intended way.**
+
 
 ## The eap partition
 
@@ -27,3 +30,6 @@ for groups in LUMI consortium countries, their local resource allocators.
 
 The eap partition is removed during the update and will not return. All users who want to experiment
 on the GPU nodes now need projects with GPU billing units.
+
+**User action: Request GPU billing units from your resource allocator. Depending on your use profile, 
+use dev-g, small-g or standard-g instead.**
