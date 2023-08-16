@@ -128,5 +128,13 @@ a later time than they actually are.
 The maximum walltime on LUMI is high compared to many other large clusters in Europe. Don't abuse it.
 
 
+## Core and memory use on small-g and dev-g
 
+The changes made to the configuration of LUMI are not yet reflected in the billing policy. However, 
+to enable everybody to maximally exploit the nodes of LUMI-G one should
+
+-   Request at most 60 GB of CPU memory for every GPU requested as then all 8 GPUs can be used
+    by jobs with a fair amount of system memory for everybody.
+-   Not request more than 7 CPUs for each GPU requested. If all users do this then there the GPUs
+    in a node can be used maximally.
 
