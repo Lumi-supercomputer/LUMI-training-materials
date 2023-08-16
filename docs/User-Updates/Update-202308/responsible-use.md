@@ -100,6 +100,23 @@ then when you scale up for the large number of nodes go immediately for a long r
 is cancelled properly if something goes wrong. 15-minute 512-node test jobs are a very bad idea.
 
 
+## Don't use large jobs just for the fun of it
+
+Sometimes you have the choice between using more nodes and get a shorter runtime, or fewer nodes with a larger runtime.
+In general using fewer nodes will always be more efficient as parallel efficiency for a given problem size usually decreases
+with increasing node counts. So you'll likely get more from your allocation by using smaller jobs.
+
+Also, the more nodes a job requires, the longer it may take to get scheduled, even just because it may take a while to gather 
+the required number of nodes. Showing how well your code can scale may certainly be a worthwhile addition to your paper, but it
+does not mean that all runs have to be done at those extreme node counts.
+
+And as already discussed, very large jobs also have a negative impact on the efficiency of the resource use of the scheduler,
+and hence on the waiting times for everybody.
+
+If you need a big run requiring a 100 nodes or more, do so responsibly and ensure that it can run for a while so that 
+resources haven't been kept idle by the scheduler for basically nothing.
+
+
 ## Use reasonable estimates for the walltime
 
 Of course it is OK to use a good safety margin when estimating the walltime a job will need, but just taking the 
@@ -109,4 +126,7 @@ without needlesly delaying that big job simply because the scheduler thinks the 
 a later time than they actually are.
 
 The maximum walltime on LUMI is high compared to many other large clusters in Europe. Don't abuse it.
+
+
+
 
