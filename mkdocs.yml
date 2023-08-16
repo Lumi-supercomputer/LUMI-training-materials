@@ -31,6 +31,13 @@ theme:
 
 nav:
   - Home: index.md
+  - User Updates:
+      - User-Updates/index.md
+      - August 2023: 
+          - User-Updates/Update-202308/index.md
+          - Low-noise mode: User-Updates/Update-202308/lumig-lownoise.md
+          - dev-g and eap: User-Updates/Update-202308/lumig-devg.md
+          - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
       - User-Coffee-Breaks/index.md
   - Comprehensive LUMI May-June 2023:
