@@ -536,6 +536,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#core-and-memory-use-on-small-g-and-dev-g" class="md-nav__link">
+    Core and memory use on small-g and dev-g
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1358,6 +1365,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#core-and-memory-use-on-small-g-and-dev-g" class="md-nav__link">
+    Core and memory use on small-g and dev-g
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1475,6 +1489,15 @@ scheduler to properly use backfill to use resources that are idle while nodes ar
 without needlesly delaying that big job simply because the scheduler thinks the nodes will only be available at
 a later time than they actually are.</p>
 <p>The maximum walltime on LUMI is high compared to many other large clusters in Europe. Don't abuse it.</p>
+<h2 id="core-and-memory-use-on-small-g-and-dev-g">Core and memory use on small-g and dev-g<a class="headerlink" href="#core-and-memory-use-on-small-g-and-dev-g" title="Permanent link">&para;</a></h2>
+<p>The changes made to the configuration of LUMI are not yet reflected in the billing policy. However, 
+to enable everybody to maximally exploit the nodes of LUMI-G one should</p>
+<ul>
+<li>Request at most 60 GB of CPU memory for every GPU requested as then all 8 GPUs can be used
+    by jobs with a fair amount of system memory for everybody.</li>
+<li>Not request more than 7 CPUs for each GPU requested. If all users do this then there the GPUs
+    in a node can be used maximally.</li>
+</ul>
 
 
 
