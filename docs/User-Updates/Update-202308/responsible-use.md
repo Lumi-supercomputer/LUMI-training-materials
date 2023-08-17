@@ -14,14 +14,17 @@ You can get the same environment on the small and standard partitions by:
 
 -   Adding the option `--exclusive` to the `sbatch instructions` (as a command line argument or
     in an `#SBATCH` line), and
--   Requesting memory, e.g., using `--mem`. To migrate from standard to small on LUMI-C, a good
+-   Requesting memory, e.g., using `--mem`. For migrating from standard to small on LUMI-C, a good
     choice is `--mem=224g` and for migrating from standard-g to small-g, a good option is
     `--mem=480g`. This is needed because `--exclusive` does not yet give you access to memory in 
-    the same way as the standard and standard-g partition do but instead still impose the regular
+    the same way as the standard and standard-g partition do, but instead still impose the regular
     restrictions of small and small-g.
 
-Job script using the above two options can still also run on standard and standard-g if you adapt
-the partition.
+***These options should only be used if you indeed need job exclusive nodes and you will also be
+billed for the full node if you use these options as described here.***
+
+Job scripts using the above two options can still also run on standard and standard-g without 
+negative consequences if you adapt the partition.
 
 !!! Example "Lines for LUMI-C"
 
@@ -55,7 +58,8 @@ are in fact billed for the full node).
 Common errors include:
 
 -   Running on a GPU node but forget to request GPUs. In some cases you will see a warning or even
-    error message in your output, but in some case the software will just run without a warning as
+    error message from your application in your output, 
+    but in some case the software will just run without a warning as
     the same binary may support both GPU and non-GPU use.
 
 -   Running software that is not built for a GPU. Software will not use a GPU in some magical way
@@ -64,7 +68,9 @@ Common errors include:
     cannot run on an AMD GPU, just as software compiled for an x86 processor cannot run on an ARM
     processor.
 
-    If you use a package which is not written for GPU use, you will not get any warning.
+    If you use a package which is not written for GPU use, you will not get any warning as software 
+    does not give warnings if there is more hardware in the system than it needs or if it doesn't 
+    know a piece of hardware and also doesn't need it.
 
 -   Know your software. Not all software can use more than one GPU, let alone that it could use more
     than one GPU efficiently for the problem that you are trying to solve.
@@ -82,8 +88,8 @@ Try to avoid running short test jobs that need a lot of nodes.
 A supercomputer is never run in preemptive mode. Jobs run until they are finished and are not interrupted
 for other jobs.
 
-Now assume you submit a 512 node job, half the size of the standard partition, and assume that all other
-jobs in the system would be running for the maximum allowed node time of 2 days. The scheduler will need to
+Now assume you submit a 512 node job on LUMI-C, half the size of the standard partition, and assume that all other
+jobs in the system would be running for the maximum allowed walltime of 2 days. The scheduler will need to
 gather nodes as they become available for the 512 node job, so if all jobs would run for 2 days and you need 
 half of the total number of nodes, then on average this could take one full day, with the first resources in 
 the pool becoming available almost immediately but the last few of the requested nodes only when the job starts.
@@ -102,7 +108,7 @@ is cancelled properly if something goes wrong. 15-minute 512-node test jobs are 
 
 ## Don't use large jobs just for the fun of it
 
-Sometimes you have the choice between using more nodes and get a shorter runtime, or fewer nodes with a larger runtime.
+Sometimes you have the choice between using more nodes and getting a shorter runtime, or fewer nodes with a larger runtime.
 In general using fewer nodes will always be more efficient as parallel efficiency for a given problem size usually decreases
 with increasing node counts. So you'll likely get more from your allocation by using smaller jobs.
 
@@ -125,7 +131,8 @@ scheduler to properly use backfill to use resources that are idle while nodes ar
 without needlesly delaying that big job simply because the scheduler thinks the nodes will only be available at
 a later time than they actually are.
 
-The maximum walltime on LUMI is high compared to many other large clusters in Europe. Don't abuse it.
+The maximum walltime on LUMI is high compared to many other large clusters in Europe that have a 24 hour limit
+for larger jobs. Don't abuse it.
 
 
 ## Core and memory use on small-g and dev-g
@@ -134,7 +141,7 @@ The changes made to the configuration of LUMI are not yet reflected in the billi
 to enable everybody to maximally exploit the nodes of LUMI-G one should
 
 -   Request at most 60 GB of CPU memory for every GPU requested as then all 8 GPUs can be used
-    by jobs with a fair amount of system memory for everybody.
--   Not request more than 7 CPUs for each GPU requested. If all users do this then there the GPUs
+    by jobs with a fair amount of system memory for everybody, and
+-   Not request more than 7 CPUs for each GPU requested. If all users do this, the GPUs
     in a node can be used maximally.
 

@@ -7,7 +7,7 @@ The configuration of LUMI-G has been made more symmetrical.
 Previously, a low-noise mode was enabled reserving one core (core 0) for the operating
 system and drivers. This was needed because benchmarking before the pilot phase showed
 that the jitter cause by OS processes in the background stealing time from some cores
-that were in use by applications had a very negative impact on scalability.
+that were in use by applications, had a very negative impact on scalability.
 
 This created an asymmetry as one CCD (chiplet) of the CPU had 7 cores available while
 all others had 8 cores available. And this in turn almost forced users to do a fully manual
@@ -39,15 +39,15 @@ What has **not** changed:
     implications for LUMI-C also. So don't expect that you can simply use the same strategy for
     resource requests for all cases on LUMI and Frontier.
 
--   `--gpu-bind=closest` still does not work as expected. On standard-g is will not 
+-   `--gpu-bind=closest` still does not work as expected. On standard-g, it will not 
     give you the proper GPUs (apart from other problems with Slurm doing the binding).
-    On small-g it will not enforce an allocation with the proper CPU cores for the GPUs
+    On small-g, it will not enforce an allocation with the proper CPU cores for the GPUs
     in your allocation.
 
 -   The Slurm GPU binding is still incompatible with shared memory communication between 
     GPUs in different tasks, as is used, e.g., by GPU-aware Cray MPICH intra-node communication.
     So the trick of avoiding Slurm doing the binding and do a manual binding instead via the
-    `select_gpu` script used in the LUMI documentation is still needed.
+    `select_gpu` script used in the LUMI documentation, is still needed.
 
 User impact:
 
@@ -59,8 +59,8 @@ User impact:
 
     **The ["MPI-based job" in the GPU examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#mpi-based-job)
     in the LUMI documentation before the August 2023 update does no longer work. Also, the `--cpu-bind=map_cpu:` line
-    that shown on the ["Distrubtion and binding"](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
-    page does no longer work after the update.**
+    that was shown on the ["Distribtion and binding"](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+    page does no longer work after the update. The documentation has been corrected.**
 
 -   Any job script that uses `--cpu-bind=mask_gpu:` and that includes a now unavailable core in the mask
     will fail. 
@@ -70,10 +70,10 @@ User impact:
     already took this into account and is still correct.
     **The example mask on the 
     ["Distribution and binding" page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
-    is wrong and all occurences of `ff` need to be modified to `fe`.** 
+    is wrong and all occurences of `ff` need to be modified to `fe`. The documentation has been corrected.** 
 
 All training materials in the ["LUMI training materials" archive web site](https://klust.github.io/LUMI-training-materials/)
-reflect the state of LUMI at the time the course was given. These materials are not updated after the course, so some job
+reflect the state of LUMI at the time that the course was given. These materials are not updated after the course, so some job
 scripts for LUMI-G contained in those courses will be incorrect. As courses are lectured again, a new version of the course
 materials will be made available on this site and LUMI (as some materials cannot be published on the web).
 
@@ -84,7 +84,7 @@ In particular,
     Warsaw, October 3-6.
 
 -   The [latest materials of the 1-day introductory LUMI training](https://klust.github.io/LUMI-training-materials/intro-latest)
-    are currently those of the course in early May 2023. A new edition has not yet been planned but will is expected in the fall of 2023.
+    are currently those of the course in early May 2023. A new edition has not yet been planned but is expected in the fall of 2023.
 
 
 ## MPI-based job example
@@ -166,7 +166,7 @@ rm -rf ./select_gpu
 ```
 
 The mask here is built up of `7e` blocks which use cores 1 till 6 of each CCD, but do not use the reserved
-core 0 nor the core 7.
+core 0 nor the available core 7.
 In general, any mask element with a 1, 3, 5, 7, 9, B, D or F in position 1, 3, 5, 7, 9, 11, 13 or 15 
 (counting from the right and starting with 1) is wrong as it would have a 1-bit on the position of core 0
 of one of the CCDs. Or in other words, the odd positions (counting from the right and starting from 1)
@@ -175,9 +175,11 @@ of each mask element should be an even hexadecimal number (including 0).
 
 ## Comprehensive training "Advanced Placement" lecture
 
-Most of the slides of the GPU-related slides of the 
+Many of the slides of the GPU-related slides of the 
 ["Advanced Placement" lecture of the comprehensive LUMI course of May-June 2023](https://klust.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Advanced_Application_Placement/) 
 need changes.
+
+Note that numbers refer to the page numbers on the slides themselves. Some slides are left out of the bundle.
 
 -   The example on slide 61 which did not work (as explained on slide 62 and 63) will now actually work
 
@@ -226,8 +228,40 @@ need changes.
     ${ASRUN} ./xthi | sort -n -k 4 -k 6
     ```
 
--   The script on slide 72 will now give a nice CPU binding but the GPU binding is still too naive.
-    It is corrected by the script on slide 74 which does not require any modifications:
+-   The script on slide 72:
+   
+    ```bash
+    #!/bin/bash
+    #SBATCH -p <partition>
+    #SBATCH -A <your_project>
+    #SBATCH --time=00:02:00
+    #SBATCH --nodes=2
+    #SBATCH --gres=gpu:8
+    #SBATCH --exclusive
+    #SBATCH --ntasks-per-node=8 #SBATCH --cpus-per-task=7
+    #SBATCH --hint=nomultithread
+
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=close
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+    ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000, 0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000, 0xfe00000000000000”
+
+    ${ASRUN} ./select_gpu.sh <my_app>
+    ```
+
+    with `select_gpu.sh`: 
+
+    ```bash
+    #!/bin/bash
+
+    export ROCR_VISIBLE_DEVICES=$SLURM_LOCALID
+
+    exec $*
+    ```
+
+    will still give a correct CPU binding and the GPU binding is still too naive.
+    It is corrected by the `select_gpu.sh` script on slide 74 which does not require any modifications either:
 
     ```bash
     #!/bin/bash
