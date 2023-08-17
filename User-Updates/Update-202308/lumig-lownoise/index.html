@@ -501,6 +501,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#some-other-examples" class="md-nav__link">
+    Some other examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Some other examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mask-for-1-gpu-per-task-7-cores-per-task" class="md-nav__link">
+    Mask for 1 GPU per task, 7 cores per task:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mask-for-2-tasks-per-gpu-3-cores-per-task" class="md-nav__link">
+    Mask for 2 tasks per GPU, 3 cores per task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1344,6 +1371,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#some-other-examples" class="md-nav__link">
+    Some other examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Some other examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mask-for-1-gpu-per-task-7-cores-per-task" class="md-nav__link">
+    Mask for 1 GPU per task, 7 cores per task:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mask-for-2-tasks-per-gpu-3-cores-per-task" class="md-nav__link">
+    Mask for 2 tasks per GPU, 3 cores per task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1365,7 +1419,7 @@
 <p>Previously, a low-noise mode was enabled reserving one core (core 0) for the operating
 system and drivers. This was needed because benchmarking before the pilot phase showed
 that the jitter cause by OS processes in the background stealing time from some cores
-that were in use by applications had a very negative impact on scalability.</p>
+that were in use by applications, had a very negative impact on scalability.</p>
 <p>This created an asymmetry as one CCD (chiplet) of the CPU had 7 cores available while
 all others had 8 cores available. And this in turn almost forced users to do a fully manual
 CPU binding in standard-g, and gave very bad core allocations in small-g. Some changes have
@@ -1401,16 +1455,16 @@ been made to the scheduler config to improve this situation.</p>
     resource requests for all cases on LUMI and Frontier.</p>
 </li>
 <li>
-<p><code>--gpu-bind=closest</code> still does not work as expected. On standard-g is will not 
+<p><code>--gpu-bind=closest</code> still does not work as expected. On standard-g, it will not 
     give you the proper GPUs (apart from other problems with Slurm doing the binding).
-    On small-g it will not enforce an allocation with the proper CPU cores for the GPUs
+    On small-g, it will not enforce an allocation with the proper CPU cores for the GPUs
     in your allocation.</p>
 </li>
 <li>
 <p>The Slurm GPU binding is still incompatible with shared memory communication between 
     GPUs in different tasks, as is used, e.g., by GPU-aware Cray MPICH intra-node communication.
     So the trick of avoiding Slurm doing the binding and do a manual binding instead via the
-    <code>select_gpu</code> script used in the LUMI documentation is still needed.</p>
+    <code>select_gpu</code> script used in the LUMI documentation, is still needed.</p>
 </li>
 </ul>
 <p>User impact:</p>
@@ -1424,8 +1478,8 @@ been made to the scheduler config to improve this situation.</p>
     map will fail. </p>
 <p><strong>The <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#mpi-based-job">"MPI-based job" in the GPU examples</a>
 in the LUMI documentation before the August 2023 update does no longer work. Also, the <code>--cpu-bind=map_cpu:</code> line
-that shown on the <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding">"Distrubtion and binding"</a>
-page does no longer work after the update.</strong></p>
+that was shown on the <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding">"Distribtion and binding"</a>
+page does no longer work after the update. The documentation has been corrected.</strong></p>
 </li>
 <li>
 <p>Any job script that uses <code>--cpu-bind=mask_gpu:</code> and that includes a now unavailable core in the mask
@@ -1435,11 +1489,11 @@ page does no longer work after the update.</strong></p>
 already took this into account and is still correct.
 <strong>The example mask on the 
 <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding">"Distribution and binding" page</a>
-is wrong and all occurences of <code>ff</code> need to be modified to <code>fe</code>.</strong> </p>
+is wrong and all occurences of <code>ff</code> need to be modified to <code>fe</code>. The documentation has been corrected.</strong> </p>
 </li>
 </ul>
 <p>All training materials in the <a href="https://klust.github.io/LUMI-training-materials/">"LUMI training materials" archive web site</a>
-reflect the state of LUMI at the time the course was given. These materials are not updated after the course, so some job
+reflect the state of LUMI at the time that the course was given. These materials are not updated after the course, so some job
 scripts for LUMI-G contained in those courses will be incorrect. As courses are lectured again, a new version of the course
 materials will be made available on this site and LUMI (as some materials cannot be published on the web).</p>
 <p>In particular,</p>
@@ -1451,7 +1505,7 @@ materials will be made available on this site and LUMI (as some materials cannot
 </li>
 <li>
 <p>The <a href="https://klust.github.io/LUMI-training-materials/intro-latest">latest materials of the 1-day introductory LUMI training</a>
-    are currently those of the course in early May 2023. A new edition has not yet been planned but will is expected in the fall of 2023.</p>
+    are currently those of the course in early May 2023. A new edition has not yet been planned but is expected in the fall of 2023.</p>
 </li>
 </ul>
 <h2 id="mpi-based-job-example">MPI-based job example<a class="headerlink" href="#mpi-based-job-example" title="Permanent link">&para;</a></h2>
@@ -1489,8 +1543,8 @@ needs only an almost trivial modification on line 23:</p>
 <span class="c1">#SBATCH --output=examplejob.o%j # Name of stdout output file</span>
 <span class="c1">#SBATCH --error=examplejob.e%j  # Name of stderr error file</span>
 <span class="c1">#SBATCH --partition=standard-g  # Partition (queue) name</span>
-<span class="c1">#SBATCH --nodes=16              # Total number of nodes </span>
-<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (16x8)</span>
+<span class="c1">#SBATCH --nodes=2               # Total number of nodes </span>
+<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (2x8)</span>
 <span class="c1">#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank</span>
 <span class="c1">#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)</span>
 <span class="c1">#SBATCH --mail-type=all         # Send email at begin and end of job</span>
@@ -1513,8 +1567,16 @@ chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
 srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span>./select_gpu<span class="w"> </span>&lt;executable&gt;<span class="w"> </span>&lt;args&gt;
 rm<span class="w"> </span>-rf<span class="w"> </span>./select_gpu
 </code></pre></div></td></tr></table></div>
+<details class="example">
+<summary>Download runnable example</summary>
+<p>Example: <a href="../examples/example-mpi.sh">example-mpi.sh</a></p>
+<p>Run with:</p>
+<div class="highlight"><pre><span></span><code>sbatch -A project_46YXXXXXX example-mpi.sh
+</code></pre></div>
+<p>Future updates of LUMI may invalidate this script.</p>
+</details>
 <h2 id="hybrid-mpiopenmp-job">Hybrid MPI+OpenMP job<a class="headerlink" href="#hybrid-mpiopenmp-job" title="Permanent link">&para;</a></h2>
-<p>The <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#hybrid-mpiopenmp-job">example from the "Hybrid MPI+OpenMP job" section on the "GPU examples documentation page</a>
+<p>The mask in the <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#hybrid-mpiopenmp-job">example from the "Hybrid MPI+OpenMP job" section on the "GPU examples documentation page</a>
 is still correct:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1547,16 +1609,14 @@ is still correct:</p>
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
 <span class="c1">#SBATCH --job-name=examplejob   # Job name</span>
 <span class="c1">#SBATCH --output=examplejob.o%j # Name of stdout output file</span>
 <span class="c1">#SBATCH --error=examplejob.e%j  # Name of stderr error file</span>
 <span class="c1">#SBATCH --partition=standard-g  # Partition (queue) name</span>
-<span class="c1">#SBATCH --nodes=16              # Total number of nodes </span>
-<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (16x8)</span>
+<span class="c1">#SBATCH --nodes=2               # Total number of nodes </span>
+<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 2 total (2x8)</span>
 <span class="c1">#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank</span>
-<span class="c1">#SBATCH --cpus-per-task=6       # 6 threads per ranks</span>
 <span class="c1">#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)</span>
 <span class="c1">#SBATCH --mail-type=all         # Send email at begin and end of job</span>
 <span class="c1">#SBATCH --account=project_&lt;id&gt;  # Project for billing</span>
@@ -1583,15 +1643,24 @@ srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">$
 rm<span class="w"> </span>-rf<span class="w"> </span>./select_gpu
 </code></pre></div></td></tr></table></div>
 <p>The mask here is built up of <code>7e</code> blocks which use cores 1 till 6 of each CCD, but do not use the reserved
-core 0 nor the core 7.
+core 0 nor the available core 7.
 In general, any mask element with a 1, 3, 5, 7, 9, B, D or F in position 1, 3, 5, 7, 9, 11, 13 or 15 
 (counting from the right and starting with 1) is wrong as it would have a 1-bit on the position of core 0
 of one of the CCDs. Or in other words, the odd positions (counting from the right and starting from 1)
 of each mask element should be an even hexadecimal number (including 0).</p>
+<details class="example">
+<summary>Download runnable example</summary>
+<p>Example: <a href="../examples/example-hybrid.sh">example-hybrid.sh</a></p>
+<p>Run with:</p>
+<div class="highlight"><pre><span></span><code>sbatch -A project_46YXXXXXX example-hybrid.sh
+</code></pre></div>
+<p>Future updates of LUMI may invalidate this script.</p>
+</details>
 <h2 id="comprehensive-training-advanced-placement-lecture">Comprehensive training "Advanced Placement" lecture<a class="headerlink" href="#comprehensive-training-advanced-placement-lecture" title="Permanent link">&para;</a></h2>
-<p>Most of the slides of the GPU-related slides of the 
+<p>Many of the slides of the GPU-related slides of the 
 <a href="https://klust.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Advanced_Application_Placement/">"Advanced Placement" lecture of the comprehensive LUMI course of May-June 2023</a> 
 need changes.</p>
+<p>Note that numbers refer to the page numbers on the slides themselves. Some slides are left out of the bundle.</p>
 <ul>
 <li>
 <p>The example on slide 61 which did not work (as explained on slide 62 and 63) will now actually work</p>
@@ -1623,21 +1692,48 @@ mask:</p>
 <span class="c1">#SBATCH --gres=gpu:8 </span>
 <span class="c1">#SBATCH --exclusive</span>
 <span class="c1">#SBATCH --ntasks-per-node=8 </span>
-<span class="c1">#SBATCH --cpus-per-task=7 </span>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span>
 
-<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000, 0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000, 0xfe00000000000000”</span>
+<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000&quot;</span>
 
-<span class="si">${</span><span class="nv">ASRUN</span><span class="si">}</span><span class="s2"> ./xthi | sort -n -k 4 -k 6</span>
+<span class="si">${</span><span class="nv">ASRUN</span><span class="si">}</span><span class="w"> </span>./xthi<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">4</span><span class="w"> </span>-k<span class="w"> </span><span class="m">6</span>
 </code></pre></div>
+<p>(but the `--cpus-per-task`` line on that slide is wrong and was wrong before.)</p>
 </li>
 <li>
-<p>The script on slide 72 will now give a nice CPU binding but the GPU binding is still too naive.
-    It is corrected by the script on slide 74 which does not require any modifications:</p>
+<p>The script on slide 72:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -p &lt;partition&gt;</span>
+<span class="c1">#SBATCH -A &lt;your_project&gt;</span>
+<span class="c1">#SBATCH --time=00:02:00</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --gres=gpu:8</span>
+<span class="c1">#SBATCH --exclusive</span>
+<span class="c1">#SBATCH --ntasks-per-node=8 </span>
+<span class="c1">#SBATCH --hint=nomultithread</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span>
+
+<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000&quot;</span>
+
+<span class="si">${</span><span class="nv">ASRUN</span><span class="si">}</span><span class="w"> </span>./select_gpu.sh<span class="w"> </span>&lt;my_app&gt;
+</code></pre></div>
+<p>with <code>select_gpu.sh</code>: </p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">ROCR_VISIBLE_DEVICES</span><span class="o">=</span><span class="nv">$SLURM_LOCALID</span>
+
+<span class="nb">exec</span><span class="w"> </span><span class="nv">$*</span>
+</code></pre></div>
+<p>(and with the <code>--cpus-per-task</code> line removed)</p>
+<p>will still give a correct CPU binding and the GPU binding is still too naive.
+It is corrected by the <code>select_gpu.sh</code> script on slide 74 which does not require any modifications either:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">GPUSID</span><span class="o">=</span><span class="s2">&quot;4 5 2 3 6 7 0 1&quot;</span>
 <span class="nv">GPUSID</span><span class="o">=(</span><span class="si">${</span><span class="nv">GPUSID</span><span class="si">}</span><span class="o">)</span>
@@ -1654,6 +1750,171 @@ mask:</p>
 list.)</p>
 </li>
 </ul>
+<details class="example">
+<summary>Download runnable example based on the script of slide 72-74</summary>
+<p>Example: <a href="../examples/example-cray.sh">example-cray.sh</a></p>
+<p>Run with:</p>
+<div class="highlight"><pre><span></span><code>sbatch -A project_46YXXXXXX example-cray.sh
+</code></pre></div>
+<p>Future updates of LUMI may invalidate this script.</p>
+</details>
+<h2 id="some-other-examples">Some other examples<a class="headerlink" href="#some-other-examples" title="Permanent link">&para;</a></h2>
+<h3 id="mask-for-1-gpu-per-task-7-cores-per-task">Mask for 1 GPU per task, 7 cores per task:<a class="headerlink" href="#mask-for-1-gpu-per-task-7-cores-per-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --job-name=examplejob   # Job name</span>
+<span class="c1">#SBATCH --output=examplejob.o%j # Name of stdout output file</span>
+<span class="c1">#SBATCH --error=examplejob.e%j  # Name of stderr error file</span>
+<span class="c1">#SBATCH --partition=standard-g  # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=2               # Total number of nodes </span>
+<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)</span>
+<span class="c1">#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank</span>
+<span class="c1">#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)</span>
+<span class="c1">#SBATCH --mail-type=all         # Send email at begin and end of job</span>
+<span class="c1">#SBATCH --account=project_&lt;id&gt;  # Project for billing</span>
+<span class="c1">#SBATCH --mail-user=username@domain.com</span>
+
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID</span>
+<span class="s">exec \$*</span>
+<span class="s">EOF</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
+
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;mask_cpu&quot;</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">:00fe000000000000,fe00000000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 6. 7</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000000fe0000,00000000fe000000&quot;</span><span class="w"> </span><span class="c1"># CCD 2, 3</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000000000000fe,000000000000fe00&quot;</span><span class="w"> </span><span class="c1"># CCD 0, 1</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000fe00000000,0000fe0000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 4, 5</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">7</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_SUPPORT_ENABLED</span><span class="o">=</span><span class="m">1</span>
+
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span>./select_gpu<span class="w"> </span>&lt;executable&gt;<span class="w"> </span>&lt;args&gt;
+rm<span class="w"> </span>-rf<span class="w"> </span>./select_gpu
+</code></pre></div></td></tr></table></div>
+<p>This mask makes the first HWT on all 7 cores available. 
+For OpenMP applications, use can then be restricted again by setting
+<code>OMP_NUM_THREADS</code> to a lower value.</p>
+<details class="example">
+<summary>Download runnable example</summary>
+<p>Example: <a href="../examples/example-1gpt-7cpt.sh">example-1gpt-7cpt.sh</a></p>
+<p>Run with:</p>
+<div class="highlight"><pre><span></span><code>sbatch -A project_46YXXXXXX example-1gpt-7cpt.sh
+</code></pre></div>
+<p>Future updates of LUMI may invalidate this script.</p>
+</details>
+<h3 id="mask-for-2-tasks-per-gpu-3-cores-per-task">Mask for 2 tasks per GPU, 3 cores per task<a class="headerlink" href="#mask-for-2-tasks-per-gpu-3-cores-per-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --job-name=examplejob   # Job name</span>
+<span class="c1">#SBATCH --output=examplejob.o%j # Name of stdout output file</span>
+<span class="c1">#SBATCH --error=examplejob.e%j  # Name of stderr error file</span>
+<span class="c1">#SBATCH --partition=standard-g  # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=2               # Total number of nodes </span>
+<span class="c1">#SBATCH --ntasks-per-node=16    # 16 MPI ranks per node, 32 total (2x16)</span>
+<span class="c1">#SBATCH --gpus-per-node=8       # Allocate all eight GPUS in a node</span>
+<span class="c1">#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)</span>
+<span class="c1">#SBATCH --mail-type=all         # Send email at begin and end of job</span>
+<span class="c1">#SBATCH --account=project_&lt;id&gt;  # Project for billing</span>
+<span class="c1">#SBATCH --mail-user=username@domain.com</span>
+
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">export ROCR_VISIBLE_DEVICES=\$((SLURM_LOCALID/2))</span>
+<span class="s">exec \$*</span>
+<span class="s">EOF</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
+
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;mask_cpu&quot;</span><span class="w">  </span><span class="c1">#7766554433221100,7766554433221100</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">:000E000000000000,00E0000000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 6</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0E00000000000000,E000000000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 7</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000000000E0000,0000000000E00000&quot;</span><span class="w"> </span><span class="c1"># CCD 2</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000000E000000,00000000E0000000&quot;</span><span class="w"> </span><span class="c1"># CCD 3</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000000000000E,00000000000000E0&quot;</span><span class="w"> </span><span class="c1"># CCD 0</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000000000E00,000000000000E000&quot;</span><span class="w"> </span><span class="c1"># CCD 1</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000E00000000,000000E000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 4</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000E0000000000,0000E00000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 5</span>
+<span class="c1">#                     7766554433221100,7766554433221100</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_SUPPORT_ENABLED</span><span class="o">=</span><span class="m">1</span>
+
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span>./select_gpu<span class="w"> </span>&lt;executable&gt;<span class="w"> </span>&lt;args&gt;
+rm<span class="w"> </span>-rf<span class="w"> </span>./select_gpu
+</code></pre></div></td></tr></table></div>
+<p>This mask will use cores 1-3 and 5-7 of each CCD to place tasks.</p>
+<details class="example">
+<summary>Download runnable example</summary>
+<p>Example: <a href="../examples/example-2tpg-3cpt.sh">example-2tpg-3cpt.sh</a></p>
+<p>Run with:</p>
+<div class="highlight"><pre><span></span><code>sbatch -A project_46YXXXXXX example-2tpg-3cpt.sh
+</code></pre></div>
+<p>Future updates of LUMI may invalidate this script.</p>
+</details>
 
 
 
