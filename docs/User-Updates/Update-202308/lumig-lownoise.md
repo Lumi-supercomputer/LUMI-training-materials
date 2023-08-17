@@ -98,8 +98,8 @@ needs only an almost trivial modification on line 23:
 #SBATCH --output=examplejob.o%j # Name of stdout output file
 #SBATCH --error=examplejob.e%j  # Name of stderr error file
 #SBATCH --partition=standard-g  # Partition (queue) name
-#SBATCH --nodes=16              # Total number of nodes 
-#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (16x8)
+#SBATCH --nodes=2               # Total number of nodes 
+#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (2x8)
 #SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
 #SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
 #SBATCH --mail-type=all         # Send email at begin and end of job
@@ -123,10 +123,22 @@ srun --cpu-bind=${CPU_BIND} ./select_gpu <executable> <args>
 rm -rf ./select_gpu
 ```
 
+??? example "Download runnable example"
+
+    Example: [example-mpi.sh](examples/example-mpi.sh)
+
+    Run with:
+
+    ```
+    sbatch -A project_46YXXXXXX example-mpi.sh
+    ```
+
+    Future updates of LUMI may invalidate this script.
+
 
 ## Hybrid MPI+OpenMP job
 
-The [example from the "Hybrid MPI+OpenMP job" section on the "GPU examples documentation page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#hybrid-mpiopenmp-job)
+The mask in the [example from the "Hybrid MPI+OpenMP job" section on the "GPU examples documentation page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#hybrid-mpiopenmp-job)
 is still correct:
 
 ```bash linenums="1"
@@ -135,10 +147,9 @@ is still correct:
 #SBATCH --output=examplejob.o%j # Name of stdout output file
 #SBATCH --error=examplejob.e%j  # Name of stderr error file
 #SBATCH --partition=standard-g  # Partition (queue) name
-#SBATCH --nodes=16              # Total number of nodes 
-#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (16x8)
+#SBATCH --nodes=2               # Total number of nodes 
+#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 2 total (2x8)
 #SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
-#SBATCH --cpus-per-task=6       # 6 threads per ranks
 #SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
 #SBATCH --mail-type=all         # Send email at begin and end of job
 #SBATCH --account=project_<id>  # Project for billing
@@ -171,6 +182,18 @@ In general, any mask element with a 1, 3, 5, 7, 9, B, D or F in position 1, 3, 5
 (counting from the right and starting with 1) is wrong as it would have a 1-bit on the position of core 0
 of one of the CCDs. Or in other words, the odd positions (counting from the right and starting from 1)
 of each mask element should be an even hexadecimal number (including 0).
+
+??? example "Download runnable example"
+
+    Example: [example-hybrid.sh](examples/example-hybrid.sh)
+
+    Run with:
+
+    ```
+    sbatch -A project_46YXXXXXX example-hybrid.sh
+    ```
+
+    Future updates of LUMI may invalidate this script.
 
 
 ## Comprehensive training "Advanced Placement" lecture
@@ -216,17 +239,18 @@ Note that numbers refer to the page numbers on the slides themselves. Some slide
     #SBATCH --gres=gpu:8 
     #SBATCH --exclusive
     #SBATCH --ntasks-per-node=8 
-    #SBATCH --cpus-per-task=7 
     #SBATCH --hint=nomultithread
 
     export OMP_PLACES=cores
     export OMP_PROC_BIND=close
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
-    ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000, 0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000, 0xfe00000000000000”
+    ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"
 
     ${ASRUN} ./xthi | sort -n -k 4 -k 6
     ```
+    
+    (but the `--cpus-per-task`` line on that slide is wrong and was wrong before.)
 
 -   The script on slide 72:
    
@@ -238,14 +262,14 @@ Note that numbers refer to the page numbers on the slides themselves. Some slide
     #SBATCH --nodes=2
     #SBATCH --gres=gpu:8
     #SBATCH --exclusive
-    #SBATCH --ntasks-per-node=8 #SBATCH --cpus-per-task=7
+    #SBATCH --ntasks-per-node=8 
     #SBATCH --hint=nomultithread
 
     export OMP_PLACES=cores
     export OMP_PROC_BIND=close
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
-    ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000, 0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000, 0xfe00000000000000”
+    ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"
 
     ${ASRUN} ./select_gpu.sh <my_app>
     ```
@@ -259,6 +283,8 @@ Note that numbers refer to the page numbers on the slides themselves. Some slide
 
     exec $*
     ```
+
+    (and with the `--cpus-per-task` line removed)
 
     will still give a correct CPU binding and the GPU binding is still too naive.
     It is corrected by the `select_gpu.sh` script on slide 74 which does not require any modifications either:
@@ -279,3 +305,129 @@ Note that numbers refer to the page numbers on the slides themselves. Some slide
 
     (Note that this script however assumes that the number of tasks per node is a multiple of the number of GPUs in the 
     list.)
+
+??? example "Download runnable example based on the script of slide 72-74"
+
+    Example: [example-cray.sh](examples/example-cray.sh)
+
+    Run with:
+
+    ```
+    sbatch -A project_46YXXXXXX example-cray.sh
+    ```
+
+    Future updates of LUMI may invalidate this script.
+
+
+
+
+## Some other examples
+
+### Mask for 1 GPU per task, 7 cores per task:
+
+```bash linenums="1"
+#!/bin/bash -l
+#SBATCH --job-name=examplejob   # Job name
+#SBATCH --output=examplejob.o%j # Name of stdout output file
+#SBATCH --error=examplejob.e%j  # Name of stderr error file
+#SBATCH --partition=standard-g  # Partition (queue) name
+#SBATCH --nodes=2               # Total number of nodes 
+#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)
+#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
+#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
+#SBATCH --mail-type=all         # Send email at begin and end of job
+#SBATCH --account=project_<id>  # Project for billing
+#SBATCH --mail-user=username@domain.com
+
+cat << EOF > select_gpu
+#!/bin/bash
+export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+exec \$*
+EOF
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu"
+CPU_BIND="${CPU_BIND}:00fe000000000000,fe00000000000000" # CCD 6. 7
+CPU_BIND="${CPU_BIND},0000000000fe0000,00000000fe000000" # CCD 2, 3
+CPU_BIND="${CPU_BIND},00000000000000fe,000000000000fe00" # CCD 0, 1
+CPU_BIND="${CPU_BIND},000000fe00000000,0000fe0000000000" # CCD 4, 5
+
+export OMP_NUM_THREADS=7
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+srun --cpu-bind=${CPU_BIND} ./select_gpu <executable> <args>
+rm -rf ./select_gpu
+```
+
+This mask makes the first HWT on all 7 cores available. 
+For OpenMP applications, use can then be restricted again by setting
+`OMP_NUM_THREADS` to a lower value.
+
+??? example "Download runnable example"
+
+    Example: [example-1gpt-7cpt.sh](examples/example-1gpt-7cpt.sh)
+
+    Run with:
+
+    ```
+    sbatch -A project_46YXXXXXX example-1gpt-7cpt.sh
+    ```
+
+    Future updates of LUMI may invalidate this script.
+
+
+### Mask for 2 tasks per GPU, 3 cores per task
+
+```bash linenums="1"
+#!/bin/bash -l
+#SBATCH --job-name=examplejob   # Job name
+#SBATCH --output=examplejob.o%j # Name of stdout output file
+#SBATCH --error=examplejob.e%j  # Name of stderr error file
+#SBATCH --partition=standard-g  # Partition (queue) name
+#SBATCH --nodes=2               # Total number of nodes 
+#SBATCH --ntasks-per-node=16    # 16 MPI ranks per node, 32 total (2x16)
+#SBATCH --gpus-per-node=8       # Allocate all eight GPUS in a node
+#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
+#SBATCH --mail-type=all         # Send email at begin and end of job
+#SBATCH --account=project_<id>  # Project for billing
+#SBATCH --mail-user=username@domain.com
+
+cat << EOF > select_gpu
+#!/bin/bash
+export ROCR_VISIBLE_DEVICES=\$((SLURM_LOCALID/2))
+exec \$*
+EOF
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu"  #7766554433221100,7766554433221100
+CPU_BIND="${CPU_BIND}:000E000000000000,00E0000000000000" # CCD 6
+CPU_BIND="${CPU_BIND},0E00000000000000,E000000000000000" # CCD 7
+CPU_BIND="${CPU_BIND},00000000000E0000,0000000000E00000" # CCD 2
+CPU_BIND="${CPU_BIND},000000000E000000,00000000E0000000" # CCD 3
+CPU_BIND="${CPU_BIND},000000000000000E,00000000000000E0" # CCD 0
+CPU_BIND="${CPU_BIND},0000000000000E00,000000000000E000" # CCD 1
+CPU_BIND="${CPU_BIND},0000000E00000000,000000E000000000" # CCD 4
+CPU_BIND="${CPU_BIND},00000E0000000000,0000E00000000000" # CCD 5
+#                     7766554433221100,7766554433221100
+
+export OMP_NUM_THREADS=3
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+srun --cpu-bind=${CPU_BIND} ./select_gpu <executable> <args>
+rm -rf ./select_gpu
+```
+
+This mask will use cores 1-3 and 5-7 of each CCD to place tasks.
+
+??? example "Download runnable example"
+
+    Example: [example-2tpg-3cpt.sh](examples/example-2tpg-3cpt.sh)
+
+    Run with:
+
+    ```
+    sbatch -A project_46YXXXXXX example-2tpg-3cpt.sh
+    ```
+
+    Future updates of LUMI may invalidate this script.
+
