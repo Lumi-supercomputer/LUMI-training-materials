@@ -4,7 +4,7 @@
 #SBATCH --error=examplejob.e%j  # Name of stderr error file
 #SBATCH --partition=standard-g  # Partition (queue) name
 #SBATCH --nodes=2               # Total number of nodes 
-#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 2 total (2x8)
+#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)
 #SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
 #SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
 

@@ -1489,7 +1489,7 @@ page does no longer work after the update. The documentation has been corrected.
 already took this into account and is still correct.
 <strong>The example mask on the 
 <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding">"Distribution and binding" page</a>
-is wrong and all occurences of <code>ff</code> need to be modified to <code>fe</code>. The documentation has been corrected.</strong> </p>
+is wrong and all occurrences of <code>ff</code> need to be modified to <code>fe</code>. The documentation has been corrected.</strong> </p>
 </li>
 </ul>
 <p>All training materials in the <a href="https://klust.github.io/LUMI-training-materials/">"LUMI training materials" archive web site</a>
@@ -1544,7 +1544,7 @@ needs only an almost trivial modification on line 23:</p>
 <span class="c1">#SBATCH --error=examplejob.e%j  # Name of stderr error file</span>
 <span class="c1">#SBATCH --partition=standard-g  # Partition (queue) name</span>
 <span class="c1">#SBATCH --nodes=2               # Total number of nodes </span>
-<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (2x8)</span>
+<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)</span>
 <span class="c1">#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank</span>
 <span class="c1">#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)</span>
 <span class="c1">#SBATCH --mail-type=all         # Send email at begin and end of job</span>
@@ -1615,7 +1615,7 @@ is still correct:</p>
 <span class="c1">#SBATCH --error=examplejob.e%j  # Name of stderr error file</span>
 <span class="c1">#SBATCH --partition=standard-g  # Partition (queue) name</span>
 <span class="c1">#SBATCH --nodes=2               # Total number of nodes </span>
-<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 2 total (2x8)</span>
+<span class="c1">#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)</span>
 <span class="c1">#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank</span>
 <span class="c1">#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)</span>
 <span class="c1">#SBATCH --mail-type=all         # Send email at begin and end of job</span>
@@ -1682,8 +1682,8 @@ need changes.</p>
 srun<span class="w"> </span>./xthi<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">4</span><span class="w"> </span>-k<span class="w"> </span><span class="m">6</span>
 </code></pre></div>
 <p>The mask shown on slide 63 is still correct though and that approach also works.</p>
-<p>The script on slide 64 is also correct as is the job script on slide 65 that uses that 
-mask:</p>
+<p>The Python script on slide 64 to generate masks is also correct 
+as is the job script on slide 65 that uses that mask:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -p &lt;partition&gt; </span>
 <span class="c1">#SBATCH -A &lt;your_project&gt; </span>
