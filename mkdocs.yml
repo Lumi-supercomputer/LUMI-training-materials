@@ -31,6 +31,13 @@ theme:
 
 nav:
   - Home: index.md
+  - User Updates:
+      - User-Updates/index.md
+      - August 2023: 
+          - User-Updates/Update-202308/index.md
+          - Low-noise mode: User-Updates/Update-202308/lumig-lownoise.md
+          - dev-g and eap: User-Updates/Update-202308/lumig-devg.md
+          - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
       - User-Coffee-Breaks/index.md
   - Comprehensive LUMI May-June 2023:
@@ -76,8 +83,9 @@ plugins:
   # redirects to avoid broken URLs in original version of the tutorial (June 2020)
   - redirects:
       redirect_maps:
-          comprehensive-latest/index.md: 4day-20230530/index.md
-          intro-latest/index.md: 1day-20230509/index.md
+          comprehensive-latest.md: 4day-20230530/index.md
+          intro-latest.md: 1day-20230509/index.md
+          update-202308.md: User-Updates/Update-202308/index.md
 
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
