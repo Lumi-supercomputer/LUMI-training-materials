@@ -6,7 +6,7 @@ The configuration of LUMI-G has been made more symmetrical.
 
 Previously, a low-noise mode was enabled reserving one core (core 0) for the operating
 system and drivers. This was needed because benchmarking before the pilot phase showed
-that the jitter cause by OS processes in the background stealing time from some cores
+that the jitter caused by OS processes in the background stealing time from some cores
 that were in use by applications, had a very negative impact on scalability.
 
 This created an asymmetry as one CCD (chiplet) of the CPU had 7 cores available while
@@ -45,7 +45,7 @@ What has **not** changed:
     in your allocation.
 
 -   The Slurm GPU binding is still incompatible with shared memory communication between 
-    GPUs in different tasks, as is used, e.g., by GPU-aware Cray MPICH intra-node communication.
+    GPUs in different tasks, as is used by, e.g., GPU-aware Cray MPICH intra-node communication.
     So the trick of avoiding Slurm doing the binding and do a manual binding instead via the
     `select_gpu` script used in the LUMI documentation, is still needed.
 
@@ -59,8 +59,8 @@ User impact:
 
     **The ["MPI-based job" in the GPU examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#mpi-based-job)
     in the LUMI documentation before the August 2023 update does no longer work. Also, the `--cpu-bind=map_cpu:` line
-    that was shown on the ["Distribtion and binding"](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
-    page does no longer work after the update. The documentation has been corrected.**
+    that was shown on the ["Distribution and binding" page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+    does no longer work after the update. The documentation has been corrected.**
 
 -   Any job script that uses `--cpu-bind=mask_gpu:` and that includes a now unavailable core in the mask
     will fail. 
@@ -89,7 +89,7 @@ In particular,
 
 ## MPI-based job example
 
-The [example from the "MPI-based job" section on the "GPU examples documentation page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#mpi-based-job)
+The [example from the "MPI-based job" section on the "GPU examples" documentation page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#mpi-based-job)
 needs only an almost trivial modification on line 23:
 
 ```bash linenums="1"
@@ -138,7 +138,7 @@ rm -rf ./select_gpu
 
 ## Hybrid MPI+OpenMP job
 
-The mask in the [example from the "Hybrid MPI+OpenMP job" section on the "GPU examples documentation page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#hybrid-mpiopenmp-job)
+The mask in the [example from the "Hybrid MPI+OpenMP job" section on the "GPU examples" documentation page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/#hybrid-mpiopenmp-job)
 is still correct:
 
 ```bash linenums="1"
@@ -202,7 +202,8 @@ Many of the slides of the GPU-related slides of the
 ["Advanced Placement" lecture of the comprehensive LUMI course of May-June 2023](https://klust.github.io/LUMI-training-materials/4day-20230530/extra_2_03_Advanced_Application_Placement/) 
 need changes.
 
-Note that numbers refer to the page numbers on the slides themselves. Some slides are left out of the bundle.
+Note that numbers refer to the page numbers on the slides themselves. Some slides are left out of the bundle
+so your PDF reader may show a second numbering.
 
 -   The example on slide 61 which did not work (as explained on slide 62 and 63) will now actually work
 
@@ -250,7 +251,8 @@ Note that numbers refer to the page numbers on the slides themselves. Some slide
     ${ASRUN} ./xthi | sort -n -k 4 -k 6
     ```
     
-    (but the `--cpus-per-task`` line on that slide is wrong and was wrong before.)
+    (but the `--cpus-per-task` line on that slide is wrong and was wrong before
+    as that should not be used together with manual binding based on maps or masks.)
 
 -   The script on slide 72:
    
@@ -359,8 +361,9 @@ srun --cpu-bind=${CPU_BIND} ./select_gpu <executable> <args>
 rm -rf ./select_gpu
 ```
 
-This mask makes the first HWT on all 7 cores available. 
-For OpenMP applications, use can then be restricted again by setting
+This mask makes the first hardware thread on all 7 non-reserved cores of all CCDs available,
+one CCD per task. 
+For hybrid OpenMP applications, use can then be restricted again by setting
 `OMP_NUM_THREADS` to a lower value.
 
 ??? example "Download runnable example"
@@ -417,7 +420,8 @@ srun --cpu-bind=${CPU_BIND} ./select_gpu <executable> <args>
 rm -rf ./select_gpu
 ```
 
-This mask will use cores 1-3 and 5-7 of each CCD to place tasks.
+This mask will use the first hardware thread of each core of core groups 1-3 and 5-7 of each CCD to place tasks
+(so hardware thread 1-3 in the Linux numbering for task 1, 5-7 for task 2, 9-11 for task 3, ...).
 
 ??? example "Download runnable example"
 

@@ -2,10 +2,12 @@
 
 ## Policy change of dev-g
 
-The dev-g partition was always meant for the development of GPU software, and in particular
+The dev-g partition was always meant for the development of GPU software, and in particular,
 to get a quick turnaround time if you need to run software under the control of a debugger or
 for short profiling runs. We have observed that the queue has been abused for production
-or near-production runs instead. Also, a maximum of 16 nodes per job has not always
+or near-production runs instead to bypass longer waiting times on the regular queue. 
+This complicates the work of developers.
+Also, a maximum of 16 nodes per job has not always
 been enough for some debugging runs.
 
 Therefore the following policy changes will be implemented:
@@ -21,9 +23,9 @@ partition if you were not using dev-g in the intended way.**
 
 ## The eap partition
 
-The EAP partition was a leftover of the early days of LUMI when a GPU development system
+The EAP (Early Access Platform) partition was a leftover of the early days of LUMI when a GPU development system
 with MI100 nodes was attached to the system. As a transition measure a new eap partition was created on
-LUMI-G with the full MI250X hardware, and just as the original eap partition it allowed development
+LUMI-G with the full MI250X hardware, and just as the original eap partition, it allowed development
 of GPU software without GPU billing units. However, we've recently seen abuse of this partition for
 regular runs, and developers have now had ample time to request development projects at EuroHPC or,
 for groups in LUMI consortium countries, their local resource allocators.
