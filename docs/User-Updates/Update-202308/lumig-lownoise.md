@@ -70,7 +70,7 @@ User impact:
     already took this into account and is still correct.
     **The example mask on the 
     ["Distribution and binding" page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
-    is wrong and all occurences of `ff` need to be modified to `fe`. The documentation has been corrected.** 
+    is wrong and all occurrences of `ff` need to be modified to `fe`. The documentation has been corrected.** 
 
 All training materials in the ["LUMI training materials" archive web site](https://klust.github.io/LUMI-training-materials/)
 reflect the state of LUMI at the time that the course was given. These materials are not updated after the course, so some job
@@ -99,7 +99,7 @@ needs only an almost trivial modification on line 23:
 #SBATCH --error=examplejob.e%j  # Name of stderr error file
 #SBATCH --partition=standard-g  # Partition (queue) name
 #SBATCH --nodes=2               # Total number of nodes 
-#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 128 total (2x8)
+#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)
 #SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
 #SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
 #SBATCH --mail-type=all         # Send email at begin and end of job
@@ -148,7 +148,7 @@ is still correct:
 #SBATCH --error=examplejob.e%j  # Name of stderr error file
 #SBATCH --partition=standard-g  # Partition (queue) name
 #SBATCH --nodes=2               # Total number of nodes 
-#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 2 total (2x8)
+#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node, 16 total (2x8)
 #SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
 #SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
 #SBATCH --mail-type=all         # Send email at begin and end of job
@@ -227,8 +227,8 @@ Note that numbers refer to the page numbers on the slides themselves. Some slide
 
     The mask shown on slide 63 is still correct though and that approach also works.
 
-    The script on slide 64 is also correct as is the job script on slide 65 that uses that 
-    mask:
+    The Python script on slide 64 to generate masks is also correct 
+    as is the job script on slide 65 that uses that mask:
 
     ```bash
     #!/bin/bash

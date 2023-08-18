@@ -7,6 +7,7 @@ However, a few changes were made to the scheduler, one of which has a large
 impact on GPU jobs, and we also want to put more emphasis on proper and efficient use of the
 system as queue times have become rather long lately.
 
--   [Changes to the low-noise mode on LUMI-G](lumig-lownoise.md)
+-   [Changes to the low-noise mode on LUMI-G](lumig-lownoise.md). **These changes have 
+    implications for job scripts so read carefully.**
 -   [Policy change on dev-g and eap](lumig-devg.md)
 -   [Responsible use of LUMI-C and LUMI-G](responsible-use.md)

@@ -12,7 +12,7 @@ to `sbatch` to use them in the same way as the standard and standard-g partition
 
 You can get the same environment on the small and standard partitions by:
 
--   Adding the option `--exclusive` to the `sbatch instructions` (as a command line argument or
+-   Adding the option `--exclusive` to the `sbatch` flags (as a command line argument or
     in an `#SBATCH` line), and
 -   Requesting memory, e.g., using `--mem`. For migrating from standard to small on LUMI-C, a good
     choice is `--mem=224g` and for migrating from standard-g to small-g, a good option is
@@ -59,12 +59,12 @@ Common errors include:
 
 -   Running on a GPU node but forget to request GPUs. In some cases you will see a warning or even
     error message from your application in your output, 
-    but in some case the software will just run without a warning as
+    but in other cases the software will just run fine without a warning as
     the same binary may support both GPU and non-GPU use.
 
 -   Running software that is not built for a GPU. Software will not use a GPU in some magical way
     just because there is a GPU in the system, but needs to be written and built for using a GPU.
-    Most Python and R packages do not support GPU compute. And packages written for an NVIDIA GPU
+    Most Python and R packages do not support GPU computing. And packages written for an NVIDIA GPU
     cannot run on an AMD GPU, just as software compiled for an x86 processor cannot run on an ARM
     processor.
 
@@ -73,7 +73,8 @@ Common errors include:
     know a piece of hardware and also doesn't need it.
 
 -   Know your software. Not all software can use more than one GPU, let alone that it could use more
-    than one GPU efficiently for the problem that you are trying to solve.
+    than one GPU efficiently for the problem that you are trying to solve. And for all practical 
+    purposes one GPU is one GCD or half of an MI250X package.
 
     Again, in many cases you won't get a warning as computers warn or produce error messages if they
     try to use something which is not available but don't produce warnings if some piece of software does
@@ -95,11 +96,12 @@ half of the total number of nodes, then on average this could take one full day,
 the pool becoming available almost immediately but the last few of the requested nodes only when the job starts.
 
 You can see that this process makes a lot of resources unavailable for other jobs for a long time and leads to
-inefficient use the supercomputer. Luckily LUMI also supports backfill, i.e., small and short jobs can still start
+inefficient use of the supercomputer. Luckily LUMI also supports backfill, i.e., small and short jobs can still start
 if the scheduler knows these jobs will finish before it expects to be able to collect the nodes for the 512 node
 job. 
 
-However, in general very large jobs will lead to lots of nodes being idle for some time and hence inefficient use
+However, usually there are not enough suitable jobs for backfill,
+so very large jobs will usually lead to lots of nodes being idle for some time and hence inefficient use
 of resources. LUMI is built for research into jobs for the exascale area, so we do want to keep it possible to run
 large jobs. But users who do this should be responsible: Test on smaller configurations on a smaller number of nodes,
 then when you scale up for the large number of nodes go immediately for a long run and instead ensure that your job
@@ -123,13 +125,16 @@ If you need a big run requiring a 100 nodes or more, do so responsibly and ensur
 resources haven't been kept idle by the scheduler for basically nothing.
 
 
-## Use reasonable estimates for the walltime
+## Use a reasonable estimate for the walltime
 
 Of course it is OK to use a good safety margin when estimating the walltime a job will need, but just taking the 
 maximum allowed for a partition just to always be safe is very asocial behaviour. It makes it impossible for a 
-scheduler to properly use backfill to use resources that are idle while nodes are being collected for a big job,
-without needlesly delaying that big job simply because the scheduler thinks the nodes will only be available at
-a later time than they actually are.
+scheduler to properly use backfill to use resources that are idle while nodes are being collected for a big job.
+Not only are jobs that request the maximum allowed walltime not suitable as backfill, but overestimating the 
+walltime needed for a job will also needlessly delay that big job
+simply because the scheduler thinks the nodes will only be available at
+a later time than they actually are and hence will wrongly assume that it is still safe to start short
+lower priority jobs as backfill..
 
 The maximum walltime on LUMI is high compared to many other large clusters in Europe that have a 24 hour limit
 for larger jobs. Don't abuse it.
@@ -142,6 +147,6 @@ to enable everybody to maximally exploit the nodes of LUMI-G one should
 
 -   Request at most 60 GB of CPU memory for every GPU requested as then all 8 GPUs can be used
     by jobs with a fair amount of system memory for everybody, and
--   Not request more than 7 CPUs for each GPU requested. If all users do this, the GPUs
+-   Not request more than 7 cores for each GPU requested. If all users do this, the GPUs
     in a node can be used maximally.
 
