@@ -244,7 +244,7 @@ so your PDF reader may show a second numbering.
 
     export OMP_PLACES=cores
     export OMP_PROC_BIND=close
-    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+    export OMP_NUM_THREADS=7
 
     ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"
 
@@ -252,7 +252,8 @@ so your PDF reader may show a second numbering.
     ```
     
     (but the `--cpus-per-task` line on that slide is wrong and was wrong before
-    as that should not be used together with manual binding based on maps or masks.)
+    as that should not be used together with manual binding based on maps or masks,
+    so we also cannot rely on `SLURM_CPUS_PER_TASK`.)
 
 -   The script on slide 72:
    
@@ -269,7 +270,7 @@ so your PDF reader may show a second numbering.
 
     export OMP_PLACES=cores
     export OMP_PROC_BIND=close
-    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+    export OMP_NUM_THREADS=7
 
     ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"
 
