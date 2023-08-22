@@ -1697,14 +1697,15 @@ as is the job script on slide 65 that uses that mask:</p>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
-<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">7</span>
 
 <span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000&quot;</span>
 
 <span class="si">${</span><span class="nv">ASRUN</span><span class="si">}</span><span class="w"> </span>./xthi<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">4</span><span class="w"> </span>-k<span class="w"> </span><span class="m">6</span>
 </code></pre></div>
 <p>(but the <code>--cpus-per-task</code> line on that slide is wrong and was wrong before
-as that should not be used together with manual binding based on maps or masks.)</p>
+as that should not be used together with manual binding based on maps or masks,
+so we also cannot rely on <code>SLURM_CPUS_PER_TASK</code>.)</p>
 </li>
 <li>
 <p>The script on slide 72:</p>
@@ -1720,7 +1721,7 @@ as that should not be used together with manual binding based on maps or masks.)
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
-<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">7</span>
 
 <span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000&quot;</span>
 

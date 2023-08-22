@@ -1,4 +1,7 @@
 #!/bin/bash
+#SBATCH --job-name=example-cray
+#SBATCH --output=%x.o%j
+#SBATCH --error=%x.e%j
 #SBATCH -p standard-g
 #SBATCH --time=00:02:00
 #SBATCH --nodes=2
@@ -26,7 +29,7 @@ chmod +x ./select_gpu_$SLURM_JOB_ID.sh
 
 export OMP_PLACES=cores
 export OMP_PROC_BIND=close
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+export OMP_NUM_THREADS=7
 
 ASRUN="srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"
 
