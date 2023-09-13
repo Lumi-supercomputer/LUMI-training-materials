@@ -8,7 +8,7 @@ point.
 ## Why do I need to know this?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Why do I need to know](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/WhyKnow.png){ loading=lazy }
+  ![Slide Why do I need to know](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/WhyKnow.png){ loading=lazy }
 </figure>
 
 The typical reaction of someone who only wants to run software on an HPC
@@ -37,7 +37,7 @@ of this course.
 ## The operating system on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide The OS on LUMI](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/OperatingSystem.png){ loading=lazy }
+  ![Slide The OS on LUMI](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/OperatingSystem.png){ loading=lazy }
 </figure>
 
 The login nodes of LUMI run a regular SUSE Linux Enterprise Server 15 SP4 distribution.
@@ -61,7 +61,7 @@ reason to keep it small.
 ## Programming models
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Programming models](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/ProgrammingModels.png){ loading=lazy }
+  ![Slide Programming models](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/ProgrammingModels.png){ loading=lazy }
 </figure>
 
 On LUMI we have several C/C++ and Fortran compilers. These will be discussed more in this
@@ -106,7 +106,7 @@ with NVIDIA GPUs but these nodes are meant for visualisation and not for compute
 ##  The development environment on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Development environment](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/DevelopmentEnvironment.png){ loading=lazy }
+  ![Slide Development environment](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/DevelopmentEnvironment.png){ loading=lazy }
 </figure>
 
 Long ago, Cray designed its own processors and hence had to develop their own
@@ -169,7 +169,7 @@ to the 4-day trainings that we organise three times a year with HPE for more mat
 ## The Cray Compiling Environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Cray Compiling Environment](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/CrayComplingEnv.png){ loading=lazy }
+  ![Slide Cray Compiling Environment](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/CrayComplingEnv.png){ loading=lazy }
 </figure>
 
 The Cray Compiling Environment are the default compilers on many Cray systems and on LUMI.
@@ -218,7 +218,7 @@ Lastly, there are also bindings for MPI.
 ## Scientific and math libraries
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Scientific and math libraries](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/ScientificLibraries.png){ loading=lazy }
+  ![Slide Scientific and math libraries](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/ScientificLibraries.png){ loading=lazy }
 </figure>
 
 Some mathematical libraries have become so popular that they basically define an API for which
@@ -262,7 +262,7 @@ was that they compiled the binaries. Instead they now offer
 ## Cray MPI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Cray MPI](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/CrayMPI.png){ loading=lazy }
+  ![Slide Cray MPI](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/CrayMPI.png){ loading=lazy }
 </figure>
 
 HPE Cray build their own MPI library with optimisations for their own interconnects.
@@ -304,7 +304,7 @@ on InfiniBand clusters). It also uses a GPU Transfer Library (GTL) for GPU-aware
 ## Lmod
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Lmod](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/Lmod.png){ loading=lazy }
+  ![Slide Lmod](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/Lmod.png){ loading=lazy }
 </figure>
 
 Virtually all clusters use modules to enable the users to configure the environment and
@@ -346,7 +346,7 @@ the same name and version yet make different binaries available depending on the
 ## Compiler wrappers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Compiler wrappers](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/CompilerWrappers.png){ loading=lazy }
+  ![Slide Compiler wrappers](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/CompilerWrappers.png){ loading=lazy }
 </figure>
 
 The HPE Cray PE compilers are usually used through compiler wrappers.
@@ -386,7 +386,7 @@ simply pass those to those compilers.
 ## Selecting the version of the CPE
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Selecting the version of the CPE](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/SelectingCPEVersion.png){ loading=lazy }
+  ![Slide Selecting the version of the CPE](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/SelectingCPEVersion.png){ loading=lazy }
 </figure>
 
 The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `22.08` for the version
@@ -419,7 +419,7 @@ later.
 ## The target modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Target modules](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/TargetModules.png){ loading=lazy }
+  ![Slide Target modules](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/TargetModules.png){ loading=lazy }
 </figure>
 
 The target modules are used to select the CPU and GPU optimization targets and to 
@@ -456,7 +456,7 @@ settings: `-target-cpu`, `-target-accel` and `-target-network`.
 ## PrgEnv and compiler modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide PrgEnv and compiler modules](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/PrgEnvCompilerModules.png){ loading=lazy }
+  ![Slide PrgEnv and compiler modules](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/PrgEnvCompilerModules.png){ loading=lazy }
 </figure>
 
 In the HPE Cray PE, the `PrgEnv-*` modules are usually used to load a specific variant of the
@@ -481,7 +481,7 @@ hipcc with the GNU compilers or GPU support with the Cray compilers.
 ## Getting help
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Getting help](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/GettingHelp.png){ loading=lazy }
+  ![Slide Getting help](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/GettingHelp.png){ loading=lazy }
 </figure>
 
 Help on the HPE Cray Programming Environment is offered mostly through manual pages
@@ -533,7 +533,7 @@ Lastly, there is also a lot of information in the
 ## Google, ChatGPT and LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Google, ChatGPT and LUMI](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/ChatGPT.png){ loading=lazy }
+  ![Slide Google, ChatGPT and LUMI](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/ChatGPT.png){ loading=lazy }
 </figure>
 
 When looking for information on the HPE Cray Programming Environment using search engines such as
@@ -561,7 +561,7 @@ man -K FI_CXI_RX_MATCH_MODE
 ## Other modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Other modules](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/OtherModules.png){ loading=lazy }
+  ![Slide Other modules](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/OtherModules.png){ loading=lazy }
 </figure>
 
 Other modules that are relevant even to users who do not do development:
@@ -588,7 +588,7 @@ courses for developers that we organise several times per year with the help of 
 ## Warning 1: You do not always get what you expect...
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide You do not always get what you expect](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/WarningLibraryPath.png){ loading=lazy }
+  ![Slide You do not always get what you expect](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/WarningLibraryPath.png){ loading=lazy }
 </figure>
 
 The HPE Cray PE packs a surprise in terms of the libraries it uses, certainly for users
@@ -667,7 +667,7 @@ that was present before the update did not longer work.
 ## Warning 2: Order matters
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Order of loading modules](https://462000265.lumidata.eu/1day-202310xx/img/LUMI-1day-202310XX-02-CPE/WarningOrderMatters.png){ loading=lazy }
+  ![Slide Order of loading modules](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/WarningOrderMatters.png){ loading=lazy }
 </figure>
 
 Lmod is a hierarchical module scheme and this is exploited by the HPE Cray PE. Not all modules

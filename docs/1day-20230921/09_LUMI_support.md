@@ -2,4 +2,4 @@
 
 No notes for now.
 
-See [the slides (PDF)](https://462000265.lumidata.eu/1day-20230509/files/LUMI-1day-20230509-09-Lumi-support.pdf).
+See [the slides (PDF)](https://462000265.lumidata.eu/1day-20230921/files/LUMI-1day-20230921-09-Lumi-support.pdf).
