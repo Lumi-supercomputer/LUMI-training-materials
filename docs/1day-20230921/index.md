@@ -4,9 +4,9 @@
 
 -   [Schedule](schedule.md)
 
--   [Questions from the Hedgedoc document of the 9 May 2020 session](notes_20230921.md)
+-   [Questions from the Hedgedoc document of the 21 September 2020 session](notes_20230921.md)
 
-    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-9may23?view) (may disappear over time)
+    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-9may23?view) (may disappear over time) TODO
 
 
 ## Setting up for the exercises
