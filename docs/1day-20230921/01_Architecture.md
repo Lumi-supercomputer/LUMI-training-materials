@@ -7,7 +7,7 @@ jobs that can scale.
 ## Why do I kneed to know this?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Why know...](https://465000095.lumidata.eu/1day-20230921/img/LUMI-BE-Intro-202310XX-01-architecture/WhyKnow.png){ loading=lazy }
+  ![Slide Why know...](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-01-architecture/WhyKnow.png){ loading=lazy }
 </figure>
 
 You may wonder why you need to know about system architecture if all you want to do is to run 
@@ -15,7 +15,7 @@ some programs.
 
 A supercomputer is not simply a scaled-ups smartphone or PC that will offer good performance
 automatically. But it is a very expensive infrastructure, with an investment of 160M EURO for LUMI
-and an estimated total operation cost of 150M EURO. So it is important to use the computer
+and an estimated total cost (including operations) of 250M EURO. So it is important to use the computer
 efficiently.
 
 And that efficiency comes not for free. Instead in most cases it is important to properly map an 
@@ -60,7 +60,7 @@ Just some examples of using the wrong tools or infrastructure:
     software. If you want the fastest core possible, you'll need a gaming PC.
 
     *E.g., the AMD 5800X is a popular CPU for high end gaming PCs using the same core architecture 
-    as the CPUs in the LUMI. It runs at a
+    as the CPUs in LUMI. It runs at a
     base clock of 3.8 GHz and a boost clock of 4.7 GHz if only one core is used and the system has
     proper cooling. The 7763 used in the compute nodes of LUMI-C runs at a base clock of 2.45 GHz
     and a boost clock of 3.5 GHz. If you have only one single core job to run on your PC, you'll
@@ -68,7 +68,7 @@ Just some examples of using the wrong tools or infrastructure:
     the node for yourself, and even then the performance for jobs that are not memory bandwidth
     limited will be lower than that of the gaming PC.*
 
--   **For some data formats the GPU performance may be lower also than on a high end gaming PC.**
+-   **For some data formats the GPU performance may be slower also than on a high end gaming PC.**
     This is even more so because
     an MI250x should be treated as two GPUs for most practical purposes. The better double precision
     floating point operations and matrix operations, also at full precision, require transistors also 
@@ -107,9 +107,9 @@ Just some examples of using the wrong tools or infrastructure:
 
 True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
-It is also a shred infrastructure but with a much more lightweight management layer than a cloud infrastructure
+It is also a shared infrastructure but with a much more lightweight management layer than a cloud infrastructure
 and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
-other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also build according
+other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also built according
 to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
 and application level. They perform best when streaming data through the machine at all levels of the 
 memory hierarchy and are not built at all for random access to small bits of data (where the definition of
@@ -144,7 +144,7 @@ then add a number of CPU nodes to do the I/O and a specialised render GPU node f
 in-situ visualisation.
 
 LUMI is in the first place a huge GPGPU supercomputer. The GPU partition of
-LUMI, called LUMI-G, contains 2560 nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250x
+LUMI, called LUMI-G, contains 2928 (2978?) nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250x
 GPUs. Each node has 512 GB of RAM attached to the CPU (the maximum the CPU can handle
 without compromising bandwidth) and 128 GB of HBM2e memory per GPU. Each GPU node
 has a theoretical peak performance of nearly 200 TFlops in single (FP32) or double (FP64)
@@ -172,7 +172,7 @@ so it is not that we will also be offering, e.g., GPU compute facilities
 on NVIDIA hardware, and that these are shared resources that should not be
 monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).
 
-LUMI also has a 7 PB flash based file system running the Lustre parallel file system.
+LUMI also has a 8 PB flash based file system running the Lustre parallel file system.
 This system is often denoted as LUMI-F. The bandwidth of that system is 1740 GB/s. 
 Note however that this is still a remote file system with a parallel file system on it,
 so do not expect that it will behave as the local SSD in your laptop. 
@@ -323,7 +323,7 @@ latter case the additional cores on those CCDs should not be used by other proce
 they may push your data out of the cache or saturate the link to the memory/IO die and hence
 slow down some threads of your process. Similarly, on a 256 GB compute node each NUMA node has
 32 GB of RAM (or actually a bit less as the OS also needs memory, etc.), so if you have a job
-that uses 50 GB of memory but only, say, 12 threads, you should really have two NuMA nodes reserved
+that uses 50 GB of memory but only, say, 12 threads, you should really have two NUMA nodes reserved
 for that job as otherwise other threads or processes running on cores in those NUMA nodes could saturate
 some resources needed by your job. It might also be preferential to spread those 12 threads over the 4 
 CCDs in those 2 NUMA domains unless communication through the L3 threads would be the bottleneck in your
@@ -368,9 +368,9 @@ So far nothing special. However, two elements make this compute node very
 special. First, the GPUs are not connected to the CPU though a PCIe bus. Instead
 they are connected through the same links that AMD uses to link the GPUs together,
 or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
-Infinity Fabric. This enables unified memory across CPU and GPUS and 
+Infinity Fabric. This enables unified memory across CPU and GPUs and 
 provides partial cache coherency across the system. The CPUs coherently
-cache the DPU DDR and GPU HBM memory, but each GPU only coherently caches 
+cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches 
 its own local memory.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (through a PCIe interface on the GPU) rather
