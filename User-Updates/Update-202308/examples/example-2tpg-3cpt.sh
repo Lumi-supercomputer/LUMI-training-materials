@@ -1,12 +1,12 @@
 #!/bin/bash -l
-#SBATCH --job-name=example-2tpg-3cpt # Job name
-#SBATCH --output=%x.o%j              # Name of stdout output file
-#SBATCH --error=%x.e%j               # Name of stderr error file
-#SBATCH --partition=standard-g       # Partition (queue) name
-#SBATCH --nodes=2                    # Total number of nodes 
-#SBATCH --ntasks-per-node=16         # 16 MPI ranks per node, 32 total (2x16)
-#SBATCH --gpus-per-node=8            # Allocate all eight GPUS in a node
-#SBATCH --time=2:00                  # Run time (d-hh:mm:ss)
+#SBATCH --job-name=examplejob   # Job name
+#SBATCH --output=examplejob.o%j # Name of stdout output file
+#SBATCH --error=examplejob.e%j  # Name of stderr error file
+#SBATCH --partition=standard-g  # Partition (queue) name
+#SBATCH --nodes=2               # Total number of nodes 
+#SBATCH --ntasks-per-node=16    # 16 MPI ranks per node, 32 total (2x16)
+#SBATCH --gpus-per-node=8       # Allocate all eight GPUS in a node
+#SBATCH --time=1-12:00:00       # Run time (d-hh:mm:ss)
 
 module load LUMI/22.12 partition/G lumi-CPEtools/1.1-cpeCray-22.12
 
