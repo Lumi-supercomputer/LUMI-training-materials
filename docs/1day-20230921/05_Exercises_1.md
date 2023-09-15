@@ -20,7 +20,8 @@ to set up for the exercises.
         by some seemingly random characters are installed with Spack and not in the
         CrayEnv or LUMI environments.
 
-        To get more information about `Bison/3.8.2`: 
+        If there would be more than one version of Bison reported, you could 
+        get more information about a specific version, e.g., `Bison/3.8.2` with: 
 
         ```
         module spider Bison/3.8.2
@@ -59,7 +60,8 @@ to set up for the exercises.
         module spider htop/3.2.1
         ```
 
-        tells us that this version of `htop` is available in all partitions of `LUMI/22.08` and `LUMI/22.06`,
+        tells us that this version of `htop` is available in all partitions of `LUMI/23.03`, 
+        `LUMI/22.12`, `LUMI/22.08` and `LUMI/22.06`,
         and in `CrayEnv`. Let us just run it in the `CrayEnv` environment:
 
         ```
@@ -77,16 +79,33 @@ to set up for the exercises.
     ??? Solution "Click to see the solution."
 
         `module spider VNC` and `module keyword VNC` can again both be used to check if there is software
-        available to use VNC. Both will show that there is a module `lumi-vnc` in several versions. If you 
+        available to use VNC. 
+        There is currently only one available version of the module, but at times there may be more. 
+        In those cases loading the older ones (the version number points at the date of some scripts in
+        that module) you will notice that they may produce a warning about being deprecated.
+        You may wonder why they were not uninstalled right away. This is because we cannot remove older
+        versions when installing a newer one right away as it may be in use by users, and for non-interactive
+        job scripts, there may also be job scripts in the queue that have the older version hard-coded in the
+        script.
+        <!--
+        Both will show that there is a module `lumi-vnc` in several versions. If you 
         try loading the older ones of these (the version number points at the date of some scripts) you will
         notice that some produce a warning as they are deprecated. However, when installing a new version we 
         cannot remove older ones in one sweep, and users may have hardcoded full module names in scripts they
         use to set their environment, so we chose to not immediate delete these older versions.
+        -->
 
+        As there is currently only one version on the system, you get the help information right away. If there
+        were more versions you could still get the help information of the newest version by simply using `module spider` 
+        with the full module name and version. E.g., if the `module spider VNC` would have shown that
+        `lumi-vnc/20230110`  exists, you could get the help information using
+
+        <!--
         One thing you can always try to get more information about how to run a program, is to ask for the help
         information of the module. For this to work the module must first be available, or you have to use 
         `module spider` with the full name of the module. We see that version `20230110` is the newest version
         of the module, so let's try that one:
+        -->
 
         ```
         module spider lumi-vnc/20230110
@@ -94,10 +113,10 @@ to set up for the exercises.
 
         The output may look a little strange as it mentions `init-lumi` as one of the modules that you can load.
         That is because this tool is available even outside `CrayEnv` or the LUMI stacks. But this command also
-        shows a long help test telling you how to use this module (though it does assume some familiarity with how
+        shows a long help text telling you how to use this module (though it does assume some familiarity with how
         X11 graphics work on Linux).
 
-        Note that if there is only a single version on the system, as is the case for the course in May 2023,
+        Note that if there is only a single version on the system, as is the case for the course in September 2023,
         the `module spider VNC` command without specific version or correct module name will already display the
         help information.
 
@@ -113,8 +132,8 @@ to set up for the exercises.
         shows that there are versions of `bzip2` for several of the `cpe*` toolchains and in several versions
         of the LUMI software stack.
 
-        Of course we prefer to use a recent software stack, the `22.08` or `22.12` (but as of early May 2023, 
-        there is a lot more software ready-to-install for `22.08`). 
+        Of course we prefer to use a recent software stack, the `22.08` or `22.12` (but as of September 2023, 
+        there is still more software ready-to-install for `22.08`). 
         And since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
         different toolchains. So the module we want to load is `bzip2/1.0.8-cpeCray-22.08`.
@@ -400,13 +419,19 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
 
 *Note*: If you want to be able to uninstall all software installed through the exercises
 easily, we suggest you make a separate EasyBuild installation for the course, e.g.,
-in `/scratch/project_465000523/$USER/eb-course` if you make the exercises during the course:
+in `/scratch/project_465000688/$USER/eb-course` if you make the exercises during the course:
 
 -   Start from a clean login shell with only the standard modules loaded.
+-   Create the directory for the EasyBuild installation (if you haven't done this yet):
+
+    ```
+    mkdir -p /scratch/project_465000688/$USER/eb-course
+    ```
+
 -   Set `EBU_USER_PREFIX`: 
      
     ```
-    export EBU_USER_PREFIX=/scratch/project_465000523/$USER/eb-course
+    export EBU_USER_PREFIX=/scratch/project_465000688/$USER/eb-course
     ```
 
     You'll need to do that in every shell session where you want to install or use that software.
@@ -417,17 +442,14 @@ in `/scratch/project_465000523/$USER/eb-course` if you make the exercises during
     that you just created.
 
     ```
-    rm -rf /scratch/project_465000523/$USER/eb-course
+    rm -rf /scratch/project_465000688/$USER/eb-course
     ```
 
 
 ### Installing a simple program without dependencies with EasyBuild
 
 The LUMI Software Library contains the package `eb-tutorial`. Install the version of
-the package for the `cpeCray` toolchain in the 22.08 version of the software stack.
-
-*At the time of this course, in early May 2023, we're still working on EasyBuild build
-recipes for the 22.12 version of the software stack.*
+the package for the `cpeCray` toolchain in the 22.12 version of the software stack.
 
 ??? Solution "Click to see the solution."
     -   We can check the 
@@ -437,16 +459,16 @@ recipes for the 22.12 version of the software stack.*
         if we want to see more information about the package.
     
         You'll notice that there are versions of the EasyConfigs for `cpeGNU` and `cpeCray`.
-        As we want to install software with the `cpeCray` toolchain for `LUMI/22.08`, we'll
-        need the `cpeCray-22.08` version which is the EasyConfig
-        `eb-tutorial-1.0.1-cpeCray-22.08.eb`.
+        As we want to install software with the `cpeCray` toolchain for `LUMI/22.12`, we'll
+        need the `cpeCray-22.12` version which is the EasyConfig
+        `eb-tutorial-1.0.1-cpeCray-22.12.eb`.
 
     -   Obviously we need to load the `LUMI/22.08` module. If we would like to install software
         for the CPU compute nodes, you need to also load `partition/C`.
         To be able to use EasyBuild, we also need the `EasyBuild-user` module.
 
         ```
-        module load LUMI/22.08 partition/C
+        module load LUMI/22.12 partition/C
         module load EasyBuild-user
         ```
 
@@ -455,7 +477,7 @@ recipes for the 22.12 version of the software stack.*
         Let's however take the slow approach and first check if what dependencies the package needs:
 
         ```
-        eb eb-tutorial-1.0.1-cpeCray-22.08.eb -D
+        eb eb-tutorial-1.0.1-cpeCray-22.12.eb -D
         ```
 
         We can do this from any directory as the EasyConfig file is already in the LUMI Software Library
@@ -463,14 +485,14 @@ recipes for the 22.12 version of the software stack.*
         the system so we can proceed with the installation:
 
         ```
-        eb eb-tutorial-1.0.1-cpeCray-22.08.eb 
+        eb eb-tutorial-1.0.1-cpeCray-22.12.eb 
         ```
 
-    -   After this you should have a module `eb-tutorial/1.0.1-cpeCray-22.08` but it may not show up 
+    -   After this you should have a module `eb-tutorial/1.0.1-cpeCray-22.12` but it may not show up 
         yet due to the caching of Lmod. Try
 
         ```
-        module av eb-tutorial/1.0.1-cpeCray-22.08
+        module av eb-tutorial/1.0.1-cpeCray-22.12
         ```
 
         If this produces an error message complaining that the module cannot be found, it is time to clear
@@ -482,7 +504,7 @@ recipes for the 22.12 version of the software stack.*
     -   Now that we have the module, we can check what it actually does:
 
         ```
-        module help eb-tutorial/1.0.1-cpeCray-22.08
+        module help eb-tutorial/1.0.1-cpeCray-22.12
         ```
 
         and we see that it provides the `eb-tutorial` command.
@@ -490,7 +512,7 @@ recipes for the 22.12 version of the software stack.*
     -   So let's now try to run this command:
 
         ```
-        module load eb-tutorial/1.0.1-cpeCray-22.08
+        module load eb-tutorial/1.0.1-cpeCray-22.12
         eb-tutorial
         ```
 
@@ -501,6 +523,19 @@ recipes for the 22.12 version of the software stack.*
         ```
         module unload cpeCray eb-tutorial
         ```
+
+??? Note "Clean before proceeding"
+
+    After this exercise you'll have to clean your environment before being able to make the next
+    exercise:
+
+    -   Unload the `eb-tutorial` modules
+    -   The `cpeCray` module would also produce a warning
+
+    ```
+    module unload eb-tutorial cpeCray
+    ```
+
 
 ### Installing an EasyConfig given to you by LUMI User Support
 
@@ -515,12 +550,12 @@ You've been given two EasyConfig files to install a tool called `py-eb-tutorial`
 a Python package that uses the `eb-tutorial` package installed in the previous exercise. These
 EasyConfig files are in the `EasyBuild` subdirectory of the exercises for this course.
 In the first exercise you are asked to install the version of `py-eb-tutorial` for the
-`cpeCray/22.08` toolchain.
+`cpeCray/22.12` toolchain.
 
 ??? Solution "Click to see the solution."
     -   Go to the `EasyBuild` subdirectory of the exercises and check that it indeed contains the
-        `py-eb-tutorial-1.0.0-cpeCray-22.08-cray-python-3.9.12.1.eb` and
-        `py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb` files.
+        `py-eb-tutorial-1.0.0-cpeCray-22.12-cray-python-3.9.13.1.eb` and
+        `py-eb-tutorial-1.0.0-cpeGNU-22.12-cray-python-3.9.13.1.eb` files.
         It is the first one that we need for this exercise.
 
         You can see that we have used a very long name as we are also using a version suffix to
@@ -529,7 +564,7 @@ In the first exercise you are asked to install the version of `py-eb-tutorial` f
     -   Let's first check for the dependencies (out of curiosity):
 
         ```
-        eb py-eb-tutorial-1.0.0-cpeCray-22.08-cray-python-3.9.12.1.eb -D
+        eb py-eb-tutorial-1.0.0-cpeCray-22.12-cray-python-3.9.13.1.eb -D
         ```
 
         and you'll see that all dependencies are found (at least if you made the previous exercise 
@@ -540,14 +575,14 @@ In the first exercise you are asked to install the version of `py-eb-tutorial` f
     -   And now we can install the package:
 
         ```
-        eb py-eb-tutorial-1.0.0-cpeCray-22.08-cray-python-3.9.12.1.eb
+        eb py-eb-tutorial-1.0.0-cpeCray-22.12-cray-python-3.9.13.1.eb
         ```
 
     -   To use the package all we need to do is to load the module and to run the command that it
         defines:
 
         ```
-        module load py-eb-tutorial/1.0.0-cpeCray-22.08-cray-python-3.9.12.1
+        module load py-eb-tutorial/1.0.0-cpeCray-22.12-cray-python-3.9.13.1
         py-eb-tutorial
         ```
 
@@ -557,11 +592,25 @@ In the first exercise you are asked to install the version of `py-eb-tutorial` f
         will get an error message in the next exercise with EasyBuild complaining that there are
         some modules loaded that should not be loaded.
 
+??? Note "Clean before proceeding"
+
+    After this exercise you'll have to clean your environment before being able to make the next
+    exercise:
+
+    -   Unload the `py-eb-tutorial` and `eb-tutorial` modules
+    -   The `cpeCray` module would also produce a warning
+    -   And the `py-eb-tutorial` also loaded the `cray-python` module which causes EasyBuild to
+        produce a nasty error messages if it is loaded when the `eb` command is called
+
+    ```
+    module unload py-eb-tutorial eb-tutorial cpeCray cray-python
+    ```
+
 
 ### Installing software with uninstalled dependencies
 
-Now you're asked to also install the version of `py-eb-tutorial` for the `cpeGNU` toolchain in `LUMI/22.08`
-(and the solution given below assumes you haven'ty accidentally installed the wrong EasyBuild recipe in one
+Now you're asked to also install the version of `py-eb-tutorial` for the `cpeGNU` toolchain in `LUMI/22.12`
+(and the solution given below assumes you haven't accidentally installed the wrong EasyBuild recipe in one
 of the previous two exercises).
 
 ??? Solution "Click to see the solution."
@@ -569,37 +618,37 @@ of the previous two exercises).
         Hence if not done yet we need
 
         ```
-        module load LUMI/22.08 partition/C
+        module load LUMI/22.12 partition/C
         module load EasyBuild-user
         ```
 
     -   Now go to the `EasyBuild` subdirectory of the exercises (if not there yet from the previous
-        exercise) and check what the `py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb` needs:
+        exercise) and check what the `py-eb-tutorial-1.0.0-cpeGNU-22.12-cray-python-3.9.13.1.eb` needs:
 
         ```
-        eb py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb -D
+        eb py-eb-tutorial-1.0.0-cpeGNU-22.12-cray-python-3.9.13.1.eb -D
         ```
 
         We'll now see that there are two missing modules. Not only is the 
-        `py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1` that we try to install missing, but also the
-        `eb-tutorial/1.0.1-cpeGNU-22.08`. EasyBuild does however manage to find a recipe from which this module
+        `py-eb-tutorial/1.0.0-cpeGNU-22.12-cray-python-3.9.13.1` that we try to install missing, but also the
+        `eb-tutorial/1.0.1-cpeGNU-22.12`. EasyBuild does however manage to find a recipe from which this module
         can be built in the pre-installed build recipes.
 
     -   We can install both packages separately, but it is perfectly possible to install both packages in a single
         `eb` command by using the `-r` option to tell EasyBuild to also install all dependencies.
 
         ```
-        eb py-eb-tutorial-1.0.0-cpeGNU-22.08-cray-python-3.9.12.1.eb -r
+        eb py-eb-tutorial-1.0.0-cpeGNU-22.12-cray-python-3.9.13.1.eb -r
         ```
 
     -   At the end you'll now notice (with `module avail`) that both the module 
-        `eb-tutorial/1.0.1-cpeGNU-22.08` and `py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1`
+        `eb-tutorial/1.0.1-cpeGNU-22.12` and `py-eb-tutorial/1.0.0-cpeGNU-22.12-cray-python-3.9.13.1`
         are now present.
 
         To run you can use
 
         ```
-        module load py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1
+        module load py-eb-tutorial/1.0.0-cpeGNU-22.12-cray-python-3.9.13.1
         py-eb-tutorial
         ```
 
