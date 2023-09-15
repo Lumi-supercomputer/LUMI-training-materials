@@ -1,8 +1,8 @@
 # Modules on LUMI
 
 !!! Note "Intended audience"
-    As this course is designed for people already familiar with HPC systems and
-    as virtually any cluster nowadays uses some form of module environment, this
+    As this course is designed for people already familiar with HPC systems. 
+    As virtually any cluster nowadays uses some form of module environment, this
     section assumes that the reader is already familiar with a module environment
     but not necessarily the one used on LUMI.
 
@@ -42,7 +42,9 @@ starting with version 4.0.0.
 The third system and currently probably the most popular one is Lmod, a version
 written in Lua with module files also written in Lua. Lmod also supports most
 Tcl module files. It is also supported by HPE Cray, though they tend to be a bit
-slow in following versions.
+slow in following versions. The original developer of Lmod, Robert McLay, retired 
+at the end of August 2023, but TACC, the centre where he worked, is committed to at least
+maintain Lmod though it may not see much new development anymore.
 
 On LUMI we have chosen to use Lmod. As it is very popular, many users may already be
 familiar with it, though it does make sense to revisit some of the commands that are
@@ -381,7 +383,7 @@ activate a larger software stack, you will not find any module called `CMake` th
 powers of `module spider` and try
 
 ```bash
-$ module spider cmake
+$ module spider CMake
 ```
 
 which produces
@@ -406,14 +408,14 @@ which produces
 
 This shows us that the version is provided by a number of `buildtools` modules, and for each of those
 modules also shows us which other modules should be loaded to get access to the commands. E.g.,
-the first line tells us that there is a module `buildtools/22.08` that provides that version of CMake, but
-that we first need to load some other modules, with `LUMI/22.08` and `partition/L` (in that order) 
+the first line tells us that there is a module `buildtools/23.03` that provides that version of CMake, but
+that we first need to load some other modules, with `LUMI/23.03` and `partition/L` (in that order) 
 one such combination.
 
 So in this case, after
 
 ```bash
-$ module load LUMI/22.12 partition/L buildtools/22.12
+$ module load LUMI/23.03 partition/L buildtools/23.03
 ```
 
 the `cmake` command would be available.
@@ -421,7 +423,7 @@ the `cmake` command would be available.
 And you could of course also use
 
 ```
-$ module spider buildtools/22.12
+$ module spider buildtools/23.03
 ```
 
 to get even more information about the buildtools module, including any help included in the module.
@@ -640,7 +642,7 @@ Modules are stored as (small) files in the file system. Having a large module sy
 much software preinstalled for everybody means a lot of small files which will make
 our Lustre file system very unhappy.
 Fortunately Lmod does use caches by default. On LUMI we currently have no 
-system cache and only a user cache. That cache can be found in `$HOME/.lmod.d`. 
+system cache and only a user cache. That cache can be found in `$HOME/.lmod.d/.cache`. 
 
 That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
 e.g., the `module spider` and `module available` commands will be slow during the rebuild.
