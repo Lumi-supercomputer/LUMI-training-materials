@@ -258,7 +258,7 @@ Environment **works exactly as you'd expect from this course**.
 The **third way** to access the Cray Programming Environment is through the **LUMI software stacks**, where each stack
 is **based on a particular release of the HPE Cray Programming Environment**. We advise against mixing with modules
 that came with other versions of the Cray PE, but they **remain accessible** although they are hidden from the default
-view for regular users. It ia also better to **not use the PrgEnv modules, but the equivalent LUMI EasyBuild 
+view for regular users. It is also better to **not use the PrgEnv modules, but the equivalent LUMI EasyBuild 
 toolchains** instead as indicated by the following table:
 
 | HPE Cray PE   | LUMI toolchain | What?                                           |
@@ -351,7 +351,7 @@ And they do **take care of dependency handling** in a way that is compatible wit
 </figure>
 
 On LUMI EasyBuild is the primary software installation tool. 
-EasyBuild was selected this as there is
+EasyBuild was selected as there is
 already a lot of experience with EasyBuild in several LUMI consortium countries and as
 it is also a tool developed in Europe which makes it a nice fit with EuroHPC's goal of
 creating a fully European HPC ecosystem.
@@ -627,7 +627,7 @@ for AMD GPUs in active development so even before LUMI-G was active we chose to 
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
 ```bash
-eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
+eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
@@ -649,7 +649,7 @@ The output of this command looks like:
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
 But it will do so automatically when we run
 ```bash
-eb –r GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb
+eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r
 ```
 
 <figure markdown style="border: 1px solid #000">
