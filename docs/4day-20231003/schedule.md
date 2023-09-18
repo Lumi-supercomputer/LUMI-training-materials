@@ -77,7 +77,7 @@ DAY 1
             <br/><em>12:20 EEST</em>
         </td>
         <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1)</a></b>
-        <!--<br/><em> Exercises are in <code>/project/project_465000524/exercises/HPE</code> on LUMI only.-->
+        <!--<br/><em> Exercises are in <code>/project/project_465000644/exercises/HPE</code> on LUMI only.-->
         </td>
     </tr>
     <tr>
@@ -186,8 +186,8 @@ DAY 2
         </ul>
         <em>Presenter: Jean Pourroy (HPE)</em>
         <!--
-        <br><em>Slide file: <code>/project/project_465000524/slides/HPE/07_Advanced_Placement.pdf</code> on LUMI only.</em>
-        <br><em>Recording: <code>/project/project_465000524/recordings/07_Advanced_Placement.mp4</code> on LUMI only.</em>
+        <br><em>Slide file: <code>/project/project_465000644/slides/HPE/07_Advanced_Placement.pdf</code> on LUMI only.</em>
+        <br><em>Recording: <code>/project/project_465000644/recordings/07_Advanced_Placement.mp4</code> on LUMI only.</em>
         -->
         </td>
     </tr>
@@ -341,8 +341,8 @@ DAY 3
         </ul>
         <em>Presenter: Thierry Braconnier (HPE)</em>
         <!-- 
-        <br/><em>Slide file: <code>/project/project_465000524/slides/HPE/13_advanced_performance_analysis_merged.pdf</code> on LUMI only.</em>
-        <br/><em>Recording: <code>/project/project_465000524/recordings/18_Advanced_Performance_Analysis.mp4</code> on LUMI only.</em>
+        <br/><em>Slide file: <code>/project/project_465000644/slides/HPE/13_advanced_performance_analysis_merged.pdf</code> on LUMI only.</em>
+        <br/><em>Recording: <code>/project/project_465000644/recordings/18_Advanced_Performance_Analysis.mp4</code> on LUMI only.</em>
         -->
         </td>
     </tr>
@@ -352,7 +352,7 @@ DAY 3
             <br/><em>10:30 EEST</em>
         </td>
         <td><b><a href="../extra_3_04_Exercises_8/">Exercises (session #8)</a></b>
-        <!--<br><em>Info about the exercises in <code>/project/project_465000524/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>-->
+        <!--<br><em>Info about the exercises in <code>/project/project_465000644/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>-->
         </td>
     </tr>
    <tr>

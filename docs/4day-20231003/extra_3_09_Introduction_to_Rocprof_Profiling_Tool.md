@@ -13,7 +13,7 @@ Course materials will be provided during and after the course.
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf`
-    -   `/project/project_465000524/slides/AMD/session-2-intro_rocprof.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/AMD/session-2-intro_rocprof.pdf` (temporary, for the lifetime of the project)
 
 -   Video also available on LUMI as
     `/appl/local/training/4day-20231003/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4`

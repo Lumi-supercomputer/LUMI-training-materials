@@ -4,10 +4,10 @@ No materials available at the moment.
 
 <!--
 -   Exercise materials in 
-    `/project/project_465000524/exercises/HPE/day1/ProgrammingModels` for the lifetime of 
+    `/project/project_465000644/exercises/HPE/day1/ProgrammingModels` for the lifetime of 
     the project and only for project members.
 
-    See `/project/project_465000524/exercises/HPE/day1/ProgrammingModelExamples_SLURM.pdf`
+    See `/project/project_465000644/exercises/HPE/day1/ProgrammingModelExamples_SLURM.pdf`
 
 -   Permanent archive on LUMI:
 

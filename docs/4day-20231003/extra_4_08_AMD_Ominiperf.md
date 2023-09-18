@@ -15,7 +15,7 @@ Slides in the same stack as the OmniTrace ones, starting from slide 62:
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf`
-    -   `/project/project_465000524/slides/AMD/session-3-tutorial_omnitools.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/AMD/session-3-tutorial_omnitools.pdf` (temporary, for the lifetime of the project)
 
 
 -   Video also available on LUMI as

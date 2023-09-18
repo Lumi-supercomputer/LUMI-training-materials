@@ -1,10 +1,10 @@
 # Exercise session 8
 
 <!--
--   See `/project/project_465000524/slides/HPE/Exercises.pdf` for the exercises.
+-   See `/project/project_465000644/slides/HPE/Exercises.pdf` for the exercises.
 
 -   Files are in 
-    `/project/project_465000524/exercises/HPE/day3`
+    `/project/project_465000644/exercises/HPE/day3`
 
 -   Permanent archive on LUMI:
 

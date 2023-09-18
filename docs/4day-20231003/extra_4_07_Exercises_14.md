@@ -5,7 +5,7 @@
 
     [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
 
--   Exercises can be copied from `/project/project_465000524/exercises/AMD/HPCTrainingExamples`
+-   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
 
 -   Exercises are archived as compressed and uncompressed tar files:
  
@@ -17,7 +17,7 @@
         -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar`
 
 -   The necessary version of OmniTrace is installed in the software installation in 
-    `/project/project_465000524/software`.
+    `/project/project_465000644/software`.
 
     The installation can be recovered from the archive (bzip2-compressed tar file) on LUMI: 
     `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Software_AMD.tar.bz2`

@@ -7,7 +7,7 @@ Course materials will be provided during and after the course.
 <!--
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_04_IO_Optimization_Parallel_IO.pdf`
-    -   `/project/project_465000524/slides/HPE/14_Python_Frameworks.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/HPE/14_Python_Frameworks.pdf` (temporary, for the lifetime of the project)
 -   Recording available on LUMI as:
     `/appl/local/training/4day-20231003/recordings/4_04_IO_Optimization_Parallel_IO.mp4`
 

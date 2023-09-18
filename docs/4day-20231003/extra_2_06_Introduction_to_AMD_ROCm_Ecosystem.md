@@ -13,7 +13,7 @@ Course materials will be provided during and after the course.
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
-    -   `/project/project_465000524/slides/AMD/session-1-intro_hip_programming.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/AMD/session-1-intro_hip_programming.pdf` (temporary, for the lifetime of the project)
 
 -   Video also available on LUMI as
     `/appl/local/training/4day-20231003/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`

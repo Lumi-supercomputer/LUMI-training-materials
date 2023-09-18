@@ -1,13 +1,13 @@
 # Exercise session 4
 
 <!--
--   Files for the exercises are in `/project/project_465000524/exercises/HPE/day2/debugging` for the lifetime of 
+-   Files for the exercises are in `/project/project_465000644/exercises/HPE/day2/debugging` for the lifetime of 
     the project and only for project members.
 
     There are `Readme.md` files in every directory.
 
 -   There are also more information in
-    `/project/project_465000524/slides/HPE/Exercises.pdf`.
+    `/project/project_465000644/slides/HPE/Exercises.pdf`.
 
 -   Permanent archive on LUMI:
 

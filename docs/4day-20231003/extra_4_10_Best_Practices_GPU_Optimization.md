@@ -17,7 +17,7 @@ Course materials will be provided during and after the course.
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf`
-    -   `/project/project_465000524/slides/AMD/session-4-ToolsInActionPytorchExample-LUMI.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/AMD/session-4-ToolsInActionPytorchExample-LUMI.pdf` (temporary, for the lifetime of the project)
 
 -   Scripts archived on lumi as
     bzip2-compressed tar archive in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar.bz2` and

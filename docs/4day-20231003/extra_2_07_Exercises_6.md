@@ -5,7 +5,7 @@
 
     [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
 
--   Exercises can be copied from `/project/project_465000524/exercises/AMD/HPCTrainingExamples`
+-   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
     during the lifetime of the project, only by members of the project.
 
 -   Exercises are archived as compressed and uncompressed tar files:

@@ -13,7 +13,7 @@ Course materials will be provided during and after the course.
 
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_07_AMD_ROCgdb_Debugger.pdf`
-    -   `/project/project_465000524/slides/AMD/session-2-rocgdb-tutorial.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/AMD/session-2-rocgdb-tutorial.pdf` (temporary, for the lifetime of the project)
 
 -   Video also available on LUMI as
     `/appl/local/training/4day-20231003/recordings/3_07_AMD_ROCgdb_Debugger.mp4`

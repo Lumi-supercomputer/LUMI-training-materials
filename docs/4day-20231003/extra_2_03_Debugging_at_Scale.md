@@ -7,7 +7,7 @@ Course materials will be provided during and after the course.
 <!--
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-2_01_Debugging_at_Scale.pdf`
-    -   `/project/project_465000524/slides/HPE/08_debugging_at_scale.pdf` (temporary, for the lifetime of the project)
+    -   `/project/project_465000644/slides/HPE/08_debugging_at_scale.pdf` (temporary, for the lifetime of the project)
 -   Recording available on LUMI as:
     `/appl/local/training/4day-20231003/recordings/2_01_Debugging_at_Scale.mp4`
 
