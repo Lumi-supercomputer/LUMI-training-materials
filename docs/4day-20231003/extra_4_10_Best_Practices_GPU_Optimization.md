@@ -1,7 +1,9 @@
 # Tools in Action - An Example with Pytorch
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-*Presenter:* Samuel Antão (AMD)
+*Presenter: Jakub Kurzak (AMD)*
+
+Course materials will be provided during and after the course.
 
 <!--
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_10_Best_Practices_GPU_Optimization.mp4" controls="controls">

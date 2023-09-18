@@ -23,7 +23,7 @@ DAY 1
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_1_00_Introduction/">Welcome and introduction</a></b>
-        <br/><em>Presenters: Emmanuel Ory (LUST), Harvey Richardson (HPE)(</em>
+        <br/><em>Presenters: Emmanuel Ory (LUST), Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -32,30 +32,37 @@ DAY 1
             <br/><em>10:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_01_HPE_Cray_EX_Architecture/">HPE Cray EX architecture</a></b>
-        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <ul>
+            <li>Focus on the HPE Cray EX hardware architecture</li>
+        </ul>
+        <em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            10:00 CEST
-            <br/><em>11:00 EEST</em>
+            10:15 CEST
+            <br/><em>11:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_02_Programming_Environment_and_Modules/">Programming Environment and Modules</a></b>
-        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <ul>
+            <li>Focus on the HPE Cray EX software stack</li>
+            <li>Turorial on the Cray module environment and compiler wrapper scripts</li>
+        </ul>
+        <em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            10:30 CEST
-            <br/><em>11:30 EEST</em>
+            10:45 CEST
+            <br/><em>11:45 EEST</em>
         </td>
-        <td><b><em>Break (20 minutes)</em></b>
+        <td><b><em>Break (15 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            10:50 CEST
-            <br/><em>11:40 EEST</em>
+            11:00 CEST
+            <br/><em>12:00 EEST</em>
         </td>
         <td><b><a href="../extra_1_03_Running_Applications/">Running Applications</a></b>
         <ul>
@@ -66,8 +73,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            11:15 CEST
-            <br/><em>12:15 EEST</em>
+            11:20 CEST
+            <br/><em>12:20 EEST</em>
         </td>
         <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1)</a></b>
         <!--<br/><em> Exercises are in <code>/project/project_465000524/exercises/HPE</code> on LUMI only.-->
@@ -97,8 +104,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            14:40 CEST
-            <br/><em>15:40 EEST</em>
+            14:30 CEST
+            <br/><em>15:30 EEST</em>
         </td>
         <td><b><a href="../extra_1_06_Exercises_2/">Exercises (session #2)</a></b>
         </td>
@@ -133,8 +140,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:10 EEST
-            <br/><em>15:10 EEST</em>
+            16:15 EEST
+            <br/><em>15:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_09_Offload_CCE/">CCE Offloading Models</a></b>
         <ul>
@@ -145,8 +152,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:45 CEST
-            <br/><em>17:45 EEST</em>
+            17:00 CEST
+            <br/><em>18:00 EEST</em>
         </td>
         <td><b>Open Questions & Answers</b> 
         <br/>Participants are encouraged to continue with exercises in case there should be no questions.
@@ -173,31 +180,7 @@ DAY 2
             09:00 CEST
             <br/><em>10:00 EEST</em>
         </td>
-        <td><b><a href="../extra_2_01_Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
-        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            09:45 EEST
-            <br/><em>08:45 EEST</em>
-        </td>
-        <td><b><a href="../extra_2_02_Exercises_4/">Exercises (session #4)</a></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            10:15 CEST
-            <br/><em>11:15 EEST</em>
-        </td>
-        <td><b><em>Break (15 minutes)</em></b></td>
-    </tr>
-    <tr>
-        <td>
-            10:30 CEST
-            <br/><em>11:30 EEST</em>
-        </td>
-        <td><b><a href="../extra_2_03_Advanced_Application_Placement/">Advanced Placement</a></b>
+        <td><b><a href="../extra_2_01_Advanced_Application_Placement/">Advanced Placement</a></b>
         <ul>
             <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
         </ul>
@@ -206,6 +189,30 @@ DAY 2
         <br><em>Slide file: <code>/project/project_465000524/slides/HPE/07_Advanced_Placement.pdf</code> on LUMI only.</em>
         <br><em>Recording: <code>/project/project_465000524/recordings/07_Advanced_Placement.mp4</code> on LUMI only.</em>
         -->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:00 CEST
+            <br/><em>11:00 EEST</em>
+        </td>
+        <td><b><a href="../extra_2_02_Exercises_4/">Exercises (session #4)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:30 CEST
+            <br/><em>11:30 EEST</em>
+        </td>
+        <td><b><em>Break (15 minutes)</em></b></td>
+    </tr>
+    <tr>
+        <td>
+            10:45 CEST
+            <br/><em>11:45 EEST</em>
+        </td>
+        <td><b><a href="../extra_2_03_Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
+        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -256,7 +263,7 @@ DAY 2
             <li/> The AMD ROCm<sup>TM</sup> ecosystem
             <li/> HIP programming
         </ul>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <em>Presenter: Jakub Kurzak (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -391,7 +398,7 @@ DAY 3
             <br/><em>16:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -404,17 +411,17 @@ DAY 3
     </tr>
     <tr>
         <td>
-            15:45 CEST
-            <br/><em>16:45 EEST</em>
+            16:00 CEST
+            <br/><em>17:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            16:25 CEST
-            <br/><em>17:25 EEST</em>
+            16:30 CEST
+            <br/><em>17:30 EEST</em>
         </td>
         <td><b><a href="../extra_3_10_Exercises_11/">Exercises (session #11)</a></b>
         </td>
@@ -455,22 +462,19 @@ DAY 4
     </tr>
     <tr>
         <td>
-            09:50 CEST
-            <br/><em>10:50 EEST</em>
+            09:45 CEST
+            <br/><em>10:45 EEST</em>
         </td>
-        <td><b><a href="../extra_4_02_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
-        <ul>
-            <li/>Cray Python for the Cray EX
-        </ul>
-        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
-        </td>
+        <td><b><a href="../extra_4_02_Exercises_12/">Exercises (session #12)</a></b></td>
     </tr>
     <tr>
         <td>
             10:00 CEST
             <br/><em>11:00 EEST</em>
         </td>
-        <td><b><a href="../extra_4_03_Exercises_12/">Exercises (session #12)</a></b></td>
+        <td><b><a href="../extra_4_03_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        </td>
     </tr>
     <tr>
         <td>
@@ -490,18 +494,16 @@ DAY 4
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
             <li>Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. </li>
             <li>Examples of using MPI-IO to improve overall application performance.</li>
-            <li>Advanced Parallel I/O considerations</li>
-            <li>Further considerations of parallel I/O and other APIs.</li>
-            <li>Being nice to Lustre</li>
-            <li>Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</li>
+            <li>Advanced Parallel I/O considerations: Further considerations of parallel I/O and other APIs.</li>
+            <li>Being nice to Lustre: Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</li>
         </ul>
         <em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
    <tr>
         <td>
-            11:20 CEST
-            <br/><em>11:20 EEST</em>
+            11:30 CEST
+            <br/><em>12:30 EEST</em>
         </td>
         <td><b><a href="../extra_4_05_Exercises_13/">Exercises (session #13)</a></b>
         </td>
@@ -520,14 +522,14 @@ DAY 4
             <br/><em>14:15 EEST</em>
         </td>
         <td><b><a href="../extra_4_06_AMD_Ominitrace/">Introduction to OmniTrace</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
       </td>
         </td>
     </tr>
     <tr>
         <td>
-            13:45 CEST
-            <br/><em>14:45 EEST</em>
+            13:40 CEST
+            <br/><em>14:40 EEST</em>
         </td>
         <td><b><a href="../extra_4_07_Exercises_14/">Exercises (session #14)</a></b>
         </td>
@@ -538,13 +540,13 @@ DAY 4
             <br/><em>15:00 EEST</em> 
         </td>
         <td><b><a href="../extra_4_08_AMD_Ominiperf/">Introduction to Omniperf</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            14:30 CEST
-            <br/><em>15:30 EEST</em> 
+            14:25 CEST
+            <br/><em>15:25 EEST</em> 
         </td>
         <td><b><a href="../extra_4_09_Exercises_15/">Exercises (session #15)</a></b>
         </td>
@@ -560,10 +562,10 @@ DAY 4
     <tr>
         <td>
             15:00 CEST
-            <br/><em>14:00 EEST</em> 
+            <br/><em>16:00 EEST</em> 
         </td>
         <td><b><a href="../extra_4_10_EEST_Practices_GPU_Optimization/">Tools in Action - An Example with Pytorch</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -576,7 +578,7 @@ DAY 4
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
-        <em>Presenter: Anne Vomm (LUST)</em>
+        <em>Presenter: Jørn Dietze (LUST)</em>
     </td>
     </tr>
      <tr>

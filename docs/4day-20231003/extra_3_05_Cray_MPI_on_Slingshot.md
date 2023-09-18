@@ -2,6 +2,8 @@
 
 *Presenter: Harvey Richardson (HPE)*
 
+Course materials will be provided during and after the course.
+
 <!--
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_05_Cray_MPI_on_Slingshot.pdf`

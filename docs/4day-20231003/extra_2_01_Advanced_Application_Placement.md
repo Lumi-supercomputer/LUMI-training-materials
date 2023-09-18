@@ -2,6 +2,8 @@
 
 *Presenter: Jean Pourroy (HPE)*
 
+Course materials will be provided during and after the course.
+
 <!--
 -   Slides available on LUMI as:
     -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-2_03_Advanced_Application_Placement.pdf`
@@ -13,7 +15,7 @@ These materials can only be distributed to actual users of LUMI (active user acc
 -->
 
 !!! Remark
-    The `lumi-CPEtools` module (in the LUMI software stacks, see this afternoon) contains an alternative for `xthi` but not yet for the `hello_jobstep` tool.
+    The `lumi-CPEtools` module (in the LUMI software stacks, see this afternoon) contains alternatives for `xthi` and the `hello_jobstep` tool.
     
 
 ## Q&A

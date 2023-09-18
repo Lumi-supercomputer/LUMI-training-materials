@@ -7,7 +7,7 @@
 
     [Public transportation in Warsaw](https://www.wtp.waw.pl/en/public-transport-step-by-step/)
 
--   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20231003/files/2023-05_General-LUMI-Training-Agenda.pdf)
+-   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20231003/files/2023-10_General-LUMI-Training-Agenda.pdf)
 
     [Dynamic schedule (adapted as the course progresses)](schedule.md)
 

@@ -1,6 +1,8 @@
 # LUMI User Support
 
-*Presenter: Anne Vomm*
+*Presenter: Jorn Dietze (LUST)*
+
+Course materials will be provided during and after the course.
 
 <!--
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_11_LUMI_Support_and_Documentation.mp4" controls="controls">
@@ -20,5 +22,5 @@
 
 The information in this talk is also covered by the following talk from the 1-day courses:
 
--   [LUMI User Support](../1day-20230509/video_09_LUMI_User_Support.md)
+-   [LUMI User Support](../1day-20230921/video_09_LUMI_User_Support.md)
 
