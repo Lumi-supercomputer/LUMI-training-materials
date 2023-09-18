@@ -19,6 +19,7 @@ In reverse chronological order:
 
 In reverse chronological order:
 
+-   [LUMI 1-day training (October, 2023)](1day-20230921/index.md)
 -   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
 -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 -   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
