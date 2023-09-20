@@ -13,13 +13,17 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/01_Architecture/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02_CPE/">
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
-        <title>The LUMI Architecture - LUMI training materials</title>
+        <title>LUMI Architecture - LUMI training materials</title>
       
     
     
@@ -89,7 +93,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - The LUMI Architecture" />
+  <meta property="og:title" content="LUMI training materials - LUMI Architecture" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/01_Architecture/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -101,7 +105,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - The LUMI Architecture" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI Architecture" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -220,7 +224,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The LUMI Architecture
+              LUMI Architecture
             
           </span>
         </div>
@@ -532,19 +536,27 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
           
             
+          
+        
+          
+        
+          
+        
           
         
           
@@ -562,13 +574,192 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           1-day September 2023
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LUMI Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LUMI Architecture
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-kneed-to-know-this" class="md-nav__link">
+    Why do I kneed to know this?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-is" class="md-nav__link">
+    LUMI is ...
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-spec-sheet-a-modular-system" class="md-nav__link">
+    LUMI spec sheet: A modular system
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-the-cpu-amd-7xx3-milanzen3-cpu" class="md-nav__link">
+    Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-a-lumi-c-node" class="md-nav__link">
+    Building LUMI: A LUMI-C node
+  </a>
+  
+    <nav class="md-nav" aria-label="Building LUMI: A LUMI-C node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-strong-hierarchy-in-the-node" class="md-nav__link">
+    A strong hierarchy in the node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy-delays-in-numbers" class="md-nav__link">
+    Hierarchy: delays in numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-concept-lumi-g-node" class="md-nav__link">
+    Building LUMI: Concept LUMI-G node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-what-a-lumi-g-node-really-looks-like" class="md-nav__link">
+    Building LUMI: What a LUMI-G node really looks like
+  </a>
+  
+    <nav class="md-nav" aria-label="Building LUMI: What a LUMI-G node really looks like">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-future-looks-like" class="md-nav__link">
+    What the future looks like...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-the-slingshot-interconnect" class="md-nav__link">
+    Building LUMI: The Slingshot interconnect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembling-lumi" class="md-nav__link">
+    Assembling LUMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-assembled" class="md-nav__link">
+    LUMI assembled
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_CPE/" class="md-nav__link">
+        HPE Cray PE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
             
           
             
@@ -1341,10 +1532,10 @@
       
         <li class="md-nav__item">
   <a href="#building-lumi-a-lumi-c-node" class="md-nav__link">
-    Building LUMI: a LUMI-C node
+    Building LUMI: A LUMI-C node
   </a>
   
-    <nav class="md-nav" aria-label="Building LUMI: a LUMI-C node">
+    <nav class="md-nav" aria-label="Building LUMI: A LUMI-C node">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1614,7 +1805,7 @@ them, that code would not run on the login nodes. These instructions are basical
 used in cryptography though. However, many instructions have very different latency,
 so a compiler that optimises specifically for Zen3 may chose another ordering of
 instructions then when optimising for Zen2 so it may still make sense to compile
-specifically for the compute nodes on LuMI.</p>
+specifically for the compute nodes on LUMI.</p>
 <p>All compute nodes, login nodes and storage are linked together through a 
 high-performance interconnect. LUMI uses the Slingshot 11 interconnect which
 is developed by HPE Cray, so not the Mellanox/NVIDIA InfiniBand that you may
@@ -1670,7 +1861,7 @@ their memory across the 4 NUMA domains).</p>
 <p>The theoretical memory bandwidth of a complete package is around 200 GB/s. However,
 that bandwidth is not available to a single core but can only be used if enough 
 cores spread over all CCDs are used.</p>
-<h2 id="building-lumi-a-lumi-c-node">Building LUMI: a LUMI-C node<a class="headerlink" href="#building-lumi-a-lumi-c-node" title="Permanent link">&para;</a></h2>
+<h2 id="building-lumi-a-lumi-c-node">Building LUMI: A LUMI-C node<a class="headerlink" href="#building-lumi-a-lumi-c-node" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide LUMI-C node" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-01-architecture/AMDMilanNode.png" /></p>
 </figure>
@@ -1699,7 +1890,7 @@ the L3 cache and the link to the memory/IO die.
 Next, as configured on the LUMI compute nodes, there are 2 Core Complex Dies in a
 NUMA node. These two CCDs share the DRAM channels of that NUMA node.
 At the fourth level in our hierarchy 4 NUMA nodes are grouped in a socket. Those 4 
-nodes share an inter-socket link.
+NUMA nodes share an inter-socket link.
 At the fifth and last level in our shared memory hierarchy there are two sockets
 in a node. On LUMI, they share a single Slingshot inter-node link.</p>
 <p>The finer the level (the lower the number), the shorter the distance and hence the data delay
@@ -1755,7 +1946,7 @@ cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches
 its own local memory.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (through a PCIe interface on the GPU) rather
-than two the CPU. The CPUs have a shorter path to the communication 
+than two the CPU. The GPUs have a shorter path to the communication 
 network than the CPU in this design. </p>
 <p>This makes the LUMI-G compute node really a "GPU first" system. The architecture
 looks more like a GPU system with a CPU as the accelerator for tasks that a GPU is
