@@ -186,10 +186,10 @@ compilers or MPI implementations loaded at the same time.
 On LUMI, the conflicting module of the same family will be unloaded automatically
 when loading another module of that particular family.
 
-This is shown in the example in the previous subsection (the `module load PrgEnv-gnu` in 
+This is shown in the example in the previous subsection (the `module load PrgEnv-aocc` in 
 a fresh long shell) in two places. It is the mechanism that unloaded `PrgEnv-cray`
-when loading `PrgEnv-gnu` and that then unloaded `cce/14.0.1` when the 
-`PrgEnv-gnu` module loaded the `gcc/11.2.0` module.
+when loading `PrgEnv-aocc` and that then unloaded `cce/14.0.1` when the 
+`PrgEnv-aocc` module loaded the `aocc/3.2.0` module.
 
 !!! Note
     Some clusters do not allow the automatic unloading of a module of the same
@@ -478,7 +478,7 @@ two tools that can be used to fetch files from the internet.
     easy to go back to the software package page itself for more information. Hence you can use
     the search box to search for packages that may not be installed on the system.
 
-    The example given above though, searching for `https, would not work via that box as most
+    The example given above though, searching for `https`, would not work via that box as most
     EasyBuild recipes include https web links to refer to, e.g., documentation and would be 
     shown in the result.
 
