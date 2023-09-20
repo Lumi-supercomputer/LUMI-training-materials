@@ -57,6 +57,8 @@ does not support all regular file systems. The goal of this is to minimize OS ji
 interrupts that the OS handles and slow down random cores at random moments, that can 
 limit scalability of programs. Yet on the GPU nodes there was still the need to reserve
 one core for the OS and driver processes.
+This in turn led to an asymmetry in the setup so now 8 cores are reserved, one per CCD, so
+that all CCDs are equal again.
 
 This also implies that some software that works perfectly fine on the login nodes may not
 work on the compute nodes. E.g., there is no `/run/user/$UID` directory and we have experienced
@@ -104,13 +106,12 @@ Python is of course pre-installed on the system but we do ask to use big Python 
 as Python puts a tremendous load on the file system. More about that later in this course.
 
 Some users also report some success in running [Julia](https://julialang.org/). We don't have full support though and have to
-depend on binaries as provided by [julialang.org](https://julialang.org/downloads/). The AMD GPUs are
-not yet fully supported by Julia.
+depend on binaries as provided by [julialang.org](https://julialang.org/downloads/).
 
 It is important to realise that there is no CUDA on AMD GPUs and there will never be as this is a 
-proprietary technology that other vendors cannot implement. LUMI will in the future have some nodes
-with NVIDIA GPUs but these nodes are meant for visualisation and not for compute.
-
+proprietary technology that other vendors cannot implement. The visualisation nodes in LUMI have
+NVIDIA rendering GPUs but these nodes are meant for visualisation and not for compute.
+        
 
 
 ##  The development environment on LUMI
@@ -174,6 +175,25 @@ visualisation nodes.
 
 We will now discuss some of these components in a little bit more detail, but refer
 to the 4-day trainings that we organise three times a year with HPE for more material.
+
+!!! Note "Python and R"
+    Big Python and R installations can consist of lots of small files. Parallel file systems such as Lustre
+    used on LUMI cannot work efficiently with such files. Therefore such installations should be containerised.
+
+    We offer two tools for that on LUMI with different strengths and weaknesses:
+
+    -   [`lumi-container-wrapper`](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/)
+        can build upon Cray Python when installing packages with `pip` or can
+        do independent Conda installations from an environments file.
+        The tool also create wrapper scripts for all commands in the `bin` subdirectory of the
+        container installation so that the user does not always need to be aware that they are
+        working in a container.
+
+        It is the LUMI-equivalent of the `tykky` module on the Finnish national systems operated by CSC.
+
+    -   [`cotainr`](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/)
+        is a tool developed by the Danish LUMI-partner DeIC to build some types of containers
+        in user space and is also a good tool to containerise a Conda installation.
 
 
 ## The Cray Compiling Environment
@@ -490,6 +510,11 @@ activate:
 There is also a second module that offers the AMD ROCm environment, `rocm`. That module
 has to be used with `PrgEnv-cray` and `PrgEnv-gnu` to enable MPI-aware GPU,
 hipcc with the GNU compilers or GPU support with the Cray compilers.
+
+The HPE Cray PE now also contains some mixed programming environments that combine the C/C++ compiler from one
+environment with the Fortran compiler from another. Currently on LUMI there is `PrgEnv-cray-amd` using the
+Cray Fortran compiler with the AMD ROCm C/C++ compiler and `PrgEnv-gnu-amd` using the GNU Fortran compiler
+with the AMD ROCm C/C++ compiler.
 
 
 ## Getting help

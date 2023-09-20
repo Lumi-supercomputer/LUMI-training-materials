@@ -200,7 +200,7 @@ them, that code would not run on the login nodes. These instructions are basical
 used in cryptography though. However, many instructions have very different latency,
 so a compiler that optimises specifically for Zen3 may chose another ordering of
 instructions then when optimising for Zen2 so it may still make sense to compile
-specifically for the compute nodes on LuMI.
+specifically for the compute nodes on LUMI.
 
 All compute nodes, login nodes and storage are linked together through a 
 high-performance interconnect. LUMI uses the Slingshot 11 interconnect which
@@ -271,7 +271,7 @@ that bandwidth is not available to a single core but can only be used if enough
 cores spread over all CCDs are used.
 
 
-## Building LUMI: a LUMI-C node
+## Building LUMI: A LUMI-C node
 
 <figure markdown style="border: 1px solid #000">
   ![Slide LUMI-C node](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-01-architecture/AMDMilanNode.png){ loading=lazy }
@@ -307,7 +307,7 @@ the L3 cache and the link to the memory/IO die.
 Next, as configured on the LUMI compute nodes, there are 2 Core Complex Dies in a
 NUMA node. These two CCDs share the DRAM channels of that NUMA node.
 At the fourth level in our hierarchy 4 NUMA nodes are grouped in a socket. Those 4 
-nodes share an inter-socket link.
+NUMA nodes share an inter-socket link.
 At the fifth and last level in our shared memory hierarchy there are two sockets
 in a node. On LUMI, they share a single Slingshot inter-node link.
 
@@ -374,7 +374,7 @@ cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches
 its own local memory.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (through a PCIe interface on the GPU) rather
-than two the CPU. The CPUs have a shorter path to the communication 
+than two the CPU. The GPUs have a shorter path to the communication 
 network than the CPU in this design. 
 
 This makes the LUMI-G compute node really a "GPU first" system. The architecture
