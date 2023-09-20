@@ -13,17 +13,13 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/01_Architecture/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../02_CPE/">
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
-        <title>LUMI Architecture - LUMI training materials</title>
+        <title>The LUMI Architecture - LUMI training materials</title>
       
     
     
@@ -93,7 +89,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - LUMI Architecture" />
+  <meta property="og:title" content="LUMI training materials - The LUMI Architecture" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/01_Architecture/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -105,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - LUMI Architecture" />
+  <meta name="twitter:title" content="LUMI training materials - The LUMI Architecture" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -224,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LUMI Architecture
+              The LUMI Architecture
             
           </span>
         </div>
@@ -536,39 +532,19 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
           
             
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
           
@@ -586,276 +562,13 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           1-day September 2023
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          LUMI Architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        LUMI Architecture
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-do-i-kneed-to-know-this" class="md-nav__link">
-    Why do I kneed to know this?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lumi-is" class="md-nav__link">
-    LUMI is ...
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lumi-spec-sheet-a-modular-system" class="md-nav__link">
-    LUMI spec sheet: A modular system
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-the-cpu-amd-7xx3-milanzen3-cpu" class="md-nav__link">
-    Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-a-lumi-c-node" class="md-nav__link">
-    Building LUMI: a LUMI-C node
-  </a>
-  
-    <nav class="md-nav" aria-label="Building LUMI: a LUMI-C node">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-strong-hierarchy-in-the-node" class="md-nav__link">
-    A strong hierarchy in the node
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hierarchy-delays-in-numbers" class="md-nav__link">
-    Hierarchy: delays in numbers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-concept-lumi-g-node" class="md-nav__link">
-    Building LUMI: Concept LUMI-G node
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-what-a-lumi-g-node-really-looks-like" class="md-nav__link">
-    Building LUMI: What a LUMI-G node really looks like
-  </a>
-  
-    <nav class="md-nav" aria-label="Building LUMI: What a LUMI-G node really looks like">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-the-future-looks-like" class="md-nav__link">
-    What the future looks like...
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-the-slingshot-interconnect" class="md-nav__link">
-    Building LUMI: The Slingshot interconnect
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assembling-lumi" class="md-nav__link">
-    Assembling LUMI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lumi-assembled" class="md-nav__link">
-    LUMI assembled
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02_CPE/" class="md-nav__link">
-        HPE Cray PE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03_Modules/" class="md-nav__link">
-        Modules
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_Software_stacks/" class="md-nav__link">
-        Software stacks
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05_Exercises_1/" class="md-nav__link">
-        Exercises 1
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06_Running_jobs/" class="md-nav__link">
-        Running jobs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07_Exercises_2/" class="md-nav__link">
-        Exercises 2
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08_Lustre_intro/" class="md-nav__link">
-        I/O and file systems
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09_LUMI_support/" class="md-nav__link">
-        LUMI support
-      </a>
-    </li>
-  
-
             
           
             
