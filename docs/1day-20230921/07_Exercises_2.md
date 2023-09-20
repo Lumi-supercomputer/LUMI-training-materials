@@ -2,15 +2,19 @@
 
 ## Exercises on the Slurm allocation modes
 
-1. Run single task on the CPU partition with `srun` using multiple cpu cores. Inspect default task allocation with `taskset` command (`taskset -cp $$` will show you cpu numbers allocated to a current process). 
+1. Run single task with a job step of `srun` using multiple cpu cores. Inspect default task allocation with `taskset` command (`taskset -cp $$` will show you cpu numbers allocated to a current process). Try with `standard-g` and `small-g` partitions. Are there any diffences? You may need to use specific reservation for `standard-g` partition to avoid long waiting. 
 
 	??? Solution "Click to see the solution."
 		
 		```
-		srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --partition=small --account=<project_id> bash -c 'taskset -cp $$' 
+		srun --partition=small-g --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=<project_id> bash -c 'taskset -cp $$' 
 		```
 		
 		Note you need to replace `<project_id>` with actual project account ID in a form of `project_` plus 9 digits number.
+
+		```
+		srun --partition=standard-g --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=<project_id> --reservation=<res_id> bash -c 'taskset -cp $$' 
+		```
 		
 		The command runs single process (`bash` shell with a native Linux `taskset` tool showing process's CPU affinity) on a compute node. You can use `man taskset` command to see how the tool works.
 
@@ -20,10 +24,10 @@
 	
 	```
 	#!/bin/bash -l
-	#SBATCH --partition=small           # Partition (queue) name
+	#SBATCH --partition=small-g         # Partition name
 	#SBATCH --nodes=1                   # Total number of nodes
 	#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-	#SBATCH --cpus-per-task=16          # 16 threads per task
+	#SBATCH --cpus-per-task=6           # 6 threads per task
 	#SBATCH --time=5                    # Run time (minutes)
 	#SBATCH --account=<project_id>      # Project for billing
 
@@ -75,17 +79,9 @@
 		
 		Note `hybrid_check` and MPICH cpu mask may not be consistent. It is found to be confusing.
 
-4. Build `hello_jobstep` program tool using interactive shell on a GPU node. You can pull the source code for the program from git repository `https://code.ornl.gov/olcf/hello_jobstep.git`. It uses `Makefile` for building. Try to run the program interactively. 
+4. Use `gpu_check` program tool using interactive shell on a GPU node to inspect device binding. Check on which CCD task's CPU core and GPU device are allocated (this is shown with `-l` option of the tool program).  
 
 	??? Solution "Click to see the solution."
-		
-		Clone the code using `git` command:
-		
-		```
-		git clone https://code.ornl.gov/olcf/hello_jobstep.git
-		```
-		
-		It will create `hello_jobstep` directory consisting source code and `Makefile`.
 		
 		Allocate resources for a single task with a single GPU with `salloc`:
 		
@@ -95,40 +91,22 @@
 		
 		Note that, after allocation being granted, you receive new shell but still on the compute node. You need to use `srun` to execute on the allocated node. 
 		
-		Start interactive session on a GPU node:
+		You need to load specific modules to access tools with GPU support. 
 		
 		```
-		srun --pty bash -i
+		module load LUMI/22.12 partition/G
 		```
 		
-		Note now you are on the compute node. `--pty` option for srun is required to interact with the remote shell.
-		
-		Enter the `hello_jobstep` directory and issue `make` command. It will fail without additional options and modules.
-		
 		```
-		module load rocm
+		module load lumi-CPEtools
 		```
-		
-		Note compiler (and entire programming environment) is the one you have set (or not) in the origin shell on the login node.  
-		
-		Nevertheless `rocm` module is required to build code for GPU.
-		
-		```
-		make LMOD_SYSTEM_NAME="frontier"
-		```
-		
-		You need to add `LMOD_SYSTEM_NAME="frontier"` variable for make while the code originates from the Frontier system.
-		
-		You can exercise to fix `Makefile` and enable it for LUMI :)
-		
-		Eventually you can just execute `./hello_jobstep` binary program to see how it behaves:
-		
-		```
-		./hello_jobstep
-		```
-		
-		Note executing the program with `srun` in the srun interactive session will result in a hang. You need to work with `--overlap` option for srun to mitigate it.
-		
+
+	        Run `gpu_check` interactively on a compute node:
+
+                ```
+                srun gpu_check -l
+                ```       
+	
 		Still remember to terminate your interactive session with `exit` command.
 		
 		```
@@ -137,7 +115,7 @@
 
 ## Slurm custom binding on GPU nodes
 
-1. Allocate one GPU node with one task per GPU and bind tasks to each CCD (8-core group sharing L3 cache) leaving first (#0) and last (#7) cores unused. Run a program with 6 threads per task and inspect actual task/threads affinity.
+1. Allocate one GPU node with one task per GPU and bind tasks to each CCD (8-core group sharing L3 cache). Use 7 threads per task having _low noise mode_ of the GPU nodes in mind. Use `select_gpu` wrapper to map exactly one GPU per task.
 
 	??? Solution "Click to see the solution."
 		
@@ -152,6 +130,10 @@
 		#SBATCH --time=5                # Run time (minutes)
 		#SBATCH --account=<project_id>  # Project for billing
 		#SBATCH --hint=nomultithread
+
+                module load LUMI/22.12
+                module load partition/G
+                module load lumi-CPEtools
 		
 		cat << EOF > select_gpu
 		#!/bin/bash
@@ -162,22 +144,54 @@
 		
 		chmod +x ./select_gpu
 		
-		CPU_BIND="mask_cpu:0xfe000000000000,0xfe00000000000000,"
-		CPU_BIND="${CPU_BIND}0xfe0000,0xfe000000,"
-		CPU_BIND="${CPU_BIND}0xfe,0xfe00,"
-		CPU_BIND="${CPU_BIND}0xfe00000000,0xfe0000000000"
-		
 		export OMP_NUM_THREADS=7
 		export OMP_PROC_BIND=close
 		export OMP_PLACES=cores
 		
-		export MPICH_CPUMASK_DISPLAY=1
-		
-		srun --cpu-bind=${CPU_BIND} ./select_gpu ./hello_jobstep/hello_jobstep
+		srun --cpus-per-task=${OMP_NUM_THREADS} ./select_gpu gpu_check -l
 		```
 		
-		If you save the script in the `job_step.sh` then simply submit it with sbatch. Inspect the job output.
+		You need to add explicit `--cpus-per-task` option for srun to get correct GPU mapping. If you save the script in the `job_step.sh` then simply submit it with sbatch. Inspect the job output.
 		
+2. Change your CPU binding leaving first (#0) and last (#7) cores unused. Run a program with 6 threads per task and inspect actual task/threads affinity.
+
+	??? Solution "Click to see the solution."
+
 		Now you would need to alter masks to disable 7th core of each of the group (CCD). Base mask is then `01111110` which is `0x7e` in hexadecimal notation.
 		
 		Try to apply new bitmask, change the corresponding variable to spawn 6 threads per task and check how new binding works.
+
+		```
+		#!/bin/bash -l
+		#SBATCH --partition=standard-g  # Partition (queue) name
+		#SBATCH --nodes=1               # Total number of nodes
+		#SBATCH --ntasks-per-node=8     # 8 MPI ranks per node
+		#SBATCH --gpus-per-node=8       # Allocate one gpu per MPI rank
+		#SBATCH --time=5                # Run time (minutes)
+		#SBATCH --account=<project_id>  # Project for billing
+		#SBATCH --hint=nomultithread
+
+                module load LUMI/22.12
+                module load partition/G
+                module load lumi-CPEtools
+		
+		cat << EOF > select_gpu
+		#!/bin/bash
+		
+		export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+		exec \$*
+		EOF
+		
+		chmod +x ./select_gpu
+		
+		CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
+		CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+		CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
+		CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
+		
+		export OMP_NUM_THREADS=6
+		export OMP_PROC_BIND=close
+		export OMP_PLACES=cores
+		
+		srun --cpu-bind=${CPU_BIND} ./select_gpu gpu_check -l
+		```
