@@ -10,6 +10,8 @@ and some more.
 
 ## Web documentation
 
+-   [Slurm version 22.05.8, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-22.05.8/)
+
 -   [HPE Cray Programming Environment web documentation](https://cpe.ext.hpe.com/docs/) has only become available in
      May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
      format than the man pages on the system.

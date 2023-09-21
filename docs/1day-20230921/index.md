@@ -46,7 +46,6 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
-<!--
 | Introduction | / | / | [recording](video_00_Introduction.md) |
 | LUMI Architecture | [slides](https://462000265.lumidata.eu/1day-20230921/files/LUMI-1day-20230921-01-architecture.pdf) | [notes](01_Architecture.md) | [recording](video_01_LUMI_Architecture.md) |
 | HPE Cray Programming Environment | [slides](https://462000265.lumidata.eu/1day-20230921/files/LUMI-1day-20230921-02-CPE.pdf) | [notes](02_CPE.md) | [recording](video_02_HPE_Cray_Programming_Environment.md) |
@@ -58,4 +57,3 @@ materials are uploaded.
 | Introduction to Lustre and Best Practices | [slides](https://462000265.lumidata.eu/1day-20230921/files/LUMI-1day-20230921-08-Lustre-intro.pdf) | / | [recording](video_08_Introduction_to_Lustre_and_Best_Practices.md) |
 | LUMI User Support | [slides](https://462000265.lumidata.eu/1day-20230921/files/LUMI-1day-20230921-09-Lumi-support.pdf) | / | [recording](video_09_LUMI_User_Support.md) |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
--->

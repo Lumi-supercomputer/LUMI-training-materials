@@ -131,8 +131,8 @@
     </tr>
     <tr>
         <td>
-            15:15 CEST
-            <br/><em>16:15 EEST</em>
+            14:45 CEST
+            <br/><em>15:4 EEST</em>
         </td>
         <td>
             Hands-on
@@ -141,15 +141,15 @@
     </tr>
     <tr>
         <td>
-            15:30 CEST
-            <br/><em>16:39 EEST</em>
+            15:15 CEST
+            <br/><em>16:15 EEST</em>
         </td>
         <td><em>Break</em></td>
     </tr>
     <tr>
         <td>
-            15:40 CEST
-            <br/><em>16:40 EEST</em>
+            15:30 CEST
+            <br/><em>16:30 EEST</em>
         </td>
         <td>
             Introduction to Lustre and Best Practices
