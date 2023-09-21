@@ -13,13 +13,17 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/05_Exercises_1/">
       
       
+        <link rel="prev" href="../04_Software_stacks/">
+      
+      
+        <link rel="next" href="../A01_Documentation/">
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
-        <title>Exercises 1: Modules, the HPE Cray PE and EasyBuild - LUMI training materials</title>
+        <title>Exercises 1 - LUMI training materials</title>
       
     
     
@@ -89,7 +93,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Exercises 1: Modules, the HPE Cray PE and EasyBuild" />
+  <meta property="og:title" content="LUMI training materials - Exercises 1" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/05_Exercises_1/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -101,7 +105,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Exercises 1: Modules, the HPE Cray PE and EasyBuild" />
+  <meta name="twitter:title" content="LUMI training materials - Exercises 1" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -220,7 +224,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercises 1: Modules, the HPE Cray PE and EasyBuild
+              Exercises 1
             
           </span>
         </div>
@@ -532,19 +536,25 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
           
             
+          
+        
+          
+        
           
         
           
@@ -568,7 +578,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           1-day September 2023
@@ -614,6 +624,150 @@
       <a href="../03_Modules/" class="md-nav__link">
         Modules
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Software_stacks/" class="md-nav__link">
+        Software stacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Exercises 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Exercises 1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-the-use-of-modules" class="md-nav__link">
+    Exercises on the use of modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-compiling-software-by-hand" class="md-nav__link">
+    Exercises on compiling software by hand
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises on compiling software by hand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-1-a-simple-hello-world-program" class="md-nav__link">
+    Compilation of a program 1: A simple "Hello, world" program
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-2-a-program-with-blas" class="md-nav__link">
+    Compilation of a program 2: A program with BLAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-3-a-hybrid-mpiopenmp-program" class="md-nav__link">
+    Compilation of a program 3: A hybrid MPI/OpenMP program
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information-in-the-lumi-software-library" class="md-nav__link">
+    Information in the LUMI Software Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-software-with-easybuild" class="md-nav__link">
+    Installing software with EasyBuild
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing software with EasyBuild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-a-simple-program-without-dependencies-with-easybuild" class="md-nav__link">
+    Installing a simple program without dependencies with EasyBuild
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-an-easyconfig-given-to-you-by-lumi-user-support" class="md-nav__link">
+    Installing an EasyConfig given to you by LUMI User Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-with-uninstalled-dependencies" class="md-nav__link">
+    Installing software with uninstalled dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
