@@ -6,7 +6,7 @@ Most recently completed main training events:
     [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
 
 -   1-day LUMI training aimed at regular users:
-    [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
+    [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
 
 
 ## LUMI User Coffee Break Talks
