@@ -1,6 +1,6 @@
 # LUMI User Support
 
-*Presenter: Jorn Dietze (LUST)*
+*Presenter: Jørn Dietze (LUST)*
 
 Course materials will be provided during and after the course.
 
