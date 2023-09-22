@@ -1839,7 +1839,9 @@ on the login nodes. Some daemons are inactive or configured differently and Cray
 does not support all regular file systems. The goal of this is to minimize OS jitter,
 interrupts that the OS handles and slow down random cores at random moments, that can 
 limit scalability of programs. Yet on the GPU nodes there was still the need to reserve
-one core for the OS and driver processes.</p>
+one core for the OS and driver processes.
+This in turn led to an asymmetry in the setup so now 8 cores are reserved, one per CCD, so
+that all CCDs are equal again.</p>
 <p>This also implies that some software that works perfectly fine on the login nodes may not
 work on the compute nodes. E.g., there is no <code>/run/user/$UID</code> directory and we have experienced
 that D-Bus (which stands for Desktop-Bus) also does not work as one should expect.</p>
@@ -1873,11 +1875,10 @@ families currently used in HPC. </p>
 <p>Python is of course pre-installed on the system but we do ask to use big Python installations in a special way
 as Python puts a tremendous load on the file system. More about that later in this course.</p>
 <p>Some users also report some success in running <a href="https://julialang.org/">Julia</a>. We don't have full support though and have to
-depend on binaries as provided by <a href="https://julialang.org/downloads/">julialang.org</a>. The AMD GPUs are
-not yet fully supported by Julia.</p>
+depend on binaries as provided by <a href="https://julialang.org/downloads/">julialang.org</a>.</p>
 <p>It is important to realise that there is no CUDA on AMD GPUs and there will never be as this is a 
-proprietary technology that other vendors cannot implement. LUMI will in the future have some nodes
-with NVIDIA GPUs but these nodes are meant for visualisation and not for compute.</p>
+proprietary technology that other vendors cannot implement. The visualisation nodes in LUMI have
+NVIDIA rendering GPUs but these nodes are meant for visualisation and not for compute.</p>
 <h2 id="the-development-environment-on-lumi">The development environment on LUMI<a class="headerlink" href="#the-development-environment-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Development environment" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/DevelopmentEnvironment.png" /></p>
@@ -1929,6 +1930,28 @@ they are derived from the same version of MPICH. The NVIDIA programming environm
 visualisation nodes.</p>
 <p>We will now discuss some of these components in a little bit more detail, but refer
 to the 4-day trainings that we organise three times a year with HPE for more material.</p>
+<div class="admonition note">
+<p class="admonition-title">Python and R</p>
+<p>Big Python and R installations can consist of lots of small files. Parallel file systems such as Lustre
+used on LUMI cannot work efficiently with such files. Therefore such installations should be containerised.</p>
+<p>We offer two tools for that on LUMI with different strengths and weaknesses:</p>
+<ul>
+<li>
+<p><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/"><code>lumi-container-wrapper</code></a>
+    can build upon Cray Python when installing packages with <code>pip</code> or can
+    do independent Conda installations from an environments file.
+    The tool also create wrapper scripts for all commands in the <code>bin</code> subdirectory of the
+    container installation so that the user does not always need to be aware that they are
+    working in a container.</p>
+<p>It is the LUMI-equivalent of the <code>tykky</code> module on the Finnish national systems operated by CSC.</p>
+</li>
+<li>
+<p><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/"><code>cotainr</code></a>
+    is a tool developed by the Danish LUMI-partner DeIC to build some types of containers
+    in user space and is also a good tool to containerise a Conda installation.</p>
+</li>
+</ul>
+</div>
 <h2 id="the-cray-compiling-environment">The Cray Compiling Environment<a class="headerlink" href="#the-cray-compiling-environment" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Cray Compiling Environment" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/CrayComplingEnv.png" /></p>
@@ -2210,6 +2233,10 @@ activate:</p>
 <p>There is also a second module that offers the AMD ROCm environment, <code>rocm</code>. That module
 has to be used with <code>PrgEnv-cray</code> and <code>PrgEnv-gnu</code> to enable MPI-aware GPU,
 hipcc with the GNU compilers or GPU support with the Cray compilers.</p>
+<p>The HPE Cray PE now also contains some mixed programming environments that combine the C/C++ compiler from one
+environment with the Fortran compiler from another. Currently on LUMI there is <code>PrgEnv-cray-amd</code> using the
+Cray Fortran compiler with the AMD ROCm C/C++ compiler and <code>PrgEnv-gnu-amd</code> using the GNU Fortran compiler
+with the AMD ROCm C/C++ compiler.</p>
 <h2 id="getting-help">Getting help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Getting help" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-02-CPE/GettingHelp.png" /></p>

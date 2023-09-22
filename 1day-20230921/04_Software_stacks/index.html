@@ -2061,7 +2061,7 @@ The whole setup of EasyBuild is done such that you can build on top of the centr
 and such that <strong>your modules appear in your module view</strong> without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
 for your project as we cannot automatically determine a suitable place. </p>
-<p><strong>We do offer some help so set up
+<p><strong>We do offer some help to set up
 Spack also but it is mostly offered "as is" and we will not do bug-fixing or development in Spack
 package files.</strong> Spack is very attractive for users who want to set up a personal environment with
 fully customised versions of the software rather than the rather fixed versions provided by EasyBuild
@@ -2137,8 +2137,11 @@ data formats designed to organise data on supercomputers is not welcome on LUMI.
 also require to <strong>containerize conda and Python installations</strong>. We do offer a container-based wrapper
 that offers a way to install conda packages or to install Python packages with pip on top of 
 the Python provided by the <code>cray-python</code> module. On LUMI the tool is called
-<a href="https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/">lumi-container-wrapper</a>
-but it may by some from CSC also be known as Tykky.</p>
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/">lumi-container-wrapper</a>
+but it may by some from CSC also be known as Tykky. As an alternative we also offer
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/">cotainr</a>, a tool developed by
+the Danish LUMI-partner DeIC that helps with building some types of containers that can be built in
+user space and can be used to containerise a conda-installation.</p>
 <h3 id="organisation-of-the-software-in-software-stacks">Organisation of the software in software stacks<a class="headerlink" href="#organisation-of-the-software-in-software-stacks" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Organisation&quot;Software Stacks" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-04-software/SoftwareStacksOrganisation.png" /></p>
@@ -2155,12 +2158,12 @@ of hardware in the regular LUMI system</strong>: zen2 CPUs in the login nodes an
 LUMI-C compute nodes and zen3 + MI250X for
 the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
 zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.</p>
-<p>In the far future we will also look at <strong>a stack based on the common EasyBuild toolchains as-is</strong>, but we do expect
-problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
-the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
 <p>We also have an extensible software stack based on <strong>Spack</strong> which has been pre-configured to use the compilers
 from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
 support nor do we do any bugfixing in Spack.</p>
+<p>In the far future we will also look at <strong>a stack based on the common EasyBuild toolchains as-is</strong>, but we do expect
+problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
+the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
 <h3 id="3-ways-to-access-the-cray-programming-environment-on-lumi">3 ways to access the Cray Programming environment on LUMI.<a class="headerlink" href="#3-ways-to-access-the-cray-programming-environment-on-lumi" title="Permanent link">&para;</a></h3>
 <h4 id="bare-environment-and-crayenv">Bare environment and CrayEnv<a class="headerlink" href="#bare-environment-and-crayenv" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
@@ -2200,7 +2203,7 @@ toolchains</strong> instead as indicated by the following table:</p>
 <tr>
 <td align="left"><code>PrgEnv-cray</code></td>
 <td align="left"><code>cpeCray</code></td>
-<td align="left">Cray Compiler Environment</td>
+<td align="left">Cray Compiling Environment</td>
 </tr>
 <tr>
 <td align="left"><code>PrgEnv-gnu</code></td>
@@ -2255,7 +2258,8 @@ explicitly load the partition/L module.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Installing software on HPC systems" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-04-software/EasyBuildInstallingSoftwareHPC.png" /></p>
 </figure>
-<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> for various reasons.
+<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> (a popular format to package Linux software
+distributed as binaries) or any other similar format for various reasons.
 Generic RPMs are <strong>rarely optimised for the specific CPU</strong> of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
 hard to even impossible. 
@@ -2368,7 +2372,7 @@ before.</p>
 <tr>
 <td align="left"><code>PrgEnv-cray</code></td>
 <td align="left"><code>cpeCray</code></td>
-<td align="left">Cray Compiler Environment</td>
+<td align="left">Cray Compiling Environment</td>
 </tr>
 <tr>
 <td align="left"><code>PrgEnv-gnu</code></td>
@@ -2506,12 +2510,12 @@ the proper value before loading the <code>LUMI</code> module.</strong></p>
 <p>Let's look at GROMACS as an example. I will not try to do this completely live though as the 
 installation takes 15 or 20 minutes.
 First we need to figure out for which versions of GROMACS there is already support on LUMI.
-One can use <code>eb -S</code> or <code>eb --search</code> for that. So in our example this is
+An easy way to do that is to simply check the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>.
+This web site lists all software that we manage via EasyBuild and make available either pre-installed on
+the system or as an EasyBuild recipe for user installation.
+Alternatively one can use <code>eb -S</code> or <code>eb --search</code> for that. So in our example this is
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--search<span class="w"> </span>GROMACS
-</code></pre></div>
-We now also have the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
-which lists all software that we manage via EasyBuild and make available either pre-installed on
-the system or as an EasyBuild recipe for user installation.</p>
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Output of the search commands:</p>
 <p><code>eb --search GROMACS</code> produces:</p>

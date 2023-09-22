@@ -1508,15 +1508,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-environment-module-system" class="md-nav__link">
-    Programming Environment &amp; Module System
+  <a href="#programming-environment-modules" class="md-nav__link">
+    Programming Environment &amp; modules
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-and-installing-software" class="md-nav__link">
-    Using and Installing Software
+  <a href="#lumi-software-stacks" class="md-nav__link">
+    LUMI Software Stacks
   </a>
   
 </li>
@@ -1536,8 +1536,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    Storage
+  <a href="#exercises-2" class="md-nav__link">
+    Exercises 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-lustre" class="md-nav__link">
+    Introduction to Lustre
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-support" class="md-nav__link">
+    LUMI support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-qa" class="md-nav__link">
+    General Q&amp;A
   </a>
   
 </li>
@@ -1559,12 +1580,390 @@
 
 <h1 id="questions-session-21-september-2023">Questions session 21 September 2023<a class="headerlink" href="#questions-session-21-september-2023" title="Permanent link">&para;</a></h1>
 <h2 id="lumi-hardware">LUMI Hardware<a class="headerlink" href="#lumi-hardware" title="Permanent link">&para;</a></h2>
-<h2 id="programming-environment-module-system">Programming Environment &amp; Module System<a class="headerlink" href="#programming-environment-module-system" title="Permanent link">&para;</a></h2>
-<h2 id="using-and-installing-software">Using and Installing Software<a class="headerlink" href="#using-and-installing-software" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>When we run <code>sbatch</code> with <code>--cpus-per-node=X</code> are we allocating X cores or X CCDs or X NUMA nodes ...?</p>
+<ul>
+<li>
+<p>You allocate cores (not threads). But admittedly the slurm nomenclature is really confusing.</p>
+</li>
+<li>
+<p>Slurm had threads (hardware threads), cores (physical cores) and CPUs. A CPU is the smallest individually allocatable unit which on LUMI is configured to be the core. Unfortunately Slurm does not fully understand the full hierarchy of a modern cluster which makes it different to request all cores in a single CCD or single NUMA domain.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>I have been experiencing very long queueing times recently and have been warned that i am out of storage hours although i have more or less cleaned my output (|I am aware disk space and storage hours are not the same thing) but i am wondering if these long times are related to storage hours</p>
+<ul>
+<li>It's not related. Removing files when running out of storage allocation (in TB/hours) does make the TB/hours as each file stored on LUMI will consumes these TB/hours from your allocation as long as it's present on the system. When you delete a file, it will stop being billed but the TB/hours consumed will still be definitively gone.</li>
+</ul>
+<p>Thanks, then what is the way to go forward as i have yet only spent 30% of my CPU hours :)</p>
+<ul>
+<li>Is your allocation granted by a consortium country or EuroHPC JU?</li>
+</ul>
+<p>Consortium country</p>
+<ul>
+<li>Contact the resource allocator of your country to request additional TB/hours</li>
+</ul>
+<p>Will do so, thanks a lot :)</p>
+<ul>
+<li>
+<p>For the queue time, we are sorry, it's caused by three things:</p>
+<ol>
+<li>An oversubscription factor that was way to high</li>
+<li>Lots of huge jobs in the queue. To start a big job, the scheduler has to collect nodes that in the mean time can only be used for backfill by small jobs but we don't always have enough of those small jobs. So you may note a lot of idle nodes while your job still does not start quickly.</li>
+<li>
+<p>A lot of CPU nodes have been down lately which with the large oversubscription factor create long queueing time<br />
+The oversubscription factor will be reduced next year and the new LUMI-C nodes will be put in production at the end of october. It should improve the situation. Resource allocators have also been asked to not use LUMI-C for extreme scale projects anymore that require running lots of very large jobs (large in terms of node counts)</p>
+</li>
+<li>
+<p>I see, thanks then we need to live with for now :)</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Out of curiosity, if LUMI is a GPU-first system, why offer (what remains a quite large amount of) CPU-only nodes?</p>
+<ul>
+<li>
+<p>I think there are many answers to that question. I guess that some are political, but they idea is also to support heterogenous jobs with some parts of a workflow to run on CPU nodes with others running on GPUs.</p>
+</li>
+<li>
+<p>Additionally, LUMI performance is 2% LUMI-C and 98% LUMI-G.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Same question as 1. What about when we run <code>sbatch</code> with <code>--gpus-per-node=X</code>, what are we allocating?</p>
+<ul>
+<li>One GCD, so you can ask for a maximum of 8 per LUMI-G node.</li>
+</ul>
+</li>
+<li>
+<p>I've been communicated that GPUs process batches of 32 items in 1 cycle on Nvidia (ie. using batch size of 33 first does 32 items in one cycle and 1 item in a separate cycle). Is this the same on AMD? And is this a hardware feature, as one could assume?</p>
+<ul>
+<li>
+<p>AMD compute GPUs use 64-wide wavefronts but there is a catch. In practice, the wavefront will be divided in 4x16 workitems which match the compute units (CUs) architecture that feature 4x16-wide SIMD units. Each of these units are assigned a wavefront. The wavefront once assigned to one SIMD unit will be processed in 4 cycles (16 workitems/cycle). As there is 4 SIMD units per CU, 4 wavefronts can be active at the same time in a CU and the total throughput of a CU can be seen as 1x 64-wide wavefront/cycle/CU.</p>
+</li>
+<li>
+<p>See <a href="https://docs.lumi-supercomputer.eu/hardware/lumig/#the-mi250x-graphics-compute-die">the documentation</a> for more details about the MI250x GPUs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>How are GPU hours billed on standard-g and on small-g? Is it the number of GPU hours that you request for a job, using the argument #SBATCH --time, or is it the actual GPU usage per job, which is usually less than the requested hours? </p>
+<ul>
+<li>
+<p>For GPU compute, your project is allocated GPU-core-hours that are consumed when running jobs on the GPU nodes https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#gpu-billing</p>
+</li>
+<li>
+<p>For the standard-g partition, where full nodes are allocated, the 4 GPUs modules are billed. For the small-g and dev-g Slurm partitions, where allocation can be done at the level of Graphics Compute Dies (GCD), you will be billed at a 0.5 rate per GCD allocated.</p>
+</li>
+</ul>
+<p>Thanks! I understand this, but if e.g. I request #SBATCH --time=24h and my job fails after 2 hours, am I billed for 24h or for 2h?</p>
+<ul>
+<li>You should be billed for 2 hours if your job is killed. Beware that there is a possibility that your job hangs when your job fails and you'd be billed for the time it hangs as well.</li>
+</ul>
+</li>
+</ol>
+<h2 id="programming-environment-modules">Programming Environment &amp; modules<a class="headerlink" href="#programming-environment-modules" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>The slide mentioned the cray-*-ofi for OFI. Do we still need to use the AWS OFI mentioned in some compiling instructions?</p>
+<ul>
+<li>
+<p>Do you mean the AWS OFI plugin for RCCL? That's different for the <code>cray-*-ofi</code> module. The <code>craype-network-ofi</code> is meant to select the Cray MPI network backend. With the Slingshot-11 network only libfabric/OFI is supported. In the past we had Slingshiot-10 interconnects and the <code>craype-network-ucx</code> module can be use to select the UCX backend. <strong>It's no longer supported</strong>. However, the <code>craype-network-*</code> modules are still useful as it's basically a way to switch MPI on and off in the compiler wrapper:</p>
+<ul>
+<li><code>module load craype-network-none</code>: disable MPI</li>
+<li><code>module load craype-network-ofi</code>: enable MPI</li>
+</ul>
+</li>
+<li>
+<p>The AWS OFI plugin is a plugin for RCCL (AMD GPU collective communication library, replacement for NVIDIA NCCL). This plugin is used so that RCCL can use the Slingshot-11 interconnect as it does not support it out of the box.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If we need to compile a library with gcc to generate our executables with support for MPI, do we have to load all the corresponding Cray modules or one of the PrgEnvs and the cray MPI module?</p>
+<ul>
+<li>Most of the time only loading <code>PrgEnv-gnu</code> is sufficient as the MPI module is loaded by default. The Cray compiler wrapper will automatically link to the correct MPI library for the Programming Environment you selected by loading a <code>PrgEnv-*</code> module.</li>
+</ul>
+</li>
+<li>
+<p>What does it mean that a module is hidden?, it seems that it would be silently skipped, how we can change that state?</p>
+<ul>
+<li>It means that the is not listed in any searches by default because it might have problems or incompatibilities. you can display all modules including the hidden ones by loading the <code>ModulePowerUser/LUMI</code> module.</li>
+</ul>
+</li>
+<li>
+<p>Do we have a PyTorch module?</p>
+<ul>
+<li>Yes, as user installable with EasyBuild (https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/) or in CSC software collecion (https://docs.lumi-supercomputer.eu/software/local/csc/)</li>
+</ul>
+</li>
+<li>
+<p>I just want to point out that the slides of today seem to be inaccessible, as are the ones from previous training days. E.g. https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230509/ and clicking on any "slides" link fails.</p>
+<ul>
+<li>
+<p>Works for me. Both the old and new slides load as expected.</p>
+</li>
+<li>
+<p>I get network errors (PR_CONNECT_RESET_ERROR) in both Firefox and Chrome. Not a big issue in any case.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Same issue as above. Can the slides be hosted somewhere else so that they are accessible to everyone?</p>
+<ul>
+<li>You could download it from LUMI with <code>wget</code> and then move to your computer from there.</li>
+</ul>
+<p>This worked for me, but accessing it with three different browsers did not work.</p>
+<ul>
+<li>
+<p>I also guess that is something firewall related but weird that you can access lumi via ssh but not LUMI-O.</p>
+</li>
+<li>
+<p>I read that some browser extensions and some proxies can also cause this problem. Most of these connection problems are actually not caused by the server (LUMI-O for the slides and recordings) but somewhere else between the server and your browser or the browser itself. It's a bit weird, we've been using LUMI-O as the source for big files for a while now and never got complaints or tickets.</p>
+<p>Sysadmins did note some random problems with LUMI-O recently and are investigating, it may or may not be related to that also. But I (KL) have been pushing lots of data to and pulling lots of data from LUMI-O in the past days from different computers and browsers while preparing this course and the upcoming 4-day course without issues.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="lumi-software-stacks">LUMI Software Stacks<a class="headerlink" href="#lumi-software-stacks" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>What is the difference between <code>lumi-container-wrapper/cotainr</code> and Singularity containers?</p>
+<ul>
+<li>Both our tools use singularity in the background but help you with creating the containers, so you don't have to build the container yourself.</li>
+</ul>
+</li>
+<li>
+<p>Let's say I want to build PyTorch (with GPU support of course). Am I understanding correctly that I should load PrgEnv-amd?</p>
+<ul>
+<li>
+<p>Both <code>PrgEnv-amd</code>, <code>-cray</code> and <code>-gnu</code> work with <code>rocm</code> which GPU enabled codes rely on. Basically first two environmnents give you Clang/LLVM based compilers. I doubt PyTorch requires Clang as a host compiler to be compiled for AMD GPUs.</p>
+</li>
+<li>
+<p>For PyTorch the way to go is to use GNU for the host (CPU) compilation in conjunction with the <code>rocm</code> module to have access to <code>hipcc</code> for GPU code compilation. Compiling PyTorch with <code>PrgEnv-cray</code> or <code>PrgEnv-amd</code> is likely to fail due to some packages using intel flavoured inline assembly that is not supported by Clang based compilers.</p>
+<ul>
+<li>Okay. Got it. But the latest rocm module available is 5.3.3 that is very old (current that is VERY new is 5.7.0). Do I need to compile my own rocm also?</li>
+</ul>
+</li>
+<li>
+<p>ROCm version is related to AMD GPU driver version. With current SLES kernel version Cray OS is based on, ROCm versions &gt; 5.4 are not supported, unfortunately. 
+    A major system update with new AMD GPU driver will be at the end of the year at the earliest.</p>
+</li>
+<li>
+<p>You can try other ROCm versions in containers. It does turn out that some newer versions work for some users even with the current driver. E.g., one of our AMD support people has used PyTorch with ROCm 5.5 in a container. The problem with newer ROCm versions is that (a) they are based around gcc 12 and the gcc 12 on the system is broken so we cannot fully support it and (b) ROCm libraries are also used by, e.g., GPU-aware MPICH and newer versions cause problems with cray-mpich. </p>
+<p>Recent ROCm versions show improvements in particular in the support libraries for AI so I can understand why as a user of PyTorch or Tensorflow you'd like a newer version.</p>
+<p>We realise many users are frustrated by this. The problem is that installing ROCm on a supercomputer is not as simple as it is on a workstation. On LUMI, it triggers a chain of events. We need a newer GPU driver. That in turn needs a newer OS kernel. However, software on a supercomputer is managed through a management environment and that management environment needs an update also to support that newer kernel. So at the end updating ROCm requires updating the full software stack on LUMI and likely a week or more of downtime, and extensive testing before starting the process. There are only a few systems like LUMI in the world which also implies that the installation procedures are not thoroughly tested and that whenever a big update of LUMI is done, problems show up. Nowadays we have a test system to detect most of the problems before they are actually rolled out on the big systems, but in the early days we didn't and the first big update which was scheduled to take 3 weeks took 7 weeks in the end due to problems... So I hope you can understand why a big machine as LUMI is not the best environment if you want the very latest... It is only a pity that there is no second smaller development machine on which we could take more risks as it wouldn't matter as much if that one would be down for a few weeks.</p>
+</li>
+<li>
+<p>Our AMD support person has also been building a properly set up container for PyTorch. I'd have to check in the LUMI documentation where to find it but that may be a more easy way. Compiling PyTorch can be tricky.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Regarding the long queue times i ve asked in question 2, would using the small nodes instead of the standard nodes help as some of the runs are literally taking only 2 minutes to run, which prepare the model for the actual production run that should be run in standard nodes?</p>
+<ul>
+<li>It may or may not and the answer is time-dependent. They are scheduled fairly independently. There was actually a mail after the last downtime to users to ask to use small/small-g more for jobs that can run in that partition. I'd have to check what the partition sizes are today, but the sysadmins at some point also moved some nodes from small to standard to try to balance the waiting times more. If those 2-minute jobs are also very small in node count (which I assume as you want to run them in small) and if the time you request is then also very low (like 10 minutes or so to be sure), they are ideal as backfill though and may start quickly on standard/standard-g actually and actually only use time that would otherwise been wasted. I've been rather successful with that strategy when preparing this and another course I am teaching about LUMI ;-) Sometimes my waiting times on standard/standard-g also became longer, and I assume an overloaded scheduler was partly to blame.</li>
+</ul>
+<p>So instead of asking standard with 48 hours request, asking small with say 1 hour (or smaller?) does not really change? another reason i use standard is because the model runs hardcored with 88 CPUs whether or not it is a preperation run or a production run.</p>
+<ul>
+<li>
+<p>The element that really matters if you want your job to start quickly, is to be realistic with the time your request. If you know that it is something that finishes quickly, don't request the maximum allowed time. On standard and standard-g there is usually quite some room to run programs as backfill. The scheduler will schedule lower priority jobs on idle nodes that it is saving for a big job if it knows that that job will have finished before it expects to have collected enough nodes for that big highest priority job. If you always request the maximum wall time even if you know that it will not be needed, the job will never be used as backfill. But if you know a job will end in 5 minutes and then only request like, say, 10 minutes to have some safety margin, there is a high chance that the scheduler will select it to fill up holes in the machine. Nothing worse for a scheduler than all users just requesting the default maximum wall time rather than a realistic walltime as then it has no room to play with to fill up gaps in the machine.</p>
+</li>
+<li>
+<p>And there is even another element to be realistic with wall times. There are ways in which a job can crash where the scheduler fails to detect that the job has terminated and so keeps the allocation. It looks like in particular on LUMI some MPI crashes can remain undetected, probably because MPI fails to kill all processes involved. You will then be billed for the whole time that the job keeps the allocation, not for the time before it crashed. </p>
+</li>
+</ul>
+</li>
+</ol>
 <h2 id="exercise-session-1">Exercise session 1<a class="headerlink" href="#exercise-session-1" title="Permanent link">&para;</a></h2>
+<p>/</p>
 <h2 id="running-jobs">Running jobs<a class="headerlink" href="#running-jobs" title="Permanent link">&para;</a></h2>
-<p>`</p>
-<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Why does the <code>small</code> partition allow to allocate 256G memory per node while <code>debug</code> allows only 224G?</p>
+<ul>
+<li>It's because the high-memory nodes (512GB and 1TB) are in the <code>small</code> partition. Standard nodes in both <code>small</code> and <code>debug</code> have the same amount of memory available (224GB). If you go above that in the <code>small</code> partition, you will get an allocation on one of the high-memory nodes instead of a a standard one. Note that if you go above 2GB/cores you will be billed for this extra memory usage. See <a href="https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#cpu-small-slurm-partition">here</a> for details of the billing policy.</li>
+</ul>
+<p>I see, thanks. So from this I understand that when I request <code>--partition=small; --mem=256G;</code>, the job will not be assigned to a standard node. Only high-memory nodes will be available. It is not made clear on <a href="https://docs.lumi-supercomputer.eu/hardware/lumic/">CPU nodes - LUMI-C</a> that not all of the memory can be allocated. I assumed that I can request all 256G from a standard node.</p>
+<ul>
+<li>It's explained <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/">here</a> but you are right it's not stated in the hardware section. The reason is that in reality, the node actually have 256GB of memory but part of it is reserved for the operating system. LUMI nodes are diskless, so we have to reserve quite a big chunk of the memory to make sure the OS has enough space.</li>
+</ul>
+<p>How much memory can be allocated on 512G and 1TB nodes?</p>
+<ul>
+<li>On all nodes of LUMI it is the physcial amount of RAM minus 32 GB (480 GB and 992 GB). For the LUMI-G nodes: 512 GB installed, 480 GB available.</li>
+</ul>
+</li>
+<li>
+<p>Is the <code>--mail-user</code> functionality already working for LUMI slurm jobs? It is working on our national clusters, but so far hasn't worked for me on LUMI (with <code>--mail-type=all</code>)</p>
+<ul>
+<li>Unfortunately, it's not active. The LUMI User Support Team has raised the issue multiple times (since the start of the LUMI-C pilot actually) but sysadmins never made the necessary configuration. I understand it can be frustrating for users as it's a very basic feature that should be working.</li>
+</ul>
+</li>
+<li>
+<p>Does <code>--ntasks=X</code>  signify the number of <code>srun</code> calls, i.e. number of steps in a job?</p>
+<ul>
+<li>
+<p>No. It is used inside <code>srun</code>. <code>srun</code> creates one job step with multiple tasks, each task basically being a copy of a process that is started. It is possible though to ask sbatch for, e.g, 5 tasks with 4 cores each, and then use multiple <code>srun</code> commands with each <code>srun</code> asking to create 1 task with 4 cores. Unfortunately we do see problems with network configurations when trying to run multiple job steps with multple <code>srun</code> commands simultaneously (by starting them in the background with an &amp; and then waiting untill all have ended).</p>
+<p>You would use <code>--ntasks=X</code>, e.g., to start an MPI job with X ranks.</p>
+</li>
+</ul>
+<p>I am confused when you could define, say <code>--ntasks=8</code> and <code>--cpus-per-task=2</code>. Are we then allocating 16 cores or 8 cores?</p>
+<ul>
+<li>16 cores. Each task can then use 2 cores which would be the case for a hybrid MPI/OpenMP job. It would also guarantee that these cores are in groups of 2,
+    because on <code>small</code> you would have no guarantee that all cores are on a single node. It may instead use cores from several nodes.</li>
+</ul>
+</li>
+<li>
+<p>I just want to comment on the question on <code>--mail-user</code>. In Norway, on the Saga HPC cluster it was used until a user directed the emails from a large array to the helpdesk of Saga, that filled the helpdesk server. Then it was decided to stop the functionality. </p>
+<ul>
+<li>
+<p>Even without users redirecting them to the help desk there are potential problems. Not that much on LUMI as we have a very low limit on the number of jobs, but no mail administrators would be happy with a user running a large array job on the cluster as each job in the array is a separate job and would send a mail. Imagine a user doing throughput computing and starting a few 1000s of jobs in a short time.... It might actually lead to mail systems thinking they're being spammed.</p>
+<p>Another problem is failures of the receiver etc.</p>
+<p>And another problem on LUMI is what to do if no mail user is given in the job script. Due to the way user accounts are created on LUMI (there are several channels) it is not as easy as on some university systems to link a mail address to a userID.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>There was a comment that using <code>--gpus-per-task</code> was tricky. Perhaps I missed it, what was the pitfall of using it?</p>
+<ul>
+<li>
+<p>The problem is the way in which Slurm does GPU binding which is not compatible with GPU-aware MPI. I'm not sure how technical you are and hence if you can understand my answer, but let's try.</p>
+<p>For CPUs Linux has two mechanisms to limit access to cores by a process or threads. One is so-called control groups and another one is affinity masks. Control groups really limit what a process can see and Slurm uses it at the job step level with one control group shared by all tasks in a job step on a node. That means that the tasks (processes) on a node can, e.g., share memory, which is used to communicate through memory. At the task/process level affinity masks are used which do not block sharing memory etc.</p>
+<p>For GPU binding there are also two mechanisms. One is a Linux mechanism, again the control groups. The other one is via the ROCm runtime via the ROCR_VISIBLE_DEVICES mentioned during the presentation. You can compare this a little bit with affinity masks except that it is not OS-controlled and hence can be overwritten. The problem with <code>--gpus-per-task</code> is that Slurm uses both mechanisms and uses them both at the task level. The consequence is that two tasks cannot see each others memory and that hence communication via shared GPU memory is no longer possible. The funny thing is that Slurm will actually still set ROCR_VISIBLE_DEVICES also in some cases. So it is basically a bug or feature in the way Slurm works with AMD GPUs. It should use control groups only at the job step level, not at the task level, and then things could work.</p>
+</li>
+</ul>
+<p>I don't use MPI, I only have ML applications in Python. Is this still a relevant problem?</p>
+<ul>
+<li>Yes, if you have multiple tasks. I gave MPI as the example but it holds for all communication mechanisms that go via shared memory for efficiency. RCCL for instance will also be affected. If you have something with <code>--ntasks=1</code> it should not matter though.</li>
+</ul>
+</li>
+<li>
+<p>I am using <code>torch.distributed.run()</code> for starting my multi-GPU computation. I provide <code>--ntasks=1</code> (I use only single node). Then as a parameter to <code>torch.distributed.run</code>, I give <code>--nproc_per_node=#NUM_GPUS</code>. AFAIK, the torch.distributed.run then starts #NUM_GPUS processes. Does this cause binding problems? If so, can I somehow provide a custom mapping for this setup?</p>
+<ul>
+<li>
+<p>Torch will have to do the binding itself if it starts the processes. Our PyTorch expert is not in the call though, I'm not sure about the right answer. </p>
+<p>Does it start #NUM_GPUS processes because it has that many GPUs or because it has that many cores? If it is the former I would actually consider to give Torch access to all CPU cores. </p>
+<p>I suspect Torch could benefit from a proper mapping, not only a proper mapping of CPU-to-GPU but also even a correct ordering of the GPUs. I understand that RCCL often communicates in a ring fashion so it would be usefull to exploit the fact that there are rings hidden in the topology of the node. But I don't think that anybody in our team has ever experimented with that.</p>
+</li>
+</ul>
+<p>One process per GPU. Thanks! Something that I will have to look into..</p>
+</li>
+<li>
+<p>What does the numbers in <code>srun --cpu-bind</code> option represent <code>fe00</code> etc?</p>
+<ul>
+<li>These are hexadecimal numbers where each bit represents a core (actually hardware thread to be precise) with the lowest order bit representing core 0. So for <code>fe00</code>: do not use core 0-7 (the last two 0's, so 8 zero bits), then the e corresponds to the bit pattern <code>1110</code> so do not use core 8 but use core 9, 10 and 11, and <code>f</code> corresponds to the bit pattern <code>1111</code> which is then use cores 12, 13, 14 and 15. So effectively: this concrete example means use CCD 1 (they are numbered from 0) except for the first core of that CCD which cannot be used because it is set aside for the OS and not available to Slurm.</li>
+</ul>
+</li>
+<li>
+<p>Adding to the previous question: would this specific example cpu binding scheme also work for jobs on the small-g partition?</p>
+<ul>
+<li>Only if you request the whole node with <code>--exclusive</code>. Manual binding is only possible if you have access to the full node as otherwise you cannot know which subset of cores is assigned to your application, and as currently Slurm is not capable to make sure that you get a reasonable set of cores and matching GPUs on the small-g partition. Which is one of the reasons why the <code>small-g</code> partition is so small: It is not a very good way to work with the GPUs.</li>
+</ul>
+</li>
+<li>
+<p>To which Numa domain I should bind which GCD? I remember it was <em>not</em> Numa domain 0 to GCD 0, etc.</p>
+<ul>
+<li>Good question. There are examples of valid masks in the <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/">GPU examples in the LUMI documentation</a> but that is not the clearest way to present things. There is a graphical view on the <a href="https://docs.lumi-supercomputer.eu/hardware/lumig/">GPU nodes page in the LUMI documentation</a>. I've put the information in tabular form in the <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20230921/01_Architecture/#building-lumi-concept-lumi-g-node">notes I made for my presentations</a>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="exercises-2">Exercises 2<a class="headerlink" href="#exercises-2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Will we get some information today on how to (in practice) profile (and afterwards, improve) existing code for use on LUMI? </p>
+<ul>
+<li>
+<p>No. Profiling is a big topic on our 4-day courses that we have two or three times a year. However, if you have a userid on LUMI you have access to recordings of previous presentations. Check <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20230530/">material from the course in Tallinn in June 2023</a> and we'll soon have new material after the course in Warsaw in two weeks. That <a href="https://lumi-supercomputer.eu/events/general-lumi-course-oct2023/">course is on October 3-6</a> but I'm not sure if it is still possible to join. On-site is full I believe and online is also pretty full.</p>
+<p>There is also some material from a <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/">profiling course in April 2023</a> but especially the HPE part there was a bit more "phylosophical" discussing how to intepret data from profiles and how to use that to improve your application.</p>
+</li>
+</ul>
+<p>Thank you very much, that material will be very useful!</p>
+<ul>
+<li>If you are interested in GPU profiling there are also some examples on Rocprof and Omnitrace here https://hackmd.io/@gmarkoma/lumi_training_ee#Rocprof (it is a part of materials from course in Tallin).</li>
+</ul>
+</li>
+</ol>
+<h2 id="introduction-to-lustre">Introduction to Lustre<a class="headerlink" href="#introduction-to-lustre" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>What is the default striping behaviour if we write a file without calling <code>lfs setstripe</code>?</p>
+<ul>
+<li>
+<p>By default only a single OST will be used. This is to avoid problems with users who don't understand LUSTRE and create lots of small files. The more OSTs a file is spread over, the more servers the metadata server has to talk to when opening and closing a file, and if these are not used anyway this is a waste of resources. It may not seem logical though on a system that is built for large applications and large files...</p>
+<p>However, I'm sure there are plenty of people in the course who in practice dump a dataset on LUMI as thousands of 100 kB files and refuse to do the effort to use a structured file format to host the whole dataset in a single file. And then there are those Conda installations with 100k small files.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Does striping matter only if I/O is the bottleneck?</p>
+<ul>
+<li>Mostly. But then we have users who write files that are literally 100s of GB and then it really matters. One user has reported 50 GB/s on LUMI P after optimising the striping for the file...</li>
+</ul>
+</li>
+<li>
+<p>I just checked. My python venv seems to contain ~6k files. Did not know about the possibility to containerize it before today. Is it worth doing in this case, or if not, how many files should I have before containerizing?</p>
+<ul>
+<li>
+<p>It's hard to put a hard number on it as it also depends on how the files are used. We tend to consider 6k as still acceptable though it is a lot.  It also depends on how you use them. If you run jobs that would start that Python process on 100's of cores simultaneously it is of course a bigger problem than if you have only one instance of Python running at a time.</p>
+<p>But as a reference: HPE Cray during the course mentions that one LUMI-P file system is capable of probably 200k metadata operations per second which is not much and surprising little if you compare that to what you can do on a local SSD in a laptop. IOPS don't scale well when you try to build larger storage systems.</p>
+<p>If your venv works well with lumi-container-wrapper it may not be much work though to test if it is worth trying.</p>
+</li>
+<li>
+<p>It is also not just a LUMI thing but a problem on all large supercomputers. When I worked on a PRACE project on a cluster at BSC,
+    I had a Python installation that took 30 minutes to install on the parallel file system but installed in 10s or so on my laptop...</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="lumi-support">LUMI support<a class="headerlink" href="#lumi-support" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Does LUMI support Jupyter notebooks or has a Jupyter hub? As one of the task of my project is to create catalogs / jupyter notebooks for the data generated in the project.</p>
+<ul>
+<li>
+<p>No official support but we know that users have gotten notebooks to work. Something will come with Open OnDemand but not date set yet for availability of that. After all, LUMI is in the first place a system to process large batch jobs and not a system for interactive work or workstation replacement, so it does not have a high priority for us.</p>
+</li>
+<li>
+<p>Since the data cannot stay on LUMI after your project - LUMI is not a data archive solution - I wonder if LUMI is even the ideal machine to develop those notebooks or if that should be done with the machine where the data will ultimately land on?</p>
+</li>
+<li>
+<p>And if the data is really important to you: Please be aware that there are <strong>no backups</strong> on LUMI!</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Does LUMI has interactive nodes through VNC (as in the exercise) to use the visualization nodes interactively?</p>
+<ul>
+<li>
+<p>VNC is available through the lumi-vnc module which contains help about how it works. But otherwise the visualisation nodes are still pretty broken, not sure if vgl-run actually works. As for the previous question, it is not a very high priority at the moment, not for LUST and not for CSC who has to do much of the basic setup. Support should improve when Open OnDemand becomes available which is being worked on by CSC.</p>
+<p>Light VNC sessions can run on the login nodes, but you can always start an interactive job on a compute node, start VNC there and the <code>start-vnc</code> script will actually tell you how you can connect to the VNC server from outside using either a VNC client (the server is TurboVNC) or via a web browser (less efficient though for heavy graphics).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Are the tickets publicly viewable? Is there any plan to add some public issue tracker system? We have something like this on our local cluster, and it's quite nice for seeing what the current problems are and what is being done about them.</p>
+<ul>
+<li>There are no such plans at the moment. Security and privacy are big issues. And since LUMI accounts come onto the system via so many ways organising login is also not easy as we have to interface with multiple IdM systems. We do have a status page at https://www.lumi-supercomputer.eu/lumi-service-status/ but that one is also limited.</li>
+</ul>
+</li>
+</ol>
+<h2 id="general-qa">General Q&amp;A<a class="headerlink" href="#general-qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>One question regarding SLURM job scripts: on our clusters, I am using the command <code>seff $SLURM_JOBID</code> at the end of the file to get output on the consumed resources. But I think <code>seff</code> is not available on LUMI?</p>
+<ul>
+<li>
+<p>It is not on LUMI. It is actually an optional command and not part of core Slurm. We've tested <code>seff</code> and it turns out that the numbers that it produces on LUMI are wrong because it doesn't deal correctly with the way we do hyperthreading and report about that in the Slurm database.</p>
+<p>If you really want to try: <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/seff/">seff in the LUMI Software Library</a> but don't send us tickets about the wrong output. We know the output is wrong in most cases.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

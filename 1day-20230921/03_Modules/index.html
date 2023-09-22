@@ -1969,10 +1969,10 @@ rather than <code>gcc/11.2.0</code>), while still having an easy way to avoid ha
 compilers or MPI implementations loaded at the same time. 
 On LUMI, the conflicting module of the same family will be unloaded automatically
 when loading another module of that particular family.</p>
-<p>This is shown in the example in the previous subsection (the <code>module load PrgEnv-gnu</code> in 
+<p>This is shown in the example in the previous subsection (the <code>module load PrgEnv-aocc</code> in 
 a fresh long shell) in two places. It is the mechanism that unloaded <code>PrgEnv-cray</code>
-when loading <code>PrgEnv-gnu</code> and that then unloaded <code>cce/14.0.1</code> when the 
-<code>PrgEnv-gnu</code> module loaded the <code>gcc/11.2.0</code> module.</p>
+when loading <code>PrgEnv-aocc</code> and that then unloaded <code>cce/14.0.1</code> when the 
+<code>PrgEnv-aocc</code> module loaded the <code>aocc/3.2.0</code> module.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Some clusters do not allow the automatic unloading of a module of the same
@@ -2176,7 +2176,7 @@ Hence the keywords can also be found in the EasyBuild recipes which are included
 web site, and from a page with an EasyBuild recipe (which may not mean much for you) it is
 easy to go back to the software package page itself for more information. Hence you can use
 the search box to search for packages that may not be installed on the system.</p>
-<p>The example given above though, searching for `https, would not work via that box as most
+<p>The example given above though, searching for <code>https</code>, would not work via that box as most
 EasyBuild recipes include https web links to refer to, e.g., documentation and would be 
 shown in the result.</p>
 <p>The LUMI Software Library site includes both software installed in our central software stack
