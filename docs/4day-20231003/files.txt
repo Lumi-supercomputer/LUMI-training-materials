@@ -1,0 +1,86 @@
+Video
+
+1_00 public  1_00_Introduction.mp4
+1_01 private 1_01_HPE_Cray_EX_Architecture
+1_02 private 1_02_Programming_Environment_and_Modules
+1_03 private 1_03_Running_Applications
+1_04
+1_05 private 1_05_Compilers_and_Parallel_Programming_Models
+1_06 
+1_07 private 1_07_Cray_Scientific_Libraries
+1_08 
+1_09 private 1_09_Offload_CCE
+
+2_01 private 2_01_Advanced_Application_Placement
+2_02 
+2_03 private 2_03_Debugging_at_Scale
+2_04 
+2_05 public 2_05_LUMI_Software_Stacks
+2_06 public 2_06_Introduction_to_AMD_ROCm_Ecosystem
+
+3_01 private 3_01_Introduction_to_Perftools
+3_02 
+3_03 private 3_03_Advanced_Performance_Analysis
+3_04 
+3_05 private 3_05_Cray_MPI_on_Slingshot
+3_06 
+3_07 public  3_07_AMD_ROCgdb_Debugger
+3_08 
+3_09 public  3_09_Introduction_to_Rocprof_Profiling_Tool
+3_10 
+
+4_01 private  4_01_Performance_Optimization_Improving_Single_Core
+4_02 
+4_03 private 4_03_Introduction_to_Python_on_Cray_EX
+4_04 private 4_04_IO_Optimization_Parallel_IO
+4_05 
+4_06 public  4_06_AMD_Ominitrace
+4_07 
+4_08 public  4_08_AMD_Ominiperf
+4_09 
+4_10 public  4_10_Best_Practices_GPU_Optimization.mp4
+4_11 public  4_11_LUMI_Support_and_Documentation
+
+
+Slides
+
+1_01 private HPE/01_EX_Architecture.pdf                      LUMI-4day-20230530-1_01_HPE_Cray_EX_Architecuture.pdf
+1_02 private HPE/02_PE_and_Modules.pdf                       LUMI-4day-20231003-1_02_Programming_Environment_and_Modules.pdf
+1_03 private HPE/03_Running_Applications_Slurm.pdf           LUMI-4day-20231003-1_03_Running_Applications.pdf
+1_04
+1_05 private HPE/04_Compilers_and_Programming_Models.pdf     LUMI-4day-20231003-1_05_Compilers_and_Parallel_Programming_Models.pdf
+1_06 
+1_07 private HPE/05_Libraries.pdf                            LUMI-4day-20231003-1_07_Cray_Scientific_Libraries.pdf
+1_08 
+1_09 private HPE/06_Directives_Programming.pdf               LUMI-4day-20231003-1_09_Offload_CCE.pdf
+
+2_01 private HPE/07_Advanced_Placement.pdf                   LUMI-4day-20231003-2_01_Advanced_Application_Placement.pdf
+2_02 
+2_03 private HPE/08_debugging_at_scale.pdf                   LUMI-4day-20231003-2_03_Debugging_at_Scale.pdf
+2_04 
+2_05 public  LUST/LUMI-4day-20230530-software.pdf            LUMI-4day-20231003-2_05_software_stacks.pdf
+2_06 public  AMD/session-1-intro_hip_programming.pdf         LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf
+
+3_01 private HPE/09_introduction_to_perftools.pdf            LUMI-4day-20231003-3_01_Introduction_to_Perftools.pdf
+3_02 
+3_03 private HPE/10_advanced_performance_analysis_merged.pdf LUMI-4day-20231003-3_03_Advanced_Performace_analysis.pdf
+3_04 
+3_05 private HPE/11_cray_mpi_MPMD_medium.pdf                 LUMI-4day-20231003-3_05_Cray_MPI_on_Slingshot.pdf
+3_06 
+3_07 public  AMD/session-2-rocgdb-tutorial.pdf               LUMI-4day-20231003-3_07_AMD_ROCgdb_Debugger.pdf
+3_08 
+3_09 public  AMD/session-2-intro_rocprof.pdf                 LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf
+3_10 
+
+4_01 private HPE/12_cpu_performance_optimization.pdf         LUMI-4day-20231003-4_01_Performance_Optimization_Improving_Single_Core.pdf
+4_02 
+4_03 private HPE/13_Python_Frameworks.pdf                    LUMI-4day-20231003-4_03_Introduction_to_Python_on_Cray_EX.pdf
+4_04 private HPE/14_Python_Frameworks.pdf                    LUMI-4day-20231003-4_04_IO_Optimization_Parallel_IO.pdf
+4_05 
+4_06 public  AMD/session-3-tutorial_omnitools.pdf            LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf
+4_07 
+4_08 public  AMD/session-3-tutorial_omnitools.pdf            LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf
+4_09 
+4_10 Likely varies from course to course.
+4_11 public  LUST/TODO                                       LUMI-4day-20231003-4_11_LUMI_Support_and_Documentation.pdf
+
