@@ -10,6 +10,8 @@ and some more.
 
 ## Web documentation
 
+-   [Slurm version 22.05.8, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-22.05.8/)
+
 -   [HPE Cray Programming Environment web documentation](https://cpe.ext.hpe.com/docs/) has only become available in
      May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
      format than the man pages on the system.
@@ -34,7 +36,7 @@ and some more.
 
 -   [AMD Developer Information](https://www.amd.com/en/developer.html)
 
-    -    [AOCC 4.0 CompilerOptions Quick Reference Guide](https://www.amd.com/content/dam/amd/en/documents/developer/compiler-options-quick-ref-guide-amd-epyc-9xx4-series-processors.pdf)
+    -    [AOCC 4.0 Compiler Options Quick Reference Guide](https://www.amd.com/content/dam/amd/en/documents/developer/compiler-options-quick-ref-guide-amd-epyc-9xx4-series-processors.pdf)
          (Version 4.0 compilers will come when the 23.05 or later CPE release gets installed on LUMI)
 
     -    [AOCC 4.0 User Guide](https://www.amd.com/content/dam/amd/en/documents/pdfs/developer/aocc/aocc-v4.0-ga-user-guide.pdf)

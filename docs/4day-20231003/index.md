@@ -138,7 +138,7 @@ software installation is different now.
 
 ## Links to documentation
 
-[The links to all documentation mentioned during the talks is on a separate page](documentation.md).
+[The links to all documentation mentioned during the talks is on a separate page](A01_Documentation.md).
 
 ## External material for exercises
 
