@@ -1,5 +1,7 @@
 # Exercise session 10
 
+No materials available at the moment.
+
 <!--
 -   [On-line exercise notes](https://hackmd.io/@gmarkoma/lumi_training_ee#Debugging).
 

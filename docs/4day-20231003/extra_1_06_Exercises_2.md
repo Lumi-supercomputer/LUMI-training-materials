@@ -1,5 +1,7 @@
 # Exercise session 2
 
+No materials available at the moment.
+
 <!--
 -   The exercises are basically the same as in 
     [session #1](extra_1_04_Exercises_1.md). You can now play with different

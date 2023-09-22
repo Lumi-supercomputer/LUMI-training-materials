@@ -1,5 +1,7 @@
 # Exercise session 5
 
+No materials available at the moment.
+
 <!--
 -   Files for the exercises are in `/project/project_465000644/exercises/HPE/day2/Binding`
     and `/project/project_465000644/exercises/HPE/day2/gpu_perf_binding`

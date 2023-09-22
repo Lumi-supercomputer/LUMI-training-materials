@@ -1,5 +1,7 @@
 # Exercise session 13
 
+No materials available at the moment.
+
 <!--
 -   See `/project/project_465000644/slides/HPE/Exercises.pdf` for the exercises.
 

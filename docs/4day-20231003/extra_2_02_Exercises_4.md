@@ -1,5 +1,7 @@
 # Exercise session 4
 
+No materials available at the moment.
+
 <!--
 -   Files for the exercises are in `/project/project_465000644/exercises/HPE/day2/debugging` for the lifetime of 
     the project and only for project members.

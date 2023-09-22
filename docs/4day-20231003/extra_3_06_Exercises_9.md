@@ -1,5 +1,7 @@
 # Exercise session 9
 
+No materials available at the moment.
+
 <!--
 -   Continue with the previous exercises or go back to any of the former
     examples (e.g., the ProgrammingModels one) and try out the material of 
