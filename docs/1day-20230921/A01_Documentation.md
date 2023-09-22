@@ -36,7 +36,7 @@ and some more.
 
 -   [AMD Developer Information](https://www.amd.com/en/developer.html)
 
-    -    [AOCC 4.0 CompilerOptions Quick Reference Guide](https://www.amd.com/content/dam/amd/en/documents/developer/compiler-options-quick-ref-guide-amd-epyc-9xx4-series-processors.pdf)
+    -    [AOCC 4.0 Compiler Options Quick Reference Guide](https://www.amd.com/content/dam/amd/en/documents/developer/compiler-options-quick-ref-guide-amd-epyc-9xx4-series-processors.pdf)
          (Version 4.0 compilers will come when the 23.05 or later CPE release gets installed on LUMI)
 
     -    [AOCC 4.0 User Guide](https://www.amd.com/content/dam/amd/en/documents/pdfs/developer/aocc/aocc-v4.0-ga-user-guide.pdf)
@@ -97,11 +97,6 @@ and some more.
 
 
 -   [HDF5 generic documentation](https://hdfgroup.github.io/hdf5/)
-
--   Mentioned in the Lustre presentation: The 
-    [ExaIO project](https://www.exascaleproject.org/research-project/exaio/) paper
-    ["Transparent Asynchronous Parallel I/O Using Background Threads"](https://doi.org/10.1109/TPDS.2021.3090322).
-
 
 
 ## Man pages
@@ -227,23 +222,3 @@ information.
 -   [Setonix User Guide](https://support.pawsey.org.au/documentation/display/US/Setonix+User+Guide).
     Setonix is a Cray EX system at Pawsey Supercomputing Centre in Australia. The CPU and GPU compute
     nodes are the same as on LUMI.
-
-
-## CSC pointers to Linux documentation
-
-Self-study Linux material recommended by CSC:
-
--   [Linux command line and tutorials that you can do in your browser](https://linuxsurvival.com/)
-
--   [CSC's Linux 1 course materials (check the materials links)](https://www.csc.fi/web/training/-/linux1_spring2018?pk_vid=f18ca2c8113dab4b1692604310b88f26)
-
--   [UNIX tutorial for beginners (the first two topics are a good start, try also some editor)](http://www.ee.surrey.ac.uk/Teaching/Unix/)
-
--   [Basic Linux Commands 10 min tutorial video (sit back and watch)](https://www.youtube.com/watch?v=uFPly_nGBMg)
-
--   [CSC Linux Cheat Sheet (one page summary of the most important Linux commands – handy to have near you during the course)](https://docs.csc.fi/img/csc-quick-reference/csc-quick-reference.pdf)
-
--   [Linux basics tutorial for CSC (thorough guide including also topics covered in the course)](https://docs.csc.fi/support/tutorials/env-guide/overview/?pk_vid=f18ca2c8113dab4b1692604349b88f26)
-
--   [Introduction to Linux tutorial videos (Chapters 4, 5)](https://video.csc.fi/channel/Introduction+to+Linux+%28category%29/514985?pk_vid=f18ca2c8113dab4b1692604355b88f26)
-
