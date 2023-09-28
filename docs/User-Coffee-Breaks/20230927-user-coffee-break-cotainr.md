@@ -12,9 +12,8 @@ Materials:
 
 -   [`cotainr` in the LUMI docs](https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool)
 
-<!--
 -   [Slides (PDF)](https://462000265.lumidata.eu/user-coffee-breaks/files/20230927-user-coffee-break-cotainr.pdf)
--->
+
 
 ## Q&A
 
