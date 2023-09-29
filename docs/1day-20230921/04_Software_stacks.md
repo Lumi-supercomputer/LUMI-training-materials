@@ -784,7 +784,7 @@ easyconfig files go in `$EBU_USER_PREFIX/UserRepo/easybuild/easyconfigs`.
 EasyBuild also takes care of a **high level of reproducibility of installations**.
 
 It will **keep a copy of all the downloaded sources** in the `$EBU_USER_PREFIX/sources`
-subdirectory (unless the sources are already available elswhere where EasyBuild can find them,
+subdirectory (unless the sources are already available elsewhere where EasyBuild can find them,
 e.g., in the system EasyBuild sources directory), 
 and use that source file again rather than downloading it again. Of course
 in some cases those "sources" could be downloaded tar files with binaries instead
