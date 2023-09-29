@@ -1906,7 +1906,7 @@ conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox I
 </ul>
 <h3 id="the-lumi-solution">The LUMI solution<a class="headerlink" href="#the-lumi-solution" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
-<p><img alt="The LUMI solution" loading="lazy" src="https://462000265.lumidata.eu/4day-20231003/img/LUMI-4day-20231003-software/SoftwareStacksTheLUMISolution.png" /></p>
+<p><img alt="The LUMI solution" loading="lazy" src="https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-04-software/SoftwareStacksTheLUMISolution.png" /></p>
 </figure>
 <p>We tried to take all these considerations into account and came up with a solution that may look <strong>a
 little unconventional</strong> to many users.</p>
@@ -1939,7 +1939,7 @@ The whole setup of EasyBuild is done such that you can build on top of the centr
 and such that <strong>your modules appear in your module view</strong> without having to add directories by hand
 to environment variables etc. You only need to point to the place where you want to install software
 for your project as we cannot automatically determine a suitable place. </p>
-<p><strong>We do offer some help so set up
+<p><strong>We do offer some help to set up
 Spack also but it is mostly offered "as is" and we will not do bug-fixing or development in Spack
 package files.</strong> Spack is very attractive for users who want to set up a personal environment with
 fully customised versions of the software rather than the rather fixed versions provided by EasyBuild
@@ -2015,8 +2015,11 @@ data formats designed to organise data on supercomputers is not welcome on LUMI.
 also require to <strong>containerize conda and Python installations</strong>. We do offer a container-based wrapper
 that offers a way to install conda packages or to install Python packages with pip on top of 
 the Python provided by the <code>cray-python</code> module. On LUMI the tool is called
-<a href="https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/">lumi-container-wrapper</a>
-but it may by some from CSC also be known as Tykky.</p>
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/">lumi-container-wrapper</a>
+but it may by some from CSC also be known as Tykky. As an alternative we also offer
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/">cotainr</a>, a tool developed by
+the Danish LUMI-partner DeIC that helps with building some types of containers that can be built in
+user space and can be used to containerise a conda-installation.</p>
 <h3 id="organisation-of-the-software-in-software-stacks">Organisation of the software in software stacks<a class="headerlink" href="#organisation-of-the-software-in-software-stacks" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Organisation: Software stacks" loading="lazy" src="https://462000265.lumidata.eu/4day-20231003/img/LUMI-4day-20231003-software/SoftwareStacksOrganisation.png" /></p>
@@ -2033,12 +2036,12 @@ of hardware in the regular LUMI system</strong>: zen2 CPUs in the login nodes an
 LUMI-C compute nodes and zen3 + MI250X for
 the LUMI-G partition. We were also planning to have a fourth version for the visualisation nodes with 
 zen2 CPUs combined with NVIDIA GPUs, but that may never materialise and we may manage those differently.</p>
-<p>In the far future we will also look at <strong>a stack based on the common EasyBuild toolchains as-is</strong>, but we do expect
-problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
-the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
 <p>We also have an extensible software stack based on <strong>Spack</strong> which has been pre-configured to use the compilers
 from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
 support nor do we do any bugfixing in Spack.</p>
+<p>In the far future we will also look at <strong>a stack based on the common EasyBuild toolchains as-is</strong>, but we do expect
+problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
+the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.</p>
 <h3 id="3-ways-to-access-the-cray-programming-environment-on-lumi">3 ways to access the Cray Programming environment on LUMI.<a class="headerlink" href="#3-ways-to-access-the-cray-programming-environment-on-lumi" title="Permanent link">&para;</a></h3>
 <h4 id="bare-environment-and-crayenv">Bare environment and CrayEnv<a class="headerlink" href="#bare-environment-and-crayenv" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
@@ -2078,7 +2081,7 @@ toolchains</strong> instead as indicated by the following table:</p>
 <tr>
 <td align="left"><code>PrgEnv-cray</code></td>
 <td align="left"><code>cpeCray</code></td>
-<td align="left">Cray Compiler Environment</td>
+<td align="left">Cray Compiling Environment</td>
 </tr>
 <tr>
 <td align="left"><code>PrgEnv-gnu</code></td>
@@ -2438,7 +2441,8 @@ module<span class="w"> </span>avail
 <figure style="border: 1px solid #000">
 <p><img alt="Installing software on HPC systems" loading="lazy" src="https://462000265.lumidata.eu/4day-20231003/img/LUMI-4day-20231003-software/EasyBuildInstallingSoftwareHPC.png" /></p>
 </figure>
-<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> for various reasons.
+<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> (a popular format to package Linux software
+distributed as binaries) or any other similar format for various reasons.
 Generic RPMs are <strong>rarely optimised for the specific CPU</strong> of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
 hard to even impossible. 
@@ -2551,7 +2555,7 @@ before.</p>
 <tr>
 <td align="left"><code>PrgEnv-cray</code></td>
 <td align="left"><code>cpeCray</code></td>
-<td align="left">Cray Compiler Environment</td>
+<td align="left">Cray Compiling Environment</td>
 </tr>
 <tr>
 <td align="left"><code>PrgEnv-gnu</code></td>
@@ -2828,7 +2832,7 @@ easyconfig files go in <code>$EBU_USER_PREFIX/UserRepo/easybuild/easyconfigs</co
 </figure>
 <p>EasyBuild also takes care of a <strong>high level of reproducibility of installations</strong>.</p>
 <p>It will <strong>keep a copy of all the downloaded sources</strong> in the <code>$EBU_USER_PREFIX/sources</code>
-subdirectory (unless the sources are already available elswhere where EasyBuild can find them,
+subdirectory (unless the sources are already available elsewhere where EasyBuild can find them,
 e.g., in the system EasyBuild sources directory), 
 and use that source file again rather than downloading it again. Of course
 in some cases those "sources" could be downloaded tar files with binaries instead
@@ -2966,7 +2970,7 @@ work to do, and all the file caching mechanisms can also work much better.</p>
 <li>
 <p>Software installations that would otherwise be impossible. 
     E.g., some software may not even be suited for installation in
-    a multi-user HPC system as it uses fixed paths that are not compatible with installation in \
+    a multi-user HPC system as it uses fixed paths that are not compatible with installation in 
     module-controlled software stacks.
     HPC systems want a lightweight <code>/usr</code> etc. structure as that part of the system
     software is often stored in a RAM disk, and to reduce boot times. Moreover, different users may need
@@ -3041,9 +3045,10 @@ pull operation so save on your storage billing units).</p>
 <p><img alt="Managing containers (2)" loading="lazy" src="https://462000265.lumidata.eu/4day-20231003/img/LUMI-4day-20231003-software/ContainersManaging_2.png" /></p>
 </figure>
 <p>There is currently limited support for building containers on LUMI and I do not expect that to change quickly.
-Container build strategies that require elevated privileges, and even those that require fakeroot, cannot
-be supported for security reasons. 
-Enabling features that are known to have had several serious security vulnerabilities in the recent past, ot that
+Container build strategies that require elevated privileges, and even those that require fakeroot or user namespaces, cannot
+be supported for security reasons (with user namespaces in particular a huge security concern as the Linux implementation
+is riddled with security issues). 
+Enabling features that are known to have had several serious security vulnerabilities in the recent past, or that
 themselves are unsecure by design and could allow users to do more on the system than a regular user should
 be able to do, will never be supported.</p>
 <p>So you should pull containers from a container repository, or build the container on your own workstation
@@ -3147,7 +3152,7 @@ support on systems that rely on OFI and do not support UCX.</p>
 <p>To make life easier, LUST with the support of CSC did implement some modules
 that are either based on containers or help you run software with containers.</p>
 <p>The <strong><code>singularity-bindings/system</code></strong> module which can be installed via EasyBuild
-helps to set <code>SINGULARITY_BIND</code> and <code>SINGULARITY_LD_LIBRARY__PATH</code> to use 
+helps to set <code>SINGULARITY_BIND</code> and <code>SINGULARITY_LD_LIBRARY_PATH</code> to use 
 Cray MPICH. Figuring out those settings is tricky, and sometimes changes to the
 module are needed for a specific situation because of dependency conflicts
 between Cray MPICH and other software in the container, which is why we don't
@@ -3160,7 +3165,7 @@ run</p>
 <div class="highlight"><pre><span></span><code>eb --search singularity-bindings
 </code></pre></div>
 <p>You can also check the 
-<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-bindings/">page for the module in the LUMI Software Library</a>.</p>
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-bindings/">page for the <code>singularity-bindings</code> in the LUMI Software Library</a>.</p>
 <p>You may need to change the EasyConfig for your specific purpose though.
 E.g., the singularity command line option <code>--rocm</code> to import the ROCm installation
 from the system doesn't fully work (and in fact, as we have alternative ROCm versions
@@ -3283,7 +3288,9 @@ is often to tell it to use the Cray MPICH libraries from the system instead.</p>
 RCCL plugin to fully use the SlingShot 11 interconnect.</p>
 </li>
 <li>
-<p>Building containers is currently not supported on LUMI due to security concerns.</p>
+<p>The support for building containers on LUMI is currently very limited due to security
+    concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
+    will not work.</p>
 </li>
 </ul>
 
