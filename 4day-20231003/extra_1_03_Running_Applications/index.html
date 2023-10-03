@@ -1523,20 +1523,86 @@
 
 
 <h1 id="running-applications">Running Applications<a class="headerlink" href="#running-applications" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Harvey Richardson (HPE)</em></p>
+<p><em>Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)</em></p>
 <p>Course materials will be provided during and after the course.</p>
+<ul>
+<li>Slides available on LUMI as:<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-1_03_Running_Applications.pdf</code></li>
+<li><code>/project/project_465000644/Slides/HPE/03_Running_Applications_Slurm.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+</ul>
 <!--
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-1_03_Running_Applications.pdf`
-    -   `/project/project_465000644/slides/HPE/03_Running_Applications_Slurm.pdf` (temporary, for the lifetime of the project)
 -   Recording available on LUMI as:
     `/appl/local/training/4day-20231003/recordings/1_03_Running_Applications.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
 -->
 
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Are other launchers except <code>srun</code> (<code>mpiexec</code>, <code>mpirun</code>) supported?</p>
+<ul>
+<li>No. Only srun works.</li>
+</ul>
+<p>What about software precompiled and delivered with own <code>mpiexec</code> - we need to wrapper it?</p>
+<ul>
+<li>This is usually anyway a problem of precompiled software as these are usually build with OpenMPI which is currently not supported on LUMI (only MPICH and ABI compatible ones)</li>
+</ul>
+<p>Have you tried some wrappers for Open MPI, eg <a href="https://github.com/cea-hpc/wi4mpi">wi4mpi</a>?</p>
+<ul>
+<li>
+<p>No, we haven't and are too small a team to do that. We only support such software for which we can get support elsewhere ourselves. </p>
+</li>
+<li>
+<p>Software that hardcodes the name of the MPI process starter is badly written software. That software should be corrected. The MPI standard only tells that there should be a process starter but does not enforce that it should be called <code>mpirun</code> or <code>mpiexec</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If I run a serial exec via sbatch without srun, where is the process running? on the login (UAN) node?</p>
+<ul>
+<li>It will run on a compute node </li>
+</ul>
+</li>
+<li>
+<p>So if 'Idle' in the output of <code>sinfo -s</code> does not mean available nodes, how can we see the amount of available nodes?</p>
+<ul>
+<li>Not sure, if I understand correctly. Why should it notshow the avialable nodes under "idle"?</li>
+<li>I guess the question here is how to see nodes that are immediately allocatable, which as far as I know is not possible. "Idle" here would just stand for <code>not doing anything right now</code>, not <code>free to do anything</code>.</li>
+<li>It's quite difficult to know. Because there may be a job in the queue that's going to use the idle nodes. But for the moment, it's still in the queue, waiting its turn. That's why it's difficult/impossible to know which node is immediately available.</li>
+<li>You cannot see the truly available nodes because nodes may be available to some jobs but not to others. E.g., if the scheduler expects that it will take another hour to gather enough nodes for the large job that is highest in priority, it may still decide that it is safe to start a smaller half hour job using the nodes that it is reserving for the big job. That process is called "backfill". It is not a good idea to try to manipulate the scheduler and it doesn't make sense either since you are not the only user. By the time you would have read the information about available nodes, they may not be available anymore.</li>
+</ul>
+</li>
+<li>
+<p>In my experience, I never observed a speed-up when using multi-thread (tasks-per-node between 128 and 256) for well-coded MPI applications. Can you make an example of when this would be an advantage? Is it really possible? Does it maybe depend on the PEs?</p>
+<ul>
+<li>
+<p>As the performance of most HPC applications is limited by the performance of the memory bus, it is rare to see an improvement in performance by enabling or disabling hyperthreading. The best thing to do is try it, and hope for a pleasant surprise, but I agree with you that this rarely happens.</p>
+</li>
+<li>
+<p>Hyperthreading seems to work best with bad code that has lots of unpredictable branches on which a processor can get stuck. It works very well, e.g., on server systems used to run databases.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Is there a difference in using srun or salloc to run jobs directly on computing nodes?</p>
+<ul>
+<li>
+<p>Yes. I would advise you not to use <code>srun</code> by default to start jobs directly but always use either <code>sbatch</code> for batch jobs or <code>salloc</code> if you want to run interactively, unless you are aware that using <code>srun</code> outside an <code>salloc</code> or <code>sbatch</code> environment has some options that will work in a different way and can live with that.</p>
+</li>
+<li>
+<p><code>salloc</code> does not start a job. It only creates an allocation and will give you a shell on the node where you executed <code>salloc</code> (typically a login node), and only when you use <code>srun</code> to create a so-called job step you will get onto the compute node.</p>
+</li>
+<li>
+<p><code>sbatch</code> creates an allocation and then executes a script on the first node of that allocation.</p>
+</li>
+<li>
+<p>The primary function of <code>srun</code> is to create a job step inside an existing allocation. However, if it is not run into an allocation, it will also create an allocation. Some options have sligthly diffent meaning when creating a job step and when creating an allocation and this is why <code>srun</code> may act differently when run outside an allocation.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

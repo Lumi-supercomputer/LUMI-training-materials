@@ -1523,20 +1523,106 @@
 
 
 <h1 id="programming-environment-and-modules">Programming Environment and Modules<a class="headerlink" href="#programming-environment-and-modules" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Harvey Richardson (HPE)</em></p>
+<p><em>Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)</em></p>
 <p>Course materials will be provided during and after the course.</p>
+<ul>
+<li>Slides available on LUMI as:<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-1_02_Programming_Environment_and_Modules.pdf</code></li>
+<li><code>/project/project_465000644/Slides/HPE/02_PE_and_Modules.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+</ul>
 <!--
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-1_02_Programming_Environment_and_Modules.pdf`
-    -   `/project/project_465000644/slides/HPE/02_PE_and_Modules.pdf` (temporary, for the lifetime of the project)
 -   Recording available on LUMI as:
     `/appl/local/training/4day-20231003/recordings/1_02_Programming_Environment_and_Modules.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
 -->
 
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Is Open MPI fully supported on CRAY?</p>
+<ul>
+<li>
+<p>No, the only really supported MPI implementation is Cray   MPICH. Using OpenMPI on LUMI can be quite challeging at the moment.</p>
+</li>
+<li>
+<p>On the CPU side: OpenMPI can work with libfabric but we still have problems to interface OpenMPI properly with the Slurm resource manager which is needed for correctly starting multinode jobs.</p>
+</li>
+<li>
+<p>On the GPU side: AMD support in OpenMPI is based on UCX which is not supported on Slingshot. Since Slingshot is used on the three first USA exascale systems, the OpenMPI team is looking for solutions, but they are not yet there.</p>
+</li>
+<li>
+<p>HPE also has a compatility library to interface OpenMPI programs with Cray MPICH but the version we have on LUMI is still too buggy, and I don't know (I doubt actually) that it supports GPU-aware MPI.</p>
+</li>
+<li>
+<p>But blame the OpenMPI guys for focussing too much on a library which is too much controlled by NVIDIA (UCX). It is not only HPE Cray that has problems with this, but basically every other network vendor. It's one of those examples where focussing too much on a technology that is not really open but overly controlled by the at that moment biggest player in the field, causes problems on other architectures.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If we have multiple C compilers, how to figure out which one to use?</p>
+<ul>
+<li>
+<p>You can use wrappers such as cc, CC, ftn. This will be covered in the next presentation and it makes it easy to switch compilers.</p>
+</li>
+<li>
+<p>And do benchmarking.... It is not possible to say "if your application does this or that, then this compiler is best...."</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Which compilers do you suggest? CRAY ones?</p>
+<ul>
+<li>
+<p>I know of one project that has done benchmarking and they came to the conclusion that the Cray compiler was the best for them.</p>
+</li>
+<li>
+<p>But its Fortran compiler is very strict when it comes to standard compliance. I've seen their optimizer do very nice things though...</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The reality is that most users are probably using the GNU compilers because that is what they are used to. It is important to note thought that GPU compilers for NVIDIA, AMD and Intel GPUs are all derived from a Clang/LLVM code base and that most vendor compilers are also derived from that code base. In, e.g., embedded systems, Clang/LLVM based compilers are already the gold standard. Scientific computing will have to move into that direction also because that is where support for new CPUs and GPUs will appear first.</p>
+</li>
+<li>
+<p>Is there possibility to generate module tree which can show any loadable modules in hierarchy?</p>
+<ul>
+<li>No, and part of the problem is that on a Cray system it is not a tree. Cray abuses LMOD hierarchies and does it in a non-intended way so sometimes you need to load 2 modules to make another one available, and they have done it so that you can load those two in any order. E.g., to see the MPI modules you need to load a compiler and a network target module (<code>craype-network-ofi</code>).</li>
+</ul>
+</li>
+<li>
+<p>What was the difference between Rome, Trento, etc?</p>
+<ul>
+<li>
+<p>Rome is the zen2 architecture. It has its core organised in groups of 4 sharing the L3 cache.</p>
+</li>
+<li>
+<p>Milan is the zen3 architecture. It is a complete core update with some new instructions though most if not all of those are for kernel and library use and will not be generated by a compiler. It has its cores organised in groups of 8 sharing L3 cache.</p>
+</li>
+<li>
+<p>Trento is a zen3 variant with different I/O. It has 128 InfinityFabric links to the outside world rather than 64 InfinityFabric + 64 PCIe-only links. These are used to connect to the GCDs (16 links per GCD). InfinityFabric is the interconnect used to link two CPU sockets but also used in the socket to link the dies that make a single CPU. It offers a level of cache coherence that cannot be offered by PCIe. And now also used to link the GCDs to each other. Though as those connections are too slow for the fast GPUs there is no full cache coherency on the GPU nodes. For compilers, there is no difference as the compute dies are the same.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Which is the most generic compiler-and-tools module - <code>PrgEnv-*</code>? Is loading this module provide me a full set: compiler + MPI + BLAS/LAPACK/ScaLAPACK libraries?</p>
+<ul>
+<li>Yes. The basically do a module load of various other modules: Compiler wrappers, compiler, MPICH and LibSci.</li>
+</ul>
+</li>
+<li>
+<p>What was the difference between programming environments (PrgEnv) and compiler modules?</p>
+<ul>
+<li>
+<p>PrgEnv modules load multiple modules: compiler wrappers, a compiler module, a cray-mpich module that fits with the compiler, and a LibSci library that is compatible with the compiler.</p>
+</li>
+<li>
+<p>The compiler modules only load the actual compiler.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
