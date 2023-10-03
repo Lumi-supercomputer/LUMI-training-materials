@@ -54,6 +54,16 @@ DAY 1
     </tr>
     <tr>
         <td>
+            10:20 CEST
+            <br/><em>11:20 EEST</em>
+        </td>
+        <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1a)</a></b>
+        <br/>You can now make the programming model exercises.
+        <br/><em> Exercises are in <code>/project/project_465000644/exercises/HPE</code> on LUMI only.
+        </td>
+    </tr>
+    <tr>
+        <td>
             10:45 CEST
             <br/><em>11:45 EEST</em>
         </td>
@@ -69,7 +79,7 @@ DAY 1
         <ul>
             <li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li> 
         </ul>
-        <em>Presenter: Harvey Richardson (HPE)</em>
+        <em>Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>

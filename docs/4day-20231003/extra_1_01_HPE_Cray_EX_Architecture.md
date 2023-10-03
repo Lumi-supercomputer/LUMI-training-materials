@@ -1,6 +1,6 @@
 # HPE Cray EX Architecture
 
-*Presenter: Harvey Richardson (HPE)*
+*Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)*
 
 Course materials will be provided during and after the course.
 

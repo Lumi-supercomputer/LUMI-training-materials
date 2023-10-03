@@ -2,6 +2,9 @@
 
 No materials available at the moment.
 
+-    Exercise notes temporarily available on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_04a-ProgrammingModelExamples_SLURM.pdf).
+
 <!--
 -   Exercise materials in 
     `/project/project_465000644/exercises/HPE/day1/ProgrammingModels` for the lifetime of 
