@@ -163,14 +163,22 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:15 EEST
-            <br/><em>15:15 EEST</em>
+            16:10 EEST
+            <br/><em>17:10 EEST</em>
         </td>
         <td><b><a href="../extra_1_09_Offload_CCE/">CCE Offloading Models</a></b>
         <ul>
             <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
         </ul>
         <em>Presenter: Alfio Lazzaro (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            16:40 CEST
+            <br/><em>17:40 EEST</em>
+        </td>
+        <td><b><a href="../extra_1_08_Exercises_3/">Exercises (session #3)</a></b>
         </td>
     </tr>
     <tr>

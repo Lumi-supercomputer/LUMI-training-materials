@@ -43,13 +43,13 @@ downloaded from LUMI.
 | [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) |
 | [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
+| [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
+| [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
+| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
+| [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
 
 <!--
-| [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
-| [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
-| [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
-| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
 | [Advanced Placement](extra_2_01_Advanced_Application_Placement.md) | [lumi](extra_2_01_Advanced_Application_Placement.md) | / | [lumi](extra_2_01_Advanced_Application_Placement.md) |
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |
