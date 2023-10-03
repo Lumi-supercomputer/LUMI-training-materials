@@ -35,20 +35,21 @@ DAY 1
         <ul>
             <li>Focus on the HPE Cray EX hardware architecture</li>
         </ul>
-        <em>Presenter: Harvey Richardson (HPE)</em>
+        <em>Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)</em>
+        <br/>Part on the interconnect postponed as the original speaker got stuck at an airport on the way to Warsaw.
         </td>
     </tr>
     <tr>
         <td>
-            10:15 CEST
-            <br/><em>11:15 EEST</em>
+            09:35CEST
+            <br/><em>10:35 EEST</em>
         </td>
         <td><b><a href="../extra_1_02_Programming_Environment_and_Modules/">Programming Environment and Modules</a></b>
         <ul>
             <li>Focus on the HPE Cray EX software stack</li>
-            <li>Turorial on the Cray module environment and compiler wrapper scripts</li>
+            <li>Tutorial on the Cray module environment and compiler wrapper scripts</li>
         </ul>
-        <em>Presenter: Harvey Richardson (HPE)</em>
+        <em>Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>

@@ -34,12 +34,12 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
-
-<!--
 | [Introduction](extra_1_00_Introduction.md) | / | / | [web](extra_1_00_Introduction.md) |
 | [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) | / | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) |
 | [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [lumi](extra_1_02_Programming_Environment_and_Modules.md) | / | [lumi](extra_1_02_Programming_Environment_and_Modules.md) |
+| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
+
+<!--
 | [Running Applications](extra_1_03_Running_Applications.md) | [lumi](extra_1_03_Running_Applications.md) | / | [lumi](extra_1_03_Running_Applications.md) |
 | [Exercises #1](extra_1_04_Exercises_1.md) | / | / | / |
 | [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) |
