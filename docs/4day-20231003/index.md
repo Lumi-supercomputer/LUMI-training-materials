@@ -41,6 +41,8 @@ downloaded from LUMI.
 | [Running Applications](extra_1_03_Running_Applications.md) | [lumi](extra_1_03_Running_Applications.md) | / | [lumi](extra_1_03_Running_Applications.md) |
 | [Exercises #1b](extra_1_04_Exercises_1.md) | / | / | / |
 | [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) |
+| [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
+| [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
 
 <!--

@@ -134,6 +134,18 @@ DAY 1
             15:15 CEST
             <br/><em>16:15 EEST</em>
         </td>
+        <td><b><a href="../extra_1_01_HPE_Cray_EX_Architecture/">HPE Cray EX architecture: Part 2: The interconnect</a></b>
+        <ul>
+            <li>Focus on the HPE Cray EX hardware architecture</li>
+        </ul>
+        <em>Presenter: Harvey Richardson (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            15:45 CEST
+            <br/><em>16:45 EEST</em>
+        </td>
         <td><b><a href="../extra_1_07_Cray_Scientific_Libraries/">Cray Scientific Libraries</a></b>
         <ul>
             <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
