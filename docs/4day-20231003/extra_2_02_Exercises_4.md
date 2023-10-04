@@ -1,6 +1,12 @@
 # Exercise session 4
 
+<!--
 No materials available at the moment.
+-->
+
+-    Overview exercises day 1+2 temporarily available on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_Exercises_day2.pdf)
+
 
 <!--
 -   Files for the exercises are in `/project/project_465000644/exercises/HPE/day2/debugging` for the lifetime of 
@@ -25,5 +31,14 @@ No materials available at the moment.
 
 ## Q&A
 
-/
+5. What is `MPICH_GPU_SUPPORT_ENABLED` (in `gpu_env.sh`)? I don't think we covered that in slides.
+
+    -   No. That comes tomorrow afternoon in the advanced Cray MPICH presentation. It is to enable GPU-aware MPI.
+
+6. I'm not able to load `lumi-CPEtools`...
+
+    - Did you load a `LUMI` module before trying to load   CPE tools?
+    - Thanks! That was it.
+    - We will discuss this afternoon how to use the software stack.
+
 

@@ -47,13 +47,14 @@ downloaded from LUMI.
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
 | [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
-| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
-
-<!--
 | [Advanced Placement](extra_2_01_Advanced_Application_Placement.md) | [lumi](extra_2_01_Advanced_Application_Placement.md) | / | [lumi](extra_2_01_Advanced_Application_Placement.md) |
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |
 | [Exercises #5](extra_2_04_Exercises_5.md) | / | / | / |
+| [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf) | [web](notes_2_05_LUMI_Software_Stacks.md) |  [web](extra_2_05_LUMI_Software_Stacks.md) |
+| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
+
+<!--
 | [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf) | [web](notes_2_05_LUMI_Software_Stacks.md) |  [web](extra_2_05_LUMI_Software_Stacks.md) |
 | [Introduction to HIP Programming](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_07_Exercises_6.md) | / | / | / |
