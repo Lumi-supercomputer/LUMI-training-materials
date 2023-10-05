@@ -1,9 +1,16 @@
 # Exercise session 10
 
+<!--
 No materials available at the moment.
+-->
+
+-   [On-line exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3#Debugging).
+
+-   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
+
 
 <!--
--   [On-line exercise notes](https://hackmd.io/@gmarkoma/lumi_training_ee#Debugging).
+-   [On-line exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3#Debugging).
 
     [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
 

@@ -340,7 +340,7 @@ DAY 3
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
             <li>Demo: Visualization of performance data with Apprentice2</kli>
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <em>Presenter: Thierry Braconnier (HPE) and Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -446,7 +446,7 @@ DAY 3
             <br/><em>17:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
-        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
+        <br/><em>Presenter:</em> Samuel Antão (AMD)
         </td>
     </tr>
     <tr>
