@@ -54,14 +54,13 @@ downloaded from LUMI.
 | [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf) | [web](notes_2_05_LUMI_Software_Stacks.md) |  [web](extra_2_05_LUMI_Software_Stacks.md) |
 | [Introduction to HIP Programming](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_07_Exercises_6.md) | / | / | / |
-| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
-
-<!--
-| [Exercises #6](extra_2_07_Exercises_6.md) | / | / | / |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [lumi](extra_3_03_Advanced_Performance_Analysis.md) | / |  [lumi](extra_3_03_Advanced_Performance_Analysis.md) |
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / | / |
+| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
+
+<!--
 | [MPI Topics on the HPE Cray EX Supercomputer](extra_3_05_Cray_MPI_on_Slingshot.md) | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) | / | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) |
 | [Exercises #9](extra_3_06_Exercises_9.md) | / | / | / |
 | [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_07_AMD_ROCgdb_Debugger.pdf) | / | [web](extra_3_07_AMD_ROCgdb_Debugger.md) |

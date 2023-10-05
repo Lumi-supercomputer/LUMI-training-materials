@@ -1,6 +1,12 @@
 # Exercise session 8
 
+<!--
 No materials available at the moment.
+-->
+
+-    Overview exercises day 1+2+3 temporarily available on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_Exercises_day3.pdf)
+
 
 <!--
 -   See `/project/project_465000644/slides/HPE/Exercises.pdf` for the exercises.

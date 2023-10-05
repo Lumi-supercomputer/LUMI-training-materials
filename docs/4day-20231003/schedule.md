@@ -379,8 +379,8 @@ DAY 3
     </tr>
     <tr>
         <td>
-            11:30 CEST
-            <br/><em>10:30 EEST</em>
+            11:15 CEST
+            <br/><em>12:15 EEST</em>
         </td>
         <td><b><a href="../extra_3_04_Exercises_8/">Exercises (session #8)</a></b>
         <!--<br><em>Info about the exercises in <code>/project/project_465000644/slides/HPE/Exercises_alldays.pdf</code> on LUMI only.</em>-->
