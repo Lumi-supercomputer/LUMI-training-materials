@@ -1542,7 +1542,20 @@ Course materials will be provided during and after the course.
 
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>If you use GPU-aware MPI with larger eager messages, is there no risk of running out of memory even quicker? (Well, this would also be the case for CPU, but somehow on LUMI memory errors on the GPU for big MPI jobs are more common)</p>
+<ul>
+<li>There is a limit to how much you can increase the maximum size for eager messages. But yes, we do think that it also increases the amount of memory that MPI will use for buffering.</li>
+</ul>
+</li>
+<li>
+<p>How does the <code>aws-ofi-rccl</code> fit together with all this?</p>
+<ul>
+<li>RCCL is not MPI, it is a different distributed memory communication protocol. And the <code>aws-ofi-rccl</code> plugin is a plugin for RCCL that enables it to communicate via the OFI communication library on LUMI which then uses the Cassini provider to work with SlingShot 11. Otherwise it would use a standard Linux protocol that is much slower.</li>
+</ul>
+</li>
+</ol>
 
 
 
