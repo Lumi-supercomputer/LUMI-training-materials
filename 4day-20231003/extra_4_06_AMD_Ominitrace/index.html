@@ -1549,7 +1549,20 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Where do we get rocm 5.4.3? I thought that the latest on LUMI is 5.3.3 (and even that is not supported).</p>
+<ul>
+<li>
+<p>LUST does not support anything newer than 5.3.3 because newer versions are not 100% compatible with the PE we have. However, the <a href="https://hackmd.io/@sfantao/H1QU6xRR3#Omnitrace">exercises for this talk</a> point to an unofficial one. But don't complain if it does not work for what you want to do (e.g., problems with gcc or MPI hangs may occur, and the installaton plays not nice with the Cray PE wrappers).</p>
+<p>There is hope that after the next system update later this fall ROCM 5.5 will be available, but sysadmins are still testing everything involved with that update so it is not yet 100% certain it will be ready for the next maintenance window.</p>
+</li>
+<li>
+<p>5.3.3 is not supported in the sense that if there turn out to be problem with it in combination with the PE, we cannot upstream problems to get a solution from the vendor, and also it is not compatible with the way <code>PrgEnv-amd</code> works. However, it has been successfully used on LUMI by several users.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
