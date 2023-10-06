@@ -1559,7 +1559,22 @@ No materials available at the moment.
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>When I try executing commands from the first hackmd.io link, this is what I get:</p>
+<p><code>salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465000644 --time=00:15:00
+salloc: error: Job submit/allocate failed: Requested node configuration is not available
+salloc: Job allocation 4701325 has been revoked.</code></p>
+<ul>
+<li>could you <code>source /project/project_465000644/Exercises/HPE/lumi_g.sh</code> . It could be that you run the <code>lumi_c.sh</code> script which sets some variables that could clash with the <code>salloc</code>. </li>
+</ul>
+<p>Yes, I did source the <code>lumi_g.sh</code></p>
+<ul>
+<li>OK. I checked the <code>lumi_g.sh</code> script and even the environment variables that it sets influence <code>salloc</code> in a way that creates conflicts with your command line. So the trick is to log in again and not source any of those scripts and then the <code>salloc</code> line will work, but you will not be working in the reservation, or to not add the <code>-A</code> and <code>--partition</code> argument as they are set by environment variables. What is actually happening is that because of the enviornment variables the reservation is activated but you're asking for nodes outside the reservation.</li>
+</ul>
+<p>Yes, it works when not sourcing anything. Is the <code>salloc</code> in the linked document really needed and it wouldn't be better to forgo it and just use the reservation?</p>
+</li>
+</ol>
 
 
 
