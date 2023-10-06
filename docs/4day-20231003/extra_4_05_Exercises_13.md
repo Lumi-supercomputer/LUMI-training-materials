@@ -1,12 +1,13 @@
 # Exercise session 13
 
-No materials available at the moment.
-
 <!--
--   See `/project/project_465000644/slides/HPE/Exercises.pdf` for the exercises.
+No materials available at the moment.
+-->
+
+-   See `/project/project_465000644/Slides/HPE/Exercises.pdf` for the exercises.
 
 -   Material for the IO exercises is in 
-    `/project/project_465000644/exercises/HPE/day4/VH1-io`.
+    `/project/project_465000644/Exercises/HPE/day4/VH1-io`.
 
     And of course you can continue on previous exercises.
 
@@ -19,8 +20,10 @@ No materials available at the moment.
 
     -   Exercises as uncompressed tar file in
         `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
--->
 
 ## Q&A
 
-/
+6.  Is there a typo in the README? For the `lfs setstripe -c ${STRIPE_COUNT} -s ${STRIPE_SIZE} ${RUNDIR}/output` should the capital `-S` be used instead of `-s`?
+
+    -   Indeed. I wonder how this was never noted, the error is in the slide also which has been used for 2 years... It turns out to be wrong on the slide (corrected version is now available), wrong in the README, but correct in the script where `-S` is used.
+

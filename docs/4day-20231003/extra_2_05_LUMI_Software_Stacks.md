@@ -18,11 +18,16 @@ Archive on LUMI:
 -   Recording: `/appl/local/training/4day-20231003/recordings/2_05_LUMI_Software_Stacks.mp4`
 -->
 
-The information in this talk is also partly covered by the following talks from the 1-day courses:
+## Additional materials
 
--   [Modules on LUMI](../1day-20230921/video_03_Modules_on_LUMI.md)
--   [LUMI Software Stacks](../1day-20230921/video_04_LUMI_Software_Stacks.md)
+-   The information in this talk is also partly covered by the following talks from the 1-day courses:
 
+     -   [Modules on LUMI](../1day-20230921/video_03_Modules_on_LUMI.md)
+
+     -   [LUMI Software Stacks](../1day-20230921/video_04_LUMI_Software_Stacks.md)
+
+-   The `cotainr` package was presented during the
+    [September 27, 2003 user coffee break](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20230927-user-coffee-break-cotainr/)
 
 ## Q&A
 

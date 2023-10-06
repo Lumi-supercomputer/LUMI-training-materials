@@ -484,28 +484,28 @@ DAY 4
     </tr>
     <tr>
         <td>
-            09:00 CEST
+            9:00 CEST
             <br/><em>10:00 EEST</em>
         </td>
-        <td><b><a href="../extra_4_01_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
-        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        <td><b><a href="../extra_4_01_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            09:45 CEST
-            <br/><em>10:45 EEST</em>
+            09:15 CEST
+            <br/><em>10:15 EEST</em>
         </td>
-        <td><b><a href="../extra_4_02_Exercises_12/">Exercises (session #12)</a></b></td>
+        <td><b><a href="../extra_4_02_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        </td>
     </tr>
     <tr>
         <td>
             10:00 CEST
             <br/><em>11:00 EEST</em>
         </td>
-        <td><b><a href="../extra_4_03_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
-        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
-        </td>
+        <td><b><a href="../extra_4_03_Exercises_12/">Exercises (session #12)</a></b></td>
     </tr>
     <tr>
         <td>
