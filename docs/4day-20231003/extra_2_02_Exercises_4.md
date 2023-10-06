@@ -4,18 +4,19 @@
 No materials available at the moment.
 -->
 
+<!--
 -    Overview exercises day 1+2 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_Exercises_day2.pdf)
+-->
 
 
-<!--
--   Files for the exercises are in `/project/project_465000644/exercises/HPE/day2/debugging` for the lifetime of 
+-   Files for the exercises are in `/project/project_465000644/Exercises/HPE/day2/debugging` for the lifetime of 
     the project and only for project members.
 
     There are `Readme.md` files in every directory.
 
 -   There are also more information in
-    `/project/project_465000644/slides/HPE/Exercises.pdf`.
+    `/project/project_465000644/Slides/HPE/Exercises.pdf`.
 
 -   Permanent archive on LUMI:
 
@@ -26,7 +27,6 @@ No materials available at the moment.
 
     -   Exercises as uncompressed tar file in
         `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
--->
 
 
 ## Q&A

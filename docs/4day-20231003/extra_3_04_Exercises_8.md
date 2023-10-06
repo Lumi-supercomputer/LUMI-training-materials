@@ -4,15 +4,16 @@
 No materials available at the moment.
 -->
 
+<!--
 -    Overview exercises day 1+2+3 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_Exercises_day3.pdf)
+-->
 
 
-<!--
--   See `/project/project_465000644/slides/HPE/Exercises.pdf` for the exercises.
+-   See `/project/project_465000644/Slides/HPE/Exercises.pdf` for the exercises.
 
 -   Files are in 
-    `/project/project_465000644/exercises/HPE/day3`
+    `/project/project_465000644/Exercises/HPE/day3`
 
 -   Permanent archive on LUMI:
 
@@ -23,7 +24,6 @@ No materials available at the moment.
 
     -   Exercises as uncompressed tar file in
         `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
--->
 
 ## Q&A
 

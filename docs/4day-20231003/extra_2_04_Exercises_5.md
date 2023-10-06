@@ -1,15 +1,16 @@
 # Exercise session 5
 
-No materials available at the moment.
-
 <!--
--   Files for the exercises are in `/project/project_465000644/exercises/HPE/day2/Binding`
-    and `/project/project_465000644/exercises/HPE/day2/gpu_perf_binding`
+No materials available at the moment.
+-->
+
+-   Files for the exercises are in `/project/project_465000644/Exercises/HPE/day2/Binding`
+    and `/project/project_465000644/Exercises/HPE/day2/gpu_perf_binding`
 
     There are `Readme.md` files or PDF files with more information in the directories..
 
 -   There are also more information in
-    `/project/project_465000644/slides/HPE/Exercises.pdf`.
+    `/project/project_465000644/Slides/HPE/Exercises.pdf`.
 
 -   Permanent archive on LUMI:
 
@@ -20,7 +21,6 @@ No materials available at the moment.
 
     -   Exercises as uncompressed tar file in
         `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
--->
 
 
 ## Q&A
