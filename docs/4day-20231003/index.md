@@ -69,16 +69,14 @@ downloaded from LUMI.
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) |
 | [Exercises #13](extra_4_05_Exercises_13.md) | / | / | / |
-| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
-
-<!--
-| [Introduction to OmniTrace](extra_4_06_AMD_Ominitrace.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) (until p. 61) | / |  [web](extra_4_06_AMD_Ominitrace.md) |
+| [Introduction to OmniTrace](extra_4_06_AMD_Ominitrace.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Ominitrace.md) |
+| [Introduction to Omniperf](extra_4_08_AMD_Ominiperf.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Ominiperf.md) |
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
-| [Introduction to Omniperf](extra_4_08_AMD_Ominiperf.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) (from p. 62) | / |  [web](extra_4_08_AMD_Ominiperf.md) |
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
 | [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
 | [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
--->
+| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
+
 
 <!--
 ## Making the exercises after the course

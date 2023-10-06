@@ -553,22 +553,14 @@ DAY 4
             <br/><em>14:15 EEST</em>
         </td>
         <td><b><a href="../extra_4_06_AMD_Ominitrace/">Introduction to OmniTrace</a></b>
-        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
+        <br/><em>Presenter:</em> Samuel Antão (AMD)
       </td>
         </td>
     </tr>
     <tr>
         <td>
-            13:40 CEST
-            <br/><em>14:40 EEST</em>
-        </td>
-        <td><b><a href="../extra_4_07_Exercises_14/">Exercises (session #14)</a></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            14:00 CEST
-            <br/><em>15:00 EEST</em> 
+            13:50 CEST
+            <br/><em>14:50 EEST</em> 
         </td>
         <td><b><a href="../extra_4_08_AMD_Ominiperf/">Introduction to Omniperf</a></b>
         <br/><em>Presenter: Jakub Kurzak (AMD)</em>
@@ -576,10 +568,11 @@ DAY 4
     </tr>
     <tr>
         <td>
-            14:25 CEST
-            <br/><em>15:25 EEST</em> 
+            14:30 CEST
+            <br/><em>15:30 EEST</em>
         </td>
-        <td><b><a href="../extra_4_09_Exercises_15/">Exercises (session #15)</a></b>
+        <td><b><a href="../extra_4_07_Exercises_14/">Exercises (session #14)</a> and 
+        <a href="../extra_4_09_Exercises_15/">Exercises (session #15)</a> combined</b>
         </td>
     </tr>
     <tr>
@@ -595,8 +588,8 @@ DAY 4
             15:00 CEST
             <br/><em>16:00 EEST</em> 
         </td>
-        <td><b><a href="../extra_4_10_EEST_Practices_GPU_Optimization/">Tools in Action - An Example with Pytorch</a></b>
-        <br/><em>Presenter: Jakub Kurzak (AMD)</em>
+        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Tools in Action - An Example with Pytorch</a></b>
+        <br/><em>Presenter:</em> Samuel Antão (AMD)
         </td>
     </tr>
     <tr>
