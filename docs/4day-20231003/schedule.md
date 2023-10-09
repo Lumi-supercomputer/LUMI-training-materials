@@ -594,8 +594,8 @@ DAY 4
     </tr>
     <tr>
         <td>
-            16:30 CEST
-            <br/><em>17:30 EEST</em> 
+            16:40 CEST
+            <br/><em>17:40 EEST</em> 
         </td>
         <td><b><a href="../extra_4_11_LUMI_Support_and_Documentation/">LUMI User Support</a></b>
         <ul>
