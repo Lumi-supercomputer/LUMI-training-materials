@@ -6,15 +6,11 @@ No materials available at the moment.
 
 -   [On-line exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3#Debugging).
 
--   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
-
-
-<!--
--   [On-line exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3#Debugging).
-
     [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
+    and [local web backup](exercises_AMD_hackmd.md).
 
 -   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
+    for the duration of the project.
 
 -   Exercises are archived as compressed and uncompressed tar files:
  
@@ -24,7 +20,6 @@ No materials available at the moment.
     -   On LUMI:
         -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2`
         -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar`
--->
 
 
 ## Q&A
