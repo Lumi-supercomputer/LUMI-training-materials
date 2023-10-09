@@ -5,10 +5,8 @@
 
 Course materials will be provided during and after the course.
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_10_Best_Practices_GPU_Optimization.mp4" controls="controls">
 </video>
--->
 
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf)
 
@@ -24,10 +22,8 @@ Course materials will be provided during and after the course.
     bzip2-compressed tar archive in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar.bz2` and
     uncompressed tar archive in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar`.
 
-<!--
 -   Video also available on LUMI as
     `/appl/local/training/4day-20231003/recordings/4_10_Best_Practices_GPU_Optimization.mp4`
--->
 
 
 ## Q&A

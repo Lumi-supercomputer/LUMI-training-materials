@@ -5,10 +5,8 @@
 
 Course materials will be provided during and after the course.
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
 </video>
--->
 
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
 
@@ -36,7 +34,6 @@ Course materials will be provided during and after the course.
     ```
 
     (Not provided by LUST and as it says, for the brave, problems can be expected...)
-
 
 
 ## Q&A
