@@ -87,7 +87,7 @@ DAY 1
             11:20 CEST
             <br/><em>12:20 EEST</em>
         </td>
-        <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1)</a></b>
+        <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1b)</a></b>
         <!--<br/><em> Exercises are in <code>/project/project_465000644/exercises/HPE</code> on LUMI only.-->
         </td>
     </tr>

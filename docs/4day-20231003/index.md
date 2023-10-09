@@ -43,8 +43,6 @@ downloaded from LUMI.
 | [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) |
 | [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
-| [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
-| [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
 | [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
 | [Advanced Placement](extra_2_01_Advanced_Application_Placement.md) | [lumi](extra_2_01_Advanced_Application_Placement.md) | / | [lumi](extra_2_01_Advanced_Application_Placement.md) |
@@ -78,7 +76,6 @@ downloaded from LUMI.
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
 
 
-<!--
 ## Making the exercises after the course
 
 ### HPE
@@ -100,7 +97,7 @@ tar -xf /appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HP
 in the directory where you want to work on the exercises. This will create the `exercises/HPE` subdirectory
 from the training project. 
 
-However, instead of running the `lumi_c.sh` or `liumi_g.sh` scripts that only work for the course as 
+However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
 they set the course project as the active project for Slurm and also set a reservation, use the
 `lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
 projects.
@@ -108,9 +105,11 @@ projects.
 
 ### AMD 
 
-There are [online notes about the AMD exercises](https://hackmd.io/@gmarkoma/lumi_training_ee).
+There are [online notes about the AMD exercises](https://hackmd.io/@sfantao/H1QU6xRR3).
 A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
-and is particularly useful should the online notes become unavailable.
+and is particularly useful should the online notes become unavailable. 
+A [web backup](exercises_AMD_hackmd.md) is also available, but corrections to the original made after the course
+are not included.
 
 The other files for the exercises are available in 
 either a bzip2-compressed tar file `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD_.tar.bz2` or
@@ -127,15 +126,10 @@ tar -xf /appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AM
 in the directory where you want to work on the exercises. This will create the `exercises/AMD` subdirectory
 from the training project. You can do so in the same directory where you installed the HPE exercises.
 
-The software that was installed in the training project is also available as a bzip2-compressed tar archive
-on LUMI as `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Software_AMD.tar.bz2`. You can install it in the
-same directory where you installed the files but beware when interpreting instructions as the path to the
-software installation is different now.
-
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
+
 
 ## Links to documentation
 
