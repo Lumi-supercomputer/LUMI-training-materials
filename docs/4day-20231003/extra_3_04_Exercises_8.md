@@ -10,10 +10,11 @@ No materials available at the moment.
 -->
 
 
--   See `/project/project_465000644/Slides/HPE/Exercises.pdf` for the exercises.
+-   See the exercise notes in `/project/project_465000644/Slides/HPE/Exercises.pdf` for the exercises
+    (for the lifetime of the project).
 
 -   Files are in 
-    `/project/project_465000644/Exercises/HPE/day3`
+    `/project/project_465000644/Exercises/HPE/day3` (for the lifetime of the project).
 
 -   Permanent archive on LUMI:
 
@@ -24,6 +25,7 @@ No materials available at the moment.
 
     -   Exercises as uncompressed tar file in
         `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
+
 
 ## Q&A
 

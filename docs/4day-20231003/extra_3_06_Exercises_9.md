@@ -14,6 +14,9 @@ No materials available at the moment.
     examples (e.g., the ProgrammingModels one) and try out the material of 
     the talk.
 
+    -   See the exercise notes in `/project/project_465000644/Slides/HPE/Exercises.pdf` for the exercises
+        (for the lifetime of the project only).
+
 -   Permanent archive on LUMI:
 
     -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`

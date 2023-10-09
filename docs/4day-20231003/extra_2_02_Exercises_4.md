@@ -15,8 +15,9 @@ No materials available at the moment.
 
     There are `Readme.md` files in every directory.
 
--   There are also more information in
-    `/project/project_465000644/Slides/HPE/Exercises.pdf`.
+-   See the exercise notes in
+    `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
+    for more information.
 
 -   Permanent archive on LUMI:
 

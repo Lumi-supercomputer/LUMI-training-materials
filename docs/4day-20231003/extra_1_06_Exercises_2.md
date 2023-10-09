@@ -16,6 +16,16 @@ No materials available at the moment.
     [session #1](extra_1_04_Exercises_1.md). You can now play with different
     programming models and optimisation options.
 
+    -   Exercise materials in 
+        `/project/project_465000644/Exercises/HPE/day1/ProgrammingModels` 
+        for the lifetime of the project and only for project members.
+
+        See `/project/project_465000644/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
+
+    -   See the exercise notes in
+        `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
+        for more information.
+
 -   Permanent archive on LUMI:
 
     -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`

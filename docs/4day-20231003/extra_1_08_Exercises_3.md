@@ -12,11 +12,15 @@ No materials available at the moment.
      [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_Exercises_day1.pdf)
 -->
 
--   See `/project/project_465000644/Slides/HPE/Exercises.pdf`.
+-   See `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project).
     The files for the exercises are in
-    `/project/project_465000644/Exercises/HPE/day1/libsci_acc`.
+    `/project/project_465000644/Exercises/HPE/day1/libsci_acc` (for the lifetime of the project).
 
     Test with LibSci_ACC, check the different interfaces and environment variables.
+
+-   See the exercise notes in
+    `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
+    for more information.
 
 -   Permanent archive on LUMI:
 

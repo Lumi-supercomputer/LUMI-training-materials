@@ -5,12 +5,14 @@ No materials available at the moment.
 -->
 
 -   Files for the exercises are in `/project/project_465000644/Exercises/HPE/day2/Binding`
-    and `/project/project_465000644/Exercises/HPE/day2/gpu_perf_binding`
+    and `/project/project_465000644/Exercises/HPE/day2/gpu_perf_binding` (both for the lifetime
+    of the project).
 
-    There are `Readme.md` files or PDF files with more information in the directories..
+    There are `Readme.md` files or PDF files with more information in the directories.
 
--   There are also more information in
-    `/project/project_465000644/Slides/HPE/Exercises.pdf`.
+-   See the exercise notes in
+    `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
+    for more information.
 
 -   Permanent archive on LUMI:
 
