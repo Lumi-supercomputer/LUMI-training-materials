@@ -1524,19 +1524,35 @@
 
 <h1 id="mpi-topics-on-the-hpe-cray-ex-supercomputer">MPI Topics on the HPE Cray EX Supercomputer<a class="headerlink" href="#mpi-topics-on-the-hpe-cray-ex-supercomputer" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Harvey Richardson (HPE)</em></p>
-<p>Course materials will be provided during and after the course.</p>
 <!--
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_05_Cray_MPI_on_Slingshot.pdf`
-    -   `/project/project_465000644/slides/HPE/11_cray_mpi_MPMD_medium.pdf` (temporary, for the lifetime of the project)
--   Recording available on LUMI as:
-    `/appl/local/training/4day-20231003/recordings/3_05_Cray_MPI_on_Slingshot.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
+Course materials will be provided during and after the course.
 -->
 
+<ul>
+<li>Slides available on LUMI as:<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_05_Cray_MPI_on_Slingshot.pdf</code></li>
+<li><code>/project/project_465000644/Slides/HPE/11_cray_mpi_MPMD_medium.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+<li>Recording available on LUMI as:
+    <code>/appl/local/training/4day-20231003/recordings/3_05_Cray_MPI_on_Slingshot.mp4</code></li>
+</ul>
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>If you use GPU-aware MPI with larger eager messages, is there no risk of running out of memory even quicker? (Well, this would also be the case for CPU, but somehow on LUMI memory errors on the GPU for big MPI jobs are more common)</p>
+<ul>
+<li>There is a limit to how much you can increase the maximum size for eager messages. But yes, we do think that it also increases the amount of memory that MPI will use for buffering.</li>
+</ul>
+</li>
+<li>
+<p>How does the <code>aws-ofi-rccl</code> fit together with all this?</p>
+<ul>
+<li>RCCL is not MPI, it is a different distributed memory communication protocol. And the <code>aws-ofi-rccl</code> plugin is a plugin for RCCL that enables it to communicate via the OFI communication library on LUMI which then uses the Cassini provider to work with SlingShot 11. Otherwise it would use a standard Linux protocol that is much slower.</li>
+</ul>
+</li>
+</ol>
 
 
 

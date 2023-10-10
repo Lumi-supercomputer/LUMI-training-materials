@@ -1524,22 +1524,30 @@
 
 <h1 id="introduction-to-roc-profiler-rocprof">Introduction to ROC-Profiler (rocprof)<a class="headerlink" href="#introduction-to-roc-profiler-rocprof" title="Permanent link">&para;</a></h1>
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-<p><em>Presenter: Jakub Kurzak (AMD)</em></p>
-<p>Course materials will be provided during and after the course.</p>
+<p><em>Presenter:</em> Samuel Antão (AMD)</p>
 <!--
+Course materials will be provided during and after the course.
+-->
+
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4" controls="controls">
 </video>
 
--   [Slides on the web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf)
-
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf`
-    -   `/project/project_465000644/slides/AMD/session-2-intro_rocprof.pdf` (temporary, for the lifetime of the project)
-
--   Video also available on LUMI as
-    `/appl/local/training/4day-20231003/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4`
--->
-
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf">Slides on the web</a></p>
+</li>
+<li>
+<p>Slides available on LUMI as:</p>
+<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf</code></li>
+<li><code>/project/project_465000644/Slides/AMD/session-3-introduction-to-rocprof.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+<li>
+<p>Video also available on LUMI as
+    <code>/appl/local/training/4day-20231003/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4</code></p>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a href="https://perfetto.dev/">Perfetto</a>, the "program" used to visualise the output of omnitrace, is not a regular application but 
@@ -1547,6 +1555,46 @@
 system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).</p>
 </div>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>According to the schedule this was going to be rocprof session. Is it tomorrow then?</p>
+<ul>
+<li>Not sure which agenda you're looking at, but the rocprof session is after this exercise round at 16:00</li>
+<li>My bad, sorry! :)</li>
+</ul>
+</li>
+<li>
+<p>Let's say my GPU bindings are bad. How would I detect this using the profiler?</p>
+<ul>
+<li>
+<p>See the recording for the answer.</p>
+</li>
+<li>
+<p>Difficult to detect via a profiler. You may see some low bandwidth but you are never sure that it is caused by a wrong biding. </p>
+</li>
+<li>
+<p>We have the <code>gpu_check</code> command in <code>lumi-CPEtools</code> to check the binding but that does not work for applications that do the binding themselves. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Can we see the GPU memory usage in the profiler output? Or is there some other signal in the profiler to detect if we are not using the GPU memory efficiently?</p>
+<ul>
+<li>
+<p>See the recording. You can see the allocations that you did. </p>
+</li>
+<li>
+<p>AMD needs to doublecheck, but Omnitrace (discussed tomorrow) may give more information.</p>
+</li>
+<li>
+<p>Whether memory is used well is more difficult for a profiler to tell. You can see bandwidths and number of read and write operations, but that does not necessarily imply that memory is used well or badly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nvtop could help figuring out general memory allocation. https://github.com/Syllo/nvtop GPU agnostic</p>
+</li>
+</ol>
 
 
 

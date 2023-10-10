@@ -1524,32 +1524,115 @@
 
 <h1 id="tools-in-action-an-example-with-pytorch">Tools in Action - An Example with Pytorch<a class="headerlink" href="#tools-in-action-an-example-with-pytorch" title="Permanent link">&para;</a></h1>
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-<p><em>Presenter: Jakub Kurzak (AMD)</em></p>
+<p><em>Presenter:</em> Samuel Antão (AMD)</p>
 <p>Course materials will be provided during and after the course.</p>
-<!--
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_10_Best_Practices_GPU_Optimization.mp4" controls="controls">
 </video>
 
--   [Slides on the web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf)
-
--   Downloadable scripts as
-    [bzip2-compressed tar archive](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar.bz2) and 
-    [uncompressed tar archive](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar)
-
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf`
-    -   `/project/project_465000644/slides/AMD/session-4-ToolsInActionPytorchExample-LUMI.pdf` (temporary, for the lifetime of the project)
-
--   Scripts archived on lumi as
-    bzip2-compressed tar archive in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar.bz2` and
-    uncompressed tar archive in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar`.
-
--   Video also available on LUMI as
-    `/appl/local/training/4day-20231003/recordings/4_10_Best_Practices_GPU_Optimization.mp4`
--->
-
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf">Slides on the web</a></p>
+</li>
+<li>
+<p>Downloadable scripts as
+    <a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar.bz2">bzip2-compressed tar archive</a> and 
+    <a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar">uncompressed tar archive</a></p>
+</li>
+<li>
+<p>Slides available on LUMI as:</p>
+<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf</code></li>
+<li><code>/project/project_465000644/Slides/AMD/session-6-ToolsInActionPytorchExample-LUMI.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+<li>
+<p>Scripts archived on lumi as
+    bzip2-compressed tar archive in <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar.bz2</code> and
+    uncompressed tar archive in <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_10_scripts.tar</code>.</p>
+</li>
+<li>
+<p>Video also available on LUMI as
+    <code>/appl/local/training/4day-20231003/recordings/4_10_Best_Practices_GPU_Optimization.mp4</code></p>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>If PyTorch does not use MPI, what does it use?</p>
+<ul>
+<li>RCCL, the ROCm version of the NVIDIA NCCL library. It needs a plugin to communicate across nodes but I guess that will also be shown in the talk.</li>
+</ul>
+</li>
+<li>
+<p>Why we don't need <code>libsci</code> for BLAS, LAPACK, etc?</p>
+<ul>
+<li>He is using a different one here because it doesn't really matter if you may a Pytorch for GPU. BLAS operations will run on the GPU with ROCm libraries.</li>
+</ul>
+<p>Why not EasyBuild then?</p>
+<ul>
+<li>The build process is not very compatible with EasyBuild. It is possible but adapting the EasyConfigs that exist for Pytorch to LUMI is too time-consuming for us at the moment. And in the end we want to end up in a container which comes later in the talk...</li>
+</ul>
+</li>
+<li>
+<p>I thought conda and python packages should be installed in containers?</p>
+<ul>
+<li>
+<p>Preferably, especially if they become large in number of files. It is also comming up in the talk... Running outside a container can be useful though if you need to go in the code with debuggers and profilers.</p>
+<p>An in between solution, especially if you work on exclusive nodes, could be to install in <code>/tmp</code> which would be very good for performance also. You could then store a tar archive and uncompress that in the job to do the installation, and still be able to use debuggers etc. easily.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>How does Singularity enable more recent ROCm versions?</p>
+<ul>
+<li>
+<p>Because you can put dependencies in there also that are not on the system. E.g., recent ROCm versions are build with a newer version of gcc than is the default on LUMI, and with a container you can put the right compiler runtime libraries where ROCm can also find them.</p>
+<p>One of the major reasons to use containers is to provide libraries that are not on the system or that are required in a different version than on the system without creating conflicts.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What does MIOpen do?</p>
+<ul>
+<li>It is the ROCm equivalent of cuDNN and is the BLAS of machine learning applications: It contains optimised implementations of common operations in machine learning applications. Each vendor tries to make its optimised implementation of those routines. Intel also has an mklDNN for its CPUs and now GPU also. Pytorch and Tensorflow both use it.</li>
+</ul>
+</li>
+<li>
+<p>Do we have access to these scripts?</p>
+<ul>
+<li>They are in the <code>Exercises/AMD/Pytorch</code> subdirectory, and archived via <a href="http://localhost:8000/LUMI-training-materials/4day-20231003/extra_4_10_Best_Practices_GPU_Optimization/">this page</a>.</li>
+</ul>
+</li>
+<li>
+<p>Meta question: Are we allowed to share/show</p>
+<ul>
+<li>
+<p>AMD and LUST slides and recordings: Yes, they can be shared at will, just acknowleding they come from a LUMI course. However, for LUST material, if you want to use the material in your own trainings or more formal presentations, you should make it very clear that LUST did not check modifications or if they are still up-to-date and hence cannot be responsible for errors. To re-use AMD material in more formal events it is best to contact them. (Notice, e.g., that AMD people presenting have to show a disclaimer at the end so they will likely require something similar if you copy from their slides.)</p>
+</li>
+<li>
+<p>HPE slides and recordings: Only to people with a userid on LUMI.</p>
+</li>
+<li>
+<p>Basically if we make them directly available via web links they can be shared informally, just mentioning where they come from, and if they are only available on the system in the training project or <code>/appl/local/training</code> but not via a direct web link, then access is restricted to people with a userid.</p>
+</li>
+<li>
+<p>You can always share this link to <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/">our training material webpage</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Is there offline version of perfetto.dev? Because one should have local version if looking in long time perspective. Remote things tend to make changes which break everything or make it for payment.</p>
+<ul>
+<li>
+<p>According to AMD, no, perfetto is only available in online version.</p>
+<p>The <a href="https://github.com/google/perfetto">code is available in a GitHub repository</a>
+though so it should be possible to set up a web server yourself running perfetto.</p>
+<p>I do notice there are downloads in that repository also but I do not know if they contain a complete web server etc., or need to be installed on top of one already existing. I cannot check as my Mac detects the files as suspicious and refuses to download.</p>
+</li>
+</ul>
+<p>Thank you very much. Well, just cloning that repo may fix it.</p>
+</li>
+</ol>
 
 
 

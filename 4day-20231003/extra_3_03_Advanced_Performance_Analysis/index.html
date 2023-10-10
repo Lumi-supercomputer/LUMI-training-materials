@@ -1524,19 +1524,37 @@
 
 <h1 id="advanced-performance-analysis">Advanced Performance Analysis<a class="headerlink" href="#advanced-performance-analysis" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Thierry Braconnier (HPE)</em></p>
-<p>Course materials will be provided during and after the course.</p>
 <!--
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_03_Advanced_Performace_analysis.pdf`
-    -   `/project/project_465000644/slides/HPE/10_advanced_performance_analysis_merged.pdf` (temporary, for the lifetime of the project)
--   Recording available on LUMI as:
-    `/appl/local/training/4day-20231003/recordings/3_03_Advanced_Performance_Analysis.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
+Course materials will be provided during and after the course.
 -->
 
+<ul>
+<li>Slides available on LUMI as:<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_03_Advanced_Performace_analysis.pdf</code></li>
+<li><code>/project/project_465000644/Slides/HPE/10_advanced_performance_analysis_merged.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+<li>Recording available on LUMI as:
+    <code>/appl/local/training/4day-20231003/recordings/3_03_Advanced_Performance_Analysis.mp4</code></li>
+</ul>
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>In general, is the reliability of the profiling times (flops, percentages) equally good for directly compiled routines, cray libraries, external libraries? Are the perftools sufficient to get a reliable overview or is it always better to accompany this analysis with a direct output of the system times?</p>
+<ul>
+<li>
+<p>The goal of any profiler tool is to provide reliable analysis of the execution. Of course it can affect the overall performance with overhead (or it can apply serialization in some parts). It really depends on the application, I don't think there is a final answer for that. For this reason perftools is always providing the non-instrumented version so that you can compare the overall execution. </p>
+</li>
+<li>
+<p>But any other debug or profiling code you put in the application may also influence the application, especially if you also do immediate I/O of the numbers rather than storing them somewhere and doing all I/O outside of code that you want to time.</p>
+</li>
+<li>
+<p>The biggest danger is with tracing if you trace very small fast functions, perftools tries not to do this.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

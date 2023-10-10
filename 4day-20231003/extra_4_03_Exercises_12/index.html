@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_08_AMD_Ominiperf/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_03_Exercises_12/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>AMD Omniperf - LUMI training materials</title>
+        <title>Exercise session 12 - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - AMD Omniperf" />
+  <meta property="og:title" content="LUMI training materials - Exercise session 12" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_08_AMD_Ominiperf/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_03_Exercises_12/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - AMD Omniperf" />
+  <meta name="twitter:title" content="LUMI training materials - Exercise session 12" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amd-omniperf" class="md-skip">
+        <a href="#exercise-session-12" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AMD Omniperf
+              Exercise session 12
             
           </span>
         </div>
@@ -1522,29 +1522,64 @@
                   
 
 
-<h1 id="amd-omniperf">AMD Omniperf<a class="headerlink" href="#amd-omniperf" title="Permanent link">&para;</a></h1>
-<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-<p><em>Presenter: Jakub Kurzak (AMD)</em></p>
-<p>Course materials will be provided during and after the course.</p>
+<h1 id="exercise-session-12">Exercise session 12<a class="headerlink" href="#exercise-session-12" title="Permanent link">&para;</a></h1>
 <!--
-<video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_08_AMD_Ominiperf.mp4" controls="controls">
-</video>
-
-Slides in the same stack as the OmniTrace ones, starting from slide 62:
-
--   [Slides on the web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf)
-
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf`
-    -   `/project/project_465000644/slides/AMD/session-3-tutorial_omnitools.pdf` (temporary, for the lifetime of the project)
-
-
--   Video also available on LUMI as
-    `/appl/local/training/4day-20231003/recordings/4_08_AMD_Ominiperf.mp4`
+No materials available at the moment.
 -->
 
+<!--
+-    Overview exercises day 1-4 temporarily available on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_Exercises_day4.pdf)
+-->
+
+<ul>
+<li>
+<p>See the exercise notes in  <code>/project/project_465000644/slides/HPE/Exercises.pdf</code> 
+    for the exercises (for the lifetime of the project).</p>
+</li>
+<li>
+<p>Files are in 
+    <code>/project/project_465000644/exercises/HPE/day3</code> (for the lifetime of the project).</p>
+</li>
+<li>
+<p>Permanent archive on LUMI:</p>
+<ul>
+<li>
+<p>Exercise notes in <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf</code></p>
+</li>
+<li>
+<p>Exercises as bizp2-compressed tar file in
+    <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2</code></p>
+</li>
+<li>
+<p>Exercises as uncompressed tar file in
+    <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar</code></p>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>What is the expexcted difference between -O1 and -O3 in day4/node_performance test? Suprisingly I got longer total time for -O3 (37.668011) than for -O1 (37.296712) and I wondering is this is completely outside expected range or the optimizations produce similar results in this case? Thanks!</p>
+<ul>
+<li>Is optimization level in Makefile overwritten by command-line-set value?</li>
+<li>Are you sure? It looks like both are using the same optimization level, the difference is well within noise and differences between nodes.</li>
+</ul>
+<p>Is there a way to verify which optimization was used in each run?</p>
+<ul>
+<li>The goal of the exercise is not to compare runtimes though but compare the output of the profiler which may point to different problems in some part of the code. I do indeed also get very similar performance otherwise.</li>
+</ul>
+<p>Ohh, thanks for explanation, I supposed there will be also a noticeble performance boost so I was wondering whether I am doing something wrong...</p>
+<ul>
+<li>I just tried the exercise myself and the results are strange. I'll try to figure out who made that exercise but he's not here at the moment. It might be that it was tested with a different or older compiler that gave other results or had worse optimisation at <code>-O1</code>. With <code>-O0</code> you do see significant differences and one particular loop operation that takes a lot more time.</li>
+</ul>
+<p>I tried -O0 and got also a significant slowdown (75.074496) so probably in this case -O1 and -O3 just led to similar compute times and there was no error...</p>
+<ul>
+<li>This is indeed what I suspect, the exercise needs an update...</li>
+</ul>
+</li>
+</ol>
 
 
 

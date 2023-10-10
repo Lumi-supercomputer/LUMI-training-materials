@@ -1523,37 +1523,54 @@
 
 
 <h1 id="exercise-session-15">Exercise session 15<a class="headerlink" href="#exercise-session-15" title="Permanent link">&para;</a></h1>
-<p>No materials available at the moment.</p>
 <!--
--   [On-line exercise notes](https://hackmd.io/@gmarkoma/lumi_training_ee#Omniperf ).
-
-    [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
-
--   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
-
--   Exercises are archived as compressed and uncompressed tar files:
-
-    -   [Web download .tar.bz2](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2)
-        or [web download .tar](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar)
-
-    -   On LUMI:
-        -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2`
-        -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar`
-
--   The necessary version of Omniperf is installed in the software installation in 
-    `/project/project_465000644/software`.
-
-    The installation can be recovered from the archive (bzip2-compressed tar file) on LUMI: 
-    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Software_AMD.tar.bz2`
-
-    This installation was tested for the course but will fail at some point due to changes to the system.
-
-    Note that Omniperf poses security risks as it is based on an unprotected web server running on a predicable
-    port number.
+No materials available at the moment.
 -->
 
+<ul>
+<li>
+<p><a href="https://hackmd.io/@sfantao/H1QU6xRR3#Omniperf">On-line exercise notes</a>.</p>
+<p><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf">PDF backup</a>
+and <a href="../exercises_AMD_hackmd/">local web backup</a>.</p>
+</li>
+<li>
+<p>Exercises can be copied from <code>/project/project_465000644/exercises/AMD/HPCTrainingExamples</code>
+    for the duration of the project.</p>
+</li>
+<li>
+<p>Exercises are archived as compressed and uncompressed tar files:</p>
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2">Web download .tar.bz2</a>
+    or <a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar">web download .tar</a></p>
+</li>
+<li>
+<p>On LUMI:</p>
+<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2</code></li>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>When I try executing commands from the first hackmd.io link, this is what I get:</p>
+<p><code>salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465000644 --time=00:15:00
+salloc: error: Job submit/allocate failed: Requested node configuration is not available
+salloc: Job allocation 4701325 has been revoked.</code></p>
+<ul>
+<li>could you <code>source /project/project_465000644/Exercises/HPE/lumi_g.sh</code> . It could be that you run the <code>lumi_c.sh</code> script which sets some variables that could clash with the <code>salloc</code>. </li>
+</ul>
+<p>Yes, I did source the <code>lumi_g.sh</code></p>
+<ul>
+<li>OK. I checked the <code>lumi_g.sh</code> script and even the environment variables that it sets influence <code>salloc</code> in a way that creates conflicts with your command line. So the trick is to log in again and not source any of those scripts and then the <code>salloc</code> line will work, but you will not be working in the reservation, or to not add the <code>-A</code> and <code>--partition</code> argument as they are set by environment variables. What is actually happening is that because of the enviornment variables the reservation is activated but you're asking for nodes outside the reservation.</li>
+</ul>
+<p>Yes, it works when not sourcing anything. Is the <code>salloc</code> in the linked document really needed and it wouldn't be better to forgo it and just use the reservation?</p>
+</li>
+</ol>
 
 
 

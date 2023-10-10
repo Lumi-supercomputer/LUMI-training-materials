@@ -1523,28 +1523,47 @@
 
 
 <h1 id="exercise-session-13">Exercise session 13<a class="headerlink" href="#exercise-session-13" title="Permanent link">&para;</a></h1>
-<p>No materials available at the moment.</p>
 <!--
--   See `/project/project_465000644/slides/HPE/Exercises.pdf` for the exercises.
-
--   Material for the IO exercises is in 
-    `/project/project_465000644/exercises/HPE/day4/VH1-io`.
-
-    And of course you can continue on previous exercises.
-
--   Permanent archive on LUMI:
-
-    -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
-
-    -   Exercises as bizp2-compressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
-
-    -   Exercises as uncompressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
+No materials available at the moment.
 -->
 
+<ul>
+<li>
+<p>See the exercise notes in  <code>/project/project_465000644/slides/HPE/Exercises.pdf</code> 
+    for the exercises (for the lifetime of the project).</p>
+</li>
+<li>
+<p>Material for the IO exercises is in 
+    <code>/project/project_465000644/Exercises/HPE/day4/VH1-io</code> (for the lifetime of the project).</p>
+<p>And of course you can continue on previous exercises.</p>
+</li>
+<li>
+<p>Permanent archive on LUMI:</p>
+<ul>
+<li>
+<p>Exercise notes in <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf</code></p>
+</li>
+<li>
+<p>Exercises as bizp2-compressed tar file in
+    <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2</code></p>
+</li>
+<li>
+<p>Exercises as uncompressed tar file in
+    <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar</code></p>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Is there a typo in the README? For the <code>lfs setstripe -c ${STRIPE_COUNT} -s ${STRIPE_SIZE} ${RUNDIR}/output</code> should the capital <code>-S</code> be used instead of <code>-s</code>?</p>
+<ul>
+<li>Indeed. I wonder how this was never noted, the error is in the slide also which has been used for 2 years... 
+    It turns out to be wrong on the slide (corrected version is now available), wrong in the README (in the project directory, archived version corrected), but correct in the script where <code>-S</code> is used.</li>
+</ul>
+</li>
+</ol>
 
 
 

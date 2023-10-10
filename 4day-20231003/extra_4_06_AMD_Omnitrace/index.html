@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_01_Performance_Optimization_Improving_Single_Core/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_06_AMD_Omnitrace/">
       
       
       
@@ -19,7 +19,7 @@
     
     
       
-        <title>Performance Optimization: Improving Single-core Efficiency - LUMI training materials</title>
+        <title>Introduction to OmniTrace - LUMI training materials</title>
       
     
     
@@ -89,9 +89,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Performance Optimization: Improving Single-core Efficiency" />
+  <meta property="og:title" content="LUMI training materials - Introduction to OmniTrace" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_01_Performance_Optimization_Improving_Single_Core/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_06_AMD_Omnitrace/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -101,7 +101,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Performance Optimization: Improving Single-core Efficiency" />
+  <meta name="twitter:title" content="LUMI training materials - Introduction to OmniTrace" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -164,7 +164,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-optimization-improving-single-core-efficiency" class="md-skip">
+        <a href="#introduction-to-omnitrace" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance Optimization: Improving Single-core Efficiency
+              Introduction to OmniTrace
             
           </span>
         </div>
@@ -1522,21 +1522,44 @@
                   
 
 
-<h1 id="performance-optimization-improving-single-core-efficiency">Performance Optimization: Improving Single-core Efficiency<a class="headerlink" href="#performance-optimization-improving-single-core-efficiency" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Jean Pourroy (HPE)</em></p>
+<h1 id="introduction-to-omnitrace">Introduction to OmniTrace<a class="headerlink" href="#introduction-to-omnitrace" title="Permanent link">&para;</a></h1>
+<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
+<p><em>Presenter:</em> Samuel Antão (AMD)</p>
 <p>Course materials will be provided during and after the course.</p>
-<!--
--   Slides available on LUMI as:
-    -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_01_Performance_Optimization_Improving_Single_Core.pdf`
-    -   `/project/project_465000644/slides/HPE/12_cpu_performance_optimization.pdf` (temporary, for the lifetime of the project)
--   Recording available on LUMI as:
-    `/appl/local/training/4day-20231003/recordings/4_01_Performance_Optimization_Improving_Single_Core.mp4`
+<video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_06_AMD_Omnitrace.mp4" controls="controls">
+</video>
 
-These materials can only be distributed to actual users of LUMI (active user account).
--->
-
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf">Slides on the web</a></p>
+</li>
+<li>
+<p>Slides available on LUMI as:</p>
+<ul>
+<li><code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf</code></li>
+<li><code>/project/project_465000644/Slides/AMD/session-4-introduction-to-omnitrace.pdf</code> (temporary, for the lifetime of the project)</li>
+</ul>
+</li>
+<li>
+<p>Video also available on LUMI as
+    <code>/appl/local/training/4day-20231003/recordings/4_06_AMD_Omnitrace.mp4</code></p>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Where do we get rocm 5.4.3? I thought that the latest on LUMI is 5.3.3 (and even that is not supported).</p>
+<ul>
+<li>
+<p>LUST does not support anything newer than 5.3.3 because newer versions are not 100% compatible with the PE we have. However, the <a href="https://hackmd.io/@sfantao/H1QU6xRR3#Omnitrace">exercises for this talk</a> point to an unofficial one. But don't complain if it does not work for what you want to do (e.g., problems with gcc or MPI hangs may occur, and the installation plays not nice with the Cray PE wrappers).</p>
+<p>There is hope that after the next system update later this fall ROCM 5.5 will be available, but sysadmins are still testing everything involved with that update so it is not yet 100% certain it will be ready for the next maintenance window.</p>
+</li>
+<li>
+<p>5.3.3 is not supported in the sense that if there turn out to be problem with it in combination with the PE, we cannot upstream problems to get a solution from the vendor, and also it is not compatible with the way <code>PrgEnv-amd</code> works. However, it has been successfully used on LUMI by several users.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
