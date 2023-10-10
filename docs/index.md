@@ -3,7 +3,7 @@
 Most recently completed main training events:
 
 -   4-day comprehensive LUMI training aimed at developers and advanced users:
-    [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
+    [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
 
 -   1-day LUMI training aimed at regular users:
     [LUMI 1-day training (September, 2023)](1day-20230921/index.md)

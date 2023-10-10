@@ -97,7 +97,7 @@ plugins:
   # redirects to avoid broken URLs in original version of the tutorial (June 2020)
   - redirects:
       redirect_maps:
-          comprehensive-latest.md: 4day-20230530/index.md
+          comprehensive-latest.md: 4day-20231003/index.md
           intro-latest.md: 1day-20230921/index.md
           update-202308.md: User-Updates/Update-202308/index.md
 
