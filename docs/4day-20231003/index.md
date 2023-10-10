@@ -50,7 +50,7 @@ downloaded from LUMI.
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |
 | [Exercises #5](extra_2_04_Exercises_5.md) | / | / | / |
 | [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf) | [web](notes_2_05_LUMI_Software_Stacks.md) |  [web](extra_2_05_LUMI_Software_Stacks.md) |
-| [Introduction to HIP Programming](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) |
+| [Introduction to the AMD ROCm Ecosystem](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_07_Exercises_6.md) | / | / | / |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |

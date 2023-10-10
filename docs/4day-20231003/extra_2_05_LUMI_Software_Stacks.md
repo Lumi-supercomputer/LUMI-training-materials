@@ -5,10 +5,13 @@
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/2_05_LUMI_Software_Stacks.mp4" controls="controls">
 </video>
 
--   [Notes](notes_2_05_LUMI_Software_Stacks.md)
+Materials available on the web:
+
+-   [Full notes of the lecture](notes_2_05_LUMI_Software_Stacks.md)
+
 -   [Slides (PDF)](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf)
 
-Archive on LUMI:
+Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf`
 
