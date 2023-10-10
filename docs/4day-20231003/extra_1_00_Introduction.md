@@ -5,5 +5,7 @@
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/1_00_Introduction.mp4" controls="controls">
 </video>
 
-No materials available
+Archive on LUMI:
+
+-   Recording: `/appl/local/training/4day-20231003/recordings/1_00_Introduction.mp4`
 

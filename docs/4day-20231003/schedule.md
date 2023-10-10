@@ -552,7 +552,7 @@ DAY 4
             13:15 CEST
             <br/><em>14:15 EEST</em>
         </td>
-        <td><b><a href="../extra_4_06_AMD_Ominitrace/">Introduction to OmniTrace</a></b>
+        <td><b><a href="../extra_4_06_AMD_Omnitrace/">Introduction to OmniTrace</a></b>
         <br/><em>Presenter:</em> Samuel Antão (AMD)
       </td>
         </td>
@@ -562,7 +562,7 @@ DAY 4
             13:50 CEST
             <br/><em>14:50 EEST</em> 
         </td>
-        <td><b><a href="../extra_4_08_AMD_Ominiperf/">Introduction to Omniperf</a></b>
+        <td><b><a href="../extra_4_08_AMD_Omniperf/">Introduction to Omniperf</a></b>
         <br/><em>Presenter: Jakub Kurzak (AMD)</em>
         </td>
     </tr>

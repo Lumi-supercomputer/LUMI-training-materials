@@ -62,13 +62,13 @@ downloaded from LUMI.
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
-| [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_03_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_03_Introduction_to_Python_on_Cray_EX.md) |
+| [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
 | [Performance Optimization: Improving single-core Efficiency](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) |
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) |
 | [Exercises #13](extra_4_05_Exercises_13.md) | / | / | / |
-| [Introduction to OmniTrace](extra_4_06_AMD_Ominitrace.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Ominitrace.md) |
-| [Introduction to Omniperf](extra_4_08_AMD_Ominiperf.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Ominiperf.md) |
+| [Introduction to OmniTrace](extra_4_06_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Omnitrace.md) |
+| [Introduction to Omniperf](extra_4_08_AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Omniperf.md) |
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
 | [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
