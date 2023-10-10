@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_06_AMD_Ominitrace/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_06_AMD_Omnitrace/">
       
       
       
@@ -91,7 +91,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LUMI training materials - Introduction to OmniTrace" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_06_AMD_Ominitrace/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20231003/extra_4_06_AMD_Omnitrace/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -1526,10 +1526,8 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 <p><em>Presenter:</em> Samuel Antão (AMD)</p>
 <p>Course materials will be provided during and after the course.</p>
-<!--
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_06_AMD_Omnitrace.mp4" controls="controls">
 </video>
--->
 
 <ul>
 <li>
@@ -1542,19 +1540,18 @@
 <li><code>/project/project_465000644/Slides/AMD/session-4-introduction-to-omnitrace.pdf</code> (temporary, for the lifetime of the project)</li>
 </ul>
 </li>
+<li>
+<p>Video also available on LUMI as
+    <code>/appl/local/training/4day-20231003/recordings/4_06_AMD_Omnitrace.mp4</code></p>
+</li>
 </ul>
-<!--
--   Video also available on LUMI as
-    `/appl/local/training/4day-20231003/recordings/4_06_AMD_Ominitrace.mp4`
--->
-
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Where do we get rocm 5.4.3? I thought that the latest on LUMI is 5.3.3 (and even that is not supported).</p>
 <ul>
 <li>
-<p>LUST does not support anything newer than 5.3.3 because newer versions are not 100% compatible with the PE we have. However, the <a href="https://hackmd.io/@sfantao/H1QU6xRR3#Omnitrace">exercises for this talk</a> point to an unofficial one. But don't complain if it does not work for what you want to do (e.g., problems with gcc or MPI hangs may occur, and the installaton plays not nice with the Cray PE wrappers).</p>
+<p>LUST does not support anything newer than 5.3.3 because newer versions are not 100% compatible with the PE we have. However, the <a href="https://hackmd.io/@sfantao/H1QU6xRR3#Omnitrace">exercises for this talk</a> point to an unofficial one. But don't complain if it does not work for what you want to do (e.g., problems with gcc or MPI hangs may occur, and the installation plays not nice with the Cray PE wrappers).</p>
 <p>There is hope that after the next system update later this fall ROCM 5.5 will be available, but sysadmins are still testing everything involved with that update so it is not yet 100% certain it will be ready for the next maintenance window.</p>
 </li>
 <li>
