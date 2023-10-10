@@ -1,25 +1,41 @@
-# Exercise session 15
+# Exercise session 15: Omniperf
+
+Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3),
+section on [Omniperf](https://hackmd.io/@sfantao/H1QU6xRR3#Omniperf).
+
+Exercise files can be copied from `Exercises/AMD/HPCTrainingExamples`.
+
+
+## Materials
 
 <!--
 No materials available at the moment.
 -->
 
--   [On-line exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3#Omniperf).
-
-    [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
-    and [local web backup](exercises_AMD_hackmd.md).
+<!--
+Temporary location of materials (for the lifetime of the training project):
 
 -   Exercises can be copied from `/project/project_465000644/exercises/AMD/HPCTrainingExamples`
-    for the duration of the project.
+-->
 
--   Exercises are archived as compressed and uncompressed tar files:
- 
-    -   [Web download .tar.bz2](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2)
-        or [web download .tar](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar)
+Materials on the web:
 
-    -   On LUMI:
-        -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2`
-        -   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar`
+-   [AMD exercise assignments and notes](https://hackmd.io/@sfantao/H1QU6xRR3#Omniperf)
+
+    [PDF backup](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
+    and [local web backup](exercises_AMD_hackmd.md#omniperf).
+
+-   Exercise files: 
+    [Download as .tar.bz2](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2)
+    or [download as .tar](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar)
+
+Archived materials on LUMI:
+
+-   Exercise assignments PDF: `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf`
+
+-   Exercise files:
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2`
+    or `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar`
 
 
 ## Q&A

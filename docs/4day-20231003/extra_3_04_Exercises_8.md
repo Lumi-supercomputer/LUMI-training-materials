@@ -1,30 +1,43 @@
-# Exercise session 8
+# Exercise session 8: perftools
+
+The files for the exercises can be found in `Exercises/HPE/day3/perftools` and
+its subdirectories. Follow the Readme.md description (per each directory) and get familiar with the perftools commands and outputs.
+
+-   Subdirectories perftools, perftools-api, perftools-hwpc, perftools-python, and perftools-apa need lumi_c.sh (or `lumi_c_after.sh`) to be sourced.
+-   Subdirectories perftools-for-hip and perftools-for-omp-offload need lumi_g.sh (or `lumi_g_after.sh`) to be sourced
+
+
+## Materials
 
 <!--
 No materials available at the moment.
 -->
 
 <!--
--    Overview exercises day 1+2+3 temporarily available on
+Temporary location of materials (for the lifetime of the training project):
+
+-   See the exercise assignments in
+    `/project/project_465000644/Slides/HPE/Exercises_day3.pdf` or
+    `/project/project_465000644/Slides/HPE/Exercises.pdf` (whichever is present).
+
+-   Exercise files in `/project/project_465000644/Exercises/HPE/day3`
+
+Temporary web-available materials:
+
+-    Overview exercise assignments day 1+2+3 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_Exercises_day3.pdf)
 -->
 
+Archived materials on LUMI:
 
--   See the exercise notes in `/project/project_465000644/Slides/HPE/Exercises.pdf` for the exercises
-    (for the lifetime of the project).
+-   Exercise assignments in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
 
--   Files are in 
-    `/project/project_465000644/Exercises/HPE/day3` (for the lifetime of the project).
+-   Exercises as bizp2-compressed tar file in
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
 
--   Permanent archive on LUMI:
+-   Exercises as uncompressed tar file in
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
 
-    -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
-
-    -   Exercises as bizp2-compressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
-
-    -   Exercises as uncompressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
 
 
 ## Q&A

@@ -1,29 +1,38 @@
-# Exercise session 12
+# Exercise session 12: Node-level performance
+
+The files for the exercises can be found in `Exercises/HPE/day4/node_performance`.
+Try different compiler optimizations and see the impact on performance.
+
+
+## Materials
 
 <!--
 No materials available at the moment.
 -->
 
 <!--
--    Overview exercises day 1-4 temporarily available on
+Temporary location of materials (for the lifetime of the training project):
+
+-   See the exercise assignments in
+    `/project/project_465000644/Slides/HPE/Exercises.pdf`.
+
+-   Exercise files in `/project/project_465000644/Exercises/HPE/day4`
+
+Temporary web-available materials:
+
+-    Overview exercise assignments temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_Exercises_day4.pdf)
 -->
 
--   See the exercise notes in  `/project/project_465000644/slides/HPE/Exercises.pdf` 
-    for the exercises (for the lifetime of the project).
+Archived materials on LUMI:
 
--   Files are in 
-    `/project/project_465000644/exercises/HPE/day3` (for the lifetime of the project).
+-   Exercise assignments in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
 
--   Permanent archive on LUMI:
+-   Exercises as bizp2-compressed tar file in
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
 
-    -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
-
-    -   Exercises as bizp2-compressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
-
-    -   Exercises as uncompressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
+-   Exercises as uncompressed tar file in
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
 
 
 ## Q&A

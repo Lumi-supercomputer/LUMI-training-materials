@@ -1,16 +1,23 @@
-# Exercise session 1
+# Exercise session 1: Running applications
+
+Exercises are in `Exercises/HPE/day1/ProgrammingModels`.`
+
+See `Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
+Run on the system and get familiar with Slurm commands.
+
+
+## Materials
 
 <!--
 No materials available at the moment.
 -->
 
 <!--
--    Exercise notes temporarily available on
-     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_04a-ProgrammingModelExamples_SLURM.pdf).
+Temporary location of materials (for the lifetime of the training project):
 
--    Overview exercises day 1 temporarily available on
-     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_Exercises_day1.pdf)
--->
+-   See the exercise assignments in
+    `/project/project_465000644/Slides/HPE/Exercises_day1.pdf` or
+    `/project/project_465000644/Slides/HPE/Exercises.pdf` (whichever is present)
 
 -   Exercise materials in 
     `/project/project_465000644/Exercises/HPE/day1/ProgrammingModels` 
@@ -18,19 +25,24 @@ No materials available at the moment.
 
     See `/project/project_465000644/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
 
--   See the exercise notes in
-    `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
-    for more information.
+Temporary web-available materials:
 
--   Permanent archive on LUMI:
+-    Overview exercise assignments day 1 temporarily available on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_Exercises_day1.pdf)
 
-    -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
+-    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_04a-ProgrammingModelExamples_SLURM.pdf).
+-->
 
-    -   Exercises as bizp2-compressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
+Archived materials on LUMI:
 
-    -   Exercises as uncompressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
+-   Exercise assignments in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
+
+-   Exercises as bizp2-compressed tar file in
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
+
+-   Exercises as uncompressed tar file in
+    `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
 
 ## Q&A
 

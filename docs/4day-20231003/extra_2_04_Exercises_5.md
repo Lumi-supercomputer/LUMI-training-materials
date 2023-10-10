@@ -1,28 +1,41 @@
-# Exercise session 5
+# Exercise session 5: Cray PE Debugging Tools
+
+Exercises are in `Exercises/HPE/day2/debugging`.
+
+Try the debugging tools in this subdirectory.
+There are `Readme.md` files in every directory with more information.
+
+
+## Materials
 
 <!--
 No materials available at the moment.
 -->
 
--   Files for the exercises are in `/project/project_465000644/Exercises/HPE/day2/Binding`
-    and `/project/project_465000644/Exercises/HPE/day2/gpu_perf_binding` (both for the lifetime
-    of the project).
+<!--
+Temporary location of materials (for the lifetime of the training project):
 
-    There are `Readme.md` files or PDF files with more information in the directories.
+-   See `/project/project_465000644/Slides/HPE/Exercises_day2.pdf` or
+    `/project/project_465000644/Slides/HPE/Exercises.pdf` (whichever is present).
 
--   See the exercise notes in
-    `/project/project_465000644/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
-    for more information.
+-   Exercise files in `/project/project_465000644/Exercises/HPE/day2/debugging`
 
--   Permanent archive on LUMI:
+Temporary web-available materials:
 
-    -   Exercise notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
+-    Overview exercise assignments day 1+2 temporarily available on
+     [this link](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-1_Exercises_day2.pdf)
+-->
 
-    -   Exercises as bizp2-compressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
+Archived materials on LUMI:
 
-    -   Exercises as uncompressed tar file in
-        `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
+-   Exercise assignments in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
+
+-   Exercises as bizp2-compressed tar file in
+   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2`
+
+-   Exercises as uncompressed tar file in
+   `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`
+
 
 
 ## Q&A
