@@ -33,6 +33,7 @@ nav:
   - Home: index.md
   - User Updates:
       - User-Updates/index.md
+      - October-November 2023: User-Updates/Update-202311/index.md
       - August 2023: 
           - User-Updates/Update-202308/index.md
           - Low-noise mode: User-Updates/Update-202308/lumig-lownoise.md
