@@ -1,5 +1,14 @@
 # Changes after the update of October-November 2023
 
+**These notes are somewhat preliminary as LUST is also still exploring the
+changes to the system. We have opted to make the system accessible to users
+as soon as possible but that does not imply that all problems caused by the
+update are solved already. These notes will be adjusted accordingly.**
+
+**We advise to carefully test if all your software is still working properly
+before submitting large batches of jobs. Expect that some jobs that are still
+in the queue from before the maintenance will fail.**
+
 The main purpose of the update in late October and early November 2023 were the
 addition of 512 nodes to the LUMI-C `standard` partition and the installation of
 various patches in the operating system to further improve the stability of the
@@ -35,4 +44,21 @@ compilers.
 Not all features of 23.09 are supported on the version of the OS on LUMI. In particular,
 though the newest versions of the Cray performance monitoring tools are installed on the
 system, they are not fully operational. Users should use the versions of Perftools
-and PAPI included with the 23.03 or earlier programming environments 
+and PAPI included with the 23.03 or earlier programming environments.
+
+To make the modules of an older release of the Cray PE the default, load the matching
+`cpe` module twice in separate `module load` statements and ignore the warnings. E.g., to
+make the modules from the CPE 22.12 the default (and marked with a `D` in the output of
+`module avail`), run
+
+```
+module load cpe/22.12
+module load cpe/22.12
+```
+
+In the coming weeks, LUST will work on a set of base libraries and additional EasyBuild
+recipes for work with the 23.09 release of the Cray PE.
+
+The 23.09 version of the Cray PE should also be fully compatible with the next LTS release
+of the Cray OS and management software distribution except that at that time a newer version
+of ROCm will become the basis.
