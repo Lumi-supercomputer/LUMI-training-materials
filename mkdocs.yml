@@ -33,6 +33,7 @@ nav:
   - Home: index.md
   - User Updates:
       - User-Updates/index.md
+      - October-November 2023: User-Updates/Update-202311/index.md
       - August 2023: 
           - User-Updates/Update-202308/index.md
           - Low-noise mode: User-Updates/Update-202308/lumig-lownoise.md
@@ -100,6 +101,7 @@ plugins:
           comprehensive-latest.md: 4day-20231003/index.md
           intro-latest.md: 1day-20230921/index.md
           update-202308.md: User-Updates/Update-202308/index.md
+          update-202311.md: User-Updates/Update-202311/index.md
 
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
