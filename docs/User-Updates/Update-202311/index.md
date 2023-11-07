@@ -17,6 +17,43 @@ system.
 The [notes of the August 2023 update](../Update-202308/index.md) are still relevant!
 
 
+## Known broken features
+
+The `cray-mpich/8.1.18`, `cray-mpich/8.1.23` and `cray-mpich/8.1.25` modules for
+the CCE compiler are currently broken on LUMI. This manifests itself in several
+ways:
+
+*   The modules are invisible when one of the `cce` compiler modules is loaded.
+
+*   Loading software for `cpeCray/22.08`, `cpeCray/22.12` or `cpeCray/23.03` in the
+    LUMI software stacks produces errors.
+
+*   Changing the default version of the PE to 22.08, 22.12 or 23.03 by loading the
+    matching `cpe` module will fail if `PrgEnv-cray` is loaded. Likewise, switching
+    to `PrgEnv-cray` with one of these `cpe` modules loaded, will fail. 
+
+*   The same hold when you try to load one of the `cce` modules by hand with one of
+    the `cray-mpich` modules mentioned above loaded for a different compiler.
+
+The root cause of the problems is that HPE Cray now makes libraries available for 
+the LLVM ABI version 14.0. All packages on the system, also those for older versions of the
+Cray PE, were properly upgraded in the process except the MPICH packages for 
+22.08, 22.12 or 23.03.
+
+We are trying to figure out if this can be repaired or if workarounds will be needed,
+and if so, which workarounds are acceptable as some workarounds have side effects for
+other compilers also.
+
+Note that using `cray-mpich/8.1.27` should be fine, also when using any compiler
+version from 22.08, 22.12, 23.03 (for CCE this would be `cce/14.0.2`, `cce/15.0.0` 
+or `cce/15.0.1`). In fact, as this is the default version, unless you enforce a
+particular version of Cray MPICH by prepending `LD_LIBRARY_PATH` with 
+`CRAY_LD_LIBRARY_PATH` or using rpath-linking, you'll be running with libraries
+from this module anyway. So with software compiled in the login environment or
+in `CrayEnv`, you can always force-load specific versions of compiler modules
+and other modules and use `cray-mpich/8.1.27` as the version for Cray MPICH.
+
+
 ## OS patches
 
 Several patches have been applied to the SUSE OS on the login nodes and Cray OS on
@@ -38,8 +75,11 @@ we do not want to be the first site installing this update.
 ## 23.09 programming environment
 
 The major novelty of this release of the Cray PE is the move to Clang/LLVM 16 as the
-base for the Cray Compiling Environment compilers, and AOCC 4.0 for the AMD CPU-only
-compilers.
+base for the Cray Compiling Environment compilers. After a future update of the 
+Cray OS it should also be possible to use the updated AOCC 4.0 compilers and 
+ROCm 5.5 will also be fully supported. However, for this to happen we are waiting
+on a new Long-Term Service release of the HPE Cray system software stack for Cray EX
+systems.
 
 Not all features of 23.09 are supported on the version of the OS on LUMI. In particular,
 though the newest versions of the Cray performance monitoring tools are installed on the
@@ -55,6 +95,8 @@ make the modules from the CPE 22.12 the default (and marked with a `D` in the ou
 module load cpe/22.12
 module load cpe/22.12
 ```
+
+**As discussed above this currently does not work with `PrgEnv-cray`.**
 
 In the coming weeks, LUST will work on a set of base libraries and additional EasyBuild
 recipes for work with the 23.09 release of the Cray PE.
