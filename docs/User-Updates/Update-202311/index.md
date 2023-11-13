@@ -1,10 +1,5 @@
 # Changes after the update of October-November 2023
 
-**These notes are somewhat preliminary as LUST is also still exploring the
-changes to the system. We have opted to make the system accessible to users
-as soon as possible but that does not imply that all problems caused by the
-update are solved already. These notes will be adjusted accordingly.**
-
 **We advise to carefully test if all your software is still working properly
 before submitting large batches of jobs. Expect that some jobs that are still
 in the queue from before the maintenance will fail.**
@@ -17,7 +12,7 @@ system.
 The [notes of the August 2023 update](../Update-202308/index.md) are still relevant!
 
 
-## Known broken features
+## **!! Update Monday November 13 !!** Known broken features
 
 The `cray-mpich/8.1.18`, `cray-mpich/8.1.23` and `cray-mpich/8.1.25` modules for
 the CCE compiler are currently broken on LUMI. This manifests itself in several
@@ -44,6 +39,7 @@ We are trying to figure out if this can be repaired or if workarounds will be ne
 and if so, which workarounds are acceptable as some workarounds have side effects for
 other compilers also.
 
+<!--
 Note that using `cray-mpich/8.1.27` should be fine, also when using any compiler
 version from 22.08, 22.12, 23.03 (for CCE this would be `cce/14.0.2`, `cce/15.0.0` 
 or `cce/15.0.1`). In fact, as this is the default version, unless you enforce a
@@ -52,6 +48,30 @@ particular version of Cray MPICH by prepending `LD_LIBRARY_PATH` with
 from this module anyway. So with software compiled in the login environment or
 in `CrayEnv`, you can always force-load specific versions of compiler modules
 and other modules and use `cray-mpich/8.1.27` as the version for Cray MPICH.
+-->
+
+**Update Monday November 13, 2023**
+
+Changes have been made to the module system to automatically replace any attempt 
+to load `cray-mpich/8.1.18`, `cray-mpich/8.1.23` or `cray-mpich/8.1.25` with a 
+load operation of `cray-mpich/8.1.27`. As it is not possible to do this selectively
+only for the Cray MPICH modules for the Cray Compilation Environment, the switch 
+is done **for all compilers**. 
+
+The confusing bit is that you will still see these modules in the list of available
+modules, dependent on whether you have the LUMI stacks loaded or one of the other ones,
+on which cpe* module you have loaded in the LUMI stacks, or which compiler module
+you have loaded. You can however no longer load these modules, they will be replaced
+automatically by the `cray-mpich/8.1.27` as this rule has precedence in Lmod.
+
+Note that using `cray-mpich/8.1.27` should be fine, also when using any compiler
+version from 22.08, 22.12, 23.03 (for CCE this would be `cce/14.0.2`, `cce/15.0.0` 
+or `cce/15.0.1`). In fact, as this is the default version, unless you enforce a
+particular version of Cray MPICH by prepending `LD_LIBRARY_PATH` with 
+`CRAY_LD_LIBRARY_PATH` or using rpath-linking, you'll be running with libraries
+from this module anyway. Hence we expect a minimal impact on software already
+on the system, and certainly far less impact than the underlying problem has.
+
 
 
 ## OS patches
@@ -96,10 +116,12 @@ module load cpe/22.12
 module load cpe/22.12
 ```
 
-**As discussed above this currently does not work with `PrgEnv-cray`.**
+**Update November 13, 2023: This now also works again for `PrgEnv-cray`.**
 
 In the coming weeks, LUST will work on a set of base libraries and additional EasyBuild
-recipes for work with the 23.09 release of the Cray PE.
+recipes for work with the 23.09 release of the Cray PE. However, as Clang 16, on which
+the new version of the Cray compilers is based, is a lot more strict about language compliance,
+rebuilding the software stack is not a smooth process.
 
 The 23.09 version of the Cray PE should also be fully compatible with the next LTS release
 of the Cray OS and management software distribution except that at that time a newer version
