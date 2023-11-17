@@ -1,8 +1,10 @@
 # Changes after the update of October-November 2023
 
+**Last update of this document: November 17, 2023.**
+
 **We advise to carefully test if all your software is still working properly
-before submitting large batches of jobs. Expect that some jobs that are still
-in the queue from before the maintenance will fail.**
+before submitting large batches of jobs. Expect that some jobs that worked 
+before the maintenance will fail now.**
 
 The main purpose of the update in late October and early November 2023 were the
 addition of 512 nodes to the LUMI-C `standard` partition and the installation of
@@ -12,7 +14,7 @@ system.
 The [notes of the August 2023 update](../Update-202308/index.md) are still relevant!
 
 
-## **!! Update Monday November 13 !!** Known broken features
+## Known broken features (workaround available)
 
 The `cray-mpich/8.1.18`, `cray-mpich/8.1.23` and `cray-mpich/8.1.25` modules for
 the CCE compiler are currently broken on LUMI. This manifests itself in several
@@ -35,9 +37,11 @@ the LLVM ABI version 14.0. All packages on the system, also those for older vers
 Cray PE, were properly upgraded in the process except the MPICH packages for 
 22.08, 22.12 or 23.03.
 
+<!--
 We are trying to figure out if this can be repaired or if workarounds will be needed,
 and if so, which workarounds are acceptable as some workarounds have side effects for
 other compilers also.
+-->
 
 <!--
 Note that using `cray-mpich/8.1.27` should be fine, also when using any compiler
@@ -50,7 +54,7 @@ in `CrayEnv`, you can always force-load specific versions of compiler modules
 and other modules and use `cray-mpich/8.1.27` as the version for Cray MPICH.
 -->
 
-**Update Monday November 13, 2023**
+### Update Monday November 13, 2023: Workaround
 
 Changes have been made to the module system to automatically replace any attempt 
 to load `cray-mpich/8.1.18`, `cray-mpich/8.1.23` or `cray-mpich/8.1.25` with a 
@@ -116,7 +120,11 @@ module load cpe/22.12
 module load cpe/22.12
 ```
 
-**Update November 13, 2023: This now also works again for `PrgEnv-cray`.**
+As it may be impossible to support programming environments older than 23.09 after the
+next system update, we encourage users to transfer to 23.09 when possible.
+
+
+### Update November 13, 2023: This now also works again for `PrgEnv-cray`.
 
 In the coming weeks, LUST will work on a set of base libraries and additional EasyBuild
 recipes for work with the 23.09 release of the Cray PE. However, as Clang 16, on which
@@ -126,3 +134,27 @@ rebuilding the software stack is not a smooth process.
 The 23.09 version of the Cray PE should also be fully compatible with the next LTS release
 of the Cray OS and management software distribution except that at that time a newer version
 of ROCm will become the basis.
+
+
+### Update November 17, 2023: Software stacks
+
+A lot of base libraries have been pre-installed on the system in the `LUMI/23.09` software
+stacks. At the moment, the cpeCray-23.09 version in particular is less extensive than usual.
+The reasons are twofold:
+
+-   Boost currently fails to compile with `cpeCray/23.09`. It is currently unclear if this is
+    caused to errors in the Boost configuration process or to a bug in the compiler returning
+    a wrong value during configuration.
+
+-   Some packages fail to compile due to sloppy code violating C or C++ language rules that
+    have been in place for 20 or more years. Clang 16, the basis for the Cray Compilation Environment
+    16, is more strict imposing those language standards than previous compilers. In some cases
+    we were able to disable the errors and the package compiled, but some software using 
+    Gnome GLib so far fails to compile.
+
+Those packages may be added to the software stack at a later date if we find solutions to the
+problems, but there is no guarantee that these problems can be solved with the current versions
+of those packages and CPE.
+
+We've also started the process of porting user-installable EasyBuild recipes. Some are already
+available on the system, others will follow, possibly on request.
