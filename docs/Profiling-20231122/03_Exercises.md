@@ -1,6 +1,9 @@
 # Exercises
 
 -   AMD exercidses are available as an [online text](https://hackmd.io/@sfantao/lumi-hackathon-krakow-nov2023)
+    (or [version saved as Chrome .mht file](https://462000265.lumidata.eu/profiling-20231122/files/03_AMD_Excercise_notes.mht),
+    may not open directly in your browser, also
+    `/appl/local/training/profiling-20231122/files/03_AMD_Excercise_notes.mht`)
 
 <!--
 -   Files for the exercises are available in 
