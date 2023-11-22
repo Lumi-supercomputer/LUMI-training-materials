@@ -24,7 +24,7 @@
     <tr>
         <td>13:00</td>
         <td><b><a href="../02_AMD_tools/">AMD ROCm<sup>TM</sup> profiling tools</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>

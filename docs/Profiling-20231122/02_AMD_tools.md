@@ -1,5 +1,7 @@
 # AMD ROCm<sup>TM</sup> profiling tools
 
+<em>Presenter: Samuel Antao (AMD)</em>
+
 <!--
 -   [Slides](https://462000265.lumidata.eu/profiling-20231122/files/02_intro_rocprof.pdf)
 
@@ -8,20 +10,12 @@
 
 ## Q&A
 
-<!--
-1.  Can the PyTorch profiler be used without any specific things to take into account, 
-    see [link](https://pytorch.org/docs/stable/profiler.html)?  
- 
-    **Answer**: 
-    
-    That is correct. Let us know if you come across any problems.
+1.  Can the tool used also for profiling ML framework, Tensforflow-Horovod
 
+    -   Yes, omnitrace-python is the driver to be used in these cases ot see the Python call stack alongside the GPU activity.
 
-2.  Could you give a rough estimate on the overhead in terms of percentage?
+2.  In the first set of slides it was mentioned that rocmprof serialize the kernels execution. How does this affect the other tools? Is it possible to use the tools to profile a program that launches multiple kernels on different streams or even in different processes and see the overal performance?
 
-    **Answer**
-    
-    - Generally very low, but can be high in unusual cases.
-    - Hard to say exactly what the overhead is, depends usually on the ammount of data being collected. A code with a lot of smaller chunks of GPU activity are usually more pronoe to show more overhead.
+    -   No, rocprof does not serialize kernels, what I tried to explain is that users should serialize kernels for counter readings to be meaningful.
 
--->
+3.  Could you check the slide about installing of omniperf? I see different path in CMAKE_INSTALL_PREFIX and "export PATH". There is dependencies: Python 3.7 but default on Lumi is Python 3.6, which module is the best for that (e.g. cray-python)?

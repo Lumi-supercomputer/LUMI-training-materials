@@ -1,5 +1,7 @@
 # Exercises
 
+-   AMD exercidses are available as an [online text](https://hackmd.io/@sfantao/lumi-hackathon-krakow-nov2023)
+
 <!--
 -   Files for the exercises are available in 
     `/appl/local/training/profiling-20231122/files/exercises-profiling-20230423.tar.gz`
