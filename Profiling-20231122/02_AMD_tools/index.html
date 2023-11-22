@@ -1609,6 +1609,16 @@
 </li>
 <li>
 <p>Could you check the slide about installing of omniperf? I see different path in CMAKE_INSTALL_PREFIX and "export PATH". There is dependencies: Python 3.7 but default on Lumi is Python 3.6, which module is the best for that (e.g. cray-python)?</p>
+<ul>
+<li>
+<p>Cray-python should be fine. The exported PATH is a typo, it should be: <code>export PATH=$INSTALL_DIR/1.0.10/bin:$PATH</code>. For the exercises we use the following to provide omniperf for ROCm 5.4.3:</p>
+<div class="highlight"><pre><span></span><code>module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+module load rocm/5.4.3 omniperf/1.0.10-rocm-5.4.x
+
+source /pfs/lustrep2/projappl/project_462000125/samantao-public/omnitools/venv/bin/activate
+</code></pre></div>
+</li>
+</ul>
 </li>
 </ol>
 
