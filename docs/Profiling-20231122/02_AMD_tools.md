@@ -19,3 +19,14 @@
     -   No, rocprof does not serialize kernels, what I tried to explain is that users should serialize kernels for counter readings to be meaningful.
 
 3.  Could you check the slide about installing of omniperf? I see different path in CMAKE_INSTALL_PREFIX and "export PATH". There is dependencies: Python 3.7 but default on Lumi is Python 3.6, which module is the best for that (e.g. cray-python)?
+
+
+    -   Cray-python should be fine. The exported PATH is a typo, it should be: `export PATH=$INSTALL_DIR/1.0.10/bin:$PATH`. For the exercises we use the following to provide omniperf for ROCm 5.4.3:
+
+        ```
+        module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+        module load rocm/5.4.3 omniperf/1.0.10-rocm-5.4.x
+
+        source /pfs/lustrep2/projappl/project_462000125/samantao-public/omnitools/venv/bin/activate
+        ```
+
