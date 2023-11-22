@@ -2,22 +2,23 @@
 
 <!--
 -   Files for the exercises are available in 
-    `/appl/local/training/profiling-20230413/files/exercises-profiling-20230423.tar.gz`
+    `/appl/local/training/profiling-20231122/files/exercises-profiling-20230423.tar.gz`
 
 -   Exercises from HPE are available in
-    `/appl/local/training/profiling-20230413/files/05_Exercises_HPE.pdf`
+    `/appl/local/training/profiling-20231122/files/05_Exercises_HPE.pdf`
 
 -   AMD exercidses are available as an [online text](https://hackmd.io/@gmarkoma/rkPbZqNMn)
-    ([local web copy(PDF)](https://462000265.lumidata.eu/profiling-20230413/files/LUMI-G_Pre-Hackathon-AMD.pdf))
-    or as `/appl/local/training/profiling-20230413/files/05_LUMI-G_Pre-Hackathon-AMD.pdf`
+    ([local web copy(PDF)](https://462000265.lumidata.eu/profiling-20231122/files/LUMI-G_Pre-Hackathon-AMD.pdf))
+    or as `/appl/local/training/profiling-20231122/files/05_LUMI-G_Pre-Hackathon-AMD.pdf`
 
 -   Extra software that was made available by AMD is available in
-    `/appl/local/training/profiling-20230413/files/software-profiling-20230423.tar.gz`.
+    `/appl/local/training/profiling-20231122/files/software-profiling-20230423.tar.gz`.
     As the configuration of LUMI is continuously evolving, this software may not work anymore.
-
+-->
 
 ## Q&A
 
+<!--
 !!! info
     __AMD Exercises__
 

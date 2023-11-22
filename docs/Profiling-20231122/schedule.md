@@ -6,12 +6,12 @@
     <tr>
         <td>10:15&nbsp;&nbsp;</td>
         <td><b><A href="../00_Introduction/">Welcome and introduction</a></b>
-        <br><em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST), Harvey Richardson (HPE)(</em>
+        <br><em>Presenters: Jørn Dietze (LUST)</em>
         <!--<br><em>Recording: <code>/project/project_465000502/recordings/00_Introduction.mp4</code> on LUMI only.</em>-->
         </td>
     </tr>
     <tr>
-        <td>10:30</td>
+        <td>10:25</td>
         <td><b><a href="../01_HPE_Cray_PE_tools/">HPE Cray PE tools introduction</a></b>
         <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
        </td>

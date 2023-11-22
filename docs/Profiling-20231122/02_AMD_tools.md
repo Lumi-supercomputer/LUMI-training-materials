@@ -1,12 +1,14 @@
 # AMD ROCm<sup>TM</sup> profiling tools
 
 <!--
--   [Slides](https://462000265.lumidata.eu/profiling-20230413/files/02_intro_rocprof.pdf)
+-   [Slides](https://462000265.lumidata.eu/profiling-20231122/files/02_intro_rocprof.pdf)
 
--   Recording in `/appl/local/training/profiling-20230413/recordings/02_Intro_rocprof.mp4`
+-   Recording in `/appl/local/training/profiling-20231122/recordings/02_Intro_rocprof.mp4`
+-->
 
 ## Q&A
 
+<!--
 1.  Can the PyTorch profiler be used without any specific things to take into account, 
     see [link](https://pytorch.org/docs/stable/profiler.html)?  
  

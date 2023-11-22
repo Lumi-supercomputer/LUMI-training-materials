@@ -1,13 +1,17 @@
 # Introduction
 
+<em>Presenters: Jørn Dietze (LUST), Alfio Lazzaro (HPE)</em>
+
 <!--
 <video src="https://462000265.lumidata.eu/profiling-20230413/recordings/00_Introduction.mp4" controls="controls">
 </video>
 
 -   The video is also available as `/appl/local/training/profiling-20230413/recordings/00_Introduction.mp4`
+-->
 
 ## Q&A
 
+<!--
 1.  Can I ask for incresing the home directory capacity?
 
      **Answer**: No. The home directory cannot be extended, not in capacity and not in number of files as it is also the only directory that is not billed. The home directory is only for stricly personal files and typically the type of stuff that Linux software tends to put in home directories such as caches. The project directory is the directory to install software, work on code, etc., and the scratch and flash directory are for temporary data. You can always create a subdirectory for yourself in your project directory and take away the group read rights if you need more personal space.
