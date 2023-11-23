@@ -11,6 +11,10 @@ may not open directly in your browser, also
     [tar file (5.1M)](https://462000265.lumidata.eu/profiling-20231122/files/03_Exercises_AMD.tar) or
     [gzip-compressed tar file (3.6M)](https://462000265.lumidata.eu/profiling-20231122/files/03_Exercises_AMD.tar.gz).
 
+    These files are also available on LUMI in
+    `/appl/local/training/profiling-20231122/files`.
+
+
 ## Q&A
 
 /

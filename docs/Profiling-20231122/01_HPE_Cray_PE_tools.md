@@ -2,9 +2,29 @@
 
 <em>Presenter: Alfio Lazzaro (HPE)</em>
 
--   Slides on LUMI in `/appl/local/training/profiling-20231122/files/01_HPE_Cray_PE_tools.pdf``
+-   Slides on LUMI in `/appl/local/training/profiling-20231122/files/01_HPE_Cray_PE_tools.pdf`
 
 -   Files from the demo on LUMI in `/appl/local/training/profiling-20231122/files/01_HPE_Demo.tar`
+
+-   Recordings: To make the presentations more accessible, the presentation has been split in
+    6 parts:
+
+    1.  Introduction and LUMI hardware: slides 1-8:
+        `/appl/local/training/profiling-20231122/recordings/`
+
+    2.  The HPE Cray Programming Environment: slides 9-38:
+        `/appl/local/training/profiling-20231122/recordings/`
+
+    3.  Job placement: slides 39-51:
+        `/appl/local/training/profiling-20231122/recordings/`
+
+    4.  Cray MPICH for GPUs: slides 52-57:
+        `/appl/local/training/profiling-20231122/recordings/`
+
+    5.  Performance Analysis: slides 58-92:
+        `/appl/local/training/profiling-20231122/recordings/`
+
+    The "GDB for HPC" slides were not covered in the presentation.
 
 HPE training materials can only be shared with other LUMI users and therefore are not available on the
 web.
