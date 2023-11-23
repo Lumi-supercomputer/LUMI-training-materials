@@ -6,8 +6,7 @@
     <tr>
         <td>10:15&nbsp;&nbsp;</td>
         <td><b><A href="../00_Introduction/">Welcome and introduction</a></b>
-        <br><em>Presenters: Jørn Dietze (LUST)</em>
-        <!--<br><em>Recording: <code>/project/project_465000502/recordings/00_Introduction.mp4</code> on LUMI only.</em>-->
+        <br><em>Presenter: Jørn Dietze (LUST)</em>
         </td>
     </tr>
     <tr>

@@ -1,8 +1,15 @@
 # HPE Cray PE tools introduction
 
-<!--
--   Slides in `/appl/local/training/profiling-20231122/files/01_Preparing_an_Application_for_Hybrid_Supercomputing.pdf`
+<em>Presenter: Alfio Lazzaro (HPE)</em>
+
+-   Slides on LUMI in `/appl/local/training/profiling-20231122/files/01_HPE_Cray_PE_tools.pdf``
+
+-   Files from the demo on LUMI in `/appl/local/training/profiling-20231122/files/01_HPE_Demo.tar`
+
+HPE training materials can only be shared with other LUMI users and therefore are not available on the
+web.
   
+<!--
 -   Recording in `/appl/local/training/profiling-20231122/recordings/00_Introduction.mp4`
 -->
 

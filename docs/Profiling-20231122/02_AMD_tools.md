@@ -2,9 +2,18 @@
 
 <em>Presenter: Samuel Antao (AMD)</em>
 
-<!--
--   [Slides](https://462000265.lumidata.eu/profiling-20231122/files/02_intro_rocprof.pdf)
+-   Slides:
 
+    -   [Part 1: rocprof (PDF, 3.2M)](https://462000265.lumidata.eu/profiling-20231122/files/02a_AMD_ROCm_profiling_tools_rocprof.pdf)
+
+    -   [Part 2: omnitrace (PDF, 9.7M)](https://462000265.lumidata.eu/profiling-20231122/files/02b_AMD_ROCm_profiling_tools_omnitrace.pdf)
+
+    -   [Part 3: omniperf and the roofline model (PDF, 6.5M)](https://462000265.lumidata.eu/profiling-20231122/files/02c_AMD_ROCm_profiling_tools_omniperf_and_roofline.pdf)
+
+    The slide files are also available on LUMI in
+    `/scratch/project_462000265/profiling-20231122/files`.
+
+<!--
 -   Recording in `/appl/local/training/profiling-20231122/recordings/02_Intro_rocprof.mp4`
 -->
 

@@ -3,9 +3,7 @@
 ## Course organisation
 
 -   [Course schedule](schedule.md)
-
-     *The full filename for the slides and the video recording of each presentation is also mentioned in that table,
-     if that file is only available on LUMI.*
+    with links to the pages with the Q&A and course materials.
 
 -   [HedgeDoc for questions (during the course only)](https://md.sigma2.no/lumi-hackathon-profiling-nov2023?both)
 
