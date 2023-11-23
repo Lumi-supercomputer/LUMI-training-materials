@@ -6,9 +6,9 @@
 
     -   [Part 1: rocprof (PDF, 3.2M)](https://462000265.lumidata.eu/profiling-20231122/files/02a_AMD_ROCm_profiling_tools_rocprof.pdf)
 
-    -   [Part 2: omnitrace (PDF, 9.7M)](https://462000265.lumidata.eu/profiling-20231122/files/02b_AMD_ROCm_profiling_tools_omnitrace.pdf)
+    -   [Part 2: OmniTrace (PDF, 9.7M)](https://462000265.lumidata.eu/profiling-20231122/files/02b_AMD_ROCm_profiling_tools_omnitrace.pdf)
 
-    -   [Part 3: omniperf and the roofline model (PDF, 6.5M)](https://462000265.lumidata.eu/profiling-20231122/files/02c_AMD_ROCm_profiling_tools_omniperf_and_roofline.pdf)
+    -   [Part 3: OmniPerf and the roofline model (PDF, 6.5M)](https://462000265.lumidata.eu/profiling-20231122/files/02c_AMD_ROCm_profiling_tools_omniperf_and_roofline.pdf)
 
     The slide files are also available on LUMI in
     `/appl/local/training/profiling-20231122/files`.
