@@ -15,6 +15,7 @@ theme:
     - navigation.indexes
     - header.autohide
     - toc.follow
+    - content.code.annotate
   favicon: assets/favicon-LUMI.png
   font: false
   palette:
@@ -108,7 +109,7 @@ plugins:
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
   - attr_list
-  # MArkdown in HTML
+  # Markdown in HTML
   - md_in_html
   # notes, warnings, hints, ...
   - admonition
@@ -121,7 +122,9 @@ markdown_extensions:
   # clickable details
   - pymdownx.details
   # tabbed contents
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Table of contents on the side
   - toc:
       permalink: true
 
