@@ -10,19 +10,19 @@
     6 parts:
 
     1.  Introduction and LUMI hardware: slides 1-8:
-        `/appl/local/training/profiling-20231122/recordings/`
+        `/appl/local/training/profiling-20231122/recordings/01a_HPE_Cray_PE_tools__Hardware.mp4`
 
     2.  The HPE Cray Programming Environment: slides 9-38:
-        `/appl/local/training/profiling-20231122/recordings/`
+        `/appl/local/training/profiling-20231122/recordings/01b_HPE_Cray_PE_tools__Programming_environment.mp4`
 
     3.  Job placement: slides 39-51:
-        `/appl/local/training/profiling-20231122/recordings/`
+        `/appl/local/training/profiling-20231122/recordings/01c_HPE_Cray_PE_tools__Job_placement.mp4`
 
     4.  Cray MPICH for GPUs: slides 52-57:
-        `/appl/local/training/profiling-20231122/recordings/`
+        `/appl/local/training/profiling-20231122/recordings/01d_HPE_Cray_PE_tools__MPICH_GPU.mp4`
 
     5.  Performance Analysis: slides 58-92:
-        `/appl/local/training/profiling-20231122/recordings/`
+        `/appl/local/training/profiling-20231122/recordings/01e_HPE_Cray_PE_tools__Performance_analysis.mp4`
 
     The "GDB for HPC" slides were not covered in the presentation.
 
