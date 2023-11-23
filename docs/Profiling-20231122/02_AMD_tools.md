@@ -28,7 +28,7 @@
     <video src="https://462000265.lumidata.eu/profiling-20231122/recordings/02c_AMD_tools__OmniPerf.mp4" controls="controls"></video>
 
 The recordings are also available on LUMI in
-`/appl/local/training/profiling-20231122/recordings`
+`/appl/local/training/profiling-20231122/recordings`.
 
 
 ## Q&A
