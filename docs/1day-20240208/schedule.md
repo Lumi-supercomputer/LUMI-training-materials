@@ -54,8 +54,8 @@
     </tr>
     <tr>
         <td>
-            10:10 CEST
-            <br/><em>11:10 EEST</em>
+            10:15 CEST
+            <br/><em>11:15 EEST</em>
         </td>
         <td>
             Modules on LUMI
