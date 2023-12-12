@@ -423,23 +423,23 @@ The compiler wrappers are provided by the `craype` module (but you don't have to
   ![Slide Selecting the version of the CPE](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-02-CPE/SelectingCPEVersion.png){ loading=lazy }
 </figure>
 
-The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `22.08` for the version
-released in August 2022. There are usually 10 releases per year (basically every month except July
-and January), though not all versions are ever offered on LUMI. 
+The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `23.09` for the version
+released in September 2023. There are several releases each year (at least 4), but not all
+of them are offered on LUMI. 
 
 There is always a default version assigned by the sysadmins when installing the programming
 environment. It is possible to change the default version for loading further modules
-by loading one of the versions of the `cpe` module. E.g., assuming the 22.08 version would be
+by loading one of the versions of the `cpe` module. E.g., assuming the 23.09 version would be
 present on the system, it can be loaded through
 ```
-module load cpe/22.08
+module load cpe/23.09
 ```
 Loading this module will also try to switch the already loaded PE modules to the versions from
 that release. This does not always work correctly, due to some bugs in most versions of this
 module and a limitation of Lmod. Executing the `module load` twice will fix this:
 ```
-module load cpe/22.08
-module load cpe/22.08
+module load cpe/23.09
+module load cpe/23.09
 ```
 The module will also produce a warning when it is unloaded (which is also the case when you
 do a `module load` of `cpe` when one is already loaded, as it then first unloads the already
@@ -728,7 +728,47 @@ the HPE Cray PE uses Lmod that information is not always complete for the PE, wh
 why we didn't demonstrate it here.
 
 
+## Note: Compiling without the HPE Cray PE wrappers
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide Note: Working without the wrappers](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-02-CPE/NoteWrappers.png){ loading=lazy }
+</figure>
 
+It is now possible to work without the HPE Cray PE compiler wrappers 
+and to use the compilers in a way you may be more familiar with from other 
+HPC systems. 
 
+In that case, you would likely want to load a compiler module without loading the 
+`PrgEnv-*` module and `craype` module (which would be loaded automatically by the
+`PrgEnv-*` module). The compiler module and compiler driver names are then given
+by the following table:
 
+| Description                               | Compiler module | Compilers                            |
+|-------------------------------------------|-----------------|--------------------------------------|
+| Cray Compiling Environment                | `cce`           | `craycc`, `crayCC`, `crayftn`        |
+| GNU Compiler Collection                   | `gcc`           | `gcc`, `g++`, `gfortran`             |
+| AMD Optimizing Compilers<br>(CPU only)    | `aocc`          | `clang`, `clang++`, `flang`          |
+| AMD ROCm LLVM compilers <br>(GPU support) | `amd`           | `amdclang`, `amdclang++`, `amdflang` |
+
+Recent versions of the `cray-mpich` module now also provide the traditional MPI compiler wrappers
+such as `mpicc`, `mpicxx` or `mpifort`. Note that you will still need to ensure that the network
+target module `craype-network-ofi` is loaded to be able to load the `cray-mpich` module!
+The `cray-mpich` module also defines the environment variable `MPICH_DIR` that points to the
+MPI installation for the selected compiler.
+
+To manually use the BLAS and LAPACK libraries, you'll still have to load the `cray-libsci` module.
+This module defines the `CRAY_LIBSCI_PREFIX_DIR` environment variable that points to the directory
+with the library and include file subdirectories for the selected compiler. 
+See [the `intro_libsci` manual page](https://cpe.ext.hpe.com/docs/csml/cray_libsci.html)
+for information about the different libraries.
+
+To be able to use the `cray-fftw` FFTW libraries, you still need to load the right CPU target module,
+even though you need to specify the target architecture yourself now when calling the compilers. 
+This is because the HPE Cray PE does not come with a multi-cpu version of the FFTW libraries, but 
+specific versions for each CPU (or sometimes group of similar CPUs). Here again some environment
+variables may be useful to point the compiler and linker to the installation: `FFTW_ROOT` for the 
+root of the installation for the specific CPU (the library is otherwise compiler-independent),
+`FFTW_INC` for the subdirectory with the include files and `FFTW_DIR` for the directory with the
+libraries.
+
+Other modules that you may want to use also typically define some useful environment variables.
