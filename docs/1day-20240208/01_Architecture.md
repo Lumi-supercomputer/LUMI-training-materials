@@ -144,7 +144,7 @@ then add a number of CPU nodes to do the I/O and a specialised render GPU node f
 in-situ visualisation.
 
 LUMI is in the first place a huge GPGPU supercomputer. The GPU partition of
-LUMI, called LUMI-G, contains 2928 (2978?) nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250x
+LUMI, called LUMI-G, contains 2978 nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250x
 GPUs. Each node has 512 GB of RAM attached to the CPU (the maximum the CPU can handle
 without compromising bandwidth) and 128 GB of HBM2e memory per GPU. Each GPU node
 has a theoretical peak performance of nearly 200 TFlops in single (FP32) or double (FP64)
@@ -157,7 +157,7 @@ stellar.
 LUMI also has a large CPU-only partition, called LUMI-C, for jobs that do not run well on GPUs,
 but also integrated enough with the GPU partition that it is possible to have
 applications that combine both node types.
-LUMI-C consists of 1536 nodes with 2 64-core AMD EPYC 7763 CPUs. 32 of those nodes
+LUMI-C consists of 2048 nodes with 2 64-core AMD EPYC 7763 CPUs. 32 of those nodes
 have 1TB of RAM (with some of these nodes actually reserved for special purposes
 such as connecting to a Quantum computer), 128 have 512 GB and 1376 have
 256 GB of RAM.
@@ -191,7 +191,7 @@ An object based file system similar to the Allas service of CSC that some
 of the Finnish users may be familiar with is also being worked on. At the 
 moment the interface to that system is still rather primitive.
 
-Currently LUMI has 4 login nodes, called user access nodes in the HPE Cray
+Currently LUMI has 4 login nodes for ssh access, called user access nodes in the HPE Cray
 world. They each have 2 64-core AMD EPYC 7742 processors and 1 TB of RAM.
 Note that  whereas the GPU and CPU compute nodes have the Zen3 architecture
 code-named "Milan", the processors on the login nodes are Zen2 processors,
@@ -200,7 +200,10 @@ them, that code would not run on the login nodes. These instructions are basical
 used in cryptography though. However, many instructions have very different latency,
 so a compiler that optimises specifically for Zen3 may chose another ordering of
 instructions then when optimising for Zen2 so it may still make sense to compile
-specifically for the compute nodes on LUMI.
+specifically for the compute nodes on LUMI. 
+
+There are also some additional
+login nodes for access via the web-based Open OnDemand interface.
 
 All compute nodes, login nodes and storage are linked together through a 
 high-performance interconnect. LUMI uses the Slingshot 11 interconnect which
@@ -542,19 +545,19 @@ Moreover, a closer integration of CPU and GPU would not only make programming ea
 as memory management becomes easier, it would also enable some codes to run on GPU 
 accelerators that are currently bottlenecked by memory transfers between GPU and CPU.
 
-AMD at its 2022 Investor day and at CES 2023 in early January, and Intel at an Investor
-day in 2022 gave a glimpse of how they see the future. The future is one where one or
-more CPU dies, GPU dies and memory controllers are combined in a single package
-and - contrary to the Grace Hopper design of NVIDIA - where CPU and GPU share 
-memory controllers. At CES 2023, AMD already showed a MI300A package that will be
-used in El Capitan, one of the next USA exascale systems (the third one if Aurora
-gets built in time). It employs 13 chiplets in two layers, linked to (still only) 8 
-memory stacks (albeit of a slightly faster type than on the MI250x). 
+Such a chip is exactly what AMD launched in December 2023 with the MI300A version of 
+the MI300 series. 
+It employs 13 chiplets in two layers, linked to (still only) 8 
+memory stacks (albeit of a much faster type than on the MI250x). 
 The 4 chiplets on the
 bottom layer are the memory controllers and inter-GPU links (an they can be at the
-bottom as they produce less heat). Furthermore each package features 6 GPU dies and
-3 Zen4 "Genoa" CPU dies. The MI300A still uses only 8 HBM stacks and is also limited
-to 16 GB stacks, providing a total of 128 GB of RAM.
+bottom as they produce less heat). Furthermore each package features 6 GPU dies
+(now called XCD or Accelerated Compute Die as they really can't do graphics) and
+3 Zen4 "Genoa" CPU dies. In the MI300A the memory is still limited to 8 16 GB stacks, 
+providing a total of 128 GB of RAM. The MI300X,  which is the regular version 
+without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
+but presumably those were not yet available when the design of MI300A was tested
+for the launch customer, the El Capitan supercomputer.
 
 Intel at some point has shown only very conceptual drawings of its Falcon Shores chip 
 which it calls an XPU, but those drawings suggest that that chip will also support some low-bandwidth
