@@ -516,11 +516,8 @@ to get even more information about the buildtools module, including any help inc
   ![module keyword](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/ModuleKeyword.png)
 </figure>
 
-Lmod has a second way of searching for modules: `module keyword`, but unfortunately it does not
-yet work very well on LUMI as the version of Lmod is rather old and still has some bugs in the
-processing of the command. 
-
-The `module keyword` command searches in some of the information included in module files for the
+Lmod has a second way of searching for modules: `module keyword`. It searches 
+in some of the information included in module files for the
 given keyword, and shows in which modules the keyword was found.
 
 We do an effort to put enough information in the modules to make this a suitable additional way
