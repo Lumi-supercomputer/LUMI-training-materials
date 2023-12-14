@@ -34,7 +34,7 @@ In this section we discuss
     to remain very agile, which leads to different compromises compared to a software stack for a more
     conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.
 
--   Users also come to LUMI from **11 different channels**, not counting subchannels as some countries have
+-   Users also come to LUMI from **12 different channels**, not counting subchannels as some countries have
     multiple organisations managing allocations, and those channels all have different expectations about
     what LUMI should be and what kind of users should be served. For our major stakeholder, the EuroHPC JU,
     LUMI is a pre-exascale system meant to prepare users and applications to make use of future even large
@@ -47,7 +47,7 @@ In this section we discuss
     also. **So we must set up a system so that they can support their users without breaking things on
     LUMI, and to work with restricted rights.** And in fact, LUMI User Support team members also have very limited additional
     rights on the machine compared to regular users or support people from the local organisations.
-    LUST is currently 9 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
+    LUST is currently 10 FTE. Compare this to 41 people in the Jülich Supercomputer Centre for software
     installation and support only... (I give this number because it was mentioned in a a talk in the
     EasyBuild user meeting in 2022.)
 
@@ -59,7 +59,8 @@ In this section we discuss
     stack, and it also works differently with its **universal compiler wrappers** that are typically configured
     through modules. 
 
--   We also see an increasing **need for customised setups**. Everybody wants a central stack as long as their
+-   We also see an increasing **need for customised environments**. 
+    Everybody wants a central stack as long as their
     software is in there but not much more as otherwise it is hard to find, and as long as software is 
     configured in the way they are used to. And everybody would like LUMI to look as much as possible 
     as their home system. But this is of course impossible. Moreover, there are more and more conflicts
@@ -102,7 +103,7 @@ Both have their own strengths and weaknesses.
 We chose to go with **EasyBuild as our primary tool** for which we also do some development. 
 However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
 that you may be accustomed with from clusters at your home institution. **It uses toolchains
-specifically for the HPE Cray programming environment** so recipes need to be adapted. We do offer an
+specifically for the HPE Cray programming environment** so recipes need to be adapted. We do offer a
 **growing library of Cray-specific installation recipes** though.
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that **your modules appear in your module view** without having to add directories by hand
@@ -157,8 +158,8 @@ high performance from the interconnect. For example,
     libraries needs to be ported. 
 -   Binaries that do only contain NVIDIA code paths, even if the programming
     model is supported on AMD GPUs, will not run on LUMI. 
--   The LUMI interconnect requires **libfabric**
-    using a specific provider for the NIC used on LUMI, the so-called Cassini provider, 
+-   The LUMI interconnect requires **libfabric**, the Open Fabrics Interface (OFI) library,
+    using a specific provider for the NIC used on LUMI, the so-called Cassini provider (CXI), 
     so any software compiled with an MPI library that
     requires UCX, or any other distributed memory model built on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. 
@@ -286,7 +287,7 @@ compilers we used.
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
 
-First there are the **LUMI/22.08, LUMI/22.12 and LUMI/23.03 modules**. 
+First there are the **LUMI/22.08, LUMI/22.12, LUMI/23.03 and LUMI/23.09 modules**. 
 Each of the LUMI modules loads a particular version of the LUMI stack.
 
 The **second level consists of partition modules**. 
@@ -501,21 +502,21 @@ of a package that are not yet installed if the easyconfigs don't follow the nami
 convention. Each part of the name also corresponds to a parameter in the easyconfig 
 file.
 
-Consider, e.g., the easyconfig file `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`.
+Consider, e.g., the easyconfig file `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`.
 
 1.  The first part of the name, `GROMACS`, is the name of the package, specified by the
     `name` parameter in the easyconfig, and is after installation also the name of the
     module.
-2.  The second part, `2021.4`, is the version of GROMACS and specified by the
+2.  The second part, `2022.5`, is the version of GROMACS and specified by the
     `version` parameter in the easyconfig.
-3.  The next part, `cpeCray-22.08` is the name and version of the toolchain,
+3.  The next part, `cpeGNU-23.09` is the name and version of the toolchain,
     specified by the `toolchain` parameter in the easyconfig. The version of the
     toolchain must always correspond to the version of the LUMI stack. So this is
-    an easyconfig for installation in `LUMI/22.08`.
+    an easyconfig for installation in `LUMI/23.09`.
 
     This part is not present for the SYSTEM toolchain
 
-4.  The final part, `-PLUMED-2.8.0-CPU`, is the version suffix and used to provide
+4.  The final part, `-PLUMED-2.9.0-noPython-CPU`, is the version suffix and used to provide
     additional information and distinguish different builds with different options
     of the same package. It is specified in the `versionsuffix` parameter of the
     easyconfig.
@@ -525,7 +526,7 @@ Consider, e.g., the easyconfig file `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-C
 The version, toolchain + toolchain version and versionsuffix together also combine
 to the version of the module that will be generated during the installation process.
 Hence this easyconfig file will generate the module 
-`GROMACS/2021.4-cpeCray-22.08-PLUMED-2.8.0-CPE`.
+`GROMACS/2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU`.
 
 
 
@@ -572,8 +573,8 @@ The next step is to configure your environment. First load the proper version of
 stack for which you want to install software, and you may want to change to the proper
 partition also if you are cross-compiling.
 
-Once you have selected the software stack and partition, all you need to do to activate EasyBuild to install
-additional software is to load
+Once you have selected the software stack and partition, all you need to do to 
+activate EasyBuild to install additional software is to load
 the `LUMI` module, load a partition module if you want a different one from the default, and 
 then load the `EasyBuild-user` module. In fact, if you switch to a different `partition` 
 or `LUMI` module after loading `EasyBuild-user` EasyBuild will still be correctly reconfigured 
@@ -582,7 +583,10 @@ for the new stack and new partition.
 Cross-compilation which is installing software for a different partition than the one you're
 working on does not always work since there is so much software around with installation scripts
 that don't follow good practices, but when it works it is easy to do on LUMI by simply loading
-a different partition module than the one that is auto-loaded by the `LUMI` module.
+a different partition module than the one that is auto-loaded by the `LUMI` module. It works 
+correctly for a lot of CPU-only software, but fails more frequently for GPU software as the
+installation scripts will try to run scripts that detect which GPU is present, or try to run
+tests on the GPU, even if you tell which GPU type to use, which does not work on the login nodes.
 
 **Note that the `EasyBuild-user` module is only needed for the installation process. For using
 the software that is installed that way it is sufficient to ensure that `EBU_USER_PREFIX` has
@@ -623,15 +627,15 @@ eb --search GROMACS
     The information provided by both variants of the search command is the same, but `-S` presents the information in a more
     compact form.
 
-Now let's take the variant `GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb`. 
-This is GROMACS 2021.4 with the PLUMED 2.8.0 plugin, build with the Cray compilers
-from `LUMI/22.08`, and a build meant for CPU-only systems. The `-CPU` extension is not
+Now let's take the variant `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`. 
+This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, build with the GNU compilers
+from `LUMI/23.09`, and a build meant for CPU-only systems. The `-CPU` extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
 ```bash
-eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D
+eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
@@ -642,42 +646,42 @@ it can be turned on.
 The output of this command looks like:
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_01.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_01.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb –D (2)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_02.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb (2)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_02.png){ loading=lazy }
 </figure>
 
 
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
 But it will do so automatically when we run
 ```bash
-eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r
+eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
 ```
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_03.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_03.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (2)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_04.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_04.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (3)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_05.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_05.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (4)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_06.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_06.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (5)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_07.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_07.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2021.4-cpeCray-22.08-PLUMED-2.8.0-CPU.eb -r (6)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_08.png){ loading=lazy }
+  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-04-software/EasyBuildGROMACS_08.png){ loading=lazy }
 </figure>
 
 This takes too long to wait for, but once it finished the software should be available
@@ -747,7 +751,7 @@ will tell you for which versions of VASP we already have build instructions, but
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
 directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
 ```bash
-eb VASP-6.3.0-cpeGNU-22.08.eb –r . 
+eb VASP-6.4.1-cpeGNU-22.12-build01.eb –r . 
 ```
 
 ### More advanced work (2): Repositories
@@ -852,7 +856,7 @@ page also includes links to training materials, both written and as recordings o
 EasyBuild documentation.
 
 Generic EasyBuild training materials are available on 
-[easybuilders.github.io/easybuild-tutorial](https:/easybuilders.github.io/easybuild-tutorial/).
+[tutorial.easybuild.io](https:/tutorial.easybuild.io/).
 The site also contains a LUST-specific tutorial oriented towards Cray systems.
 
 There is also a later course developed by LUST for developers of EasyConfigs for LUMI
