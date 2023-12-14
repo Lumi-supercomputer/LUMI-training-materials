@@ -163,7 +163,8 @@ high performance from the interconnect. For example,
     so any software compiled with an MPI library that
     requires UCX, or any other distributed memory model built on top of UCX, will not work on LUMI, or at
     least not work efficiently as there might be a fallback path to TCP communications. 
--   Even intra-node interprocess communication can already cause problems as there are three different kernel extensions
+-   Even intra-node interprocess communication can already cause problems
+    as there are three different kernel extensions
     that provide more efficient interprocess messaging than the standard Linux mechanism. Many clusters
     use **knem** for that but on LUMI **xpmem** is used. So software that is not build to support xpmem will
     also fall back to the default mechanism or fail. 
@@ -207,8 +208,9 @@ user space and can be used to containerise a conda-installation.
 
 On LUMI we have several software stacks.
 
-**CrayEnv** is the minimal software stack for users who only need the **Cray Programming Environment** but want a **more
-recent set of build tools etc** than the OS provides. We also take care of a few issues that we will discuss
+**CrayEnv** is the minimal software stack for users who only need the 
+**Cray Programming Environment** but want a **more recent set of build tools etc** 
+than the OS provides. We also take care of a few issues that we will discuss
 on the next slide that are present right after login on LUMI.
 
 Next we have the **stacks called "LUMI"**. Each one corresponds to a **particular release of the HPE Cray
@@ -324,10 +326,10 @@ explicitly load the partition/L module.
 </figure>
 
 Software on HPC systems is **rarely installed from RPMs** (a popular format to package Linux software
-distributed as binaries) or any other similar format for various reasons.
-Generic RPMs are **rarely optimised for the specific CPU** of the system as they have to work on a range
+distributed as binaries) or any other similar format for various reasons. Generic RPMs are
+**rarely optimised for the specific CPU** of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
-hard to even impossible. 
+hard to even impossible.
 Secondly generic RPMs **might not even work with the specific LUMI environment**. They may not fully
 support the SlingShot interconnect and hence run at reduced speed, or they may need particular
 kernel modules or daemons that are not present on the system or they may not work well with
@@ -601,6 +603,7 @@ the proper value before loading the `LUMI` module.**
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
 installation takes 15 or 20 minutes.
+
 First we need to figure out for which versions of GROMACS there is already support on LUMI.
 An easy way to do that is to simply check the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
 This web site lists all software that we manage via EasyBuild and make available either pre-installed on
