@@ -152,6 +152,9 @@ A selection of man pages explicitly mentioned during the course:
 
 -   Slurm manual pages are also all [on the web](https://slurm.schedmd.com/archive/slurm-22.05.10/man_index.html) 
     and are easily found by Google, but are usually those for the latest version.
+    The web version is not completely equivalent with the version provided by the `man` command on
+    LUMI as the latter also contain additional information specific to the Slingshot 11 interconnect
+    of LUMI.
 
     -   [`man sbatch`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html)
 

@@ -5,8 +5,19 @@ Most recently completed main training events:
 -   4-day comprehensive LUMI training aimed at developers and advanced users:
     [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
 
+    -   *[Updated notes of the "LUMI Software Stacks" presentation](4day-2024next/notes_2_05_LUMI_Software_Stacks.md)
+        including changes in the system introduced by the October-November 2023 system update.*
+
 -   1-day LUMI training aimed at regular users:
     [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
+
+    *Updates including changes in the system introduced by the October-November 2023 system update:*
+
+    -   *[LUMI Architecture](1day-20240208/01_Architecture.md)*
+    -   *[HPE Cray Programming Environment](1day-20240208/02_CPE.md)*
+    -   *[Modules on LUMI](1day-20240208/03_Modules.md)*
+    -   *[LUMI Software Stacks](1day-20240208/04_Software_stacks.md)*
+    -   *[Documentation links](1day-20240208/A01_Documentation.md)*
 
 
 ## LUMI User Coffee Break Talks
