@@ -10,28 +10,24 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/video_03_Modules_on_LUMI/">
       
       
-        <link rel="prev" href="../Hackathon-20230417/">
       
       
-        <link rel="next" href="../4day-20230214/">
-      
-      
-      <link rel="icon" href="../assets/favicon-LUMI.png">
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.11">
     
     
       
-        <title>HPE and AMD profiling tools (April 13, 2023) - LUMI training materials</title>
+        <title>Modules on LUMI - LUMI training materials</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
   
@@ -61,9 +57,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
   
       
@@ -97,9 +93,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - HPE and AMD profiling tools (April 13, 2023)" />
+  <meta property="og:title" content="LUMI training materials - Modules on LUMI" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20230413/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/video_03_Modules_on_LUMI/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -109,7 +105,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - HPE and AMD profiling tools (April 13, 2023)" />
+  <meta name="twitter:title" content="LUMI training materials - Modules on LUMI" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -141,11 +137,11 @@
 
     <link
       rel="stylesheet"
-      href="../assets/stylesheets/extra-a8af0af3d0.css"
+      href="../../assets/stylesheets/extra-a8af0af3d0.css"
     />
     <link
       rel="stylesheet"
-      href="../assets/stylesheets/overrides-5193e6f6df.css"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
     />
     <link
       rel="stylesheet"
@@ -172,7 +168,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hpe-and-amd-profiling-tools-april-13-2023" class="md-skip">
+        <a href="#modules-on-lumi" class="md-skip">
           Skip to content
         </a>
       
@@ -188,7 +184,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -229,7 +225,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HPE and AMD profiling tools (April 13, 2023)
+              Modules on LUMI
             
           </span>
         </div>
@@ -303,7 +299,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -341,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -386,7 +382,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../User-Updates/" class="md-nav__link ">
+            <a href="../../User-Updates/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -418,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202311/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -464,7 +460,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../User-Updates/Update-202308/" class="md-nav__link ">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -496,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -516,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +587,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../User-Coffee-Breaks/" class="md-nav__link ">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -645,7 +641,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Profiling-20231122/" class="md-nav__link ">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -699,7 +695,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../4day-20231003/" class="md-nav__link ">
+            <a href="../../4day-20231003/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -773,7 +769,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1day-20230921/" class="md-nav__link ">
+            <a href="../../1day-20230921/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -805,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/01_Architecture/" class="md-nav__link">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -825,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/02_CPE/" class="md-nav__link">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/03_Modules/" class="md-nav__link">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/04_Software_stacks/" class="md-nav__link">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/05_Exercises_1/" class="md-nav__link">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/06_Running_jobs/" class="md-nav__link">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -925,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/07_Exercises_2/" class="md-nav__link">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -945,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -965,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/09_LUMI_support/" class="md-nav__link">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/A01_Documentation/" class="md-nav__link">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1032,7 +1028,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../4day-20230530/" class="md-nav__link ">
+            <a href="../../4day-20230530/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1104,7 +1100,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1day-20230509/" class="md-nav__link ">
+            <a href="../../1day-20230509/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1136,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/01_Architecture/" class="md-nav__link">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1156,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/02_CPE/" class="md-nav__link">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1176,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/03_Modules/" class="md-nav__link">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1196,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/04_Software_stacks/" class="md-nav__link">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/05_Exercises_1/" class="md-nav__link">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1236,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/06_Running_jobs/" class="md-nav__link">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1256,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/07_Exercises_2/" class="md-nav__link">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1276,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1296,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/09_LUMI_support/" class="md-nav__link">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1343,7 +1339,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Hackathon-20230417/" class="md-nav__link ">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1375,8 +1371,6 @@
       
   
   
-    
-  
   
     
     
@@ -1389,17 +1383,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1411,7 +1405,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             Profiling April 2013
@@ -1453,7 +1447,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../4day-20230214/" class="md-nav__link ">
+            <a href="../../4day-20230214/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1507,7 +1501,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../LUMI-G-20230111/" class="md-nav__link ">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1563,7 +1557,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../PEAP-Q-20221123/" class="md-nav__link ">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1595,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PEAP-Q-20221123/schedule/" class="md-nav__link">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1644,7 +1638,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../LUMI-G-20220823/" class="md-nav__link ">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1676,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1725,7 +1719,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../EasyBuild-CSC-20220509/" class="md-nav__link ">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1808,7 +1802,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../PEAP-Q-20220427/" class="md-nav__link ">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1840,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1860,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1901,41 +1895,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#course-organisation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Course organisation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#course-materials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Course materials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extras" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extras
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1949,71 +1908,17 @@
                   
 
 
-<h1 id="hpe-and-amd-profiling-tools-april-13-2023">HPE and AMD profiling tools (April 13, 2023)<a class="headerlink" href="#hpe-and-amd-profiling-tools-april-13-2023" title="Permanent link">&para;</a></h1>
-<h2 id="course-organisation">Course organisation<a class="headerlink" href="#course-organisation" title="Permanent link">&para;</a></h2>
+<h1 id="modules-on-lumi">Modules on LUMI<a class="headerlink" href="#modules-on-lumi" title="Permanent link">&para;</a></h1>
+<p><em>Presenter: Kurt Lust (LUST)</em></p>
+<!--
+<video src="https://462000265.lumidata.eu/1day-20240208/recordings/03_Modules_on_LUMI.mp4" controls="controls">
+</video>
+-->
+
+<p>Additional materials</p>
 <ul>
-<li>
-<p><a href="schedule/">Course schedule</a></p>
-<p><em>The full filename for the slides and the video recording of each presentation is also mentioned in that table,
- if that file is only available on LUMI.</em></p>
-</li>
-<li>
-<p><a href="https://md.sigma2.no/lumi-profiling?edit">HedgeDoc for questions (during the course only)</a></p>
-</li>
-</ul>
-<h2 id="course-materials">Course materials<a class="headerlink" href="#course-materials" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Presenatation</th>
-<th style="text-align: left;">slides</th>
-<th style="text-align: left;">recording</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><a href="00_Introduction/">Introduction</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="01_Preparing_an_Application_for_Hybrid_Supercomputing/">Preparing an Application for Hybrid Supercomputing</a></td>
-<td style="text-align: left;"><em><a href="01_Preparing_an_Application_for_Hybrid_Supercomputing/">slides</a></em></td>
-<td style="text-align: left;"><em><a href="01_Preparing_an_Application_for_Hybrid_Supercomputing/">recording</a></em></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="02_Intro_rocprof/">Introduction to ROC-Profiler (rocprof)</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/profiling-20230413/files/02_intro_rocprof.pdf">slides</a></td>
-<td style="text-align: left;"><em><a href="02_Intro_rocprof/">recording</a></em></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="03_Intro_OmniTrace/">Introduction to OmniTrace</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/profiling-20230413/files/03_intro_omnitrace.pdf">slides</a></td>
-<td style="text-align: left;"><em><a href="03_Intro_OmniTrace/">recording</a></em></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="04_Intro_OmniPerf/">Introduction to Omniperf</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/profiling-20230413/files/04_intro_omniperf_roofline.pdf">slides</a></td>
-<td style="text-align: left;"><em><a href="04_Intro_OmniPerf/">recording</a></em></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="05_Exercises/">Exercises</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-</tbody>
-</table>
-<h2 id="extras">Extras<a class="headerlink" href="#extras" title="Permanent link">&para;</a></h2>
-<p>Extra downloads:</p>
-<ul>
-<li><a href="https://perfetto.dev/">Perfetto</a>, the "program" used to visualise the output of omnitrace, is not a regular application but 
-    <a href="https://ui.perfetto.dev/">a browser application</a>. Some browsers nowadays offer the option to install it on your
-    system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).</li>
-</ul>
-<p>Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:</p>
-<ul>
-<li><a href="https://raw.githubusercontent.com/AMDResearch/omniperf/main/sample/vcopy.cpp">vcopy.cpp example from the Omniperf presentation</a></li>
-<li><a href="https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/master/mini-nbody">mini-nbody from the rocporf exercise</a></li>
+<li><a href="https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-03-modules.pdf">Slides (PDF)</a></li>
+<li><a href="../03_Modules/">Notes</a></li>
 </ul>
 
 
@@ -2102,10 +2007,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>
