@@ -100,6 +100,11 @@ and some more.
 
 -   [HDF5 generic documentation](https://hdfgroup.github.io/hdf5/)
 
+-   Mentioned in the Lustre presentation: The 
+    [ExaIO project](https://www.exascaleproject.org/research-project/exaio/) paper
+    ["Transparent Asynchronous Parallel I/O Using Background Threads"](https://doi.org/10.1109/TPDS.2021.3090322).
+
+
 
 ## Man pages
 
