@@ -43,6 +43,7 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
+| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
 
 <!--
 | Introduction | / | / | [recording](video_00_Introduction.md) |
@@ -55,5 +56,4 @@ materials are uploaded.
 | Exercises 2 | / | [notes](07_Exercises_2.md) | / |
 | Introduction to Lustre and Best Practices | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-08-Lustre-intro.pdf) | / | [recording](video_08_Introduction_to_Lustre_and_Best_Practices.md) |
 | LUMI User Support | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-09-Lumi-support.pdf) | / | [recording](video_09_LUMI_User_Support.md) |
-| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
 -->
