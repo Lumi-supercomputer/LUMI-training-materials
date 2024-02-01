@@ -21,8 +21,8 @@
     E.g., in the scratch directory of the project:
 
     ```
-    mkdir -p /scratch/project_465000688/$USER/exercises
-    cd /scratch/project_465000688/$USER/exercises
+    mkdir -p /scratch/project_465000961/$USER/exercises
+    cd /scratch/project_465000961/$USER/exercises
     ```
 
 -   Now download the exercises and un-tar:
