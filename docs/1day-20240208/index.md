@@ -11,7 +11,6 @@
 
 ## Setting up for the exercises
 
-<!--
 -   Create a directory in the scratch of the training project, or if you want to
     keep the exercises around for a while after the session and have already
     another project on LUMI, in a subdirectory or your project directory 
@@ -28,14 +27,14 @@
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/1day-20240208/files/exercises-20230921.tar.gz
-    tar -xf exercises-20230921.tar.gz
+    wget https://462000265.lumidata.eu/1day-20240208/files/exercises-20240208.tar.gz
+    tar -xf exercises-20240208.tar.gz
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/1day-20240208/files/exercises-20230921.tar.gz)
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/1day-20240208/files/exercises-20240208.tar.gz)
 
 -   You're all set to go!
--->
+
 
 ## Downloads
 
@@ -44,6 +43,8 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
+
+<!--
 | Introduction | / | / | [recording](video_00_Introduction.md) |
 | LUMI Architecture | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-01-architecture.pdf) | [notes](01_Architecture.md) | [recording](video_01_LUMI_Architecture.md) |
 | HPE Cray Programming Environment | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-02-CPE.pdf) | [notes](02_CPE.md) | [recording](video_02_HPE_Cray_Programming_Environment.md) |
@@ -55,3 +56,4 @@ materials are uploaded.
 | Introduction to Lustre and Best Practices | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-08-Lustre-intro.pdf) | / | [recording](video_08_Introduction_to_Lustre_and_Best_Practices.md) |
 | LUMI User Support | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-09-Lumi-support.pdf) | / | [recording](video_09_LUMI_User_Support.md) |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
+-->
