@@ -22,9 +22,7 @@ Most recently completed main training events:
 
 ## LUMI User Coffee Break Talks
 
-In reverse chronological order:
-
--   [Current state of running AI workloads on LUMI (June 28, 2023)](User-Coffee-Breaks/20230628-user-coffee-break-AI.md)
+[Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
 ## Archive of the regular trainings
 
