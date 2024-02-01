@@ -13,10 +13,6 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/01_Architecture/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../02_CPE/">
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
@@ -24,7 +20,7 @@
     
     
       
-        <title>LUMI Architecture - LUMI training materials</title>
+        <title>The LUMI Architecture - LUMI training materials</title>
       
     
     
@@ -97,7 +93,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - LUMI Architecture" />
+  <meta property="og:title" content="LUMI training materials - The LUMI Architecture" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/01_Architecture/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -109,7 +105,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - LUMI Architecture" />
+  <meta name="twitter:title" content="LUMI training materials - The LUMI Architecture" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -229,7 +225,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LUMI Architecture
+              The LUMI Architecture
             
           </span>
         </div>
@@ -623,456 +619,6 @@
       
   
   
-    
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    1-day February 2024
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            1-day February 2024
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    LUMI Architecture
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    LUMI Architecture
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-do-i-kneed-to-know-this" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why do I kneed to know this?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lumi-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      LUMI is ...
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lumi-spec-sheet-a-modular-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      LUMI spec sheet: A modular system
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-the-cpu-amd-7xx3-milanzen3-cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-a-lumi-c-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building LUMI: A LUMI-C node
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Building LUMI: A LUMI-C node">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-strong-hierarchy-in-the-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      A strong hierarchy in the node
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hierarchy-delays-in-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hierarchy: delays in numbers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-concept-lumi-g-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building LUMI: Concept LUMI-G node
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-what-a-lumi-g-node-really-looks-like" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building LUMI: What a LUMI-G node really looks like
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Building LUMI: What a LUMI-G node really looks like">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-the-future-looks-like" class="md-nav__link">
-    <span class="md-ellipsis">
-      What the future looks like...
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-lumi-the-slingshot-interconnect" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building LUMI: The Slingshot interconnect
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assembling-lumi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assembling LUMI
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lumi-assembled" class="md-nav__link">
-    <span class="md-ellipsis">
-      LUMI assembled
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02_CPE/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    HPE Cray PE
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03_Modules/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Modules
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_Software_stacks/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Software stacks
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05_Exercises_1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Exercises 1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06_Running_jobs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Running jobs
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07_Exercises_2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Exercises 2
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08_Lustre_intro/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    I/O and file systems
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09_LUMI_support/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LUMI support
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../A01_Documentation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
   
     
     
@@ -1090,7 +636,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
@@ -1107,8 +653,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Profiling November 2023
           </label>
@@ -1144,7 +690,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           
@@ -1161,8 +707,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Comprehensive LUMI October 2023
           </label>
@@ -1218,7 +764,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
@@ -1234,14 +780,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             1-day September 2023
           </label>
@@ -1477,7 +1023,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           
@@ -1494,8 +1040,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Comprehensive LUMI May-June 2023
           </label>
@@ -1549,7 +1095,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
@@ -1565,14 +1111,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             1-day May 2023
           </label>
@@ -1788,7 +1334,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -1805,10 +1351,64 @@
             
           </div>
         
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon April 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling April 2013
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            Hackathon April 2023
+            Profiling April 2013
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1847,11 +1447,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Profiling-20230413/" class="md-nav__link ">
+            <a href="../../4day-20230214/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Profiling April 2013
+    Comprehensive LUMI February 2023
   </span>
   
 
@@ -1862,7 +1462,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            Profiling April 2013
+            Comprehensive LUMI February 2023
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1901,60 +1501,6 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../4day-20230214/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Comprehensive LUMI February 2023
-  </span>
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
-            <span class="md-nav__icon md-icon"></span>
-            Comprehensive LUMI February 2023
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
             <a href="../../LUMI-G-20230111/" class="md-nav__link ">
               
   
@@ -1967,8 +1513,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             LUMI-G January 2023
           </label>
@@ -2006,7 +1552,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
           
@@ -2022,14 +1568,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_14" id="__nav_14_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             PEAP-Q November 2022
           </label>
@@ -2087,7 +1633,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
         
           
           
@@ -2103,14 +1649,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_14" id="__nav_14_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             LUMI-G August 2022
           </label>
@@ -2168,7 +1714,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
         
           
           
@@ -2184,14 +1730,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_16" id="__nav_16_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
             EasyBuild May 2022
           </label>
@@ -2251,7 +1797,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
         
           
           
@@ -2267,14 +1813,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_17" id="__nav_17_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_16" id="__nav_16_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
             PEAP-Q April 2022
           </label>
