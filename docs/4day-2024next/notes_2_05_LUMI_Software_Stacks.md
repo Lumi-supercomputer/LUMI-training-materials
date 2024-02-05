@@ -1108,11 +1108,12 @@ internal data structures in Lmod where corrupt. The easiest way to solve this is
 log out and log in again and rebuild your environment.
 
 In case you see strange behaviour using modules you can also try to manually
-remove the Lmod user cache which is in `$HOME/.lmod.d/.cache`.
+remove the Lmod user cache which is in `$HOME/.cache/lmod`.
 You can do this with 
 ```bash
-rm -rf $HOME/.lmod.d/.cache
+rm -rf $HOME/.cache/lmod
 ```
+(With older versions of Lmod the cache directory is `$HOME/.lmod.d/cache`.)
 
 
 ### More advanced work
