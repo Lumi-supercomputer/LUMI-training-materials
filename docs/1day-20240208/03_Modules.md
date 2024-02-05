@@ -1,8 +1,8 @@
 # Modules on LUMI
 
 !!! Note "Intended audience"
-    As this course is designed for people already familiar with HPC systems. 
-    As virtually any cluster nowadays uses some form of module environment, this
+    As this course is designed for people already familiar with HPC systems and 
+    as virtually any cluster nowadays uses some form of module environment, this
     section assumes that the reader is already familiar with a module environment
     but not necessarily the one used on LUMI.
 
@@ -63,7 +63,7 @@ information for search and help information.
         [Lmod development on GitHub](https://github.com/TACC/Lmod)
 
 !!! Note "I know Lmod, should I continue?"
-    Lmod is a very flexible tool. Not all sides using Lmod use all features, and
+    Lmod is a very flexible tool. Not all sites using Lmod use all features, and
     Lmod can be configured in different ways to the extent that it may even look
     like a very different module system for people coming from another cluster.
     So yes, it makes sense to continue reading as Lmod on LUMI may have some tricks
@@ -79,7 +79,7 @@ information for search and help information.
     and SUSE Enterprise Linux 15 both came with Python 3.6 in their first version, and 
     keep using this version as the base version of Python even though official support from the Python Software Foundation has long ended. Similarly, the default GNU
     compiler version offered on those system also remains the same. The compiler may not even fully support some of the newer CPUs the code is running on. E.g., the
-    system compiler of SUSE Enterprise Linux 15 does not support the zen2 "Rome"
+    system compiler of SUSE Enterprise Linux 15, GCC 7.5, does not support the zen2 "Rome"
     or zen3 "Milan" CPUs on LUMI. 
 
     HPC systems will usually offer newer versions of those system packages through modules and users should always use those. The OS-included tools are really
@@ -209,7 +209,7 @@ when loading another module of that particular family.
 
 This is shown in the example in the previous subsection (the `module load PrgEnv-aocc` in 
 a fresh long shell) in two places. It is the mechanism that unloaded `PrgEnv-cray`
-when loading `PrgEnv-aocc` and that then unloaded `cce/14.0.1` when the 
+when loading `PrgEnv-aocc` and that then unloaded `cce/16.0.1` when the 
 `PrgEnv-aocc` module loaded the `aocc/3.2.0` module.
 
 !!! Note
@@ -756,7 +756,8 @@ Modules are stored as (small) files in the file system. Having a large module sy
 much software preinstalled for everybody means a lot of small files which will make
 our Lustre file system very unhappy.
 Fortunately Lmod does use caches by default. On LUMI we currently have no 
-system cache and only a user cache. That cache can be found in `$HOME/.lmod.d/.cache`. 
+system cache and only a user cache. That cache can be found in `$HOME/.cache/lmod`
+(and in some versions of LMOD in `$HOME/.lmod.d/.cache`). 
 
 That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
 e.g., the `module spider` and `module available` commands will be slow during the rebuild.
