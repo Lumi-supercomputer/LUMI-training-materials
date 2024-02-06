@@ -29,6 +29,7 @@ Most recently completed main training events:
 In reverse chronological order:
 
 -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
+-   [How to run GROMACS efficiently on LUMI workshop (January 24-25, 2024)](https://zenodo.org/records/10610643)
 -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
 -   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
 -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
