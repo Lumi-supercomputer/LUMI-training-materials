@@ -402,7 +402,8 @@ depending on which other modules are loaded. In some cases it tries to do so cle
 OpenMP, hybrid or sequential option depending on whether the MPI module is loaded and/or OpenMP compiler
 flag is used. This is the case for:
 
--   The MPI libraries. There is no `mpicc`, `mpiCC`, `mpif90`, etc. on LUMI. The regular compiler
+-   The MPI libraries. There is no `mpicc`, `mpiCC`, `mpif90`, etc. on LUMI (well, there is nowadays, but their
+    use is discouraged). The regular compiler
     wrappers do the job as soon as the `cray-mpich` module is loaded.
 -   LibSci and FFTW are linked automatically if the corresponding modules are loaded. So no need
     to look, e.g., for the BLAS or LAPACK libraries: They will be offered to the linker if the
@@ -411,7 +412,7 @@ flag is used. This is the case for:
     OpenMP compiler flag).
 -   netCDF and HDF5
 
-It is possible to see which compiler and linker flags the wrappers add through the `--craype-verbose`
+It is possible to see which compiler and linker flags the wrappers add through the `-craype-verbose`
 flag.
 
 The wrappers do have some flags of their own, but also accept all flags of the selected compiler and 
@@ -519,7 +520,7 @@ environment with the Fortran compiler from another. Currently on LUMI there is `
 Cray Fortran compiler with the AMD ROCm C/C++ compiler and `PrgEnv-gnu-amd` using the GNU Fortran compiler
 with the AMD ROCm C/C++ compiler.
 
-??? Note "Changes to the GNU compilersin 23.12"
+??? Note "Changes to the GNU compilers in 23.12"
     The HPE Cray PE will change the way it offers the GNU compilers in releases starting from 23.12.
     Rather than packaging the GNU compilers, HPE Cray will use the default development compiler version
     of SUSE Linux, which for SP4 is currently GCC 12.3 (not to be confused with the system default which
@@ -543,14 +544,16 @@ with the AMD ROCm C/C++ compiler.
 Help on the HPE Cray Programming Environment is offered mostly through manual pages
 and compiler flags. Online help is limited and difficult to locate.
 
-For the compilers and compiler wrappers, the following man pages are relevant:
+For the compilers, the following man pages are relevant:
 
 | PrgEnv                 | C            | C++          | Fortran        |
 |------------------------|--------------|--------------|----------------|
 | PrgEnv-cray            | `man craycc` | `man crayCC` | `man crayftn`  |
 | PrgEnv-gnu             | `man gcc`    | `man g++`    | `man gfortran` |
 | PrgEnv-aocc/PrgEnv-amd | -            | -            | -              |
-| Compiler wrappers      | `man cc`     | `man CC`     | `man ftn`      |
+
+There used to be manual pages for the wrappers also but they are currently hijacked
+by the GNU manual pages.
 
 Recently, HPE Cray have also created 
 [a web version of some of the CPE documentation](https://cpe.ext.hpe.com/docs/).
@@ -559,6 +562,8 @@ Some compilers also support the `--help` flag, e.g., `amdclang --help`. For the 
 the switch `-help` should be used instead as the double dash version is passed to the 
 compiler.
 
+The wrappers have a number of options specific to them. Information about them can be obtained
+by using the `--craype-help` flag with the wrappers.
 The wrappers also support the `-dumpversion` flag to show the version of the underlying compiler.
 Many other commands, including the actual compilers, use `--version` to show the version.
 
@@ -656,7 +661,7 @@ other users.
 
 The PE does not use the versions of many libraries determined by the loaded modules at runtime
 but instead uses default versions of libraries (which are actually in `/opt/cray/pe/lib64` on the system)
-which correspond to the version of the programming environment that is set as the default when installed.
+which correspond to the version of the programming environment that is set as the system default when installed.
 This is very much the behaviour of Linux applications also that pick standard libraries in a few standard
 directories and it enables many programs build with the HPE Cray PE to run without reconstructing the
 environment and in some cases to mix programs compiled with different compilers with ease (with the
