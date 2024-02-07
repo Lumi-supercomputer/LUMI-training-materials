@@ -1,8 +1,8 @@
 # Modules on LUMI
 
 !!! Note "Intended audience"
-    As this course is designed for people already familiar with HPC systems. 
-    As virtually any cluster nowadays uses some form of module environment, this
+    As this course is designed for people already familiar with HPC systems and 
+    as virtually any cluster nowadays uses some form of module environment, this
     section assumes that the reader is already familiar with a module environment
     but not necessarily the one used on LUMI.
 
@@ -63,7 +63,7 @@ information for search and help information.
         [Lmod development on GitHub](https://github.com/TACC/Lmod)
 
 !!! Note "I know Lmod, should I continue?"
-    Lmod is a very flexible tool. Not all sides using Lmod use all features, and
+    Lmod is a very flexible tool. Not all sites using Lmod use all features, and
     Lmod can be configured in different ways to the extent that it may even look
     like a very different module system for people coming from another cluster.
     So yes, it makes sense to continue reading as Lmod on LUMI may have some tricks
@@ -79,7 +79,7 @@ information for search and help information.
     and SUSE Enterprise Linux 15 both came with Python 3.6 in their first version, and 
     keep using this version as the base version of Python even though official support from the Python Software Foundation has long ended. Similarly, the default GNU
     compiler version offered on those system also remains the same. The compiler may not even fully support some of the newer CPUs the code is running on. E.g., the
-    system compiler of SUSE Enterprise Linux 15 does not support the zen2 "Rome"
+    system compiler of SUSE Enterprise Linux 15, GCC 7.5, does not support the zen2 "Rome"
     or zen3 "Milan" CPUs on LUMI. 
 
     HPC systems will usually offer newer versions of those system packages through modules and users should always use those. The OS-included tools are really
@@ -129,15 +129,15 @@ Lmod has **several tools to search for modules**.
   ![Benefits of a hierarchy](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/BenefitsHierarchy.png)
 </figure>
 
-When the hierarchy is well designed, you get some protection from loading modules that do
-not work together well. E.g., in the HPE Cray PE it is not possible to load the MPI
+When the hierarchy is well designed, you get **some protection from loading modules that do
+not work together well**. E.g., in the HPE Cray PE it is not possible to load the MPI
 library built for another compiler than your current main compiler. This is currently
 not exploited as much as we could on LUMI, mainly because we realised at the start
 that too many users are not familiar enough with hierarchies and would get confused
 more than the hierarchy helps them.
 
 Another benefit is that when "swapping" a module that makes other modules available with
-a different one, Lmod will try to look for equivalent modules in the list of modules made
+a different one, **Lmod will try to look for equivalent modules** in the list of modules made
 available by the newly loaded module.
 
 An easy example (though a tricky one as there are other mechanisms at play also) it to load
@@ -164,8 +164,8 @@ subsection (next slide).
 
 The important line for the hierarchy in the output are the lines starting with 
 "Due to MODULEPATH changes...".
-Remember that we said that each module has a corresponding module file. Just as binaries
-on a system, these are organised in a directory structure, and there is a path, in this
+Remember that we said that each module has a corresponding **module file**. Just as binaries
+on a system, these are **organised in a directory structure**, and there is a path, in this
 case MODULEPATH, that determines where Lmod will look for module files. The hierarchy is
 implemented with a directory structure and the environment variable MODULEPATH, and
 when the `cce/16.0.0` module was unloaded and `aocc/3.2.0` module was loaded, that 
@@ -182,7 +182,7 @@ the `aocc/3.2.0` compiler.
   ![Module names and families](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/ModuleNamesFamilies.png)
 </figure>
 
-In Lmod you cannot have two modules with the same name loaded at the same time.
+In Lmod you **cannot have two modules with the same name loaded at the same time**.
 On LUMI, when you load a module with the same name as an already loaded module, that
 other module will be unloaded automatically before loading the new one. There is 
 even no need to use the `module swap` command for that (which in Lmod corresponds
@@ -195,8 +195,8 @@ are properly chosen.
     name as the one you're trying to load, but on LUMI we felt that this is a 
     necessary feature to fully exploit a hierarchy.
 
-Lmod goes further also. It also has a family concept: A module can belong to a family
-(and at most 1) and no two modules of the same family can be loaded together. 
+Lmod goes further also. It also has a **family concept**: A module can belong to a family
+(and at most 1) and **no two modules of the same family can be loaded together**. 
 The family property is something that is defined in the module file. It is commonly 
 used on systems with multiple compilers and multiple MPI implementations to ensure 
 that each compiler and each MPI implementation can have a logical name without 
@@ -209,7 +209,7 @@ when loading another module of that particular family.
 
 This is shown in the example in the previous subsection (the `module load PrgEnv-aocc` in 
 a fresh long shell) in two places. It is the mechanism that unloaded `PrgEnv-cray`
-when loading `PrgEnv-aocc` and that then unloaded `cce/14.0.1` when the 
+when loading `PrgEnv-aocc` and that then unloaded `cce/16.0.1` when the 
 `PrgEnv-aocc` module loaded the `aocc/3.2.0` module.
 
 !!! Note
@@ -244,7 +244,7 @@ information at the moment as they too contain several packages that may benefit 
 to optimised math libraries.
 
 
-## Searching for modules: the module spider command
+## Searching for modules: The module spider command
 
 <figure markdown style="border: 1px solid #000">
   ![module spider](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/ModuleSpider.png)
@@ -581,7 +581,7 @@ On LUMI both are used. A default programming environment and set of target modul
 login nodes is preloaded when you log in to the system, and next the `init-lumi` module is loaded
 which in turn makes the LUMI software stacks available that we will discuss in the next session.
 
-Lmod however has a trick that helps to avoid removing necessary modules and it is called sticky modules.
+Lmod however has a trick that helps to **avoid removing necessary modules** and it is called **sticky modules**.
 When issuing the `module purge` command these modules are automatically reloaded. It is very important to
 realise that those modules will not just be kept "as is" but are in fact unloaded and loaded again as
 we shall see later that this may have consequences. It is still possible to force unload all these modules
@@ -673,7 +673,7 @@ in the overview (as is the case on most clusters) but descriptive texts about th
 This is just one view on the module tree though, and it can be changed easily by loading a 
 version of the `ModuleLabel` module.
 
--   `ModuleLabel/label` produces the default view of the previous example
+-   `ModuleLabel/label` produces the default view of the previous example.
 -   `ModuleLabel/PEhierarchy` still uses descriptive texts but will show the whole 
     module hierarchy of the HPE Cray Programming Environment.
 -   `ModuleLabel/system` does not use the descriptive texts but shows module directories instead.
@@ -756,7 +756,8 @@ Modules are stored as (small) files in the file system. Having a large module sy
 much software preinstalled for everybody means a lot of small files which will make
 our Lustre file system very unhappy.
 Fortunately Lmod does use caches by default. On LUMI we currently have no 
-system cache and only a user cache. That cache can be found in `$HOME/.lmod.d/.cache`. 
+system cache and only a user cache. That cache can be found in `$HOME/.cache/lmod`
+(and in some versions of LMOD in `$HOME/.lmod.d/.cache`). 
 
 That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
 e.g., the `module spider` and `module available` commands will be slow during the rebuild.

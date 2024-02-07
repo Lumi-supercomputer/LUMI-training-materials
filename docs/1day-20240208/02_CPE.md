@@ -16,28 +16,28 @@ system when confronted with a talk about development tools is
 *"I only want to run some programs, why do I need to know about programming
 environments?"*
 
-The answer is that development environments are an intrinsic part of an HPC system. 
+The answer is that development environments are **an intrinsic part of an HPC system**. 
 No HPC system is as polished as a personal computer and the software users want to use
-is typically very unpolished. And some of the essential middleware that turns the hardware
-with some variant of Linux into a parallel supercomputers is part of the programming 
-environment. The binary interfaces to those libraries are also not as standardised 
+is typically very unpolished. And some of the **essential middleware** that turns the hardware
+with some variant of Linux into a parallel supercomputers **is part of the programming 
+environment**. The **binary interfaces to those libraries are also not as standardised** 
 as for the more common Linux system libraries.
 
-Programs on an HPC cluster are preferably installed from sources to generate binaries
+Programs on an HPC cluster are preferably **installed from sources** to generate binaries
 optimised for the system. CPUs have gotten new instructions over time that can sometimes
 speed-up execution of a program a lot, and compiler optimisations that take specific strengths
 and weaknesses of particular CPUs into account can also gain some performance. Even just a 10%
 performance gain on an investment of 160 million EURO such as LUMI means a lot of money.
-When running, the build environment on most systems needs to be at least partially recreated.
+When running, the **build environment on most systems needs to be at least partially recreated**.
 This is somewhat less relevant on Cray systems as we will see at the end of this part of
 the course, but if you want reproducibility it becomes important again.
 
-Compiling on the system is also the easiest way to guarantee compatibility of the binaries 
+Compiling on the system is also the **easiest way to guarantee compatibility of the binaries**
 with the system. 
 
 Even when installing software from prebuilt binaries some modules might still be needed.
 Prebuilt binaries will typically include the essential runtime libraries for the parallel
-technologies they use, but these may not be compatible with LUMI. 
+technologies they use, **but these may not be compatible with LUMI**. 
 In some cases this can be solved by injecting a library from LUMI, e.g.,
 you may want to inject an optimised MPI library as we shall see in the container section
 of this course. But sometimes a binary is simply incompatible with LUMI and there is no other
@@ -50,22 +50,23 @@ solution than to build the software from sources.
   ![Slide The OS on LUMI](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-02-CPE/OperatingSystem.png){ loading=lazy }
 </figure>
 
-The login nodes of LUMI run a regular SUSE Linux Enterprise Server 15 SP4 distribution.
-The compute nodes however run Cray OS, a restricted version of the SUSE Linux that runs
+The **login nodes** of LUMI run a **regular SUSE Linux Enterprise Server 15 SP4** distribution.
+The **compute nodes** however run **Cray OS, a restricted version of the SUSE Linux** that runs
 on the login nodes. Some daemons are inactive or configured differently and Cray also 
-does not support all regular file systems. The goal of this is to minimize OS jitter,
+does not support all regular file systems. The goal of this is to **minimize OS jitter**,
 interrupts that the OS handles and slow down random cores at random moments, that can 
 limit scalability of programs. Yet on the GPU nodes there was still the need to reserve
 one core for the OS and driver processes.
 This in turn led to an asymmetry in the setup so now 8 cores are reserved, one per CCD, so
 that all CCDs are equal again.
 
-This also implies that some software that works perfectly fine on the login nodes may not
-work on the compute nodes. E.g., there is no `/run/user/$UID` directory and we have experienced
+This also implies that some software that works perfectly fine on the login nodes **may not
+work on the compute nodes**. E.g., there is no `/run/user/$UID` directory and we have experienced
 that D-Bus (which stands for Desktop-Bus) also does not work as one should expect.
 
-Large HPC clusters also have a small system image, so don't expect all the bells-and-whistles 
-from a Linux workstation to be present on a large supercomputer.
+Large HPC clusters also have a small system image, so **don't expect all the bells-and-whistles 
+from a Linux workstation to be present on a large supercomputer** (and certainly not in the same
+way as they would be on a workstation).
 Since LUMI compute nodes are diskless, the system image actually occupies RAM which is another
 reason to keep it small.
 
@@ -112,7 +113,6 @@ It is important to realise that there is no CUDA on AMD GPUs and there will neve
 proprietary technology that other vendors cannot implement. The visualisation nodes in LUMI have
 NVIDIA rendering GPUs but these nodes are meant for visualisation and not for compute.
         
-
 
 ##  The development environment on LUMI
 
@@ -170,11 +170,13 @@ Clang and an LLVM backend behave better. Various MKL versions are also troubleso
 different workarounds for different versions, though here also it seems that Intel now has 
 code that works well on AMD for many MKL routines. We have experienced problems with Intel 
 MPI when testing it on LUMI though in principle it should be possible to use Cray MPICH as
-they are derived from the same version of MPICH. The NVIDIA programming environment doesn't make sense on an AMD GPU system, but it could have been usefull for some visualisation software on the 
-visualisation nodes.
+they are derived from the same version of MPICH. 
+The NVIDIA programming environment doesn't make sense on an AMD GPU system, 
+but it could be useful for some visualisation software on the 
+visualisation nodes so it is currently installed on those nodes.
 
 We will now discuss some of these components in a little bit more detail, but refer
-to the 4-day trainings that we organise three times a year with HPE for more material.
+to the 4-day trainings that we organise several times a year with HPE for more material.
 
 !!! Note "Python and R"
     Big Python and R installations can consist of lots of small files. Parallel file systems such as Lustre
@@ -388,8 +390,9 @@ by which compiler module is loaded. As shown on the slide
 ["Development environment on LUMI"](#the-development-environment-on-lumi), on LUMI
 the Cray Compiling Environment (module `cce`), GNU Compiler Collection (module `gcc`), 
 the AMD Optimizing Compiler for CPUs (module `aocc`) and the ROCm LLVM-based compilers
-(module `amd`) are available. On other HPE Cray systems, you may also find the Intel
-compilers or on systems with NVIDIA GPUs, the NVIDIA HPC compilers.
+(module `amd`) are available. On the visualisation nodes, the NVIDIA HPC compiler is currently
+also installed (module `nvhpc`). On other HPE Cray systems, you may also find the Intel
+compilers.
 
 The target architectures for CPU and GPU are also selected through modules, so it is better
 to not use compiler options such as `-march=native`. This makes cross compiling also easier.
@@ -399,7 +402,8 @@ depending on which other modules are loaded. In some cases it tries to do so cle
 OpenMP, hybrid or sequential option depending on whether the MPI module is loaded and/or OpenMP compiler
 flag is used. This is the case for:
 
--   The MPI libraries. There is no `mpicc`, `mpiCC`, `mpif90`, etc. on LUMI. The regular compiler
+-   The MPI libraries. There is no `mpicc`, `mpiCC`, `mpif90`, etc. on LUMI (well, there is nowadays, but their
+    use is discouraged). The regular compiler
     wrappers do the job as soon as the `cray-mpich` module is loaded.
 -   LibSci and FFTW are linked automatically if the corresponding modules are loaded. So no need
     to look, e.g., for the BLAS or LAPACK libraries: They will be offered to the linker if the
@@ -408,7 +412,7 @@ flag is used. This is the case for:
     OpenMP compiler flag).
 -   netCDF and HDF5
 
-It is possible to see which compiler and linker flags the wrappers add through the `--craype-verbose`
+It is possible to see which compiler and linker flags the wrappers add through the `-craype-verbose`
 flag.
 
 The wrappers do have some flags of their own, but also accept all flags of the selected compiler and 
@@ -516,6 +520,20 @@ environment with the Fortran compiler from another. Currently on LUMI there is `
 Cray Fortran compiler with the AMD ROCm C/C++ compiler and `PrgEnv-gnu-amd` using the GNU Fortran compiler
 with the AMD ROCm C/C++ compiler.
 
+??? Note "Changes to the GNU compilers in 23.12"
+    The HPE Cray PE will change the way it offers the GNU compilers in releases starting from 23.12.
+    Rather than packaging the GNU compilers, HPE Cray will use the default development compiler version
+    of SUSE Linux, which for SP4 is currently GCC 12.3 (not to be confused with the system default which
+    is still 7.5, the compiler that was offered with the initial release of SUSE Enterprise Linux 15).
+
+    In releases up to the 23.09 which we currently have on Linux, the GNU compilers are offered through the
+    `gcc` compiler module. When loaded, it adds newer versions of the `gcc`, `g++` and `gfortran` compilers
+    to the path, calling the version indicated by the version of the `gcc` module.
+
+    In releases from 23.12 on, that compiler module is now called `gcc-native`, and the compilers
+    are - at least in the version for SUSE 15 SP4 - called `gcc-12`, `g++-12` and `gfortran-12`, while
+    `gcc`, `g++` and `gfortran` will compile with version 7.5, the default version for SUSE 15.
+  
 
 ## Getting help
 
@@ -526,14 +544,16 @@ with the AMD ROCm C/C++ compiler.
 Help on the HPE Cray Programming Environment is offered mostly through manual pages
 and compiler flags. Online help is limited and difficult to locate.
 
-For the compilers and compiler wrappers, the following man pages are relevant:
+For the compilers, the following man pages are relevant:
 
 | PrgEnv                 | C            | C++          | Fortran        |
 |------------------------|--------------|--------------|----------------|
 | PrgEnv-cray            | `man craycc` | `man crayCC` | `man crayftn`  |
 | PrgEnv-gnu             | `man gcc`    | `man g++`    | `man gfortran` |
 | PrgEnv-aocc/PrgEnv-amd | -            | -            | -              |
-| Compiler wrappers      | `man cc`     | `man CC`     | `man ftn`      |
+
+There used to be manual pages for the wrappers also but they are currently hijacked
+by the GNU manual pages.
 
 Recently, HPE Cray have also created 
 [a web version of some of the CPE documentation](https://cpe.ext.hpe.com/docs/).
@@ -542,6 +562,8 @@ Some compilers also support the `--help` flag, e.g., `amdclang --help`. For the 
 the switch `-help` should be used instead as the double dash version is passed to the 
 compiler.
 
+The wrappers have a number of options specific to them. Information about them can be obtained
+by using the `--craype-help` flag with the wrappers.
 The wrappers also support the `-dumpversion` flag to show the version of the underlying compiler.
 Many other commands, including the actual compilers, use `--version` to show the version.
 
@@ -639,7 +661,7 @@ other users.
 
 The PE does not use the versions of many libraries determined by the loaded modules at runtime
 but instead uses default versions of libraries (which are actually in `/opt/cray/pe/lib64` on the system)
-which correspond to the version of the programming environment that is set as the default when installed.
+which correspond to the version of the programming environment that is set as the system default when installed.
 This is very much the behaviour of Linux applications also that pick standard libraries in a few standard
 directories and it enables many programs build with the HPE Cray PE to run without reconstructing the
 environment and in some cases to mix programs compiled with different compilers with ease (with the
@@ -743,12 +765,12 @@ In that case, you would likely want to load a compiler module without loading th
 `PrgEnv-*` module). The compiler module and compiler driver names are then given
 by the following table:
 
-| Description                               | Compiler module | Compilers                            |
-|-------------------------------------------|-----------------|--------------------------------------|
-| Cray Compiling Environment                | `cce`           | `craycc`, `crayCC`, `crayftn`        |
-| GNU Compiler Collection                   | `gcc`           | `gcc`, `g++`, `gfortran`             |
-| AMD Optimizing Compilers<br>(CPU only)    | `aocc`          | `clang`, `clang++`, `flang`          |
-| AMD ROCm LLVM compilers <br>(GPU support) | `amd`           | `amdclang`, `amdclang++`, `amdflang` |
+| Description                               | Compiler module       | Compilers                            |
+|-------------------------------------------|-----------------------|--------------------------------------|
+| Cray Compiling Environment                | `cce`                 | `craycc`, `crayCC`, `crayftn`        |
+| GNU Compiler Collection                   | `gcc`<br>`gcc-native` | `gcc`, `g++`, `gfortran`<br>`gcc-12`, `g++-12`, `gfortran-12` |
+| AMD Optimizing Compilers<br>(CPU only)    | `aocc`                | `clang`, `clang++`, `flang`          |
+| AMD ROCm LLVM compilers <br>(GPU support) | `amd`                 | `amdclang`, `amdclang++`, `amdflang` |
 
 Recent versions of the `cray-mpich` module now also provide the traditional MPI compiler wrappers
 such as `mpicc`, `mpicxx` or `mpifort`. Note that you will still need to ensure that the network
@@ -758,7 +780,9 @@ MPI installation for the selected compiler.
 
 To manually use the BLAS and LAPACK libraries, you'll still have to load the `cray-libsci` module.
 This module defines the `CRAY_LIBSCI_PREFIX_DIR` environment variable that points to the directory
-with the library and include file subdirectories for the selected compiler. 
+with the library and include file subdirectories for the selected compiler.
+(This environment variable will be renamed to `CRAY_PE_LIBSCI_PREFIX_DIR` in release 23.12 of the programming
+environment.) 
 See [the `intro_libsci` manual page](https://cpe.ext.hpe.com/docs/csml/cray_libsci.html)
 for information about the different libraries.
 

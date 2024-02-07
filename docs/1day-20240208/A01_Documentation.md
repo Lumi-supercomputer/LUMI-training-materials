@@ -13,12 +13,12 @@ and some more.
 -   [Slurm version 22.05.10, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-22.05.10/)
 
 -   [HPE Cray Programming Environment web documentation](https://cpe.ext.hpe.com/docs/) has only become available in
-     May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
-     format than the man pages on the system.
+    May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
+    format than the man pages on the system.
 
-     The presentations on debugging and profiling tools referred a lot to pages that can be found on this web site.
-     The manual pages mentioned in those presentations are also in the web documentation and are the easiest way
-     to access that documentation.
+    The presentations on debugging and profiling tools referred a lot to pages that can be found on this web site.
+    The manual pages mentioned in those presentations are also in the web documentation and are the easiest way
+    to access that documentation.
 
 -   [Cray PE Github account](https://github.com/PE-Cray) with whitepapers and some documentation.
 
@@ -119,6 +119,15 @@ A selection of man pages explicitly mentioned during the course:
     | PrgEnv-aocc/PrgEnv-amd | -            | -            | -              |
     | Compiler wrappers      | [`man cc`](https://cpe.ext.hpe.com/docs/craype/cc.html) | [`man CC`](https://cpe.ext.hpe.com/docs/craype/ccpp.html) | [`man ftn`](https://cpe.ext.hpe.com/docs/craype/ftn.html) |
 
+-   Web-based versions of the compiler wrapper manual pages (the version on the system is currently hijacked by
+    the GNU manual pages):
+
+    -   [`man cc`](https://cpe.ext.hpe.com/docs/craype/cc.html)
+
+    -   [`man CC`](https://cpe.ext.hpe.com/docs/craype/ccpp.html)
+
+    -   [`man ftn`](https://cpe.ext.hpe.com/docs/craype/ftn.html) 
+
 -   OpenMP in CCE
 
     -   [`man intro_openmp`](https://cpe.ext.hpe.com/docs/cce/man7/intro_openmp.7.html)
@@ -187,14 +196,13 @@ Most HPE Cray PE modules contain links to further documentation. Try `module hel
 
 ## From the commands themselves
 
-| PrgEnv            | C                      | C++                    | Fortran                  |
-|-------------------|------------------------|------------------------|--------------------------|
-| PrgEnv-cray       | `craycc --help`        | `crayCC --help`        | `crayftn --help`         |
-|                   | `craycc --craype-help` | `crayCC --craype-help` | `crayftn --craype-help`  |
-| PrgEnv-gnu        | `gcc --help`           | `g++ --help`           | `gfortran --help`        |
-| PrgEnv-aocc       | `clang --help`         | `clang++ --help`       | `flang --help`           |
-| PrgEnv-amd        | `amdclang --help`      | `amdclang++ --help`    | `amdflang --help`        |
-| Compiler wrappers | `cc --help`            | `CC --help`            | `ftn --help`             |
+| PrgEnv            | C                                          | C++                                       | Fortran                                      |
+|-------------------|--------------------------------------------|-------------------------------------------|----------------------------------------------|
+| PrgEnv-cray       | `craycc --help`<br/>`craycc --craype-help` | `crayCC --help`<br/>`crayCC --craype-help`| `crayftn --help`<br/>`crayftn --craype-help` |
+| PrgEnv-gnu        | `gcc --help`                               | `g++ --help`                              | `gfortran --help`                            |
+| PrgEnv-aocc       | `clang --help`                             | `clang++ --help`                          | `flang --help`                               |
+| PrgEnv-amd        | `amdclang --help`                          | `amdclang++ --help`                       | `amdflang --help`                            |
+| Compiler wrappers | `cc --craype-help`<br/>`cc --help`         | `CC --craype-help`<br/>`CC --help`        | `ftn --craype-help`<br/>`ftn --help`         |
 
 For the PrgEnv-gnu compiler, the `--help` option only shows a little bit of help information, but mentions
 further options to get help about specific topics.
