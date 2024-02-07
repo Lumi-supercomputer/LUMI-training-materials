@@ -31,7 +31,7 @@
 	#SBATCH --time=5                    # Run time (minutes)
 	#SBATCH --account=<project_id>      # Project for billing
 
-	module load LUMI/22.12
+	module load LUMI/23.09
 	module load lumi-CPEtools
 
 	srun hybrid_check -n -r
@@ -94,7 +94,7 @@
 		You need to load specific modules to access tools with GPU support. 
 		
 		```
-		module load LUMI/22.12 partition/G
+		module load LUMI/23.09 partition/G
 		```
 		
 		```
@@ -131,9 +131,9 @@
 		#SBATCH --account=<project_id>  # Project for billing
 		#SBATCH --hint=nomultithread
 
-                module load LUMI/22.12
-                module load partition/G
-                module load lumi-CPEtools
+		module load LUMI/23.09
+		module load partition/G
+		module load lumi-CPEtools
 		
 		cat << EOF > select_gpu
 		#!/bin/bash
@@ -171,9 +171,9 @@
 		#SBATCH --account=<project_id>  # Project for billing
 		#SBATCH --hint=nomultithread
 
-                module load LUMI/22.12
-                module load partition/G
-                module load lumi-CPEtools
+		module load LUMI/23.09
+		module load partition/G
+		module load lumi-CPEtools
 		
 		cat << EOF > select_gpu
 		#!/bin/bash
