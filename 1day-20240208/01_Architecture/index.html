@@ -629,6 +629,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -667,6 +671,46 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1956,6 +2000,73 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consortium partner archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Consortium partner archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2137,9 +2248,12 @@ jobs that can scale.</p>
 <p>You may wonder why you need to know about system architecture if all you want to do is to run 
 some programs.</p>
 <p>A supercomputer is <strong>not simply a scaled-up smartphone or PC</strong> that will offer good performance
-automatically. But it is a very expensive infrastructure, with an investment of 160M EURO for LUMI
+automatically. 
+It is a shared infrastructure and you don't get the whole machine to yourself.
+Instead you have to request a suitable fraction of the computer for the work you want to do.
+But it is also a very expensive infrastructure, with an investment of 160M EURO for LUMI
 and an estimated total cost (including operations) of 250M EURO. So it is important to use the computer
-efficiently.</p>
+efficiently. </p>
 <p>And that efficiency comes not for free. Instead in most cases it is important to properly map an 
 application on the available resources to run efficiently.  The way an application is developed
 is important for this, but it is not the only factor. Every application needs some user help 
@@ -2161,16 +2275,22 @@ to run in the most efficient way, and that requires an understanding of</p>
 <p>The <strong>application</strong>. This is very domain-specific and application-specific and hence cannot be the
     topic of a general course like this one. In fact, there are so many different applications and
     often considerable domain knowledge is required so that a small support team like the one of 
-    LUMI cannot provide that information. 
-    Moreover, the way an application should be used may even depend on the particular problem that you
-    are trying to solve. Bigger problems, bigger computers, and different settings may be needed in
-    the application.
-    It is up to scientific communities to organise such trainings,
-    and then up to users to combine the knowledge of an application obtained from such a course with the
-    knowledge about the computer you want to use and its middleware obtained from courses such as this one
-    or our 4-day more advanced course.</p>
+    LUMI cannot provide that information. </p>
+</li>
+<li>
+<p>Moreover, the way an application should be used may even depend on <strong>the particular problem that you
+    are trying to solve</strong>. Bigger problems, bigger computers, and different settings may be needed in
+    the application.</p>
+<p>It is up to scientific communities to organise trainings that teach you individual applications and
+how to use them for different problem types,
+and then up to users to combine the knowledge of an application obtained from such a course with the
+knowledge about the computer you want to use and its middleware obtained from courses such as this one
+or our 4-day more advanced course.</p>
 </li>
 </ol>
+<p>Some users expect that a support team can give answers to all those questions, even to the third and fourth
+bullet of the above list. If a support team could do that, it would basically imply that they could simply
+do all the research that users do and much faster as they are assumed to have the answer ready in hours...</p>
 <h2 id="lumi-is">LUMI is ...<a class="headerlink" href="#lumi-is" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide LUMI is..." loading="lazy" src="https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-01-architecture/LUMIIs.png" /></p>
@@ -2340,7 +2460,7 @@ people to set it up and manage it.</p>
 <p>The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
 Whereas Intel CPUs launched in the same period were built out of a single large
 monolithic piece of silicon (that only changed recently with some variants
-of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are build out
+of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are made up
 of multiple so-called chiplets. </p>
 <p>The basic building block of Zen3 CPUs is the <strong>Core Complex Die (CCD)</strong>.
 Each CCD contains 8 cores, and each core has 32 kB of L1 instruction 
@@ -2770,7 +2890,7 @@ are numbered consecutively. For LUMI-G both nodes on a blade will be on a differ
 and each node is connected to two switches. So when you get a few sequentially numbered nodes, they
 will not be on a single switch (LUMI-C) or switch pair (LUMI-G).
 The switch blades are also water cooled (each one can 
-consume up to 250W). No currently possible configuration of the Cray EX system needs that 
+consume up to 250W). No currently possible configuration of the Cray EX system needs 
 all switch positions in the switch chassis.</p>
 <p>This does not mean that the extra positions cannot be useful in the future. If not for an interconnect,
 one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based storage via blades as the 

@@ -629,6 +629,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -667,6 +671,46 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1956,6 +2000,73 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consortium partner archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Consortium partner archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2408,7 +2519,7 @@
     <strong>teething problems</strong> and inhomogeneous doesn't make life easier either.</p>
 <ol>
 <li>It uses a <strong>novel interconnect</strong> which is an extension of Ethernet rather than being based on InfiniBand, 
-    and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. </li>
+    and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. </li>
 <li>It also uses a <strong>relatively new GPU architecture</strong>, AMD CDNA2, with an immature software ecosystem. 
     The GPU nodes are really <strong>GPU-first</strong>, with the <strong>interconnect cards connected directly to the GPU packages</strong> 
     and only one CPU socket, and another feature which is relatively new: the option to use a <strong>partly coherent fully unified memory</strong>
@@ -3050,7 +3161,7 @@ EasyBuild and configure it for installation in a way that is compatible with the
 LUMI stack.
 EasyBuild will then use existing modules for dependencies if those are already on the system
 or in your personal or project stack.</p>
-<p>Note however that the <strong>build-in easyconfig files that come with EasyBuild do not work on LUMI</strong> at
+<p>Note however that the <strong>built-in easyconfig files that come with EasyBuild do not work on LUMI</strong> at
 the moment.</p>
 <ul>
 <li>For the GNU toolchain there would be problems with MPI. EasyBuild uses Open MPI and that
@@ -3223,7 +3334,8 @@ is simply not meant to install software. However, as LUMI users can have multipl
 easy way to figure out automatically where else to install software.</p>
 <p>The best place to install software is in your project directory so that it also becomes available
 for the whole project. After all, a project is meant to be a collaboration between all participants
-on a scientific problem. You'll need to point LUMI to the right location though and that has to
+of the project to solve a scientific problem. 
+You'll need to point LUMI to the right location though and that has to
 be done by setting the environment variable <code>EBU_USER_PREFIX</code> to point to the location where you
 want to have your custom installation. Also don't forget to export that variable as otherwise the
 module system and EasyBuild will not find it when they need it. So a good choice would be 
@@ -3276,7 +3388,7 @@ A command-line alternative is to use <code>eb -S</code> or <code>eb --search</co
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>--search<span class="w"> </span>GROMACS
 </code></pre></div></p>
 <p>Now let's take the variant <code>GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb</code>. 
-This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, build with the GNU compilers
+This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
 from <code>LUMI/23.09</code>, and a build meant for CPU-only systems. The <code>-CPU</code> extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure

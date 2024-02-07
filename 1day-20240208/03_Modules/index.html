@@ -629,6 +629,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -667,6 +671,46 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1956,6 +2000,73 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consortium partner archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Consortium partner archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2030,11 +2141,11 @@
         <li class="md-nav__item">
   <a href="#searching-for-modules-the-module-spider-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Searching for modules: the module spider command
+      Searching for modules: The module spider command
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Searching for modules: the module spider command">
+    <nav class="md-nav" aria-label="Searching for modules: The module spider command">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2276,14 +2387,14 @@ the way the Lmod developer intended so that some features do not function as the
 <figure style="border: 1px solid #000">
 <p><img alt="Benefits of a hierarchy" src="https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/BenefitsHierarchy.png" /></p>
 </figure>
-<p>When the hierarchy is well designed, you get some protection from loading modules that do
-not work together well. E.g., in the HPE Cray PE it is not possible to load the MPI
+<p>When the hierarchy is well designed, you get <strong>some protection from loading modules that do
+not work together well</strong>. E.g., in the HPE Cray PE it is not possible to load the MPI
 library built for another compiler than your current main compiler. This is currently
 not exploited as much as we could on LUMI, mainly because we realised at the start
 that too many users are not familiar enough with hierarchies and would get confused
 more than the hierarchy helps them.</p>
 <p>Another benefit is that when "swapping" a module that makes other modules available with
-a different one, Lmod will try to look for equivalent modules in the list of modules made
+a different one, <strong>Lmod will try to look for equivalent modules</strong> in the list of modules made
 available by the newly loaded module.</p>
 <p>An easy example (though a tricky one as there are other mechanisms at play also) it to load
 a different programming environment in the default login environment right after login:</p>
@@ -2303,8 +2414,8 @@ causes <code>cce/16.0.0</code> and <code>PrgEnv-cray/8.4.0</code> to be unloaded
 subsection (next slide).</p>
 <p>The important line for the hierarchy in the output are the lines starting with 
 "Due to MODULEPATH changes...".
-Remember that we said that each module has a corresponding module file. Just as binaries
-on a system, these are organised in a directory structure, and there is a path, in this
+Remember that we said that each module has a corresponding <strong>module file</strong>. Just as binaries
+on a system, these are <strong>organised in a directory structure</strong>, and there is a path, in this
 case MODULEPATH, that determines where Lmod will look for module files. The hierarchy is
 implemented with a directory structure and the environment variable MODULEPATH, and
 when the <code>cce/16.0.0</code> module was unloaded and <code>aocc/3.2.0</code> module was loaded, that 
@@ -2317,7 +2428,7 @@ the <code>aocc/3.2.0</code> compiler. </p>
 <figure style="border: 1px solid #000">
 <p><img alt="Module names and families" src="https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/ModuleNamesFamilies.png" /></p>
 </figure>
-<p>In Lmod you cannot have two modules with the same name loaded at the same time.
+<p>In Lmod you <strong>cannot have two modules with the same name loaded at the same time</strong>.
 On LUMI, when you load a module with the same name as an already loaded module, that
 other module will be unloaded automatically before loading the new one. There is 
 even no need to use the <code>module swap</code> command for that (which in Lmod corresponds
@@ -2330,8 +2441,8 @@ are properly chosen. </p>
 name as the one you're trying to load, but on LUMI we felt that this is a 
 necessary feature to fully exploit a hierarchy.</p>
 </div>
-<p>Lmod goes further also. It also has a family concept: A module can belong to a family
-(and at most 1) and no two modules of the same family can be loaded together. 
+<p>Lmod goes further also. It also has a <strong>family concept</strong>: A module can belong to a family
+(and at most 1) and <strong>no two modules of the same family can be loaded together</strong>. 
 The family property is something that is defined in the module file. It is commonly 
 used on systems with multiple compilers and multiple MPI implementations to ensure 
 that each compiler and each MPI implementation can have a logical name without 
@@ -2372,7 +2483,7 @@ can define extensions, and some of the search commands for modules will also sea
 of a module. Unfortunately, the HPE Cray PE cray-python and cray-R modules do not provide that 
 information at the moment as they too contain several packages that may benefit from linking
 to optimised math libraries.</p>
-<h2 id="searching-for-modules-the-module-spider-command">Searching for modules: the module spider command<a class="headerlink" href="#searching-for-modules-the-module-spider-command" title="Permanent link">&para;</a></h2>
+<h2 id="searching-for-modules-the-module-spider-command">Searching for modules: The module spider command<a class="headerlink" href="#searching-for-modules-the-module-spider-command" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="module spider" src="https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-03-modules/ModuleSpider.png" /></p>
 </figure>
@@ -2630,7 +2741,7 @@ practice to preload a suitable set of target modules and a programming environme
 On LUMI both are used. A default programming environment and set of target modules suitable for the
 login nodes is preloaded when you log in to the system, and next the <code>init-lumi</code> module is loaded
 which in turn makes the LUMI software stacks available that we will discuss in the next session.</p>
-<p>Lmod however has a trick that helps to avoid removing necessary modules and it is called sticky modules.
+<p>Lmod however has a trick that helps to <strong>avoid removing necessary modules</strong> and it is called <strong>sticky modules</strong>.
 When issuing the <code>module purge</code> command these modules are automatically reloaded. It is very important to
 realise that those modules will not just be kept "as is" but are in fact unloaded and loaded again as
 we shall see later that this may have consequences. It is still possible to force unload all these modules
@@ -2704,7 +2815,7 @@ in the overview (as is the case on most clusters) but descriptive texts about th
 This is just one view on the module tree though, and it can be changed easily by loading a 
 version of the <code>ModuleLabel</code> module.</p>
 <ul>
-<li><code>ModuleLabel/label</code> produces the default view of the previous example</li>
+<li><code>ModuleLabel/label</code> produces the default view of the previous example.</li>
 <li><code>ModuleLabel/PEhierarchy</code> still uses descriptive texts but will show the whole 
     module hierarchy of the HPE Cray Programming Environment.</li>
 <li><code>ModuleLabel/system</code> does not use the descriptive texts but shows module directories instead.</li>

@@ -629,6 +629,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -667,6 +671,46 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1956,6 +2000,73 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consortium partner archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Consortium partner archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2484,7 +2595,8 @@ depending on which other modules are loaded. In some cases it tries to do so cle
 OpenMP, hybrid or sequential option depending on whether the MPI module is loaded and/or OpenMP compiler
 flag is used. This is the case for:</p>
 <ul>
-<li>The MPI libraries. There is no <code>mpicc</code>, <code>mpiCC</code>, <code>mpif90</code>, etc. on LUMI. The regular compiler
+<li>The MPI libraries. There is no <code>mpicc</code>, <code>mpiCC</code>, <code>mpif90</code>, etc. on LUMI (well, there is nowadays, but their
+    use is discouraged). The regular compiler
     wrappers do the job as soon as the <code>cray-mpich</code> module is loaded.</li>
 <li>LibSci and FFTW are linked automatically if the corresponding modules are loaded. So no need
     to look, e.g., for the BLAS or LAPACK libraries: They will be offered to the linker if the
@@ -2493,7 +2605,7 @@ flag is used. This is the case for:</p>
     OpenMP compiler flag).</li>
 <li>netCDF and HDF5</li>
 </ul>
-<p>It is possible to see which compiler and linker flags the wrappers add through the <code>--craype-verbose</code>
+<p>It is possible to see which compiler and linker flags the wrappers add through the <code>-craype-verbose</code>
 flag.</p>
 <p>The wrappers do have some flags of their own, but also accept all flags of the selected compiler and 
 simply pass those to those compilers.</p>
@@ -2608,7 +2720,7 @@ environment with the Fortran compiler from another. Currently on LUMI there is <
 Cray Fortran compiler with the AMD ROCm C/C++ compiler and <code>PrgEnv-gnu-amd</code> using the GNU Fortran compiler
 with the AMD ROCm C/C++ compiler.</p>
 <details class="note">
-<summary>Changes to the GNU compilersin 23.12</summary>
+<summary>Changes to the GNU compilers in 23.12</summary>
 <p>The HPE Cray PE will change the way it offers the GNU compilers in releases starting from 23.12.
 Rather than packaging the GNU compilers, HPE Cray will use the default development compiler version
 of SUSE Linux, which for SP4 is currently GCC 12.3 (not to be confused with the system default which
@@ -2626,7 +2738,7 @@ are - at least in the version for SUSE 15 SP4 - called <code>gcc-12</code>, <cod
 </figure>
 <p>Help on the HPE Cray Programming Environment is offered mostly through manual pages
 and compiler flags. Online help is limited and difficult to locate.</p>
-<p>For the compilers and compiler wrappers, the following man pages are relevant:</p>
+<p>For the compilers, the following man pages are relevant:</p>
 <table>
 <thead>
 <tr>
@@ -2655,20 +2767,18 @@ and compiler flags. Online help is limited and difficult to locate.</p>
 <td>-</td>
 <td>-</td>
 </tr>
-<tr>
-<td>Compiler wrappers</td>
-<td><code>man cc</code></td>
-<td><code>man CC</code></td>
-<td><code>man ftn</code></td>
-</tr>
 </tbody>
 </table>
+<p>There used to be manual pages for the wrappers also but they are currently hijacked
+by the GNU manual pages.</p>
 <p>Recently, HPE Cray have also created 
 <a href="https://cpe.ext.hpe.com/docs/">a web version of some of the CPE documentation</a>.</p>
 <p>Some compilers also support the <code>--help</code> flag, e.g., <code>amdclang --help</code>. For the wrappers,
 the switch <code>-help</code> should be used instead as the double dash version is passed to the 
 compiler.</p>
-<p>The wrappers also support the <code>-dumpversion</code> flag to show the version of the underlying compiler.
+<p>The wrappers have a number of options specific to them. Information about them can be obtained
+by using the <code>--craype-help</code> flag with the wrappers.
+The wrappers also support the <code>-dumpversion</code> flag to show the version of the underlying compiler.
 Many other commands, including the actual compilers, use <code>--version</code> to show the version.</p>
 <p>For Cray Fortran compiler error messages, the <code>explain</code> command is also helpful. E.g.,</p>
 <div class="highlight"><pre><span></span><code>$ ftn
@@ -2745,7 +2855,7 @@ who come from an environment where the software is managed through EasyBuild, bu
 other users.</p>
 <p>The PE does not use the versions of many libraries determined by the loaded modules at runtime
 but instead uses default versions of libraries (which are actually in <code>/opt/cray/pe/lib64</code> on the system)
-which correspond to the version of the programming environment that is set as the default when installed.
+which correspond to the version of the programming environment that is set as the system default when installed.
 This is very much the behaviour of Linux applications also that pick standard libraries in a few standard
 directories and it enables many programs build with the HPE Cray PE to run without reconstructing the
 environment and in some cases to mix programs compiled with different compilers with ease (with the

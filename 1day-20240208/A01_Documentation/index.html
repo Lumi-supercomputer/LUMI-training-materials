@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/A01_Documentation/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../07_Exercises_2/">
       
       
         <link rel="next" href="../../Profiling-20231122/">
@@ -635,6 +635,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -673,6 +677,46 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2047,6 +2091,73 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consortium partner archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Consortium partner archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2147,11 +2258,11 @@ and some more.</p>
 </li>
 <li>
 <p><a href="https://cpe.ext.hpe.com/docs/">HPE Cray Programming Environment web documentation</a> has only become available in
-     May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
-     format than the man pages on the system.</p>
+    May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
+    format than the man pages on the system.</p>
 <p>The presentations on debugging and profiling tools referred a lot to pages that can be found on this web site.
- The manual pages mentioned in those presentations are also in the web documentation and are the easiest way
- to access that documentation.</p>
+The manual pages mentioned in those presentations are also in the web documentation and are the easiest way
+to access that documentation.</p>
 </li>
 <li>
 <p><a href="https://github.com/PE-Cray">Cray PE Github account</a> with whitepapers and some documentation.</p>
@@ -2328,6 +2439,21 @@ and some more.</p>
 </table>
 </li>
 <li>
+<p>Web-based versions of the compiler wrapper manual pages (the version on the system is currently hijacked by
+    the GNU manual pages):</p>
+<ul>
+<li>
+<p><a href="https://cpe.ext.hpe.com/docs/craype/cc.html"><code>man cc</code></a></p>
+</li>
+<li>
+<p><a href="https://cpe.ext.hpe.com/docs/craype/ccpp.html"><code>man CC</code></a></p>
+</li>
+<li>
+<p><a href="https://cpe.ext.hpe.com/docs/craype/ftn.html"><code>man ftn</code></a> </p>
+</li>
+</ul>
+</li>
+<li>
 <p>OpenMP in CCE</p>
 <ul>
 <li><a href="https://cpe.ext.hpe.com/docs/cce/man7/intro_openmp.7.html"><code>man intro_openmp</code></a></li>
@@ -2437,15 +2563,9 @@ and some more.</p>
 <tbody>
 <tr>
 <td>PrgEnv-cray</td>
-<td><code>craycc --help</code></td>
-<td><code>crayCC --help</code></td>
-<td><code>crayftn --help</code></td>
-</tr>
-<tr>
-<td></td>
-<td><code>craycc --craype-help</code></td>
-<td><code>crayCC --craype-help</code></td>
-<td><code>crayftn --craype-help</code></td>
+<td><code>craycc --help</code><br/><code>craycc --craype-help</code></td>
+<td><code>crayCC --help</code><br/><code>crayCC --craype-help</code></td>
+<td><code>crayftn --help</code><br/><code>crayftn --craype-help</code></td>
 </tr>
 <tr>
 <td>PrgEnv-gnu</td>
@@ -2467,9 +2587,9 @@ and some more.</p>
 </tr>
 <tr>
 <td>Compiler wrappers</td>
-<td><code>cc --help</code></td>
-<td><code>CC --help</code></td>
-<td><code>ftn --help</code></td>
+<td><code>cc --craype-help</code><br/><code>cc --help</code></td>
+<td><code>CC --craype-help</code><br/><code>CC --help</code></td>
+<td><code>ftn --craype-help</code><br/><code>ftn --help</code></td>
 </tr>
 </tbody>
 </table>
