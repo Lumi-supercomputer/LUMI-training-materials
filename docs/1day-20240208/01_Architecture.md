@@ -14,9 +14,12 @@ You may wonder why you need to know about system architecture if all you want to
 some programs.
 
 A supercomputer is **not simply a scaled-up smartphone or PC** that will offer good performance
-automatically. But it is a very expensive infrastructure, with an investment of 160M EURO for LUMI
+automatically. 
+It is a shared infrastructure and you don't get the whole machine to yourself.
+Instead you have to request a suitable fraction of the computer for the work you want to do.
+But it is also a very expensive infrastructure, with an investment of 160M EURO for LUMI
 and an estimated total cost (including operations) of 250M EURO. So it is important to use the computer
-efficiently.
+efficiently. 
 
 And that efficiency comes not for free. Instead in most cases it is important to properly map an 
 application on the available resources to run efficiently.  The way an application is developed
@@ -37,13 +40,20 @@ to run in the most efficient way, and that requires an understanding of
     topic of a general course like this one. In fact, there are so many different applications and
     often considerable domain knowledge is required so that a small support team like the one of 
     LUMI cannot provide that information. 
-    Moreover, the way an application should be used may even depend on the particular problem that you
-    are trying to solve. Bigger problems, bigger computers, and different settings may be needed in
+
+4.  Moreover, the way an application should be used may even depend on **the particular problem that you
+    are trying to solve**. Bigger problems, bigger computers, and different settings may be needed in
     the application.
-    It is up to scientific communities to organise such trainings,
+
+    It is up to scientific communities to organise trainings that teach you individual applications and
+    how to use them for different problem types,
     and then up to users to combine the knowledge of an application obtained from such a course with the
     knowledge about the computer you want to use and its middleware obtained from courses such as this one
     or our 4-day more advanced course.
+
+Some users expect that a support team can give answers to all those questions, even to the third and fourth
+bullet of the above list. If a support team could do that, it would basically imply that they could simply
+do all the research that users do and much faster as they are assumed to have the answer ready in hours...
 
 
 ## LUMI is ...
@@ -237,7 +247,7 @@ In this section of the course we will now build up LUMI step by step.
 The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
 Whereas Intel CPUs launched in the same period were built out of a single large
 monolithic piece of silicon (that only changed recently with some variants
-of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are build out
+of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are made up
 of multiple so-called chiplets. 
 
 The basic building block of Zen3 CPUs is the **Core Complex Die (CCD)**.
@@ -679,7 +689,7 @@ are numbered consecutively. For LUMI-G both nodes on a blade will be on a differ
 and each node is connected to two switches. So when you get a few sequentially numbered nodes, they
 will not be on a single switch (LUMI-C) or switch pair (LUMI-G).
 The switch blades are also water cooled (each one can 
-consume up to 250W). No currently possible configuration of the Cray EX system needs that 
+consume up to 250W). No currently possible configuration of the Cray EX system needs 
 all switch positions in the switch chassis.
 
 This does not mean that the extra positions cannot be useful in the future. If not for an interconnect,
