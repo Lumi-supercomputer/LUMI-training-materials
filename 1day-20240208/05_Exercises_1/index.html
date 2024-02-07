@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/05_Exercises_1/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../07_Exercises_2/">
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Exercises 1: Modules, the HPE Cray PE and EasyBuild - LUMI training materials</title>
+        <title>Exercises 1 - LUMI training materials</title>
       
     
     
@@ -93,7 +97,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Exercises 1: Modules, the HPE Cray PE and EasyBuild" />
+  <meta property="og:title" content="LUMI training materials - Exercises 1" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/05_Exercises_1/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -105,7 +109,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Exercises 1: Modules, the HPE Cray PE and EasyBuild" />
+  <meta name="twitter:title" content="LUMI training materials - Exercises 1" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -225,7 +229,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercises 1: Modules, the HPE Cray PE and EasyBuild
+              Exercises 1
             
           </span>
         </div>
@@ -619,6 +623,8 @@
       
   
   
+    
+  
   
     
     
@@ -629,16 +635,20 @@
       
         
       
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -660,13 +670,195 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             1-day February 2024
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-the-use-of-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercises on the use of modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-on-compiling-software-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercises on compiling software by hand
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises on compiling software by hand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-1-a-simple-hello-world-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilation of a program 1: A simple "Hello, world" program
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-2-a-program-with-blas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilation of a program 2: A program with BLAS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilation-of-a-program-3-a-hybrid-mpiopenmp-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilation of a program 3: A hybrid MPI/OpenMP program
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information-in-the-lumi-software-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information in the LUMI Software Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-software-with-easybuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing software with EasyBuild
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing software with EasyBuild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-a-simple-program-without-dependencies-with-easybuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a simple program without dependencies with EasyBuild
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-an-easyconfig-given-to-you-by-lumi-user-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing an EasyConfig given to you by LUMI User Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-with-uninstalled-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing software with uninstalled dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1940,6 +2132,73 @@
   
   <span class="md-ellipsis">
     LUMI Software Stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consortium partner archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Consortium partner archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
   </span>
   
 
