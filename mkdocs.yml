@@ -42,8 +42,8 @@ nav:
           - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
       - User-Coffee-Breaks/index.md
-  - "Comprehensive LUMI NEXT": 
-      - Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
+  #- "Comprehensive LUMI NEXT": 
+      #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - "1-day February 2024":
       - 1day-20240208/index.md
       #- LUMI Architecture: 1day-20240208/01_Architecture.md
