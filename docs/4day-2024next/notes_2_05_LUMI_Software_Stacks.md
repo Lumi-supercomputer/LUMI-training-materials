@@ -25,7 +25,7 @@ In this part of the training, we cover:
     **teething problems** and inhomogeneous doesn't make life easier either.
 
     1.  It uses a **novel interconnect** which is an extension of Ethernet rather than being based on InfiniBand, 
-        and that interconnect has a different software stack of your typical Mellanox InfiniBand cluster. 
+        and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. 
     2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with an immature software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
         and only one CPU socket, and another feature which is relatively new: the option to use a **partly coherent fully unified memory**
@@ -765,7 +765,7 @@ LUMI stack.
 EasyBuild will then use existing modules for dependencies if those are already on the system
 or in your personal or project stack.
 
-Note however that the **build-in easyconfig files that come with EasyBuild do not work on LUMI** at
+Note however that the **built-in easyconfig files that come with EasyBuild do not work on LUMI** at
 the moment.
 
 -   For the GNU toolchain there would be problems with MPI. EasyBuild uses Open MPI and that
@@ -943,7 +943,8 @@ easy way to figure out automatically where else to install software.
 
 The best place to install software is in your project directory so that it also becomes available
 for the whole project. After all, a project is meant to be a collaboration between all participants
-on a scientific problem. You'll need to point LUMI to the right location though and that has to
+of the project to solve a scientific problem. 
+You'll need to point LUMI to the right location though and that has to
 be done by setting the environment variable `EBU_USER_PREFIX` to point to the location where you
 want to have your custom installation. Also don't forget to export that variable as otherwise the
 module system and EasyBuild will not find it when they need it. So a good choice would be 
@@ -1012,7 +1013,7 @@ eb --search GROMACS
 ```
 
 Now let's take the variant `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`. 
-This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, build with the GNU compilers
+This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
 from `LUMI/23.09`, and a build meant for CPU-only systems. The `-CPU` extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
