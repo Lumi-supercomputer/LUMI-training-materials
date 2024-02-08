@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/">
       
       
+        <link rel="prev" href="../07_Exercises_2/">
+      
+      
+        <link rel="next" href="../video_09_LUMI_User_Support/">
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Introduction to Lustre and Best Practices - LUMI training materials</title>
+        <title>I/O and file systems - LUMI training materials</title>
       
     
     
@@ -93,7 +97,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Introduction to Lustre and Best Practices" />
+  <meta property="og:title" content="LUMI training materials - I/O and file systems" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -105,7 +109,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Introduction to Lustre and Best Practices" />
+  <meta name="twitter:title" content="LUMI training materials - I/O and file systems" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -225,7 +229,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction to Lustre and Best Practices
+              I/O and file systems
             
           </span>
         </div>
@@ -619,6 +623,8 @@
       
   
   
+    
+  
   
     
     
@@ -651,12 +657,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -678,7 +684,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             1-day February 2024
@@ -693,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_Architecture/" class="md-nav__link">
+      <a href="../video_01_LUMI_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -713,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_CPE/" class="md-nav__link">
+      <a href="../video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_Modules/" class="md-nav__link">
+      <a href="../video_03_Modules_on_LUMI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -753,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_Software_stacks/" class="md-nav__link">
+      <a href="../video_04_LUMI_Software_Stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -793,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_Running_jobs/" class="md-nav__link">
+      <a href="../video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -831,9 +837,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../08_Lustre_intro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -842,6 +857,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -853,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_LUMI_support/" class="md-nav__link">
+      <a href="../video_09_LUMI_User_Support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2256,10 +2272,8 @@
 
 <h1 id="introduction-to-lustre-and-best-practices">Introduction to Lustre and Best Practices<a class="headerlink" href="#introduction-to-lustre-and-best-practices" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Jørn Dietze (LUST)</em></p>
-<!--
 <video src="https://462000265.lumidata.eu/1day-20240208/recordings/08_Introduction_to_Lustre_and_Best_Practices.mp4" controls="controls">
 </video>
--->
 
 <p>Additional materials</p>
 <ul>
