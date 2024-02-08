@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/01_Architecture/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02_CPE/">
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>The LUMI Architecture - LUMI training materials</title>
+        <title>LUMI Architecture - LUMI training materials</title>
       
     
     
@@ -93,7 +97,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - The LUMI Architecture" />
+  <meta property="og:title" content="LUMI training materials - LUMI Architecture" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/01_Architecture/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -105,7 +109,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - The LUMI Architecture" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI Architecture" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -225,7 +229,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The LUMI Architecture
+              LUMI Architecture
             
           </span>
         </div>
@@ -619,6 +623,8 @@
       
   
   
+    
+  
   
     
     
@@ -633,16 +639,24 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -664,13 +678,262 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             1-day February 2024
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-kneed-to-know-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do I kneed to know this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI is ...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-spec-sheet-a-modular-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI spec sheet: A modular system
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-the-cpu-amd-7xx3-milanzen3-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-a-lumi-c-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: A LUMI-C node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building LUMI: A LUMI-C node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-strong-hierarchy-in-the-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      A strong hierarchy in the node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy-delays-in-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarchy: delays in numbers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-concept-lumi-g-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: Concept LUMI-G node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-what-a-lumi-g-node-really-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: What a LUMI-G node really looks like
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building LUMI: What a LUMI-G node really looks like">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-future-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the future looks like...
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-the-slingshot-interconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: The Slingshot interconnect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembling-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembling LUMI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-assembled" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI assembled
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               

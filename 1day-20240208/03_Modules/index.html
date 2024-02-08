@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/03_Modules/">
       
       
+        <link rel="prev" href="../02_CPE/">
+      
+      
+        <link rel="next" href="../04_Software_stacks/">
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Modules on LUMI - LUMI training materials</title>
+        <title>Modules - LUMI training materials</title>
       
     
     
@@ -93,7 +97,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Modules on LUMI" />
+  <meta property="og:title" content="LUMI training materials - Modules" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/03_Modules/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -105,7 +109,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Modules on LUMI" />
+  <meta name="twitter:title" content="LUMI training materials - Modules" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -225,7 +229,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Modules on LUMI
+              Modules
             
           </span>
         </div>
@@ -619,6 +623,8 @@
       
   
   
+    
+  
   
     
     
@@ -633,16 +639,24 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -664,13 +678,292 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             1-day February 2024
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-modules-with-lmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploring modules with Lmod
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-of-a-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of a hierarchy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-module-names-and-families" class="md-nav__link">
+    <span class="md-ellipsis">
+      About module names and families
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-for-modules-the-module-spider-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching for modules: The module spider command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching for modules: The module spider command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-running-module-spider-on-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Running module spider on LUMI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-searching-for-the-fftw-module-which-happens-to-be-provided-by-the-pe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Searching for the FFTW module which happens to be provided by the PE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-searching-for-gnuplot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Searching for GNUplot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-searching-for-an-extension-of-a-module-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 4: Searching for an extension of a module: CMake.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-search-the-module-keyword-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative search: the module keyword command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-modules-and-the-module-purge-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sticky modules and the module purge command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-how-the-module-list-is-displayed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing how the module list is displayed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help-with-the-module-help-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting help with the module help command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      A note on caching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-other-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      A note on other commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
