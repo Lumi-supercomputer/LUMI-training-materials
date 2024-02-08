@@ -6,7 +6,7 @@
 
 -   [Questions from the Hedgedoc document of the 8 February 2024 session](notes_20240208.md)
 
-    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-08feb24?view) (may disappear over time)
+    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-08feb24?both) (may disappear over time)
 
 
 ## Setting up for the exercises
@@ -43,6 +43,11 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
+| Introduction | / | / | [recording](video_00_Introduction.md) |
+| LUMI Architecture | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-01-architecture.pdf) | [notes](01_Architecture.md) | [recording](video_01_LUMI_Architecture.md) |
+| HPE Cray Programming Environment | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-02-CPE.pdf) | [notes](02_CPE.md) | [recording](video_02_HPE_Cray_Programming_Environment.md) |
+| Modules on LUMI | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-03-modules.pdf) | [notes](03_Modules.md) | [recording](video_03_Modules_on_LUMI.md) |
+| LUMI Software Stacks | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-04-software.pdf) | [notes](04_Software_stacks.md) | [recording](video_04_LUMI_Software_Stacks.md) |
 | Exercises 1 | / | [notes](05_Exercises_1.md) | / |
 | Exercises 2 | / | [notes](07_Exercises_2.md) | / |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
