@@ -47,6 +47,7 @@ In reverse chronological order:
 ## Archive of courses made available by LUMI consortium partners
 
 -   [How to run GROMACS efficiently on LUMI workshop (January 24-25, 2024, CSC Finland)](https://zenodo.org/records/10610643)
+-   [Interactive Slurm tutorial developed by DeiC (Denmark)](http://slurmlearning.deic.dk/)
 
 
 ## Information for local organisations

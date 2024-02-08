@@ -240,3 +240,7 @@ information.
 -   [Setonix User Guide](https://support.pawsey.org.au/documentation/display/US/Setonix+User+Guide).
     Setonix is a Cray EX system at Pawsey Supercomputing Centre in Australia. The CPU and GPU compute
     nodes are the same as on LUMI.
+
+## Web tutorials
+
+-   [Interactive Slurm tutorial developed by DeiC (Denmark)](http://slurmlearning.deic.dk/)
