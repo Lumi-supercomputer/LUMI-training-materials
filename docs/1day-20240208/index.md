@@ -43,6 +43,8 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
+| Exercises 1 | / | [notes](05_Exercises_1.md) | / |
+| Exercises 2 | / | [notes](07_Exercises_2.md) | / |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
 
 <!--
