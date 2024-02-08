@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/1day-20240208/05_Exercises_1/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../video_04_LUMI_Software_Stacks/">
       
       
-        <link rel="next" href="../07_Exercises_2/">
+        <link rel="next" href="../video_06_Running_Jobs_on_LUMI/">
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
@@ -639,6 +639,20 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -677,6 +691,86 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_01_LUMI_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_03_Modules_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_04_LUMI_Software_Stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -847,11 +941,71 @@
   
   
     <li class="md-nav__item">
+      <a href="../video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../07_Exercises_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_09_LUMI_User_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
   </span>
   
 
@@ -2414,8 +2568,10 @@ htop
 </details>
 </li>
 <li>
-<p>In the future LUMI will offer Open OnDemand as a browser-based interface to LUMI that will also enable
-    running some graphical programs. At the moment the way to do this is through a so-called VNC server.
+<p>LUMI now offers Open OnDemand as a browser-based interface to LUMI that will also enable
+    running some graphical programs. Another way to do this is through a so-called VNC server
+    (and that is actually what Open OnDemand is using under the hood also, but through its
+    own internal installation).
     Do we have such a tool on LUMI, and if so, how can we use it?</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
@@ -2451,7 +2607,7 @@ of the module, so let's try that one:
 That is because this tool is available even outside <code>CrayEnv</code> or the LUMI stacks. But this command also
 shows a long help text telling you how to use this module (though it does assume some familiarity with how
 X11 graphics work on Linux).</p>
-<p>Note that if there is only a single version on the system, as is the case for the course in September 2023,
+<p>Note that if there is only a single version on the system, as is the case for the course in February 2024,
 the <code>module spider VNC</code> command without specific version or correct module name will already display the
 help information.</p>
 </details>
@@ -2465,15 +2621,15 @@ help information.</p>
 </code></pre></div>
 <p>shows that there are versions of <code>bzip2</code> for several of the <code>cpe*</code> toolchains and in several versions
 of the LUMI software stack.</p>
-<p>Of course we prefer to use a recent software stack, the <code>22.08</code> or <code>22.12</code> (but as of September 2023, 
-there is still more software ready-to-install for <code>22.08</code>). 
+<p>Of course we prefer to use a recent software stack, the <code>22.12</code> or <code>23.09</code> (but as of February 2024, 
+there is still more software ready-to-install for <code>22.12</code> and maybe even '22.08'). 
 And since we want to use other software
 compiled with the Cray compilers also, we really want a <code>cpeCray</code> version to avoid conflicts between 
-different toolchains. So the module we want to load is <code>bzip2/1.0.8-cpeCray-22.08</code>.</p>
+different toolchains. So the module we want to load is <code>bzip2/1.0.8-cpeCray-23.09</code>.</p>
 <p>To figure out how to load it, use</p>
-<div class="highlight"><pre><span></span><code>module spider bzip2/1.0.8-cpeCray-22.08
+<div class="highlight"><pre><span></span><code>module spider bzip2/1.0.8-cpeCray-23.09
 </code></pre></div>
-<p>and see that (as expected from the name) we need to load <code>LUMI/22.08</code> and can then use it in any of the
+<p>and see that (as expected from the name) we need to load <code>LUMI/23.09</code> and can then use it in any of the
 partitions.</p>
 </details>
 </li>
@@ -2493,12 +2649,12 @@ the subdirectory CPE of the download.</em></p>
 <p>Try to compile these programs using the programming environment of your choice.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
-<p>We'll use the default version of the programming environment (22.12 at the moment of the
-course in May 2023), but in case you want to use
-a particular version, e.g., the 22.08 version, and want to be very sure that all modules are
+<p>We'll use the default version of the programming environment (23.09 at the moment of the
+course in February 2024), but in case you want to use
+a particular version, e.g., the 22.12 version, and want to be very sure that all modules are
 loaded correctly from the start you could consider using</p>
-<div class="highlight"><pre><span></span><code>module load cpe/22.08
-module load cpe/22.08
+<div class="highlight"><pre><span></span><code>module load cpe/22.12
+module load cpe/22.12
 </code></pre></div>
 <p>So note that we do twice the same command as the first iteration does not always succeed to reload
 all modules in the correct version. Do not combine both lines into a single <code>module load</code> statement
@@ -2715,7 +2871,7 @@ need the <code>cpeCray-22.12</code> version which is the EasyConfig
 <code>eb-tutorial-1.0.1-cpeCray-22.12.eb</code>.</p>
 </li>
 <li>
-<p>Obviously we need to load the <code>LUMI/22.08</code> module. If we would like to install software
+<p>Obviously we need to load the <code>LUMI/22.12</code> module. If we would like to install software
     for the CPU compute nodes, you need to also load <code>partition/C</code>.
     To be able to use EasyBuild, we also need the <code>EasyBuild-user</code> module.</p>
 <div class="highlight"><pre><span></span><code>module load LUMI/22.12 partition/C
@@ -2740,7 +2896,7 @@ the system so we can proceed with the installation:</p>
 </code></pre></div>
 <p>If this produces an error message complaining that the module cannot be found, it is time to clear
 the Lmod cache:</p>
-<div class="highlight"><pre><span></span><code>rm -rf $HOME/.lmod.d/.cache
+<div class="highlight"><pre><span></span><code>rm -rf $HOME/.cache/lmod
 </code></pre></div>
 </li>
 <li>
