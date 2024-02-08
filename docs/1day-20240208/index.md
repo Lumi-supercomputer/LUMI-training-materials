@@ -6,7 +6,7 @@
 
 -   [Questions from the Hedgedoc document of the 8 February 2024 session](notes_20240208.md)
 
-    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-8feb24?view) (may disappear over time)
+    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-08feb24?view) (may disappear over time)
 
 
 ## Setting up for the exercises
