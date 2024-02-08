@@ -44,9 +44,9 @@ In reverse chronological order:
 -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 
 
-## Archive of courses made available by LUMI consortium partners
+## Archive of courses made available by LUMI consortium partners and CoEs
 
--   [How to run GROMACS efficiently on LUMI workshop (January 24-25, 2024, CSC Finland)](https://zenodo.org/records/10610643)
+-   [Workshop: How to run GROMACS efficiently on LUMI (January 24-25, 2024, BioExcel/CSC Finland/KTH Sweden)](https://zenodo.org/records/10610643)
 -   [Interactive Slurm tutorial developed by DeiC (Denmark)](http://slurmlearning.deic.dk/)
 
 
