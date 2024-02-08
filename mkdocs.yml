@@ -46,15 +46,15 @@ nav:
       #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - "1-day February 2024":
       - 1day-20240208/index.md
-      #- LUMI Architecture: 1day-20240208/01_Architecture.md
-      #- HPE Cray PE: 1day-20240208/02_CPE.md
-      #- Modules: 1day-20240208/03_Modules.md
-      #- Software stacks: 1day-20240208/04_Software_stacks.md
+      - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
+      - HPE Cray PE: 1day-20240208/video_02_HPE_Cray_Programming_Environment.md
+      - Modules: 1day-20240208/video_03_Modules_on_LUMI.md
+      - Software stacks: 1day-20240208/video_04_LUMI_Software_Stacks.md
       - Exercises 1: 1day-20240208/05_Exercises_1.md
-      #- Running jobs: 1day-20240208/06_Running_jobs.md
+      - Running jobs: 1day-20240208/video_06_Running_Jobs_on_LUMI.md
       - Exercises 2: 1day-20240208/07_Exercises_2.md
-      #- I/O and file systems: 1day-20240208/08_Lustre_intro.md
-      #- LUMI support: 1day-20240208/09_LUMI_support.md
+      - I/O and file systems: 1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices.md
+      - LUMI support: 1day-20240208/video_09_LUMI_User_Support.md
       - Documentation: 1day-20240208/A01_Documentation.md
   - Profiling November 2023:
       - Profiling-20231122/index.md

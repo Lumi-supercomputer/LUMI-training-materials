@@ -6,7 +6,7 @@
 
 -   [Questions from the Hedgedoc document of the 8 February 2024 session](notes_20240208.md)
 
-    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-8feb24?view) (may disappear over time)
+    -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-08feb24?both) (may disappear over time)
 
 
 ## Setting up for the exercises
@@ -43,11 +43,6 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
-| Exercises 1 | / | [notes](05_Exercises_1.md) | / |
-| Exercises 2 | / | [notes](07_Exercises_2.md) | / |
-| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
-
-<!--
 | Introduction | / | / | [recording](video_00_Introduction.md) |
 | LUMI Architecture | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-01-architecture.pdf) | [notes](01_Architecture.md) | [recording](video_01_LUMI_Architecture.md) |
 | HPE Cray Programming Environment | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-02-CPE.pdf) | [notes](02_CPE.md) | [recording](video_02_HPE_Cray_Programming_Environment.md) |
@@ -56,6 +51,6 @@ materials are uploaded.
 | Exercises 1 | / | [notes](05_Exercises_1.md) | / |
 | Running Jobs on LUMI | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-06-running_jobs.pdf) | / | [recording](video_06_Running_Jobs_on_LUMI.md) |
 | Exercises 2 | / | [notes](07_Exercises_2.md) | / |
-| Introduction to Lustre and Best Practices | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-08-Lustre-intro.pdf) | / | [recording](video_08_Introduction_to_Lustre_and_Best_Practices.md) |
-| LUMI User Support | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-09-Lumi-support.pdf) | / | [recording](video_09_LUMI_User_Support.md) |
--->
+| Introduction to Lustre and Best Practices | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-08-lustre-intro.pdf) | / | [recording](video_08_Introduction_to_Lustre_and_Best_Practices.md) |
+| LUMI User Support | [slides](https://462000265.lumidata.eu/1day-20240208/files/LUMI-1day-20240208-09-lumi-support.pdf) | / | [recording](video_09_LUMI_User_Support.md) |
+| Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |

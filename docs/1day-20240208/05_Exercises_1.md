@@ -72,8 +72,10 @@ to set up for the exercises.
 
         (You can quit `htop` by pressing `q` on the keyboard.)
 
-3.  In the future LUMI will offer Open OnDemand as a browser-based interface to LUMI that will also enable
-    running some graphical programs. At the moment the way to do this is through a so-called VNC server.
+3.  LUMI now offers Open OnDemand as a browser-based interface to LUMI that will also enable
+    running some graphical programs. Another way to do this is through a so-called VNC server
+    (and that is actually what Open OnDemand is using under the hood also, but through its
+    own internal installation).
     Do we have such a tool on LUMI, and if so, how can we use it?
 
     ??? Solution "Click to see the solution."
@@ -116,7 +118,7 @@ to set up for the exercises.
         shows a long help text telling you how to use this module (though it does assume some familiarity with how
         X11 graphics work on Linux).
 
-        Note that if there is only a single version on the system, as is the case for the course in September 2023,
+        Note that if there is only a single version on the system, as is the case for the course in February 2024,
         the `module spider VNC` command without specific version or correct module name will already display the
         help information.
 
@@ -132,19 +134,19 @@ to set up for the exercises.
         shows that there are versions of `bzip2` for several of the `cpe*` toolchains and in several versions
         of the LUMI software stack.
 
-        Of course we prefer to use a recent software stack, the `22.08` or `22.12` (but as of September 2023, 
-        there is still more software ready-to-install for `22.08`). 
+        Of course we prefer to use a recent software stack, the `22.12` or `23.09` (but as of February 2024, 
+        there is still more software ready-to-install for `22.12` and maybe even '22.08'). 
         And since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
-        different toolchains. So the module we want to load is `bzip2/1.0.8-cpeCray-22.08`.
+        different toolchains. So the module we want to load is `bzip2/1.0.8-cpeCray-23.09`.
 
         To figure out how to load it, use
 
         ```
-        module spider bzip2/1.0.8-cpeCray-22.08
+        module spider bzip2/1.0.8-cpeCray-23.09
         ```
 
-        and see that (as expected from the name) we need to load `LUMI/22.08` and can then use it in any of the
+        and see that (as expected from the name) we need to load `LUMI/23.09` and can then use it in any of the
         partitions.
 
 
@@ -166,14 +168,14 @@ Four different implementations of a simple "Hello, World!" program are provided 
 Try to compile these programs using the programming environment of your choice.
 
 ??? Solution "Click to see the solution."
-    We'll use the default version of the programming environment (22.12 at the moment of the
-    course in May 2023), but in case you want to use
-    a particular version, e.g., the 22.08 version, and want to be very sure that all modules are
+    We'll use the default version of the programming environment (23.09 at the moment of the
+    course in February 2024), but in case you want to use
+    a particular version, e.g., the 22.12 version, and want to be very sure that all modules are
     loaded correctly from the start you could consider using
 
     ```
-    module load cpe/22.08
-    module load cpe/22.08
+    module load cpe/22.12
+    module load cpe/22.12
     ```
 
     So note that we do twice the same command as the first iteration does not always succeed to reload
@@ -463,7 +465,7 @@ the package for the `cpeCray` toolchain in the 22.12 version of the software sta
         need the `cpeCray-22.12` version which is the EasyConfig
         `eb-tutorial-1.0.1-cpeCray-22.12.eb`.
 
-    -   Obviously we need to load the `LUMI/22.08` module. If we would like to install software
+    -   Obviously we need to load the `LUMI/22.12` module. If we would like to install software
         for the CPU compute nodes, you need to also load `partition/C`.
         To be able to use EasyBuild, we also need the `EasyBuild-user` module.
 
@@ -499,7 +501,7 @@ the package for the `cpeCray` toolchain in the 22.12 version of the software sta
         the Lmod cache:
 
         ```
-        rm -rf $HOME/.lmod.d/.cache
+        rm -rf $HOME/.cache/lmod
         ```
     -   Now that we have the module, we can check what it actually does:
 
