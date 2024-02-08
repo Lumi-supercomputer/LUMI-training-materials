@@ -51,7 +51,7 @@ nav:
       - Modules: 1day-20240208/03_Modules.md
       - Software stacks: 1day-20240208/04_Software_stacks.md
       - Exercises 1: 1day-20240208/05_Exercises_1.md
-      #- Running jobs: 1day-20240208/06_Running_jobs.md
+      - Running jobs: 1day-20240208/06_Running_jobs.md
       - Exercises 2: 1day-20240208/07_Exercises_2.md
       #- I/O and file systems: 1day-20240208/08_Lustre_intro.md
       #- LUMI support: 1day-20240208/09_LUMI_support.md
