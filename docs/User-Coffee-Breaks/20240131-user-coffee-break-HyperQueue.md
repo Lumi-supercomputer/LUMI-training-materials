@@ -1,4 +1,4 @@
-# Open OnDemand: A web interface for LUMI (January 31, 2024)
+# HyperQueue (January 31, 2024)
 
 *Presenters:* Jakub Beránek and Ada Böhm (IT4Innovations)
 
