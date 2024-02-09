@@ -4,7 +4,8 @@
 
 -   [Schedule](schedule.md)
 
--   [Questions from the Hedgedoc document of the 8 February 2024 session](notes_20240208.md)
+-   [Questions from the Hedgedoc document of the 8 February 2024 session](notes_20240208.md),
+    re-ordered according to the theme of the questions, and with some enhanced answers.
 
     -   [Original document on Hedgedoc](https://md.sigma2.no/lumi-intro-course-08feb24?both) (may disappear over time)
 
