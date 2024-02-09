@@ -1,5 +1,9 @@
 # Overview of LUMI trainings
 
+## Organised by LUST in cooperation with partners
+
+### Regular trainings
+
 Most recently completed main training events:
 
 -   4-day comprehensive LUMI training aimed at developers and advanced users:
@@ -8,8 +12,13 @@ Most recently completed main training events:
 -   1-day LUMI training aimed at regular users:
     [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
 
+Other recent LUST-organised trainings for which the material is still very up-to-date and
+relevant:
 
-## LUMI User Coffee Break Talks
+-   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
+
+
+### LUMI User Coffee Break Talks
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
@@ -24,27 +33,39 @@ Most recently completed main training events:
 -   [Current state of running AI workloads on LUMI (June 28, 2023)](User-Coffee-Breaks/20230628-user-coffee-break-AI.md)
 
 
-## Archive of the LUST-provided regular trainings
+## Recent courses made available by LUMI consortium partners and CoEs
 
-In reverse chronological order:
-
--   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
--   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
--   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
--   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
--   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
--   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
--   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
--   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
--   [Comprehensive general LUMI course (February 14-17, 2023)](4day-20230214/index.md)
--   [LUMI-G Training (January 11, 2023)](LUMI-G-20230111/index.md)
--   [Detailed introduction to the LUMI-C environment and architecture (November 23/24, 2022)](PEAP-Q-20221123/index.md)
--   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
--   [EasyBuild course for CSC and local organisations (May 9/11, 2022)](EasyBuild-CSC-20220509/index.md)
--   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
+-   [Workshop: How to run GROMACS efficiently on LUMI (January 24-25, 2024, BioExcel/CSC Finland/KTH Sweden)](https://zenodo.org/records/10610643)
+-   [Interactive Slurm tutorial developed by DeiC (Denmark)](http://slurmlearning.deic.dk/)
 
 
-## Archive of courses made available by LUMI consortium partners and CoEs
+## Course archive
+
+### LUST-provided regular trainings
+
+By theme in reverse chronological order:
+
+-   Short introductory trainings to LUMI
+    -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
+    -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
+    -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
+-   Comprehensive general LUMI trainings
+    -   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
+    -   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
+    -   [Comprehensive general LUMI course (February 14-17, 2023)](4day-20230214/index.md)
+    -   [LUMI-G Training (January 11, 2023)](LUMI-G-20230111/index.md)
+    -   [Detailed introduction to the LUMI-C environment and architecture (November 23/24, 2022)](PEAP-Q-20221123/index.md)
+    -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
+    -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
+-   Performance analysis tools
+    -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
+    -   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
+    -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
+-   EasyBuild on LUMI
+    -   [EasyBuild course for CSC and local organisations (May 9/11, 2022)](EasyBuild-CSC-20220509/index.md)
+
+
+### Courses made available by LUMI consortium partners and CoEs
 
 -   [Workshop: How to run GROMACS efficiently on LUMI (January 24-25, 2024, BioExcel/CSC Finland/KTH Sweden)](https://zenodo.org/records/10610643)
 -   [Interactive Slurm tutorial developed by DeiC (Denmark)](http://slurmlearning.deic.dk/)

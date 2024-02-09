@@ -33,34 +33,37 @@ theme:
 nav:
   - Home: index.md
   - User Updates:
-      - User-Updates/index.md
-      - October-November 2023: User-Updates/Update-202311/index.md
-      - August 2023: 
-          - User-Updates/Update-202308/index.md
-          - Low-noise mode: User-Updates/Update-202308/lumig-lownoise.md
-          - dev-g and eap: User-Updates/Update-202308/lumig-devg.md
-          - Responsible use: User-Updates/Update-202308/responsible-use.md
+    - User-Updates/index.md
+    - October-November 2023: User-Updates/Update-202311/index.md
+    - August 2023: 
+      - User-Updates/Update-202308/index.md
+      - Low-noise mode: User-Updates/Update-202308/lumig-lownoise.md
+      - dev-g and eap: User-Updates/Update-202308/lumig-devg.md
+      - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
-      - User-Coffee-Breaks/index.md
+    - User-Coffee-Breaks/index.md
   #- "Comprehensive LUMI NEXT": 
-      #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
+    #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - "1-day February 2024":
-      - 1day-20240208/index.md
-      - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
-      - HPE Cray PE: 1day-20240208/video_02_HPE_Cray_Programming_Environment.md
-      - Modules: 1day-20240208/video_03_Modules_on_LUMI.md
-      - Software stacks: 1day-20240208/video_04_LUMI_Software_Stacks.md
-      - Exercises 1: 1day-20240208/05_Exercises_1.md
-      - Running jobs: 1day-20240208/video_06_Running_Jobs_on_LUMI.md
-      - Exercises 2: 1day-20240208/07_Exercises_2.md
-      - I/O and file systems: 1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices.md
-      - LUMI support: 1day-20240208/video_09_LUMI_User_Support.md
-      - Documentation: 1day-20240208/A01_Documentation.md
+    - 1day-20240208/index.md
+    - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
+    - HPE Cray PE: 1day-20240208/video_02_HPE_Cray_Programming_Environment.md
+    - Modules: 1day-20240208/video_03_Modules_on_LUMI.md
+    - Software stacks: 1day-20240208/video_04_LUMI_Software_Stacks.md
+    - Exercises 1: 1day-20240208/05_Exercises_1.md
+    - Running jobs: 1day-20240208/video_06_Running_Jobs_on_LUMI.md
+    - Exercises 2: 1day-20240208/07_Exercises_2.md
+    - I/O and file systems: 1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices.md
+    - LUMI support: 1day-20240208/video_09_LUMI_User_Support.md
+    - Documentation: 1day-20240208/A01_Documentation.md
   - Profiling November 2023:
-      - Profiling-20231122/index.md
+    - Profiling-20231122/index.md
   - Comprehensive LUMI October 2023:
-      - 4day-20231003/index.md
-  - "1-day September 2023":
+    - 4day-20231003/index.md
+  - Partner courses:
+    - GROMACS workshop 2024: https://zenodo.org/records/10610643
+  - Archive:
+    - "1-day September 2023":
       - 1day-20230921/index.md
       - LUMI Architecture: 1day-20230921/01_Architecture.md
       - HPE Cray PE: 1day-20230921/02_CPE.md
@@ -72,9 +75,9 @@ nav:
       - I/O and file systems: 1day-20230921/08_Lustre_intro.md
       - LUMI support: 1day-20230921/09_LUMI_support.md
       - Documentation: 1day-20230921/A01_Documentation.md
-  - Comprehensive LUMI May-June 2023:
+    - Comprehensive LUMI May-June 2023:
       - 4day-20230530/index.md
-  - "1-day May 2023":
+    - "1-day May 2023":
       - 1day-20230509/index.md
       - LUMI Architecture: 1day-20230509/01_Architecture.md
       - HPE Cray PE: 1day-20230509/02_CPE.md
@@ -85,29 +88,27 @@ nav:
       - Exercises 2: 1day-20230509/07_Exercises_2.md
       - I/O and file systems: 1day-20230509/08_Lustre_intro.md
       - LUMI support: 1day-20230509/09_LUMI_support.md
-  - Hackathon April 2023:
+    - Hackathon April 2023:
       - hackathon: Hackathon-20230417/index.md
-  - Profiling April 2013:
+    - Profiling April 2013:
       - Profiling-20230413/index.md
-  - Comprehensive LUMI February 2023:
+    - Comprehensive LUMI February 2023:
       - 4day-20230214/index.md
-  - "LUMI-G January 2023":
+    - "LUMI-G January 2023":
       - LUMI-G-20230111/index.md
-  - PEAP-Q November 2022:
+    - PEAP-Q November 2022:
       - PEAP-Q-20221123/index.md
       - Schedule: PEAP-Q-20221123/schedule.md
-  - LUMI-G August 2022:
+    - LUMI-G August 2022:
       - LUMI-G-20220823/index.md
       - hackmd notes: LUMI-G-20220823/hackmd_notes.md
-  - EasyBuild May 2022:
+    - EasyBuild May 2022:
       - EasyBuild-CSC-20220509/index.md
       - Course notes: https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/
-  - PEAP-Q April 2022:
+    - PEAP-Q April 2022:
       - PEAP-Q-20220427/index.md
       - hackmd notes: PEAP-Q-20220427/hackmd_notes.md
       - LUMI Software Stacks: PEAP-Q-20220427/software_stacks.md
-  - Consortium partner archive:
-      - GROMACS workshop 2024: https://zenodo.org/records/10610643
 
 plugins:
   # show revision date at bottom of each page
