@@ -3,7 +3,9 @@
 ## During the course
 
 -   [Course schedule](schedule.md)
--   [HedgeDoc collaborative document](https://md.sigma2.no/lumi-c-brussels) for questions
+-   [Notes from the HedgeDoc document with questions](hedgedoc_notes.md)
+     -   [HedgeDoc collaborative document](https://md.sigma2.no/lumi-c-brussels) 
+         (may disappear over time)
 -   [Where to eat?](where_to_eat.md)
 
 

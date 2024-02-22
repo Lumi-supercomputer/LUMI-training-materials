@@ -241,7 +241,7 @@ Slides from the LUST talks are available [on these pages](index.md)
 ### Lust presentation: LUMI software stack
 
 *Presenter: Kurt Lust*<br>
-*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/L13_LUST_LUMI_Software.pdf) and [notes](software_stacks.md)*
+*[Slides](https://462000265.lumidata.eu/peap-q-20221123/files/L13_LUST_LUMI_Software.pdf) and [notes](notes_13_LUMI_Software_Stacks.md)*
 
 29. `Error: ~/exercises/VH1-io/VH1-io/run> sbatch run_vh1-io.slurm sbatch: error: Invalid directive found in batch script: e.g` Do I need to change something in run_vh1-io.slurm before submitting?
     - Yes, you have to at least adapt the account, partition and reservation. qos has to be deleted (reservation is also optional). 
