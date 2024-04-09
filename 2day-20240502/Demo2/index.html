@@ -20,7 +20,7 @@
     
     
       
-        <title>Demo option 2: MNIST - LUMI training materials</title>
+        <title>Demo option 2: A short walk-through for distributed learning - LUMI training materials</title>
       
     
     
@@ -114,7 +114,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Demo option 2: MNIST" />
+  <meta property="og:title" content="LUMI training materials - Demo option 2: A short walk-through for distributed learning" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/Demo2/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Demo option 2: MNIST" />
+  <meta name="twitter:title" content="LUMI training materials - Demo option 2: A short walk-through for distributed learning" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#demo-option-2-mnist" class="md-skip">
+        <a href="#demo-option-2-a-short-walk-through-for-distributed-learning" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Demo option 2: MNIST
+              Demo option 2: A short walk-through for distributed learning
             
           </span>
         </div>
@@ -2414,6 +2414,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-getting-some-files-that-we-will-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Getting some files that we will use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-installing-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Installing the container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-running-a-distributed-learning-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Running a distributed learning example.
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2427,7 +2462,227 @@
                   
 
 
-<h1 id="demo-option-2-mnist">Demo option 2: MNIST<a class="headerlink" href="#demo-option-2-mnist" title="Permanent link">&para;</a></h1>
+<h1 id="demo-option-2-a-short-walk-through-for-distributed-learning">Demo option 2: A short walk-through for distributed learning<a class="headerlink" href="#demo-option-2-a-short-walk-through-for-distributed-learning" title="Permanent link">&para;</a></h1>
+<p>In this demo, we will install one of the PyTorch containers provided on LUMI
+and run a simple distributed learning example that the LUMI User Support Team also uses
+for internal testing.</p>
+<p>The demo follows largely the instructions for distributed learning from the
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch page in the LUMI Software Library</a>.</p>
+<p>This demo shows:
+-   How to install one of the containers for which we provide EasyBuild recipes
+-   How to use our more recent PyTorch containers for distributed learning</p>
+<h2 id="step-1-getting-some-files-that-we-will-use">Step 1: Getting some files that we will use<a class="headerlink" href="#step-1-getting-some-files-that-we-will-use" title="Permanent link">&para;</a></h2>
+<p>Let's create an installation directory for the demo. Set the environment variable
+<code>installdir</code> to a proper value for the directories on LUMI that you have access to.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/project/project_462000008/kurtlust/DEMO2
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>We are now in the installation directory of which we also ensured its existence first.
+Let's now download some files that we will use:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://raw.githubusercontent.com/Lumi-supercomputer/lumi-reframe-tests/main/checks/containers/ML_containers/src/pytorch/mnist/mnist_DDP.py
+mkdir<span class="w"> </span>-p<span class="w"> </span>model<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>model
+wget<span class="w"> </span>https://github.com/Lumi-supercomputer/lumi-reframe-tests/raw/main/checks/containers/ML_containers/src/pytorch/mnist/model/model_gpu.dat
+<span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p>The first two files are actually files that were developed for testing some PyTorch containers 
+on LUMI after system upgrades.</p>
+<p>The demo also uses a popular dataset (one of the MNIST datasets) from 
+<a href="https://www.linkedin.com/in/yann-lecun/">Yann LeCun</a>, a data scientist at Meta.
+The pointers to the dataset are actually included in the <code>torchvision</code> package which is why it is not
+easy to track where the data comes from. 
+The script that we use will download the data if it is not present, but does so on each process, leading
+to a high load on the web server providing the data and throttling after a few tries, so we will prepare the data
+instead in the <code>$installdir</code> subdirectory:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>data/MNIST/raw
+wget<span class="w"> </span>--recursive<span class="w"> </span>--level<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cut-dirs<span class="o">=</span><span class="m">3</span><span class="w"> </span>--no-host-directories<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--directory-prefix<span class="o">=</span>data/MNIST/raw<span class="w"> </span>--accept<span class="w"> </span><span class="s1">&#39;*.gz&#39;</span><span class="w"> </span>http://yann.lecun.com/exdb/mnist/
+gunzip<span class="w"> </span>data/MNIST/raw/*.gz
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">31</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>data<span class="w"> </span><span class="s2">&quot;data</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<h2 id="step-2-installing-the-container">Step 2: Installing the container<a class="headerlink" href="#step-2-installing-the-container" title="Permanent link">&para;</a></h2>
+<p>We can find an overview of the available PyTorch containers on the
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch page in the LUMI Software Library</a>.
+We'll use a version that already has support for Python virtual environments built in as that 
+will make it a lot easier to install extra Python packages. </p>
+<p>First we need to load and configure EasyBuild and make sure that EasyBuild can run in a clean
+environment:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/container<span class="w"> </span>EasyBuild-user
+</code></pre></div>
+<p>The <code>partition/container</code> is a "special" partition whose main purpose is to tell EasyBuild-user (and other modules
+that we use to install software on the system) to configure EasyBuild to install container modules. Afterwards,
+these containers are available in any partition of the <code>LUMI</code> stacks and in the <code>CrayEnv</code> stack. 
+The <code>EasyBuild-user</code> module here is responsible of configuring EasyBuild and also ensures that a proper version of EasyBuild
+is loaded.</p>
+<p>After loading <code>EasyBuild-user</code>, installing the container from the EasyBuild recipe is very easy:</p>
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>PyTorch-2.2.0-rocm-5.6.1-python-3.10-singularity-20240315.eb
+</code></pre></div>
+<p>We're now finished with EasyBuild so don't need the modules related to EasyBuild anymore. So lets's clean
+the environment an load the PyTorch container module that we just built with EasyBuild:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>purge
+module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09
+module<span class="w"> </span>load<span class="w"> </span>PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+</code></pre></div>
+<p>Note that the module defines two environment variables that point to the <code>.sif</code> file of the container:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$SIF</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SIFPYTORCH</span>
+</code></pre></div>
+<p>All our container modules provide the <code>SIF</code> environment variable, but the name of the second one depends on the
+name of the package, and it may be safer to use should you load multiple container modules of different packages
+to quickly switch between them.</p>
+<div class="admonition note">
+<p class="admonition-title">If you're really concerned about disk space...</p>
+<p>... you may chose to delete the version of the container that we have installed. To continue, you then
+need to reload the <code>PyTorch</code> module:</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$SIF</span>
+module<span class="w"> </span>load<span class="w"> </span>PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+</code></pre></div>
+<p>Now check again the <code>SIF</code> and <code>SIFPYTORCH</code> environment variables and note that they now point to
+files in <code>/appl/local/containers</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$SIF</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SIFPYTORCH</span>
+</code></pre></div>
+<p>We do not recommend you remove the container file as your module will stop working if the image
+is removed from <code>/appl/local/containers</code> which we do when we deem the file not useful anymore as it
+causes trouble for too many users. But it may still work fine for what you do with it...</p>
+</div>
+<p>All containers with module files also define the environment variable <code>CONTAINERROOT</code>, pointing to the 
+directory in which EasyBuild installs the <code>.sif</code> file (and not pointing to <code>/appl/local/containers</code> if
+you've removed the container <code>.sif</code> file). The standard EasyBuild variable <code>EBROOTPYTORCH</code> is also defined
+and serves the same purpose, but of course has a different name for other packages.</p>
+<p>Let's do some checks:</p>
+<div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>shell<span class="w"> </span><span class="nv">$SIF</span>
+</code></pre></div>
+<p>brings us into the container (note that the command prompt has changed).</p>
+<p>The command</p>
+<div class="highlight"><pre><span></span><code>which<span class="w"> </span>python
+</code></pre></div>
+<p>returns</p>
+<div class="highlight"><pre><span></span><code>/user-software/venv/pytorch/bin/python
+</code></pre></div>
+<p>which shows that the virtual environment pre-installed in the container is indeed active.</p>
+<p>Let's leave the container again:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">exit</span>
+</code></pre></div>
+<p>and check the <code>$CONTAINERROOT</code> directory:</p>
+<div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>systools
+tree<span class="w"> </span><span class="nv">$CONTAINERROOT</span>
+</code></pre></div>
+<p>There is a lot of stuff in there. If we scroll up enough, we see:</p>
+<ul>
+<li>
+<p>A subdirectory <code>easybuild</code> which among other things turns out to contain copies
+    of the EasyBuild recipe that we used. This directory basically contains all important
+    files to reproduce the installation, except for the container it used itself.</p>
+</li>
+<li>
+<p>The <code>user-software</code> subdirectory contains all the files that in the container can
+    be found in <code>/user-software</code>. It is  </p>
+</li>
+<li>
+<p>There is a <code>bin</code> subdirectory with some scripts. The <code>start-shell</code> script is only there
+    for historical reasons and compatibility with some other containers, but the 
+    <code>make-squashfs</code> and <code>unmake-squashfs</code> files are useful and can be used to make the Python
+    virtual environment more filesystem-friendly by converting the <code>user-software</code> subdirectory
+    into a SquashFS file which is then mounted in the container.</p>
+</li>
+<li>
+<p>The <code>runscripts</code> subdirectory contains some scripts that we will use to simplify
+    running the container. The scripts by no means cover all use cases, but they are nice
+    examples about how scripts for your specific tasks could be written.
+    This directory is also mounted in the container as <code>/runscripts</code> so that it is
+    easy to access.</p>
+</li>
+</ul>
+<h2 id="step-3-running-a-distributed-learning-example">Step 3: Running a distributed learning example.<a class="headerlink" href="#step-3-running-a-distributed-learning-example" title="Permanent link">&para;</a></h2>
+<p>The <code>conda-python-distributed</code> script is written to ease distributed learning with PyTorch.
+Distributed learning requires some initialisation of environment variables that are used by
+PyTorch or by libraries from the ROCm<sup>TM</sup> stack. It passes its arguments to the
+Python command. It is mostly meant to be used on full nodes with one task per GPU, as in 
+other cases not all initialisation make sense or are even valid.</p>
+<p>Let's check the script:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="nv">$CONTAINERROOT</span>/runscripts/conda-python-distributed
+</code></pre></div>
+<p>The first block,</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$SLURM_LOCALID</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>rocm-smi
+<span class="k">fi</span>
+sleep<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<p>has mostly a debugging purpose. One task per node will run <code>rocm-smi</code> on that node and its output can
+be used to check if all GPUs are available as expected. The <code>sleep</code> command is there because we have
+experienced that sometimes there is still stuff going on in the background that may prevent later
+commands to fail.</p>
+<!-- TODO Is this right and is the sleep command really needed? -->
+
+<p>The next block does some very needed initialisations for the MIOpen cache, an important library
+for neural networks, as the default location causes problems on LUMI as Lustre locking is not 
+compatible with MIOpen:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_USER_DB_PATH</span><span class="o">=</span><span class="s2">&quot;/tmp/</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">-miopen-cache-</span><span class="nv">$SLURM_NODEID</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_CUSTOM_CACHE_DIR</span><span class="o">=</span><span class="nv">$MIOPEN_USER_DB_PATH</span>
+
+<span class="c1"># Set MIOpen cache to a temporary folder.</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$SLURM_LOCALID</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$MIOPEN_USER_DB_PATH</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$MIOPEN_USER_DB_PATH</span>
+<span class="k">fi</span>
+sleep<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<p>These commands basically move the cache to a subdirectory of <code>/tmp</code>.</p>
+<p>Next we need to tell RCCL, the communication library, which interfaces it should use
+as otherwise it may try to communicate over the management network of LUMI which does
+not work. This is done through some <code>NCCL_*</code> environment variables which may be counterintuitive,
+but RCCL is basically the equivalent of NVIDIA NCCL.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">NCCL_SOCKET_IFNAME</span><span class="o">=</span>hsn0,hsn1,hsn2,hsn3
+<span class="nb">export</span><span class="w"> </span><span class="nv">NCCL_NET_GDR_LEVEL</span><span class="o">=</span><span class="m">3</span>
+</code></pre></div>
+<p>Fourth, we need to ensure that each task uses the proper GPU. This is one point where we 
+assume that one GPU (GCD) per task is used. The script also assumes that the
+<a href="07_Binding.md#linear-assignment-of-gcd-then-match-the-cores">"Linear assignment of GCD, then match the cores" idea</a>
+is used, so we will need some more complicated CPU mapping in the job script.</p>
+<p>PyTorch also needs some initialisation that are basically the same on NVIDIA and
+AMD hardware. This includes setting a master for the communication (the first node of 
+a job) and a port for the communication. That port is hard-coded, so a second instance
+of the script on the same node would fail. So we basically assume we use full nodes.
+To determine that master, another script from the <code>runscripts</code> subdirectory is used.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>/runscripts/get-master<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SLURM_NODELIST</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_PORT</span><span class="o">=</span><span class="m">29500</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">WORLD_SIZE</span><span class="o">=</span><span class="nv">$SLURM_NPROCS</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RANK</span><span class="o">=</span><span class="nv">$SLURM_PROCID</span>
+</code></pre></div>
+<p>Now we can turn our attention to the job script. Create a script <code>mnist.slurm</code> in
+the demo directory <code>$installdir</code> by copying the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -e</span>
+<span class="c1">#SBATCH --nodes=4</span>
+<span class="c1">#SBATCH --gpus-per-node=8</span>
+<span class="c1">#SBATCH --output=&quot;output_%x_%j.txt&quot;</span>
+<span class="c1">#SBATCH --partition=standard-g</span>
+<span class="c1">#SBATCH --mem=480G</span>
+<span class="c1">#SBATCH --time=5:00</span>
+<span class="c1">#SBATCH --account=project_&lt;your_project_id&gt;</span>
+
+module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09
+module<span class="w"> </span>load<span class="w"> </span>PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+
+<span class="nv">c</span><span class="o">=</span>fe
+<span class="nv">MYMASKS</span><span class="o">=</span><span class="s2">&quot;0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000000000&quot;</span>
+
+srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="k">$((</span><span class="nv">SLURM_NNODES</span><span class="o">*</span><span class="m">8</span><span class="k">))</span><span class="w"> </span>--cpu-bind<span class="o">=</span>mask_cpu:<span class="nv">$MYMASKS</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$SIFPYTORCH</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>conda-python-distributed<span class="w"> </span>-u<span class="w"> </span>mnist_DDP.py<span class="w"> </span>--gpu<span class="w"> </span>--modelpath<span class="w"> </span>model
+</code></pre></div>
+<p>Launch the script by setting some environment variables to use the course account and reservation:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SBATCH_ACCOUNT</span><span class="o">=</span>project_465000999
+<span class="nb">export</span><span class="w"> </span><span class="nv">SBATCH_RESERVATION</span><span class="o">=</span>TODO
+</code></pre></div>
+<p>and then launching the job script:</p>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>mnist.slurm
+</code></pre></div>
+<p>(After the course, use any valid project with GPU billing units and omit the <code>SBATCH_RESERVATION</code> environment
+variable)</p>
+<p>When the job script ends (which is usually fast once it gets the resources to run),
+the output can be found in <code>output_mnist.slurm_1234567.txt</code> where you need to
+replace <code>1234567</code> with the actual job id.</p>
 
 
 
