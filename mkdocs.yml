@@ -16,6 +16,7 @@ theme:
     - header.autohide
     - toc.follow
     - content.code.annotate
+    - content.code.copy
   favicon: assets/favicon-LUMI.png
   font: false
   palette:
@@ -28,7 +29,14 @@ theme:
       demo: fontawesome/solid/computer-mouse
       exercise: fontawesome/solid/screwdriver-wrench
       remark: fontawesome/solid/comment-dots
+      bug: fontawesome/solid/robot
+      audience: fontawesome/solid/people-group
       solution: fontawesome/solid/wand-magic-sparkles
+      technical: fontawesome/solid/book-open-reader
+      intermediate: fontawesome/solid/graduation-cap
+      advanced: fontawesome/solid/user-graduate
+      lumi-be: fontawesome/solid/building-flag
+      nice-to-know: fontawesome/regular/lightbulb
 
 nav:
   - Home: index.md
@@ -42,6 +50,8 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - Supercomputing with LUMI May 2024:
+    - 2day-20240502/index.md
   #- "Comprehensive LUMI NEXT": 
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - Comprehensive LUMI April 2024:
