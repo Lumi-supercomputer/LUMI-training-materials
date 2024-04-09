@@ -3,4 +3,4 @@
 ## Demos
 
 -   [Demo option 1: Fooocus](Demo1.md)
--   [Demo option 2: mnist](Demo2.md)
+-   [Demo option 2: A short walk-through through distributed learning](Demo2.md)
