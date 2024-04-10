@@ -1306,7 +1306,7 @@ work. You can only expect reproducibility of sequential codes between equal hard
 CPU type, some floating point computations may produce slightly different results, and as soon as you go parallel
 this may even be the case between two runs on exactly the same hardware and software.
 
-But full portability is a much greater myth. Containers are really only guaranteed to be portable between similar systems.
+But full portability is as much a myth. Containers are really only guaranteed to be portable between similar systems.
 They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
 in the container, but that is where it stops. Containers are usually built for a particular CPU architecture and GPU
 architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
@@ -1390,7 +1390,7 @@ the compute nodes. It is a system command that is installed with the OS, so no m
 to enable it. We can also offer only a single version of singularity or its close cousin AppTainer 
 as singularity/AppTainer simply don't really like running multiple versions next to one another, 
 and currently the version that
-we offer is determined by what is offered by the OS.
+we offer is determined by what is offered by the OS. Currently we offer Singularity Community Edition 3.11.
 
 To work with containers on LUMI you will either need to pull the container from a container registry,
 e.g., [DockerHub](https://hub.docker.com/), or bring in the container by copying the singularity `.sif` file.
@@ -1450,9 +1450,22 @@ be able to do, will never be supported.
 So you should pull containers from a container repository, or build the container on your own workstation
 and then transfer it to LUMI.
 
-There is some support for building on top of an existing singularity container.
+There is some support for building on top of an existing singularity container using what the SingularityCE user guide
+calls "unprivileged proot builds". This requires loading the `proot` command which is provided by the `systools` module
+in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
+[mentions several restrictions of this process](https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds).
+The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
+and adds software using system package managers, an unprivileged proot build is appropriate. 
+If your definition file compiles and installs large complex software from source, 
+you may wish to investigate `--remote` or `--fakeroot` builds instead." But as we just said,
+on LUMI we cannot yet
+provide `--fakeroot` builds due to security constraints.
+
+<!-- TODO: Do not forget to correct the link above to a new version of singularity. -->
+
 We are also working on a number of base images to build upon, where the base images are tested with the
-OS kernel on LUMI.
+OS kernel on LUMI (and some for ROCm are already there).
+
 
 ### Interacting with containers
 
@@ -1572,12 +1585,12 @@ This is due to some design issues in the design of Open MPI, and also to some pi
 that recent versions of Open MPI require but that HPE only started supporting recently on Cray EX systems
 and that we haven't been able to fully test.
 Open MPI has a slight preference for the UCX communication library over the OFI libraries, and 
-currently full GPU support requires UCX. Moreover, binaries using Open MPI often use the so-called
+until version 5 full GPU support requires UCX. Moreover, binaries using Open MPI often use the so-called
 rpath linking process so that it becomes a lot harder to inject an Open MPI library that is installed
 elsewhere. The good news though is that the Open MPI developers of course also want Open MPI
 to work on biggest systems in the USA, and all three currently operating or planned exascale systems
-use the SlingShot 11 interconnect so work is going on for better support for OFI and for full GPU
-support on systems that rely on OFI and do not support UCX.
+use the SlingShot 11 interconnect, so work is going on for better support for OFI in general and 
+Cray SlingShot in particular and for full GPU support.
 
 
 ### Enhancements to the environment
@@ -1588,6 +1601,9 @@ support on systems that rely on OFI and do not support UCX.
 
 To make life easier, LUST with the support of CSC did implement some modules
 that are either based on containers or help you run software with containers.
+
+
+### Bindings for singularity
 
 The **`singularity-bindings/system`** module which can be installed via EasyBuild
 helps to set `SINGULARITY_BIND` and `SINGULARITY_LD_LIBRARY_PATH` to use 
@@ -1616,6 +1632,9 @@ on the system cannot work in all cases) but that can also be fixed by extending
 the `singularity-bindings` module 
 (or by just manually setting the proper environment variables).
 
+
+### VNC container
+
 The second tool is a container that we provide with some bash functions
 to start a VNC server as temporary way to be able to use some GUI programs
 on LUMI until the final setup which will be based on Open OnDemand is ready.
@@ -1633,16 +1652,36 @@ module help lumi-vnc
 
 for more information on how to use `lumi-vnc`.
 
+For most users, the Open OnDemand web interface and tools offered in that interface will
+be a better alternative.
+
+
+### cotainr: Build Conda containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
   ![Environment enhancements (2)](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersEnvironmentEnhancement_2.png){ loading=lazy }
 </figure>
 
-The third tool is a container wrapper tool that users from Finland may also know
+The third tool is [**`cotainr`**](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), 
+a tool developed by DeIC, the Danish partner in the LUMI consortium.
+It is a tool to pack a Conda installation into a container. It runs entirely in user space and doesn't need
+any special rights. (For the container specialists: It is based on the container sandbox idea to build
+containers in user space.)
+
+Containers build with `cotainr` are used just as other containers, so through the `singularity` commands discussed
+before.
+
+
+### Container wrapper for Python packages and conda
+
+The fourth tool is a container wrapper tool that users from Finland may also know
 as Tykky. It is a tool to wrap Python and conda installations in a container and then
 create wrapper scripts for the commands in the bin subdirectory so that for most
 practical use cases the commands can be used without directly using singularity
 commands. 
+Whereas cotainr fully exposes the container to users and its software is accessed
+through the regular singularity commands, Tykky tries to hide this complexity with
+wrapper scripts that take care of all bindings and calling singularity.
 On LUMI, it is provided by the **`lumi-container-wrapper`**
 module which is available in the `CrayEnv` environment and in the LUMI software stacks.
 It is also [documented in the LUMI documentation](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
@@ -1654,9 +1693,13 @@ format (a Yaml file) or in the `requirements.txt` format used by `pip`.
 The container wrapper will then perform the installation in a work directory, create some
 wrapper commands in the `bin` subdirectory of the directory where you tell the container
 wrapper tool to do the installation, and it will use SquashFS to create as single file
-that contains the conda or Python installation.
+that contains the conda or Python installation. So strictly speaking it does not create a 
+container, but a SquashFS file that is then mounted in a small existing base container. 
+However, the wrappers created for all commands in the `bin` subdirectory of the conda or
+Python installation take care of doing the proper bindings. If you want to use the container
+through singularity commands however, you'll have to do that mounting by hand.
 
-We do strongly recommend to use the container wrapper tool for larger conda and Python installation.
+We do strongly recommend to use the container wrapper tool or cotainr for larger conda and Python installation.
 We will not raise your file quota if it is to house such installation in your `/project` directory.
 
 ???+demo "Demo lumi-container-wrapper"
@@ -1736,6 +1779,30 @@ It is another tool to pack a Conda installation into a container, but it does so
 way (so no wrapper scripts). Just as `lumi-container-wrapper`, it runs entirely in user space and doesn't need
 any special rights. (For the container specialists: It is based on the container sandbox idea to build
 containers in user space.)
+
+
+### Pre-built AI containers
+
+<figure markdown style="border: 1px solid #000">
+  ![Environment enhancements (3): Prebuilt AI containers](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersEnvironmentEnhancement_3.png){ loading=lazy }
+</figure>
+
+LUST with the help of AMD is also building some containers with popular AI software.
+These containers contain a ROCm version that is appropriate for the software,
+use Conda for some components, but have several of the performance critical components
+built specifically for LUMI for near-optimal performance. Depending on the software they
+also contain a RCCL library with the appropriate plugin to work well on the Slingshot 11
+interconnect, or a horovod compiled to use Cray MPICH. 
+
+The containers are provided through a module which sets the `SINGULARITY_BIND` environment variable
+to ensure proper bindings (as they need, e.g., the libfabric library from the system and the proper
+"CXI provider" for libfabric to connect to the Slingshot interconnect). The module will also provide
+an environment variable to refer to the container (name with full path) to make it easy to refer to
+the container in job scripts.
+
+These containers can be found through the
+[LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) and are marked
+with a container label.
 
 
 ### Conclusion: Container limitations on LUMI-C
