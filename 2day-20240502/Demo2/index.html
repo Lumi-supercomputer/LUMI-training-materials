@@ -2521,13 +2521,19 @@ and run a simple distributed learning example that the LUMI User Support Team al
 for internal testing.</p>
 <p>The demo follows largely the instructions for distributed learning from the
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch page in the LUMI Software Library</a>.</p>
-<p>This demo shows:
--   How to install one of the containers for which we provide EasyBuild recipes
--   How to use our more recent PyTorch containers for distributed learning</p>
+<p>This demo shows:</p>
+<ul>
+<li>
+<p>How to install one of the containers for which we provide EasyBuild recipes</p>
+</li>
+<li>
+<p>How to use our more recent PyTorch containers for distributed learning</p>
+</li>
+</ul>
 <h2 id="step-1-getting-some-files-that-we-will-use">Step 1: Getting some files that we will use<a class="headerlink" href="#step-1-getting-some-files-that-we-will-use" title="Permanent link">&para;</a></h2>
 <p>Let's create an installation directory for the demo. Set the environment variable
 <code>installdir</code> to a proper value for the directories on LUMI that you have access to.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/project/project_462000008/kurtlust/DEMO2
+<div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/project/project_465001102/kurtlust/DEMO2
 mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>We are now in the installation directory of which we also ensured its existence first.
@@ -2629,8 +2635,9 @@ tree<span class="w"> </span><span class="nv">$CONTAINERROOT</span>
     files to reproduce the installation, except for the container it used itself.</p>
 </li>
 <li>
-<p>The <code>user-software</code> subdirectory contains all the files that in the container can
-    be found in <code>/user-software</code>. It is  </p>
+<p>The <code>user-software</code> subdirectory contains all the files that can
+    be found in the container also in <code>/user-software</code>. (It is simply bound to 
+    that directory in the container through an environmet variable that the module sets.) </p>
 </li>
 <li>
 <p>There is a <code>bin</code> subdirectory with some scripts. The <code>start-shell</code> script is only there
@@ -2652,7 +2659,7 @@ tree<span class="w"> </span><span class="nv">$CONTAINERROOT</span>
 Distributed learning requires some initialisation of environment variables that are used by
 PyTorch or by libraries from the ROCm<sup>TM</sup> stack. It passes its arguments to the
 Python command. It is mostly meant to be used on full nodes with one task per GPU, as in 
-other cases not all initialisation make sense or are even valid.</p>
+other cases not all initialisations make sense or are even valid.</p>
 <p>Let's check the script:</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="nv">$CONTAINERROOT</span>/runscripts/conda-python-distributed
 </code></pre></div>
@@ -2691,12 +2698,12 @@ but RCCL is basically the equivalent of NVIDIA NCCL.</p>
 </code></pre></div>
 <p>Fourth, we need to ensure that each task uses the proper GPU. This is one point where we 
 assume that one GPU (GCD) per task is used. The script also assumes that the
-<a href="07_Binding.md#linear-assignment-of-gcd-then-match-the-cores">"Linear assignment of GCD, then match the cores" idea</a>
+<a href="../07_Binding/#linear-assignment-of-gcd-then-match-the-cores">"Linear assignment of GCD, then match the cores" idea</a>
 is used, so we will need some more complicated CPU mapping in the job script.</p>
 <p>PyTorch also needs some initialisation that are basically the same on NVIDIA and
 AMD hardware. This includes setting a master for the communication (the first node of 
 a job) and a port for the communication. That port is hard-coded, so a second instance
-of the script on the same node would fail. So we basically assume we use full nodes.
+of the script on the same node would fail. So we basically assume that we use full nodes.
 To determine that master, another script from the <code>runscripts</code> subdirectory is used.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>/runscripts/get-master<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SLURM_NODELIST</span><span class="s2">&quot;</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_PORT</span><span class="o">=</span><span class="m">29500</span>
@@ -2725,7 +2732,7 @@ srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="k">$((<
 <span class="w">    </span>conda-python-distributed<span class="w"> </span>-u<span class="w"> </span>mnist_DDP.py<span class="w"> </span>--gpu<span class="w"> </span>--modelpath<span class="w"> </span>model
 </code></pre></div>
 <p>Launch the script by setting some environment variables to use the course account and reservation:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SBATCH_ACCOUNT</span><span class="o">=</span>project_465000999
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SBATCH_ACCOUNT</span><span class="o">=</span>project_465001102
 <span class="nb">export</span><span class="w"> </span><span class="nv">SBATCH_RESERVATION</span><span class="o">=</span>TODO
 </code></pre></div>
 <p>and then launching the job script:</p>

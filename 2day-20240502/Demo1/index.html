@@ -2567,7 +2567,7 @@
 <p><a href="https://github.com/lllyasviel/Fooocus">Fooocus</a> is an AI-based image generating
 package that is available under the
 <a href="https://github.com/lllyasviel/Fooocus/blob/main/LICENSE">GNU General Public License V3</a>.</p>
-<p>It can work offline, but it appeared that the version on which we first prepared this demo,
+<p>The version on which we first prepared this demo,
 insists on writing in the directories with some of the Fooocus files, so we cannot put
 Fooocus in a container at the moment.</p>
 <p>It is based on PyTorch. However, we cannot use the containers provided on LUMI as-is
@@ -2583,7 +2583,7 @@ as additional system level libraries are needed for the graphics.</p>
 <h2 id="step-1-checking-fooocus">Step 1: Checking Fooocus<a class="headerlink" href="#step-1-checking-fooocus" title="Permanent link">&para;</a></h2>
 <p>Let's create an installation directory for the demo. Set the environment variable
 <code>installdir</code> to a proper value for the directories on LUMI that you have access to.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/project/project_462000008/kurtlust/DEMO1
+<div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/project/project_465001102/kurtlust/DEMO1
 mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>We are now in the installation directory of which we also ensured its existence first.
@@ -2600,10 +2600,13 @@ rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$fooocusver
 expect with a Python package. So installing this could become a messy thing...</p>
 <p>It also contains a <code>Dockerfile</code> (to build a base Docker container), a <code>requirements_docker.txt</code>
 and a <code>requirements_versions.txt</code> file that give hints about what exactly is needed. 
-We'll take some risks though and use a newer version of PyTorch than suggested as for AMD GPUs
+The <code>Dockerfile</code> suggests close to the top that some OpenGL libraries will be needed.
+And the fact that it can be fully installed in a docker container also indicates that there
+must in fact be ways to run it in readonly directories, but in this demo we'll put Fooocus in
+a place were it can write. The <code>requirements_docker.txt</code> file also suggests to use Pytorch 2.0, but
+we'll take some risks though and use a newer version of PyTorch than suggested as for AMD GPUs
 it is often important to use recently enough versions (and because that version has a more sophisticated
-module better suited for what we want to demonstrate). We also note though that a couple of graphics
-libraries are needed that we still might have to install.</p>
+module better suited for what we want to demonstrate). </p>
 <h3 id="step-2-install-the-pytorch-container">Step 2: Install the PyTorch container<a class="headerlink" href="#step-2-install-the-pytorch-container" title="Permanent link">&para;</a></h3>
 <p>We can find an overview of the available PyTorch containers on the
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch page in the LUMI Software Library</a>.
@@ -2741,7 +2744,7 @@ to the Fooocus directory and go into the container again:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">/Fooocus-</span><span class="nv">$fooocusversion</span><span class="s2">&quot;</span>
 singularity<span class="w"> </span>shell<span class="w"> </span><span class="nv">$SIF</span>
 </code></pre></div>
-<p>We'll install the extra packages simply with the <code>pip</code> toll:</p>
+<p>We'll install the extra packages simply with the <code>pip</code> tool:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements_versions.txt
 </code></pre></div>
 <p>This process may again take a few minutes.</p>
@@ -2780,6 +2783,10 @@ files and directories on LUMI are reset:</p>
 <div class="highlight"><pre><span></span><code>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$SIF</span><span class="w"> </span>ls<span class="w"> </span>/user-software/venv/pytorch/lib/python3.10/site-packages
 </code></pre></div>
 <p>and see that our package installation is still there!</p>
+<p>However, we can no longer write in that directory. E.g., try</p>
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>/user-software/test
+</code></pre></div>
+<p>to create an empty file <code>test</code> in <code>/user-software</code> and note that we get an error message.</p>
 <p>So now we are ready-to-run.</p>
 <h3 id="the-reward-running-fooocus">The reward: Running Fooocus<a class="headerlink" href="#the-reward-running-fooocus" title="Permanent link">&para;</a></h3>
 <p>First confirm we'll in the directory containing the Fooocus package (which should be the case if
@@ -2787,7 +2794,7 @@ you followed these instructions):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">/Fooocus-</span><span class="nv">$fooocusversion</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>We'll start an interactive job with a single GPU:</p>
-<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>-psmall-g<span class="w"> </span>-n1<span class="w"> </span>-c7<span class="w"> </span>--time<span class="o">=</span><span class="m">30</span>:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>60G<span class="w"> </span>-A<span class="w"> </span>project_465000999<span class="w"> </span>--pty<span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>-psmall-g<span class="w"> </span>-n1<span class="w"> </span>-c7<span class="w"> </span>--time<span class="o">=</span><span class="m">30</span>:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>60G<span class="w"> </span>-A<span class="w"> </span>project_465001102<span class="w"> </span>--pty<span class="w"> </span>bash
 </code></pre></div>
 <p>The necessary modules will still be available, but if you are running from a new shell, you 
 can load them again:</p>
@@ -2818,7 +2825,7 @@ config file to make life easy and use an OpenSSH-style ssh client, you can use:<
 Fooocus code,</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09
 module<span class="w"> </span>load<span class="w"> </span>PyTorch/2.2.0-rocm-5.6.1-python-3.10-Fooocus-singularity-20240315
-srun<span class="w"> </span>-psmall-g<span class="w"> </span>-n1<span class="w"> </span>-c7<span class="w"> </span>--time<span class="o">=</span><span class="m">30</span>:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>60G<span class="w"> </span>-A<span class="w"> </span>project_462000008<span class="w"> </span>--pty<span class="w"> </span><span class="se">\</span>
+srun<span class="w"> </span>-psmall-g<span class="w"> </span>-n1<span class="w"> </span>-c7<span class="w"> </span>--time<span class="o">=</span><span class="m">30</span>:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>60G<span class="w"> </span>-A<span class="w"> </span>project_465001102<span class="w"> </span>--pty<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo -e &quot;Running on $(hostname)\n&quot; ; singularity exec $SIF python launch.py --listen --disable-xformers&#39;</span>
 </code></pre></div>
 <p>It will also print the host name on which the Fooocus is running, so you can connect to Fooocus using the
