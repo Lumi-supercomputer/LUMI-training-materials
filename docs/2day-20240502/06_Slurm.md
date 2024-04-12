@@ -1,11 +1,22 @@
 # Slurm on LUMI
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 !!! Audience "Who is this for?"
     We assume some familiarity with job scheduling in this section. The notes will cover
     some of the more basic aspects of Slurm also, though as this version of the notes is
     intended for Belgian users and since all but one HPC site in Belgium currently teaches
     Slurm to their users, some elements will be covered only briefly.
+
+    Even if you have a lot of experience with Slurm, it may still be useful to have a quick
+    look at this section as Slurm is not always configured in the same way.
+-->
+
+<!-- GENERAL More general version -->
+!!! Audience "Who is this for?"
+    We assume some familiarity with job scheduling in this section. The notes will cover
+    some of the more basic aspects of Slurm also, though it may be rather brief on some
+    aspects of Slurm as we assume the majority of users is already rather familiar with
+    Slurm.
 
     Even if you have a lot of experience with Slurm, it may still be useful to have a quick
     look at this section as Slurm is not always configured in the same way.
@@ -44,7 +55,7 @@ the deep hierarcy of resources in modern supercomputers. So Slurm will not alway
 straightforward to use as we would like it, and some tricks will be needed on LUMI. Yet there
 is no better option at this moment that is sufficiently mature.
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 !!! lumi-be "Other systems in Belgium"
     Previously at the VSC Torque was used as the resource manager and Moab as the scheduler.
     All VSC sites now use Slurm, though at UGent it is still hidden behind wrappers that
@@ -53,6 +64,7 @@ is no better option at this moment that is sufficiently mature.
     already trouble dealing well with the hierarchy of resources in a modern supercomputer.
     Yet it is still a lot better at it than Torque and Moab. So no, the wrappers used on
     the HPC systems managed by UGent will not be installed on LUMI.
+-->
 
 !!! nice-to-know "Nice to know..."
     Lawrence Livermore National Laboratory, the USA national laboratory that 
@@ -318,10 +330,16 @@ Some useful commands with respect to Slurm partitions:
     we were waiting for replacement parts which explains the thigh number of CPU nodes in the "other"
     field.
 
-    <!-- BELGIUM -->
+    <!-- BELGIUM 
     Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
     the `q_nordic` and `q_fiqci` partitions are used to access experimental quantum computers that are only
     available to some users of those countries that paid for those machines, which does not include Belgium.
+    -->
+
+    <!-- GENERAL More general version -->
+    Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
+    the `q_nordic` and `q_fiqci` partitions are used to access experimental quantum computers that are only
+    available to some users of those countries that paid for those machines.
 
     The `eap` partition will likely be phased out over time and is a remainder of a platform used for early 
     development before LUMI-G was attached to the machine. At the moment it allows users to experiment freely 
@@ -2105,13 +2123,13 @@ It is possible to change this behaviour or to define extra environment variables
     E.g., try the command from the previous example with `--export=ALL,PAR1='Hello, world'` 
     and it turns out that only `Hello` is passed as the value of the variable.
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 !!! lumi-be "Differences with some VSC systems"
     The job environment in Slurm is different from that of some other resource managers, and in paritcular 
     Torque which was in use on VSC clusters and whose behaviour is still emulated on some. 
     LUMI uses the default settings of Slurm when it comes to environment management which is to start
     a job or job step in the environment from which the Slurm command was called.
-
+-->
 
 ## Automatic requeueing
 
@@ -2895,6 +2913,7 @@ it it is used to follow up your use of billing units on LUMI, but should you ins
 in the [`sreport` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sreport.html).
 
 
+<!-- BELGIUM
 ## Local trainings and materials
 
 -   Docs VSC: Slurm material for the general docs is still under development and will be published
@@ -2918,4 +2937,10 @@ in the [`sreport` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/
 -   CÉCI training materials: Slurm is covered in the "Learning how to use HPC infrastructure" training.
 
     -   [2022 session: Lecture "Preparing, submitting and managing jobs with Slurm"](https://indico.cism.ucl.ac.be/event/121/contributions/60/)
+-->
 
+<!-- GENERAL More general version -->
+## Other trainings and materials
+
+-   DeiC, the Danish organisation in the LUMI consortium, has develop an
+    [online Slurm tutorial](http://slurmlearning.deic.dk/)

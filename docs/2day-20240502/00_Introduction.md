@@ -25,9 +25,11 @@ Colour coding and boxes in the material:
     A box telling you who this part of the notes is written for, or why it would be
     good to read it even if you think you don't need it.
 
+<!-- BELGIUM
 !!! lumi-be
     This is used to point out differences with local infrastructures in Belgium and
     is less useful if you are not familiar with any of the HPC clusters in Belgium.
+-->
 
 !!! example
     An example to make the material clearer or to try something out.

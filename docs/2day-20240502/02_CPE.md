@@ -43,7 +43,7 @@ you may want to inject an optimised MPI library as we shall see in the container
 of this course. But sometimes a binary is simply incompatible with LUMI and there is no other
 solution than to build the software from sources.
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 !!! lumi-be "Clusters in Belgium"
 
     There are differences in the setup of the operating system on LUMI compared
@@ -57,7 +57,7 @@ solution than to build the software from sources.
     to the environment on UNIX workstations and supercomputers in the '90s, so is
     in fact the more traditional one. It's just that we have forgotten those 
     traditions...)
-
+-->
 
 
 ## The operating system on LUMI

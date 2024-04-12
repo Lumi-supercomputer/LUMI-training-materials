@@ -292,7 +292,7 @@ The theoretical memory bandwidth of a complete package is around 200 GB/s. Howev
 that bandwidth is not available to a single core but **can only be used if enough 
 cores spread over all CCDs are used**.
 
-<!-- BELGIUM -->
+<!-- BELGIUM
 !!! lumi-be "Clusters in Belgium"
 
     The CPUs used in the LUMI-C compute nodes are identical to those used in 
@@ -310,7 +310,7 @@ cores spread over all CCDs are used**.
     CPUs which are also used on the login nodes of LUMI. These have two groups
     of 4 cores each with their own separated L3 cache per CCD and 4 or 8 CCDs per 
     socket. 
-
+-->
 
 ## Building LUMI: a LUMI-C node
 
