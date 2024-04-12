@@ -10,24 +10,24 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240324/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_3_05_Cray_MPI_on_Slingshot/">
       
       
       
       
-      <link rel="icon" href="../assets/favicon-LUMI.png">
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Comprehensive General LUMI Training, October 3-6, 2023 - LUMI training materials</title>
+        <title>MPI Topics on the HPE Cray EX Supercomputer - LUMI training materials</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -78,9 +78,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
   
       
@@ -114,9 +114,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Comprehensive General LUMI Training, October 3-6, 2023" />
+  <meta property="og:title" content="LUMI training materials - MPI Topics on the HPE Cray EX Supercomputer" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240324/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_3_05_Cray_MPI_on_Slingshot/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Comprehensive General LUMI Training, October 3-6, 2023" />
+  <meta name="twitter:title" content="LUMI training materials - MPI Topics on the HPE Cray EX Supercomputer" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -158,11 +158,11 @@
 
     <link
       rel="stylesheet"
-      href="../assets/stylesheets/extra-a8af0af3d0.css"
+      href="../../assets/stylesheets/extra-a8af0af3d0.css"
     />
     <link
       rel="stylesheet"
-      href="../assets/stylesheets/overrides-5193e6f6df.css"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
     />
     <link
       rel="stylesheet"
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#comprehensive-general-lumi-training-october-3-6-2023" class="md-skip">
+        <a href="#mpi-topics-on-the-hpe-cray-ex-supercomputer" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +204,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Comprehensive General LUMI Training, October 3-6, 2023
+              MPI Topics on the HPE Cray EX Supercomputer
             
           </span>
         </div>
@@ -320,7 +320,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -359,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -403,7 +403,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../User-Updates/" class="md-nav__link ">
+            <a href="../../User-Updates/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202311/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,7 +481,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../User-Updates/Update-202308/" class="md-nav__link ">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -556,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -610,7 +610,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../User-Coffee-Breaks/" class="md-nav__link ">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -663,7 +663,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../2day-20240502/" class="md-nav__link ">
+            <a href="../../2day-20240502/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -704,6 +704,59 @@
           
         
       
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI April 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI April 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
         
       
         
@@ -731,12 +784,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1day-20240208/" class="md-nav__link ">
+            <a href="../../1day-20240208/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -747,14 +800,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             1-day February 2024
           </label>
@@ -769,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
+      <a href="../../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -790,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+      <a href="../../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -811,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
+      <a href="../../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -832,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
+      <a href="../../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -853,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/05_Exercises_1/" class="md-nav__link">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+      <a href="../../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -895,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/07_Exercises_2/" class="md-nav__link">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -916,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+      <a href="../../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -937,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
+      <a href="../../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -958,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20240208/A01_Documentation/" class="md-nav__link">
+      <a href="../../1day-20240208/A01_Documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -999,12 +1052,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Profiling-20231122/" class="md-nav__link ">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1016,8 +1069,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Profiling November 2023
           </label>
@@ -1052,12 +1105,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../4day-20231003/" class="md-nav__link ">
+            <a href="../../4day-20231003/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1069,8 +1122,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Comprehensive LUMI October 2023
           </label>
@@ -1103,10 +1156,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1117,8 +1170,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Partner courses
           </label>
@@ -1190,10 +1243,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1204,8 +1257,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             Archive
           </label>
@@ -1251,12 +1304,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1day-20230921/" class="md-nav__link ">
+            <a href="../../1day-20230921/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1267,14 +1320,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
             <span class="md-nav__icon md-icon"></span>
             1-day September 2023
           </label>
@@ -1289,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/01_Architecture/" class="md-nav__link">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/02_CPE/" class="md-nav__link">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/03_Modules/" class="md-nav__link">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/04_Software_stacks/" class="md-nav__link">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/05_Exercises_1/" class="md-nav__link">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/06_Running_jobs/" class="md-nav__link">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/07_Exercises_2/" class="md-nav__link">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/09_LUMI_support/" class="md-nav__link">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230921/A01_Documentation/" class="md-nav__link">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1520,12 +1573,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../4day-20230530/" class="md-nav__link ">
+            <a href="../../4day-20230530/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1537,8 +1590,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
             <span class="md-nav__icon md-icon"></span>
             Comprehensive LUMI May-June 2023
           </label>
@@ -1592,12 +1645,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1day-20230509/" class="md-nav__link ">
+            <a href="../../1day-20230509/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1608,14 +1661,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
             <span class="md-nav__icon md-icon"></span>
             1-day May 2023
           </label>
@@ -1630,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/01_Architecture/" class="md-nav__link">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1651,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/02_CPE/" class="md-nav__link">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1672,7 +1725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/03_Modules/" class="md-nav__link">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1693,7 +1746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/04_Software_stacks/" class="md-nav__link">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1714,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/05_Exercises_1/" class="md-nav__link">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1735,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/06_Running_jobs/" class="md-nav__link">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1756,7 +1809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/07_Exercises_2/" class="md-nav__link">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1777,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1798,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1day-20230509/09_LUMI_support/" class="md-nav__link">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1840,12 +1893,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Hackathon-20230417/" class="md-nav__link ">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1857,8 +1910,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
             <span class="md-nav__icon md-icon"></span>
             Hackathon April 2023
           </label>
@@ -1894,12 +1947,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Profiling-20230413/" class="md-nav__link ">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1911,8 +1964,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
             <span class="md-nav__icon md-icon"></span>
             Profiling April 2013
           </label>
@@ -1948,12 +2001,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../4day-20230214/" class="md-nav__link ">
+            <a href="../../4day-20230214/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1965,8 +2018,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
             <span class="md-nav__icon md-icon"></span>
             Comprehensive LUMI February 2023
           </label>
@@ -2002,12 +2055,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../LUMI-G-20230111/" class="md-nav__link ">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2019,8 +2072,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
             <span class="md-nav__icon md-icon"></span>
             LUMI-G January 2023
           </label>
@@ -2058,12 +2111,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_8" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../PEAP-Q-20221123/" class="md-nav__link ">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2074,14 +2127,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_8" id="__nav_9_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
             <span class="md-nav__icon md-icon"></span>
             PEAP-Q November 2022
           </label>
@@ -2096,7 +2149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PEAP-Q-20221123/schedule/" class="md-nav__link">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2140,12 +2193,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_9" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../LUMI-G-20220823/" class="md-nav__link ">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2156,14 +2209,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_9" id="__nav_9_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
             <span class="md-nav__icon md-icon"></span>
             LUMI-G August 2022
           </label>
@@ -2178,7 +2231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2222,12 +2275,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_10" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../EasyBuild-CSC-20220509/" class="md-nav__link ">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2238,14 +2291,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_10" id="__nav_9_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
             <span class="md-nav__icon md-icon"></span>
             EasyBuild May 2022
           </label>
@@ -2306,12 +2359,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_11" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../PEAP-Q-20220427/" class="md-nav__link ">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2322,14 +2375,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_11" id="__nav_9_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10_11" id="__nav_10_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_11">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_11">
             <span class="md-nav__icon md-icon"></span>
             PEAP-Q April 2022
           </label>
@@ -2344,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2365,7 +2418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2421,69 +2474,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#course-organisation" class="md-nav__link">
+  <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
-      Course organisation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#course-materials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Course materials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#making-the-exercises-after-the-course" class="md-nav__link">
-    <span class="md-ellipsis">
-      Making the exercises after the course
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Making the exercises after the course">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hpe" class="md-nav__link">
-    <span class="md-ellipsis">
-      HPE
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#amd" class="md-nav__link">
-    <span class="md-ellipsis">
-      AMD
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links-to-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links to documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-material-for-exercises" class="md-nav__link">
-    <span class="md-ellipsis">
-      External material for exercises
+      Q&amp;A
     </span>
   </a>
   
@@ -2504,343 +2497,27 @@
                   
 
 
-<h1 id="comprehensive-general-lumi-training-october-3-6-2023">Comprehensive General LUMI Training, October 3-6, 2023<a class="headerlink" href="#comprehensive-general-lumi-training-october-3-6-2023" title="Permanent link">&para;</a></h1>
-<h2 id="course-organisation">Course organisation<a class="headerlink" href="#course-organisation" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>Location: <a href="https://goo.gl/maps/jyxspAYWCAoioLJk8">Centrum Konferencyjne IBIB PAN, Ks. Trojdena 4, 02-109 Warsaw, Poland</a>
-    (Institute of Biocybernetics and Biomedical Engineering Polish Academy of Sciences).</p>
-<p><a href="https://www.wtp.waw.pl/en/public-transport-step-by-step/">Public transportation in Warsaw</a></p>
-</li>
-<li>
-<p><a href="https://462000265.lumidata.eu/4day-20231003/files/2023-10_General-LUMI-Training-Agenda.pdf">Original schedule (PDF)</a></p>
-<p><a href="schedule/">Dynamic schedule (adapted as the course progresses)</a></p>
-<p><em>The dynamic schedule also contains links to pages with information about the course materials, but 
- those links are also available below on this page.</em></p>
-</li>
-</ul>
+<h1 id="mpi-topics-on-the-hpe-cray-ex-supercomputer">MPI Topics on the HPE Cray EX Supercomputer<a class="headerlink" href="#mpi-topics-on-the-hpe-cray-ex-supercomputer" title="Permanent link">&para;</a></h1>
+<p><em>Presenter: Harvey Richardson (HPE)</em></p>
+<p>Course materials will be provided during and after the course.</p>
 <!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
+Temporary location of materials (for the lifetime of the training project):
 
--   There are two Slurm reservations for the course:
-
-    -   CPU nodes: `training_cpu`
-    -   GPU nodes: `training-gpu`
+-   Slides: `/project/project_465000644/Slides/HPE/11_cray_mpi_MPMD_medium.pdf`
 -->
 
-<h2 id="course-materials">Course materials<a class="headerlink" href="#course-materials" title="Permanent link">&para;</a></h2>
-<p>Course materials include the Q&amp;A of each session, slides when available and notes when available.</p>
-<p>Due to copyright issues some of the materials are only available to current LUMI users and have to be
-downloaded from LUMI.</p>
-<p><strong>Note:</strong> Some links in the table below are dead and will remain so until after the end of the course.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Presentation</th>
-<th style="text-align: left;">slides</th>
-<th style="text-align: left;">notes</th>
-<th style="text-align: left;">recording</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><a href="extra_1_00_Introduction.md">Introduction</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_00_Introduction.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_01_HPE_Cray_EX_Architecture.md">HPE Cray EX Architecture</a></td>
-<td style="text-align: left;"><a href="extra_1_01_HPE_Cray_EX_Architecture.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_01_HPE_Cray_EX_Architecture.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_02_Programming_Environment_and_Modules.md">Programming Environment and Modules</a></td>
-<td style="text-align: left;"><a href="extra_1_02_Programming_Environment_and_Modules.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_02_Programming_Environment_and_Modules.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_04_Exercises_1.md">Exercises #1a</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_03_Running_Applications.md">Running Applications</a></td>
-<td style="text-align: left;"><a href="extra_1_03_Running_Applications.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_03_Running_Applications.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_04_Exercises_1.md">Exercises #1b</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_05_Compilers_and_Parallel_Programming_Models.md">Compilers and Parallel Programming Models</a></td>
-<td style="text-align: left;"><a href="extra_1_05_Compilers_and_Parallel_Programming_Models.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_05_Compilers_and_Parallel_Programming_Models.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_06_Exercises_2.md">Exercises #2</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_07_Cray_Scientific_Libraries.md">Cray Scientific Libraries</a></td>
-<td style="text-align: left;"><a href="extra_1_07_Cray_Scientific_Libraries.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_07_Cray_Scientific_Libraries.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_09_Offload_CCE.md">CCE Offloading Models</a></td>
-<td style="text-align: left;"><a href="extra_1_09_Offload_CCE.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_1_09_Offload_CCE.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_1_08_Exercises_3.md">Exercises #3</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_01_Advanced_Application_Placement.md">Advanced Placement</a></td>
-<td style="text-align: left;"><a href="extra_2_01_Advanced_Application_Placement.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_2_01_Advanced_Application_Placement.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_02_Exercises_4.md">Exercises #4</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_03_Debugging_at_Scale.md">Debugging at Scale</a></td>
-<td style="text-align: left;"><a href="extra_2_03_Debugging_at_Scale.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_2_03_Debugging_at_Scale.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_04_Exercises_5.md">Exercises #5</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_05_LUMI_Software_Stacks.md">LUMI Software Stacks</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf">web</a></td>
-<td style="text-align: left;"><a href="notes_2_05_LUMI_Software_Stacks.md">web</a></td>
-<td style="text-align: left;"><a href="extra_2_05_LUMI_Software_Stacks.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md">Introduction to the AMD ROCm Ecosystem</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_2_07_Exercises_6.md">Exercises #6</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_01_Introduction_to_Perftools.md">Introduction to Perftools</a></td>
-<td style="text-align: left;"><a href="extra_3_01_Introduction_to_Perftools.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_3_01_Introduction_to_Perftools.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_02_Exercises_7.md">Exercises #7</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_03_Advanced_Performance_Analysis.md">Advanced Performance Analysis</a></td>
-<td style="text-align: left;"><a href="extra_3_03_Advanced_Performance_Analysis.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_3_03_Advanced_Performance_Analysis.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_04_Exercises_8.md">Exercises #8</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_05_Cray_MPI_on_Slingshot.md">MPI Topics on the HPE Cray EX Supercomputer</a></td>
-<td style="text-align: left;"><a href="extra_3_05_Cray_MPI_on_Slingshot.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_3_05_Cray_MPI_on_Slingshot.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_06_Exercises_9.md">Exercises #9</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_07_AMD_ROCgdb_Debugger.md">AMD Debugger: ROCgdb</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_07_AMD_ROCgdb_Debugger.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_3_07_AMD_ROCgdb_Debugger.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_08_Exercises_10.md">Exercises #10</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md">Introduction to ROC-Profiler (rocprof)</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_3_10_Exercises_11.md">Exercises #11</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_01_Introduction_to_Python_on_Cray_EX.md">Python and Frameworks</a></td>
-<td style="text-align: left;"><a href="extra_4_01_Introduction_to_Python_on_Cray_EX.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_01_Introduction_to_Python_on_Cray_EX.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_02_Performance_Optimization_Improving_Single_Core.md">Performance Optimization: Improving single-core Efficiency</a></td>
-<td style="text-align: left;"><a href="extra_4_02_Performance_Optimization_Improving_Single_Core.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_02_Performance_Optimization_Improving_Single_Core.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_03_Exercises_12.md">Exercises #12</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_04_IO_Optimization_Parallel_IO.md">Optimizing Large Scale I/O</a></td>
-<td style="text-align: left;"><a href="extra_4_04_IO_Optimization_Parallel_IO.md">lumi</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_04_IO_Optimization_Parallel_IO.md">lumi</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_05_Exercises_13.md">Exercises #13</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_06_AMD_Omnitrace.md">Introduction to OmniTrace</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_06_AMD_Omnitrace.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_08_AMD_Omniperf.md">Introduction to Omniperf</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_08_AMD_Omniperf.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_07_Exercises_14.md">Exercises #14</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_09_Exercises_15.md">Exercises #15</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;">/</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_10_Best_Practices_GPU_Optimization.md">Tools in Action - An Example with Pytorch</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_10_Best_Practices_GPU_Optimization.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="extra_4_11_LUMI_Support_and_Documentation.md">LUMI User Support</a></td>
-<td style="text-align: left;"><a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_11_LUMI_Support_and_Documentation.pdf">web</a></td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="extra_4_11_LUMI_Support_and_Documentation.md">web</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Appendix: Additional documentation</td>
-<td style="text-align: left;">/</td>
-<td style="text-align: left;"><a href="A01_Documentation.md">documentation</a></td>
-<td style="text-align: left;">/</td>
-</tr>
-</tbody>
-</table>
-<h2 id="making-the-exercises-after-the-course">Making the exercises after the course<a class="headerlink" href="#making-the-exercises-after-the-course" title="Permanent link">&para;</a></h2>
-<h3 id="hpe">HPE<a class="headerlink" href="#hpe" title="Permanent link">&para;</a></h3>
-<p>The exercise material remains available in the course archive on LUMI:</p>
-<ul>
-<li>
-<p>The PDF notes in <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf</code></p>
-</li>
-<li>
-<p>The other files for the exercises in either a
-    bzip2-compressed tar file <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2</code> or
-    an uncompressed tar file <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar</code>.</p>
-</li>
-</ul>
-<p>To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:</p>
-<div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2
-</code></pre></div>
-<p>in the directory where you want to work on the exercises. This will create the <code>exercises/HPE</code> subdirectory
-from the training project. </p>
-<p>However, instead of running the <code>lumi_c.sh</code> or <code>lumi_g.sh</code> scripts that only work for the course as 
-they set the course project as the active project for Slurm and also set a reservation, use the
-<code>lumi_c_after.sh</code> and <code>lumi_g_after.sh</code> scripts instead, but first edit them to use one of your
-projects.</p>
-<h3 id="amd">AMD<a class="headerlink" href="#amd" title="Permanent link">&para;</a></h3>
-<p>There are <a href="https://hackmd.io/@sfantao/H1QU6xRR3">online notes about the AMD exercises</a>.
-A <a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf">PDF print-out with less navigation features is also available</a>
-and is particularly useful should the online notes become unavailable. 
-A <a href="exercises_AMD_hackmd.md">web backup</a> is also available, but corrections to the original made after the course
-are not included.</p>
-<p>The other files for the exercises are available in 
-either a bzip2-compressed tar file <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD_.tar.bz2</code> or
-an uncompressed tar file <code>/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar</code> and can also be downloaded. 
-( <a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2">bzip2-compressed tar download</a> or 
-<a href="https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar">uncompressed tar download</a>)</p>
-<p>To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:</p>
-<div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2
-</code></pre></div>
-<p>in the directory where you want to work on the exercises. This will create the <code>exercises/AMD</code> subdirectory
-from the training project. You can do so in the same directory where you installed the HPE exercises.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The software and exercises were tested thoroughly at the time of the course. LUMI however is in
-continuous evolution and changes to the system may break exercises and software</p>
-</div>
-<h2 id="links-to-documentation">Links to documentation<a class="headerlink" href="#links-to-documentation" title="Permanent link">&para;</a></h2>
-<p><a href="A01_Documentation.md">The links to all documentation mentioned during the talks is on a separate page</a>.</p>
-<h2 id="external-material-for-exercises">External material for exercises<a class="headerlink" href="#external-material-for-exercises" title="Permanent link">&para;</a></h2>
-<p>Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:</p>
-<ul>
-<li><a href="https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.9.tar.gz">OSU benchmark</a></li>
-<li><a href="https://github.com/RonRahaman/openacc-mpi-demos">Fortran OpenACC examples</a></li>
-<li><a href="https://github.com/ye-luo/openmp-target">Fortran OpenMP examples</a></li>
-<li><a href="https://github.com/UoB-HPC/BabelStream">Collections of examples in BabelStream</a></li>
-<li><a href="https://code.ornl.gov/olcf/hello_jobstep">hello_jobstep example</a></li>
-<li><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00114008en_us&amp;docLocale=en_US&amp;page=Run_an_OpenMP_Application.html">Run OpenMP example in the HPE Suport Center</a></li>
-<li><a href="https://github.com/ROCm-Developer-Tools/HIP-Examples">ROCm HIP examples</a></li>
-</ul>
+<!--
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-3_05_Cray_MPI_on_Slingshot.pdf`
+
+-   Recording: `/appl/local/training/4day-20231003/recordings/3_05_Cray_MPI_on_Slingshot.mp4`
+
+These materials can only be distributed to actual users of LUMI (active user account).
+-->
+
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<p>/</p>
 
 
 
@@ -2936,10 +2613,10 @@ continuous evolution and changes to the system may break exercises and software<
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>
