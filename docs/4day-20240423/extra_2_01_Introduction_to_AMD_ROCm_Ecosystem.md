@@ -6,26 +6,26 @@
 Course materials will be provided during and after the course.
 
 <!--
-<video src="https://462000265.lumidata.eu/4day-20231003/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
+<video src="https://462000265.lumidata.eu/4day-20240423/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
 </video>
 -->
 
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465000644/Slides/AMD/session-1-hip_intro.pdf`
+-   Slides: `/project/project_465001098/Slides/AMD/session-1-hip_intro.pdf`
 -->
 
 <!--
 Materials available on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
+-   [Slides on the web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
 
--   Recording: `/appl/local/training/4day-20231003/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`
+-   Recording: `/appl/local/training/4day-20240423/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`
 
 
 !!! Note
