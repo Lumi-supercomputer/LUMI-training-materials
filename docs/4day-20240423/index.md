@@ -1,22 +1,24 @@
-# Comprehensive General LUMI Training, October 3-6, 2023
+# Comprehensive General LUMI Training, April 23-26, 2024
 
 ## Course organisation
 
--   Location: [Centrum Konferencyjne IBIB PAN, Ks. Trojdena 4, 02-109 Warsaw, Poland](https://goo.gl/maps/jyxspAYWCAoioLJk8)
-    (Institute of Biocybernetics and Biomedical Engineering Polish Academy of Sciences).
+-   Location: [CSC, Keilaranta 14, 02150 Espoo, Finland](https://maps.app.goo.gl/hqja9ar6p27nSs9Y9)
 
-    [Public transportation in Warsaw](https://www.wtp.waw.pl/en/public-transport-step-by-step/)
+    [Public transportation in Helsinki](https://www.hsl.fi/en)
 
--   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20231003/files/2023-10_General-LUMI-Training-Agenda.pdf)
+    The venue is close to the ["Keilaniemi - Kägeludden" metro station](https://maps.app.goo.gl/22FLCZgSwSQcSAPY7),
+    providing an excellent connection with the hotels downtown.
+
+-   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20240423/files/2024-04_General-LUMI-Training-Agenda.pdf)
 
     [Dynamic schedule (adapted as the course progresses)](schedule.md)
 
      *The dynamic schedule also contains links to pages with information about the course materials, but 
      those links are also available below on this page.*
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course?both)
+-   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course-apr24?both)
 
+<!--
 -   There are two Slurm reservations for the course:
 
     -   CPU nodes: `training_cpu`
@@ -45,53 +47,54 @@ downloaded from LUMI.
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
 | [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
-| [Advanced Placement](extra_2_01_Advanced_Application_Placement.md) | [lumi](extra_2_01_Advanced_Application_Placement.md) | / | [lumi](extra_2_01_Advanced_Application_Placement.md) |
-| [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
+| [Introduction to the AMD ROCm Ecosystem](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_01_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) |
+| [Exercises #6](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |
-| [Exercises #5](extra_2_04_Exercises_5.md) | / | / | / |
-| [LUMI Software Stacks](extra_2_05_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_05_software_stacks.pdf) | [web](notes_2_05_LUMI_Software_Stacks.md) |  [web](extra_2_05_LUMI_Software_Stacks.md) |
-| [Introduction to the AMD ROCm Ecosystem](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_06_Introduction_to_AMD_ROCm_Ecosystem.md) |
-| [Exercises #6](extra_2_07_Exercises_6.md) | / | / | / |
+| [Exercises #4](extra_2_04_Exercises_5.md) | / | / | / |
+| [Advanced Placement](extra_2_05_Advanced_Application_Placement.md) | [lumi](extra_2_05_Advanced_Application_Placement.md) | / | [lumi](extra_2_05_Advanced_Application_Placement.md) |
+| [Exercises #5](extra_2_06_Exercises_6.md) | / | / | / |
+| [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [lumi](extra_3_03_Advanced_Performance_Analysis.md) | / |  [lumi](extra_3_03_Advanced_Performance_Analysis.md) |
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / | / |
 | [MPI Topics on the HPE Cray EX Supercomputer](extra_3_05_Cray_MPI_on_Slingshot.md) | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) | / | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) |
 | [Exercises #9](extra_3_06_Exercises_9.md) | / | / | / |
-| [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_07_AMD_ROCgdb_Debugger.pdf) | / | [web](extra_3_07_AMD_ROCgdb_Debugger.md) |
+| [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_07_AMD_ROCgdb_Debugger.pdf) | / | [web](extra_3_07_AMD_ROCgdb_Debugger.md) |
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
-| [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
+| [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
 | [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
 | [Performance Optimization: Improving single-core Efficiency](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) |
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) |
 | [Exercises #13](extra_4_05_Exercises_13.md) | / | / | / |
-| [Introduction to OmniTrace](extra_4_06_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Omnitrace.md) |
-| [Introduction to Omniperf](extra_4_08_AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Omniperf.md) |
+| [Introduction to OmniTrace](extra_4_06_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Omnitrace.md) |
+| [Introduction to Omniperf](extra_4_08_AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Omniperf.md) |
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
-| [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
-| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
+| [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
+| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
 | Appendix: Additional documentation | / | [documentation](A01_Documentation.md) | / |
+ 
 
-
+<!--
 ## Making the exercises after the course
 
 ### HPE
 
 The exercise material remains available in the course archive on LUMI:
 
--   The PDF notes in `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.pdf`
+-   The PDF notes in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
 
 -   The other files for the exercises in either a
-    bzip2-compressed tar file `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar`.
+    bzip2-compressed tar file `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`.
 
 To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
 ```
-tar -xf /appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_HPE.tar.bz2
+tar -xf /appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2
 ```
 
 in the directory where you want to work on the exercises. This will create the `exercises/HPE` subdirectory
@@ -101,26 +104,27 @@ However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only wor
 they set the course project as the active project for Slurm and also set a reservation, use the
 `lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
 projects.
+-->
 
-
+<!--
 ### AMD 
 
 There are [online notes about the AMD exercises](https://hackmd.io/@sfantao/H1QU6xRR3).
-A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.pdf)
+A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.pdf)
 and is particularly useful should the online notes become unavailable. 
 A [web backup](exercises_AMD_hackmd.md) is also available, but corrections to the original made after the course
 are not included.
 
 The other files for the exercises are available in 
-either a bzip2-compressed tar file `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD_.tar.bz2` or
-an uncompressed tar file `/appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar` and can also be downloaded. 
-( [bzip2-compressed tar download](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2) or 
-[uncompressed tar download](https://462000265.lumidata.eu/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar))
+either a bzip2-compressed tar file `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD_.tar.bz2` or
+an uncompressed tar file `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar` and can also be downloaded. 
+( [bzip2-compressed tar download](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2) or 
+[uncompressed tar download](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar))
 
 To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
 ```
-tar -xf /appl/local/training/4day-20231003/files/LUMI-4day-20231003-Exercises_AMD.tar.bz2
+tar -xf /appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2
 ```
 
 in the directory where you want to work on the exercises. This will create the `exercises/AMD` subdirectory
@@ -129,7 +133,7 @@ from the training project. You can do so in the same directory where you install
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
-
+-->
 
 ## Links to documentation
 
