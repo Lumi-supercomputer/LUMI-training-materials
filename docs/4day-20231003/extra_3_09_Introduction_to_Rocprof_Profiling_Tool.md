@@ -3,7 +3,6 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antão (AMD)
 
-
 <!--
 Course materials will be provided during and after the course.
 -->

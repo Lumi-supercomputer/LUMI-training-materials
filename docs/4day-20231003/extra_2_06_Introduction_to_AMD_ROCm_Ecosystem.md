@@ -3,7 +3,9 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter: Jakub Kurzak (AMD)*
 
+<!--
 Course materials will be provided during and after the course.
+-->
 
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
 </video>
