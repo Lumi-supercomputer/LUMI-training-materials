@@ -4,7 +4,7 @@
 package that is available under the
 [GNU General Public License V3](https://github.com/lllyasviel/Fooocus/blob/main/LICENSE).
 
-It can work offline, but it appeared that the version on which we first prepared this demo,
+The version on which we first prepared this demo,
 insists on writing in the directories with some of the Fooocus files, so we cannot put
 Fooocus in a container at the moment.
 
@@ -27,7 +27,7 @@ Let's create an installation directory for the demo. Set the environment variabl
 `installdir` to a proper value for the directories on LUMI that you have access to.
 
 ``` bash
-installdir=/project/project_462000008/kurtlust/DEMO1
+installdir=/project/project_465001102/kurtlust/DEMO1
 mkdir -p "$installdir" ; cd "$installdir"
 ```
 
@@ -52,10 +52,13 @@ expect with a Python package. So installing this could become a messy thing...
 
 It also contains a `Dockerfile` (to build a base Docker container), a `requirements_docker.txt`
 and a `requirements_versions.txt` file that give hints about what exactly is needed. 
-We'll take some risks though and use a newer version of PyTorch than suggested as for AMD GPUs
+The `Dockerfile` suggests close to the top that some OpenGL libraries will be needed.
+And the fact that it can be fully installed in a docker container also indicates that there
+must in fact be ways to run it in readonly directories, but in this demo we'll put Fooocus in
+a place were it can write. The `requirements_docker.txt` file also suggests to use Pytorch 2.0, but
+we'll take some risks though and use a newer version of PyTorch than suggested as for AMD GPUs
 it is often important to use recently enough versions (and because that version has a more sophisticated
-module better suited for what we want to demonstrate). We also note though that a couple of graphics
-libraries are needed that we still might have to install.
+module better suited for what we want to demonstrate). 
 
 
 ### Step 2: Install the PyTorch container
@@ -282,7 +285,7 @@ cd "$installdir/Fooocus-$fooocusversion"
 singularity shell $SIF
 ```
 
-We'll install the extra packages simply with the `pip` toll:
+We'll install the extra packages simply with the `pip` tool:
 
 ``` bash
 pip install -r requirements_versions.txt
@@ -351,6 +354,14 @@ singularity exec $SIF ls /user-software/venv/pytorch/lib/python3.10/site-package
 
 and see that our package installation is still there!
 
+However, we can no longer write in that directory. E.g., try
+
+``` bash
+touch /user-software/test
+```
+
+to create an empty file `test` in `/user-software` and note that we get an error message.
+
 So now we are ready-to-run.
 
 ### The reward: Running Fooocus
@@ -365,7 +376,7 @@ cd "$installdir/Fooocus-$fooocusversion"
 We'll start an interactive job with a single GPU:
 
 ``` bash
-srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465000999 --pty bash
+srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465001102 --pty bash
 ```
 
 The necessary modules will still be available, but if you are running from a new shell, you 
@@ -419,7 +430,7 @@ Fooocus code,
 ``` bash
 module load LUMI/23.09
 module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-Fooocus-singularity-20240315
-srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_462000008 --pty \
+srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465001102 --pty \
    bash -c 'echo -e "Running on $(hostname)\n" ; singularity exec $SIF python launch.py --listen --disable-xformers'
 ```
 

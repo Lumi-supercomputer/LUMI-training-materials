@@ -71,8 +71,7 @@ materials are uploaded.
 | [Using Lustre](extra_08_Lustre.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-08-lustre.pdf) | [notes](08_Lustre.md) | [video](extra_08_Lustre.md) |
 | [Containers on LUMI](extra_09_Containers.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-09-containers.pdf) | [notes](09_Containers.md) | [video](extra_09_Containers.md) |
 | [LUMI User Support](extra_10_Support.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-10-support.pdf) | [notes](10_Support.md) | [video](extra_10_Support.md) |
-| A1 Slurm issues | / | [notes](A01_Slurm_issues.md) | / | 
-| A2 Additional documentation | / | [notes](A02_Documentation.md) | / | 
+| A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
 
 ## Demos

@@ -8,7 +8,9 @@ The demo follows largely the instructions for distributed learning from the
 [PyTorch page in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/).
 
 This demo shows:
+
 -   How to install one of the containers for which we provide EasyBuild recipes
+
 -   How to use our more recent PyTorch containers for distributed learning
 
 
@@ -18,7 +20,7 @@ Let's create an installation directory for the demo. Set the environment variabl
 `installdir` to a proper value for the directories on LUMI that you have access to.
 
 ``` bash
-installdir=/project/project_462000008/kurtlust/DEMO2
+installdir=/project/project_465001102/kurtlust/DEMO2
 mkdir -p "$installdir" ; cd "$installdir"
 ```
 
@@ -166,8 +168,9 @@ There is a lot of stuff in there. If we scroll up enough, we see:
     of the EasyBuild recipe that we used. This directory basically contains all important
     files to reproduce the installation, except for the container it used itself.
 
--   The `user-software` subdirectory contains all the files that in the container can
-    be found in `/user-software`. It is  
+-   The `user-software` subdirectory contains all the files that can
+    be found in the container also in `/user-software`. (It is simply bound to 
+    that directory in the container through an environmet variable that the module sets.) 
 
 -   There is a `bin` subdirectory with some scripts. The `start-shell` script is only there
     for historical reasons and compatibility with some other containers, but the 
@@ -188,7 +191,7 @@ The `conda-python-distributed` script is written to ease distributed learning wi
 Distributed learning requires some initialisation of environment variables that are used by
 PyTorch or by libraries from the ROCm<sup>TM</sup> stack. It passes its arguments to the
 Python command. It is mostly meant to be used on full nodes with one task per GPU, as in 
-other cases not all initialisation make sense or are even valid.
+other cases not all initialisations make sense or are even valid.
 
 Let's check the script:
 
@@ -247,7 +250,7 @@ is used, so we will need some more complicated CPU mapping in the job script.
 PyTorch also needs some initialisation that are basically the same on NVIDIA and
 AMD hardware. This includes setting a master for the communication (the first node of 
 a job) and a port for the communication. That port is hard-coded, so a second instance
-of the script on the same node would fail. So we basically assume we use full nodes.
+of the script on the same node would fail. So we basically assume that we use full nodes.
 To determine that master, another script from the `runscripts` subdirectory is used.
 
 ``` bash
@@ -281,11 +284,10 @@ srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=mask_cpu:$MYMASKS \
     conda-python-distributed -u mnist_DDP.py --gpu --modelpath model
 ```
 
-
 Launch the script by setting some environment variables to use the course account and reservation:
 
 ``` bash
-export SBATCH_ACCOUNT=project_465000999
+export SBATCH_ACCOUNT=project_465001102
 export SBATCH_RESERVATION=TODO
 ```
 
