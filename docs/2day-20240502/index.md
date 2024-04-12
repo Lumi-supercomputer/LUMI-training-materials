@@ -93,3 +93,14 @@ materials are uploaded.
 -   Other course materials
 
     -   [Archive of PRACE training materials](https://training.prace-ri.eu/) (no https unfortunately)
+
+
+## Acknowledgement
+
+Though a LUST course, the course borrows a lot of material from
+[a similar course prepared by the Belgian local organisation](https://klust.github.io/LUMI-BE-training-materials/intro-evolving/),
+which in turn was prepared in the framework of the 
+[VSC](https://www.vscentrum.be/) Tier-0 support activities.
+The VSC is funded by 
+[FWO - Fonds Wetenschappelijk Onderzoek - Vlaanderen](https://www.fwo.be/en/)
+(or Research Foundation – Flanders). 

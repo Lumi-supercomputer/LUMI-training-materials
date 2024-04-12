@@ -1,18 +1,14 @@
 # Introduction to the notes
 
-These notes and training materials were prepared in the framework of the 
-[VSC](https://www.vscentrum.be/) Tier-0 support activities.
+Though a LUST course, the course borrows a lot of material from
+[a similar course prepared by the Belgian local organisation](https://klust.github.io/LUMI-BE-training-materials/intro-evolving/),
+which in turn was prepared in the framework of the 
+[VSC](https://www.vscentrum.be/) Tier-0 support activities
+with funding from [FWO - Fonds Wetenschappelijk Onderzoek - Vlaanderen](https://www.fwo.be/en/)
+(or Research Foundation – Flanders) which we hereby acknowledge. 
 
-The notes, and all other materials used for the course, borrow a lot from the
-course material made available by the LUMI User Support Team.
-Their course materials are avialable on the
-[LUMI training materias web site](https://lumi-supercomputer.github.io/LUMI-training-materials/).
-
-Various training materials and the documentation from the Walloon HPC project [CÉCI](https://www.ceci-hpc.be/)
+Various training materials and the documentation from the Belgian Walloon HPC project [CÉCI](https://www.ceci-hpc.be/)
 were also a great source of inspiration.
-
-This course is offered to the LUMI-BE organisation.
-
 
 ## About the structure of the notes
 
