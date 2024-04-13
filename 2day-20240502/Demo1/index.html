@@ -2572,14 +2572,24 @@ insists on writing in the directories with some of the Fooocus files, so we cann
 Fooocus in a container at the moment.</p>
 <p>It is based on PyTorch. However, we cannot use the containers provided on LUMI as-is
 as additional system level libraries are needed for the graphics.</p>
-<p>This demo shows:
--   Installing one of the containers provided on LUMI with EasyBuild,
--   Installing additional software in the container with the
+<p>This demo shows:</p>
+<ul>
+<li>
+<p>Installing one of the containers provided on LUMI with EasyBuild,</p>
+</li>
+<li>
+<p>Installing additional software in the container with the
     <a href="https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds">SingularityCE "unprivileged proot builds" process</a>
-    and the SUSE Linux <code>zypper</code> install tool,
--   Further adding packages in a virtual environment and putting them in 
-    a SquashFS file for better file system performance, and
--   Using that setup with Fooocus.</p>
+    and the SUSE Linux <code>zypper</code> install tool,</p>
+</li>
+<li>
+<p>Further adding packages in a virtual environment and putting them in 
+    a SquashFS file for better file system performance, and</p>
+</li>
+<li>
+<p>Using that setup with Fooocus.</p>
+</li>
+</ul>
 <h2 id="step-1-checking-fooocus">Step 1: Checking Fooocus<a class="headerlink" href="#step-1-checking-fooocus" title="Permanent link">&para;</a></h2>
 <p>Let's create an installation directory for the demo. Set the environment variable
 <code>installdir</code> to a proper value for the directories on LUMI that you have access to.</p>
