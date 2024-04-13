@@ -14,6 +14,12 @@ This demo shows:
 -   How to use our more recent PyTorch containers for distributed learning
 
 
+## Video of the demo
+
+<video src="https://462000265.lumidata.eu/2day-20240502/recordings/Demo2-Distributed_learning.mp4" controls="controls">
+</video>
+
+
 ## Step 1: Getting some files that we will use
 
 Let's create an installation directory for the demo. Set the environment variable

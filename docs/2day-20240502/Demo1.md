@@ -25,6 +25,15 @@ This demo shows:
 -   Using that setup with Fooocus.
 
 
+## Video of the demo
+
+The video is still missing the final step, running the program, as it took too much time
+to download the data when the video was recorded.
+
+<video src="https://462000265.lumidata.eu/2day-20240502/recordings/Demo1-Fooocus.mp4" controls="controls">
+</video>
+
+
 ## Step 1: Checking Fooocus
 
 Let's create an installation directory for the demo. Set the environment variable
