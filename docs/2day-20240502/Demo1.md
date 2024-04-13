@@ -12,12 +12,16 @@ It is based on PyTorch. However, we cannot use the containers provided on LUMI a
 as additional system level libraries are needed for the graphics.
 
 This demo shows:
+
 -   Installing one of the containers provided on LUMI with EasyBuild,
+
 -   Installing additional software in the container with the
     [SingularityCE "unprivileged proot builds" process](https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds)
     and the SUSE Linux `zypper` install tool,
+
 -   Further adding packages in a virtual environment and putting them in 
     a SquashFS file for better file system performance, and
+
 -   Using that setup with Fooocus.
 
 
