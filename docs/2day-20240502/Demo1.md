@@ -388,7 +388,7 @@ can load them again:
 
 ``` bash
 module load LUMI/23.09
-module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-FOOOCUS-singularity-20240315
+module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-Fooocus-singularity-20240315
 ```
 
 Also check the hostname if it is not part of your prompt as you will need it later:
