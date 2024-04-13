@@ -70,14 +70,11 @@ materials are uploaded.
 | Exercises 4 | / | [notes](E07_Exercises_4.md) | / |
 | [Using Lustre](extra_08_Lustre.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-08-lustre.pdf) | [notes](08_Lustre.md) | [video](extra_08_Lustre.md) |
 | [Containers on LUMI](extra_09_Containers.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-09-containers.pdf) | [notes](09_Containers.md) | [video](extra_09_Containers.md) |
+| [Demo 1 (optional)](Demo1.md) | / | [notes](Demo1.md) | [video](Demo1.md#video-of-the-demo) |
+| [Demo 2 (optional)](Demo2.md) | / | [notes](Demo2.md) | [video](Demo2.md#video-of-the-demo) |
 | [LUMI User Support](extra_10_Support.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-10-support.pdf) | [notes](10_Support.md) | [video](extra_10_Support.md) |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
-
-## Demos
-
--   [Demo option 1: Fooocus](Demo1.md)
--   [Demo option 2: A short walk-through through distributed learning](Demo2.md)
 
 ## Web links
 
