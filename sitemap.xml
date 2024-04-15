@@ -471,6 +471,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_11_Netherlands/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_12_What_else/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/schedule/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
