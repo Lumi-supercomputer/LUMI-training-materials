@@ -56,7 +56,7 @@ materials are uploaded.
 
 | Presentation | Slides | Notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Introduction](extra_00_Introduction.md) | / | [notes](00_Introduction.md) | [video](extra_00_Introduction.md) |
+| [Introduction](extra_00_Introduction.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-00-Introduction.pdf) | [notes](00_Introduction.md) | [video](extra_00_Introduction.md) |
 | [LUMI Architecture](extra_01_Architecture.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-01-architecture.pdf) | [notes](01_Architecture.md) | [video](extra_01_Architecture.md) |
 | [HPE Cray Programming Environment](extra_02_CPE.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-02-CPE.pdf) | [notes](02_CPE.md) | [video](extra_02_CPE.md) |
 | [Getting access to LUMI](extra_03_LUMI_access.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-03-access.pdf) | [notes](03_LUMI_access.md) | [video](extra_03_LUMI_access.md) |
