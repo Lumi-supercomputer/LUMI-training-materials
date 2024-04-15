@@ -26,8 +26,9 @@ LUMI is one of the larger EuroHPC supercomputers. EuroHPC currently funds
 
 Depending on the machine, EuroHPC pays one third up to half of the bill, while the remainder of the budget
 comes from the hosting country, usually with the help of a consortium of countries.
+For LUMI, EuroHPC paid half of the bill and is the actual owner of the machine.
 
-<!-- BELGIUM -->
+<!-- BELGIUM
 LUMI is hosted in Finland but operated by a consortium of 11 countries, with Belgium being the third largest
 contributor to LUMI and the second largest in the consortium of countries. The Belgian contribution is
 brought together by 4 entities:
@@ -45,13 +46,29 @@ what the supercomputer can technically sustain. In Belgium, the 4 entities that 
 via a competition (3 calls a year for regular projects).
 The access conditions for projects in the Belgian share are advertised via the 
 [EuroCC Belgium National Competence Centre](https://www.enccb.be/GettingAccess).
+-->
 
+<!-- GENERAL More general text -->
+LUMI is hosted in Finland but operated by a consortium of 11 countries
+Each LUMI consortium country can set its own policies for a national access program, within the limits of
+what the supercomputer can technically sustain. There is a 
+["Get Started" page on the main LUMI website](https://www.lumi-supercomputer.eu/get-started/)
+with links to the various access programs.
+
+<!-- BELGIUM
 Web links:
 
 -   [EuroHPC JU supercomputers](https://eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en)
 -   [EuroCC Belgium National Competence Centre](https://www.enccb.be/)
     with the [specifics of LUMI access via the Belgian share](https://www.enccb.be/GettingAccess).
-    <!-- BELGIUM -->
+-->
+
+<!-- GENERAL More general text -->
+Web links:
+
+-   [EuroHPC JU supercomputers](https://eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en)
+-   [LUMI website "Get Started" page](https://www.lumi-supercomputer.eu/get-started/)
+    with links to relevant web pages for EuroHPC access and access via consortium countries.   
 
 
 ## Users and projects
@@ -62,10 +79,18 @@ Web links:
 
 LUMI works like most European large supercomputers: Users are members of projects.
 
-<!-- BELGIUM -->
+<!-- BELGIUM
 A project corresponds to a coherent amount of work that is being done by a single person or a collaboration
 of a group of people. It typically corresponds to a research project, though there are other project types also,
 e.g., to give people access in the context of a course, or for organisational issues, e.g., a project for VSC support.
+Most projects are short-lived, with a typical duration of 4 to 6 months for benchmarking projects or one year for a 
+regular project (which is the maximum duration agreed upon in the consortium).
+-->
+
+<!-- GENERAL More general version -->
+A project corresponds to a coherent amount of work that is being done by a single person or a collaboration
+of a group of people. It typically corresponds to a research project, though there are other project types also,
+e.g., to give people access in the context of a course, or for organisational issues, e.g., a project for a local support organisation.
 Most projects are short-lived, with a typical duration of 4 to 6 months for benchmarking projects or one year for a 
 regular project (which is the maximum duration agreed upon in the consortium).
 
@@ -88,9 +113,14 @@ and each project needs at least two of them:
         the purchase cost difference of the systems.
     3.  Storing one TB for one hour on the object based file system costs 0.5 TB-hour.
 
-<!-- BELGIUM -->
+<!-- BELGIUM
 These budgets are assigned and managed by the resource allocators, not by the LUMI User Support Team.
 For Belgium the VSC and CÉCI both have the role of resource allocator, but both use a common help desk.
+-->
+
+<!-- GENERAL More general version -->
+These budgets are assigned and managed by the resource allocators, not by the LUMI User Support Team.
+The LUMI User Support Team also cannot add additional billing units to your project.
 
 LUMI projects will typically have multiple project numbers which may be a bit confusing:
 
@@ -119,7 +149,7 @@ has on LUMI is a small personal disk space which is simply a Linux requirement.
 To do anything useful on LUMI users need to be member of a project.
 There are also "robot accounts" for special purposes 
 that would not correspond to a physical person but have a specific goal 
-(like organising data ingestion from an external source) but few projects are granted
+(like organising data ingestion from an external source) and few projects are granted
 such an account.
 
 There ia a many-to-may mapping between projects and user accounts.
@@ -153,10 +183,12 @@ but also to manage access to other resources such as experimental equipment.
 Puhuri projects can span multiple resources (e.g., multiple supercomputers so that you can
 create a workflow involving Tier-2, Tier-1 and Tier-0 resources).
 
+<!-- BELGIUM 
 In Belgium two entities manage projects for the Belgian LUMI organisation: VSC and CÉCI.
 These entities are called the resource allocators.
+-->
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 All projects allocated by Belgium ara managed through the Puhuri system, and VSC and CÉCI 
 both have their own zone in that system. For Belgium it is only used to manage access to LUMI,
 not to any of the VSC, CÉCI or Cenaero systems or other infrastructure.
@@ -166,9 +198,26 @@ MyAccessID then in turn connects to your institute identity provider and a numbe
 It is important that you always use the same credentials to log in via MyAccessID, otherwise
 you create another user in MyAccessID that is unknown to Puhuri and get all kinds of strange
 error messages.
+-->
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 The URL to the Puhuri portal is: [puhuri-portal.neic.no](https://puhuri-portal.neic.no/).
+-->
+
+<!-- GENERAL More general text -->
+There are multiple frontends in use for Puhuri. Some countries use their own frontend
+that links to the Puhuri backend to give their users a familiar feeling, while other 
+countries use a Puhuri frontend that they either host and manage themselves, or run
+on the Puhuri infrastructure. Due to this diversity, we cannot really demo project
+management in the course but need to leave this to the local organisations.
+
+The login to Puhuri is in general via MyAccessID, which is a GÉANT service. GÉANT is 
+the international organisation that manages the research network in Europe. 
+MyAccessID then in turn connects to your institute identity provider and a number of alternatives.
+It is important that you always use the same credentials to log in via MyAccessID, otherwise
+you create another user in MyAccessID that is unknown to Puhuri and get all kinds of strange
+error messages. MyAccessID is also used for ssh key management, so that in the future, when
+MyAccessID might serve more machines, you'd have a single set of ssh keys for all infrastructures.
 
 Puhuri can be used to check your remaining project resources, but once your user account 
 on LUMI is created it is very easy to do this on the command line with the
@@ -202,7 +251,7 @@ Each project also has 4 permanent or semi-permanent file spaces that are all bil
 storage budget of the project.
 
 1.  Permanent (for the duration of the project) storage on a hard disk based Lustre filesystem
-    accessed via `/project/project_46yXXXXXX`. This is the place to perform the software installation
+    accessed via `/project/project_46YXXXXXX`. This is the place to perform the software installation
     for the project (as it is assumed that a project is a coherent amount of work it is only 
     natural to assume that everybody in the project needs the same software), or to store input data
     etc. that will be needed for the duration of the project.
@@ -225,13 +274,28 @@ storage budget of the project.
   ![Slide File spaces 1](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-03-access/FileSpaces_2.png){ loading=lazy }
 </figure>
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
 As we shall see later in this course or as you may have seen in other HPC courses already
 (e.g., the VSC [Supercomputers for Starters](https://klust.github.io/SupercomputersForStarters/) 
 course organised by UAntwerpen),
+parallel file systems are not built to deal with hundreds of thousands of small files and are
+very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
+the home directory) but file quota are rather strict and will not easily get extended.
+Software installations that require tens of thousands of small files should be done in 
+containers (e.g., conda installations or any big Python installation) while data should also
+be organised in proper file formats rather than being dumped on the file system abusing the file
+system as a database.
+Quota extensions are currently handled by the central LUMI User Support Team.
+-->
+
+<!-- GENERAL More general version -->
+The use of space in each file space is limited by block and file quota. Block quota limit the
+capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
+each subdirectory and each link use an inode.
+As we shall see later in this course or as you may have seen in other HPC courses already,
 parallel file systems are not built to deal with hundreds of thousands of small files and are
 very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
 the home directory) but file quota are rather strict and will not easily get extended.
@@ -269,10 +333,22 @@ project is irrevocably deleted from the system. User accounts without project wi
 be closed, as will user accounts that remain inactive for several months, even if an
 active project is still attached to them.
 
+<!-- BELGIUM
 If you run out of storage billing units, access to the job queues or even to the storage 
 can be blocked and you should contact your resource allocator for extra billing units.
 Our experience within Belgium is that projects tend to heavily under-request storage
 billing units. It is important that you clean up after a run as LUMI is not meant for
+long-term data archiving. But at the same time it is completely normal that you cannot do 
+so right after a run, or as a job may not launch immediately, that you need to put input
+data on the system long before a run starts. 
+So data needed for or resulting from a run has to stay on the system for a few days or weeks,
+and you need to budget for that in your project request.
+-->
+
+<!-- GENERAL More general version -->
+If you run out of storage billing units, access to the job queues or even to the storage 
+can be blocked and you should contact your resource allocator for extra billing units.
+It is important that you clean up after a run as LUMI is not meant for
 long-term data archiving. But at the same time it is completely normal that you cannot do 
 so right after a run, or as a job may not launch immediately, that you need to put input
 data on the system long before a run starts. 
@@ -301,6 +377,7 @@ In that case you have to use a specific login node, which you can do through the
 `lumi-uan01.csc.fi` up to `lumi-uan04.csc.fi`. 
 (UAN is the abbreviation for User Access Node, the term Cray uses for login nodes.)
 
+<!-- BELGIUM
 Key management is for most users done via MyAccessID: [mms.myaccessid.org](https://mms.myaccessid.org/).
 This is the case for all user accounts who got their first project on LUMI via Puhuri, which is the case for
 almost all Belgian users. User accounts that were created via the My CSC service have to use
@@ -309,18 +386,55 @@ your account in My CSC to MyAccessID so that you do not get a second account on 
 Puhuri-managed project, and in this case your keys are still managed through the My CSC service.
 But this procedure is only important for those LUMI-BE users who may have gotten their first access 
 to LUMI via a project managed by CSC.
+-->
+
+<!-- GENERAL More general version -->
+Key management is for most users done via MyAccessID: [mms.myaccessid.org](https://mms.myaccessid.org/).
+This is the case for all user accounts who got their first project on LUMI via Puhuri. 
+User accounts that were created via the My CSC service have to use
+the [my.csc.fi](https://my.csc.fi/) portal to manage their keys. It recently became possible to link
+your account in My CSC to MyAccessID so that you do not get a second account on LUMI ones you join a 
+Puhuri-managed project, and in this case your keys are still managed through the My CSC service.
 
 LUMI now also provides a web interface via Open OnDemand. The URL is
 [`https://www.lumi.csc.fi/`](https://www.lumi.csc.fi/). It also offers a number
 of tools that can be useful for visualisation via a web browser, but it is still 
 work-in-progress.
 
-There is currently not much support for other technologies for GUI applications on LUMI. 
-Running X11 over ssh (via `ssh -X`) is unbearably slow for users located in Belgium. 
-The alternative is some support offered for VNC, though the window manager and fonts used by
-the server do look a little dated. Access is possible via a browser or VNC client. 
-On the system, check for the 
-[`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/).
+<!-- BELGIUM
+There is currently moderate support for technologies for GUI applications on LUMI. 
+Running X11 over ssh (via `ssh -X`) is unbearably slow for users located in Belgium 
+as X11 is not meant
+to be used over long-distance networks and is very latency-sensitive. 
+The alternative is VNC, which we currently offer in two different ways:
+
+-  Via the "Desktop" app in Open OnDemand, which will give you a VNC session with the
+   rather lightweight [Xfce desktop environment](https://www.xfce.org/),
+-  and through the [`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/)
+   which was our primary method when Open OnDemand for LUMI was not ready yet.
+
+You can connect through a web browser or a VNC client.
+Don't expect more advanced desktop environments: LUMI is not meant to be your remote
+graphics workstation and we cannot afford to spend tens of compute nodes on offering 
+this service.
+-->
+
+<!-- GENERAL More general version -->
+There is currently moderate support for technologies for GUI applications on LUMI. 
+Running X11 over ssh (via `ssh -X`) is unbearably slow for most users as X11 is not meant
+to be used over long-distance networks and is very latency-sensitive. 
+The alternative is VNC, which we currently offer in two different ways:
+
+-  Via the "Desktop" app in Open OnDemand, which will give you a VNC session with the
+   rather lightweight [Xfce desktop environment](https://www.xfce.org/),
+-  and through the [`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/)
+   which was our primary method when Open OnDemand for LUMI was not ready yet.
+
+You can connect through a web browser or a VNC client.
+Don't expect more advanced desktop environments: LUMI is not meant to be your remote
+graphics workstation and we cannot afford to spend tens of compute nodes on offering 
+this service.
+
 
 Web links:
 
@@ -402,7 +516,7 @@ Web links:
     </figure>
 
     The "Desktop" app will present you with a simple GUI desktop based on the
-    [xfce desktop environment](https://www.xfce.org/). This app needs to run in the context of a job
+    [Xfce desktop environment](https://www.xfce.org/). This app needs to run in the context of a job
     and although it can run on several partitions on LUMI, its main use is to be able to use some
     visualisation applications, so your best choice is likely to use the partition with visualisation
     GPUs (see the [session on Slurm](06_Slurm.md)). As we have not discussed jobs yet, we will skip
@@ -515,8 +629,11 @@ academic service providers.
 Access to LUMI-O is based on temporary keys that need to be generated via a web interface
 (though there may be alternatives in the future).
 
-There are currently three command-line tools pre-installed on LUMI: rclone
-(which is the easiest tool if you want public and private data), s3cmd and restic.
+There are currently three command-line tools pre-installed on LUMI: 
+[rclone](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone)
+(which is the easiest tool if you want public and private data), 
+[s3cmd](https://docs.lumi-supercomputer.eu/storage/lumio/#s3cmd) 
+and [restic](https://docs.lumi-supercomputer.eu/storage/lumio/#restic).
 
 But you can also access LUMI-O with similar tools from outside LUMI. Configuring them
 may be a bit tricky and the LUMI User Support Team cannot help you with each and every client
@@ -666,8 +783,9 @@ for even more documentation.
     -   [restic documentation](https://restic.readthedocs.io/en/latest/)
 
 
-<!-- BELGIUM -->
+<!-- BELGIUM 
 ## Local trainings in Belgium
 
 Any HPC introductory training in Belgium covers logging in via ssh and transferring files.
 Such a course is a prerequisite for this course.
+-->
