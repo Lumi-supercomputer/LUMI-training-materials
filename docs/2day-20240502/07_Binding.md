@@ -1,4 +1,4 @@
-# Process and thread distribution and binding
+# Process and Thread Distribution and Binding
 
 
 ## What are we talking about in this session?

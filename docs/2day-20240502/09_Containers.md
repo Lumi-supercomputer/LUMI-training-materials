@@ -1,4 +1,4 @@
-# Containers on LUMI
+# Containers on LUMI-C and LUMI-G
 
 ## What are we talking about in this chapter?
 

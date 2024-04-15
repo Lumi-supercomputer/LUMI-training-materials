@@ -1,4 +1,4 @@
-# Containers on LUMI
+# Containers on LUMI-C and LUMI-G
 
 A video recording will follow.
 

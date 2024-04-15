@@ -1,4 +1,4 @@
-# I/O and file systems on LUMI
+# I/O and File Systems on LUMI
 
 A video recording will follow.
 

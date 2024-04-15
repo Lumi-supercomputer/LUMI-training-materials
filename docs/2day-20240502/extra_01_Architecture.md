@@ -1,4 +1,4 @@
-# The LUMI Architecture
+# LUMI Architecture
 
 A video recording will follow.
 

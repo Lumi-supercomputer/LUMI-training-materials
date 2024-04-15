@@ -1,4 +1,4 @@
-# How to get support and documentation
+# LUMI Support and Documentation
 
 ## Distributed nature of LUMI support
 

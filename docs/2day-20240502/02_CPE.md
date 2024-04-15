@@ -1,4 +1,4 @@
-# The HPE Cray Programming Environment
+# HPE Cray Programming Environment
 
 In this session we discuss some of the basics of the operating system and
 programming environment on LUMI. Whether you like it or not, every user
