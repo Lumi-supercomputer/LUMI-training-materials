@@ -74,7 +74,7 @@ materials are uploaded.
 | [Demo 2 (optional)](Demo2.md) | / | [notes](Demo2.md) | [video](Demo2.md#video-of-the-demo) |
 | [LUMI Support and Documentation](extra_10_Support.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-10-support.pdf) | [notes](10_Support.md) | [video](extra_10_Support.md) |
 | [LUMI in The Netherlands](extra_11_Netherlands.md) | / | / | / |
-| [What Else?](extra_12_What_else.md) | / | / | / |
+| [What Else?](extra_12_What_else.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-12-WhatElse.pdf) | / | / |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
 
