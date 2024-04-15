@@ -152,7 +152,7 @@ echo $SIFPYTORCH
 We'll make use of that when we add SUSE packages to the container.
 
 
-## Step 3: Adding some SUSE packages
+### Step 3: Adding some SUSE packages
 
 To update the singularity container, we need three things.
 
