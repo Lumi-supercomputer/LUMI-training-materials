@@ -2839,7 +2839,7 @@ different name. E.g., try searching for the <code>htop</code> command.</p>
 people collaborate. </p>
 <p>This implies that your colleagues may have run in the same problem and may already have a solution,
 or they didn't even experience it as a problem and know how to do it. So talk to your colleagues first.</p>
-<p>Support teams are not meant to deal with your team communication problems. There is nothing worse than
+<p>Support teams are not meant to deal with your team's communication problems. There is nothing worse than
 having the same question asked multiple times from different people in the same project.
 As a project does not have a dedicated support engineer, the second time a question is asked it may
 land at a different person in the support team so that it is not recognized that the question has been asked
@@ -2852,7 +2852,11 @@ and the LUST help desk without telling.</p>
 other users in the same project are doing with the resources, you have to talk to them and not to the LUST.
 We do not have systems in place to monitor use on a per-user, per-project basis, only on a per-project basis,
 and also have no plans to develop such tools as a project is meant to be a close collaboration of all
-involved users. </p>
+involved users.</p>
+<p>LUMI events and on-site courses are also an excellent opportunity to network with more remote
+colleagues and learn from them! Which is why we favour on-site participation for courses. 
+No video conferencing system can give you the same experience as being physically present
+at a course or event.</p>
 <h2 id="l1-and-basic-l2-support-lust">L1 and basic L2 support: LUST<a class="headerlink" href="#l1-and-basic-l2-support-lust" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="L1 and basic L2: LUST (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/LUST1.png" /></p>
@@ -2866,10 +2870,20 @@ involved users. </p>
 <p>The LUMI User Support Team is responsible for providing L1 and basic L2 support to users of the system.
 Their work starts from the moment that you have userid on LUMI (the local RA is responsible for ensuring
 that you get a userid when a project has been assigned).</p>
-<p>The LUST is a distributed team roughly 10 FTE strong, with people in all LUMI consortium countries,
+<!-- BELGIUM>
+The LUST is a distributed team roughly 10 FTE strong, with people in all LUMI consortium countries,
 but they work as a team, coordinated by CSC. The Belgian contribution currently consists of two people
 both working half time for LUMI and half time for user support in their own organisation (VSC and CÉCI).
 However, you will not necessarily be helped by one of the Belgian team members when you contact LUST, but
+by the team member who is most familiar with your problem. 
+-->
+
+<!-- GENERAL More general version -->
+<p>The LUST is a distributed team roughly 10 FTE strong, with people in all LUMI consortium countries,
+but they work as a team, coordinated by CSC. 10 of the LUMI consortium countries each have one or more
+members in LUST.
+However, you will not necessarily be helped by one of the team members from your own country,
+even when you are in a consortium country, when you contact LUST, but
 by the team member who is most familiar with your problem. </p>
 <p>There are some problems that we need to pass on to HPE or AMD, particularly if it may be caused by 
 bugs in system software, but also because they have more experts with in-depth knowledge of very specific
@@ -3055,6 +3069,7 @@ immediately find back the ticket as the userid is in the subject.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Think with us (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/TicketsThinkWithUs2.png" /></p>
 </figure>
+<!-- This is the general version only, there are too many layout problems trying to combine multiple versions. -->
 <ul>
 <li>
 <p>Provide enough information for us to understand who you are:</p>
@@ -3068,16 +3083,11 @@ immediately find back the ticket as the userid is in the subject.</p>
 <li>
 <p>Project number:</p>
 <ul>
-<li>
-<p>When talking to the LUST: they don't know EuroHPC or LUMI-BE project numbers, only
-    the 465xxxxxx numbers, and that is what they need.</p>
-</li>
-<li>
-<p>When talking to LUMI-BE: for LUMI-BE projects, the LUMI-BE project number may be useful.
-    It is the ticket number of you project submission. Not all LUMI-BE help team members have
-    access to the data associated with your LUMI project number 465xxxxxx, but some have and can 
-    use this to diagnose some problems.</p>
-</li>
+<li>When talking to the LUST: they don't know EuroHPC or your local organisation's project numbers, only
+    the 462xxxxxx and 465xxxxxx numbers, and that is what they need.</li>
+<li>If you have a local support organisation though, the local project number may be
+    useful for them, as it may then land with someone who does not have access to the 
+    LUMI project numbers of all projects they manage.</li>
 </ul>
 </li>
 </ul>
@@ -3101,7 +3111,7 @@ immediately find back the ticket as the userid is in the subject.</p>
 <p>What software are you using, and how was it installed or where did you find it?</p>
 <p>We know that certain installation procedures (e.g., simply downloading a binary) may cause
 certain problems on LUMI. Also, there are some software installations on LUMI for which neither
-LUST nor the LUMI-BE help desk is responsible, so we need to direct to to their support instances
+LUST nor the local help desk is responsible, so we need to direct to to their support instances
 when problems occur that are likely related to that software.</p>
 </li>
 <li>
@@ -3137,13 +3147,14 @@ it was long ago before a system update that we know broke some things that affec
     Conversely, if it takes a 24-hour run on 256 nodes to see the problem it is very, very likely that the 
     support team cannot help you.</p>
 <p>Moreover, if you are using licensed software with a license that does not cover the support team members,
-usually we cannot do much for you. Neither the LUMI-BE help desk team nor the LUST will knowingly violate
-software licenses only to solve your problems!</p>
+usually we cannot do much for you. LUST will knowingly violate
+software licenses only to solve your problems (and neither will your local support team)!</p>
 </li>
 <li>
-<p>The LUST and LUMI-BE help desk members know a lot about LUMI but they are (usually) not researchers in
+<p>The LUST help desk members know a lot about LUMI but they are (usually) not researchers in
     your field so cannot help you with problems that require domain knowledge in your field. We can impossibly
-    know all software packages and tell you how to use them (and, e.g., correct errors in your input files).</p>
+    know all software packages and tell you how to use them (and, e.g., correct errors in your input files).
+    And the same likely holds for your local support organisation.</p>
 <p>You as a user should be the domain expert, and since you are doing computational science, somewhat 
 multidisciplinary and know something about both the "computational" and the "science".</p>
 <p>We as the support team should be the expert in the "computational". Some of us where researchers in the past
@@ -3158,9 +3169,9 @@ we could basically make a Ph.D that usually takes 4 years in 4 weeks and wouldn'
 would be more fun to produce the science that our funding agencies expect ourselves.</p>
 </li>
 <li>
-<p>The LUST and LUMI-BE help desk members know a lot about LUMI but cannot know or solve everything and
+<p>The LUST help desk members know a lot about LUMI but cannot know or solve everything and
     may need to pass your problem to other instances, and in particular HPE or AMD.</p>
-<p>Debugging system software is not the task of the LUMI-BE help desk nor of the LUST. 
+<p>Debugging system software is not the task of the of the LUST. 
 Issues with compilers or libraries can only be solved by those instances that produce those compilers
 or libraries, and this takes time.</p>
 <p>We have a way of working that enables us to quickly let users test changes to software in the user software
@@ -3228,7 +3239,7 @@ LUST and LUMI-BE help desk.</p>
     The LUST members don't do that.</p>
 </li>
 <li>
-<p>help desk team members cannot install or modify system packages or settings. </p>
+<p>Help desk team members cannot install or modify system packages or settings. </p>
 <p>A good sysadmin usually wouldn't do so either. You are working on a multi-user system and you 
 have to take into account that any change that is beneficial for you, may have adverse
 effects for other users or for the system as a whole.</p>
@@ -3262,15 +3273,18 @@ partition. </p>
 <figure style="border: 1px solid #000">
 <p><img alt="What support can and cannot do (3)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/HelpdeskCanCannot3.png" /></p>
 </figure>
+<figure style="border: 1px solid #000">
+<p><img alt="What support can and cannot do (4)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/HelpdeskCanCannot4.png" /></p>
+</figure>
+<!-- GENERAL Only the general version as maintaining 2 versions together causes too much layout problems. -->
 <ul>
 <li>
-<p>The LUST and LUMI-BE help desk do not replace a good introductory HPC course nor are they a 
+<p>The LUST help desk does not replace a good introductory HPC course nor is it a 
     search engine for the documentation. L0 support is the responsibility of every user.</p>
 </li>
 <li>
 <p>Resource allocators are responsible for the first steps in getting a project and userid on
-    LUMI. For LUMI-BE project this support is offered through the LUMI-BE help desk at 
-    lumi-be-support@enccb.be and for EuroHPC projects the support is offered through CSC,
+    LUMI. EuroHPC projects the support is offered through CSC,
     the operator of LUMI, at lumi-customer-accounts@csc.fi.</p>
 <p>Once your project is created and accepted (and the resource allocator can confirm that you
 properly accepted the invitation), support for account problems (in particular login problems) 
@@ -3280,48 +3294,46 @@ moves to the LUST.</p>
 <p>If you run out of block or file quota, the LUST can increase your quota within 
     <a href="https://docs.lumi-supercomputer.eu/storage/#lumi-network-file-system-disk-storage-areas">the limits specified in the LUMI documentation</a>.</p>
 <p>If you run out of billing units for compute or storage, only the instance that granted your project
-can help you, so contact the LUMI-BE help desk for LUMI-BE projects and CSC for EuroHPC projects
-on the email addresses mentioned above.</p>
+can help you, your resource allocator for local projects and access@eurohpc-ju.europa.eu 
+for EuroHPC projects (CSC EuroHPC support at lumi-customer-accounts@csc.fi cannot help you
+directly for project extensions and increase of billing units).</p>
 <p>Projects cannot be extended past one year unless the granting instance is willing to take a 
 charge on the annual budget for the remaining billing units.</p>
-<p>As a rule, for LUMI-BE projects we will not increase the CPU or GPU billing units. However, as 
-for now we have plenty of storage billing units compared to demand and as we understand that it 
-takes time for the user community to get used to working with storage billing units, we're 
-rather flexible in increasing those.</p>
 </li>
 <li>
 <p>The LUST cannot do much complete software installations but often can give useful advice and
     do some of the work.</p>
-<p>In LUMI-BE we have some resources, though mostly for VSC users.</p>
-<p>Note however that the LUST or LUMI-BE team may not even be allowed to help you due to software license restrictions.
-Similarly, the LUMI-BE team can only produce an install recipe if we have no access to your project,
-and though the LUST has technically speaking a zone where they can install software on the system, this
-is only done for software that the LUST can properly support and that is of interest to a wide enough
-audience. It is also not done for software where many users may want a specifically customised installation.
+<p>Note however that the LUST may not even be allowed to help you due to software license restrictions.
+Moreover, LUST has technically speaking a zone where they can install software on the system, but this
+is only done for software that the LUST can properly support across system updates 
+and that is of interest to a wide enough audience. 
+It is also not done for software where many users may want a specifically customised installation.
 Neither is it done for software that LUST cannot sufficiently test themselves.</p>
 </li>
 <li>
-<p>Both the LUST and LUMI-BE team can help with questions regarding compute and storage use.
+<p>The LUST can help with questions regarding compute and storage use.
     LUST provides L1 and basic L2 support. These are basically problems that can solved in hours rather than
-    days or weeks. LUMI-BE has some resources to offer more advanced L2 and some L3 support, but 
-    most of these resources are for users eligible for VSC-use only currently.</p>
+    days or weeks. More advanced support has to come from other channels though,
+    including support efforts from your local organisation, EuroHPC Centres of Excellence, 
+    EPICURE, ...</p>
 </li>
 <li>
-<p>The LUST can help with analysing the source of crashes or poor performance (with the emphasis on 
-    help as they rarely have all the application knowledge required to dig deep).
-    There are some resources within LUMI-BE also, again mostly on the VSC side.</p>
+<p>The LUST can help with analysing the source of crashes or poor performance, with the emphasis on 
+    help as they rarely have all the application knowledge required to dig deep.
+    And it will still require a significant effort from your side also.</p>
 </li>
 <li>
-<p>However, neither LUST nor the LUMI-BE help desk is a debugging service (though of course we do
-    take responsibility for code that we developed)</p>
+<p>However, LUST is not a debugging service (though of course we do
+    take responsibility for code that we developed).</p>
 </li>
 <li>
 <p>The LUST has some resources for work on porting and optimising codes to/for AMD GPUs
-    via porting calls and hackathons respectively. </p>
-<p>VSC also has some resources, but not the same level of access to experts from HPE or AMD to assist.</p>
+    via porting calls and hackathons respectively. But we are not a general code porting
+    and optimisation service. And even in the porting call projects, you are responsible 
+    for doing the majority of the work, LUST only supports.</p>
 </li>
 <li>
-<p>Neither help desk can do your science or solve your science problems though.</p>
+<p>The LUST cannot do your science or solve your science problems though.</p>
 </li>
 </ul>
 <p>Remember:</p>
@@ -3330,8 +3342,8 @@ support you in the computational aspects of your work
 related to the supercomputer
 but not to take over your work."</strong></p>
 <p>Any support will always be a collaboration where you may have to do most of the work.
-Supercomputer support services are not a free replacement of the lab assistant that many
-experimental groups have.</p>
+Supercomputer support services are not a free replacement of a research software engineer
+(the equivalent of the lab assistant that many experimental groups have).</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -3364,36 +3376,32 @@ for you, or once you have obtained a project on LUMI.</p>
 </ul>
 </li>
 <li>
-<p>Web sites in Belgium:</p>
-<ul>
-<li>
-<p>The <a href="https://www.enccb.be/">EuroCC Belgium web site</a> announced most local and LUST LUMI trainings
-    in <a href="https://www.enccb.be/training">the "Trainings" section</a>
-    and also contains information on 
-    <a href="https://www.enccb.be/GettingAccess">how to apply for compute time on LUMI via the Belgian share</a>.</p>
-</li>
-<li>
-<p>The <a href="https://www.vscentrum.be/">VSC web site</a>.
-    Several <a href="https://www.vscentrum.be/vsctraining">VSC trainings</a> are also relevant for (future) LUMI users!</p>
-<p>The VSC <a href="https://www.uantwerpen.be/en/research-facilities/calcua/training/">Supercomputers for Starters</a> course
-lectured at UAntwerpen also covers several topics that are even more relevant to LUMI than to the
-Tier-2 systems of VSC and CÉCI. 
-<a href="https://klust.github.io/SupercomputersForStarters/">Full course notes are available</a>,
-so you can have a look at the material if you have no time to join the lectures (twice a year).</p>
-</li>
-<li>
-<p>The <a href="https://www.ceci-hpc.be/">CÉCI web site</a>.
-    Several <a href="https://www.ceci-hpc.be/training.html">CÉCI trainings</a> are also relevant for (future) LUMI users!</p>
-</li>
-</ul>
-</li>
-<li>
 <p>These course notes also contain a
-    <a href="A02_Documentation.md">page with links into technical documentation</a>
+    <a href="../A01_Documentation/">page with links into technical documentation</a>
     of the scheduler and the programming environments on LUMI, and links to the user documentation
     of some similar systems.</p>
 </li>
 </ul>
+<!-- BELGIUM
+-   Web sites in Belgium:
+
+    -   The [EuroCC Belgium web site](https://www.enccb.be/) announced most local and LUST LUMI trainings
+        in [the "Trainings" section](https://www.enccb.be/training)
+        and also contains information on 
+        [how to apply for compute time on LUMI via the Belgian share](https://www.enccb.be/GettingAccess).
+
+    -   The [VSC web site](https://www.vscentrum.be/).
+        Several [VSC trainings](https://www.vscentrum.be/vsctraining) are also relevant for (future) LUMI users!
+
+        The VSC [Supercomputers for Starters](https://www.uantwerpen.be/en/research-facilities/calcua/training/) course
+        lectured at UAntwerpen also covers several topics that are even more relevant to LUMI than to the
+        Tier-2 systems of VSC and CÉCI. 
+        [Full course notes are available](https://klust.github.io/SupercomputersForStarters/),
+        so you can have a look at the material if you have no time to join the lectures (twice a year).
+
+    -   The [CÉCI web site](https://www.ceci-hpc.be/).
+        Several [CÉCI trainings](https://www.ceci-hpc.be/training.html) are also relevant for (future) LUMI users!
+-->
 
 
 
