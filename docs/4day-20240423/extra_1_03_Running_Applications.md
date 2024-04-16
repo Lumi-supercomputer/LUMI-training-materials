@@ -1,6 +1,6 @@
 # Running Applications
 
-*Presenter: Alfio Lazzaro (HPE), replacing Harvey Richardson (HPE)*
+*Presenter: Harvey Richardson (HPE)*
 
 Course materials will be provided during and after the course.
 

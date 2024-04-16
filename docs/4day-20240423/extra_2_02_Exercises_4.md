@@ -12,7 +12,6 @@ Exercise files can be copied from `Exercises/AMD/HPCTrainingExamples`.
 ## Materials
 
 No materials available at the moment.
-->
 
 <!--
 Temporary location of materials (for the lifetime of the training project):

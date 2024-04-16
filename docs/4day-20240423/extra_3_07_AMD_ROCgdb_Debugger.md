@@ -5,8 +5,10 @@
 
 Course materials will be provided during and after the course.
 
+<!--
 <video src="https://462000265.lumidata.eu/4day-20240423/recordings/3_07_AMD_ROCgdb_Debugger.mp4" controls="controls">
 </video>
+-->
 
 <!--
 Temporary location of materials (for the lifetime of the training project):
