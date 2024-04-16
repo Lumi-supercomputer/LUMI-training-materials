@@ -2941,7 +2941,8 @@
 <ul>
 <li>
 <p>LUMI is a <strong>very leading edge</strong> and also an <strong>inhomogeneous machine</strong>. Leading edge often implies
-    <strong>teething problems</strong> and inhomogeneous doesn't make life easier either.</p>
+    <strong>teething problems</strong> (though LUMI is by now rather stable) 
+    and inhomogeneous doesn't make life easier either.</p>
 <ol>
 <li>It uses a <strong>novel interconnect</strong> which is an extension of Ethernet rather than being based on InfiniBand, 
     and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. </li>
@@ -3030,7 +3031,7 @@ Both have their own strengths and weaknesses.
 We chose to go with <strong>EasyBuild as our primary tool</strong> for which we also do some development. 
 However, as we shall see, our EasyBuild installation is not your typical EasyBuild installation
 that you may be accustomed with from clusters at your home institution. <strong>It uses toolchains
-specifically for the HPE Cray programming environment</strong> so recipes need to be adapted. We do offer an
+specifically for the HPE Cray programming environment</strong> so recipes need to be adapted. We do offer a
 <strong>growing library of Cray-specific installation recipes</strong> though.
 The whole setup of EasyBuild is done such that you can build on top of the central software stack
 and such that <strong>your modules appear in your module view</strong> without having to add directories by hand
@@ -3050,7 +3051,7 @@ those packages.</p>
 <p>As any site, we also have a number of policies about software installation, and we're still further
 developing them as we gain experience in what we can do with the amount of people we have and what we
 cannot do.</p>
-<p>LUMI uses a <strong>bring-your-on-license model except for a selection of tools that are useful to a larger
+<p>LUMI uses a <strong>bring-your-own-license model except for a selection of tools that are useful to a larger
 community</strong>. </p>
 <ul>
 <li>This is partly caused by the <strong>distributed user management</strong> as we do not even have the necessary
@@ -3059,7 +3060,14 @@ community</strong>. </p>
 <li>You also have to take into account that <strong>up to 20% of LUMI is reserved for industry</strong> use which makes 
     negotiations with software vendors rather difficult as they will want to push us onto the industrial
     rather than academic pricing as they have no guarantee that we will obey to the academic license
-    restrictions. </li>
+    restrictions.</li>
+<li>Commercial software often doesn't run properly on LUMI. E.g., we've had lots of trouble already
+    with packages that use an MPI library that does not recognise our scheduler properly, or does
+    not recognise the Slingshot network, yet is not sufficiently ABI-compatible with Cray MPICH or
+    the libfabric library on LUMI so that we cannot substitute with our own libraries.
+    Vendors also aren't always that interested to help us out as many software vendors offer
+    their software-as-a-service in the cloud, so a big machine as LUMI that also works with
+    industry, is not only a potential customer but mostly a potential competitor.</li>
 <li>And lastly, <strong>we don't have an infinite budget</strong>. There was a questionnaire sent out to 
     some groups even before the support team was assembled and that contained a number of packages that
     by themselves would likely consume our whole software budget for a single package if I look at the 
@@ -3408,6 +3416,13 @@ chosen a software stack but want to clean up your environment.</p>
 <p>The letter "D" next to a name denotes that this is the default version,
 the letter "L" denotes that the module is loaded, but we'll come back to 
 that later also. The letter "S" denotes a sticky module.</p>
+<p>The screen above also shows <code>(D:5.0.2:5.2.0)</code> next to the <code>rocm</code> module. 
+The <code>D</code> means that this version of the module, <code>5.2.3</code>, is currently the default on
+the system. The two version numbers next to this module show that the module can also 
+be loaded as <code>rocm/5.0.2</code> and <code>rocm/5.2.0</code>. These are two modules that were removed
+from the system during the last update of the system, but version 5.2.3 can be loaded
+as a replacement of these modules so that software that used the removed modules may
+still work without recompiling.</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module av slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_2.png" />
 </figure></p>
@@ -3417,29 +3432,19 @@ that later also. The letter "S" denotes a sticky module.</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module av slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_4.png" />
 </figure></p>
-<p>Note the two categories for the PE modules. The target modules get their own block.
-The screen below also shows <code>(D:5.0.2:5.2.0)</code> next to the <code>rocm</code> module. 
-The <code>D</code> means that this version of the module, <code>5.2.3</code>, is currently the default on
-the system. The two version numbers next to this module show that the module can also 
-be loaded as <code>rocm/5.0.2</code> and <code>rocm/5.2.0</code>. These are two modules that were removed
-from the system during the last update of the system, but version 5.2.3 can be loaded
-as a replacement of these modules so that software that used the removed modules may
-still work without recompiling.</p>
-<p>Towards the bottom of the screen we also see the start of the list of target modules.
-This screenshot was taken at login in the login environment, when those modules that are
-irrelevant to LUMI or to the chosen variant of the LUMI software stack are not yet hidden.</p>
+<p>The first screen started category "HPE-Cray PE modules". We now see that there is
+a second set of modules associated with the programming environment, 
+the "HPE-Cray PE target modules".</p>
+<p>In the above screen we also see the modules for the software stack that we have discussed 
+earlier in this text.</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module av slide 5" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_5.png" />
-</figure></p>
-<p>In the above screen we see the modules for the software stack that we have discussed earlier in this text.</p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 6" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_6.png" />
 </figure></p>
 <p>And the screen above shows some extensions of modules (but the list is short at this point as
 most modules containing extensions only become available after loading one of the software
 stacks).</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 7" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_7.png" />
+  <img alt="module av slide 6" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_6.png" />
 </figure></p>
 <p>At the end of the output we also get some information about the meaning of the 
 letters used in the display.</p>
@@ -3462,10 +3467,15 @@ display style of the modules</strong>. </p>
     modules also but as <code>CrayEnv</code> is not just left untouched but reloaded instead, the load of <code>CrayEnv</code>
     will load a suitable set of target modules for the node you're on again. But any customisations that
     you did for cross-compiling will be lost. </li>
-<li>Similarly in the LUMI stacks, as the <code>LUMI</code> module itself
-    is reloaded, it will also reload a partition module. However, that partition module might not be the 
-    one that you had loaded but it will be the one that the LUMI module deems the best for the node you're
-    on, and you may see some confusing messages that look like an error message but are not.</li>
+<li>
+<p>Similarly in the LUMI stacks, as the <code>LUMI</code> module itself
+    is reloaded, it will also reload a <code>partition</code> module that would be the one for the node
+    it is on. You may see messages from that process.</p>
+<p>However, the <code>partition</code> module that was loaded also gets reloaded in the process. Now some
+versions of LMOD did so in the wrong order, and that caused problems. With the current version
+though the <code>partition</code> module is reloaded after the <code>LUMI</code> module so the state you had before the
+<code>module purge</code> is correctly restored.</p>
+</li>
 </ul>
 <h3 id="changing-how-the-module-list-is-displayed">Changing how the module list is displayed<a class="headerlink" href="#changing-how-the-module-list-is-displayed" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
@@ -3552,7 +3562,7 @@ distributed as binaries) or any other similar format for various reasons. Generi
 of systems and including optimised code paths in a single executable for multiple architectures is
 hard to even impossible.
 Secondly generic RPMs <strong>might not even work with the specific LUMI environment</strong>. They may not fully
-support the SlingShot interconnect and hence run at reduced speed, or they may need particular
+support the Slingshot interconnect and hence run at reduced speed, or they may need particular
 kernel modules or daemons that are not present on the system or they may not work well with
 the resource manager on the system. 
 This is expected to happen especially with packages that require specific MPI versions
@@ -3915,7 +3925,7 @@ For instance,
 </code></pre></div>
 will tell you for which versions of VASP we already have build instructions, but you will still have
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
-directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
+directory run EasyBuild, for instance for VASP 6.4.1 with the GNU compilers:
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>VASP-6.4.1-cpeGNU-22.12-build01.eb<span class="w"> </span>–r<span class="w"> </span>.<span class="w"> </span>
 </code></pre></div></p>
 <h3 id="more-advanced-work-2-repositories">More advanced work (2): Repositories<a class="headerlink" href="#more-advanced-work-2-repositories" title="Permanent link">&para;</a></h3>
@@ -4053,7 +4063,7 @@ in the container, but that is where it stops. Containers are usually built for a
 architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
 there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
 to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
-kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
+kernel. Those can be a problem. A container that is not build to support the Slingshot interconnect, may fall back to
 TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
 intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.</p>
 <p>Even if a container is portable to LUMI, it may not yet be performance portable. E.g., without proper support for the
@@ -4098,10 +4108,20 @@ The isolation offered by a container environment may be a good idea to ensure th
 right versions.</p>
 </li>
 <li>
+<p>An example of software that is usually very hard to installed is a GUI application, as they tend 
+    to have tons of dependencies and recompiling can be tricky. Yet rather often the binary packages
+    that you can download cannot be installed wherever you want, so a container can come to the rescue.</p>
+</li>
+<li>
 <p>Another example where containers have proven to be useful on LUMI is to experiment with newer versions
     of ROCm than we can offer on the system. </p>
 <p>This often comes with limitations though, as (a) that ROCm version is still limited by the drivers on the 
 system and (b) we've seen incompatibilities between newer ROCm versions and the Cray MPICH libraries.</p>
+</li>
+<li>
+<p>And a combination of both: LUST with the help of AMD have prepared some containers with popular AI applications.
+    These containers use some software from Conda, a newer ROCm version installed through RPMs, and some 
+    performance-critical code that is compiled specifically for LUMI.</p>
 </li>
 </ul>
 <p>Remember though that whenever you use containers, you are the system administrator and not LUST. We can impossibly
@@ -4155,23 +4175,23 @@ pull operation so save on your storage billing units).</p>
 <p><img alt="Managing containers (2)" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/ContainersManaging_2.png" /></p>
 </figure>
 <p>There is currently limited support for building containers on LUMI and I do not expect that to change quickly.
-Container build strategies that require elevated privileges, and even those that require fakeroot or user namespaces, cannot
-be supported for security reasons (with user namespaces in particular a huge security concern as the Linux implementation
-is riddled with security issues). 
+Container build strategies that require elevated privileges, and even those that require user namespaces, cannot
+be supported for security reasons (as user namespaces in Linux are riddled with security issues). 
 Enabling features that are known to have had several serious security vulnerabilities in the recent past, or that
 themselves are unsecure by design and could allow users to do more on the system than a regular user should
 be able to do, will never be supported.</p>
 <p>So you should pull containers from a container repository, or build the container on your own workstation
 and then transfer it to LUMI.</p>
 <p>There is some support for building on top of an existing singularity container using what the SingularityCE user guide
-calls "unprivileged proot builds". This requires loading the <code>proot</code> command which is provided by the <code>systools</code> module
+calls <a href="https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds">"unprivileged proot builds"</a>. 
+This requires loading the <code>proot</code> command which is provided by the <code>systools/23.09</code> module or later versions provided
 in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
 <a href="https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds">mentions several restrictions of this process</a>.
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
 and adds software using system package managers, an unprivileged proot build is appropriate. 
 If your definition file compiles and installs large complex software from source, 
-you may wish to investigate <code>--remote</code> or <code>--fakeroot</code> builds instead." But as we just said,
-on LUMI we cannot yet
+you may wish to investigate <code>--remote</code> or <code>--fakeroot</code> builds instead." 
+But on LUMI we cannot yet
 provide <code>--fakeroot</code> builds due to security constraints.</p>
 <!-- TODO: Do not forget to correct the link above to a new version of singularity. -->
 
@@ -4229,7 +4249,7 @@ running a container means. You can check if it is present and what it does with 
 includes a script to tell singularity what <code>singularity run</code> should do.</p>
 </details>
 <p>You want your container to be able to interact with the files in your account on the system.
-Singularity will automatically mount <code>$HOME</code>, <code>/tmp</code>, <code>/proc</code>, <code>/sys</code> and <code>dev</code> in the container,
+Singularity will automatically mount <code>$HOME</code>, <code>/tmp</code>, <code>/proc</code>, <code>/sys</code> and <code>/dev</code> in the container,
 but this is not enough as your home directory on LUMI is small and only meant to be used for
 storing program settings, etc., and not as your main work directory. (And it is also not billed
 and therefore no extension is allowed.) Most of the time you want to be able to access files in
@@ -4237,7 +4257,12 @@ your project directories in <code>/project</code>, <code>/scratch</code> or <cod
 To do this you need to tell singularity to also mount these directories in the container,
 either using the 
 <code>--bind src1:dest1,src2:dest2</code> 
-flag or via the <code>SINGULARITY_BIND</code> or <code>SINGULARITY_BINDPATH</code> environment variables.</p>
+flag or via the <code>SINGULARITY_BIND</code> or <code>SINGULARITY_BINDPATH</code> environment variables.
+And it is more tricky than it appears as some of those directories themselves are links to
+other directories that also need to be mounted. Currently to use your project, scratch
+and flash directory in the container you need to use the bindings</p>
+<div class="highlight"><pre><span></span><code>--bind /pfs,/scratch,/projappl,/project,/flash
+</code></pre></div>
 <h3 id="running-containers-on-lumi">Running containers on LUMI<a class="headerlink" href="#running-containers-on-lumi" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="/running containers on LUMI" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/ContainersRunning.png" /></p>
@@ -4252,7 +4277,7 @@ parameters for the command that you want to run in the container).</p>
 <p>On LUMI, the software that you run in the container should be compatible with Cray MPICH, i.e., use the
 MPICH ABI (currently Cray MPICH is based on MPICH 3.4). It is then possible to tell the container to use
 Cray MPICH (from outside the container) rather than the MPICH variant installed in the container, so that
-it can offer optimal performance on the LUMI SlingShot 11 interconnect.</p>
+it can offer optimal performance on the LUMI Slingshot 11 interconnect.</p>
 <p>Open MPI containers are currently not well supported on LUMI and we do not recommend using them.
 We only have a partial solution for the CPU nodes that is not tested in all scenarios, 
 and on the GPU nodes Open MPI is very problematic at the moment.
@@ -4264,8 +4289,8 @@ until version 5 full GPU support requires UCX. Moreover, binaries using Open MPI
 rpath linking process so that it becomes a lot harder to inject an Open MPI library that is installed
 elsewhere. The good news though is that the Open MPI developers of course also want Open MPI
 to work on biggest systems in the USA, and all three currently operating or planned exascale systems
-use the SlingShot 11 interconnect, so work is going on for better support for OFI in general and 
-Cray SlingShot in particular and for full GPU support.</p>
+use the Slingshot 11 interconnect, so work is going on for better support for OFI in general and 
+Cray Slingshot in particular and for full GPU support.</p>
 <h3 id="enhancements-to-the-environment">Enhancements to the environment<a class="headerlink" href="#enhancements-to-the-environment" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Environment enhancements" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/ContainersEnvironmentEnhancement_1.png" /></p>
@@ -4323,7 +4348,8 @@ containers in user space.)</p>
 before.</p>
 <h3 id="container-wrapper-for-python-packages-and-conda">Container wrapper for Python packages and conda<a class="headerlink" href="#container-wrapper-for-python-packages-and-conda" title="Permanent link">&para;</a></h3>
 <p>The fourth tool is a container wrapper tool that users from Finland may also know
-as Tykky. It is a tool to wrap Python and conda installations in a container and then
+as <a href="https://docs.csc.fi/computing/containers/tykky/">Tykky</a> (the name on their national systems). 
+It is a tool to wrap Python and conda installations in a container and then
 create wrapper scripts for the commands in the bin subdirectory so that for most
 practical use cases the commands can be used without directly using singularity
 commands. 
@@ -4396,12 +4422,6 @@ that run those commands in the container with the SquashFS file system mounted i
 what goes on behind the screen...</p>
 </details>
 <p>The wrapper module also offers a pip-based command to build upon the Cray Python modules already present on the system</p>
-<p>The final tool is <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/"><strong><code>cotainr</code></strong></a>, 
-a tool developed by DeIC, the Danish partner in the LUMI consortium.
-It is another tool to pack a Conda installation into a container, but it does so in a more container-like
-way (so no wrapper scripts). Just as <code>lumi-container-wrapper</code>, it runs entirely in user space and doesn't need
-any special rights. (For the container specialists: It is based on the container sandbox idea to build
-containers in user space.)</p>
 <h3 id="pre-built-ai-containers">Pre-built AI containers<a class="headerlink" href="#pre-built-ai-containers" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Environment enhancements (3): Prebuilt AI containers" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/ContainersEnvironmentEnhancement_3.png" /></p>
@@ -4419,7 +4439,16 @@ an environment variable to refer to the container (name with full path) to make 
 the container in job scripts.</p>
 <p>These containers can be found through the
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a> and are marked
-with a container label.</p>
+with a container label.
+At the time of the course, there are containers for</p>
+<ul>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch</a>, which is the best tested and most developed one,</li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/t/TensorFlow/">TensorFlow</a>,</li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/">JAX</a>,</li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/a/AlphaFold/">AlphaFold</a>,</li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/">ROCm</a> and</li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/m/mpi4py/">mpi4py</a>.</li>
+</ul>
 <h3 id="conclusion-container-limitations-on-lumi-c">Conclusion: Container limitations on LUMI-C<a class="headerlink" href="#conclusion-container-limitations-on-lumi-c" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Container limitations on LUMI" loading="lazy" src="https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/ContainersLimitations.png" /></p>
@@ -4445,6 +4474,13 @@ performance and scalability for communication-heavy programs.</p>
 is often to tell it to use the Cray MPICH libraries from the system instead.</p>
 <p>Likewise, for containers for distributed AI, one may need to inject an appropriate
 RCCL plugin to fully use the SlingShot 11 interconnect.</p>
+</li>
+<li>
+<p>As containers rely on drivers in the kernel of the host OS, the AMD driver may also
+    cause problems. AMD only guarantees compatibility of the driver with two minor versions
+    before and after the ROCm release for which the driver was meant. Hence containers 
+    using a very old version of ROCm or a very new version compared to what is available
+    on LUMI, may not always work as expected.</p>
 </li>
 <li>
 <p>The support for building containers on LUMI is currently very limited due to security
