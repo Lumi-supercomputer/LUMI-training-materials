@@ -36,6 +36,10 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+
+
+<!--
 | [Introduction](extra_1_00_Introduction.md) | / | / | [web](extra_1_00_Introduction.md) |
 | [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) | / | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) |
 | [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [lumi](extra_1_02_Programming_Environment_and_Modules.md) | / | [lumi](extra_1_02_Programming_Environment_and_Modules.md) |
@@ -74,8 +78,8 @@ downloaded from LUMI.
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
 | [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
 | [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
- 
+-->
+
 
 <!--
 ## Making the exercises after the course
