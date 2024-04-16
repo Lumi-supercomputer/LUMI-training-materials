@@ -834,6 +834,7 @@ so links may break over time.**
 -   [Information on the module environment in the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/Lmod_modules/)
 
 
+<!-- BELGIUM
 ## Local materials
 
 -   VSC
@@ -859,4 +860,4 @@ so links may break over time.**
 
     -   [YouTube video: Modules: How to find/use software on cluster](https://www.youtube.com/watch?v=4hq8jcy2k3Q)
         from the fall 2020 introductory courses.
-
+-->
