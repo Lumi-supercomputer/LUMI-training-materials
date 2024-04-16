@@ -50,6 +50,7 @@ By theme in reverse chronological order:
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 -   Comprehensive general LUMI trainings
+    -   [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
     -   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
     -   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
     -   [Comprehensive general LUMI course (February 14-17, 2023)](4day-20230214/index.md)

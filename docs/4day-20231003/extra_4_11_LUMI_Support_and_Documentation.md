@@ -2,7 +2,9 @@
 
 *Presenter: Jørn Dietze (LUST)*
 
+<!--
 Course materials will be provided during and after the course.
+-->
 
 <video src="https://462000265.lumidata.eu/4day-20231003/recordings/4_11_LUMI_Support_and_Documentation.mp4" controls="controls">
 </video>
