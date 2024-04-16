@@ -546,6 +546,14 @@ chosen a software stack but want to clean up your environment.
     the letter "L" denotes that the module is loaded, but we'll come back to 
     that later also. The letter "S" denotes a sticky module.
 
+    The screen above also shows `(D:5.0.2:5.2.0)` next to the `rocm` module. 
+    The `D` means that this version of the module, `5.2.3`, is currently the default on
+    the system. The two version numbers next to this module show that the module can also 
+    be loaded as `rocm/5.0.2` and `rocm/5.2.0`. These are two modules that were removed
+    from the system during the last update of the system, but version 5.2.3 can be loaded
+    as a replacement of these modules so that software that used the removed modules may
+    still work without recompiling.
+
     <figure markdown style="border: 1px solid #000">
       ![module av slide 2](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_2.png){ loading=lazy }
     </figure>
@@ -558,18 +566,9 @@ chosen a software stack but want to clean up your environment.
       ![module av slide 4](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_4.png){ loading=lazy }
     </figure>
 
-    Note the two categories for the PE modules. The target modules get their own block.
-    The screen below also shows `(D:5.0.2:5.2.0)` next to the `rocm` module. 
-    The `D` means that this version of the module, `5.2.3`, is currently the default on
-    the system. The two version numbers next to this module show that the module can also 
-    be loaded as `rocm/5.0.2` and `rocm/5.2.0`. These are two modules that were removed
-    from the system during the last update of the system, but version 5.2.3 can be loaded
-    as a replacement of these modules so that software that used the removed modules may
-    still work without recompiling.
-
-    Towards the bottom of the screen we also see the start of the list of target modules.
-    This screenshot was taken at login in the login environment, when those modules that are
-    irrelevant to LUMI or to the chosen variant of the LUMI software stack are not yet hidden.
+    The first screen started category "HPE-Cray PE modules". We now see that there is
+    a second set of modules associated with the programming environment, 
+    the "HPE-Cray PE target modules".
 
     <figure markdown style="border: 1px solid #000">
       ![module av slide 5](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_5.png){ loading=lazy }
@@ -584,10 +583,6 @@ chosen a software stack but want to clean up your environment.
     And the screen above shows some extensions of modules (but the list is short at this point as
     most modules containing extensions only become available after loading one of the software
     stacks).
-
-    <figure markdown style="border: 1px solid #000">
-      ![module av slide 7](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleAvail_7.png){ loading=lazy }
-    </figure>
 
     At the end of the output we also get some information about the meaning of the 
     letters used in the display.
