@@ -6,9 +6,7 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course-apr24?both)
--->
+-   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-may24?both)
 
 <!--
 -   There are two Slurm reservations for the course:
