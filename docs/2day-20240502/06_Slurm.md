@@ -1257,7 +1257,7 @@ like affinity masks for CPUs. It can be tricky to do though as many options for 
 mapping under the hood.
 
 As we need a mechanisms that are not yet discussed yet in this chapter, we refer to the
-[chapter "Process and thread distribution and binding"](08_Binding.md) for a more ellaborate
+[chapter "Process and thread distribution and binding"](07_Binding.md) for a more ellaborate
 discussion and a solution.
 
 Unfortunately using AMD GPUs in Slurm is more complicated then it should be (and we will see even
@@ -1679,7 +1679,7 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
     is even more tricky to solve.
 
     We will again discuss a solution in the 
-    [Chapter "Process and thread distribution and binding"](08_Binding.md)
+    [Chapter "Process and thread distribution and binding"](07_Binding.md)
 
 4.  CPU memory. By default you get less than the memory per core on the node type. To change:
 

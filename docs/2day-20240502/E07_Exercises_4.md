@@ -221,7 +221,7 @@
 		
 		We can chose between different approaches. In the example below,
 		we follow the 
-		["GPU binding: Linear GCD, match cores"](08_Binding.md#linear-assignment-of-gcd-then-match-the-cores) 
+		["GPU binding: Linear GCD, match cores"](07_Binding.md#linear-assignment-of-gcd-then-match-the-cores) 
 		slides and we only need to adapt the CPU mask:
 		
 		```

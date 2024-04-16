@@ -120,7 +120,7 @@ pass some large-scale scalability tests, and therefore another form of "low-nois
 on the GPU nodes of LUMI where OS processes are restricted to a reserved core, actually core 0.
 This leaves us with an asymmetric structure of the node, where the first CCD has 7 available cores
 while the other ones have 8, and as we shall see in the 
-[Process and thread distribution and binding" chapter](08_Binding.md)
+[Process and thread distribution and binding" chapter](07_Binding.md)
 this will create some headaches when trying to get maximal efficiency for GPU applications.
 (For this reason some other clusters based on the same architecture reserve on core on each CCD.)
 
@@ -383,7 +383,7 @@ on InfiniBand clusters). It also uses a GPU Transfer Library (GTL) for GPU-aware
 Cray MPICH does support GPU-aware MPI, so it is possible to directly use GPU-attached communication buffers using device pointers.
 The implementation supports (a) GPU-NIC RDMA for efficient inter-node MPI transfers and (b) GPU Peer2PEer IPC for
 efficient intra-node transfers. The latter mechanism comes with some restrictions though that we will discuss in the
-[chapter "Process and thread distribution and binding"](08_Binding.md).
+[chapter "Process and thread distribution and binding"](07_Binding.md).
 
 GPU-aware MPI needs to be enabled explicitly, which you can do by setting an environment variable:
 
