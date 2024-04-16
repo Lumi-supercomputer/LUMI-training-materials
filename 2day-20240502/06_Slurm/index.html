@@ -4027,7 +4027,7 @@ manually perform the binding of each task to the GPUs it needs using a different
 like affinity masks for CPUs. It can be tricky to do though as many options for <code>srun</code> do a
 mapping under the hood.</p>
 <p>As we need a mechanisms that are not yet discussed yet in this chapter, we refer to the
-<a href="08_Binding.md">chapter "Process and thread distribution and binding"</a> for a more ellaborate
+<a href="../07_Binding/">chapter "Process and thread distribution and binding"</a> for a more ellaborate
 discussion and a solution.</p>
 <p>Unfortunately using AMD GPUs in Slurm is more complicated then it should be (and we will see even
 more problems).</p>
@@ -4414,7 +4414,7 @@ distrubtions of cores to run the requested tasks, we will again run into binding
 when these options are propagated to <code>srun</code> to create the actual job steps, and hre this
 is even more tricky to solve.</p>
 <p>We will again discuss a solution in the 
-<a href="08_Binding.md">Chapter "Process and thread distribution and binding"</a></p>
+<a href="../07_Binding/">Chapter "Process and thread distribution and binding"</a></p>
 </li>
 <li>
 <p>CPU memory. By default you get less than the memory per core on the node type. To change:</p>
