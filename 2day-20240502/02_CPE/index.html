@@ -2734,8 +2734,7 @@ one core for the OS and driver processes.
 This in turn led to an asymmetry in the setup so now 8 cores are reserved, one per CCD, so
 that all CCDs are equal again.</p>
 <p>This also implies that some software that works perfectly fine on the login nodes <strong>may not
-work on the compute nodes</strong>. E.g., there is no <code>/run/user/$UID</code> directory and we have experienced
-that D-Bus (which stands for Desktop-Bus) also does not work as one should expect.</p>
+work on the compute nodes</strong>. E.g., you will see that there is no <code>/run/user/$UID</code> directory.</p>
 <p>Large HPC clusters also have a small system image, so <strong>don't expect all the bells-and-whistles 
 from a Linux workstation to be present on a large supercomputer</strong> (and certainly not in the same
 way as they would be on a workstation).
@@ -2769,12 +2768,13 @@ GPU-aware communication over Slingshot.</p>
 pass some large-scale scalability tests, and therefore another form of "low-noise" mode is implemented
 on the GPU nodes of LUMI where OS processes are restricted to a reserved core, actually core 0.
 This leaves us with an asymmetric structure of the node, where the first CCD has 7 available cores
-while the other ones have 8, and as we shall see in the 
-<a href="../07_Binding/">Process and thread distribution and binding" chapter</a>
-this will create some headaches when trying to get maximal efficiency for GPU applications.
-(For this reason some other clusters based on the same architecture reserve on core on each CCD.)</p>
+while the other ones have 8, but as that created a headache for users to get a proper
+distribution of tasks and threads over the CPU 
+(see the <a href="../07_Binding/">"Process and thread distribution and binding" chapter</a>),
+the choice was made to also disable the first core on each of the other CCDs so that
+users now effectively see a 56-core node with 8 CCDs with 7 cores each.</p>
 <p>This is actually an idea Cray has been experimenting with in the past already, ever since
-we've had nodes with 20 or more cores.</p>
+we've had nodes with 20 or more cores with the AMD Magny-Cours processors in 2010.</p>
 <h2 id="programming-models">Programming models<a class="headerlink" href="#programming-models" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Programming models" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/ProgrammingModels.png" /></p>
@@ -2791,7 +2791,8 @@ the AMD GPUs, but again more about that later.</p>
 is only supported in the Cray Fortran compiler. There is no commitment of neither HPE Cray
 or AMD to extend that support to C/C++ or other compilers, even though there is work going on
 in the LLVM community and several compilers on the system are based on LLVM.</p>
-<p>The other important programming model for AMD GPUs is <a href="https://github.com/rocm-developer-tools/hip">HIP</a>, 
+<p>The other important programming model for AMD GPUs is <a href="https://github.com/rocm-developer-tools/hip">HIP</a>
+(Heterogeneous-Compute Interface for Portability), 
 which is their alternative for the
 proprietary CUDA model. It does not support all CUDA features though (basically it is more CUDA 7 or 8 level) 
 and there is also no equivalent to CUDA Fortran.</p>
@@ -2846,7 +2847,7 @@ ROCm stack are also available on the system while some others can be user-instal
 Furthermore there are some third party tools available on LUMI,
 including <a href="https://www.linaroforge.com/">Linaro Forge</a> (previously ARM Forge) and
 <a href="https://vampir.eu/">Vampir</a> and some open source profiling tools.</p>
-<p>Specifically <strong>not</strong> on LUMI are the Intel and NVIDIA programming environments, nor is the
+<p>Specifically <strong>not</strong> on LUMI is the Intel programming environment, nor is the
 regular Intel oneAPI HPC Toolkit. The classic Intel compilers pose problems on AMD CPUs
 as <code>-xHost</code> cannot be relied on, but it appears that the new compilers that are based on
 Clang and an LLVM backend behave better. Various MKL versions are also troublesome, with
@@ -2879,17 +2880,23 @@ The compiler supports most of Fortran 2018 (ISO/IEC 1539:2018). The CCE Fortran 
 is known to be very strict with language standards. Programs that use GNU or Intel extensions
 will usually fail to compile, and unfortunately since many developers only test with these
 compilers, much Fortran code is not fully standards compliant and will fail.</p>
-<p>All CCE compilers support OpenMP, with offload for AMD and NVIDIA GPUs. They claim full
-OpenMP 4.5 support with partial (and growing) support for OpenMP 5.0 and 5.1. More 
+<p>All CCE compilers support OpenMP, with offload for AMD and NVIDIA GPUs. 
+In their most recent versions, they claim full
+OpenMP 5.0 support with partial (and growing) support for OpenMP 5.1 and 5.2. More 
 information about the OpenMP support is found by checking a manual page:
 <div class="highlight"><pre><span></span><code>man intro_openmp
 </code></pre></div>
-which does require that the <code>cce</code> module is loaded.
+which does require that the <code>cce</code> module is loaded,
+or the <a href="https://cpe.ext.hpe.com/docs/cce/man7/intro_openmp.7.html">web version of that page</a>
+which may be for a more recent version of the programming environment than available on LUMI.
 The Fortran compiler also supports OpenACC for AMD and NVIDIA GPUs. That implementation
 claims to be fully OpenACC 2.0 compliant, and offers partial support for OpenACC 2.x/3.x. 
 Information is available via
 <div class="highlight"><pre><span></span><code>man intro_openacc
 </code></pre></div>
+or the corresponding
+<a href="https://cpe.ext.hpe.com/docs/cce/man7/intro_openacc.7.html">web version of that page</a>
+which again may be for a more recent version of the programming environment than available on LUMI.
 AMD and HPE Cray still recommend moving to OpenMP which is a much broader supported standard.
 There are no plans to also support OpenACC in the Cray C/C++ compiler, nor are there any 
 plans for support by AMD in the ROCm stack.</p>
@@ -2902,6 +2909,7 @@ for debugging with Linaro Forge.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Scientific and math libraries" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/ScientificLibraries.png" /></p>
 </figure>
+<p><a href="https://cpe.ext.hpe.com/docs/csml/index.html">Cray Scientific and Math Libraries overview web page</a></p>
 <p>Some mathematical libraries have become so popular that they basically define an API for which
 several implementations exist, and CPU manufacturers and some open source groups spend a significant
 amount of resources to make optimal implementations for each CPU architecture.</p>
@@ -2909,7 +2917,8 @@ amount of resources to make optimal implementations for each CPU architecture.</
 for vector-vector, matrix-vector and matrix-matrix implementations. It is the basis for many
 other libraries that need those linear algebra operations, including Lapack, a library with
 solvers for linear systems and eigenvalue problems.</p>
-<p>The HPE Cray LibSci library contains BLAS and its C-interface CBLAS, and LAPACK and its
+<p>The <a href="https://cpe.ext.hpe.com/docs/csml/cray_libsci.html">HPE Cray LibSci</a> library 
+contains BLAS and its C-interface CBLAS, and LAPACK and its
 C interface LAPACKE. It also adds ScaLAPACK, a distributed memory version of LAPACK, and BLACS, the 
 Basic Linear Algebra Communication Subprograms, which is the communication layer used by ScaLAPACK.
 The BLAS library combines implementations from different sources, to try to offer the most optimal
@@ -2919,12 +2928,14 @@ which allows to do mixed precision computations for LAPACK operations that can s
 of a double precision result with nearly a factor of two for those problems that are suited for
 iterative refinement. If you are familiar with numerical analysis, you probably know that the matrix should
 not be too ill-conditioned for that.</p>
-<p>There is also a GPU-optimized version of LibSci, called LibSci_ACC, which contains a subset of the
+<p>There is also a GPU-optimized version of LibSci, called 
+<a href="https://cpe.ext.hpe.com/docs/csml/cray_libsci_acc.html">LibSci_ACC</a>, which contains a subset of the
 routines of LibSci. We or the LUMI USer Support Team don't have much experience with this library though.
 It can be compared with what Intel is doing with oneAPI MKL which also offers GPU versions of some of
 the traditional MKL routines.</p>
-<p>Another separate component of the scientific and mathematical libraries is FFTW3, 
-Fastest Fourier Transforms in the West, which comes with
+<p>Another separate component of the scientific and mathematical libraries is 
+<a href="https://cpe.ext.hpe.com/docs/csml/cray_fftw.html">FFTW3, Fastest Fourier Transforms in the West</a>, 
+which comes with
 optimized versions for all CPU architectures supported by recent HPE Cray machines.</p>
 <p>Finally, the scientific and math libraries also contain HDF5 and netCDF libraries
 in sequential and parallel versions.  These are included because it is essential that 
@@ -2956,21 +2967,21 @@ GPU aware with currently support for AMD and NVIDIA GPUs.</p>
 <p>The MPI library also supports bindings for Fortran 2008.</p>
 <p>MPI 3.1 is almost completely supported, with two exceptions. Dynamic process management is not
 supported (and a problem anyway on systems with batch schedulers), and when using CCE
-MPI_LONG_DOUBLE and MPI_C_LONG_DOUBLE_COMPLEX are also not supported.</p>
+<code>MPI_LONG_DOUBLE</code> and <code>MPI_C_LONG_DOUBLE_COMPLEX</code> are also not supported.</p>
 <p>The Cray MPI library does not support the <code>mpirun</code> or <code>mpiexec</code> commands, which is in fact
 allowed by the standard which only requires a process starter and suggest <code>mpirun</code> or <code>mpiexec</code> 
 depending on the version of the standard. Instead the Slurm <code>srun</code> command is used as the 
 process starter. This actually makes a lot of sense as the MPI application should be mapped
 correctly on the allocated resources, and the resource manager is better suited to do so.</p>
 <p>Cray MPI on LUMI is layered on top of libfabric, which in turn uses the so-called Cassini provider
-to interface with the hardware. UCX is not supported on LUMI (but Cray MPI can support it when used
+to interface with the hardware. <strong>UCX is not supported on LUMI</strong> (but Cray MPI can support it when used
 on InfiniBand clusters). It also uses a GPU Transfer Library (GTL) for GPU-aware MPI.</p>
 <h2 id="gpu-aware-mpi">GPU-aware MPI<a class="headerlink" href="#gpu-aware-mpi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide GPU-aware MPI" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/CrayMPIGPU.png" /></p>
 </figure>
 <p>Cray MPICH does support GPU-aware MPI, so it is possible to directly use GPU-attached communication buffers using device pointers.
-The implementation supports (a) GPU-NIC RDMA for efficient inter-node MPI transfers and (b) GPU Peer2PEer IPC for
+The implementation supports (a) GPU-NIC RDMA for efficient inter-node MPI transfers and (b) GPU Peer2Peer IPC for
 efficient intra-node transfers. The latter mechanism comes with some restrictions though that we will discuss in the
 <a href="../07_Binding/">chapter "Process and thread distribution and binding"</a>.</p>
 <p>GPU-aware MPI needs to be enabled explicitly, which you can do by setting an environment variable:</p>
@@ -2979,9 +2990,11 @@ efficient intra-node transfers. The latter mechanism comes with some restriction
 <p>In addition to this, if the GPU code does use MPI operations that access GPU-attached memory regions it is best to also set</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_OFI_NIC_POLICY</span><span class="o">=</span>GPU
 </code></pre></div>
+<p>to tell MPICH to always use the NIC closest to the GPU.</p>
 <p>If only CPU communication buffers are used, then it may be better to set</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_OFI_NIC_POLICY</span><span class="o">=</span>NUMA
 </code></pre></div>
+<p>which tells MPICH to use the NIC closest to the CPU NUMA domain.</p>
 <p>Depending on how Slurm is used, Peer2Peer IPC may not work and in those cases you may want to turn it off using
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_IPC_ENABLED</span><span class="o">=</span><span class="m">0</span>
 </code></pre></div>
@@ -2990,6 +3003,12 @@ or alternatively
 </code></pre></div>
 Both options entail a serious loss of performance. The underlying problem is that the way in which Slurm does GPU
 binding using control groups makes other GPUS from other tasks in the node invisible to a task.</p>
+<p>More information about Cray MPICH and the many environment variables to fine-tune performance can
+be found in the manual page</p>
+<div class="highlight"><pre><span></span><code>man intro_mpi
+</code></pre></div>
+<p>or its <a href="https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html">web-based version</a>
+which may be for a newer version than available on LUMI.</p>
 <h2 id="lmod">Lmod<a class="headerlink" href="#lmod" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Lmod" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/Lmod.png" /></p>
@@ -3026,16 +3045,18 @@ The advantage of a hierarchical module system is that one can support multiple c
 while all configurations can have the same name and version. This is not fully exploited on LUMI, but it 
 is used a lot in the HPE Cray PE. E.g., the MPI libraries for the various compilers on the system all have
 the same name and version yet make different binaries available depending on the compiler that is being used.</p>
-<div class="admonition lumi-be">
-<p class="admonition-title">Different configurations on some Belgian clusters</p>
-<p>Depending on the configuration Lmod can behave rather differently on different
-systems. Some clusters in Belgium have Lmod configured to mimic the original
-Tcl module system better rather than exposing the full power of Lmod.</p>
-<p>E.g., on LUMI, <code>module swap</code> isn't really needed as the auto-swap feature of Lmod is 
-enabled. Automatically unloading a module if another module with the same name is 
-loaded, is also enabled. Both features make with a hierarchical scheme much more powerful
-and using the HPE Cray PE with these features disabled would be very difficult.</p>
-</div>
+<!-- BELGIUM
+!!! lumi-be "Different configurations on some Belgian clusters"
+    Depending on the configuration Lmod can behave rather differently on different
+    systems. Some clusters in Belgium have Lmod configured to mimic the original
+    Tcl module system better rather than exposing the full power of Lmod.
+
+    E.g., on LUMI, `module swap` isn't really needed as the auto-swap feature of Lmod is 
+    enabled. Automatically unloading a module if another module with the same name is 
+    loaded, is also enabled. Both features make with a hierarchical scheme much more powerful
+    and using the HPE Cray PE with these features disabled would be very difficult.
+-->
+
 <h2 id="compiler-wrappers">Compiler wrappers<a class="headerlink" href="#compiler-wrappers" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Compiler wrappers" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/CompilerWrappers.png" /></p>
@@ -3072,8 +3093,6 @@ flag.</p>
 <p>The wrappers do have some flags of their own, but also accept all flags of the selected compiler and 
 simply pass those to those compilers.</p>
 <p>The compiler wrappers are provided by the <code>craype</code> module (but you don't have to load that module by hand).</p>
-<p>The <a href="https://cpe.ext.hpe.com/docs/">new online documentation</a> is now also complete enough that it makes
-sense trying the search box on that page instead.</p>
 <h2 id="selecting-the-version-of-the-cpe">Selecting the version of the CPE<a class="headerlink" href="#selecting-the-version-of-the-cpe" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Selecting the version of the CPE" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/SelectingCPEVersion.png" /></p>
@@ -3277,6 +3296,8 @@ e.g., the error message suggests you to set <code>FI_CXI_RX_MATCH_MODE</code> to
 to find out where you can get more information about this environment variable is</p>
 <div class="highlight"><pre><span></span><code>man -K FI_CXI_RX_MATCH_MODE
 </code></pre></div>
+<p>The <a href="https://cpe.ext.hpe.com/docs/">online documentation</a> is now also complete enough that it makes
+sense trying the search box on that page instead.</p>
 <h2 id="other-modules">Other modules<a class="headerlink" href="#other-modules" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Other modules" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-02-CPE/OtherModules.png" /></p>
@@ -3355,20 +3376,20 @@ output is shown in the above example. But we can already see that in the first c
 versions, while in the second case it is taken from <code>/opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1/lib/</code>
 which clearly is for a specific version of <code>cray-mpich</code>.</p>
 </details>
-<p>We do provide an experimental module <code>lumi-CrayPath</code> 
+<p>We do provide the module <code>lumi-CrayPath</code> 
 that tries to fix <code>LD_LIBRARY_PATH</code> in a way that unloading
 the module fixes <code>LD_LIBRARY_PATH</code> again to the state before adding <code>CRAY_LD_LIBRARY_PATH</code> and that
 reloading the module adapts <code>LD_LIBRARY_PATH</code> to the current value of <code>CRAY_LD_LIBRARY_PATH</code>. Loading that
 module after loading all other modules should fix this issue for most if not all software.</p>
 <p>The second solution would be to use rpath-linking for the Cray PE libraries, which can be done by setting
-the <code>CRAY_ADD_RPATH</code>environment variable:
+the <code>CRAY_ADD_RPATH</code> environment variable:
 <div class="highlight"><pre><span></span><code>export CRAY_ADD_RPATH=yes
 </code></pre></div></p>
 <p>However, there is also a good side to the standard Cray PE behaviour. Updates of the underlying
 operating system or network software stack may break older versions of the MPI library. By letting
 the applications use the default libraries and updating the defaults to a newer version, most
 applications will still run while they would fail if any of the two tricks to force the use
-of the intended library version are used. This has actually happened after a big LUMI update in
+of the intended library version are used. This has actually happened after a big LUMIß update in
 March 2023, when all software that used rpath-linking had to be rebuild as the MPICH library
 that was present before the update did not longer work.</p>
 <h2 id="warning-2-order-matters">Warning 2: Order matters<a class="headerlink" href="#warning-2-order-matters" title="Permanent link">&para;</a></h2>
