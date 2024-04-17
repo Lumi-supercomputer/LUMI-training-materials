@@ -1,7 +1,7 @@
 # AMD Omniperf
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-*Presenter:* Samuel Antão (AMD) or George Markomanoulis (AMD)
+*Presenter: George Markomanoulis (AMD)*
 
 Course materials will be provided during and after the course.
 

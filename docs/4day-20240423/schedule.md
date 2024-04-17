@@ -178,7 +178,7 @@ DAY 2
             <li/> The AMD ROCm<sup>TM</sup> ecosystem
             <li/> HIP programming
         </ul>
-        <br/><em>Presenter: Samuel Antão (AMD) or George Markomanoulis (AMD)</em>
+        <br/><em>Presenter: George Markomanoulis (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -382,7 +382,7 @@ DAY 3
             <br/><em>14:00 CEST</em>
         </td>
         <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD) or George Markomanoulis (AMD)</em>
+        <br/><em>Presenter: George Markomanoulis (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -399,7 +399,7 @@ DAY 3
             <br/><em>14:45 CEST</em>
         </td>
         <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD) or George Markomanoulis (AMD)</em>
+        <br/><em>Presenter: George Markomanoulis (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -511,7 +511,7 @@ DAY 4
             <br/><em>12:00 CEST</em>
         </td>
         <td><b><a href="../extra_4_06_AMD_Omnitrace/">Introduction to OmniTrace</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD) or George Markomanoulis (AMD)</em>
+        <br/><em>Presenter: George Markomanoulis (AMD)</em>
       </td>
         </td>
     </tr>
@@ -529,7 +529,7 @@ DAY 4
             <br/><em>12:45 CEST</em> 
         </td>
         <td><b><a href="../extra_4_08_AMD_Omniperf/">Introduction to Omniperf</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD) or George Markomanoulis (AMD)</em>
+        <br/><em>Presenter: George Markomanoulis (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -553,8 +553,8 @@ DAY 4
             14:45 EEST
             <br/><em>13:45 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Tools in Action - An Example with Pytorch</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
+        <br/><em>Presenter: George Markomanoulis (AMD)</em>
         </td>
     </tr>
     <tr>

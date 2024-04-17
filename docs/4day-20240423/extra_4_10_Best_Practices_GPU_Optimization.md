@@ -1,7 +1,7 @@
-# Tools in Action - An Example with Pytorch
+# Best practices: GPU Optimization, tips & tricks / demo 
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-*Presenter:* Samuel Antão (AMD)
+*Presenter: George Markomanoulis (AMD)*
 
 Course materials will be provided during and after the course.
 
