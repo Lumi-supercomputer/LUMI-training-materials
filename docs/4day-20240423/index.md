@@ -3,8 +3,16 @@
 ## Course organisation
 
 -   Location: [CSC, Keilaranta 14, 02150 Espoo, Finland](https://maps.app.goo.gl/hqja9ar6p27nSs9Y9)
+   
+    Room: Dogmi.
 
-    [Public transportation in Helsinki](https://www.hsl.fi/en)
+    Upon arrival at CSC, please register in the lobby at the entrance of the C building, Life Sciences Center,
+    Keilaranta 14 (round doors). It is likely you will receive a QR-code to scan at the entrance the
+    day before, and that greatly speeds up the registration process.
+
+    [Public transportation in Helsinki](https://www.hsl.fi/en). A very easy way to buy tickets is via the 
+    [HSL app](https://www.hsl.fi/en/tickets-and-fares/hsl-app), 
+    but it is best to set it up before you travel so that payment goes quickly.
 
     The venue is close to the ["Keilaniemi - Kägeludden" metro station](https://maps.app.goo.gl/22FLCZgSwSQcSAPY7),
     providing an excellent connection with the hotels downtown.
