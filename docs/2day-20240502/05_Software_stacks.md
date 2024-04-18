@@ -99,7 +99,7 @@ To manage the software installations there was a choice between EasyBuild, which
 Europe and hence a good match with a EuroHPC project as EuroHPC wants to develop a European HPC technology stack
 from hardware to application software, and Spack, a package developed in the USA national labs.
 Both have their own strengths and weaknesses.
-LUMI chose to go with **EasyBuild as the primary tool** for which the LUST also do some development. 
+LUMI chose to go with **EasyBuild as the primary tool** for which the LUST also does some development. 
 However, as we shall see, the EasyBuild installation is not your typical EasyBuild installation
 that you may be accustomed with from clusters at your home institution. **It uses toolchains
 specifically for the HPE Cray programming environment** so recipes need to be adapted. LUMI does offer a
@@ -128,7 +128,7 @@ As any site, LUMI also has a number of policies about software installation, and
 are further developed as the LUMI team gains experience in what they can do with the amount of people 
 in LUST and what they cannot do.
 
-LUMI uses a **bring-your-on-license model except for a selection of tools that are useful to a larger
+LUMI uses a **bring-your-own-license model except for a selection of tools that are useful to a larger
 community**. 
 
 -   This is partly caused by the **distributed user management** as the LUST does not even have the necessary
@@ -148,9 +148,20 @@ community**.
     invests in packages that are developed by European companies or at least have large development
     teams in Europe.
 
+<!-- BELGIUM
 The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
 correction in software is not their task**. In Flanders some help is possible by the VSC Tier-0 support team
 but do not expect that they will port your whole application.
+As a user, you have to realise that **not all Linux or even
+supercomputer software will work on LUMI**. This holds even more for software that comes only as
+a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
+high performance from the interconnect. For example,
+-->
+
+<!-- GENERAL More general version -->
+The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
+correction in software is not their task**. Some consortium countries may also have a local support
+team that can help.
 As a user, you have to realise that **not all Linux or even
 supercomputer software will work on LUMI**. This holds even more for software that comes only as
 a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
@@ -193,14 +204,20 @@ at the Belgian level but our resources are also limited.
 Another soft compatibility problem that I did not yet mention is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
 data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason LUMI
-also requires to **containerize conda and Python installations**. The LUST does offer a container-based wrapper
-that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the `cray-python` module. On LUMI the tool is called
-[lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/)
-but it may by some from CSC also be known as Tykky. As an alternative LUMI also offers
-[cotainr](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), a tool developed by
-the Danish LUMI-partner DeIC that helps with building some types of containers that can be built in
-user space and can be used to containerise a conda-installation.
+also requires to **containerize conda and Python installations**. 
+On LUMI two tools are offered for this. 
+
+1.  [cotainr](https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool) 
+    is a tool developed by the Danish LUMI-partner DeIC that helps with building some types of 
+    containers that can be built in user space. Its current version focusses on containerising 
+    a conda-installation.
+2.  The second tool is a container-based wrapper generator that offers 
+    a way to install conda packages or to install Python packages with pip on top of 
+    the Python provided by the `cray-python` module. On LUMI the tool is called
+    [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/)
+    but users of the CSC national systems will know it as Tykky. 
+
+Both tools are pre-installed on the system and ready-to-use.
 
 
 ### Organisation of the software in software stacks
@@ -222,7 +239,7 @@ and mostly EasyBuild. **The Cray Programming Environment modules are still used,
 a replacement for the PrgEnv modules that is managed by EasyBuild**. There are **tuned versions for the 3 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
 LUMI-C compute nodes and zen3 + MI250X for
-the LUMI-G partition. IF the need would arrise, a fourth partition could be created for the visualisation nodes
+the LUMI-G partition. If the need would arrise, a fourth partition could be created for the visualisation nodes
 with zen2 CPUs and NVIDIA GPUs.
 
 LUMI also offers an extensible software stack based on **Spack** which has been pre-configured to use the compilers
@@ -663,15 +680,15 @@ look for dependencies in a preset search path. The installation of dependencies 
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.
 
-The output of this command looks like:
+!!! Demo "The output of this command looks like:"
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_01.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_01.png){ loading=lazy }
+    </figure>
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_02.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_02.png){ loading=lazy }
+    </figure>
 
 
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
@@ -680,29 +697,52 @@ But it will do so automatically when we run
 eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
 ```
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_03.png){ loading=lazy }
-</figure>
+!!! Demo "Running EasyBuild to install GROMACS and dependency"
+    The command
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_04.png){ loading=lazy }
-</figure>
+    ```bash
+    eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
+    ```
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_05.png){ loading=lazy }
-</figure>
+    results in:
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_06.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_03.png){ loading=lazy }
+    </figure>
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_07.png){ loading=lazy }
-</figure>
+    EasyBuild detects PLUMED is a dependency and because of the `-r` option, it first installs the
+    required version of PLUMED.
 
-<figure markdown style="border: 1px solid #000">
-  ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_08.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_04.png){ loading=lazy }
+    </figure>
+
+    When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
+    It mentions something we haven't seen when installing PLUMED:
+
+    ```
+    == starting iteration #0
+    ```
+
+    GROMACS can be installed in many configurations, and they generate executables with different names.
+    Our EasyConfig combines 4 popular installations in one: Single and double precision and with and without
+    MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_05.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_06.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_07.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_08.png){ loading=lazy }
+    </figure>
 
 This takes too long to wait for, but once it finished the software should be available
 and you should be able to see the module in the output of
