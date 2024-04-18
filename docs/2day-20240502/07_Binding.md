@@ -8,7 +8,7 @@
 </figure>
 
 **Distribution** is the process of distributing processes and threads across the available
-resources of the job (nodes, sockets, NUMA domains, cores, ...), and **binding** is the process
+resources of the job (nodes, sockets, NUMA nodes, cores, ...), and **binding** is the process
 of ensuring they stay there as naturally processes and threads are only bound to a node 
 (OS image) but will migrate between cores. Binding can also ensure that processes cannot use
 resources they shouldn't use.
@@ -88,11 +88,12 @@ In this section we will consider process and thread distribution and binding at 
 -   Finally, the ROCm runtime also can limit the use of GPUs by a process to a subset of the ones that
     are available to the process through the use of the `ROCR_VISIBLE_DEVICES` environment variable.
 
-Binding only makes sense on job-exclusive nodes as only then you have full control over all available 
+Binding almost only makes sense on job-exclusive nodes as only then you have full control over all available 
 resources. On ["allocatable by resources"](06_Slurm.md#partitions) partitions 
-you usually do not know which resources are available.
+you usually do not know which resources are available. 
 The advanced Slurm binding options that we will discuss do not work in those cases, and the options offered
-by the MPICH, OpenMP and ROCm runtimes may work very unpredictable. 
+by the MPICH, OpenMP and ROCm runtimes may work very unpredictable, though OpenMP thread binding may still 
+help a bit with performance in some cases.
 
 !!! Warning
     Note also that some `srun` options that we have seen (sometimes already given at the `sbatch` or `salloc` level
@@ -182,7 +183,7 @@ Don't be surprised if when running a GPU code you see a lot of activity on core 
 and is precisely the reason why that core is reserved, as that activity would break scalability of applications that expect
 to have the same amount of available compute power on each core.
 
-Note that even with `--hint=nomulthread` the hardware threads will still be turned on at the hardware level and be visible in the 
+Note that even with `--hint=nomultithread` the hardware threads will still be turned on at the hardware level and be visible in the 
 OS (e.g., in `/proc/cpuinfo`). In fact, the batch job step will use them, but they will not be used by applications in job steps
 started with subsequent `srun` commands.
 
@@ -499,7 +500,11 @@ started with subsequent `srun` commands.
 ## GPU numbering
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU numbering](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumbering_2.png){ loading=lazy }
+  ![Slide GPU numbering (1)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumbering_1.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide GPU numbering (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumbering_2.png){ loading=lazy }
 </figure>
 
 The numbering of the GPUs is a very tricky thing on LUMI.
@@ -532,6 +537,7 @@ the HIP runtime will number the GPUs that are available from 0 on.
 </figure>
 
 <!-- Script gpu-numbering-demo1 -->
+<!-- TODO re-run this example to check the output. -->
 <!-- ``` {.bash linenos=true linenostart=1 .copy}  -->
 ??? technical "A more technical example demonstrating what Slurm does (click to expand)"
     We will use the Linux `lstopo`command and the `ROCR_VISIBLE_DEVICES` environment variable
@@ -615,9 +621,6 @@ the HIP runtime will number the GPUs that are available from 0 on.
               PCI d1:00.0 (Display)
                 GPU(RSMI) "rsmi4"
         L3 P#1 (32MB)
-          L2 P#8 (512KB) + L1d P#8 (32KB) + L1i P#8 (32KB) + Core P#8
-            PU P#8
-            PU P#72
           L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
             PU P#9
             PU P#73
@@ -653,8 +656,8 @@ the HIP runtime will number the GPUs that are available from 0 on.
     ...
     ```
         
-    We see only 7 cores in the first block (the lines `L2 ... + L1d ... + L1i ... + Core ...`)
-    because the first physical core is reserved for the OS. 
+    We see only 7 cores in the each block (the lines `L2 ... + L1d ... + L1i ... + Core ...`)
+    because the first physical core on each CCD is reserved for the OS. 
     
     The `lstopo -p` output also clearly suggests that each GCD has a special link to a particular CCD
     
@@ -684,7 +687,7 @@ the HIP runtime will number the GPUs that are available from 0 on.
     ```
         
     All 8 GPUs are visible and note the numbering on each line below the line with the PCIe bus ID. 
-    We also notice that `ROCR_VISIBLE_DEVICSES` was set by Slurm and includes all 8 GPUs.
+    We also notice that `ROCR_VISIBLE_DEVICES` was set by Slurm and includes all 8 GPUs.
     
     Next we run two tasks requesting 4 GPUs and a single core without hardware threading each. 
     The output of those two tasks is gathered in files that are then sent to the standard 
@@ -735,6 +738,9 @@ the HIP runtime will number the GPUs that are available from 0 on.
     The other 4 GPUs are invisible in each of the tasks. Note also that in both tasks 
     `ROCR_VISIBLE_DEVICES` has the same value `0,1,2,3` as the numbers detected by `lstopo` in that
     task are used. 
+
+    The `lstopo` command does see two cores though for each task (but they are the same) because
+    the cores are not isolated by cgroups on a per-task level, but on a per-job level.
     
     Finally we have the output of the `gpu_check` command run in the same configuration. The `-l` option
     that was used prints some extra information that makes it easier to check the mapping: For the hardware
@@ -1035,7 +1041,7 @@ Both commands define a binding (the latter in combination with the default `--gp
 and these will usually conflict.
 
 There are more options, but these are currently most relevant ones on LUMI. That may change in the future as
-LUMI User support is investigating whether it isn't better to change the concept of "socket" in Slurm given how important it
+LUMI User Support is investigating whether it isn't better to change the concept of "socket" in Slurm given how important it
 sometimes is to carefully map onto L3 cache domains for performance.
 
 
@@ -1047,9 +1053,9 @@ sometimes is to carefully map onto L3 cache domains for performance.
 
 **Doing the task-to-GPU binding fully via Slurm is currently not recommended on LUMI. 
 The problem is that Slurm uses control groups at the task level rather than just `ROCR_VISIBLE_DEVICES`
-with the latter being more or less the equivalent of affinity masks. As sue to the control groups
-the other GPUs in a job step on a node become completely invisible to a task, communication between
-tasks through shared memory becomes impossible.**
+with the latter being more or less the equivalent of affinity masks. When using control groups this way,
+the other GPUs in a job step on a node become completely invisible to a task, and the
+Peer2Peer IPC mechanism for communication cannot be used anymore.**
 
 We present the options for completeness, and as it may still help users if the control group setup
 is not a problem for the application.
@@ -1069,7 +1075,7 @@ Some options for the `<type>` parameter that are worth considering:
     so the situation may have changed by the time you read this.
 
 -   `--gpu-bind=none`: Turns off the GPU binding of Slurm. This can actually be useful on shared node
-    jobs where doing a proper allocation of GPUS is difficult. You can then first use Slurm options such 
+    jobs where doing a proper allocation of GPUs is difficult. You can then first use Slurm options such 
     as `--gpus-per-task` to get a working allocation of GPUs and CPUs, then un-bind and rebind using a 
     different mechanism that we will discuss later.
 
@@ -1375,13 +1381,13 @@ Below we discuss the more important of the standard ones:
     -   And it is possible to give a list with explicit values, e.g.,
 
         ``` bash
-        export OMP_PLACES="{0:4}:4:4"
+        export OMP_PLACES="{0:4}:3:8"
         ```
 
         which is also equivalent to
 
         ``` bash
-        export OMP_PLACES="{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}"
+        export OMP_PLACES="{0,1,2,3},{8,9,10,11},{16,17,18,19}"
         ```
 
         so each OpenMP thread is restricted to a different group of 4 hardware threads. The numbers in the list are not
@@ -1512,7 +1518,7 @@ can also be used to check the OpenMP thread binding.
     ```
     
     `OMP_PROC_BIND` was explicitly set to false to disable the Cray Compilation Environment default behaviour.
-    The masks reported by `omp_Check` cover all hardware threads available to the task in Slurm: Both hardware
+    The masks reported by `omp_check` cover all hardware threads available to the task in Slurm: Both hardware
     threads for the 16 first cores in the multithread case and just the primary hardware thread on the first 16 cores
     in the second case. So each OpenMP thread can in principle migrate over all available hardware threads.
     
@@ -1897,8 +1903,8 @@ srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=$CPU_BIND2 ./select_gpu_$SLURM_JOB_
 
 To select the GPUs we either use a map with numbers of cores (ideal for pure MPI programs)
 or masks (the only option for hybrid programs). The mask that we give in the example uses
-7 cores per CCD and always skips the first core, so it is symmetric and works on the current
-configuration of LUMI or a configuration like Frontier where the first core of each chiplet
+7 cores per CCD and always skips the first core, as is required on LUMI as
+the first core of each chiplet
 is reserved and not available to Slurm jobs. To select the right GPU for `ROCR_VISIBLE_DEVICES` 
 we can use the Slurm local task ID which is 
 also what the MPI rank will be. 
@@ -1939,6 +1945,10 @@ mapping is as intended. Note that the GCDs are indeed in the linear order starti
 
 <figure markdown style="border: 1px solid #000">
   ![Slide GPU binding: Implementation: Linear CCD, match GCD, OpenMP](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/ROCRMechanismLinearCCD2.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/ROCRMechanismLinearCCD3.png){ loading=lazy }
 </figure>
 
 To modify the order of the GPUs, we now use an array with the desired order in the `select_gpu` script.
@@ -2287,180 +2297,180 @@ resources allocated via the `sbatch` arguments (usually `#SBATCH` lines), and re
 
 3.  And each task also has a local ID that can be used to map the appropriate number of GPUs to each task.
 
-This can be demonstrated with the following job script:
+!!! Demo "This can be demonstrated with the following job script:"
 
-<!-- map-smallg-1gpt.slurm -->
-```
-#! /bin/bash
-#SBATCH --account=project_46YXXXXXX
-#SBATCH --job-name=map-smallg-1gpt
-#SBATCH --output %x-%j.txt
-#SBATCH --partition=small-g
-#SBATCH --ntasks=12
-#SBATCH --cpus-per-task=2
-#SBATCH --gpus-per-task=1
-#SBATCH --hint=nomultithread
-#SBATCH --time=5:00
+    <!-- map-smallg-1gpt.slurm -->
+    ```
+    #! /bin/bash
+    #SBATCH --account=project_46YXXXXXX
+    #SBATCH --job-name=map-smallg-1gpt
+    #SBATCH --output %x-%j.txt
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=12
+    #SBATCH --cpus-per-task=2
+    #SBATCH --gpus-per-task=1
+    #SBATCH --hint=nomultithread
+    #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
 
-cat << EOF > select_gpu_$SLURM_JOB_ID
-#!/bin/bash
-export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
-exec \$*
-EOF
-chmod +x ./select_gpu_$SLURM_JOB_ID
+    cat << EOF > select_gpu_$SLURM_JOB_ID
+    #!/bin/bash
+    export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+    exec \$*
+    EOF
+    chmod +x ./select_gpu_$SLURM_JOB_ID
 
-cat << EOF > echo_dev_$SLURM_JOB_ID
-#!/bin/bash
-printf -v task "%02d" \$SLURM_PROCID
-echo "Task \$task or node.local_id \$SLURM_NODEID.\$SLURM_LOCALID sees ROCR_VISIBLE_DEVICES=\$ROCR_VISIBLE_DEVICES"
-EOF
-chmod +x ./echo_dev_$SLURM_JOB_ID
+    cat << EOF > echo_dev_$SLURM_JOB_ID
+    #!/bin/bash
+    printf -v task "%02d" \$SLURM_PROCID
+    echo "Task \$task or node.local_id \$SLURM_NODEID.\$SLURM_LOCALID sees ROCR_VISIBLE_DEVICES=\$ROCR_VISIBLE_DEVICES"
+    EOF
+    chmod +x ./echo_dev_$SLURM_JOB_ID
 
-set -x
-srun gpu_check -l
-srun ./echo_dev_$SLURM_JOB_ID | sort
-srun --gpu-bind=none ./echo_dev_$SLURM_JOB_ID | sort
-srun --gpu-bind=none ./select_gpu_$SLURM_JOB_ID ./echo_dev_$SLURM_JOB_ID | sort
-srun --gpu-bind=none ./select_gpu_$SLURM_JOB_ID gpu_check -l
-set +x
+    set -x
+    srun gpu_check -l
+    srun ./echo_dev_$SLURM_JOB_ID | sort
+    srun --gpu-bind=none ./echo_dev_$SLURM_JOB_ID | sort
+    srun --gpu-bind=none ./select_gpu_$SLURM_JOB_ID ./echo_dev_$SLURM_JOB_ID | sort
+    srun --gpu-bind=none ./select_gpu_$SLURM_JOB_ID gpu_check -l
+    set +x
 
-/bin/rm -f select_gpu_$SLURM_JOB_ID echo_dev_$SLURM_JOB_ID
-```
+    /bin/rm -f select_gpu_$SLURM_JOB_ID echo_dev_$SLURM_JOB_ID
+    ```
 
-To run this job successfully, we need 12 GPUs so obviously the tasks will be spread over more than 
-one node. The `echo_dev` command in this script only shows us the value of `ROCR_VISIBLE_DEVICES` 
-for the task at that point, something that `gpu_check` in fact also reports as `GPU_ID`, but this
-is just in case you don't believe...
+    To run this job successfully, we need 12 GPUs so obviously the tasks will be spread over more than 
+    one node. The `echo_dev` command in this script only shows us the value of `ROCR_VISIBLE_DEVICES` 
+    for the task at that point, something that `gpu_check` in fact also reports as `GPU_ID`, but this
+    is just in case you don't believe...
 
-The output of the first `srun` command is:
+    The output of the first `srun` command is:
 
-```
-+ srun gpu_check -l
-MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 000 - OMP 001 - HWT 002 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 001 - OMP 000 - HWT 003 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
-MPI 001 - OMP 001 - HWT 004 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
-MPI 002 - OMP 000 - HWT 005 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
-MPI 002 - OMP 001 - HWT 006 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
-MPI 003 - OMP 000 - HWT 007 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
-MPI 003 - OMP 001 - HWT 008 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
-MPI 004 - OMP 000 - HWT 009 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d1(GCD4/CCD0)
-MPI 004 - OMP 001 - HWT 010 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d1(GCD4/CCD0)
-MPI 005 - OMP 000 - HWT 011 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d6(GCD5/CCD1)
-MPI 005 - OMP 001 - HWT 012 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d6(GCD5/CCD1)
-MPI 006 - OMP 000 - HWT 013 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d9(GCD6/CCD4)
-MPI 006 - OMP 001 - HWT 014 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d9(GCD6/CCD4)
-MPI 007 - OMP 000 - HWT 015 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID dc(GCD7/CCD5)
-MPI 007 - OMP 001 - HWT 016 (CCD2) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID dc(GCD7/CCD5)
-MPI 008 - OMP 000 - HWT 001 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 008 - OMP 001 - HWT 002 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 009 - OMP 000 - HWT 003 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
-MPI 009 - OMP 001 - HWT 004 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
-MPI 010 - OMP 000 - HWT 005 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
-MPI 010 - OMP 001 - HWT 006 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
-MPI 011 - OMP 000 - HWT 007 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
-MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
-```
+    ```
+    + srun gpu_check -l
+    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 000 - OMP 001 - HWT 002 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 001 - OMP 000 - HWT 003 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
+    MPI 001 - OMP 001 - HWT 004 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
+    MPI 002 - OMP 000 - HWT 005 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
+    MPI 002 - OMP 001 - HWT 006 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
+    MPI 003 - OMP 000 - HWT 007 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
+    MPI 003 - OMP 001 - HWT 008 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
+    MPI 004 - OMP 000 - HWT 009 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d1(GCD4/CCD0)
+    MPI 004 - OMP 001 - HWT 010 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d1(GCD4/CCD0)
+    MPI 005 - OMP 000 - HWT 011 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d6(GCD5/CCD1)
+    MPI 005 - OMP 001 - HWT 012 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d6(GCD5/CCD1)
+    MPI 006 - OMP 000 - HWT 013 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d9(GCD6/CCD4)
+    MPI 006 - OMP 001 - HWT 014 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d9(GCD6/CCD4)
+    MPI 007 - OMP 000 - HWT 015 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID dc(GCD7/CCD5)
+    MPI 007 - OMP 001 - HWT 016 (CCD2) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID dc(GCD7/CCD5)
+    MPI 008 - OMP 000 - HWT 001 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 008 - OMP 001 - HWT 002 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 009 - OMP 000 - HWT 003 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
+    MPI 009 - OMP 001 - HWT 004 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c6(GCD1/CCD7)
+    MPI 010 - OMP 000 - HWT 005 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
+    MPI 010 - OMP 001 - HWT 006 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
+    MPI 011 - OMP 000 - HWT 007 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
+    MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID cc(GCD3/CCD3)
+    ```
 
-In other words, we see that we did get cores on two nodes that obviously are not well aligned with
-the GCDs, and 8 GPUS on the first and 4 on the second node.
+    In other words, we see that we did get cores on two nodes that obviously are not well aligned with
+    the GCDs, and 8 GPUS on the first and 4 on the second node.
 
-The output of the second `srun` is:
+    The output of the second `srun` is:
 
-```
-+ srun ./echo_dev_4359428
-+ sort
-Task 00 or node.local_id 0.0 sees ROCR_VISIBLE_DEVICES=0
-Task 01 or node.local_id 0.1 sees ROCR_VISIBLE_DEVICES=0
-Task 02 or node.local_id 0.2 sees ROCR_VISIBLE_DEVICES=0
-Task 03 or node.local_id 0.3 sees ROCR_VISIBLE_DEVICES=0
-Task 04 or node.local_id 0.4 sees ROCR_VISIBLE_DEVICES=0
-Task 05 or node.local_id 0.5 sees ROCR_VISIBLE_DEVICES=0
-Task 06 or node.local_id 0.6 sees ROCR_VISIBLE_DEVICES=0
-Task 07 or node.local_id 0.7 sees ROCR_VISIBLE_DEVICES=0
-Task 08 or node.local_id 1.0 sees ROCR_VISIBLE_DEVICES=0
-Task 09 or node.local_id 1.1 sees ROCR_VISIBLE_DEVICES=0
-Task 10 or node.local_id 1.2 sees ROCR_VISIBLE_DEVICES=0
-Task 11 or node.local_id 1.3 sees ROCR_VISIBLE_DEVICES=0
-```
+    ```
+    + srun ./echo_dev_4359428
+    + sort
+    Task 00 or node.local_id 0.0 sees ROCR_VISIBLE_DEVICES=0
+    Task 01 or node.local_id 0.1 sees ROCR_VISIBLE_DEVICES=0
+    Task 02 or node.local_id 0.2 sees ROCR_VISIBLE_DEVICES=0
+    Task 03 or node.local_id 0.3 sees ROCR_VISIBLE_DEVICES=0
+    Task 04 or node.local_id 0.4 sees ROCR_VISIBLE_DEVICES=0
+    Task 05 or node.local_id 0.5 sees ROCR_VISIBLE_DEVICES=0
+    Task 06 or node.local_id 0.6 sees ROCR_VISIBLE_DEVICES=0
+    Task 07 or node.local_id 0.7 sees ROCR_VISIBLE_DEVICES=0
+    Task 08 or node.local_id 1.0 sees ROCR_VISIBLE_DEVICES=0
+    Task 09 or node.local_id 1.1 sees ROCR_VISIBLE_DEVICES=0
+    Task 10 or node.local_id 1.2 sees ROCR_VISIBLE_DEVICES=0
+    Task 11 or node.local_id 1.3 sees ROCR_VISIBLE_DEVICES=0
+    ```
 
-It is normal that each task sees `ROCR_VISIBLE_DEVICES=0` even though we have seen that they all use a
-different GPU. This is because each task is locked up in a control group with only one GPU, which then 
-gets number 0.
+    It is normal that each task sees `ROCR_VISIBLE_DEVICES=0` even though we have seen that they all use a
+    different GPU. This is because each task is locked up in a control group with only one GPU, which then 
+    gets number 0.
 
-The output of the third `srun` command is:
+    The output of the third `srun` command is:
 
-```
-+ sort
-Task 00 or node.local_id 0.0 sees ROCR_VISIBLE_DEVICES=
-Task 01 or node.local_id 0.1 sees ROCR_VISIBLE_DEVICES=
-Task 02 or node.local_id 0.2 sees ROCR_VISIBLE_DEVICES=
-Task 03 or node.local_id 0.3 sees ROCR_VISIBLE_DEVICES=
-Task 04 or node.local_id 0.4 sees ROCR_VISIBLE_DEVICES=
-Task 05 or node.local_id 0.5 sees ROCR_VISIBLE_DEVICES=
-Task 06 or node.local_id 0.6 sees ROCR_VISIBLE_DEVICES=
-Task 07 or node.local_id 0.7 sees ROCR_VISIBLE_DEVICES=
-Task 08 or node.local_id 1.0 sees ROCR_VISIBLE_DEVICES=
-Task 09 or node.local_id 1.1 sees ROCR_VISIBLE_DEVICES=
-Task 10 or node.local_id 1.2 sees ROCR_VISIBLE_DEVICES=
-Task 11 or node.local_id 1.3 sees ROCR_VISIBLE_DEVICES=
-```
+    ```
+    + sort
+    Task 00 or node.local_id 0.0 sees ROCR_VISIBLE_DEVICES=
+    Task 01 or node.local_id 0.1 sees ROCR_VISIBLE_DEVICES=
+    Task 02 or node.local_id 0.2 sees ROCR_VISIBLE_DEVICES=
+    Task 03 or node.local_id 0.3 sees ROCR_VISIBLE_DEVICES=
+    Task 04 or node.local_id 0.4 sees ROCR_VISIBLE_DEVICES=
+    Task 05 or node.local_id 0.5 sees ROCR_VISIBLE_DEVICES=
+    Task 06 or node.local_id 0.6 sees ROCR_VISIBLE_DEVICES=
+    Task 07 or node.local_id 0.7 sees ROCR_VISIBLE_DEVICES=
+    Task 08 or node.local_id 1.0 sees ROCR_VISIBLE_DEVICES=
+    Task 09 or node.local_id 1.1 sees ROCR_VISIBLE_DEVICES=
+    Task 10 or node.local_id 1.2 sees ROCR_VISIBLE_DEVICES=
+    Task 11 or node.local_id 1.3 sees ROCR_VISIBLE_DEVICES=
+    ```
 
-Slurm in fact did not set `ROCR_VISIBLE_DEVICES` because we turned binding off.
+    Slurm in fact did not set `ROCR_VISIBLE_DEVICES` because we turned binding off.
 
-In the next `srun` command we set `ROCR_VISIBLE_DEVICES` based on the local task ID and get:
+    In the next `srun` command we set `ROCR_VISIBLE_DEVICES` based on the local task ID and get:
 
-```
-+ srun --gpu-bind=none ./select_gpu_4359428 ./echo_dev_4359428
-+ sort
-Task 00 or node.local_id 0.0 sees ROCR_VISIBLE_DEVICES=0
-Task 01 or node.local_id 0.1 sees ROCR_VISIBLE_DEVICES=1
-Task 02 or node.local_id 0.2 sees ROCR_VISIBLE_DEVICES=2
-Task 03 or node.local_id 0.3 sees ROCR_VISIBLE_DEVICES=3
-Task 04 or node.local_id 0.4 sees ROCR_VISIBLE_DEVICES=4
-Task 05 or node.local_id 0.5 sees ROCR_VISIBLE_DEVICES=5
-Task 06 or node.local_id 0.6 sees ROCR_VISIBLE_DEVICES=6
-Task 07 or node.local_id 0.7 sees ROCR_VISIBLE_DEVICES=7
-Task 08 or node.local_id 1.0 sees ROCR_VISIBLE_DEVICES=0
-Task 09 or node.local_id 1.1 sees ROCR_VISIBLE_DEVICES=1
-Task 10 or node.local_id 1.2 sees ROCR_VISIBLE_DEVICES=2
-Task 11 or node.local_id 1.3 sees ROCR_VISIBLE_DEVICES=3
-```
+    ```
+    + srun --gpu-bind=none ./select_gpu_4359428 ./echo_dev_4359428
+    + sort
+    Task 00 or node.local_id 0.0 sees ROCR_VISIBLE_DEVICES=0
+    Task 01 or node.local_id 0.1 sees ROCR_VISIBLE_DEVICES=1
+    Task 02 or node.local_id 0.2 sees ROCR_VISIBLE_DEVICES=2
+    Task 03 or node.local_id 0.3 sees ROCR_VISIBLE_DEVICES=3
+    Task 04 or node.local_id 0.4 sees ROCR_VISIBLE_DEVICES=4
+    Task 05 or node.local_id 0.5 sees ROCR_VISIBLE_DEVICES=5
+    Task 06 or node.local_id 0.6 sees ROCR_VISIBLE_DEVICES=6
+    Task 07 or node.local_id 0.7 sees ROCR_VISIBLE_DEVICES=7
+    Task 08 or node.local_id 1.0 sees ROCR_VISIBLE_DEVICES=0
+    Task 09 or node.local_id 1.1 sees ROCR_VISIBLE_DEVICES=1
+    Task 10 or node.local_id 1.2 sees ROCR_VISIBLE_DEVICES=2
+    Task 11 or node.local_id 1.3 sees ROCR_VISIBLE_DEVICES=3
+    ```
 
-Finally, we run `gpu_check` again and see the same assignment of physical GPUs again as when we
-started, but now with different logical device numbers passed by `ROCR_VISIBLE_DEVICES`. The device
-number for the hip runtime is always 0 though which is normal as `ROCR_VISIBLE_DEVICES` restricts the
-access of the hip runtime to one GPU.
+    Finally, we run `gpu_check` again and see the same assignment of physical GPUs again as when we
+    started, but now with different logical device numbers passed by `ROCR_VISIBLE_DEVICES`. The device
+    number for the hip runtime is always 0 though which is normal as `ROCR_VISIBLE_DEVICES` restricts the
+    access of the hip runtime to one GPU.
 
-```
-+ srun --gpu-bind=none ./select_gpu_4359428 gpu_check -l
-MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 000 - OMP 001 - HWT 002 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 001 - OMP 000 - HWT 003 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
-MPI 001 - OMP 001 - HWT 004 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
-MPI 002 - OMP 000 - HWT 005 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
-MPI 002 - OMP 001 - HWT 006 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
-MPI 003 - OMP 000 - HWT 007 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
-MPI 003 - OMP 001 - HWT 008 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
-MPI 004 - OMP 000 - HWT 009 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 4 - Bus_ID d1(GCD4/CCD0)
-MPI 004 - OMP 001 - HWT 010 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 4 - Bus_ID d1(GCD4/CCD0)
-MPI 005 - OMP 000 - HWT 011 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 5 - Bus_ID d6(GCD5/CCD1)
-MPI 005 - OMP 001 - HWT 012 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 5 - Bus_ID d6(GCD5/CCD1)
-MPI 006 - OMP 000 - HWT 013 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 6 - Bus_ID d9(GCD6/CCD4)
-MPI 006 - OMP 001 - HWT 014 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 6 - Bus_ID d9(GCD6/CCD4)
-MPI 007 - OMP 000 - HWT 015 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 7 - Bus_ID dc(GCD7/CCD5)
-MPI 007 - OMP 001 - HWT 016 (CCD2) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 7 - Bus_ID dc(GCD7/CCD5)
-MPI 008 - OMP 000 - HWT 001 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 008 - OMP 001 - HWT 002 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
-MPI 009 - OMP 000 - HWT 003 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
-MPI 009 - OMP 001 - HWT 004 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
-MPI 010 - OMP 000 - HWT 005 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
-MPI 010 - OMP 001 - HWT 006 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
-MPI 011 - OMP 000 - HWT 007 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
-MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
-```
+    ```
+    + srun --gpu-bind=none ./select_gpu_4359428 gpu_check -l
+    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 000 - OMP 001 - HWT 002 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 001 - OMP 000 - HWT 003 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
+    MPI 001 - OMP 001 - HWT 004 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
+    MPI 002 - OMP 000 - HWT 005 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
+    MPI 002 - OMP 001 - HWT 006 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
+    MPI 003 - OMP 000 - HWT 007 (CCD0) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
+    MPI 003 - OMP 001 - HWT 008 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
+    MPI 004 - OMP 000 - HWT 009 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 4 - Bus_ID d1(GCD4/CCD0)
+    MPI 004 - OMP 001 - HWT 010 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 4 - Bus_ID d1(GCD4/CCD0)
+    MPI 005 - OMP 000 - HWT 011 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 5 - Bus_ID d6(GCD5/CCD1)
+    MPI 005 - OMP 001 - HWT 012 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 5 - Bus_ID d6(GCD5/CCD1)
+    MPI 006 - OMP 000 - HWT 013 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 6 - Bus_ID d9(GCD6/CCD4)
+    MPI 006 - OMP 001 - HWT 014 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 6 - Bus_ID d9(GCD6/CCD4)
+    MPI 007 - OMP 000 - HWT 015 (CCD1) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 7 - Bus_ID dc(GCD7/CCD5)
+    MPI 007 - OMP 001 - HWT 016 (CCD2) - Node nid007379 - RT_GPU_ID 0 - GPU_ID 7 - Bus_ID dc(GCD7/CCD5)
+    MPI 008 - OMP 000 - HWT 001 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 008 - OMP 001 - HWT 002 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+    MPI 009 - OMP 000 - HWT 003 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
+    MPI 009 - OMP 001 - HWT 004 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID c6(GCD1/CCD7)
+    MPI 010 - OMP 000 - HWT 005 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
+    MPI 010 - OMP 001 - HWT 006 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID c9(GCD2/CCD2)
+    MPI 011 - OMP 000 - HWT 007 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
+    MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
+    ```
 
 ??? example "Example job script when using 2 GPUs per task."
     <!-- map-smallg-2gpt.slurm -->
