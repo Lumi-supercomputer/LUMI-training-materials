@@ -206,15 +206,21 @@ code that was never meant to be used by people who don't understand the code.
 
 Another soft compatibility problem that I did not yet mention is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
-data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
-also require to **containerize conda and Python installations**. We do offer a container-based wrapper
-that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the `cray-python` module. On LUMI the tool is called
-[lumi-container-wrapper](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/)
-but it may by some from CSC also be known as Tykky. As an alternative we also offer
-[cotainr](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), a tool developed by
-the Danish LUMI-partner DeIC that helps with building some types of containers that can be built in
-user space and can be used to containerise a conda-installation.
+data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason LUMI
+also requires to **containerize conda and Python installations**. 
+On LUMI two tools are offered for this. 
+
+1.  [cotainr](https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool) 
+    is a tool developed by the Danish LUMI-partner DeIC that helps with building some types of 
+    containers that can be built in user space. Its current version focusses on containerising 
+    a conda-installation.
+2.  The second tool is a container-based wrapper generator that offers 
+    a way to install conda packages or to install Python packages with pip on top of 
+    the Python provided by the `cray-python` module. On LUMI the tool is called
+    [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/)
+    but users of the CSC national systems will know it as Tykky. 
+
+Both tools are pre-installed on the system and ready-to-use.
 
 
 ### Organisation of the software in software stacks
@@ -373,7 +379,7 @@ Lmod has **several tools to search for modules**.
 
 ### Module spider command
 
-***Demo moment 1 (when infrastructure for a demo is available)***
+<!-- ***Demo moment 1 (when infrastructure for a demo is available)*** -->
 
 <figure markdown style="border: 1px solid #000">
   ![module spider](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/LMODModuleSpiderOverview.png){ loading=lazy }
@@ -1002,7 +1008,7 @@ the proper value before loading the `LUMI` module.**
 
 #### Step 3: Install the software.
 
-***Demo moment 2***
+<!-- ***Demo moment 2*** -->
 
 <figure markdown style="border: 1px solid #000">
   ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildInstallingStep3.png){ loading=lazy }
@@ -1020,6 +1026,33 @@ A command-line alternative is to use `eb -S` or `eb --search` for that. So in ou
 eb --search GROMACS
 ```
 
+!!! Note "Results of the searches:"
+
+    In the LUMI Software Library, after some scrolling through 
+    [the page for GROMACS](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/), 
+    the list of EasyBuild recipes is found in the 
+    ["User-installable modules (and EasyConfigs)"](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/#user-installable-modules-and-easyconfigs)
+    section:
+
+    <figure markdown style="border: 1px solid #000">
+      ![GROMACS in the LUMI Software Library](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSSoftLib.png){ loading=lazy }
+    </figure>
+
+    `eb --search GROMACS` produces:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb --search GROMACS](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSSearch_1.png){ loading=lazy }
+    </figure>
+
+    while `eb -S GROMACS` produces:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -S GROMACS](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSSearch_2.png){ loading=lazy }
+    </figure>
+
+    The information provided by both variants of the search command is the same, but `-S` presents the information in a more
+    compact form.
+
 Now let's take the variant `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`. 
 This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
 from `LUMI/23.09`, and a build meant for CPU-only systems. The `-CPU` extension is not
@@ -1036,11 +1069,63 @@ look for dependencies in a preset search path. The installation of dependencies 
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.
 
+!!! Demo "The output of this command looks like:"
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb --search](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -S](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
+    </figure>
+
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
 But it will do so automatically when we run
 ```bash
 eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
 ```
+
+???+demo "Demo of the EasyBuild installation of GROMACS"
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -D](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
+    </figure>
+
+    EasyBuild detects PLUMED is a dependency and because of the `-r` option, it first installs the
+    required version of PLUMED.
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -D](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
+    </figure>
+
+    When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
+    It mentions something we haven't seen when installing PLUMED:
+
+    ```
+    == starting iteration #0
+    ```
+
+    GROMACS can be installed in many configurations, and they generate executables with different names.
+    Our EasyConfig combines 4 popular installations in one: Single and double precision and with and without
+    MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
+    </figure>
+
+<!-- ***End of demo moment 2*** -->
 
 This takes too long to wait for, but once it finished the software should be available
 and you should be able to see the module in the output of
@@ -1048,49 +1133,6 @@ and you should be able to see the module in the output of
 module avail
 ```
 
-???+demo "Demo of the EasyBuild installation of GROMACS"
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb --search](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_01.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -S](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_02.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -D](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_03.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -D](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_04.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_05.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_06.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_07.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_08.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_09.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/EasyBuildGROMACS_10.png){ loading=lazy }
-    </figure>
-
-***End of demo moment 2***
 
 
 #### Step 3: Install the software - Note
