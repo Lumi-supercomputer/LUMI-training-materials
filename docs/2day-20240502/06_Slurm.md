@@ -23,7 +23,7 @@
 
 !!! Note "Links to Slurm material"
     Links to Slurm material on this web page are all for the version on LUMI at the time of
-    the course. Links in the PDF of the slides however are to the newest version.
+    the course. Some of the links in the PDF of the slides however are to the newest version.
 
 
 ## What is Slurm
@@ -69,7 +69,7 @@ is no better option at this moment that is sufficiently mature.
 !!! nice-to-know "Nice to know..."
     Lawrence Livermore National Laboratory, the USA national laboratory that 
     originally developed Slurm is now working on the 
-    development of andother resource and job management framework called 
+    development of another resource and job management framework called 
     [flux](https://computing.llnl.gov/projects/flux-building-framework-resource-management).
     It will be used on the third USA exascale supercomputer El Capitan which is currently
     being assembled. 
@@ -90,8 +90,8 @@ On the CPU side it knows:
 -   A **socket**: On LUMI a Slurm socket corresponds to a physical socket, so there are two sockets on the 
     CPU nodes and a single socket on a GPU node.
 
-    Alternatively a cluster could be configured to let a Slurm socket correspond to a NUMA domain or 
-    L3 cache domain, but this is something that sysadmins need to do so even if this would be useful for
+    Alternatively a cluster could be configured to let a Slurm socket correspond to a NUMA nore or 
+    L3 cache region, but this is something that sysadmins need to do so even if this would be useful for
     your job, you cannot do so.
 
 -   A **core** is a physical core in the system
@@ -162,7 +162,7 @@ A **GPU** in Slurm is an accelerator and on LUMI corresponds to one GCD of an MI
 
 And LUMI is in the first place a batch processing supercomputer.
 
-A supercomputer like LuMI is a very large and very expensive machine. This implies that it also has to be
+A supercomputer like LUMI is a very large and very expensive machine. This implies that it also has to be
 used as efficiently as possible which in turn implies that we don't want to wast time waiting for input
 as is the case in an interactive program.
 
@@ -202,7 +202,7 @@ A typical batch script will have 4 parts:
 1.  The shebang line with the shell to use. We advise to use the bash shell (`/bin/bash` or `/usr/bin/bash`)
     If omitted, a very restricted shell will be used and some commands (e.g., related to modules)
     may fail. In principle any shell language that uses a hashtag to denote comments can be used, but
-    we would advise against experimenting and the LUMI User Support Team and VSC support teams will only
+    we would advise against experimenting and the LUMI User Support Team will only
     support bash.
 
 2.  Specification of resources and some other instructions for the scheduler and resource manager. This part
@@ -325,10 +325,9 @@ Some useful commands with respect to Slurm partitions:
 
     The fourth column shows 4 numbers: The number of nodes that are currently fully or partially allocated
     to jobs, the number of idle nodes, the number of nodes in one of the other possible states (and not
-    user-accessible) and the total number of nodes in the partition. When these nodes were written
-    a large number of nodes were suffering from hardware problems with the Slingshot network cards and
-    we were waiting for replacement parts which explains the thigh number of CPU nodes in the "other"
-    field.
+    user-accessible) and the total number of nodes in the partition. Sometimes a large number of nodes
+    can be in the Ö"column, e.g., when mechanical maintenance is needed (like problem with the
+    cooling).
 
     <!-- BELGIUM 
     Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
@@ -340,10 +339,6 @@ Some useful commands with respect to Slurm partitions:
     Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
     the `q_nordic` and `q_fiqci` partitions are used to access experimental quantum computers that are only
     available to some users of those countries that paid for those machines.
-
-    The `eap` partition will likely be phased out over time and is a remainder of a platform used for early 
-    development before LUMI-G was attached to the machine. At the moment it allows users to experiment freely 
-    with the GPU nodes.
 
     It is not clear to the LUMI Support Team what the `interactive` partition, that uses dome GPU nodes, is 
     meant for as it was introduced without informting the support. The resources in that partition are very
@@ -440,66 +435,11 @@ Some useful commands with respect to Slurm partitions:
     RAM disk it needs.
 
 
-## Queueing and fairness
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide Fairness of queueing](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/Fairness.png){ loading=lazy }
-</figure>
-
-!!! Remark
-    Jobs are queued until they can run so we should wonder how that system works.
-
-LUMI is a pre-exascale machine meant to foster research into exascale applications. 
-As a result the scheduler setup of LUMI favours large jobs (though some users with large
-jobs will claim that it doesn't do so enough yet). Most nodes are reserved for larger 
-jobs (in the `standard` and `standard-g` partitions), and the priority computation
-also favours larger jobs (in terms of number of nodes).
-
-When you submit a job, it will be queued until suitable resources are available for the
-requested time window. Keep in mind that you may see a lot of free nodes on LUMI yet your 
-small job may not yet start immediately as the scheduler may be gathering nodes for a
-big job.
-
-The command to check the status of the queue is `squeue`. Two command line flags are useful:
-
--   `--me` will restrict the output to your jobs only
-
--   `--start` will give an estimated start time for each job. Note that this really doesn't say 
-    much as the scheduler cannot predict the future. On one hand, other jobs that are running
-    already or scheduled to run before your job, may have overestimated the time they need and
-    end early. But on the other hand, the scheduler does not use a "first come, first serve" policy
-    so another user may submit a job that gets a higher priority than yours, pushing back the start
-    time of your job. So it is basically a random number generator.
-
-The `sprio` command will list the different elements that determine the priority of your job but
-is basically a command for system administrators as users cannot influence those numbers nor do 
-they say a lot unless you understand all intricacies of the job policies chosen by the site,
-and those policies may be fine-tuned over time to optimise the operation of the cluster.
-The fairshare parameter influences the priority of jobs depending on how much users or projects
-(this is not clear to us at the moment) have been running jobs in the past few days and is a
-very dangerous parameter on a supercomputer where the largest project is over 1000 times the size
-of the smallest projects, as treating all projects equally for the fair share would make it impossible
-for big projects to consume all their CPU time.
-
-Another concept of the scheduler on LUMI is **backfill**. On a system supporting very large jobs as LUMI,
-the scheduler will often be collecting nodes to run those large jobs, and this may take a while,
-particularly since the maximal wall time for a job in the standard partitions is rather large
-for such a system. If you need one quarter of the nodes for a big job on a partition on which most 
-users would launch jobs that use the full two days of walltime, one can expect that it takes half
-a day to gather those nodes. However, the LUMI scheduler will schedule short jobs even though they have a lower
-priority on the nodes already collected if it expects that those jobs will be finisehd before it expects
-to have all nodes for the big job. This mechanism is called backfill and is the reason why
-short experiments of half an hour or so often start quickly on LUMI even though the queue is very long.
-
-
 ## Accounting of jobs
 
 <figure markdown style="border: 1px solid #000">
   ![Slide Accounting of jobs](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/Accounting.png){ loading=lazy }
 </figure>
-
-!!! Remark "Billing of jobs"
-    Jobs are billed against your allocation, so how does this work?
 
 The use of resources by a job is billed to projects, not users. All management is also
 done at the project level, not at the "user-in-a-project" level.
@@ -574,7 +514,6 @@ both work with some delay.
     delay is larger than with the `lumi-workspaces` command.
 
 
-
 !!! Remark "Billing unit use per user in a project"
     The current project management system in LUMI cannot show the use of billing units
     per person within a project.
@@ -589,35 +528,88 @@ both work with some delay.
     experience to realise what they are doing.
 
 
+## Queueing and fairness
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Fairness of queueing](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/Fairness.png){ loading=lazy }
+</figure>
+
+!!! Remark
+    Jobs are queued until they can run so we should wonder how that system works.
+
+LUMI is a pre-exascale machine meant to foster research into exascale applications. 
+As a result the scheduler setup of LUMI favours large jobs (though some users with large
+jobs will claim that it doesn't do so enough yet). Most nodes are reserved for larger 
+jobs (in the `standard` and `standard-g` partitions), and the priority computation
+also favours larger jobs (in terms of number of nodes).
+
+When you submit a job, it will be queued until suitable resources are available for the
+requested time window. Each job has a priority attached to it which the scheduler computes based
+on a number of factors, such as size of the job, how much you have been running in the past
+days, and how long the job has been waiting already. LUMI is not a first come, first served
+system.
+Keep in mind that you may see a lot of free nodes on LUMI yet your 
+small job may not yet start immediately as the scheduler may be gathering nodes for a
+big job with a higher priority.
+
+The `sprio` command will list the different elements that determine the priority of your job but
+is basically a command for system administrators as users cannot influence those numbers nor do 
+they say a lot unless you understand all intricacies of the job policies chosen by the site,
+and those policies may be fine-tuned over time to optimise the operation of the cluster.
+The fairshare parameter influences the priority of jobs depending on how much users or projects
+(this is not clear to us at the moment) have been running jobs in the past few days and is a
+very dangerous parameter on a supercomputer where the largest project is over 1000 times the size
+of the smallest projects, as treating all projects equally for the fair share would make it impossible
+for big projects to consume all their CPU time.
+
+Another concept of the scheduler on LUMI is **backfill**. On a system supporting very large jobs as LUMI,
+the scheduler will often be collecting nodes to run those large jobs, and this may take a while,
+particularly since the maximal wall time for a job in the standard partitions is rather large
+for such a system. If you need one quarter of the nodes for a big job on a partition on which most 
+users would launch jobs that use the full two days of walltime, one can expect that it takes half
+a day to gather those nodes. However, the LUMI scheduler will schedule short jobs even though they have a lower
+priority on the nodes already collected if it expects that those jobs will be finisehd before it expects
+to have all nodes for the big job. This mechanism is called backfill and is the reason why
+short experiments of half an hour or so often start quickly on LUMI even though the queue is very long.
+
+
 ## Managing Slurm jobs
 
 Before experimenting with jobs on LUMI, it is good to discuss how to manage those jobs.
 We will not discuss the commands in detail and instead refer to the pretty decent manual pages
 that in fact can also be found on the web.
 
-Remember that each job is identified by a unique job ID, a number that will be shown when you
-submit a job and is also shown in the output of `squeue`.  This job ID will be used to
-manage jobs.
+-   The command to check the status of the queue is `squeue`. It is also a good command to find out
+    the job IDs of your jobs if you didn't write them down after submitting the job.
+    
+    Two command line flags are useful:
 
--   To delete a job, use [`scancel <jobID>`](https://slurm.schedmd.com/archive/slurm-22.05.8/scancel.html)
+    -   `--me` will restrict the output to your jobs only
+
+    -   `--start` will give an estimated start time for each job. Note that this really doesn't say 
+        much as the scheduler cannot predict the future. On one hand, other jobs that are running
+        already or scheduled to run before your job, may have overestimated the time they need and
+        end early. But on the other hand, the scheduler does not use a "first come, first serve" policy
+        so another user may submit a job that gets a higher priority than yours, pushing back the start
+        time of your job. So it is basically a random number generator.
+
+-   To delete a job, use [`scancel <jobID>`](https://slurm.schedmd.com/archive/slurm-22.05.10/scancel.html)
 
 -   An important command to manage jobs while they are running is 
-    [`sstat -j <jobID>`](https://slurm.schedmd.com/archive/slurm-22.05.8/sstat.html).
+    [`sstat -j <jobID>`](https://slurm.schedmd.com/archive/slurm-22.05.10/sstat.html).
     This command display real-time information directly gathered from the resource manager
     component of Slurm and can also be used to show information about individual job steps using
-    the job step identifier (which is in most case `<jobID>.0` for the first rebular job step and so on).
-    The `sstat` command can display a lot more information than is shown by default. The output can
-    be adapted via the [`--format` or `-o` command line option](https://slurm.schedmd.com/archive/slurm-22.05.8/sstat.html#OPT_format)
-    with a list of options in the ["Job status fields" section of the manual page](https://slurm.schedmd.com/archive/slurm-22.05.8/sstat.html#SECTION_Job-Status-Fields).
+    the job step identifier (which is in most case `<jobID>.0` for the first regular job step and so on).
+    We will cover this command in more detail 
+    [further in the notes of this session](06_Slurm.md/#the-sstat-command).
 
--   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-22.05.8/sacct.html) can be used both while the
+-   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html) can be used both while the
     job is running and when the job has finished. It is the main command to get information about a job
     after the job has finished. All information comes from a database, also while the job is running, so 
     the information is available with some delay compared to the information obtained with `sstat` for
-    a running job. It will also produce information about individual job steps. Just as with `sstat`, the
-    fields to display can be selected via the
-    [`--format` or `-o` command line option](https://slurm.schedmd.com/archive/slurm-22.05.8/sacct.html#OPT_format) with an even
-    longer list in the ["Job accounting fields" section of the manual page](https://slurm.schedmd.com/archive/slurm-22.05.8/sacct.html#SECTION_Job-Accounting-Fields).
+    a running job. It will also produce information about individual job steps. 
+    We will cover this command in more detail 
+    [further in the notes of this session](06_Slurm.md/#the-sacct-command).
 
 The `sacct` command will also be used in various examples in this section of the tutorial to investigate
 the behaviour of Slurm.
@@ -683,9 +675,9 @@ For the `sbatch` command this are the `SBATCH_*` environment variables, for `sal
 the `SALLOC_*` environment variables and for `srun` the `SLURM_*` and some `SRUN_*` environment variables.
 For the `sbatch` command this will overwrite values on the `#SBATCH` lines. You can find
 lists in the manual pages of the 
-[`sbatch`](https://slurm.schedmd.com/archive/slurm-22.05.8/sbatch.html),
-[ `salloc`](https://slurm.schedmd.com/archive/slurm-22.05.8/salloc.html) and
-[`srun`](https://slurm.schedmd.com/archive/slurm-22.05.8/srun.html) command.
+[`sbatch`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html),
+[ `salloc`](https://slurm.schedmd.com/archive/slurm-22.05.10/salloc.html) and
+[`srun`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html) command.
 Specifying command line options via environment variables that are hidden in your
 `.profile` or `.bashrc` file or any script that you run before starting your work,
 is not free of risks. Users often forget that they set those environment variables and
@@ -810,11 +802,11 @@ and `--error=<template>` or `-e <template>` for stderr. They work together in th
 
 It is possible to insert codes in the filename that will be replaced at runtime with the corresponding Slurm 
 information. Examples are `%x` which will be replaced with the name of the job (that you can then best set with
-`--job-name`) and `%j`` which will be replaced with the job ID (job number). It is recommended to always include 
+`--job-name`) and `%j` which will be replaced with the job ID (job number). It is recommended to always include 
 the latter in the template for the filename as this ensures unique names if the same job script would be run a 
 few times with different input files. Discussing all patterns that can be used for the filename is outside the
-scope of this tutorial, but you can find them all in the [sbatch manual page](https://slurm.schedmd.com/archive/slurm-22.05.8/sbatch.html)
-in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-22.05.8/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E).
+scope of this tutorial, but you can find them all in the [sbatch manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html)
+in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E).
 
 
 ## Requesting resources: CPUs and GPUs
@@ -880,7 +872,8 @@ pros and cons. We'll call them "per-node allocations" and "per-core allocations"
     but they may produce a warning or may not run at all if the job step cannot be mapped on the resources allocated to 
     the job.
 
-    More importantly, most options to do binding (See the next session) cannot be used or don't make sense anyway as there
+    More importantly, most options to do binding (see the [next chapter](07_Binding.md))
+    cannot be used or don't make sense anyway as there
     is no guarantee your cores will be allocated in a dense configuration.
 
     However, if you can live with those restrictions and if your job size falls within the limits of the "allocatable per 
@@ -888,10 +881,10 @@ pros and cons. We'll call them "per-node allocations" and "per-core allocations"
     you're only billed for the minimal amount of resources that are made unavailable by your job.
 
 This choice is something you need to think about in advance and there are no easy guidelines. Simply say "use the first 
-strategy if your job fills whole nodes anyway and the second one otherwise unless you'd need more than 4 nodes" doesn't
+strategy if your job fills whole nodes anyway and the second one otherwise" doesn't
 make sense as your job may be so sensitive to its mapping to resources that it could perform very badly in the second case.
-The real problem is that there is no good way in Slurm to ask for a number of L3 cache domains (CPU chiplets), a number
-of NUMA domains or a number of sockets and also no easy way to always do the proper binding if you would get resources
+The real problem is that there is no good way in Slurm to ask for a number of L3 cache regions (CPU chiplets), a number
+of NUMA node or a number of sockets and also no easy way to always do the proper binding if you would get resources
 that way (but that is something that can only be understood after the next session). If a single job needs only a half 
 node and if all jobs take about the same time anyway, it might be better to bundle them by hand in jobs and do a proper
 mapping of each subjob on the available resources (e.g., in case of two jobs on a CPU node, map each on a socket).
@@ -912,7 +905,7 @@ The partition is specified using `--partition=<partition` or `-p <partition>`.
 The number of nodes is specified with `--nodes=<number_of_nodes>` or its short form 
 `-N <number_of_nodes>`.
 
-IF you want to use a per-node allocation on a partition which is allocatable-by-resources such as small
+If you want to use a per-node allocation on a partition which is allocatable-by-resources such as small
 and small-g, you also need to specify the `--exclusive` flag. On LUMI this flag does not have the same
 effect as running on a partition that is allocatable-by-node. The `--exclusive` flag does allocate
 all cores and GPUs on the node to your job, but the memory use is still limited by other parameters in
@@ -1113,7 +1106,7 @@ As these options are also forwarded to `srun`, it will save you from specifying 
 
 Serial or shared-memory multithreaded programs in a batch script can in principle be run in 
 the batch job step. As we shall see though the effect may be different from what you expect. 
-However, if you are working interactively via `salloc` you are in a shell on the node on which
+However, if you are working interactively via `salloc`, you are in a shell on the node on which
 you called `salloc`, typically a login node, and to run anything on the compute nodes you 
 will have to start a job step.
 
@@ -1132,21 +1125,21 @@ resources are for each individual task, but this scheme is an easy scheme:
 1.  Specifying the number of tasks: You can specify per node or the total number:
 
     1.  Specifying the total number of tasks: 
-        [`--ntasks=<ntasks` or `-n ntasks`](https://slurm.schedmd.com/archive/slurm-22.05.8/srun.html#OPT_ntasks).
+        [`--ntasks=<ntasks` or `-n ntasks`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks).
         There is a risk associated to this approach which is the same as when specifying the
-        total number of GPUs for a job: IF you change the number of nodes, then you should
+        total number of GPUs for a job: If you change the number of nodes, then you should
         change the total number of tasks also. However, it is also very useful in certain cases.
         Sometimes the number of tasks cannot be easily adapted and does not fit perfectly into
         your allocation (cannot be divided by the number of nodes). In that case, specifying the
         total number of nodes makes perfect sense.
 
     2.  Specifying on a per node basis: 
-        [`--ntasks-per-node=<ntasks>`](https://slurm.schedmd.com/archive/slurm-22.05.8/srun.html#OPT_ntasks-per-core) 
+        [`--ntasks-per-node=<ntasks>`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks-per-core) 
         is possible in combination with `--nodes` according to the Slurm manual. 
         In fact, this would be a logical thing to do in a per node allocation. 
         **However, we see it fail on LUMI when it is used as an option for `srun` and not with `sbatch`, 
         even though it should work
-        [according to the documentation](https://slurm.schedmd.com/archive/slurm-22.05.8/srun.html#OPT_ntasks-per-core).**
+        [according to the documentation](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks-per-core).**
 
         The reason for the failure is that Slurm when starting a batch job defines a large number of `SLURM_*` and
         `SRUN_*` variables. Some only give information about the allocation, but others are picked up by `srun` as
@@ -1167,7 +1160,7 @@ resources are for each individual task, but this scheme is an easy scheme:
 3.  Specifying the number of GPUs per task. Following the Slurm manuals, the following
     seems the easiest way:
 
-    1.  Use `--gpus-per-task=>number_GPUs>` to bind one or more GPUs to each task.
+    1.  Use `--gpus-per-task=<number_GPUs>` to bind one or more GPUs to each task.
         This is probably the most used option in this scheme.
 
     2.  If however you want multiple tasks to share a GPU, then you should use 
@@ -1178,16 +1171,7 @@ resources are for each individual task, but this scheme is an easy scheme:
 The job steps created in this simple scheme do not always run the programs at optimal efficiency. Slurm has various
 strategies to assign tasks to nodes, and there is an option which we will discuss in the next session
 of the course (binding) to change that. Moreover, not all clusters use the same default setting for this
-strategy. Cores and CPUs are assigned in order and this is not always the best order.
-
-It is particularly difficult to get a good distribution on the GPU nodes because of the single core
-reserved for low noise mode, which leaves the system in a very asymmetric state: There is one L3 cache
-domain with 7 available cores (the first one) and 7 with 8 available cores. Assume you want to use one
-task per GPU then there is no easy way to get each task bound to its own L3 cache domain. Any
-strategy trying this with 8 cores per task will fail as there are no 64 cores available, while using
-7 cores per task will set the first task on the first cache domain, the second task on the second cache 
-domain, but the third task will already start on the last core of the second cache domain.
-There are solutions to this problem which we will discuss in the session on binding.
+strategy. Cores and GPUs are assigned in order and this is not always the best order.
 
 It is also possible to specify these options already on `#SBATCH` lines. Slurm will transform those
 options into `SLURM_*` environment variables that will then be picked up by `srun`. However, this 
@@ -1605,9 +1589,9 @@ partitions that enable users to define jobs that use only a part of a node. This
 the user to only request the resources that are really needed for the job (and only get billed for
 those at least if they are proportional to the resources that a node provides), but also comes
 with the disadvantage that it is not possible to control how cores and GPUs are allocated
-within a node. Codes that depend on proper mapping of threads and processes on L3 cache domains,
-NUMA domains or sockets, or on shortest paths between cores in a task and the associated GPU(s) 
-may see an unpredictable performance lossas (a) the mapping will rarely be optimal unless you are
+within a node. Codes that depend on proper mapping of threads and processes on L3 cache regions,
+NUMA nodes or sockets, or on shortest paths between cores in a task and the associated GPU(s) 
+may see an unpredictable performance losses (a) the mapping will rarely be optimal unless you are
 very lucky (and always be suboptimal for GPUs in the current LUMI setup) and (b) will also depend
 on other jobs already running on the set of nodes assigned to your job.
 
@@ -1617,7 +1601,7 @@ Unfortunately,
     account when assigning resources to a job or task in a job, and
 
 2.   Slurm does not support the hierarchy in the compute nodes of LUMI. There is no way to specifically
-     request all cores in a socket, NUMA domain or L3 cache domain. It is only possible on a per-node level
+     request all cores in a socket, NUMA node or L3 cache region. It is only possible on a per-node level
      which is the case that we already discussed.
 
 Instead, you have to specify the task structure in the `#SBATCH` lines of a job script or as the command line
@@ -1666,7 +1650,7 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
 
 3.  Specifying the number of GPUs per task. The easiest way here is:
 
-    1.  Use `--gpus-per-task=>number_GPUs>` to bind one or more GPUs to each task.
+    1.  Use `--gpus-per-task=<number_GPUs>` to bind one or more GPUs to each task.
         This is probably the most used option in this scheme.
 
     2.  If however you want multiple tasks to share a GPU, then you should use 
@@ -1674,7 +1658,7 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
         However, at the time of writing this does not work properly.
 
     While this does ensure a proper distribution of GPUs across nodes compatible with the 
-    distrubtions of cores to run the requested tasks, we will again run into binding issues
+    distributions of cores to run the requested tasks, we will again run into binding issues
     when these options are propagated to `srun` to create the actual job steps, and hre this
     is even more tricky to solve.
 
@@ -2178,11 +2162,11 @@ With this statement, the job defined by the job script `jobdpend.slurm` will not
 given jobID has ended successfully (and you may have to clean up the queue if it never ends successfully). But 
 there are other possibilities also, e.g., start another job after a list of jobs has ended, or after a job has
 failed. We refer to the 
-[sbatch manual page](https://slurm.schedmd.com/archive/slurm-22.05.8/sbatch.html) where you should 
-[look for `--dependency` on the page](https://slurm.schedmd.com/archive/slurm-22.05.8/sbatch.html#OPT_dependency).
+[sbatch manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html) where you should 
+[look for `--dependency` on the page](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html#OPT_dependency).
 
 It is also possible to automate the process of submitting a chain of dependent jobs. For this the
-`sbatch` flag [`--parsable`](https://slurm.schedmd.com/archive/slurm-22.05.8/sbatch.html#OPT_parsable)
+`sbatch` flag [`--parsable`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html#OPT_parsable)
 can be used which on LUMI will only print the job number of the job being submitted. So to 
 let the job defined by `jobdepend.slurm` run after the job defined by `jobfirst.slurm` while 
 submitting both at the same time, you can use something like
@@ -2236,7 +2220,7 @@ It is possible to obtain an interactive shell on the first allocated compute nod
 srun --pty $SHELL
 ```
 
-(which is nothing more is specified would give you a single core for the shell),
+(which if nothing more is specified would give you a single core for the shell),
 but keep in mind that this takes away resources from other job steps so if you try to
 start further job steps from that interactive shell you will note that you have fewer 
 resources available, and will have to force overlap (with `--overlap`),
@@ -2307,7 +2291,7 @@ further job steps with `srun` within the same allocation as the interactive shel
 fills a task slot, so you'd have to overlap if you want to use all resources of the job in the 
 next job step. 
 
-For this kind of work you';ll rarely need a whole node so small and small-g will likely be your
+For this kind of work you'll rarely need a whole node so small and small-g will likely be your
 partitions of choice.
 
 To start such a job, you'd use 
@@ -2341,7 +2325,7 @@ Instead you need to use Slurm to attach a shell to an already running job. This 
 allocation but need to tell `srun` to use an existing allocation. As there is already an allocation,
 `srun` does not need your project account in this case. Second, usually the job will be using all its
 resources so there is no room in the allocation to create another job step with the interactive shell.
-This is solved by teslling `srun` that the resources should overlap with those already in use.
+This is solved by telling `srun` that the resources should overlap with those already in use.
 
 To start an interactive shell on the first allocated node of a specific job/allocation, use
 
@@ -2401,14 +2385,14 @@ value for each job of the job array, varying in the range given at job submissio
 This enables to distinguish between the different runs and can be used to generate names of
 input and output files.
 
-Submitting this job script and running it for values of `SLURM_ARRAY_TASK_ID` going from 1 to 100
+Submitting this job script and running it for values of `SLURM_ARRAY_TASK_ID` going from 1 to 50
 could be done with 
 
 ``` bash
-$ sbatch --array 1-100 job_array.slurm
+$ sbatch --array 1-50 job_array.slurm
 ```
 
-Note that this will count for 100 Slurm jobs so the size of your array jobs on LUMI is limited by the
+Note that this will count for 50 Slurm jobs so the size of your array jobs on LUMI is limited by the
 rather strict limit on job size. LUMI is made as a system for big jobs, and is a system with a lot of
 users, and there are only that many simultaneous jobs that a scheduler can deal with. Users doing 
 throughput computing should do some kind of hierarchical scheduling, running a subscheduler in the 
@@ -2423,8 +2407,8 @@ job that then further start subjobs.
 
 A heterogeneous job is one in which multiple executables run in a single `MPI_COMM_WORLD`, or a single
 executable runs in different combinations (e.g., some multithreaded and some single-threaded MPI ranks where
-the latter take a different code path from the former and do a different task). Onme example is large 
-simulation codes that use separate I/O servers to take care of the parallel IO ot the file system.
+the latter take a different code path from the former and do a different task). One example is large 
+simulation codes that use separate I/O servers to take care of the parallel I/O ot the file system.
 
 There are two ways to start such a job:
 
@@ -2540,7 +2524,7 @@ bugs are being introduced.
     4285795+1.1  hybrid_ch+            project_4+        512  COMPLETED      0:0 
     ```
 
-    The warning at the start can be safely ignored. It jsut shows how heterogeneous job
+    The warning at the start can be safely ignored. It just shows how heterogeneous job
     were an afterthought in Slurm and likely implemented in a very dirty way. We see that
     we get what we expected: 32 MPI ranks on the first node of the allocation, then 4 on 
     each of the other two nodes.
@@ -2859,7 +2843,7 @@ JobID          AllocCPUS          MinCPU          AveCPU     MaxRSS     AveRSS
 ```
 
 This is again the two node MPI job that we've used in the previous example. We used
-`--unbits=M` to get the memory use per task in megabytes, which is the proper option
+`--units=M` to get the memory use per task in megabytes, which is the proper option
 here as tasks are relatively small (but not uncommonly small for an HPC system when a 
 properly scaling code is used). The `%15` is used to specify the width of the field
 as otherwise some of that information could be truncated (and the width of 15 would have
