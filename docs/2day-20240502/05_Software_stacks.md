@@ -683,11 +683,11 @@ it can be turned on.
 !!! Demo "The output of this command looks like:"
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_01.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_02.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
     </figure>
 
 
@@ -707,14 +707,14 @@ eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
     results in:
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_03.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
     </figure>
 
     EasyBuild detects PLUMED is a dependency and because of the `-r` option, it first installs the
     required version of PLUMED.
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_04.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
     </figure>
 
     When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
@@ -729,19 +729,19 @@ eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
     MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_05.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_06.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_07.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACS_08.png){ loading=lazy }
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-05-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
     </figure>
 
 This takes too long to wait for, but once it finished the software should be available
