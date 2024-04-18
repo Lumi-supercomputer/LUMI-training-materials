@@ -2644,7 +2644,7 @@
 <p><img alt="Slide What are we talking about" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/WhatAbout.png" /></p>
 </figure>
 <p><strong>Distribution</strong> is the process of distributing processes and threads across the available
-resources of the job (nodes, sockets, NUMA domains, cores, ...), and <strong>binding</strong> is the process
+resources of the job (nodes, sockets, NUMA nodes, cores, ...), and <strong>binding</strong> is the process
 of ensuring they stay there as naturally processes and threads are only bound to a node 
 (OS image) but will migrate between cores. Binding can also ensure that processes cannot use
 resources they shouldn't use.</p>
@@ -2722,11 +2722,12 @@ per-node per-job basis.</p>
     are available to the process through the use of the <code>ROCR_VISIBLE_DEVICES</code> environment variable.</p>
 </li>
 </ul>
-<p>Binding only makes sense on job-exclusive nodes as only then you have full control over all available 
+<p>Binding almost only makes sense on job-exclusive nodes as only then you have full control over all available 
 resources. On <a href="../06_Slurm/#partitions">"allocatable by resources"</a> partitions 
-you usually do not know which resources are available.
+you usually do not know which resources are available. 
 The advanced Slurm binding options that we will discuss do not work in those cases, and the options offered
-by the MPICH, OpenMP and ROCm runtimes may work very unpredictable. </p>
+by the MPICH, OpenMP and ROCm runtimes may work very unpredictable, though OpenMP thread binding may still 
+help a bit with performance in some cases.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note also that some <code>srun</code> options that we have seen (sometimes already given at the <code>sbatch</code> or <code>salloc</code> level
@@ -2810,7 +2811,7 @@ corresponding hardware threads 64, 72, ..., but on LUMI this is not yet the case
 Don't be surprised if when running a GPU code you see a lot of activity on core 0. It is caused by the ROCm<sup>TM</sup> driver
 and is precisely the reason why that core is reserved, as that activity would break scalability of applications that expect
 to have the same amount of available compute power on each core.</p>
-<p>Note that even with <code>--hint=nomulthread</code> the hardware threads will still be turned on at the hardware level and be visible in the 
+<p>Note that even with <code>--hint=nomultithread</code> the hardware threads will still be turned on at the hardware level and be visible in the 
 OS (e.g., in <code>/proc/cpuinfo</code>). In fact, the batch job step will use them, but they will not be used by applications in job steps
 started with subsequent <code>srun</code> commands.</p>
 <!-- Script cpu-numbering-demo1 -->
@@ -3140,7 +3141,10 @@ and will by default pin each thread to a different hardware thread if possible.<
 </details>
 <h2 id="gpu-numbering">GPU numbering<a class="headerlink" href="#gpu-numbering" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Slide GPU numbering" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumbering_2.png" /></p>
+<p><img alt="Slide GPU numbering (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumbering_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide GPU numbering (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumbering_2.png" /></p>
 </figure>
 <p>The numbering of the GPUs is a very tricky thing on LUMI.</p>
 <p>The only way to reliably identify the physical GPU is through the PCIe bus ID. This does not change over time 
@@ -3165,6 +3169,7 @@ the HIP runtime will number the GPUs that are available from 0 on.</p>
 <p><img alt="Slide GPU Numbering - Remarks" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/GPUNumberingRemarks.png" /></p>
 </figure>
 <!-- Script gpu-numbering-demo1 -->
+<!-- TODO re-run this example to check the output. -->
 <!-- ``` {.bash linenos=true linenostart=1 .copy}  -->
 <details class="technical">
 <summary>A more technical example demonstrating what Slurm does (click to expand)</summary>
@@ -3277,9 +3282,6 @@ Machine (503GB total) + Package P#0
           PCI d1:00.0 (Display)
             GPU(RSMI) &quot;rsmi4&quot;
     L3 P#1 (32MB)
-      L2 P#8 (512KB) + L1d P#8 (32KB) + L1i P#8 (32KB) + Core P#8
-        PU P#8
-        PU P#72
       L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
         PU P#9
         PU P#73
@@ -3314,8 +3316,8 @@ Machine (503GB total) + Package P#0
           Net &quot;nmn0&quot;
 ...
 </code></pre></div>
-<p>We see only 7 cores in the first block (the lines <code>L2 ... + L1d ... + L1i ... + Core ...</code>)
-because the first physical core is reserved for the OS. </p>
+<p>We see only 7 cores in the each block (the lines <code>L2 ... + L1d ... + L1i ... + Core ...</code>)
+because the first physical core on each CCD is reserved for the OS. </p>
 <p>The <code>lstopo -p</code> output also clearly suggests that each GCD has a special link to a particular CCD</p>
 <p>Next check the output generated by lines 22 and 23 where we select the lines that show information
 about the GPUs and print some more information:</p>
@@ -3340,7 +3342,7 @@ about the GPUs and print some more information:</p>
 ROCR_VISIBLE_DEVICES at the start of the job script: 0,1,2,3,4,5,6,7
 </code></pre></div>
 <p>All 8 GPUs are visible and note the numbering on each line below the line with the PCIe bus ID. 
-We also notice that <code>ROCR_VISIBLE_DEVICSES</code> was set by Slurm and includes all 8 GPUs.</p>
+We also notice that <code>ROCR_VISIBLE_DEVICES</code> was set by Slurm and includes all 8 GPUs.</p>
 <p>Next we run two tasks requesting 4 GPUs and a single core without hardware threading each. 
 The output of those two tasks is gathered in files that are then sent to the standard 
 output in lines 28 and 30:</p>
@@ -3387,6 +3389,8 @@ were named <code>rsmi4</code> till <code>rsmi7</code> before.
 The other 4 GPUs are invisible in each of the tasks. Note also that in both tasks 
 <code>ROCR_VISIBLE_DEVICES</code> has the same value <code>0,1,2,3</code> as the numbers detected by <code>lstopo</code> in that
 task are used. </p>
+<p>The <code>lstopo</code> command does see two cores though for each task (but they are the same) because
+the cores are not isolated by cgroups on a per-task level, but on a per-job level.</p>
 <p>Finally we have the output of the <code>gpu_check</code> command run in the same configuration. The <code>-l</code> option
 that was used prints some extra information that makes it easier to check the mapping: For the hardware
 threads it shows the CCD and for each GPU it shows the GCD number based on the physical order of the GPUs
@@ -3700,7 +3704,7 @@ srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000
 Both commands define a binding (the latter in combination with the default <code>--gpu-bind=threads</code>) 
 and these will usually conflict.</p>
 <p>There are more options, but these are currently most relevant ones on LUMI. That may change in the future as
-LUMI User support is investigating whether it isn't better to change the concept of "socket" in Slurm given how important it
+LUMI User Support is investigating whether it isn't better to change the concept of "socket" in Slurm given how important it
 sometimes is to carefully map onto L3 cache domains for performance.</p>
 <h2 id="task-to-gpu-binding-with-slurm">Task-to-GPU binding with Slurm<a class="headerlink" href="#task-to-gpu-binding-with-slurm" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
@@ -3708,9 +3712,9 @@ sometimes is to carefully map onto L3 cache domains for performance.</p>
 </figure>
 <p><strong>Doing the task-to-GPU binding fully via Slurm is currently not recommended on LUMI. 
 The problem is that Slurm uses control groups at the task level rather than just <code>ROCR_VISIBLE_DEVICES</code>
-with the latter being more or less the equivalent of affinity masks. As sue to the control groups
-the other GPUs in a job step on a node become completely invisible to a task, communication between
-tasks through shared memory becomes impossible.</strong></p>
+with the latter being more or less the equivalent of affinity masks. When using control groups this way,
+the other GPUs in a job step on a node become completely invisible to a task, and the
+Peer2Peer IPC mechanism for communication cannot be used anymore.</strong></p>
 <p>We present the options for completeness, and as it may still help users if the control group setup
 is not a problem for the application.</p>
 <p>Task-to-GPU binding is done with</p>
@@ -3726,7 +3730,7 @@ which is somewhat similar to <code>--cpu-binding</code> (to the extent that that
 </li>
 <li>
 <p><code>--gpu-bind=none</code>: Turns off the GPU binding of Slurm. This can actually be useful on shared node
-    jobs where doing a proper allocation of GPUS is difficult. You can then first use Slurm options such 
+    jobs where doing a proper allocation of GPUs is difficult. You can then first use Slurm options such 
     as <code>--gpus-per-task</code> to get a working allocation of GPUs and CPUs, then un-bind and rebind using a 
     different mechanism that we will discuss later.</p>
 </li>
@@ -4045,10 +4049,10 @@ or cache constrained and using fewer threads actually gives better overall perfo
 <li><code>OMP_PLACES=sockets</code> to restrict each OpenMP thread to the hardware threads of a single socket</li>
 <li>
 <p>And it is possible to give a list with explicit values, e.g.,</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span><span class="s2">&quot;{0:4}:4:4&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span><span class="s2">&quot;{0:4}:3:8&quot;</span>
 </code></pre></div>
 <p>which is also equivalent to</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span><span class="s2">&quot;{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span><span class="s2">&quot;{0,1,2,3},{8,9,10,11},{16,17,18,19}&quot;</span>
 </code></pre></div>
 <p>so each OpenMP thread is restricted to a different group of 4 hardware threads. The numbers in the list are not
 the physical Linux hardware thread numbers, but are relative to the hardware threads available in the 
@@ -4178,7 +4182,7 @@ Running 4 threads in a single process
 ++ omp_check: OpenMP thread   3/4   on cpu  14/256 of nid001077 mask 0-15
 </code></pre></div>
 <p><code>OMP_PROC_BIND</code> was explicitly set to false to disable the Cray Compilation Environment default behaviour.
-The masks reported by <code>omp_Check</code> cover all hardware threads available to the task in Slurm: Both hardware
+The masks reported by <code>omp_check</code> cover all hardware threads available to the task in Slurm: Both hardware
 threads for the 16 first cores in the multithread case and just the primary hardware thread on the first 16 cores
 in the second case. So each OpenMP thread can in principle migrate over all available hardware threads.</p>
 <p>In the second block we unset the <code>PROC_BIND</code> environment variable to demonstrate the behaviour of the
@@ -4617,8 +4621,8 @@ srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=$CPU_BIND2 ./select_gpu_$SLURM_JOB_
 </code></pre></div>
 <p>To select the GPUs we either use a map with numbers of cores (ideal for pure MPI programs)
 or masks (the only option for hybrid programs). The mask that we give in the example uses
-7 cores per CCD and always skips the first core, so it is symmetric and works on the current
-configuration of LUMI or a configuration like Frontier where the first core of each chiplet
+7 cores per CCD and always skips the first core, as is required on LUMI as
+the first core of each chiplet
 is reserved and not available to Slurm jobs. To select the right GPU for <code>ROCR_VISIBLE_DEVICES</code> 
 we can use the Slurm local task ID which is 
 also what the MPI rank will be. 
@@ -4650,6 +4654,9 @@ mapping is as intended. Note that the GCDs are indeed in the linear order starti
 </figure>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide GPU binding: Implementation: Linear CCD, match GCD, OpenMP" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/ROCRMechanismLinearCCD2.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-07-binding/ROCRMechanismLinearCCD3.png" /></p>
 </figure>
 <p>To modify the order of the GPUs, we now use an array with the desired order in the <code>select_gpu</code> script.
 With the current setup of LUMI, with one core reserved on each chiplet, there are now two options
@@ -5023,8 +5030,9 @@ resources allocated via the <code>sbatch</code> arguments (usually <code>#SBATCH
 <p>And each task also has a local ID that can be used to map the appropriate number of GPUs to each task.</p>
 </li>
 </ol>
-<p>This can be demonstrated with the following job script:</p>
-<!-- map-smallg-1gpt.slurm -->
+<div class="admonition demo">
+<p class="admonition-title">This can be demonstrated with the following job script:</p>
+<p><!-- map-smallg-1gpt.slurm -->
 <div class="highlight"><pre><span></span><code>#! /bin/bash
 #SBATCH --account=project_46YXXXXXX
 #SBATCH --job-name=map-smallg-1gpt
@@ -5061,7 +5069,7 @@ srun --gpu-bind=none ./select_gpu_$SLURM_JOB_ID gpu_check -l
 set +x
 
 /bin/rm -f select_gpu_$SLURM_JOB_ID echo_dev_$SLURM_JOB_ID
-</code></pre></div>
+</code></pre></div></p>
 <p>To run this job successfully, we need 12 GPUs so obviously the tasks will be spread over more than 
 one node. The <code>echo_dev</code> command in this script only shows us the value of <code>ROCR_VISIBLE_DEVICES</code> 
 for the task at that point, something that <code>gpu_check</code> in fact also reports as <code>GPU_ID</code>, but this
@@ -5176,6 +5184,7 @@ MPI 010 - OMP 001 - HWT 006 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 2 - B
 MPI 011 - OMP 000 - HWT 007 (CCD0) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
 MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID cc(GCD3/CCD3)
 </code></pre></div>
+</div>
 <details class="example">
 <summary>Example job script when using 2 GPUs per task.</summary>
 <p><!-- map-smallg-2gpt.slurm -->
