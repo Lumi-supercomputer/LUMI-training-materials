@@ -2614,13 +2614,14 @@ can go without loosing too much reliability) and very cleverly written software
 both at the system level (to make the system look like a true single system as
 much as possible) and at the application level (to deal with the restrictions that
 inevitably come with such a setup).</p>
-<p>The Lustre parallel file system that we use on LUMI (and is its main file system serving
+<p>The Lustre parallel file system that we use on LUMI (and that is its main file system serving
 user files) fits in that way of thinking.
 A large file system is built by linking many fairly regular file servers
 through a fast network to the compute resources to build a single system
 with a lot of storage capacity and a lot of bandwidth.
-It has its restrictions also though: IOPs (number of I/O operations per second)
-doesn't scale as well or as easily as bandwidth and capacity so this comes with
+It has its restrictions also though: 
+not all types of IOPs (number of I/O operations per second)
+scale as well or as easily as bandwidth and capacity so this comes with
 usage restrictions on large clusters that may a lot more severe than you are used
 to from small systems. And yes, it is completely normal that some file operations are
 slower than on the SSD of a good PC.</p>
@@ -2667,7 +2668,7 @@ to survive disk failures. One OSS typically has between 1 and 8 OSTs, and in a b
 a high availability setup will be used again (as is the case in LUMI).</p>
 <p>The total capacity of a Lustre file system is the sum of the capacity of all OSTs in the 
 Lustre file system. Lustre file systems are often many petabytes large.</p>
-<p>Now you may think different from prices that you see in the PC market for hard drives
+<p>Now you may think differently based upon prices that you see in the PC market for hard drives
 and SSDs, but SSDs of data centre quality are still up to 10 times as expensive as 
 hard drives of data centre quality. Building a file system of several tens of petabytes
 out of SSDs is still extremely expensive and rarely done, certainly in an environment 
@@ -2871,7 +2872,7 @@ for a single file is not useful at all in this case, and you will also have no p
 accessing multiple files that may be stored on different OSTs. The metadata operations may also
 be rather expensive compared to the cost of reading the file once opened.</p>
 <p>As a rule of thumb, if you access a lot of data with a data access pattern that can exploit
-parallelism, try to use all OSTs of the Lustre file system:</p>
+parallelism, try to use all OSTs of the Lustre file system without unnecessary overloading them:</p>
 <ul>
 <li>
 <p>If the number of files that will be accessed simultaneously is larger than the number of
@@ -2928,7 +2929,7 @@ filesystem, with the capacity.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Managing the striping parameters (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-08-lustre/LustreManageStriping2.png" /></p>
 </figure>
-<p>Striping in Lustre can be set at a filesystem level by the sysadmins, but users can
+<p>Striping in Lustre is set at a filesystem level by the sysadmins, but users can
 adjust the settings at the directory level (which then sets the default for files
 created in that directory) and file level. Once a file is created, the striping
 configuration cannot be changed anymore on-the-fly. </p>
@@ -2944,7 +2945,7 @@ stripe_count:  0 stripe_size:   0 pattern:       0 stripe_offset: -1
 everything in that directory. The first <code>lfs getstripe</code> command tells us that files 
 created in this directory will use only a single OST and have a stripe size of 1 MiB. 
 By adding the <code>--raw</code> we actually see the settings that have been made specifically
-for this directory. The - for <code>stripe_count</code> and <code>stripe_size</code> means that the default
+for this directory. The <code>0</code> for <code>stripe_count</code> and <code>stripe_size</code> means that the default
 value is being used, and the <code>stripe_offset</code> of <code>-1</code> also indicates the default value.</p>
 <p>We can also use <code>lfs getstripe</code> for individual files:</p>
 <div class="highlight"><pre><span></span><code>$ lfs getstripe /appl/lumi/LUMI-SoftwareStack/etc/motd.txt
@@ -2989,7 +2990,7 @@ lmm_stripe_offset: 28
              1        71789920      0x4476d60                0
              5        71781120      0x4474b00                0
 </code></pre></div>
-<p>The <code>lumi-training-tools</code> module only serves to provide the <code>mkfile</code> command that we use in
+<p>The <code>lumi-training-tools</code> module provides the <code>mkfile</code> command that we use in
 this example.</p>
 <p>We first create a directory and then set the striping parameters to a stripe size
 of 2 MiB (the <code>-S</code> flag) and a so-called stripe count, the number of OSTs used for 
@@ -3033,7 +3034,10 @@ your package. Few scientific packages seem to support it though.</p>
 </div>
 <h2 id="the-metadata-servers">The metadata servers<a class="headerlink" href="#the-metadata-servers" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="The metadata servers" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-08-lustre/LustreMDS.png" /></p>
+<p><img alt="The metadata servers (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-08-lustre/LustreMDS_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="The metadata servers (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-08-lustre/LustreMDS_2.png" /></p>
 </figure>
 <p>Parallelising metadata access is very difficult. Even large Lustre filesystems have very
 few metadata servers. They are a finite and shared resource, and overloading the metadata
@@ -3049,7 +3053,7 @@ operations on a supercomputer with a large parallel file system and you will fin
 practices" pages on web sites of many large supercomputer centres. Some tips for regular users:</p>
 <ul>
 <li>
-<p>Any command that requests attributes if fairly expensive and should not be used 
+<p>Any command that requests attributes is fairly expensive and should not be used 
     in large directories. This holds even for something as trivial as <code>ls -l</code>. 
     But it is even more so for commands as <code>du</code> that run recursively through attributes
     of lots of files.</p>
@@ -3070,9 +3074,9 @@ from many processes simultaneously. Technologies popular in supercomputing are
 <a href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a>,
 <a href="https://www.unidata.ucar.edu/software/netcdf/">netCDF</a> and
 <a href="https://adios2.readthedocs.io/">ADIOS2</a>.
-Sometimes libraries to read tar-files or other archive file formats without first 
-fully uncompressing may even be enough for read-only data. 
-Or if your software runs into a container,
+Sometimes libraries that read tar-files or other archive file formats without first 
+fully uncompressing, may even be enough for read-only data. 
+Or if your software runs in a container,
 you may be able to put your read-only dataset into a 
 <a href="https://tldp.org/HOWTO/SquashFS-HOWTO/index.html">SquashFS file</a> and mount into a container.</p>
 </li>
@@ -3147,7 +3151,7 @@ keep the storage reasonably clean).</p>
 </li>
 <li>
 <p>Finally, each project also gets some fast scratch space on LUMI-F. The default amount of storage is 
-    12 TB, but can be extended to up to 100 TB. The number of inodes is limited to 1M, and data can be
+    2 TB, but can be extended to up to 100 TB. The number of inodes is limited to 1M, and data can be
     removed automatically after 30 days (but again this has not happened yet).</p>
 </li>
 </ul>
@@ -3192,9 +3196,11 @@ latency long-distance connections than tools as <code>sftp</code>. </p>
 which currently can only be done via a web interface, after which information about those credentials
 needs to be copied to configuration files or to fields in a GUI for GUI tools.</p>
 <p>Data on LUMI-O is persistent for the duration of the project. It is also billed, but as object storage
-is fairly cheap, is is billed at half the rate of LUMI-P.</p>
+is fairly cheap, is is billed at half the rate of LUMI-P. The quota are currently fixed at 150 TB per project, with a maximum of 1k buckets and 500k objects per bucket.</p>
 <p>This short course does not offer enough time to fully discuss working with the object storage of LUMI.
-For this we refer to <a href="https://docs.lumi-supercomputer.eu/storage/lumio/">the LUMI documentation</a>.</p>
+However, it was discussed to some extent already in the 
+<a href="../03_LUMI_access/">"Getting Access to LUMI" chapter</a> and there is also some info in
+<a href="https://docs.lumi-supercomputer.eu/storage/lumio/">the LUMI documentation</a>.</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
