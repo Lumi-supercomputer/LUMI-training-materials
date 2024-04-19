@@ -13,7 +13,7 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-1_05_Compilers_and_Parallel_Programming_Models.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-1_05_Compilers_and_Parallel_Programming_Models.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/1_05_Compilers_and_Parallel_Programming_Models.mp4`
 

@@ -15,7 +15,7 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-2_01_Advanced_Application_Placement.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-2_01_Advanced_Application_Placement.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/2_01_Advanced_Application_Placement.mp4`
 

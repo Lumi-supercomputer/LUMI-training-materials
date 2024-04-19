@@ -13,7 +13,7 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-4_04_IO_Optimization_Parallel_IO.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-4_04_IO_Optimization_Parallel_IO.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/4_04_IO_Optimization_Parallel_IO.mp4`
 

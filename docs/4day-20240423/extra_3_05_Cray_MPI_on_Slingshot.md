@@ -13,7 +13,7 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-3_05_Cray_MPI_on_Slingshot.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-3_05_Cray_MPI_on_Slingshot.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/3_05_Cray_MPI_on_Slingshot.mp4`
 

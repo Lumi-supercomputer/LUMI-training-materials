@@ -18,7 +18,7 @@ Materials on the web:
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-4_11_LUMI_Support_and_Documentation.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/4_11_LUMI_Support_and_Documentation.mp4`
 

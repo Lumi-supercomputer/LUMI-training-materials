@@ -19,11 +19,11 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Materials available on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
+-   [Slides on the web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`
 

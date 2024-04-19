@@ -82,7 +82,7 @@ In this part of the training, we cover:
 ### The LUMI solution
 
 <figure markdown style="border: 1px solid #000">
-  ![The LUMI solution](https://462000265.lumidata.eu/1day-20230921/img/LUMI-1day-20230921-04-software/SoftwareStacksTheLUMISolution.png){ loading=lazy }
+  ![The LUMI solution](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-software/SoftwareStacksTheLUMISolution.png){ loading=lazy }
 </figure>
 
 We tried to take all these considerations into account and came up with a solution that may look **a

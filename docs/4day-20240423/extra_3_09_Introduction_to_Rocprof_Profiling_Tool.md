@@ -19,11 +19,11 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Materials on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf)
+-   [Slides on the web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf)
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20231003-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf`
 
 -   Recording: `/appl/local/training/4day-20240423/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4`
 
