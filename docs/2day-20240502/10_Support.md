@@ -77,7 +77,7 @@ they tackle.
 -->
 
 <!-- GENERAL More general version -->
-EuroHPC has also granted the EPICURE project that starts in February 2024 to set up a network for
+EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. At the time of the course, the project is still in
 its startup phase. Moreover, this project is also so small that it will have to select the problems
 they tackle.
@@ -153,14 +153,6 @@ Moreover, CASTIEL, the centre coordinating the National Competence Centres and E
 
 ### Read/search the documentation
 
-<figure markdown style="border: 1px solid #000">
-  ![L0 support: Check the docs! (1)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs1.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![L0 support: Check the docs! (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs2.png){ loading=lazy }
-</figure>
-
 The LUST has developed extensive documentation for LUMI. That documentation is split in two parts:
 
 1.  The [main documentation at docs.lumi-supercomputer.eu](https://docs.lumi-supercomputer.eu/)
@@ -168,10 +160,18 @@ The LUST has developed extensive documentation for LUMI. That documentation is s
     system, where to place your files, how to start jobs, how to use the programming environment,
     how to install software, etc.
 
+    <figure markdown style="border: 1px solid #000">
+      ![L0 support: Check the docs! (1)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs1.png){ loading=lazy }
+    </figure>
+
 2.  The [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) contains
     an overview of software pre-installed on LUMI or for which we have install recipes to start from.
     For some software packages, it also contains additional information on how to use the software
     on LUMI.
+
+    <figure markdown style="border: 1px solid #000">
+      ![L0 support: Check the docs! (3)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs3.png){ loading=lazy }
+    </figure>
 
     That part of the documentation is generated automatically from information in the various repositories
     that are used to manage those installation recipes. It is kept deliberately separate, partly to have
@@ -181,7 +181,39 @@ The LUST has developed extensive documentation for LUMI. That documentation is s
 Both documentation systems contain a search box which may help you find pages if you cannot find them 
 easily navigating the documentation structure. E.g., you may use the search box in the LUMI Software Library
 to search for a specific package as it may be bundled with other packages in a single module with a 
-different name. E.g., try searching for the `htop` command.
+different name. 
+
+Some examples:
+
+1.  Search in the [main documentation at docs.lumi-supercomputer.eu](https://docs.lumi-supercomputer.eu/) 
+    for "quota" and it will take you to pages that among other things
+    explain how much quota you have in what partition.
+
+    <figure markdown style="border: 1px solid #000">
+      ![L0 support: Check the docs! (2)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs2.png){ loading=lazy }
+    </figure>
+
+2.  Users of the Finnish national systems have been told to use a tool called "Tykky"
+    to pack conda and Python installations to reduce the stress on the filesystems and
+    wonder if that tool is also on LUMI. So let's search in the
+    [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/):
+
+    <figure markdown style="border: 1px solid #000">
+      ![L0 support: Check the docs! (4)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs4.png){ loading=lazy }
+    </figure>
+
+    It is, but with a different name as foreigners can't pronounce those Finnish names
+    anyway and as something more descriptive was needed.
+
+3.  Try searching for the `htop` command in the 
+    [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+    
+    <figure markdown style="border: 1px solid #000">
+      ![L0 support: Check the docs! (5)](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs5.png){ loading=lazy }
+    </figure>
+
+    So yes, `htop` is on LUMI, but if you read the page you'll see it is in a module
+    together with some other small tools.
 
 
 ### Talk to your colleagues
@@ -256,8 +288,8 @@ There are some problems that we need to pass on to HPE or AMD, particularly if i
 bugs in system software, but also because they have more experts with in-depth knowledge of very specific
 tools. 
 
-The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Brussels time (except on public holidays
-in Finland). You can expect a same day first response if your support query is well formulated and submitted long
+The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Amsterdam time (CE(S)T) except on public holidays
+in Finland. You can expect a same day first response if your support query is well formulated and submitted long
 enough before closing time, but a full solution of your problem may of course take longer, depending on how busy
 the help desk is and the complexity of the problem.
 
@@ -633,7 +665,8 @@ As a result,
 
 -   Resource allocators are responsible for the first steps in getting a project and userid on
     LUMI. EuroHPC projects the support is offered through CSC,
-    the operator of LUMI, at lumi-customer-accounts@csc.fi.
+    the operator of LUMI, at lumi-customer-accounts@csc.fi, or by EuroHPC itself at
+    access@eurohpc-ju.europa.eu if you have not yet been granted a project by them.
 
     Once your project is created and accepted (and the resource allocator can confirm that you
     properly accepted the invitation), support for account problems (in particular login problems) 
