@@ -85,7 +85,7 @@ downloaded from LUMI.
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
 | [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
-| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf) | / | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
+| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf) | [web](notes_4_11_LUMI_Support_and_Documentation.md) | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
 -->
 
 

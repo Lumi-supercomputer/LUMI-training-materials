@@ -12,7 +12,9 @@ Course materials will be provided during and after the course.
 <!--
 Materials on the web:
 
--   [Slides (PDF)](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20231003-4_11_LUMI_Support_and_Documentation.pdf)
+-   [Full notes of the lecture](notes_4_11_LUMI_Support_and_Documentation.md)
+
+-   [Slides (PDF)](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf)
 
 Archived materials on LUMI:
 
