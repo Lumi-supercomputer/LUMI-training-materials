@@ -272,12 +272,11 @@ In general it is important to use some common sense when requesting resources an
 of what each Slurm parameter really means. Overspecifying resources (using more parameters than needed for the
 desired effect) may result in unexpected conflicts between parameters and error messages.
 
-<!--
 <figure markdown style="border: 1px solid #000">
   ![Slide Partitions 2](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/Partitions_2.png){ loading=lazy }
 </figure>
--->
 
+<!--
 <figure markdown style="border: 1px solid #000">
   ![Slide Partitions allocatable per node](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/PartitionsPerNode.png){ loading=lazy }
 </figure>
@@ -285,7 +284,7 @@ desired effect) may result in unexpected conflicts between parameters and error 
 <figure markdown style="border: 1px solid #000">
   ![Slide Partitions allocatable by resources](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/PartitionsByResources.png){ loading=lazy }
 </figure>
-
+-->
 
 For the overview of Slurm partitions, see the [LUMI documentation, "Slurm partitions" page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 In the overview on the slides we did not mention partitions that are hidden to regular users.
