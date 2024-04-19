@@ -2738,7 +2738,7 @@ they tackle.
 -->
 
 <!-- GENERAL More general version -->
-<p>EuroHPC has also granted the EPICURE project that starts in February 2024 to set up a network for
+<p>EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. At the time of the course, the project is still in
 its startup phase. Moreover, this project is also so small that it will have to select the problems
 they tackle.</p>
@@ -2802,12 +2802,6 @@ Moreover, CASTIEL, the centre coordinating the National Competence Centres and E
 <a href="https://www.eurocc-access.eu/services/training/">tries to maintain an overview of available trainings</a>
 (and several National Competence Centres organise trainings open to others also).</p>
 <h3 id="readsearch-the-documentation">Read/search the documentation<a class="headerlink" href="#readsearch-the-documentation" title="Permanent link">&para;</a></h3>
-<figure style="border: 1px solid #000">
-<p><img alt="L0 support: Check the docs! (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs1.png" /></p>
-</figure>
-<figure style="border: 1px solid #000">
-<p><img alt="L0 support: Check the docs! (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs2.png" /></p>
-</figure>
 <p>The LUST has developed extensive documentation for LUMI. That documentation is split in two parts:</p>
 <ol>
 <li>
@@ -2815,12 +2809,18 @@ Moreover, CASTIEL, the centre coordinating the National Competence Centres and E
     covers the LUMI system itself and includes topics such as how to get on the 
     system, where to place your files, how to start jobs, how to use the programming environment,
     how to install software, etc.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="L0 support: Check the docs! (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs1.png" />
+</figure></p>
 </li>
 <li>
 <p>The <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a> contains
     an overview of software pre-installed on LUMI or for which we have install recipes to start from.
     For some software packages, it also contains additional information on how to use the software
     on LUMI.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="L0 support: Check the docs! (3)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs3.png" />
+</figure></p>
 <p>That part of the documentation is generated automatically from information in the various repositories
 that are used to manage those installation recipes. It is kept deliberately separate, partly to have
 a more focused search in both documentation systems and partly because it is managed and updated
@@ -2830,7 +2830,38 @@ very differently.</p>
 <p>Both documentation systems contain a search box which may help you find pages if you cannot find them 
 easily navigating the documentation structure. E.g., you may use the search box in the LUMI Software Library
 to search for a specific package as it may be bundled with other packages in a single module with a 
-different name. E.g., try searching for the <code>htop</code> command.</p>
+different name. </p>
+<p>Some examples:</p>
+<ol>
+<li>
+<p>Search in the <a href="https://docs.lumi-supercomputer.eu/">main documentation at docs.lumi-supercomputer.eu</a> 
+    for "quota" and it will take you to pages that among other things
+    explain how much quota you have in what partition.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="L0 support: Check the docs! (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs2.png" />
+</figure></p>
+</li>
+<li>
+<p>Users of the Finnish national systems have been told to use a tool called "Tykky"
+    to pack conda and Python installations to reduce the stress on the filesystems and
+    wonder if that tool is also on LUMI. So let's search in the
+    <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="L0 support: Check the docs! (4)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs4.png" />
+</figure></p>
+<p>It is, but with a different name as foreigners can't pronounce those Finnish names
+anyway and as something more descriptive was needed.</p>
+</li>
+<li>
+<p>Try searching for the <code>htop</code> command in the 
+    <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a></p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="L0 support: Check the docs! (5)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0ReadTheDocs5.png" />
+</figure></p>
+<p>So yes, <code>htop</code> is on LUMI, but if you read the page you'll see it is in a module
+together with some other small tools.</p>
+</li>
+</ol>
 <h3 id="talk-to-your-colleagues">Talk to your colleagues<a class="headerlink" href="#talk-to-your-colleagues" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="L0 support: Talk to your colleagues" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-10-support/L0Colleagues.png" /></p>
@@ -2888,8 +2919,8 @@ by the team member who is most familiar with your problem. </p>
 <p>There are some problems that we need to pass on to HPE or AMD, particularly if it may be caused by 
 bugs in system software, but also because they have more experts with in-depth knowledge of very specific
 tools. </p>
-<p>The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Brussels time (except on public holidays
-in Finland). You can expect a same day first response if your support query is well formulated and submitted long
+<p>The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Amsterdam time (CE(S)T) except on public holidays
+in Finland. You can expect a same day first response if your support query is well formulated and submitted long
 enough before closing time, but a full solution of your problem may of course take longer, depending on how busy
 the help desk is and the complexity of the problem.</p>
 <p>Data security on LUMI is very important. Some LUMI projects may host confidential data, and especially industrial
@@ -3285,7 +3316,8 @@ partition. </p>
 <li>
 <p>Resource allocators are responsible for the first steps in getting a project and userid on
     LUMI. EuroHPC projects the support is offered through CSC,
-    the operator of LUMI, at lumi-customer-accounts@csc.fi.</p>
+    the operator of LUMI, at lumi-customer-accounts@csc.fi, or by EuroHPC itself at
+    access@eurohpc-ju.europa.eu if you have not yet been granted a project by them.</p>
 <p>Once your project is created and accepted (and the resource allocator can confirm that you
 properly accepted the invitation), support for account problems (in particular login problems) 
 moves to the LUST.</p>

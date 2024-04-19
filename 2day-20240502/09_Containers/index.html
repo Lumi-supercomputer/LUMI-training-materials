@@ -2881,7 +2881,7 @@ and adds software using system package managers, an unprivileged proot build is 
 If your definition file compiles and installs large complex software from source, 
 you may wish to investigate <code>--remote</code> or <code>--fakeroot</code> builds instead." 
 But on LUMI we cannot yet
-provide <code>--fakeroot</code> builds due to security constraints.</p>
+provide <code>--fakeroot</code> builds due to security constraints (as that process also requires user namespaces).</p>
 <!-- TODO: Do not forget to correct the link above to a new version of singularity. -->
 
 <p>We are also working on a number of base images to build upon, where the base images are tested with the
@@ -3061,7 +3061,7 @@ container, but a SquashFS file that is then mounted in a small existing base con
 However, the wrappers created for all commands in the <code>bin</code> subdirectory of the conda or
 Python installation take care of doing the proper bindings. If you want to use the container
 through singularity commands however, you'll have to do that mounting by hand.</p>
-<p>We do strongly recommend to use the container wrapper tool or cotainr for larger conda and Python installation.
+<p>We do strongly recommend to use cotainr or the container wrapper tool for larger conda and Python installation.
 We will not raise your file quota if it is to house such installation in your <code>/project</code> directory.</p>
 <details class="demo" open="open">
 <summary>Demo lumi-container-wrapper</summary>
@@ -3406,7 +3406,6 @@ this version of the script.</strong></p>
 <span class="c1">#SBATCH --nodes=4</span>
 <span class="c1">#SBATCH --gpus-per-node=8</span>
 <span class="c1">#SBATCH --tasks-per-node=8</span>
-<span class="c1">#SBATCH --cpus-per-task=7</span>
 <span class="c1">#SBATCH --output=&quot;output_%x_%j.txt&quot;</span>
 <span class="c1">#SBATCH --partition=standard-g</span>
 <span class="c1">#SBATCH --mem=480G</span>
@@ -3437,7 +3436,7 @@ singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> 
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 
     <code>run-pytorch.sh</code> script). 
     We use the
-    <a href="http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores">"Linear ssignment of GCD, then match the cores" strategy</a>.</p>
+    <a href="http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores">"Linear assignment of GCD, then match the cores" strategy</a>.</p>
 </li>
 <li>
 <p>Note the bindings. In this case we do not even bind the full <code>/project</code>, <code>/scratch</code> and <code>/flash</code> subdirectories,
@@ -3464,7 +3463,6 @@ It is in <code>$CONTAINERROOT/runscripts</code> or in the container as <code>/ru
 <span class="c1">#SBATCH --nodes=4</span>
 <span class="c1">#SBATCH --gpus-per-node=8</span>
 <span class="c1">#SBATCH --tasks-per-node=8</span>
-<span class="c1">#SBATCH --cpus-per-task=7</span>
 <span class="c1">#SBATCH --output=&quot;output_%x_%j.txt&quot;</span>
 <span class="c1">#SBATCH --partition=standard-g</span>
 <span class="c1">#SBATCH --mem=480G</span>
@@ -3485,7 +3483,8 @@ srun<span class="w"> </span>--cpu-bind<span class="o">=</span>mask_cpu:<span cla
 <p>So basically you only need to take care of the proper CPU bindings where we again use the
 <a href="http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores">"Linear ssignment of GCD, then match the cores" strategy</a>.</p>
 <h2 id="extending-the-containers">Extending the containers<a class="headerlink" href="#extending-the-containers" title="Permanent link">&para;</a></h2>
-<p>We can never provide all software that is needed for every user. But there are several mechanisms that can be used to
+<p>We can never provide all software that is needed for every user in our containers. 
+But there are several mechanisms that can be used to
 extend the containers that we provide:</p>
 <h3 id="extending-the-container-with-cotainr">Extending the container with <code>cotainr</code><a class="headerlink" href="#extending-the-container-with-cotainr" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
@@ -3547,7 +3546,7 @@ instead.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Extending containers with the singularity unprivileged proot build process" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-09-containers/ExtendingSingularityBuild.png" /></p>
 </figure>
-<p>Singularity specialist can also build upon an existing container using <code>singularity build</code>. 
+<p>Singularity specialists can also build upon an existing container using <code>singularity build</code>. 
 The options for build processes are limited though because we have no support for user namespaces or the fakeroot feature.
 The <a href="https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds">"Unprivileged <code>proot</code> builds" feature from recent SingularityCE versions</a>
 is supported though.</p>
