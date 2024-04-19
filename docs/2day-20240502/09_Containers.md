@@ -221,7 +221,7 @@ and adds software using system package managers, an unprivileged proot build is 
 If your definition file compiles and installs large complex software from source, 
 you may wish to investigate `--remote` or `--fakeroot` builds instead." 
 But on LUMI we cannot yet
-provide `--fakeroot` builds due to security constraints.
+provide `--fakeroot` builds due to security constraints (as that process also requires user namespaces).
 
 <!-- TODO: Do not forget to correct the link above to a new version of singularity. -->
 
@@ -473,7 +473,7 @@ However, the wrappers created for all commands in the `bin` subdirectory of the 
 Python installation take care of doing the proper bindings. If you want to use the container
 through singularity commands however, you'll have to do that mounting by hand.
 
-We do strongly recommend to use the container wrapper tool or cotainr for larger conda and Python installation.
+We do strongly recommend to use cotainr or the container wrapper tool for larger conda and Python installation.
 We will not raise your file quota if it is to house such installation in your `/project` directory.
 
 ???+demo "Demo lumi-container-wrapper"
@@ -885,7 +885,6 @@ And finally you need a job script that you can then submit with `sbatch`. LEts c
 #SBATCH --nodes=4
 #SBATCH --gpus-per-node=8
 #SBATCH --tasks-per-node=8
-#SBATCH --cpus-per-task=7
 #SBATCH --output="output_%x_%j.txt"
 #SBATCH --partition=standard-g
 #SBATCH --mem=480G
@@ -915,7 +914,7 @@ The important parts here are:
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 
     `run-pytorch.sh` script). 
     We use the
-    ["Linear ssignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores).
+    ["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores).
 
 
 
@@ -949,7 +948,6 @@ As the module also takes care of bindings, the job script is simplified to
 #SBATCH --nodes=4
 #SBATCH --gpus-per-node=8
 #SBATCH --tasks-per-node=8
-#SBATCH --cpus-per-task=7
 #SBATCH --output="output_%x_%j.txt"
 #SBATCH --partition=standard-g
 #SBATCH --mem=480G
@@ -974,7 +972,8 @@ So basically you only need to take care of the proper CPU bindings where we agai
 
 ## Extending the containers
 
-We can never provide all software that is needed for every user. But there are several mechanisms that can be used to
+We can never provide all software that is needed for every user in our containers. 
+But there are several mechanisms that can be used to
 extend the containers that we provide:
 
 ### Extending the container with `cotainr`
@@ -1041,7 +1040,7 @@ instead.
   ![Extending containers with the singularity unprivileged proot build process](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-09-containers/ExtendingSingularityBuild.png){ loading=lazy }
 </figure>
 
-Singularity specialist can also build upon an existing container using `singularity build`. 
+Singularity specialists can also build upon an existing container using `singularity build`. 
 The options for build processes are limited though because we have no support for user namespaces or the fakeroot feature.
 The ["Unprivileged `proot` builds" feature from recent SingularityCE versions](https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds)
 is supported though.
