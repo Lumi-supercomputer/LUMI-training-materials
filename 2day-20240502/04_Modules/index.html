@@ -1,0 +1,3470 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/04_Modules/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Modules on LUMI - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 0c17.7 0 32 14.3 32 32v64h120c39.8 0 72 32.2 72 72v272c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72h120V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zM264 256a40 40 0 1 0-80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224h16z"/></svg>');--md-admonition-icon--audience:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M72 88a56 56 0 1 1 112 0 56 56 0 1 1-112 0zm-8 157.7c-10 11.2-16 26.1-16 42.3s6 31.1 16 42.3v-84.6zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5V416c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112h32c24 0 46.2 7.5 64.4 20.3zM448 416v-21.5c20-24.7 32-56.2 32-90.5 0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176h32c61.9 0 112 50.1 112 112 0 44.7-26.2 83.2-64 101.2V416c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0 56 56 0 1 1-112 0zm120 157.7v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-80 272c0 16.2 6 31 16 42.3v-84.6c-10 11.3-16 26.1-16 42.3zm144-42.3v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zm64 42.3c0 44.7-26.2 83.2-64 101.2V448c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32v-42.8c-37.8-18-64-56.5-64-101.2 0-61.9 50.1-112 112-112h32c61.9 0 112 50.1 112 112z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');--md-admonition-icon--technical:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M160 96a96 96 0 1 1 192 0 96 96 0 1 1-192 0zm80 152v264l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32h30.3c63.6 0 125.6 19.6 177.7 56zm32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32v203c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z"/></svg>');--md-admonition-icon--intermediate:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9V320c0 28.4-10.8 57.7-22.3 80.8-6.5 13-13.9 25.8-22.5 37.6-3.2 4.3-4.1 9.9-2.3 15s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7.3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7-3.2-14.2-7.5-28.7-13.5-42v-24.6c0-30.2 10.2-58.7 27.9-81.5 12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5.8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1l280.6-101c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1c-7.6-2.7-15.6-4.1-23.7-4.1zM128 408c0 35.3 86 72 192 72s192-36.7 192-72l-15.3-145.4L354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6l-142.2-51.4L128 408z"/></svg>');--md-admonition-icon--advanced:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M219.3.5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9V160c0 70.7-57.3 128-128 128S96 230.7 96 160v-57.1l-48-9.6v65.1l15.7 78.4c.9 4.7-.3 9.6-3.3 13.3S52.8 256 48 256H16c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4V86.6C6.5 83.3 0 74.3 0 64c0-11.4 8.1-21.3 19.3-23.5l200-40zM111.9 327.7c10.5-3.4 21.8.4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5 65 20.9 112 81.7 112 153.6 0 17-13.8 30.7-30.7 30.7H30.7C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6z"/></svg>');--md-admonition-icon--lumi-be:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M48 0C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h96v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v80h96c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H48zm16 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zM448 0c-17.7 0-32 14.3-32 32v480h64V192h144c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16H480c0-17.7-14.3-32-32-32z"/></svg>');--md-admonition-icon--nice-to-know:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M297.2 248.9c14.4-20.6 22.8-45.7 22.8-72.9 0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9 3.7 5.3 8.1 11.3 12.8 17.7 12.9 17.7 28.3 38.9 39.8 59.8 10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5-9.9-18-22.2-34.9-34.5-51.8-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176 16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3-5 7.2-10.2 14.3-15.4 21.4-12.3 16.8-24.6 33.7-34.5 51.8-5.9 10.8-9.6 22.5-11.8 34.5h-48.5c2.6-18.7 7.9-38.6 18.3-57.5 11.5-20.9 26.9-42.1 39.8-59.8 4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48 0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80 8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80v-16h160v16c0 44.2-35.8 80-80 80z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+  
+      
+
+    
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", function(ev) {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
+    
+    
+
+  
+  
+  
+    
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMI training materials - Modules on LUMI" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/04_Modules/" />
+  <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@LUMIhpc" />
+  <meta name="twitter:creator" content="@LUMIhpc" />
+  <meta name="twitter:title" content="LUMI training materials - Modules on LUMI" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+
+  <style>
+    [data-md-color-primary="lumi"] {
+      --md-primary-fg-color: hsla(0, 0%, 100%, 1);
+      --md-primary-fg-color--light: hsla(0, 0%, 100%, 0.7);
+      --md-primary-fg-color--dark: hsla(0, 0%, 0%, 0.07);
+      --md-primary-bg-color: hsla(0, 0%, 0%, 0.87);
+      --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+      --md-button-bg-color: hsla(207,100%,28%, 1);
+      --md-button-bg-color--light: hsla(207,100%,38%, 1);
+      --md-typeset-a-color: hsla(207,100%,28%, 1);
+    }
+    
+    [data-md-color-accent="lumi"] {
+      --md-accent-fg-color: hsla(0,0%,0%, 1);
+      --md-accent-fg-color--transparent: hsla(0,0%,0%, 0.1);
+      --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+      --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    }
+  </style>
+
+  
+
+
+  
+  
+
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/extra-a8af0af3d0.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
+    />
+    <link
+      rel="stylesheet"
+      id="typekit-fonts-css"
+      href="https://use.typekit.net/nlo5lta.css?ver=5.5.3"
+      type="text/css" media="all"
+    />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lumi" data-md-color-accent="lumi">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modules-on-lumi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modules on LUMI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    User Updates
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Updates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    October-November 2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    August 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            August 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Low-noise mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dev-g and eap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Responsible use
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    User Coffee Breaks
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Coffee Breaks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI May 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI May 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20240423/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI April 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI April 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20240208/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day February 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            1-day February 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/A01_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling November 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling November 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20231003/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI October 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI October 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Partner courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Partner courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230921/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day September 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            1-day September 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230530/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI May-June 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI May-June 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230509/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day May 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            1-day May 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hackathon April 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon April 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling April 2013
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling April 2013
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230214/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI February 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI February 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI-G January 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G January 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PEAP-Q November 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q November 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI-G August 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G August 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hackmd notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    EasyBuild May 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            EasyBuild May 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PEAP-Q April 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_11" id="__nav_10_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_11">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q April 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hackmd notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Software Stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-modules-with-lmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploring modules with Lmod
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-of-a-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of a hierarchy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-module-names-and-families" class="md-nav__link">
+    <span class="md-ellipsis">
+      About module names and families
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-for-modules-the-module-spider-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching for modules: The module spider command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching for modules: The module spider command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-running-module-spider-on-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Running module spider on LUMI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-searching-for-the-fftw-module-which-happens-to-be-provided-by-the-pe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Searching for the FFTW module which happens to be provided by the PE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-searching-for-gnuplot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Searching for GNUplot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-searching-for-an-extension-of-a-module-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 4: Searching for an extension of a module: CMake.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-search-the-module-keyword-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative search: the module keyword command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-modules-and-the-module-purge-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sticky modules and the module purge command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-how-the-module-list-is-displayed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing how the module list is displayed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help-with-the-module-help-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting help with the module help command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      A note on caching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-other-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      A note on other commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="modules-on-lumi">Modules on LUMI<a class="headerlink" href="#modules-on-lumi" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Intended audience</p>
+<p>As this course is designed for people already familiar with HPC systems and
+as virtually any cluster nowadays uses some form of module environment, this
+section assumes that the reader is already familiar with a module environment
+but not necessarily the one used on LUMI.</p>
+<p>However, even if you are very familiar with Lmod it makes sense to go through
+these notes as not every Lmod configuration is the same.</p>
+</div>
+<h2 id="module-environments">Module environments<a class="headerlink" href="#module-environments" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Module environments" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleEnvironments.png" /></p>
+</figure>
+<p>An HPC cluster is a multi-user machine. Different users may need different 
+versions of the same application, and each user has their own preferences for
+the environment. Hence there is no "one size fits all" for HPC and mechanisms
+are needed to support the diverse requirements of multiple users on a single machine.
+This is where modules play an important role.
+They are commonly used on HPC systems to enable users to create 
+custom environments and select between multiple versions of applications.
+Note that this also implies that applications on HPC systems are often not
+installed in the regular directories one would expect from the documentation
+of some packages, as that location may not even always support proper multi-version
+installations and as system administrators prefer to have a software stack which is as isolated as
+possible from the system installation to keep the image that has to be loaded
+on the compute nodes small.</p>
+<p>Another use of modules not mentioned on the slide is to configure the programs
+that are being activated. E.g., some packages expect certain additional environment
+variables to be set and modules can often take care of that also.</p>
+<p>There are 3 systems in use for module management.
+The oldest is a C implementation of the commands using module files written in Tcl.
+The development of that system stopped around 2012, with version 3.2.10. 
+This system is supported by the HPE Cray Programming Environment.
+A second system builds upon the C implementation but now uses Tcl also for the
+module command and not only for the module files. It is developed in France at
+the CÉA compute centre. The version numbering was continued from the C implementation,
+starting with version 4.0.0. 
+The third system and currently probably the most popular one is Lmod, a version
+written in Lua with module files also written in Lua. Lmod also supports most
+Tcl module files. It is also supported by HPE Cray, though they tend to be a bit
+slow in following versions. The original developer of Lmod, Robert McLay, retired 
+at the end of August 2023, but TACC, the centre where he worked, is committed to at least
+maintain Lmod though it may not see much new development anymore.</p>
+<p>On LUMI we have chosen to use Lmod. As it is very popular, many users may already be
+familiar with it, though it does make sense to revisit some of the commands that are
+specific for Lmod and differ from those in the two other implementations.</p>
+<p>It is important to realise that each module that you see in the overview corresponds to
+a module file that contains the actual instructions that should be executed when loading 
+or unloading a module, but also other information such as some properties of the module,
+information for search and help information.</p>
+<details class="note">
+<summary>Links</summary>
+<ul>
+<li><a href="https://sourceforge.net/projects/modules/files/Modules/modules-3.2.10/">Old-style environment modules on SourceForge</a></li>
+<li><a href="http://modules.sourceforge.net/">TCL Environment Modules home page on SourceForge</a> and the
+    <a href="https://github.com/cea-hpc/modules">development on GitHub</a></li>
+<li><a href="https://lmod.readthedocs.io/en/latest/">Lmod documentation</a> and 
+    <a href="https://github.com/TACC/Lmod">Lmod development on GitHub</a></li>
+</ul>
+</details>
+<!-- BELGIUM
+!!! Note "I know Lmod, should I continue?"
+    Lmod is a very flexible tool. Not all sites using Lmod use all features, and
+    Lmod can be configured in different ways to the extent that it may even look
+    like a very different module system for people coming from another cluster.
+    So yes, it makes sense to continue reading as Lmod on LUMI may have some tricks
+    that are not available on your home cluster. E.g., several of the features that 
+    we rely upon on LUMI are disabled on the UGhent clusters to make them more similar
+    to clusters running the C/Tcl module implementation which was used in the early
+    days of the VSC.
+-->
+
+<!-- GENERAL More general version -->
+<div class="admonition note">
+<p class="admonition-title">I know Lmod, should I continue?</p>
+<p>Lmod is a very flexible tool. Not all sites using Lmod use all features, and
+Lmod can be configured in different ways to the extent that it may even look
+like a very different module system for people coming from another cluster.
+So yes, it makes sense to continue reading as Lmod on LUMI may have some tricks
+that are not available on your home cluster. E.g., several of the features that 
+we rely upon on LUMI may be disabled on clusters where admins try to mimic the
+old behaviour of the C/Tcl module implementation after switching to Lmod.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Standard OS software</p>
+<p>Most large HPC systems use enterprise-level Linux distributions: derivatives
+of the stable Red Hat or SUSE distributions. Those distributions typically have
+a life span of 5 years or even more during which they receive security updates and
+ports of some newer features, but some of the core elements of such a distribution
+stay at the same version to break as little as possible between minor version
+updates. Python and the system compiler are typical examples of those. Red Hat 8
+and SUSE Enterprise Linux 15 both came with Python 3.6 in their first version, and 
+keep using this version as the base version of Python even though official support from the Python Software Foundation has long ended. Similarly, the default GNU
+compiler version offered on those system also remains the same. The compiler may not even fully support some of the newer CPUs the code is running on. E.g., the
+system compiler of SUSE Enterprise Linux 15, GCC 7.5, does not support the zen2 "Rome"
+or zen3 "Milan" CPUs on LUMI. </p>
+<p>HPC systems will usually offer newer versions of those system packages through modules and users should always use those. The OS-included tools are really
+only for system management and system related tasks and serve a different purpose which actually requires a version that remains stable across a number of updates
+to not break things at the core of the OS. Users however will typically have a choice between several newer versions through modules, which also enables them
+to track the evolution and transition to a new version at the best suited moment.</p>
+</div>
+<h2 id="exploring-modules-with-lmod">Exploring modules with Lmod<a class="headerlink" href="#exploring-modules-with-lmod" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Exploring modules with Lmod" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ExploringWithLmod.png" /></p>
+</figure>
+<p>Contrary to some other module systems, or even some other Lmod installations, <strong>not all modules are
+immediately available for loading</strong>. So don't be disappointed by the few modules you will see with
+<code>module available</code> right after login. Lmod has a <strong>so-called hierarchical setup</strong> that tries to protect
+you from being confronted with all modules at the same time, even those that may conflict with 
+each other, and we use that to some extent on LUMI. Lmod <strong>distinguishes between installed modules and
+available modules</strong>. Installed modules are all modules on the system that can be loaded one way or
+another, sometimes through loading other modules first. Available modules are all those modules
+that can be loaded at a given point in time without first loading other modules.</p>
+<p>The HPE Cray Programming Environment also uses a hierarchy though it is not fully implemented in
+the way the Lmod developer intended so that some features do not function as they should.</p>
+<ul>
+<li>For example, <strong>the <code>cray-mpich</code> module</strong> can only be loaded if <strong>both a network target module and a
+    compiler module</strong> are loaded (and that is already the example that is implemented differently from
+    what the Lmod developer had in mind). </li>
+<li>Another example is the <strong>performance monitoring tools.</strong> Many of those
+    tools only become available after loading the <code>perftools-base</code> module. </li>
+<li>Another example is the
+    <strong><code>cray-fftw</code></strong> module which requires a <strong>processor target module</strong> to be loaded first.</li>
+</ul>
+<p>Lmod has <strong>several tools to search for modules</strong>. </p>
+<ul>
+<li>The <code>module avail</code> command is one that is also
+    present in the various Environment Modules implementations and is the command to search in the
+    available modules. </li>
+<li>But Lmod also has other commands, <code>module spider</code> and <code>module keyword</code>, to 
+    search in the list of installed modules.</li>
+</ul>
+<h2 id="benefits-of-a-hierarchy">Benefits of a hierarchy<a class="headerlink" href="#benefits-of-a-hierarchy" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Benefits of a hierarchy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/BenefitsHierarchy.png" /></p>
+</figure>
+<p>When the hierarchy is well designed, you get <strong>some protection from loading modules that do
+not work together well</strong>. E.g., in the HPE Cray PE it is not possible to load the MPI
+library built for another compiler than your current main compiler. This is currently
+not exploited as much as we could on LUMI, mainly because we realised at the start
+that too many users are not familiar enough with hierarchies and would get confused
+more than the hierarchy helps them.</p>
+<p>Another benefit is that when "swapping" a module that makes other modules available with
+a different one, <strong>Lmod will try to look for equivalent modules</strong> in the list of modules made
+available by the newly loaded module.</p>
+<p>An easy example (though a tricky one as there are other mechanisms at play also) it to load
+a different programming environment in the default login environment right after login:</p>
+<div class="highlight"><pre><span></span><code>$ module load PrgEnv-aocc
+</code></pre></div>
+<p>which results in the next slide:</p>
+<!-- Used window size 23x95 -->
+<!-- ![module load PrgEnv-aocc](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_BenefitsHierarchyDemo.png) -->
+<figure style="border: 1px solid #000">
+<p><img alt="module load PrgEnv-aocc" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/BenefitsHierarchyDemo.png" /></p>
+</figure>
+<p>The first two lines of output are due to to other mechanisms that are at work here, 
+and the order of the lines may seem strange but that has to do with the way Lmod works
+internally. Each of the PrgEnv modules hard loads a compiler module which is why Lmod tells
+you that it is loading <code>aocc/3.2.0</code>. However, there is also another mechanism at work that
+causes <code>cce/16.0.0</code> and <code>PrgEnv-cray/8.4.0</code> to be unloaded, but more about that in the next
+subsection (next slide).</p>
+<p>The important line for the hierarchy in the output are the lines starting with 
+"Due to MODULEPATH changes...".
+Remember that we said that each module has a corresponding <strong>module file</strong>. Just as binaries
+on a system, these are <strong>organised in a directory structure</strong>, and there is a path, in this
+case MODULEPATH, that determines where Lmod will look for module files. The hierarchy is
+implemented with a directory structure and the environment variable MODULEPATH, and
+when the <code>cce/16.0.0</code> module was unloaded and <code>aocc/3.2.0</code> module was loaded, that 
+MODULEPATH was changed. As a result, the version of the cray-mpich module for the 
+<code>cce/16.0.0</code> compiler became unavailable, but one with the same module name for the
+<code>aocc/3.2.0</code> compiler became available and hence Lmod unloaded the version for the
+<code>cce/16.0.0</code> compiler as it is no longer available but loaded the matching one for
+the <code>aocc/3.2.0</code> compiler. </p>
+<h2 id="about-module-names-and-families">About module names and families<a class="headerlink" href="#about-module-names-and-families" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Module names and families" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleNamesFamilies.png" /></p>
+</figure>
+<p>In Lmod you <strong>cannot have two modules with the same name loaded at the same time</strong>.
+On LUMI, when you load a module with the same name as an already loaded module, that
+other module will be unloaded automatically before loading the new one. There is 
+even no need to use the <code>module swap</code> command for that (which in Lmod corresponds
+to a <code>module unload</code> of the first module and a <code>module load</code> of the second).
+This gives you an automatic protection against some conflicts if the names of the modules
+are properly chosen. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some clusters do not allow the automatic unloading of a module with the same
+name as the one you're trying to load, but on LUMI we felt that this is a 
+necessary feature to fully exploit a hierarchy.</p>
+</div>
+<p>Lmod goes further also. It also has a <strong>family concept</strong>: A module can belong to a family
+(and at most 1) and <strong>no two modules of the same family can be loaded together</strong>. 
+The family property is something that is defined in the module file. It is commonly 
+used on systems with multiple compilers and multiple MPI implementations to ensure 
+that each compiler and each MPI implementation can have a logical name without 
+encoding that name in the version string (like needing to have <code>compiler/gcc-11.2.0</code>
+or <code>compiler/gcc/11.2.0</code>
+rather than <code>gcc/11.2.0</code>), while still having an easy way to avoid having two 
+compilers or MPI implementations loaded at the same time. 
+On LUMI, the conflicting module of the same family will be unloaded automatically
+when loading another module of that particular family.</p>
+<p>This is shown in the example in the previous subsection (the <code>module load PrgEnv-gnu</code> in 
+a fresh long shell) in two places. It is the mechanism that unloaded <code>PrgEnv-cray</code>
+when loading <code>PrgEnv-gnu</code> and that then unloaded <code>cce/16.0.1</code> when the 
+<code>PrgEnv-gnu</code> module loaded the <code>gcc/11.2.0</code> module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some clusters do not allow the automatic unloading of a module of the same
+family as the one you're trying to load and produce an error message instead.
+On LUMI, we felt that this is a necessary feature to fully exploit the 
+hierarchy and the HPE Cray Programming Environment also relies very much
+on this feature being enabled to make live easier for users.</p>
+</div>
+<h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Extensions" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleExtensions.png" /></p>
+</figure>
+<p>It would not make sense to have a separate module for each of the hundreds of R
+packages or tens of Python packages that a software stack may contain.
+In fact, as the software for each module is installed in a separate directory
+it would also create a performance problem due to excess directory accesses simply
+to find out where a command is located, and very long search path environment
+variables such as PATH or the various variables packages such as Python, R or Julia use
+to find extension packages.
+On LUMI related packages are often bundled in a single module. </p>
+<p>Now you may wonder: If a module cannot be simply named after the package it contains as
+it contains several ones, how can I then find the appropriate module to load?
+Lmod has a solution for that through the so-called <strong>extension</strong> mechanism. An Lmod module
+can define extensions, and some of the search commands for modules will also search in the extensions
+of a module. Unfortunately, the HPE Cray PE cray-python and cray-R modules do not provide that 
+information at the moment as they too contain several packages that may benefit from linking
+to optimised math libraries.</p>
+<h2 id="searching-for-modules-the-module-spider-command">Searching for modules: The module spider command<a class="headerlink" href="#searching-for-modules-the-module-spider-command" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpider.png" /></p>
+</figure>
+<p>There are three ways to use <code>module spider</code>, discovering software in more and more detail.</p>
+<ol>
+<li>
+<p><code>module spider</code> by itself will show a list of all installed software with a short description.
+    Software is bundled by name of the module, and it shows the description taken from the default
+    version. <code>module spider</code> will also look for "extensions" defined in a module and show those also
+    and mark them with an "E". Extensions are a useful Lmod feature to make clear that a module offers
+    features that one would not expect from its name. E.g., in a Python module the extensions could be
+    a list of major Python packages installed in the module which would allow you to find <code>NumPy</code> if
+    it were hidden in a module with a different name. This is also a very useful feature to make
+    tools that are bundled in one module to reduce the module clutter findable.</p>
+</li>
+<li>
+<p><code>module spider</code> with the name of a package will show all versions of that package installed on
+    the system. This is also case-insensitive. 
+    The spider command will not only search in module names for the package, but also in extensions
+    of the modules and so will be able to tell you that a package is delivered by another module. See 
+    Example 4 below where we will search for the CMake tools.</p>
+</li>
+<li>
+<p>The third use of <code>module spider</code> is with the full name of a module. 
+    This shows two kinds of information. First it shows which combinations of other modules one
+    might have to load to get access to the package. That works for both modules and extensions
+    of modules. In the latter case it will show both the module, and other modules that you might
+    have to load first to make the module available.
+    Second it will also show help information for the module if the module file provides 
+    such information. </p>
+</li>
+</ol>
+<h3 id="example-1-running-module-spider-on-lumi">Example 1: Running <code>module spider</code> on LUMI<a class="headerlink" href="#example-1-running-module-spider-on-lumi" title="Permanent link">&para;</a></h3>
+<p>Let's first run the <code>module spider</code> command. The output varies over time, but at the time of writing,
+and leaving out a lot of the output, one would have gotten:</p>
+<!--
+![module spider 1](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/imp_ModuleSpiderCommand_1.png)
+
+![module spider 1](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/imp_ModuleSpiderCommand_2.png)
+
+![module spider 1](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/imp_ModuleSpiderCommand_3.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider 1" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderCommand_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider 1" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderCommand_2.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider 1" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderCommand_3.png" /></p>
+</figure>
+<p>On the second screen we see, e.g., the ARMForge module which was available in just a single version
+at that time, and then Autoconf where the version is in blue and followed by <code>(E)</code>. This denotes
+that the Autoconf package is actually provided as an extension of another module, and one of the next
+examples will tell us how to figure out which one.</p>
+<p>The third screen shows the last few lines of the output, which actually also shows some help information
+for the command.</p>
+<h3 id="example-2-searching-for-the-fftw-module-which-happens-to-be-provided-by-the-pe">Example 2: Searching for the FFTW module which happens to be provided by the PE<a class="headerlink" href="#example-2-searching-for-the-fftw-module-which-happens-to-be-provided-by-the-pe" title="Permanent link">&para;</a></h3>
+<p>Next let us search for the popular FFTW library on LUMI:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>FFTW
+</code></pre></div>
+<p>produces</p>
+<!--
+![module spider FFTW](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderFFTW.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider FFTW" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderFFTW.png" /></p>
+</figure>
+<p>This shows that the FFTW library is actually provided by the <code>cray-fftw</code> module and was at the time
+that this was tested available in 4 versions. 
+Note that (a) it is not case sensitive as FFTW is not in capitals in the module name and (b) it
+also finds modules where the argument of module spider is only part of the name.</p>
+<p>The output also suggests us to dig a bit deeper and 
+check for a specific version, so let's run</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>cray-fftw/3.3.10.3
+</code></pre></div>
+<p>This produces:</p>
+<!--
+![module spider cray-fftw/3.3.10.5](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderFFTWVersion_1.png)
+
+![module spider cray-fftw/3.3.10.5](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderFFTWVersion_2.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider cray-fftw/3.3.10.5" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderFFTWVersion_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider cray-fftw/3.3.10.5" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderFFTWVersion_2.png" /></p>
+</figure>
+<p>We now get a long list of possible combinations of modules that would enable us to load this module.
+What these modules are will be explained in the next session of this course. However, it does show
+a weakness when module spider is used with the HPE Cray PE. In some cases, not all possible combinations
+are shown (and this is the case here as the module is actually available directly after login and also
+via some other combinations of modules that are not shown). This is because the HPE Cray Programming
+Environment is system-installed and sits next to the application software stacks that are managed differently,
+but in some cases also because the HPE Cray PE sometimes fails to give the complete combination of modules
+that is needed. The command does work well with the software managed by the LUMI User Support Team as the
+next two examples will show.</p>
+<h3 id="example-3-searching-for-gnuplot">Example 3: Searching for GNUplot<a class="headerlink" href="#example-3-searching-for-gnuplot" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider for a regular package" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderRegular.png" /></p>
+</figure>
+<p>To see if GNUplot is available, we'd first search for the name of the package:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>GNUplot
+</code></pre></div>
+<p>This produces:</p>
+<!--
+![module spider GNUplot](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderGnuplot_1.png)
+
+![module spider GNUplot](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderGnuplot_2.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider GNUplot" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderGnuplot_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider GNUplot" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderGnuplot_2.png" /></p>
+</figure>
+<p>The output again shows that the search is not case sensitive which is fortunate as uppercase and lowercase
+letters are not always used in the same way on different clusters. Some management tools for scientific software
+stacks will only use lowercase letters, while the package we use for the LUMI software stacks often uses both.</p>
+<p>We see that there are a lot of versions installed on the system and that the version actually contains more 
+information (e.g., <code>-cpeGNU-23.09</code>) that we will explain in the next part of this course. But you might of
+course guess that it has to do with the compilers that were used. It may look strange to you to have the same
+software built with different compilers. However, mixing compilers is sometimes risky as a library compiled
+with one compiler may not work in an executable compiled with another one, so to enable workflows that use
+multiple tools we try  to offer many tools compiled with multiple compilers (as for most software we
+don't use rpath linking which could help to solve that problem). So you want to chose the appropriate
+line in terms of the other software that you will be using.</p>
+<p>The output again suggests to dig a bit further for more information, so let's try</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>gnuplot/5.4.8-cpeGNU-23.09
+</code></pre></div>
+<p>This produces:</p>
+<!--
+![module spider gnuplot/5.4.8-cpeGNU-23.09](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderGnuplotVersion_1.png)
+
+![module spider gnuplot/5.4.8-cpeGNU-23.09](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderGnuplotVersion_2.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider gnuplot/5.4.8-cpeGNU-23.09" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderGnuplotVersion_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider gnuplot/5.4.8-cpeGNU-23.09" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderGnuplotVersion_2.png" /></p>
+</figure>
+<p>In this case, this module is provided by 3 different combinations of modules that also will be explained
+in the next part of this course. Furthermore, the output of the command now also shows some help information
+about the module, with some links to further documentation available on the system or on the web.
+The format of the output is generated automatically by the software installation tool that we use
+and we sometimes have to do some effort to fit all information in there.</p>
+<p>For some packages we also have additional information in our
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library web site</a> so it is often
+worth looking there also.</p>
+<h3 id="example-4-searching-for-an-extension-of-a-module-cmake">Example 4: Searching for an extension of a module: CMake.<a class="headerlink" href="#example-4-searching-for-an-extension-of-a-module-cmake" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider for extensions" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderExtensions.png" /></p>
+</figure>
+<p>The <code>cmake</code> command on LUMI is available in the operating system image, but as is often the case with
+such tools distributed with the OS, it is a rather old version and you may want to use a newer one.</p>
+<p>If you would just look through the list of available modules, even after loading some other modules to
+activate a larger software stack, you will not find any module called <code>CMake</code> though. But let's use the
+powers of <code>module spider</code> and try</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>CMake
+</code></pre></div>
+<p>which produces</p>
+<!--
+![module spider cmake](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderCMake.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider cmake" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderCMake.png" /></p>
+</figure>
+<p>The output above shows us that there are actually 5 other versions of CMake on the system, but their
+version is followed by <code>(E)</code> which says that they are extensions of other modules.
+There is no module called <code>CMake</code> on the system. 
+But Lmod already tells us
+how to find out which module actually provides the CMake tools. So let's try</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>CMake/3.27.7
+</code></pre></div>
+<p>which produces</p>
+<!--
+![module spider CMake/3.27.7](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleSpiderCMakeVersion_1.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module spider CMake/3.27.7" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleSpiderCMakeVersion_1.png" /></p>
+</figure>
+<p>This shows us that the version is provided by a number of <code>buildtools</code> modules, and for each of those
+modules also shows us which other modules should be loaded to get access to the commands. E.g.,
+the first line tells us that there is a module <code>buildtools/23.09</code> that provides that version of CMake, but
+that we first need to load some other modules, with <code>LUMI/23.09</code> and <code>partition/L</code> (in that order) 
+one such combination.</p>
+<p>So in this case, after</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/L<span class="w"> </span>buildtools/23.09
+</code></pre></div>
+<p>the <code>cmake</code> command would be available.</p>
+<p>And you could of course also use</p>
+<div class="highlight"><pre><span></span><code>$ module spider buildtools/23.09
+</code></pre></div>
+<p>to get even more information about the buildtools module, including any help included in the module.</p>
+<h2 id="alternative-search-the-module-keyword-command">Alternative search: the module keyword command<a class="headerlink" href="#alternative-search-the-module-keyword-command" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="module keyword" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleKeyword.png" /></p>
+</figure>
+<p>Lmod has a second way of searching for modules: <code>module keyword</code>. It searches 
+in some of the information included in module files for the
+given keyword, and shows in which modules the keyword was found.
+We do an effort to put enough information in the modules to make this a suitable additional way
+to discover software that is installed on the system.</p>
+<p>Let us look for packages that allow us to download software via the <code>https</code> protocol.
+One could try</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>keyword<span class="w"> </span>https
+</code></pre></div>
+<p>which produces the following output:</p>
+<!-- Use a window of 105x23 -->
+<!--
+![module keyword https](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleKeywordHTTPS_1.png)
+
+![module keyword https](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleKeywordHTTPS_2.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module keyword https" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleKeywordHTTPS_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module keyword https" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleKeywordHTTPS_2.png" /></p>
+</figure>
+<p><code>cURL</code> and <code>wget</code> are indeed 
+two tools that can be used to fetch files from the internet.</p>
+<div class="admonition note">
+<p class="admonition-title">LUMI Software Library</p>
+<p>The <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
+also has a search box in the upper right. We will see in the next section of this course
+that much of the software of LUMI is managed through a tool called EasyBuild, and each
+module file corresponds to an EasyBuild recipe which is a file with the <code>.eb</code> extension.
+Hence the keywords can also be found in the EasyBuild recipes which are included in this
+web site, and from a page with an EasyBuild recipe (which may not mean much for you) it is
+easy to go back to the software package page itself for more information. Hence you can use
+the search box to search for packages that may not be installed on the system.</p>
+<p>The example given above though, searching for <code>https</code>, would not work via that box as most
+EasyBuild recipes include https web links to refer to, e.g., documentation and would be 
+shown in the result.</p>
+<p>The LUMI Software Library site includes both software installed in our central software stack
+and software for which we make customisable build recipes available for user installation,
+but more about that in the tutorial section on LUMI software stacks.</p>
+</div>
+<h2 id="sticky-modules-and-the-module-purge-command">Sticky modules and the module purge command<a class="headerlink" href="#sticky-modules-and-the-module-purge-command" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Sticky modules and module purge" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/StickyModules.png" /></p>
+</figure>
+<p>On some systems you will be taught to avoid <code>module purge</code> as many HPC systems do their default user
+configuration also through modules. This advice is often given on Cray systems as it is a common
+practice to preload a suitable set of target modules and a programming environment.
+On LUMI both are used. A default programming environment and set of target modules suitable for the
+login nodes is preloaded when you log in to the system, and next the <code>init-lumi</code> module is loaded
+which in turn makes the LUMI software stacks available that we will discuss in the next session.</p>
+<p>Lmod however has a trick that helps to avoid removing necessary modules and it is called sticky modules.
+When issuing the <code>module purge</code> command these modules are automatically reloaded. It is very important to
+realise that those modules will not just be kept "as is" but are in fact unloaded and loaded again as
+we shall see later that this may have unexpected side effects. 
+It is still possible to force unload all these modules
+using <code>module --force purge</code> or selectively unload those using <code>module --force unload</code>.</p>
+<p>The sticky property is something that is defined in the module file and not used by the module files
+ot the HPE Cray Programming Environment, but we shall see that there is a partial workaround for this in
+some of the LUMI software stacks. The <code>init-lumi</code> module mentioned above though is a sticky module, as are
+the modules that activate a software stack so that you don't have to start from scratch if you have already
+chosen a software stack but want to clean up your environment.</p>
+<p>Let us look at the output of the <code>module avail</code> command, taken just after login on the system at the
+time of writing of these notes (the exact list of modules shown is a bit fluid):</p>
+<!-- Use a window of 106x23 -->
+<!--
+![module avail slide 1](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleAvail_1.png)
+
+![module avail slide 2](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleAvail_2.png)
+
+![module avail slide 3](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleAvail_3.png)
+
+![module avail slide 4](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleAvail_4.png)
+
+![module avail slide 5](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleAvail_5.png)
+
+![module avail slide 6](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules-img/img_ModuleAvail_6.png)
+-->
+
+<figure style="border: 1px solid #000">
+<p><img alt="module avail slide 1" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleAvail_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module avail slide 2" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleAvail_2.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module avail slide 3" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleAvail_3.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module avail slide 4" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleAvail_4.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module avail slide 5" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleAvail_5.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="module avail slide 6" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ModuleAvail_6.png" /></p>
+</figure>
+<p>Next to the names of modules you sometimes see one or more letters.
+The <code>(D)</code> means that that is currently the default version of the module, the one that will be loaded
+if you do not specify a version. Note that the default version may depend on other modules that are already
+loaded as we have seen in the discussion of the programming environment.</p>
+<p>The <code>(L)</code> means that a module is currently loaded.</p>
+<p>The <code>(S)</code> means that the module is a sticky module.</p>
+<p>Next to the <code>rocm</code> module (on the fourth screen) you see <code>(D:5.0.2:5.2.0)</code>. 
+The <code>D</code> means that this version of the module, <code>5.2.3</code>, is currently the default on
+the system. The two version numbers next to this module show that the module can also 
+be loaded as <code>rocm/5.0.2</code> and <code>rocm/5.2.0</code>. These are two modules that were removed
+from the system during the last update of the system, but version 5.2.3 can be loaded
+as a replacement of these modules so that software that used the removed modules may
+still work without recompiling.</p>
+<p>At the end of the overview the extensions are also shown. If this would be fully implemented on LUMI, the list
+could become very long. However, as we shall see next, there is an easy way to hide those from view.
+We haven't used them very intensely so far as there was a bug in older versions of Lmod so that turning off
+the view didn't work and so that extensions that were not in available modules, were also shown. But that
+is fixed in current versions.</p>
+<h2 id="changing-how-the-module-list-is-displayed">Changing how the module list is displayed<a class="headerlink" href="#changing-how-the-module-list-is-displayed" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Changing how the module list is displayed" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/ChangingDisplayStyle.png" /></p>
+</figure>
+<p>You may have noticed in the above example that we don't show directories of module files
+in the overview (as is the case on most clusters) but descriptive texts about the module group.
+This is just one view on the module tree though, and it can be changed easily by loading a 
+version of the <code>ModuleLabel</code> module.</p>
+<ul>
+<li><code>ModuleLabel/label</code> produces the default view of the previous example. </li>
+<li><code>ModuleLabel/PEhierarchy</code> still uses descriptive texts but will show the whole 
+    module hierarchy of the HPE Cray Programming Environment.</li>
+<li><code>ModuleLabel/system</code> does not use the descriptive texts but shows module directories instead.</li>
+</ul>
+<p>When using any kind of descriptive labels, Lmod can actually bundle module files from different 
+directories in a single category and this is used heavily when <code>ModuleLabel/label</code> is loaded 
+and to some extent also when <code>ModuleLabel/PEhierarchy</code> is loaded.</p>
+<p>It is rather hard to provide multiple colour schemes in Lmod, and as we do not know how your 
+terminal is configured it is also impossible to find a colour scheme that works for all
+users. Hence we made it possible to turn on and off the use of colours by Lmod through
+the <code>ModuleColour/on</code> and <code>ModuleColour/off</code> modules.</p>
+<p>As the module extensions list in the output of <code>module avail</code> could potentially become very long
+over time (certainly if there would be Python or R modules installed with EasyBuild that show
+all included Python or R packages in that list) you may want to hide those. You can do this by
+loading the <code>ModuleExtensions/hide</code> module and undo this again by loading
+<code>ModuleExtensions/show</code>.</p>
+<p>We also hide some modules from regular users because we think they are not useful at all for regular
+users or not useful in the context you're in at the moment. 
+You can still load them if you know they exist and specify the full version but 
+you cannot see them with <code>module available</code>. It is possible though to still show most if not all of 
+them by loading <code>ModulePowerUser/LUMI</code>. Use this at your own risk however, we will not help you to make
+things work if you use modules that are hidden in the context you're in
+or if you try to use any module that was designed for us to maintain the system and is therefore hidden 
+from regular users.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>An example that will only become clear in the next session: When working with the software stack
+called <code>LUMI/23.09</code>, which is built upon the HPE Cray Programming Environment version 23.09,
+all (well, most) of the modules corresponding to other version of the Cray PE are hidden.</p>
+</div>
+<h2 id="getting-help-with-the-module-help-command">Getting help with the module help command<a class="headerlink" href="#getting-help-with-the-module-help-command" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Getting help" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/GettingHelp.png" /></p>
+</figure>
+<p>Lmod has the <code>module help</code> command to get help on modules</p>
+<div class="highlight"><pre><span></span><code>$ module help
+</code></pre></div>
+<p>without further arguments will show some help on the <code>module</code> command. </p>
+<p>With the name of a module specified, it will show the help information for the default version of that
+module, and with a full name and version specified it will show this information specifically for that
+version of the module. But note that <code>module help</code> can only show help for currently available modules.</p>
+<p>Try, e.g., the following commands:</p>
+<div class="highlight"><pre><span></span><code>$ module help cray-mpich
+$ module help cray-python/3.10.10
+$ module help buildtools/23.09
+</code></pre></div>
+<p>Lmod also has another command that produces more limited information (and is currently not fully exploited
+on LUMI): <code>module whatis</code>. It is more a way to tag a module with different kinds of information, some of 
+which has a special meaning for Lmod and is used at some places, e.g., in the output of <code>module spider</code> without
+arguments.</p>
+<p>Try, e.g.,:</p>
+<div class="highlight"><pre><span></span><code>$ module whatis Subversion
+$ module whatis Subversion/1.14.2
+</code></pre></div>
+<h2 id="a-note-on-caching">A note on caching<a class="headerlink" href="#a-note-on-caching" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="A note on caching" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/NoteCaching.png" /></p>
+</figure>
+<p>Modules are stored as (small) files in the file system. Having a large module system with
+much software preinstalled for everybody means a lot of small files which will make
+our Lustre file system very unhappy.
+Fortunately Lmod does use caches by default. On LUMI we currently have no 
+system cache and only a user cache. That cache can be found in <code>$HOME/.cache/lmod</code>
+(and in some versions of LMOD in <code>$HOME/.lmod.d/.cache</code>). </p>
+<p>That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
+e.g., the <code>module spider</code> and <code>module available</code> commands will be slow during the rebuild.
+you may need to clean the cache after installing new software as on LUMI Lmod does not
+always detect changes to the installed software,</p>
+<p>Sometimes you may have to clear the cache also if you get very strange answers from 
+<code>module spider</code>. It looks like the non-standard way in which the HPE Cray Programming
+Environment does certain things in Lmod can cause inconsistencies in the cache.
+This is also one of the reasons whey we do not yet have a central cache for that 
+software that is installed in the central stacks as we are not sure when that cache is
+in good shape.</p>
+<h2 id="a-note-on-other-commands">A note on other commands<a class="headerlink" href="#a-note-on-other-commands" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="A note on other commands" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-04-modules/NoteOtherCommands.png" /></p>
+</figure>
+<p>As this tutorial assumes some experience with using modules on other clusters, we haven't paid
+much attention to some of the basic commands that are mostly the same across all three
+module environments implementations. 
+The <code>module load</code>, <code>module unload</code> and <code>module list</code> commands work largely as you would expect,
+though the output style of <code>module list</code> may be a little different from what you expect.
+The latter may show some inactive modules. These are modules that were loaded at some point,
+got unloaded when a module closer to the root of the hierarchy of the module system got unloaded,
+and they will be reloaded automatically when that module or an equivalent (family or name) module
+is loaded that makes this one or an equivalent module available again.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To demonstrate this, try in a fresh login shell (with the lines starting with a <code>$</code> the commands that you should
+enter at the command prompt):</p>
+<div class="highlight"><pre><span></span><code>$ module unload craype-network-ofi
+
+Inactive Modules:
+  1) cray-mpich
+
+$ module load craype-network-ofi
+
+Activating Modules:
+  1) cray-mpich/8.1.27
+</code></pre></div>
+<p>The <code>cray-mpich</code> module needs both a valid network architecture target module to be loaded
+(not <code>craype-network-none</code>) and a compiler module. Here we remove the network target module
+which inactivates the <code>cray-mpich</code> module, but the module gets reactivated again as soon
+as the network target module is reloaded.</p>
+</div>
+<p>The <code>module swap</code> command is basically equivalent to a <code>module unload</code> followed by a <code>module load</code>. 
+With one argument it will look for a module with the same name that is loaded and unload that one 
+before loading the given module. With two modules, it will unload the first one and then load the
+second one. The <code>module swap</code> command is not really needed on LUMI as loading a conflicting module
+(name or family) will automatically unload the previously loaded one. However, in case of replacing 
+a module of the same family with a different name, <code>module swap</code> can be a little faster than just
+a <code>module load</code> as that command will need additional operations as in the first step it will 
+discover the family conflict and then try to resolve that in the following steps (but explaining
+that in detail would take us too far in the internals of Lmod).</p>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<p><strong>These links were OK at the time of the course. This tutorial will age over time though
+and is not maintained but may be replaced with evolved versions when the course is organised again,
+so links may break over time.</strong></p>
+<ul>
+<li><a href="https://lmod.readthedocs.io/en/latest/">Lmod documentation</a> and more specifically
+    the <a href="https://lmod.readthedocs.io/en/latest/010_user.html">User Guide for Lmod</a> which is the part specifically for regular users who do not
+    want to design their own modules.</li>
+<li><a href="https://docs.lumi-supercomputer.eu/runjobs/lumi_env/Lmod_modules/">Information on the module environment in the LUMI documentation</a></li>
+</ul>
+<!-- BELGIUM
+## Local materials
+
+-   VSC
+
+    -   VSC@UAntwerpen: Modules are covered in the [HPC@UAntwerp introduction](https://www.uantwerpen.be/en/research-facilities/calcua/training/)
+
+    -   VSC@VUB: Modules are covered in the [HPC Introduction course](https://hpc.vub.be/docs/slides/hpc-intro/),
+
+        with local documentation in the ["Module System" section of the documentation](https://hpc.vub.be/docs/software/modules/)
+
+    -   VSC@UGent: Modules are briefly coverd in the "Introduction to HPC-UGent" course. The Lmod setup on the
+        clusters at UGent is more restrictive than on LUMI with several usefull features disabled.
+
+        -   [Slides](https://www.ugent.be/hpc/en/training/2023/introhpc202306) and [YouTube recording](https://www.ugent.be/hpc/en/training/introhpcugent-recording)
+            of the June 9, 2023 session.
+
+    -   VSC@KULeuven: Modules are discussed in the [Linux for HPC course](https://hpcleuven.github.io/Linux-for-HPC/)
+
+-   CÉCI: 
+
+    -   [Choosing and activating software with system modules on CÉCI clusters](https://indico.cism.ucl.ac.be/event/121/contributions/58/)
+        from the fall 2022 introductory courses.
+
+    -   [YouTube video: Modules: How to find/use software on cluster](https://www.youtube.com/watch?v=4hq8jcy2k3Q)
+        from the fall 2020 introductory courses.
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+
+
+
+
+<footer class="md-footer">
+
+  
+
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      
+    <div class="md-footer-copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" 
+             style="border-width:0" 
+             src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+        />
+      </a>
+      This work is licensed under a&nbsp;
+      <a rel="license" 
+         href="http://creativecommons.org/licenses/by/4.0/"
+      >
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </div>
+
+      
+      <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
