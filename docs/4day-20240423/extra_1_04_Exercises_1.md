@@ -1,18 +1,17 @@
 # Exercise session 1: Running applications
 
-<!--
 Exercises are in `Exercises/HPE/day1/ProgrammingModels`.`
 
 See `Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
 Run on the system and get familiar with Slurm commands.
--->
 
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -32,9 +31,7 @@ Temporary web-available materials:
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-1_04a-ProgrammingModelExamples_SLURM.pdf).
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
@@ -44,7 +41,6 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`
--->
 
 ## Q&A
 

@@ -24,7 +24,7 @@ DAY 1
             <br/><em>08:00 CEST</em>
         </td>
         <td><b><a href="../extra_1_00_Introduction/">Welcome and introduction</a></b>
-        <br/><em>Presenters: Emmanuel Ory (LUST), Harvey Richardson (HPE)</em>
+        <br/><em>Presenters: Heidi Reiman (LUST), Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>

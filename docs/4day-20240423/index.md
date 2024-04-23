@@ -44,10 +44,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-
-
-<!--
 | [Introduction](extra_1_00_Introduction.md) | / | / | [web](extra_1_00_Introduction.md) |
 | [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) | / | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) |
 | [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [lumi](extra_1_02_Programming_Environment_and_Modules.md) | / | [lumi](extra_1_02_Programming_Environment_and_Modules.md) |
@@ -56,8 +52,13 @@ downloaded from LUMI.
 | [Compilers and Parallel Programming Models](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) | / | [lumi](extra_1_05_Compilers_and_Parallel_Programming_Models.md) |
 | [Exercises #2](extra_1_06_Exercises_2.md) | / | / | / |
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
-| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
+| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+
+
+<!--
+| [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
 | [Introduction to the AMD ROCm Ecosystem](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_01_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |

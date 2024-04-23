@@ -1,10 +1,9 @@
 # Exercise session 2: Compilers
 
-<!--
 The exercises are basically the same as in 
 [session #1](extra_1_04_Exercises_1.md). You can now play with different
 programming models and optimisation options.
--->
+
 
 ## Materials
 
@@ -12,7 +11,6 @@ programming models and optimisation options.
 No materials available at the moment.
 -->
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -31,9 +29,7 @@ Temporary web-available materials:
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-1_04a-ProgrammingModelExamples_SLURM.pdf).
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
@@ -43,7 +39,6 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`
--->
 
 ## Q&A
 
