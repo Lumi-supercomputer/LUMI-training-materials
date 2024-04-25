@@ -216,6 +216,22 @@ Some examples:
     together with some other small tools.
 
 
+### Keep track of the LUMI status
+
+<figure markdown style="border: 1px solid #000">
+  ![L0 support: Check the LUMI status](https://462000265.lumidata.eu/4day-20240423/img/LUMI-4day-20240423-support/L0CheckStatus.png){ loading=lazy }
+</figure>
+
+-   Downtimes on LUMI and major issues are announced on the user mailing list, so read our mails,
+    and it might be a good idea to keep track of the announced downtimes in a calendar.
+
+-   Moreover, there is also the 
+    [LUMI Service Status page](https://lumi-supercomputer.eu/lumi-service-status/)
+    where we repeat those announcements, and even some more issues and keep track
+    of them. So consult this page before asking support. The problem may already be 
+    known or you may simply have overlooked one of our announcements.
+
+
 ### Talk to your colleagues
 
 <figure markdown style="border: 1px solid #000">
