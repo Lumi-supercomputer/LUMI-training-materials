@@ -65,16 +65,16 @@ downloaded from LUMI.
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [lumi](extra_3_03_Advanced_Performance_Analysis.md) | / |  [lumi](extra_3_03_Advanced_Performance_Analysis.md) |
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / | / |
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-
-
-<!--
 | [MPI Topics on the HPE Cray EX Supercomputer](extra_3_05_Cray_MPI_on_Slingshot.md) | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) | / | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) |
 | [Exercises #9](extra_3_06_Exercises_9.md) | / | / | / |
 | [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_07_AMD_ROCgdb_Debugger.pdf) | / | [web](extra_3_07_AMD_ROCgdb_Debugger.md) |
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+
+
+<!--
 | [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
 | [Performance Optimization: Improving single-core Efficiency](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) |
 | [Exercises #12](extra_4_03_Exercises_12.md) | / | / | / |
