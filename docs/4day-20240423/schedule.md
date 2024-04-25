@@ -298,7 +298,7 @@ DAY 3
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
             <li>Demo: Visualization of performance data with Apprentice2</kli>
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
     <tr>

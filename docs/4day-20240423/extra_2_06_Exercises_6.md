@@ -30,9 +30,7 @@ Temporary web-available materials:
 
 Archived materials on LUMI:
 
-<!--
 -   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
--->
 
 -   Exercises as bizp2-compressed tar file in
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2`

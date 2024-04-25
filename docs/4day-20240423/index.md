@@ -61,15 +61,14 @@ downloaded from LUMI.
 | [Advanced Placement](extra_2_05_Advanced_Application_Placement.md) | [lumi](extra_2_05_Advanced_Application_Placement.md) | / | [lumi](extra_2_05_Advanced_Application_Placement.md) |
 | [Exercises #6](extra_2_06_Exercises_6.md) | / | / | / |
 | [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-
-
-<!--
-| [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [lumi](extra_3_03_Advanced_Performance_Analysis.md) | / |  [lumi](extra_3_03_Advanced_Performance_Analysis.md) |
 | [Exercises #8](extra_3_04_Exercises_8.md) | / | / | / |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+
+
+<!--
 | [MPI Topics on the HPE Cray EX Supercomputer](extra_3_05_Cray_MPI_on_Slingshot.md) | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) | / | [lumi](extra_3_05_Cray_MPI_on_Slingshot.md) |
 | [Exercises #9](extra_3_06_Exercises_9.md) | / | / | / |
 | [AMD Debugger: ROCgdb](extra_3_07_AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_07_AMD_ROCgdb_Debugger.pdf) | / | [web](extra_3_07_AMD_ROCgdb_Debugger.md) |

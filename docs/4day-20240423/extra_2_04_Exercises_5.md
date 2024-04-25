@@ -14,8 +14,7 @@ No materials available at the moment.
 
 Temporary location of materials (for the lifetime of the training project):
 
--   See `/project/project_465001098/Slides/HPE/Exercises_day2.pdf` or
-    `/project/project_465001098/Slides/HPE/Exercises.pdf` (whichever is present).
+-   See `/project/project_465001098/Slides/HPE/Exercises.pdf`
 
 -   Exercise files in `/project/project_465001098/Exercises/HPE/day2/debugging`
 
@@ -26,9 +25,7 @@ Temporary web-available materials:
 
 Archived materials on LUMI:
 
-<!--
 -   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
--->
 
 -   Exercises as bizp2-compressed tar file in
    `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2`
