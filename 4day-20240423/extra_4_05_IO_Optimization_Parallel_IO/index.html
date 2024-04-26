@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_4_05_Exercises_13/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_4_05_IO_Optimization_Parallel_IO/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Exercise session 13: Lustre I/O - LUMI training materials</title>
+        <title>I/O Optimization - Parallel I/O - LUMI training materials</title>
       
     
     
@@ -93,9 +93,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Exercise session 13: Lustre I/O" />
+  <meta property="og:title" content="LUMI training materials - I/O Optimization - Parallel I/O" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_4_05_Exercises_13/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_4_05_IO_Optimization_Parallel_IO/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -105,7 +105,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Exercise session 13: Lustre I/O" />
+  <meta name="twitter:title" content="LUMI training materials - I/O Optimization - Parallel I/O" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -167,7 +167,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exercise-session-13-lustre-io" class="md-skip">
+        <a href="#io-optimization-parallel-io" class="md-skip">
           Skip to content
         </a>
       
@@ -224,7 +224,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercise session 13: Lustre I/O
+              I/O Optimization - Parallel I/O
             
           </span>
         </div>
@@ -2400,15 +2400,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#materials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Materials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -2432,43 +2423,29 @@
                   
 
 
-<h1 id="exercise-session-13-lustre-io">Exercise session 13: Lustre I/O<a class="headerlink" href="#exercise-session-13-lustre-io" title="Permanent link">&para;</a></h1>
-<!--
-The files for the exercises can be found in `Exercises/HPE/day4/VH1-io`.
-Untar the file and you'll find a full I/O experiment with striping.
-
-Alternatively, look again at the MPI exercises with Apprentice
-If you did not do this before, set PAT_RT_SUMMARY=0. You get trace data per rank when you do this (huge file).
-Set only 2 cycles in the input file (indat).
-Use app2 on the .ap2 file to see new displays (see help).
--->
-
-<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<p>No materials available at the moment.</p>
+<h1 id="io-optimization-parallel-io">I/O Optimization - Parallel I/O<a class="headerlink" href="#io-optimization-parallel-io" title="Permanent link">&para;</a></h1>
+<p><em>Presenter: Harvey Richardson (HPE)</em></p>
+<p>Course materials will be provided during and after the course.</p>
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   See the exercise assignments in
-    `/project/project_465001098/Slides/HPE/Exercises.pdf`.
-
--   Exercise files in `/project/project_465001098/Exercises/HPE/day4`
-
-Temporary web-available materials:
-
--    Overview exercise assignments temporarily available on
-     [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_Exercises_day4.pdf)
+-   Slides: `/project/project_465001098/Slides/HPE/14_IO_medium_LUMI.pdf`
 -->
 
 <!--
 Archived materials on LUMI:
 
--   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-4_04_IO_Optimization_Parallel_IO.pdf`
 
--   Exercises as bizp2-compressed tar file in
-    `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2`
+-   Recording: `/appl/local/training/4day-20240423/recordings/4_04_IO_Optimization_Parallel_IO.mp4`
 
--   Exercises as uncompressed tar file in
-    `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`
+These materials can only be distributed to actual users of LUMI (active user account).
+
+
+## Links
+
+-   The [ExaIO project](https://www.exascaleproject.org/research-project/exaio/) paper
+    ["Transparent Asynchronous Parallel I/O Using Background Threads"](https://doi.org/10.1109/TPDS.2021.3090322).
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
