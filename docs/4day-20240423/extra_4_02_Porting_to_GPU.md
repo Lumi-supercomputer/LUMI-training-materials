@@ -1,4 +1,4 @@
-# Introduction to Python on Cray EX
+# Strategies for porting codes to GPU
 
 *Presenter: Alfio Lazzaro (HPE)*
 
@@ -12,10 +12,10 @@ Temporary location of materials (for the lifetime of the training project):
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-4_01_Introduction_to_Python_on_Cray_EX.pdf`
+-   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-4_02_Porting_to_GPU.pdf`
 
 <!--
--   Recording: `/appl/local/training/4day-20240423/recordings/4_01_Introduction_to_Python_on_Cray_EX.mp4`
+-   Recording: `/appl/local/training/4day-20240423/recordings/4_02_Porting_to_GPU.mp4`
 -->
 
 These materials can only be distributed to actual users of LUMI (active user account).

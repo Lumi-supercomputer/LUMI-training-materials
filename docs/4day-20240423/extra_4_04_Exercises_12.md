@@ -1,16 +1,15 @@
 # Exercise session 12: Node-level performance
 
-<!--
 The files for the exercises can be found in `Exercises/HPE/day4/node_performance`.
 Try different compiler optimizations and see the impact on performance.
--->
 
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -22,9 +21,7 @@ Temporary web-available materials:
 
 -    Overview exercise assignments temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_Exercises_day4.pdf)
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
@@ -34,7 +31,6 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`
--->
 
 
 ## Q&A

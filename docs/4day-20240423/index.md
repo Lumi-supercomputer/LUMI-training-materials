@@ -71,16 +71,17 @@ downloaded from LUMI.
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
+| [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
+| [Porting to GPUs](extra_4_02_Porting_to_GPU.md) | [lumi](extra_4_02_Porting_to_GPU.md) | / |[lumi](extra_4_02_Porting_to_GPU.md) |
+| [Performance Optimization: Improving single-core Efficiency](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) |
+| [Exercises #12](extra_4_04_Exercises_12.md) | / | / | / |
+| [Optimizing Large Scale I/O](extra_4_05_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) |
+| [Exercises #13](extra_4_06_Exercises_13.md) | / | / | / |
 | [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
 
 
 <!--
-| [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
-| [Performance Optimization: Improving single-core Efficiency](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) |
-| [Exercises #12](extra_4_03_Exercises_12.md) | / | / | / |
-| [Optimizing Large Scale I/O](extra_4_04_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_04_IO_Optimization_Parallel_IO.md) |
-| [Exercises #13](extra_4_05_Exercises_13.md) | / | / | / |
-| [Introduction to OmniTrace](extra_4_06_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Omnitrace.md) |
+| [Introduction to OmniTrace](extra_4_07_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_07_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Omnitrace.md) |
 | [Introduction to Omniperf](extra_4_08_AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Omniperf.md) |
 | [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
 | [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |

@@ -438,22 +438,31 @@ DAY 4
     <tr>
         <td>
             09:00 EEST
-            <br/><em>08:50 CEST</em>
+            <br/><em>08:00 CEST</em>
         </td>
         <td><b><a href="../extra_4_01_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
         <ul>
             <li/>Cray Python for the Cray EX
         </ul>
+        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:10 EEST
+            <br/><em>08:10 CEST</em>
+        </td>
+        <td><b><a href="../extra_4_02_Porting_to_GPU/">Strategies for porting codes to GPU</a></b>
         <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            09:20 EEST
-            <br/><em>08:20 CEST</em>
+            09:35 EEST
+            <br/><em>08:35 CEST</em>
         </td>
-        <td><b><a href="../extra_4_02_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
-        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        <td><b><a href="../extra_4_03_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
+        <br/><em>Presenter: Jean-Yves Vet (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -461,7 +470,7 @@ DAY 4
             10:00 EEST
             <br/><em>09:00 CEST</em>
         </td>
-        <td><b><a href="../extra_4_03_Exercises_12/">Exercises (session #12)</a></b></td>
+        <td><b><a href="../extra_4_04_Exercises_12/">Exercises (session #12)</a></b></td>
     </tr>
     <tr>
         <td>
@@ -476,7 +485,7 @@ DAY 4
             10:30 EEST
             <br/><em>09:30 CEST</em>
         </td>
-        <td><b><a href="../extra_4_04_IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
+        <td><b><a href="../extra_4_05_IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
             <li>Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. </li>
@@ -494,7 +503,7 @@ DAY 4
             11:30 EEST
             <br/><em>10:30 CEST</em>
         </td>
-        <td><b><a href="../extra_4_05_Exercises_13/">Exercises (session #13)</a></b>
+        <td><b><a href="../extra_4_06_Exercises_13/">Exercises (session #13)</a></b>
         </td>
     </tr>
      <tr>
