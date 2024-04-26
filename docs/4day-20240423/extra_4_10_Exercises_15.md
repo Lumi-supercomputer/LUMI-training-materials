@@ -1,10 +1,9 @@
-# Exercise session 14: Omnitrace
+# Exercise session 15: Omniperf
 
-Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@sfantao/H1QU6xRR3),
-section on [Omnitrace](https://hackmd.io/@sfantao/H1QU6xRR3#Omnitrace).
+Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@gmarkoma/lumi_finland),
+section on [Omniperf](https://hackmd.io/@gmarkoma/lumi_finland#Omniperf).
 
 Exercise files can be copied from `Exercises/AMD/HPCTrainingExamples`.
-
 
 ## Materials
 
@@ -18,11 +17,11 @@ Temporary location of materials (for the lifetime of the training project):
 
 Materials on the web:
 
--   [AMD exercise assignments and notes](https://hackmd.io/@sfantao/H1QU6xRR3#Omnitrace)
+-   [AMD exercise assignments and notes](https://hackmd.io/@gmarkoma/lumi_finland#Omniperf)
 
 <!--
     [PDF backup](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.pdf)
-    and [local web backup](exercises_AMD_hackmd.md#omnitrace).
+    and [local web backup](exercises_AMD_hackmd.md#omniperf).
 -->
 
 -   Exercise files: 
@@ -39,7 +38,7 @@ Archived materials on LUMI:
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2`
     or `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar`
 
+
 ## Q&A
 
 /
-

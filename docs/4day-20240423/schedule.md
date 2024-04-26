@@ -519,7 +519,7 @@ DAY 4
             13:00 EEST
             <br/><em>12:00 CEST</em>
         </td>
-        <td><b><a href="../extra_4_06_AMD_Omnitrace/">Introduction to OmniTrace</a></b>
+        <td><b><a href="../extra_4_07_AMD_Omnitrace/">Introduction to OmniTrace</a></b>
         <br/><em>Presenter: George Markomanoulis (AMD)</em>
       </td>
         </td>
@@ -529,7 +529,7 @@ DAY 4
             13:25 EEST
             <br/><em>12:25 CEST</em>
         </td>
-        <td><b><a href="../extra_4_07_Exercises_14/">Exercises (session #14)</a></b>
+        <td><b><a href="../extra_4_08_Exercises_14/">Exercises (session #14)</a></b>
         </td>
     </tr>
     <tr>
@@ -537,7 +537,7 @@ DAY 4
             13:45 EEST
             <br/><em>12:45 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_08_AMD_Omniperf/">Introduction to Omniperf</a></b>
+        <td><b><a href="../extra_4_09_AMD_Omniperf/">Introduction to Omniperf</a></b>
         <br/><em>Presenter: George Markomanoulis (AMD)</em>
         </td>
     </tr>
@@ -546,7 +546,7 @@ DAY 4
             14:10 EEST
             <br/><em>13:10 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_09_Exercises_15/">Exercises (session #15)</a></b>
+        <td><b><a href="../extra_4_10_Exercises_15/">Exercises (session #15)</a></b>
         </td>
     </tr>
     <tr>
@@ -562,8 +562,8 @@ DAY 4
             14:45 EEST
             <br/><em>13:45 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_10_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
-        <br/><em>Presenter: George Markomanoulis (AMD)</em>
+        <td><b><a href="../extra_4_11_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
+        <br/><em>Presenter: George Markomanoulis (AMD) and Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -571,7 +571,7 @@ DAY 4
             16:15 EEST
             <br/><em>15:15 CEST</em> 
         </td>
-        <td><b><a href="../extra_4_11_LUMI_Support_and_Documentation/">LUMI User Support</a></b>
+        <td><b><a href="../extra_4_12_LUMI_Support_and_Documentation/">LUMI User Support</a></b>
         <ul>
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>

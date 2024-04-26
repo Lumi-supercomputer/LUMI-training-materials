@@ -77,17 +77,13 @@ downloaded from LUMI.
 | [Exercises #12](extra_4_04_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_05_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) |
 | [Exercises #13](extra_4_06_Exercises_13.md) | / | / | / |
+| [Introduction to OmniTrace](extra_4_07_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_07_AMD_Omnitrace.pdf) | / |  [web](extra_4_07_AMD_Omnitrace.md) |
+| [Exercises #14](extra_4_08_Exercises_14.md) | / | / | / |
+| [Introduction to Omniperf](extra_4_09_AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_09_AMD_Omniperf.pdf) | / |  [web](extra_4_09_AMD_Omniperf.md) |
+| [Exercises #15](extra_4_10_Exercises_15.md) | / | / | / |
+| [Tools in Action - An Example with Pytorch](extra_4_11_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_11_Best_Practices_GPU_Optimization.md) |
+| [LUMI User Support](extra_4_12_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_12_LUMI_Support_and_Documentation.pdf) | [web](notes_4_12_LUMI_Support_and_Documentation.md) | [web](extra_4_12_LUMI_Support_and_Documentation.md) |
 | [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-
-
-<!--
-| [Introduction to OmniTrace](extra_4_07_AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_07_AMD_Omnitrace.pdf) | / |  [web](extra_4_06_AMD_Omnitrace.md) |
-| [Introduction to Omniperf](extra_4_08_AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_06_AMD_Omnitrace.pdf) | / |  [web](extra_4_08_AMD_Omniperf.md) |
-| [Exercises #14](extra_4_07_Exercises_14.md) | / | / | / |
-| [Exercises #15](extra_4_09_Exercises_15.md) | / | / | / |
-| [Tools in Action - An Example with Pytorch](extra_4_10_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_10_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_10_Best_Practices_GPU_Optimization.md) |
-| [LUMI User Support](extra_4_11_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_LUMI_Support_and_Documentation.pdf) | [web](notes_4_11_LUMI_Support_and_Documentation.md) | [web](extra_4_11_LUMI_Support_and_Documentation.md) |
--->
 
 
 <!--
