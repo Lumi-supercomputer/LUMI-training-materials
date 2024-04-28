@@ -46,6 +46,7 @@ relevant:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
+    -   [Supercomputing with LUMI (May, 2024 in Amsterdam)](2day-20240502/index.md)
     -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
