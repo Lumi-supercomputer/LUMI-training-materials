@@ -1,4 +1,4 @@
-# Strategies for porting codes to GPU
+# Frameworks for porting applications to GPU
 
 *Presenter: Alfio Lazzaro (HPE)*
 

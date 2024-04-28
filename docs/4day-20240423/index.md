@@ -71,8 +71,8 @@ downloaded from LUMI.
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
-| [Python and Frameworks](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
-| [Porting to GPUs](extra_4_02_Porting_to_GPU.md) | [lumi](extra_4_02_Porting_to_GPU.md) | / |[lumi](extra_4_02_Porting_to_GPU.md) |
+| [Introduction to Python on Cray EX](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
+| [Frameworks for porting applications to GPUs](extra_4_02_Porting_to_GPU.md) | [lumi](extra_4_02_Porting_to_GPU.md) | / |[lumi](extra_4_02_Porting_to_GPU.md) |
 | [Performance Optimization: Improving single-core Efficiency](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) |
 | [Exercises #12](extra_4_04_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_05_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) |

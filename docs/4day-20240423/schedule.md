@@ -440,7 +440,7 @@ DAY 4
             09:00 EEST
             <br/><em>08:00 CEST</em>
         </td>
-        <td><b><a href="../extra_4_01_Introduction_to_Python_on_Cray_EX/">Python and Frameworks</a></b>
+        <td><b><a href="../extra_4_01_Introduction_to_Python_on_Cray_EX/">Introduction to Python on Cray EX</a></b>
         <ul>
             <li/>Cray Python for the Cray EX
         </ul>
@@ -452,7 +452,7 @@ DAY 4
             09:10 EEST
             <br/><em>08:10 CEST</em>
         </td>
-        <td><b><a href="../extra_4_02_Porting_to_GPU/">Strategies for porting codes to GPU</a></b>
+        <td><b><a href="../extra_4_02_Porting_to_GPU/">Frameworks for porting applications to GPU</a></b>
         <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
