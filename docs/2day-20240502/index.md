@@ -64,6 +64,8 @@ materials are uploaded.
 | [LUMI Software Stacks](extra_05_Software_stacks.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-05-software.pdf) | [notes](05_Software_stacks.md) | [video](extra_05_Software_stacks.md) |
 | Exercises 3 | / | [notes](E05_Exercises_3.md) | / |
 | [Slurm on LUMI](extra_06_Slurm.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-06-slurm.pdf) | [notes](06_Slurm.md) | [video](extra_06_Slurm.md) |
+| [Process and Thread Distribution and Binding](extra_07_Binding.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-07-binding.pdf) | [notes](07_Binding.md) | [video](extra_07_Binding.md) | 
+| Exercises 4 | / | [notes](E07_Exercises_4.md) | / |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
 
