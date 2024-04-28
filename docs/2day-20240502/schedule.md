@@ -55,7 +55,7 @@ DAY 1
             11:55 CEST
             <br/><em>12:55 EEST</em>
         </td>
-        <td><b>Getting Access to LUMI</b>
+        <td><b><a href="../extra_03_LUMI_Access/">Getting Access to LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
@@ -72,7 +72,7 @@ DAY 1
             13:30 CEST
             <br/><em>14:30 EEST</em>
         </td>
-        <td><b>Exercises (session #1)</b>
+        <td><b><a href="../E03_Exercises_1/">Exercises (session #1)</a></b>
         </td>
     </tr>
     <tr>
