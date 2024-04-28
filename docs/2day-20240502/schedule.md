@@ -147,7 +147,7 @@ DAY 2
             10:00 CEST
             <br/><em>11:00 EEST</em>
         </td>
-        <td><b>Slurm on LUMI</b>
+        <td><b><a href="../extra_06_Slurm/">Slurm on LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
