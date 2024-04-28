@@ -189,7 +189,7 @@ DAY 2
             14:00 CEST
             <br/><em>15:00 EEST</em>
         </td>
-        <td><b>I/O and File Systems on LUMI</b>
+        <td><b><a href="../extra_08_Lustre/">I/O and File Systems on LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
@@ -198,7 +198,7 @@ DAY 2
             14:30 CEST
             <br/><em>15:30 EEST</em>
         </td>
-        <td><b>Containers on LUMI-C and LUMI-G</b>
+        <td><b><a href="../extra_09_Containers/">Containers on LUMI-C and LUMI-G</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>

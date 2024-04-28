@@ -66,6 +66,10 @@ materials are uploaded.
 | [Slurm on LUMI](extra_06_Slurm.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-06-slurm.pdf) | [notes](06_Slurm.md) | [video](extra_06_Slurm.md) |
 | [Process and Thread Distribution and Binding](extra_07_Binding.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-07-binding.pdf) | [notes](07_Binding.md) | [video](extra_07_Binding.md) | 
 | Exercises 4 | / | [notes](E07_Exercises_4.md) | / |
+| [I/O and File Systems on LUMI](extra_08_Lustre.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-08-lustre.pdf) | [notes](08_Lustre.md) | [video](extra_08_Lustre.md) |
+| [Containers on LUMI-C and LUMI-G](extra_09_Containers.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-09-containers.pdf) | [notes](09_Containers.md) | [video](extra_09_Containers.md) |
+| [Demo 1 (optional)](Demo1.md) | / | [notes](Demo1.md) | [video](Demo1.md#video-of-the-demo) |
+| [Demo 2 (optional)](Demo2.md) | / | [notes](Demo2.md) | [video](Demo2.md#video-of-the-demo) |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
 
