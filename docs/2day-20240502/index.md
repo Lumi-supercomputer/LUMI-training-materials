@@ -11,8 +11,8 @@
 <!--
 -   There are two Slurm reservations for the course:
 
-    -   CPU nodes: `training_cpu`
-    -   GPU nodes: `training-gpu`
+    -   CPU nodes: `LUMI_Intro_SURF_small` (on the `small` Slurm partition)
+    -   GPU nodes: `LUMI_Intro_SURF_standardg` (on the `standard-g` Slurm partition)
 -->
 
 
@@ -38,7 +38,7 @@ You will only need an very minimum of CPU and GPU billing units for this.
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://465000095.lumidata.eu/2day-20240502/files/exercises-20240502.tar.gz
+    wget https://462000265.lumidata.eu/2day-20240502/files/exercises-20240502.tar.gz
     tar -xf exercises-20240502.tar.gz
     ```
 
