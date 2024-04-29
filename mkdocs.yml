@@ -134,6 +134,7 @@ plugins:
           intro-latest.md: 1day-20240208/index.md
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
+          Amsterdam-1.md: 2day-20240502/E03_Exercises_1.md
 
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
