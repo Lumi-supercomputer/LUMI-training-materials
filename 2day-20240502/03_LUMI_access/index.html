@@ -3109,7 +3109,7 @@ with the remote host, and the bandwidth one can reach via a single stream in the
 TCP network protocol used for such connections, is limited not only by the bandwidth of
 all links involved but also by the latency. After sending a certain amount of data, the
 sender will wait for a confirmation that the data has arrived, and if the latency is
-hight, that confirmation takes more time to reach the sender, limiting the effective
+high, that confirmation takes more time to reach the sender, limiting the effective
 bandwidth that can be reached over the connection. LUMI is not to blame for that;
 the whole path from the system from which you initiate the connection to LUMI
 is responsible and every step adds to the latency. We've seen many cases where the
@@ -3238,7 +3238,7 @@ machines so that one machine can be disabled quickly if the machine would be com
   <img alt="Slide Accessing LUMI-O: Credentials management web interface (5)" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-03-access/LUMIOCredentialsWeb_05.png" />
 </figure></p>
 <p>At the top of the screen you see three elements that will be important if you use the LUMI command line tool
-<code>lumi-conf</code> to generate configuration files for <code>rclone</code> and <code>s3cmd</code>: the project number (but you knew that one),
+<code>lumio-conf</code> to generate configuration files for <code>rclone</code> and <code>s3cmd</code>: the project number (but you knew that one),
 the "Access key" and "Secret key".</p>
 <p>Scrolling down a bit more:</p>
 <p><figure markdown style="border: 1px solid #000">
@@ -3280,7 +3280,7 @@ both ways discussed on the previous slide, produce different end points.</p>
 <li>When using <code>lumio-conf</code>, you'll get:<ul>
 <li><code>lumi-o</code> as the end point for buckets and object that should be private, i.e., not publicly
     accessible via the web interface, and</li>
-<li>'lumi-pub' for buckets and objects that should be publicly accessible. It does appear to be
+<li><code>lumi-pub</code> for buckets and objects that should be publicly accessible. It does appear to be
     possible to have both types in a single bucket though.</li>
 </ul>
 </li>

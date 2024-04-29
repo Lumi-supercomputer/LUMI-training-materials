@@ -3178,8 +3178,8 @@ activate:</p>
 <tr>
 <td>PrgEnv-gnu</td>
 <td>GNU Compiler Collection</td>
-<td><code>gcc</code></td>
-<td><code>gcc</code>, <code>g++</code>, <code>gfortran</code></td>
+<td><code>gcc</code><br/><code>gcc-native</code><sup>(*)</sup></td>
+<td><code>gcc</code>, <code>g++</code>, <code>gfortran</code><br/><code>gcc-12</code>, <code>g++-12</code>, <code>gfortran-12</code></td>
 </tr>
 <tr>
 <td>PrgEnv-aocc</td>
@@ -3195,6 +3195,7 @@ activate:</p>
 </tr>
 </tbody>
 </table>
+<p><sup>(*)</sup> See the note "Changes to the GNU compilers in 23.12".</p>
 <p>There is also a second module that offers the AMD ROCm environment, <code>rocm</code>. That module
 has to be used with <code>PrgEnv-cray</code> and <code>PrgEnv-gnu</code> to enable MPI-aware GPU,
 hipcc with the GNU compilers or GPU support with the Cray compilers.</p>

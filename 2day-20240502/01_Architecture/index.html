@@ -2724,7 +2724,7 @@ in that data format which is important for a lot of scientific computing applica
     not only hard to get working on a supercomputer but also insecure.</p>
 </li>
 <li>
-<p><strong>And supercomputer need proper software that exploits the strengths and works around the weaknesses
+<p><strong>And supercomputers need proper software that exploits the strengths and works around the weaknesses
     of their architecture.</strong><br />
     CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
     HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
@@ -2814,7 +2814,8 @@ as LUMI-P. </p>
 <p>Big parallel file systems need to be used in the proper way to be able to offer the
 performance that one would expect from their specifications. This is important enough that 
 we have a separate session about that in this course.</p>
-<p>An <strong>object based file system</strong> similar to the Allas service of CSC that some
+<p>There is also a 30 PB <strong>object based file system</strong> 
+similar to the Allas service of CSC that some
 of the Finnish users may be familiar with is also being worked on. At the 
 moment the interface to that system is still rather primitive.</p>
 <p>Currently LUMI has <strong>4 login nodes</strong> for ssh access, called user access nodes in the HPE Cray
@@ -2990,7 +2991,7 @@ cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches
 its own local memory.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (through a PCIe interface on the GPU) rather
-than to the CPU. The CPUs have a shorter path to the communication 
+than to the CPU. The GPUs have a shorter path to the communication 
 network than the CPU in this design. </p>
 <p>This makes the LUMI-G compute node really a "GPU first" system. The architecture
 looks more like a GPU system with a CPU as the accelerator for tasks that a GPU is
