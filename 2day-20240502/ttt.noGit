@@ -1,8 +1,0 @@
-for file in $(/bin/ls -1 *.md) ; 
-do 
-    sed -e 's|465000095.lumidata.eu/training-materials-web|462000265.lumidata.eu|' \
-        -e 's|intro-evolving|2day-20240502|' \
-        -e 's|LUMI-BE-Intro-evolving|LUMI-2day-20240502|' \
-        -i .orig2 $file ; \
-done
-
