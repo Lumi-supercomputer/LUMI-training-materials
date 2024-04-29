@@ -625,9 +625,11 @@ activate:
 | PrgEnv      | Description                               | Compiler module | Compilers                            |
 |-------------|-------------------------------------------|-----------------|--------------------------------------|
 | PrgEnv-cray | Cray Compiling Environment                | `cce`           | `craycc`, `crayCC`, `crayftn`        |
-| PrgEnv-gnu  | GNU Compiler Collection                   | `gcc`           | `gcc`, `g++`, `gfortran`             |
+| PrgEnv-gnu  | GNU Compiler Collection                   | `gcc`<br/>`gcc-native`<sup>(*)</sup> | `gcc`, `g++`, `gfortran`<br/>`gcc-12`, `g++-12`, `gfortran-12` |
 | PrgEnv-aocc | AMD Optimizing Compilers<br>(CPU only)    | `aocc`          | `clang`, `clang++`, `flang`          |
 | PrgEnv-amd  | AMD ROCm LLVM compilers <br>(GPU support) | `amd`           | `amdclang`, `amdclang++`, `amdflang` |
+
+<sup>(*)</sup> See the note "Changes to the GNU compilers in 23.12".
 
 There is also a second module that offers the AMD ROCm environment, `rocm`. That module
 has to be used with `PrgEnv-cray` and `PrgEnv-gnu` to enable MPI-aware GPU,

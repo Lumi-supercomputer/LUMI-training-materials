@@ -569,7 +569,7 @@ with the remote host, and the bandwidth one can reach via a single stream in the
 TCP network protocol used for such connections, is limited not only by the bandwidth of
 all links involved but also by the latency. After sending a certain amount of data, the
 sender will wait for a confirmation that the data has arrived, and if the latency is
-hight, that confirmation takes more time to reach the sender, limiting the effective
+high, that confirmation takes more time to reach the sender, limiting the effective
 bandwidth that can be reached over the connection. LUMI is not to blame for that;
 the whole path from the system from which you initiate the connection to LUMI
 is responsible and every step adds to the latency. We've seen many cases where the
@@ -727,7 +727,7 @@ Let's walk through the interface:
     </figure>
 
     At the top of the screen you see three elements that will be important if you use the LUMI command line tool
-    `lumi-conf` to generate configuration files for `rclone` and `s3cmd`: the project number (but you knew that one),
+    `lumio-conf` to generate configuration files for `rclone` and `s3cmd`: the project number (but you knew that one),
     the "Access key" and "Secret key".
 
     Scrolling down a bit more:
@@ -784,7 +784,7 @@ both ways discussed on the previous slide, produce different end points.
 -   When using `lumio-conf`, you'll get:
     -   `lumi-o` as the end point for buckets and object that should be private, i.e., not publicly
         accessible via the web interface, and
-    -   'lumi-pub' for buckets and objects that should be publicly accessible. It does appear to be
+    -   `lumi-pub` for buckets and objects that should be publicly accessible. It does appear to be
         possible to have both types in a single bucket though.
 -   When using the web generator you get specific end points for each project, so it is possible
     to access data from multiple projects simultaneously from a single configuration file:

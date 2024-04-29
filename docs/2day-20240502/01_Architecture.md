@@ -110,7 +110,7 @@ Just some examples of using the wrong tools or infrastructure:
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.
 
--   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
+-   **And supercomputers need proper software that exploits the strengths and works around the weaknesses
     of their architecture.**  
     CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
     HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
@@ -213,7 +213,8 @@ Big parallel file systems need to be used in the proper way to be able to offer 
 performance that one would expect from their specifications. This is important enough that 
 we have a separate session about that in this course.
 
-An **object based file system** similar to the Allas service of CSC that some
+There is also a 30 PB **object based file system** 
+similar to the Allas service of CSC that some
 of the Finnish users may be familiar with is also being worked on. At the 
 moment the interface to that system is still rather primitive.
 
@@ -422,7 +423,7 @@ cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches
 its own local memory.
 The second remarkable element is that the Slingshot interface cards
 connect directly to the GPUs (through a PCIe interface on the GPU) rather
-than to the CPU. The CPUs have a shorter path to the communication 
+than to the CPU. The GPUs have a shorter path to the communication 
 network than the CPU in this design. 
 
 This makes the LUMI-G compute node really a "GPU first" system. The architecture

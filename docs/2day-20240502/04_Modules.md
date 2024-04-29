@@ -723,7 +723,7 @@ from regular users.
 !!! Example
     An example that will only become clear in the next session: When working with the software stack
     called `LUMI/23.09`, which is built upon the HPE Cray Programming Environment version 23.09,
-    all (well, most) of the modules corresponding to other version of the Cray PE are hidden.
+    all (well, most) of the modules corresponding to other versions of the Cray PE are hidden.
 
 
 ## Getting help with the module help command
