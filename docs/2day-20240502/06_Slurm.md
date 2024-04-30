@@ -303,30 +303,31 @@ Some useful commands with respect to Slurm partitions:
 
     ```
     $ sinfo -s
-    PARTITION      AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
-    debug             up      30:00          0/8/0/8 nid[002500-002501,002504-002506,002595-002597]
-    interactive       up    8:00:00          4/0/0/4 nid[002502,002507,002594,002599]
-    ju-standard       up 2-00:00:00    571/11/26/608 nid[001256-001511,002024-002279,002600-002695]
-    ju-strategic      up 2-00:00:00    16/227/13/256 nid[001000-001255]
-    q_fiqci           up      15:00          0/1/0/1 nid002598
-    q_industry        up      15:00          0/1/0/1 nid002598
-    q_nordiq          up      15:00          0/1/0/1 nid002503
-    small             up 3-00:00:00      300/1/5/306 nid[002280-002499,002508-002593]
-    standard          up 2-00:00:00    730/87/47/864 nid[001512-002023,002696-003047]
-    dev-g             up    3:00:00       19/24/5/48 nid[005002-005025,007954-007977]
-    ju-standard-g     up 2-00:00:00    818/77/65/960 nid[005280-005495,005620-005991,006240-006487,007728-007851]
-    ju-strategic-g    up 7-00:00:00    329/52/23/404 nid[005124-005279,005992-006239]
-    small-g           up 3-00:00:00     161/32/5/198 nid[005026-005123,007852-007951]
-    standard-g        up 2-00:00:00  910/31/423/1364 nid[005496-005619,006488-007727]
-    largemem          up 1-00:00:00          5/0/1/6 nid[000101-000106]
-    lumid             up    4:00:00          0/7/1/8 nid[000016-000023]
+    PARTITION   AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
+    debug          up      30:00          1/7/0/8 nid[002500-002501,002504-002506,002595-002597]
+    interactive    up    8:00:00          2/2/0/4 nid[002502,002507,002594,002599]
+    q_fiqci        up      15:00          0/1/0/1 nid002598
+    q_industry     up      15:00          0/1/0/1 nid002598
+    q_nordiq       up      15:00          0/1/0/1 nid002503
+    small          up 3-00:00:00     281/8/17/306 nid[002280-002499,002508-002593]
+    standard       up 2-00:00:00  1612/1/115/1728 nid[001000-002279,002600-003047]
+    dev-g          up    3:00:00        44/2/2/48 nid[005002-005025,007954-007977]
+    small-g        up 3-00:00:00      191/2/5/198 nid[005026-005123,007852-007951]
+    standard-g     up 2-00:00:00 1641/749/338/272 nid[005124-007851]
+    largemem       up 1-00:00:00          0/5/1/6 nid[000101-000106]
+    lumid          up    4:00:00          1/6/1/8 nid[000016-000023]
     ```
 
     The fourth column shows 4 numbers: The number of nodes that are currently fully or partially allocated
     to jobs, the number of idle nodes, the number of nodes in one of the other possible states (and not
     user-accessible) and the total number of nodes in the partition. Sometimes a large number of nodes
-    can be in the Ö"column, e.g., when mechanical maintenance is needed (like problem with the
-    cooling).
+    can be in the "O"column, e.g., when mechanical maintenance is needed (like problem with the
+    cooling). Also note that the width of the `NODES` field is not enough as the total number
+    of nodes for `standard-g` doesn't make sense, but this is easyly solved, e.g., using
+
+    ```
+    sinfo -o "%11P %.5a %.10l %.20F %N"
+    ```
 
     <!-- BELGIUM 
     Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
@@ -340,7 +341,7 @@ Some useful commands with respect to Slurm partitions:
     available to some users of those countries that paid for those machines.
 
     It is not clear to the LUMI Support Team what the `interactive` partition, that uses dome GPU nodes, is 
-    meant for as it was introduced without informting the support. The resources in that partition are very
+    meant for as it was introduced without informing the support. The resources in that partition are very
     limited so it is not meant for widespread use.
 
 -   For technically-oriented people, some more details about a partition can be obtained with
@@ -489,7 +490,7 @@ allocation (as GPU-hours are based on a full MI250x and not on a GCD which is th
     some core configuration ran at only 10% of the speed they should have been
     running at...
 
-    Still, even with this billing policy Slurm oon LUMI is a far from perfect scheduler
+    Still, even with this billing policy Slurm on LUMI is a far from perfect scheduler
     and core, GPU and memory allocation on the non-exclusive partitions are far from
     optimal. Which is why we spend a section of the course on binding applications
     to resources.
@@ -574,6 +575,10 @@ short experiments of half an hour or so often start quickly on LUMI even though 
 
 ## Managing Slurm jobs
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide MAnaging Slurm jobs](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-06-slurm/ManageJob.png){ loading=lazy }
+</figure>
+
 Before experimenting with jobs on LUMI, it is good to discuss how to manage those jobs.
 We will not discuss the commands in detail and instead refer to the pretty decent manual pages
 that in fact can also be found on the web.
@@ -644,7 +649,7 @@ will run as some options work differently as for the commands meant to create an
 When creating a job with `salloc` you will have to use `srun` to start anything on the
 node(s) in the allocation as it is not possible to, e.g., reach the nodes with `ssh`.
 
-The `sbatch` command both creates a job and then start a job step, teh so-called batch
+The `sbatch` command both creates a job and then starts a job step, the so-called batch
 job step, to run the job script on the first node of the job allocation.
 In principle it is possible to start both sequential and shared memory processes
 directly in the batch job step without creating a new job step with `srun`, 
@@ -751,7 +756,7 @@ certainly needed with `salloc` also.
 -   Specify the account to which the job should be billed with `--account=project_46YXXXXXX` or `-A project_46YXXXXXX`.
     This is mandatory; without this your job will not run.
 
--   Specify the partition: `--partition=<partition>  or `-p <partition>`. This option is also necessary
+-   Specify the partition: `--partition=<partition>`  or `-p <partition>`. This option is also necessary
     on LUMI as there is currently no default partition.
 
 -   Specify the wall time for the job: `--time=<timespec>` or `-t <timespec>`. There are multiple formats for
@@ -904,8 +909,8 @@ The partition is specified using `--partition=<partition` or `-p <partition>`.
 The number of nodes is specified with `--nodes=<number_of_nodes>` or its short form 
 `-N <number_of_nodes>`.
 
-If you want to use a per-node allocation on a partition which is allocatable-by-resources such as small
-and small-g, you also need to specify the `--exclusive` flag. On LUMI this flag does not have the same
+If you want to use a per-node allocation on a partition which is allocatable-by-resources such as `small`
+and `small-g`, you also need to specify the `--exclusive` flag. On LUMI this flag does not have the same
 effect as running on a partition that is allocatable-by-node. The `--exclusive` flag does allocate
 all cores and GPUs on the node to your job, but the memory use is still limited by other parameters in
 the Slurm configuration. In fact, this can also be the case for allocatable-by-node partitions, but there 
@@ -974,9 +979,9 @@ partition, but note that running on these nodes is expensive!)
     echo -e "\nsacct for the job:\n$(sacct -j $SLURM_JOB_ID)\n"
     ```
 
-    As we are using small-g here instead of standard-g, we added the `#SBATCH --exclusive` and `#SBATCH --mem=480G` lines.
+    As we are using `small-g` here instead of standard-g, we added the `#SBATCH --exclusive` and `#SBATCH --mem=480G` lines.
 
-    A similar job script for a CPU-node in LUMI-C and now in the standard partition would look like:
+    A similar job script for a CPU-node in LUMI-C and now in the `standard` partition would look like:
 
     ``` bash
     #! /usr/bin/bash
@@ -1590,7 +1595,7 @@ those at least if they are proportional to the resources that a node provides), 
 with the disadvantage that it is not possible to control how cores and GPUs are allocated
 within a node. Codes that depend on proper mapping of threads and processes on L3 cache regions,
 NUMA nodes or sockets, or on shortest paths between cores in a task and the associated GPU(s) 
-may see an unpredictable performance losses (a) the mapping will rarely be optimal unless you are
+may see an unpredictable performance loss as the mapping (a) will rarely be optimal unless you are
 very lucky (and always be suboptimal for GPUs in the current LUMI setup) and (b) will also depend
 on other jobs already running on the set of nodes assigned to your job.
 
@@ -2225,7 +2230,7 @@ start further job steps from that interactive shell you will note that you have 
 resources available, and will have to force overlap (with `--overlap`),
 so it is not very practical to work that way.
 
-To terminate the allocation, simply exit the shell that was created by `salloc` with `exzit` or 
+To terminate the allocation, simply exit the shell that was created by `salloc` with `exit` or 
 the CTRL-D key combination (and the same holds for the interactive shell in the previous
 paragraph).
 
@@ -2290,7 +2295,7 @@ further job steps with `srun` within the same allocation as the interactive shel
 fills a task slot, so you'd have to overlap if you want to use all resources of the job in the 
 next job step. 
 
-For this kind of work you'll rarely need a whole node so small and small-g will likely be your
+For this kind of work you'll rarely need a whole node so `small`, `small-g`, `debug` or `dev-g` will likely be your
 partitions of choice.
 
 To start such a job, you'd use 
