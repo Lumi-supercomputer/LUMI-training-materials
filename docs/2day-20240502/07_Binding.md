@@ -29,7 +29,7 @@ The second mechanism is processor affinity which works at the process and thread
 used by Slurm at the task level and 
 can be used by the OpenMP runtime to further limit thread migration. It works through affinity masks
 which indicate the hardware threads that a thread or process can use. There is also a third
-mechanism provided by the ROCm<sup>TM</sup> run time to control which GPUs can be used.
+mechanism provided by the ROCm<sup>TM</sup> runtime to control which GPUs can be used.
 
 Some of the tools in the `lumi-CPEtools` module can show the affinity mask for each thread
 (or effectively the process for single-threaded processes) so you can use these tools to
@@ -1732,7 +1732,7 @@ Some further documentation:
 </figure>
 
 The `ROCR_VISIBLE_DEVICES` environment variable restricts access to GPUs at the ROCm platform runtime 
-level. Contrary to control groups however this mechanism is compatible with the Peer2PEer IPC used by
+level. Contrary to control groups however this mechanism is compatible with the Peer2Peer IPC used by
 GPU-aware Cray MPI for intra-node communication.
 
 The value of the `ROCR_VISIBLE_DEVICES` environment variable is a list of device indices that will be
