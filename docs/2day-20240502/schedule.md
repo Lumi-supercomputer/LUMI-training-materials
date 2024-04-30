@@ -161,8 +161,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            11:55 CEST
-            <br/><em>12:55 EEST</em>
+            11:45 CEST
+            <br/><em>12:45 EEST</em>
         </td>
         <td><b>Process and Thread Distribution and Binding</b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
