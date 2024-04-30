@@ -46,7 +46,7 @@ CPU type, some floating point computations may produce slightly different result
 this may even be the case between two runs on exactly the same hardware and software. Containers may offer more
 reproducibility than recompiling software for a different platform, but all you're trying to do is reproducing 
 the same wrong result as in particular floating point operations are only an approximation for real numbers. 
-When talking about reproducibility, you should think like way experimentalists do: You have a result and an 
+When talking about reproducibility, you should think the way experimentalists do: You have a result and an 
 error margin, and it is important to have an idea of that error margin too.
 
 But full portability is as much a myth. Containers are really only guaranteed to be portable between similar systems.
@@ -409,8 +409,9 @@ the `singularity-bindings` module
 ### VNC container
 
 The second tool is a container that we provide with some bash functions
-to start a VNC server as temporary way to be able to use some GUI programs
-on LUMI until the final setup which will be based on Open OnDemand is ready (expected late 2023).
+to start a VNC server as one way to run GUI programs and as an alternative to 
+the (currently more sophisticated) VNC-based GUI desktop setup offered in Open OnDemand
+(see the ["Getting Access to LUMI notes"](03_LUMI_access.md#access)).
 It can be used in `CrayEnv` or in the LUMI stacks through the
 [**`lumi-vnc`** module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/). 
 The container also
@@ -443,6 +444,13 @@ containers in user space.)
 
 Containers build with `cotainr` are used just as other containers, so through the `singularity` commands discussed
 before.
+
+<!-- GENERAL More general version -->
+!!! Note "AI course"
+    The `cotainr` tool is also used extensively in our AI training/workshop to build containers
+    with AI software on top of some 
+    [ROCm<sup>TM</sup> containers that we provide](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/). A link to the course material of that training was
+    not yet available at the time of this course.
 
 
 ### Container wrapper for Python packages and conda
@@ -561,11 +569,16 @@ built specifically for LUMI for near-optimal performance. Depending on the softw
 also contain a RCCL library with the appropriate plugin to work well on the Slingshot 11
 interconnect, or a horovod compiled to use Cray MPICH. 
 
-The containers are provided through a module which sets the `SINGULARITY_BIND` environment variable
+The containers can be provided through a module that is user-installable with EasyBuild.
+That module sets the `SINGULARITY_BIND` environment variable
 to ensure proper bindings (as they need, e.g., the libfabric library from the system and the proper
 "CXI provider" for libfabric to connect to the Slingshot interconnect). The module will also provide
 an environment variable to refer to the container (name with full path) to make it easy to refer to
-the container in job scripts.
+the container in job scripts. Some of the modules also provide some scripts that may make using the containers easier in some standard scenarios. Alternatively, the user support team is also working
+on some modules for users who want to run the containers as manually as possible yet want an 
+easy way to deal with the necessary bindings of user file systems and HPE Cray PE components needed
+from the system (see also course notes for the AI training/workshop, still "future" at the time
+of this course so we cannot link to them).
 
 These containers can be found through the
 [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) and are marked
@@ -595,7 +608,7 @@ Yet to be able to properly use the containers, users do need to take care of som
 -   Some system directories and libraries have to be bound to the container:
 
     ```
-    -B /var/spool/slurmd,/opt/cray/,/usr/lib64/libcxi.so.1,/usr/lib64/libjansson.so.4
+    -B /var/spool/slurmd,/opt/cray,/usr/lib64/libcxi.so.1,/usr/lib64/libjansson.so.4
     ```
 
     The first one is needed to work together with Slurm. The second one contains the MPI and libfabric library.
@@ -658,7 +671,7 @@ If you add a lot of packages that way, you re-create the filesystem issues that 
 solve, but we have a solution for that also. These containers provide the `make-squashfs` command to generate
 a SquashFS file from the installation that will be used by the container instead next time the module for 
 the container is reloaded. And in case you prefer to fully delete the `user-software` subdirectory afterwards
-from `$CONTAINERROOT`, it can be re-created using `uname-squashfs` so that you can add further packages.
+from `$CONTAINERROOT`, it can be re-created using `unmake-squashfs` so that you can add further packages.
 You can also use `/user-software` to install software in other ways from within the container and can
 basically create whatever subdirectory you want into it. 
 
@@ -799,7 +812,6 @@ export MASTER_ADDR=$(python get-master.py "$SLURM_NODELIST")
 export MASTER_PORT=29500
 export WORLD_SIZE=$SLURM_NPROCS
 export RANK=$SLURM_PROCID
-export ROCR_VISIBLE_DEVICES=$SLURM_LOCALID
 
 # Run app
 cd /workdir/mnist
@@ -842,6 +854,8 @@ AMD ROCm environment. We notice a number of things:
     fi
     ```
 
+    These caches are used to store compiled kernels.
+
 -   It is also essential to tell RCCL, the communication library, which network adapters to use. 
     These environment variables start with `NCCL_` because ROCm tries to keep things as similar as
     possible to NCCL in the NVIDIA ecosystem:
@@ -878,7 +892,7 @@ AMD ROCm environment. We notice a number of things:
   ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 3](https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-09-containers/RunningAIExampleNoEasyBuild_3.png){ loading=lazy }
 </figure>
 
-And finally you need a job script that you can then submit with `sbatch`. LEts call it `my-job.sh`:
+And finally you need a job script that you can then submit with `sbatch`. Lets call it `my-job.sh`:
 
 ```bash
 #!/bin/bash -e
@@ -908,7 +922,10 @@ singularity exec \
 
 The important parts here are:
 
--   We start PyTorch via `srun` and this is recommended. The `torchrun` command is not supported on LUMI. 
+-   We start PyTorch via `srun` and this is recommended. The `torchrun` command is not supported 
+    on LUMI, as is any other process starter that can be found in AI software that uses ssh
+    to start processes on other nodes rather than going via the resource manager (with, e.g., 
+    `srun`).
 
 -   We also use a 
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 

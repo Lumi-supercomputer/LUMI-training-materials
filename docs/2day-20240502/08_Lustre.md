@@ -29,11 +29,12 @@ slower than on the SSD of a good PC.
 HPE Cray EX systems go even one step further. 
 Lustre is the only network file system directly served to the compute nodes.
 Other network file system come via a piece of software called Data
-Virtualisation Service (abbreviated DVS) that basically forward I/O requests
+Virtualisation Service (abbreviated DVS) that basically forwards I/O requests
 to servers in the management section of the cluster where the actual file
 system runs. 
 This is part of the measures that Cray takes in Cray Operating System to
-minimise OS jitter on the compute nodes to improve scalability of applications.
+minimise OS jitter on the compute nodes to improve scalability of applications,
+and to reduce the memory footprint of the OS on the compute nodes.
 
 
 ## Lustre building blocks
@@ -701,4 +702,7 @@ However, it was discussed to some extent already in the
 -   [Lustre Basics](https://www.nas.nasa.gov/hecc/support/kb/lustre-basics_224.html) and
     [Lustre Best Practices](https://www.nas.nasa.gov/hecc/support/kb/lustre-best-practices_226.html)
     in the [knowledge base of the NASA supercomputers](https://www.nas.nasa.gov/hecc/support/kb/).
+
+-   [Introduction to DVS](https://support.hpe.com/hpesc/public/docDisplay?docId=a00115089en_us&page=Introduction_to_DVS.html)
+    in an [administration guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00115089en_us&page=index.html)
 
