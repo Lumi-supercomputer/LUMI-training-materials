@@ -2734,7 +2734,7 @@ CPU type, some floating point computations may produce slightly different result
 this may even be the case between two runs on exactly the same hardware and software. Containers may offer more
 reproducibility than recompiling software for a different platform, but all you're trying to do is reproducing 
 the same wrong result as in particular floating point operations are only an approximation for real numbers. 
-When talking about reproducibility, you should think like way experimentalists do: You have a result and an 
+When talking about reproducibility, you should think the way experimentalists do: You have a result and an 
 error margin, and it is important to have an idea of that error margin too.</p>
 <p>But full portability is as much a myth. Containers are really only guaranteed to be portable between similar systems.
 They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
@@ -3012,8 +3012,9 @@ the <code>singularity-bindings</code> module
 (or by just manually setting the proper environment variables).</p>
 <h3 id="vnc-container">VNC container<a class="headerlink" href="#vnc-container" title="Permanent link">&para;</a></h3>
 <p>The second tool is a container that we provide with some bash functions
-to start a VNC server as temporary way to be able to use some GUI programs
-on LUMI until the final setup which will be based on Open OnDemand is ready (expected late 2023).
+to start a VNC server as one way to run GUI programs and as an alternative to 
+the (currently more sophisticated) VNC-based GUI desktop setup offered in Open OnDemand
+(see the <a href="../03_LUMI_access/#access">"Getting Access to LUMI notes"</a>).
 It can be used in <code>CrayEnv</code> or in the LUMI stacks through the
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/"><strong><code>lumi-vnc</code></strong> module</a>. 
 The container also
@@ -3037,6 +3038,14 @@ any special rights. (For the container specialists: It is based on the container
 containers in user space.)</p>
 <p>Containers build with <code>cotainr</code> are used just as other containers, so through the <code>singularity</code> commands discussed
 before.</p>
+<!-- GENERAL More general version -->
+<div class="admonition note">
+<p class="admonition-title">AI course</p>
+<p>The <code>cotainr</code> tool is also used extensively in our AI training/workshop to build containers
+with AI software on top of some 
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/">ROCm<sup>TM</sup> containers that we provide</a>. A link to the course material of that training was
+not yet available at the time of this course.</p>
+</div>
 <h3 id="container-wrapper-for-python-packages-and-conda">Container wrapper for Python packages and conda<a class="headerlink" href="#container-wrapper-for-python-packages-and-conda" title="Permanent link">&para;</a></h3>
 <p>The fourth tool is a container wrapper tool that users from Finland may also know
 as <a href="https://docs.csc.fi/computing/containers/tykky/">Tykky</a> (the name on their national systems). 
@@ -3123,11 +3132,16 @@ use Conda for some components, but have several of the performance critical comp
 built specifically for LUMI for near-optimal performance. Depending on the software they
 also contain a RCCL library with the appropriate plugin to work well on the Slingshot 11
 interconnect, or a horovod compiled to use Cray MPICH. </p>
-<p>The containers are provided through a module which sets the <code>SINGULARITY_BIND</code> environment variable
+<p>The containers can be provided through a module that is user-installable with EasyBuild.
+That module sets the <code>SINGULARITY_BIND</code> environment variable
 to ensure proper bindings (as they need, e.g., the libfabric library from the system and the proper
 "CXI provider" for libfabric to connect to the Slingshot interconnect). The module will also provide
 an environment variable to refer to the container (name with full path) to make it easy to refer to
-the container in job scripts.</p>
+the container in job scripts. Some of the modules also provide some scripts that may make using the containers easier in some standard scenarios. Alternatively, the user support team is also working
+on some modules for users who want to run the containers as manually as possible yet want an 
+easy way to deal with the necessary bindings of user file systems and HPE Cray PE components needed
+from the system (see also course notes for the AI training/workshop, still "future" at the time
+of this course so we cannot link to them).</p>
 <p>These containers can be found through the
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a> and are marked
 with a container label.
@@ -3151,7 +3165,7 @@ tries to bind too much external software to the container.</p>
 <ul>
 <li>
 <p>Some system directories and libraries have to be bound to the container:</p>
-<div class="highlight"><pre><span></span><code>-B /var/spool/slurmd,/opt/cray/,/usr/lib64/libcxi.so.1,/usr/lib64/libjansson.so.4
+<div class="highlight"><pre><span></span><code>-B /var/spool/slurmd,/opt/cray,/usr/lib64/libcxi.so.1,/usr/lib64/libjansson.so.4
 </code></pre></div>
 <p>The first one is needed to work together with Slurm. The second one contains the MPI and libfabric library.
 The third one is the actual component that binds libfabric to the Slingshot network adapter and is called 
@@ -3210,7 +3224,7 @@ If you add a lot of packages that way, you re-create the filesystem issues that 
 solve, but we have a solution for that also. These containers provide the <code>make-squashfs</code> command to generate
 a SquashFS file from the installation that will be used by the container instead next time the module for 
 the container is reloaded. And in case you prefer to fully delete the <code>user-software</code> subdirectory afterwards
-from <code>$CONTAINERROOT</code>, it can be re-created using <code>uname-squashfs</code> so that you can add further packages.
+from <code>$CONTAINERROOT</code>, it can be re-created using <code>unmake-squashfs</code> so that you can add further packages.
 You can also use <code>/user-software</code> to install software in other ways from within the container and can
 basically create whatever subdirectory you want into it. </p>
 <p>These containers with pre-configured virtual environment offer another advantage also: The module injects a number
@@ -3329,7 +3343,6 @@ sleep<span class="w"> </span><span class="m">2</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_PORT</span><span class="o">=</span><span class="m">29500</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">WORLD_SIZE</span><span class="o">=</span><span class="nv">$SLURM_NPROCS</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK</span><span class="o">=</span><span class="nv">$SLURM_PROCID</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">ROCR_VISIBLE_DEVICES</span><span class="o">=</span><span class="nv">$SLURM_LOCALID</span>
 
 <span class="c1"># Run app</span>
 <span class="nb">cd</span><span class="w"> </span>/workdir/mnist
@@ -3368,6 +3381,7 @@ sleep<span class="w"> </span><span class="m">2</span>
 <span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$MIOPEN_USER_DB_PATH</span>
 <span class="k">fi</span>
 </code></pre></div>
+<p>These caches are used to store compiled kernels.</p>
 </li>
 <li>
 <p>It is also essential to tell RCCL, the communication library, which network adapters to use. 
@@ -3401,7 +3415,7 @@ this version of the script.</strong></p>
 <figure style="border: 1px solid #000">
 <p><img alt="Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 3" loading="lazy" src="https://462000265.lumidata.eu/2day-20240502/img/LUMI-2day-20240502-09-containers/RunningAIExampleNoEasyBuild_3.png" /></p>
 </figure>
-<p>And finally you need a job script that you can then submit with <code>sbatch</code>. LEts call it <code>my-job.sh</code>:</p>
+<p>And finally you need a job script that you can then submit with <code>sbatch</code>. Lets call it <code>my-job.sh</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -e</span>
 <span class="c1">#SBATCH --nodes=4</span>
 <span class="c1">#SBATCH --gpus-per-node=8</span>
@@ -3429,7 +3443,10 @@ singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> 
 <p>The important parts here are:</p>
 <ul>
 <li>
-<p>We start PyTorch via <code>srun</code> and this is recommended. The <code>torchrun</code> command is not supported on LUMI. </p>
+<p>We start PyTorch via <code>srun</code> and this is recommended. The <code>torchrun</code> command is not supported 
+    on LUMI, as is any other process starter that can be found in AI software that uses ssh
+    to start processes on other nodes rather than going via the resource manager (with, e.g., 
+    <code>srun</code>).</p>
 </li>
 <li>
 <p>We also use a 
