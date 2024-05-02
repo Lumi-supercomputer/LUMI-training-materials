@@ -61,6 +61,8 @@ materials are uploaded.
 | Exercises 1 | / | [notes](E03_Exercises_1.md) | / |
 | [Modules on LUMI](extra_04_Modules.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-04-modules.pdf) | [notes](04_Modules.md) | [video](extra_04_Modules.md) |
 | Exercises 2 | / | [notes](E04_Exercises_2.md) | / |
+| [LUMI Software Stacks](extra_05_Software_stacks.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-05-software.pdf) | [notes](05_Software_stacks.md) | [video](extra_05_Software_stacks.md) |
+| Exercises 3 | / | [notes](E05_Exercises_3.md) | / |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
 

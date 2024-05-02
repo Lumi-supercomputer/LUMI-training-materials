@@ -105,7 +105,7 @@ DAY 1
             15:20 CEST
             <br/><em>16:20 EEST</em>
         </td>
-        <td><b>LUMI Software Stacks</b>
+        <td><b><a href="../extra_05_Software_stacks/">LUMI Software Stacks</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
@@ -114,7 +114,7 @@ DAY 1
             16:15 CEST
             <br/><em>17:15 EEST</em>
         </td>
-        <td><b>Exercises (session #3)</b>
+        <td><b><a href="../E05_Exercises_3/">Exercises (session #3)</a></b>
         </td>
     </tr>
     <tr>
