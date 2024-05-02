@@ -20,7 +20,7 @@ DAY 1
             09:45 CEST
             <br/><em>10:45 EEST</em>
         </td>
-        <td><b>Welcome and Introduction</b>
+        <td><b><a href="../extra_00_Introduction/">Welcome and Introduction</a></b>
         <!--<br/><em>Presenters: Kurt Lust (LUST) and Jørn Dietze (LUST)</em>-->
         </td>
     </tr>
@@ -29,7 +29,7 @@ DAY 1
             10:00 CEST
             <br/><em>11:00 EEST</em>
         </td>
-        <td><b>LUMI Architecture</b>
+        <td><b><a href="../extra_01_Architecture/">LUMI Architecture</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
@@ -38,7 +38,7 @@ DAY 1
             10:40 CEST
             <br/><em>11:40 EEST</em>
         </td>
-        <td><b>HPE Cray Programming Environment</b>
+        <td><b><a href="../extra_02_CPE/">HPE Cray Programming Environment</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
