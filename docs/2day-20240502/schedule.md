@@ -80,7 +80,7 @@ DAY 1
             14:00 CEST
             <br/><em>15:00 EEST</em>
         </td>
-        <td><b>Modules on LUMI</b>
+        <td><b><a href="../extra_04_Modules/">Modules on LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
@@ -89,7 +89,7 @@ DAY 1
             14:35 CEST
             <br/><em>15:35 EEST</em>
         </td>
-        <td><b>Exercises (session #2)</b>
+        <td><b><a href="../E04_Exercises_2/">Exercises (session #2)</a></b>
         </td>
     </tr>
     <tr>

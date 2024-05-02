@@ -59,6 +59,8 @@ materials are uploaded.
 | [HPE Cray Programming Environment](extra_02_CPE.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-02-CPE.pdf) | [notes](02_CPE.md) | [video](extra_02_CPE.md) |
 | [Getting Access to LUMI](extra_03_LUMI_access.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-03-access.pdf) | [notes](03_LUMI_access.md) | [video](extra_03_LUMI_access.md) |
 | Exercises 1 | / | [notes](E03_Exercises_1.md) | / |
+| [Modules on LUMI](extra_04_Modules.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-04-modules.pdf) | [notes](04_Modules.md) | [video](extra_04_Modules.md) |
+| Exercises 2 | / | [notes](E04_Exercises_2.md) | / |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
 
