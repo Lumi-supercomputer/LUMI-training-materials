@@ -74,7 +74,7 @@ and then you can load either the module `exercises/small` or `exercises/standard
 	module load LUMI/23.09
 	module load lumi-CPEtools/1.1-cpeGNU-23.09
 
-	srun --cpus-per-task=$SLURM_CPS_PER_TASK hybrid_check -n -r
+	srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 	``` 
 
 	Be careful with copy/paste of the script body as copy problems with special characters or a double dash may 
