@@ -164,7 +164,7 @@ DAY 2
             11:45 CEST
             <br/><em>12:45 EEST</em>
         </td>
-        <td><b>Process and Thread Distribution and Binding</b>
+        <td><b><a href="../extra_07_Binding/">Process and Thread Distribution and Binding</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
@@ -181,7 +181,7 @@ DAY 2
             13:30 CEST
             <br/><em>14:30 EEST</em>
         </td>
-        <td><b>Exercises (session #4)</b>
+        <td><b><a href="../E07_Exercises_4/">Exercises (session #4)</a></b>
         </td>
     </tr>
     <tr>

@@ -137,6 +137,7 @@ plugins:
           Amsterdam-1.md: 2day-20240502/E03_Exercises_1.md
           Amsterdam-2.md: 2day-20240502/E04_Exercises_2.md
           Amsterdam-3.md: 2day-20240502/E05_Exercises_3.md
+          Amsterdam-4.md: 2day-20240502/E07_Exercises_4.md
 
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
