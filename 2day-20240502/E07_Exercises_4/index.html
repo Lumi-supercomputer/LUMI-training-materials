@@ -2578,7 +2578,7 @@ Submit with <code>sbatch</code> on the CPU partition and check task and thread a
 module load LUMI/23.09
 module load lumi-CPEtools/1.1-cpeGNU-23.09
 
-srun --cpus-per-task=$SLURM_CPS_PER_TASK hybrid_check -n -r
+srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 </code></pre></div>
 <p>Be careful with copy/paste of the script body as copy problems with special characters or a double dash may 
 occur, depending on the editor you use.</p>
