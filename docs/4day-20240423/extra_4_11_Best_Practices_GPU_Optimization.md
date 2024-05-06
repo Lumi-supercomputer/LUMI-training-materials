@@ -1,7 +1,7 @@
 # Best practices: GPU Optimization, tips & tricks / demo 
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-*Presenter:* George Markomanoulis (AMD) and Samuel Antao (AMD)
+*Presenter:* George Markomanolis (AMD) and Samuel Antao (AMD)
 
 <!--
 Course materials will be provided during and after the course.

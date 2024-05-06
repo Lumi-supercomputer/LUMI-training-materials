@@ -1,7 +1,7 @@
 # AMD ROCgdb debugger
 
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
-*Presenter: George Markomanoulis (AMD)*
+*Presenter: George Markomanolis (AMD)*
 
 Course materials will be provided during and after the course.
 
