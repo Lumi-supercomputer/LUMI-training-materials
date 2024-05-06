@@ -2467,6 +2467,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2495,6 +2512,24 @@ Materials will be made available after the lecture
 <p><a href="../06_Slurm/">Course notes</a></p>
 </li>
 </ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Can we get energy consumption from <code>sacct</code> on LUMI ?</p>
+<ul>
+<li>
+<p>No, but you can read them from <code>/sys/cray/pm_counters/</code>.   <br />
+    You need to read those counters before and after the job (meaning before and 
+    after the <code>srun</code> command), then do the math and you can have the energy consumption. 
+    There are several of them, cpu, gpu and memory. 
+    They are only available on compute nodes.</p>
+<p>Note though that it only makes sense when using whole nodes for the job, and that
+there are also shared elements in a cluster whose power consumption cannot be
+measured or assigned to individual jobs, e.g., storage and the interconnect.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
