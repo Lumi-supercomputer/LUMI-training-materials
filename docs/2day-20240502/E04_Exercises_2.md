@@ -1,5 +1,7 @@
 # Exercises 2: Modules on LUMI
 
+<!-- TODO Check the Bison exercise. -->
+
 See [the instructions](index.md#setting-up-for-the-exercises)
 to set up for the exercises.
 
