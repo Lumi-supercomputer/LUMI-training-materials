@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_1_07_Cray_Scientific_Libraries/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/exercises_AMD_hackmd/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Cray Scientific Libraries - LUMI training materials</title>
+        <title>AMD Exercises - LUMI training materials</title>
       
     
     
@@ -114,9 +114,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Cray Scientific Libraries" />
+  <meta property="og:title" content="LUMI training materials - AMD Exercises" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/extra_1_07_Cray_Scientific_Libraries/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20240423/exercises_AMD_hackmd/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Cray Scientific Libraries" />
+  <meta name="twitter:title" content="LUMI training materials - AMD Exercises" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cray-scientific-libraries" class="md-skip">
+        <a href="#amd-exercises" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cray Scientific Libraries
+              AMD Exercises
             
           </span>
         </div>
@@ -2474,9 +2474,210 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#qa" class="md-nav__link">
+  <a href="#login-to-lumi" class="md-nav__link">
     <span class="md-ellipsis">
-      Q&amp;A
+      Login to Lumi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hip-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      HIP Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HIP Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hipify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hipify
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hipify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hipify-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hipify Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hipify Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-manual-code-conversion-from-cuda-to-hip-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Manual code conversion from CUDA to HIP (10 min)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-code-conversion-from-cuda-to-hip-using-hipify-tools-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Code conversion from CUDA to HIP using HIPify tools (10 min)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rocprof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rocprof
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rocprof">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perfetto-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perfetto issue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omnitrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Omnitrace
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Omnitrace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic instrumentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-rewriting-to-be-used-with-mpi-codes-and-decreases-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary rewriting (to be used with MPI codes and decreases overhead)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-counters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware counters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-timings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel timings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call-stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omniperf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Omniperf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mnist-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      MNIST example
     </span>
   </a>
   
@@ -2497,30 +2698,697 @@
                   
 
 
-<h1 id="cray-scientific-libraries">Cray Scientific Libraries<a class="headerlink" href="#cray-scientific-libraries" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
-<!--
-Course materials will be provided during and after the course.
+<h1 id="amd-exercises">AMD Exercises<a class="headerlink" href="#amd-exercises" title="Permanent link">&para;</a></h1>
+<h3 id="login-to-lumi">Login to Lumi<a class="headerlink" href="#login-to-lumi" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>ssh USERNAME@lumi.csc.fi
+</code></pre></div>
+To simplify the login to LUMI, you can add the following to your <code>.ssh/config</code> file.</p>
+<div class="highlight"><pre><span></span><code># LUMI
+Host lumi
+User &lt;USERNAME&gt;
+   Hostname lumi.csc.fi
+   IdentityFile &lt;HOME_DIRECTORY&gt;/.ssh/id_rsa 
+   ServerAliveInterval 600
+   ServerAliveCountMax 30
+</code></pre></div>
+<p>The <code>ServerAlive*</code> lines in the config file may be added to avoid timeouts when idle.</p>
+<p>Now you can shorten your login command to the following.</p>
+<div class="highlight"><pre><span></span><code>ssh lumi
+</code></pre></div>
+<p>If you are able to log in with the ssh command, you should be able to use the secure copy command to transfer files. For example, you can 
+copy the presentation slides from lumi to view them.</p>
+<div class="highlight"><pre><span></span><code>scp lumi:/project/project_465001098/Slides/AMD/&lt;file_name&gt; &lt;local_filename&gt;
+</code></pre></div>
+<p>You can also copy all the slides with the . From your local system:</p>
+<div class="highlight"><pre><span></span><code>mkdir slides
+scp -r lumi:/project/project_465001098/Slides/AMD/* slides
+</code></pre></div>
+<p>If you don't have the additions to the config file, you would need a longer command:</p>
+<div class="highlight"><pre><span></span><code>mkdir slides
+scp -r -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi.csc.fi:/project/project_465001098/slides/AMD/ slides
+</code></pre></div>
+<p>or for a single file</p>
+<div class="highlight"><pre><span></span><code>scp -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi.csc.fi:/project/project_465001098/slides/AMD/&lt;file_name&gt; &lt;local_filename&gt;
+</code></pre></div>
+<h2 id="hip-exercises">HIP Exercises<a class="headerlink" href="#hip-exercises" title="Permanent link">&para;</a></h2>
+<p>We assume that you have already allocated resources with <code>salloc</code></p>
+<p><code>cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .</code></p>
+<p><code>salloc -N 1 -p standard-g --gpus=1 -t 10:00 -A project_465001098 --reservation LUMItraining_G</code></p>
+<p><div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+module load rocm
+</code></pre></div>
+The examples are also available on github:
+<div class="highlight"><pre><span></span><code>git clone https://github.com/amd/HPCTrainingExamples
+</code></pre></div>
+However, we recommend using the version in <code>/project/project_465001098/Exercises/AMD/HPCTrainingExamples</code> as it has been tuned to the current LUMI environment.</p>
+<h3 id="basic-examples">Basic examples<a class="headerlink" href="#basic-examples" title="Permanent link">&para;</a></h3>
+<p><code>cd HPCTrainingExamples/HIP/vectorAdd</code></p>
+<p>Examine files here – README, Makefile and vectoradd_hip.cpp Notice that Makefile requires HIP_PATH to be set. Check with module show rocm or echo $HIP_PATH Also, the Makefile builds and runs the code. We’ll do the steps separately. Check also the HIPFLAGS in the Makefile.</p>
+<div class="highlight"><pre><span></span><code>make
+srun -n 1 ./vectoradd
+</code></pre></div>
+<p>We can use SLURM submission script, let's call it <code>hip_batch.sh</code>:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+#SBATCH -p standard-g
+#SBATCH -N 1
+#SBATCH --gpus=1
+#SBATCH -t 10:00
+#SBATCH --reservation LUMItraining_G
+#SBATCH -A project_465001098
+
+module load craype-accel-amd-gfx90a
+module load rocm
+cd $PWD/HPCTrainingExamples/HIP/vectorAdd 
+
+export HCC_AMDGPU_TARGET=gfx90a
+make vectoradd
+srun -n 1 --gpus 1 ./vectoradd
+</code></pre></div>
+<p>Submit the script
+<code>sbatch hip_batch.sh</code></p>
+<p>Check for output in <code>slurm-&lt;job-id&gt;.out</code> or error in <code>slurm-&lt;job-id&gt;.err</code></p>
+<p>Compile and run with Cray compiler</p>
+<div class="highlight"><pre><span></span><code>CC -x hip vectoradd.hip -o vectoradd
+srun -n 1 --gpus 1 ./vectoradd
+</code></pre></div>
+<p>Now let’s try the cuda-stream example from <code>https://github.com/ROCm-Developer-Tools/HIP-Examples</code>. This example is from the original McCalpin code as ported to CUDA by Nvidia. This version has been ported to use HIP. See add4 for another similar stream example.</p>
+<p><div class="highlight"><pre><span></span><code>git clone https://github.com/ROCm-Developer-Tools/HIP-Examples
+export HCC_AMDGPU_TARGET=gfx90a
+cd HIP-Examples/cuda-stream
+make
+srun -n 1 ./stream
+</code></pre></div>
+Note that it builds with the hipcc compiler. You should get a report of the Copy, Scale, Add, and Triad cases.
+The variable <code>export HCC_AMDGPU_TARGET=gfx90a</code> is not needed in case one sets the target GPU for MI250x as part of the compiler flags as <code>--offload-arch=gfx90a</code>.</p>
+<p>Now check the other examples in <code>HPCTrainingExamples/HIP</code> like jacobi etc.</p>
+<h2 id="hipify">Hipify<a class="headerlink" href="#hipify" title="Permanent link">&para;</a></h2>
+<p>We’ll use the same HPCTrainingExamples that were downloaded for the first exercise.</p>
+<p>Get a node allocation. 
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --gpus=1 -p standard-g -A project_465001098 –-t 00:10:00`--reservation LUMItraining_G
+</code></pre></div></p>
+<p>A batch version of the example is also shown.</p>
+<h3 id="hipify-examples">Hipify Examples<a class="headerlink" href="#hipify-examples" title="Permanent link">&para;</a></h3>
+<h4 id="exercise-1-manual-code-conversion-from-cuda-to-hip-10-min">Exercise 1: Manual code conversion from CUDA to HIP (10 min)<a class="headerlink" href="#exercise-1-manual-code-conversion-from-cuda-to-hip-10-min" title="Permanent link">&para;</a></h4>
+<p>Choose one or more of the CUDA samples in <code>HPCTrainingExamples/HIPIFY/mini-nbody/cuda</code> directory. Manually convert it to HIP. Tip: for example, the cudaMalloc will be called hipMalloc.
+Some code suggestions include <code>nbody-block.cu, nbody-orig.cu, nbody-soa.cu</code></p>
+<p>You’ll want to compile on the node you’ve been allocated so that hipcc will choose the correct GPU architecture.</p>
+<h4 id="exercise-2-code-conversion-from-cuda-to-hip-using-hipify-tools-10-min">Exercise 2: Code conversion from CUDA to HIP using HIPify tools (10 min)<a class="headerlink" href="#exercise-2-code-conversion-from-cuda-to-hip-using-hipify-tools-10-min" title="Permanent link">&para;</a></h4>
+<p>Use the <code>hipify-perl</code> script to “hipify” the CUDA samples you used to manually convert to HIP in Exercise 1. hipify-perl is in <code>$ROCM_PATH/bin</code> directory and should be in your path.</p>
+<p>First test the conversion to see what will be converted
+<div class="highlight"><pre><span></span><code>hipify-perl -no-output -print-stats nbody-orig.cu
+</code></pre></div></p>
+<p>You'll see the statistics of HIP APIs that will be generated.
+<div class="highlight"><pre><span></span><code>[HIPIFY] info: file &#39;nbody-orig.cu&#39; statisitics:
+  CONVERTED refs count: 10
+  TOTAL lines of code: 91
+  WARNINGS: 0
+[HIPIFY] info: CONVERTED refs by names:
+  cudaFree =&gt; hipFree: 1
+  cudaMalloc =&gt; hipMalloc: 1
+  cudaMemcpy =&gt; hipMemcpy: 2
+  cudaMemcpyDeviceToHost =&gt; hipMemcpyDeviceToHost: 1
+  cudaMemcpyHostToDevice =&gt; hipMemcpyHostToDevice: 1
+</code></pre></div></p>
+<p><code>hipify-perl</code> is in <code>$ROCM_PATH/bin</code> directory and should be in your path. In some versions of ROCm, the script is called <code>hipify-perl</code>.</p>
+<p>Now let's actually do the conversion.
+<div class="highlight"><pre><span></span><code>hipify-perl nbody-orig.cu &gt; nbody-orig.cpp
+</code></pre></div></p>
+<p>Compile the HIP programs.</p>
+<p><code>hipcc -DSHMOO -I ../ nbody-orig.cpp -o nbody-orig</code>
+<div class="highlight"><pre><span></span><code>The `#define SHMOO` fixes some timer printouts. 
+Add `--offload-arch=&lt;gpu_type&gt;` if not set by the environment to specify 
+the GPU type and avoid the autodetection issues when running on a single 
+GPU on a node.
+</code></pre></div></p>
+<ul>
+<li>Fix any compiler issues, for example, if there was something that didn’t hipify correctly. </li>
+<li>Be on the lookout for hard-coded Nvidia specific things like warp sizes and PTX. </li>
+</ul>
+<p>Run the program</p>
+<div class="highlight"><pre><span></span><code>srun ./nbody-orig
+</code></pre></div>
+<p>A batch version of Exercise 2 is:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks=1
+#SBATCH --gpus=1
+#SBATCH -p standard-g
+#SBATCH -A project_465001098
+#SBATCH -t 00:10:00
+#SBATCH --reservation  LUMItraining_G
+
+module load craype-accel-amd-gfx90a
+module load rocm
+
+export HCC_AMDGPU_TARGET=gfx90a
+
+cd HPCTrainingExamples/mini-nbody/cuda
+hipify-perl -print-stats nbody-orig.cu &gt; nbody-orig.cpp
+hipcc -DSHMOO -I ../ nbody-orig.cpp -o nbody-orig
+srun ./nbody-orig
+cd ../../..
+</code></pre></div>
+<p>Notes:</p>
+<ul>
+<li>Hipify tools do not check correctness</li>
+<li><code>hipconvertinplace-perl</code> is a convenience script that does <code>hipify-perl -inplace -print-stats</code> command</li>
+</ul>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<p>The first exercise will be the same as the one covered in the presentation so that we
+can focus on the mechanics. Then there will be additional exercises to explore further 
+or you can start debugging your own applications.</p>
+<!-- 
+Get the exercise: `git clone https://github.com/AMD/HPCTrainingExamples.git`
 -->
 
-<!--
-Temporary location of materials (for the lifetime of the training project):
+<p>If required, copy the exercises: </p>
+<p><code>cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .</code></p>
+<p>Go to <code>HPCTrainingExamples/HIP/saxpy</code></p>
+<p>Edit the <code>saxpy.hip</code> file and comment out the two hipMalloc lines.</p>
+<div class="highlight"><pre><span></span><code>71 //hipMalloc(&amp;d_x, size);
+72 //hipMalloc(&amp;d_y, size);
+</code></pre></div>
+<p>Allocate resources:
+<code>salloc -N 1 -p standard-g --gpus=1 -t 30:00 -A project_465001098 --reservation LUMItraining_G</code></p>
+<p>Now let's try using rocgdb to find the error.</p>
+<p>Compile the code with</p>
+<p><code>hipcc --offload-arch=gfx90a -o saxpy saxpy.hip</code></p>
+<ul>
+<li>Allocate a compute node.</li>
+<li>Run the code</li>
+</ul>
+<p><code>srun -n 1 --gpus 1 ./saxpy</code></p>
+<p>Output
+<div class="highlight"><pre><span></span><code>Memory access fault by GPU node-4 (Agent handle: 0x32f330) on address (nil). Reason: Unknown.
+</code></pre></div>
+How do we find the error? Let's start up the debugger. First, we’ll recompile the code to help the debugging process. We also set the number of CPU OpenMP threads to reduce the number of threads seen by the debugger.</p>
+<div class="highlight"><pre><span></span><code>hipcc -ggdb -O0 --offload-arch=gfx90a -o saxpy saxpy.hip
+export OMP_NUM_THREADS=1
+</code></pre></div>
+<p>We have two options for running the debugger. We can use an interactive session, or we can just simply use a regular srun command.</p>
+<p><code>srun rocgdb saxpy</code></p>
+<p>The interactive approach uses:
+<div class="highlight"><pre><span></span><code>srun --interactive --pty [--jobid=&lt;jobid&gt;] bash 
+rocgdb ./saxpy 
+</code></pre></div>
+We need to supply the jobid if we have more than one job so that it knows which to use. </p>
+<p>We can also choose to use one of the Text User Interfaces (TUI) or Graphics User Interfaces (GUI). We look to see what is available.</p>
+<div class="highlight"><pre><span></span><code>which cgdb
+   -- not found
+   -- run with cgdb -d rocgdb &lt;executable&gt;
+which ddd
+    -- not found
+    -- run with ddd --debugger rocgdb
+which gdbgui
+   -- not found
+   -- run with gdbgui --gdb-cmd /opt/rocm/bin/rocgdb
+rocgdb –tui
+ -- found
+</code></pre></div>
+<p>We have the TUI interface for rocgdb. We need an interactive session on the compute node to run with this interface. We do this by using the following command.
+<div class="highlight"><pre><span></span><code>srun --interactive --pty [-jobid=&lt;jobid&gt;] bash 
+rocgdb -tui ./saxpy
+</code></pre></div></p>
+<p>The following is based on using the standard gdb interface. Using the TUI or GUI interfaces should be similar.
+You should see some output like the following once the debugger starts.
+<div class="highlight"><pre><span></span><code>[output]
+GNU gdb (rocm-rel-5.1-36) 11.2
+Copyright (C) 2022 Free Software Foundation, Inc. 
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type &quot;show copying&quot; and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-pc-linux-gnu&quot;.
+Type &quot;show configuration&quot; for configuration details.
+For bug reporting instructions, please see:
+&lt;https://github.com/ROCm-Developer-Tools/ROCgdb/issues&gt;.
+Find the GDB manual and other documentation resources online at:
+    &lt;http://www.gnu.org/software/gdb/documentation/&gt;.                                                                          
+For help, type &quot;help&quot;.
+Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...
+Reading symbols from ./saxpy...
+</code></pre></div></p>
+<p>Now it is waiting for us to tell it what to do. We'll go for broke and just type <code>run</code>
+<div class="highlight"><pre><span></span><code>(gdb) run
 
--   Slides: `/project/project_465001098/Slides/HPE/05_Libraries.pdf`
--->
+[output] 
+Thread 3 &quot;saxpy&quot; received signal SIGSEGV, Segmentation fault.[Switching to thread 3, lane 0 (AMDGPU Lane 1:2:1:1/0 (0,0,0)[0,0,0])]
+0x000015554a001094 in saxpy (n=&lt;optimized out&gt;, x=&lt;optimized out&gt;, incx=&lt;optimized out&gt;, y=&lt;optimized out&gt;, incy=&lt;optimized out&gt;) at saxpy.hip:57
+31              y[i] += a*x[i];
+</code></pre></div></p>
+<p>The line number 57 is a clue. Now let’s dive a little deeper by getting the GPU thread trace</p>
+<div class="highlight"><pre><span></span><code>(gdb) info threads [ shorthand - i th ]
 
-<p>Archived materials on LUMI:</p>
+ [output]
+ Id   Target Id                                 Frame
+  1    Thread 0x15555552d300 (LWP 40477) &quot;saxpy&quot; 0x000015554b67ebc9 in ?? ()
+   from /opt/rocm/lib/libhsa-runtime64.so.1
+  2    Thread 0x15554a9ac700 (LWP 40485) &quot;saxpy&quot; 0x00001555533e1c47 in ioctl () 
+   from /lib64/libc.so.6
+* 3    AMDGPU Wave 1:2:1:1 (0,0,0)/0 &quot;saxpy&quot;     0x000015554a001094 in saxpy ( 
+    n=&lt;optimized out&gt;, x=&lt;optimized out&gt;, incx=&lt;optimized out&gt;,
+    y=&lt;optimized out&gt;, incy=&lt;optimized out&gt;) at saxpy.hip:57
+  4    AMDGPU Wave 1:2:1:2 (0,0,0)/1 &quot;saxpy&quot;     0x000015554a001094 in saxpy ( 
+    n=&lt;optimized out&gt;, x=&lt;optimized out&gt;, incx=&lt;optimized out&gt;, 
+    y=&lt;optimized out&gt;, incy=&lt;optimized out&gt;) at saxpy.hip:57 
+  5    AMDGPU Wave 1:2:1:3 (1,0,0)/0 &quot;saxpy&quot;     0x000015554a001094 in saxpy (
+    n=&lt;optimized out&gt;, x=&lt;optimized out&gt;, incx=&lt;optimized out&gt;, 
+    y=&lt;optimized out&gt;, incy=&lt;optimized out&gt;) at saxpy.hip:57
+  6    AMDGPU Wave 1:2:1:4 (1,0,0)/1 &quot;saxpy&quot;     0x000015554a001094 in saxpy ( 
+    n=&lt;optimized out&gt;, x=&lt;optimized out&gt;, incx=&lt;optimized out&gt;,
+    y=&lt;optimized out&gt;, incy=&lt;optimized out&gt;) at saxpy.hip:57
+</code></pre></div>
+<p>Note that the GPU threads are also shown! Switch to thread 1 (CPU)</p>
+<div class="highlight"><pre><span></span><code>(gdb) thread 1 [ shorthand - t 1]
+[output] 
+[Switching to thread 1 (Thread 0x15555552d300 (LWP 47136))]
+#0  0x000015554b67ebc9 in ?? () from /opt/rocm/lib/libhsa-runtime64.so.1
+</code></pre></div>
+<p>where</p>
+<p>...</p>
+<div class="highlight"><pre><span></span><code>#12 0x0000155553b5b419 in hipDeviceSynchronize ()
+   from /opt/rocm/lib/libamdhip64.so.5
+#13 0x000000000020d6fd in main () at saxpy.hip:79
+
+(gdb) break saxpy.hip:78 [ shorthand – b saxpy.hip:78]
+
+[output] 
+Breakpoint 2 at 0x21a830: file saxpy.hip, line 78
+
+(gdb) run [ shorthand – r ]
+
+Breakpoint 1, main () at saxpy.hip:78
+48          saxpy&lt;&lt;&lt;num_groups, group_size&gt;&gt;&gt;(n, d_x, 1, d_y, 1);
+</code></pre></div>
+<p>From here we can investigate the input to the kernel and see that the memory has not been allocated.
+Restart the program in the debugger. </p>
+<div class="highlight"><pre><span></span><code>srun --interactive --pty [-jobid=&lt;jobid&gt;] rocgdb ./saxpy
+(gdb) list 55,74
+
+(gdb) b 60
+
+[output] 
+
+Breakpoint 1 at 0x219ea2: file saxpy.cpp, line 62.
+</code></pre></div>
+<p>Alternativelly, one can specify we want to stop at the start of the routine before the allocations.
+<div class="highlight"><pre><span></span><code>(gdb) b main
+Breakpoint 2 at 0x219ea2: file saxpy.cpp, line 62.
+</code></pre></div>
+We can now run our application again!</p>
+<div class="highlight"><pre><span></span><code>(gdb) run
+[output] 
+Starting program ...
+...
+Breakpoint 2, main() at saxpy.cpp:62
+62          int n=256;
+
+(gdb) p d_y
+[output] 
+$1 = (float *) 0x13 &lt;_start&gt;
+</code></pre></div>
+<p>Should have intialized the pointer to NULL! It makes it easier to debug faulty alocations. In anycase, this is a very unlikely address - usually dynamic allocation live in a high address range, e.g. 0x123456789000.</p>
+<div class="highlight"><pre><span></span><code>(gdb) n
+[output] 
+63         std::size_t size = sizeof(float)*n;
+
+(gdb) n
+[output] 
+Breakpoint 1, main () at saxpy.cpp:67
+67         init(n, h_x, d_x);
+
+(gdb) p h_x
+[output] 
+$2 = (float *) 0x219cd0 &lt;_start&gt;
+(gdb) p *h_x@5
+</code></pre></div>
+<p>Prints out the next 5 values pointed to by h_x</p>
+<div class="highlight"><pre><span></span><code>[output] 
+$3 = {-2.43e-33, 2.4e-33, -1.93e22, 556, 2.163e-36}
+</code></pre></div>
+<p>Random values printed out – not initialized!</p>
+<p><div class="highlight"><pre><span></span><code>(gdb) b 56
+
+(gdb) c
+
+[output] 
+Thread 5 “saxpy” hit Breakpoint 3 ….
+56      if (i &lt; n)
+
+(gdb) info threads
+
+Shows both CPU and GPU threads
+(gdb) p x
+
+[output] 
+$4 = (const float *) 0x219cd0 &lt;_start&gt;
+
+(gdb) p *x@5
+</code></pre></div>
+This can either yeild unintialized results or just complain that the address can't be accessed:
+<div class="highlight"><pre><span></span><code>[output] 
+$5 = {-2.43e-33, 2.4e-33, -1.93e22, 556, 2.163e-36}
+
+or 
+
+Cannot access memory at address 0x13
+</code></pre></div></p>
+<p>Let's move to the next statement:</p>
+<p><div class="highlight"><pre><span></span><code>(gdb) n
+
+(gdb) n
+
+(gdb) n
+</code></pre></div>
+Until reach line 57. We can now inspect the indexing and the array contents should the memory be accesible.</p>
+<div class="highlight"><pre><span></span><code>(gdb) p i
+
+[output] 
+$6 = 0
+
+(gdb) p y[0]
+
+[output] 
+$7 = -2.12e14
+
+(gdb) p x[0]
+
+[output] 
+$8 = -2.43e-33
+
+(gdb) p a
+[output] 
+$9 = 1
+</code></pre></div>
+<p>We can see that there are multiple problems with this kernel. X and Y are not initialized. Each value of X is multiplied by 1.0 and then added to the existing value of Y.</p>
+<h2 id="rocprof">Rocprof<a class="headerlink" href="#rocprof" title="Permanent link">&para;</a></h2>
+<p>Setup environment
+<div class="highlight"><pre><span></span><code>salloc -N 1 --gpus=8 -p standard-g --exclusive -A project_465001098 -t 20:00 --reservation LUMItraining_G
+
+module load PrgEnv-cray
+module load craype-accel-amd-gfx90a
+module load rocm
+</code></pre></div>
+Download examples repo and navigate to the <code>HIPIFY</code> exercises
+<div class="highlight"><pre><span></span><code>cd ~/HPCTrainingExamples/HIPIFY/mini-nbody/hip/
+</code></pre></div></p>
+<p>Compile and run one case. We are on the front-end node, so we have two ways to compile for the 
+GPU that we want to run on. </p>
+<ol>
+<li>The first is to explicitly set the GPU archicture when compiling (We are effectively cross-compiling for a GPU that is present where we are compiling).
+<div class="highlight"><pre><span></span><code>hipcc -I../ -DSHMOO --offload-arch=gfx90a nbody-orig.hip -o nbody-orig
+</code></pre></div></li>
+<li>The other option is to compile on the compute node where the compiler will auto-detect which GPU is present. Note that the autodetection may fail if you do not have all the GPUs (depending on the ROCm version). If that occurs, you will need to set <code>export ROCM_GPU=gfx90a</code>. </li>
+</ol>
+<div class="highlight"><pre><span></span><code>srun hipcc -I../ -DSHMOO nbody-orig.cpp -o nbody-orig
+</code></pre></div>
+<p>Now Run <code>rocprof</code> on nbody-orig to obtain hotspots list
+<div class="highlight"><pre><span></span><code>srun rocprof --stats nbody-orig 65536
+</code></pre></div>
+Check Results
+<div class="highlight"><pre><span></span><code>cat results.csv
+</code></pre></div>
+Check the statistics result file, one line per kernel, sorted in descending order of durations
+<div class="highlight"><pre><span></span><code>cat results.stats.csv
+</code></pre></div>
+Using <code>--basenames on</code> will show only kernel names without their parameters.
+<div class="highlight"><pre><span></span><code>srun rocprof --stats --basenames on nbody-orig 65536
+</code></pre></div>
+Check the statistics result file, one line per kernel, sorted in descending order of durations
+<div class="highlight"><pre><span></span><code>cat results.stats.csv
+</code></pre></div>
+Trace HIP calls with <code>--hip-trace</code>
+<div class="highlight"><pre><span></span><code>srun rocprof --stats --hip-trace nbody-orig 65536
+</code></pre></div>
+Check the new file <code>results.hip_stats.csv</code>
+<div class="highlight"><pre><span></span><code>cat results.hip_stats.csv
+</code></pre></div>
+Profile also the HSA API with the <code>--hsa-trace</code>
+<div class="highlight"><pre><span></span><code>srun rocprof --stats --hip-trace --hsa-trace nbody-orig 65536
+</code></pre></div>
+Check the new file <code>results.hsa_stats.csv</code>
+<div class="highlight"><pre><span></span><code>cat results.hsa_stats.csv
+</code></pre></div>
+On your laptop, download <code>results.json</code>
+<div class="highlight"><pre><span></span><code>scp -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi.csc.fi:&lt;path_to_file&gt;/results.json results.json
+</code></pre></div>
+Open a browser and go to <a href="https://ui.perfetto.dev/">https://ui.perfetto.dev/</a>.
+Click on <code>Open trace file</code> in the top left corner.
+Navigate to the <code>results.json</code> you just downloaded.
+Use the keystrokes W,A,S,D to zoom in and move right and left in the GUI</p>
+<div class="highlight"><pre><span></span><code>Navigation
+w/s Zoom in/out
+a/d Pan left/right
+</code></pre></div>
+<h4 id="perfetto-issue">Perfetto issue<a class="headerlink" href="#perfetto-issue" title="Permanent link">&para;</a></h4>
+<p>Perfetto seems to introduced a bug, Sam created a container with a perfetto version that works with the rocprof traces. If you want to use that one you need to run docker on your laptop.</p>
+<p>From your laptop:
+<div class="highlight"><pre><span></span><code> sudo dockerd
+</code></pre></div>
+and in another terminal
+<div class="highlight"><pre><span></span><code> sudo docker run -it --rm -p 10000:10000 --name myperfetto sfantao/perfetto4rocm
+</code></pre></div></p>
+<p>The  open your web browser to: <code>http://localhost:10000/</code> and open the trace.</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/109979778/225451481-46ffd521-2453-4caa-8d28-fa4e0f4c4889.png" /></p>
+<p>Read about hardware counters available for the GPU on this system (look for gfx90a section)
+<div class="highlight"><pre><span></span><code>less $ROCM_PATH/lib/rocprofiler/gfx_metrics.xml
+</code></pre></div>
+Create a <code>rocprof_counters.txt</code> file with the counters you would like to collect
+<div class="highlight"><pre><span></span><code>vi rocprof_counters.txt
+</code></pre></div>
+Content for <code>rocprof_counters.txt</code>:
+<div class="highlight"><pre><span></span><code>pmc : Wavefronts VALUInsts
+pmc : SALUInsts SFetchInsts GDSInsts
+pmc : MemUnitBusy ALUStalledByLDS
+</code></pre></div>
+Execute with the counters we just added:
+<div class="highlight"><pre><span></span><code>srun rocprof --timestamp on -i rocprof_counters.txt  nbody-orig 65536
+</code></pre></div>
+You'll notice that <code>rocprof</code> runs 3 passes, one for each set of counters we have in that file.</p>
+<p>Contents of <code>rocprof_counters.csv</code>
+<div class="highlight"><pre><span></span><code>cat rocprof_counters.csv
+</code></pre></div></p>
+<h2 id="omnitrace">Omnitrace<a class="headerlink" href="#omnitrace" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Load Omnitrace</li>
+</ul>
+<p>Omnitrace is known to work better with ROCm versions more recent than 5.2.3. So we use a ROCm 5.4.3 installation for this.
+<div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+
+module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+module load rocm/5.4.3 omnitrace/1.10.3-rocm-5.4.x
+</code></pre></div></p>
+<ul>
+<li>Allocate resources with <code>salloc</code></li>
+</ul>
+<p><code>salloc -N 1 --ntasks=1 --partition=standard-g --gpus=1 -A project_465001098  --time=00:15:00 --reservation LUMItraining_G</code></p>
+<ul>
+<li>Check the various options and their values and also a second command for description</li>
+</ul>
+<p><code>srun -n 1 --gpus 1 omnitrace-avail --categories omnitrace</code>
+<code>srun -n 1 --gpus 1 omnitrace-avail --categories omnitrace --brief --description</code></p>
+<ul>
+<li>Create an Omnitrace configuration file with description per option</li>
+</ul>
+<p><code>srun -n 1 omnitrace-avail -G omnitrace.cfg --all</code></p>
+<ul>
+<li>Declare to use this configuration file: </li>
+</ul>
+<p><code>export OMNITRACE_CONFIG_FILE=/path/omnitrace.cfg</code></p>
+<ul>
+<li>Get the training examples:</li>
+</ul>
+<p><code>cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .</code></p>
 <ul>
 <li>
-<p>Slides: <code>/appl/local/training/4day-20240423/files/LUMI-4day-20240423-1_07_Cray_Scientific_Libraries.pdf</code></p>
+<p>Compile and execute saxpy</p>
+<ul>
+<li><code>cd HPCTrainingExamples/HIP/saxpy</code></li>
+<li><code>hipcc --offload-arch=gfx90a -O3 -o saxpy saxpy.hip</code></li>
+<li><code>time srun -n 1 ./saxpy</code></li>
+</ul>
 </li>
 <li>
-<p>Recording: <code>/appl/local/training/4day-20240423/recordings/1_07_Cray_Scientific_Libraries.mp4</code></p>
+<p>Check the duration</p>
+</li>
+<li>
+<p>Compile and execute Jacobi</p>
+<ul>
+<li><code>cd HIP/jacobi</code></li>
+</ul>
 </li>
 </ul>
-<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
-<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<!--
+* Need to make some changes to the makefile
+    * ``MPICC=$(PREP) `which CC` ``
+    * `MPICFLAGS+=$(CFLAGS) -I${CRAY_MPICH_PREFIX}/include`
+    * `MPILDFLAGS+=$(LDFLAGS) -L${CRAY_MPICH_PREFIX}/lib -lmpich`
+* comment out 
+    * ``#  $(error Unknown MPI version! Currently can detect mpich or open-mpi)``
+-->
+<ul>
+<li>
+<p>Now build the code</p>
+<ul>
+<li><code>make -f Makefile.cray</code></li>
+<li><code>time srun -n 1 --gpus 1 Jacobi_hip -g 1 1</code></li>
+</ul>
+</li>
+<li>
+<p>Check the duration</p>
+</li>
+</ul>
+<h4 id="dynamic-instrumentation">Dynamic instrumentation<a class="headerlink" href="#dynamic-instrumentation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Execute dynamic instrumentation: <code>time srun -n 1 --gpus 1 omnitrace-instrument -- ./saxpy</code> and check the duration</li>
+</ul>
+<!-- * Execute dynamic instrumentation: `time srun -n 1 --gpus 1 omnitrace-instrument -- ./Jacobi_hip -g 1 1` and check the duration (may fail?) -->
+<ul>
+<li>About Jacobi example, as the dynamic instrumentation wuld take long time, check what the binary calls and gets instrumented: <code>nm --demangle Jacobi_hip | egrep -i ' (t|u) '</code></li>
+<li>Available functions to instrument: <code>srun -n 1 --gpus 1 omnitrace-instrument -v 1 --simulate --print-available functions -- ./Jacobi_hip -g 1 1</code><ul>
+<li>the simulate option means that it will not execute the binary </li>
+</ul>
+</li>
+</ul>
+<h4 id="binary-rewriting-to-be-used-with-mpi-codes-and-decreases-overhead">Binary rewriting (to be used with MPI codes and decreases overhead)<a class="headerlink" href="#binary-rewriting-to-be-used-with-mpi-codes-and-decreases-overhead" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Binary rewriting: <code>srun -n 1 --gpus 1 omnitrace-instrument -v -1 --print-available functions -o jacobi.inst -- ./Jacobi_hip</code></p>
+<ul>
+<li>We created a new instrumented binary called jacobi.inst </li>
+</ul>
+</li>
+<li>
+<p>Executing the new instrumented binary: <code>time srun -n 1 --gpus 1 omnitrace-run -- ./jacobi.inst -g 1 1</code> and check the duration</p>
+</li>
+<li>See the list of the instrumented GPU calls: <code>cat omnitrace-jacobi.inst-output/TIMESTAMP/roctracer.txt</code></li>
+</ul>
+<h4 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Copy the <code>perfetto-trace.proto</code> to your laptop, open the web page https://ui.perfetto.dev/ click to open the trace and select the file</li>
+</ul>
+<h4 id="hardware-counters">Hardware counters<a class="headerlink" href="#hardware-counters" title="Permanent link">&para;</a></h4>
+<ul>
+<li>See a list of all the counters: <code>srun -n 1 --gpus 1 omnitrace-avail --all</code></li>
+<li>Declare in your configuration file: <code>OMNITRACE_ROCM_EVENTS = GPUBusy,Wavefronts,VALUBusy,L2CacheHit,MemUnitBusy</code></li>
+<li>Execute: <code>srun -n 1 --gpus 1 omnitrace-run -- ./jacobi.inst -g 1 1</code> and copy the perfetto file and visualize</li>
+</ul>
+<h4 id="sampling">Sampling<a class="headerlink" href="#sampling" title="Permanent link">&para;</a></h4>
+<p>Activate in your configuration file <code>OMNITRACE_USE_SAMPLING = true</code> and <code>OMNITRACE_SAMPLING_FREQ = 100</code>, execute and visualize</p>
+<h4 id="kernel-timings">Kernel timings<a class="headerlink" href="#kernel-timings" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Open the file <code>omnitrace-binary-output/timestamp/wall_clock.txt</code>  (replace binary and timestamp with your information)</li>
+<li>In order to see the kernels gathered in your configuration file, make sure that <code>OMNITRACE_USE_TIMEMORY = true</code> and <code>OMNITRACE_FLAT_PROFILE = true</code>, execute the code and open again the file <code>omnitrace-binary-output/timestamp/wall_clock.txt</code></li>
+</ul>
+<h4 id="call-stack">Call-stack<a class="headerlink" href="#call-stack" title="Permanent link">&para;</a></h4>
+<p>Edit your omnitrace.cfg:</p>
+<div class="highlight"><pre><span></span><code>OMNITRACE_USE_SAMPLING = true; 
+OMNITRACE_SAMPLING_FREQ = 100
+</code></pre></div>
+<p>Execute again the instrumented binary and now you can see the call-stack when you visualize with perfetto.</p>
+<h2 id="omniperf">Omniperf<a class="headerlink" href="#omniperf" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Load Omniperf:</li>
+</ul>
+<p>Omniperf is using a virtual environemtn to keep its python dependencies.
+<div class="highlight"><pre><span></span><code>module load cray-python
+module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+
+module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
+module load rocm/5.4.3 omniperf/1.0.10-rocm-5.4.x
+
+source /pfs/lustrep2/projappl/project_462000125/samantao-public/omnitools/venv/bin/activate
+</code></pre></div></p>
+<ul>
+<li>Reserve a GPU, compile the exercise and execute Omniperf, observe how many times the code is executed</li>
+</ul>
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465001098 --time=00:30:00
+cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .
+cd HPCTrainingExamples/HIP/dgemm/
+mkdir build
+cd build
+cmake ..
+make
+cd bin
+srun -n 1 omniperf profile -n dgemm -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv
+</code></pre></div>
+<ul>
+<li>
+<p>Run <code>srun -n 1 --gpus 1 omniperf profile -h</code> to see all the options</p>
+</li>
+<li>
+<p>Now is created a workload in the directory workloads with the name dgemm (the argument of the -n). So, we can analyze it</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/mi200/ &amp;&gt; dgemm_analyze.txt
+</code></pre></div>
+<ul>
+<li>If you want to only roofline analysis, then execute: <code>srun -n 1 omniperf profile -n dgemm --roof-only -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv</code></li>
+</ul>
+<p>There is no need for srun to analyze but we want to avoid everybody to use the login node. Explore the file <code>dgemm_analyze.txt</code></p>
+<ul>
+<li>We can select specific IP Blocks, like:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/mi200/ -b 7.1.2
+</code></pre></div>
+<p>But you need to know the code of the IP Block</p>
+<ul>
+<li>If you have installed Omniperf on your laptop (no ROCm required for analysis) then you can download the data and execute:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>omniperf analyze -p workloads/dgemm/mi200/ --gui
+</code></pre></div>
+<ul>
+<li>Open the web page: http://IP:8050/  The IP will be displayed in the output</li>
+</ul>
+<p>For more exercises, visit here: <code>https://github.com/amd/HPCTrainingExamples/tree/main/OmniperfExamples</code> or locally <code>HPCTrainingExamples/OmniperfExamples</code>, there are 5 exercises, in each directory there is a readme file with instructions.</p>
+<h2 id="mnist-example">MNIST example<a class="headerlink" href="#mnist-example" title="Permanent link">&para;</a></h2>
+<p>This example is supported by the files in <code>/project/project_465000644/Exercises/AMD/Pytorch</code>.
+These script experiment with different tools with a more realistic application. They cover PyTorch, how to install it, run it and then profile and debug a MNIST based training. We selected the one in https://github.com/kubeflow/examples/blob/master/pytorch_mnist/training/ddp/mnist/mnist_DDP.py but the concept would be similar for any PyTorch-based distributed training.</p>
+<p>This is mostly based on a two node allocation.</p>
+<ul>
+<li>
+<p>Installing PyTorch directly on the filesystem using the system python installation.
+<code>./01-install-direct.sh</code></p>
+</li>
+<li>
+<p>Installing PyTorch in a virtual environment based on the system python installation.
+<code>./02-install-venv.sh</code></p>
+</li>
+<li>
+<p>Installing PyTorch in a condo environment based on the condo package python version.
+<code>./03-install-conda.sh</code></p>
+</li>
+<li>
+<p>Installing PyTorch from source on top of a base condo environment. It builds with debug symbols which can be useful to facilitate debugging.
+<code>./04-install-source.sh</code></p>
+</li>
+<li>
+<p>Testing a container prepared for LUMI that comprises PyTorch. 
+<code>./05-test-container.sh</code></p>
+</li>
+<li>
+<p>Test the right affinity settings.
+<code>./06-afinity-testing.sh</code></p>
+</li>
+<li>
+<p>Complete example with MNIST training with all the trimmings to run it properly on LUMI.
+<code>./07-mnist-example.sh</code></p>
+</li>
+<li>
+<p>Examples using rocprof, Omnitrace and Omniperf.
+<code>./08-mnist-rocprof.sh</code>
+<code>./09-mnist-omnitrace.sh</code>
+<code>./10-mnist-omnitrace-python.sh</code>
+<code>./11-mnist-omniperf.sh</code></p>
+</li>
+<li>
+<p>Example that debugs an hang in the application leveraging rocgdb.
+<code>./12-mnist-debug.sh</code></p>
+</li>
+</ul>
 
 
 
