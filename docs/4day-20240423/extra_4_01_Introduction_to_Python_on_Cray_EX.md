@@ -14,9 +14,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-4_01_Introduction_to_Python_on_Cray_EX.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20240423/recordings/4_01_Introduction_to_Python_on_Cray_EX.mp4`
--->
 
 These materials can only be distributed to actual users of LUMI (active user account).
 

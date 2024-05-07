@@ -13,9 +13,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-1_01_HPE_Cray_EX_Architecuture.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20240423/recordings/1_01_HPE_Cray_EX_Architecture.mp4`
--->
 
 These materials can only be distributed to actual users of LUMI (active user account).
 

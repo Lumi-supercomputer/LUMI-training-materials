@@ -12,9 +12,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-2_03_Debugging_at_Scale.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-2_03_Debugging_at_Scale.pdf`
--->
 
 These materials can only be distributed to actual users of LUMI (active user account).
 

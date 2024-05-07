@@ -14,9 +14,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-3_03_Advanced_Performance_analysis.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20240423/recordings/3_03_Advanced_Performance_Analysis.mp4`
--->
 
 These materials can only be distributed to actual users of LUMI (active user account).
 

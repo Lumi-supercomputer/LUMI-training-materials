@@ -1,4 +1,4 @@
-# Frameworks for porting applications to GPU
+# Porting Applications to GPU
 
 *Presenter: Alfio Lazzaro (HPE)*
 
