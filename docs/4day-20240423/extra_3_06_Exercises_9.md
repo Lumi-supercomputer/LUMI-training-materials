@@ -14,6 +14,7 @@ Alternatively, continue with the previous exercises if these are more relevant f
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -25,6 +26,7 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 1+2+3 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_Exercises_day3.pdf)
+-->
 
 Archived materials on LUMI:
 

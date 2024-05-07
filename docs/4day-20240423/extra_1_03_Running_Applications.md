@@ -2,11 +2,15 @@
 
 *Presenter: Harvey Richardson (HPE)*
 
+<!--
 Course materials will be provided during and after the course.
+-->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/HPE/03_Running_Applications_Slurm.pdf`
+-->
 
 Archived materials on LUMI:
 

@@ -6,9 +6,11 @@
 Course materials will be provided during and after the course.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/HPE/09_introduction_to_perftools.pdf`
+-->
 
 Archived materials on LUMI:
 

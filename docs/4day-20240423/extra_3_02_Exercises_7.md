@@ -5,6 +5,7 @@ The files for the exercises can be found in `Exercises/HPE/day3/perftools-lite` 
 Follow the Readme.md description and get familiar with the perftools-lite commands and outputs.
 
 -   Subdirectory perftools-lite needs `lumi_c.sh` (or `lumi_c_after.sh`) to be sourced.
+
 -   Subdirectory perftools-lite-gpu needs `lumi_g.sh` (or `lumi_g_after.sh`) to be sourced.
 
 
@@ -14,6 +15,7 @@ Follow the Readme.md description and get familiar with the perftools-lite comman
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -25,6 +27,7 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 1+2+3 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_Exercises_day3.pdf)
+-->
 
 Archived materials on LUMI:
 

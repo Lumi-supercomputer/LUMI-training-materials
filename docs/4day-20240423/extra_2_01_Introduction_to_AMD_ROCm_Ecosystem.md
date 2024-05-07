@@ -3,16 +3,18 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter: George Markomanolis (AMD)*
 
-Course materials will be provided during and after the course.
-
 <!--
-<video src="https://462000265.lumidata.eu/4day-20240423/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
-</video>
+Course materials will be provided during and after the course.
 -->
 
+<video src="https://462000265.lumidata.eu/4day-20240423/recordings/2_01_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
+</video>
+
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/AMD/session-1-hip_intro.pdf`
+-->
 
 Materials available on the web:
 

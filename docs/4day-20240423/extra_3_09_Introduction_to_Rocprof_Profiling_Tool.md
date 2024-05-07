@@ -10,9 +10,11 @@ Course materials will be provided during and after the course.
 <video src="https://462000265.lumidata.eu/4day-20240423/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4" controls="controls">
 </video>
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/AMD/session-3-introduction-to-rocprof.pdf`
+-->
 
 Materials on the web:
 

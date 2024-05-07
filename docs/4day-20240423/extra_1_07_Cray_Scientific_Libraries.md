@@ -2,11 +2,15 @@
 
 *Presenter: Alfio Lazzaro (HPE)*
 
+<!--
 Course materials will be provided during and after the course.
+-->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/HPE/05_Libraries.pdf`
+-->
 
 Archived materials on LUMI:
 

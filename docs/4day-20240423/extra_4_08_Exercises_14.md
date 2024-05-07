@@ -20,10 +20,8 @@ Materials on the web:
 
 -   [AMD exercise assignments and notes](https://hackmd.io/@gmarkoma/lumi_finland#Omnitrace)
 
-<!--
     [PDF backup](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.pdf)
     and [local web backup](exercises_AMD_hackmd.md#omnitrace).
--->
 
 -   Exercise files: 
     [Download as .tar.bz2](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2)
@@ -31,9 +29,7 @@ Materials on the web:
 
 Archived materials on LUMI:
 
-<!--
 -   Exercise assignments PDF: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.pdf`
--->
 
 -   Exercise files:
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2`

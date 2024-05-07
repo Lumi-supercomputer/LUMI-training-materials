@@ -3,8 +3,11 @@
 The files for the exercises can be found in `Exercises/HPE/day3/perftools` and
 its subdirectories. Follow the Readme.md description (per each directory) and get familiar with the perftools commands and outputs.
 
--   Subdirectories perftools, perftools-api, perftools-hwpc, perftools-python, and perftools-apa need lumi_c.sh (or `lumi_c_after.sh`) to be sourced.
--   Subdirectories perftools-for-hip and perftools-for-omp-offload need lumi_g.sh (or `lumi_g_after.sh`) to be sourced
+-   Subdirectories `perftools`, `perftools-api`, `perftools-hwpc`, `perftools-python`, and `perftools-apa` 
+    need `lumi_c.sh` (or `lumi_c_after.sh`) to be sourced.
+
+-   Subdirectories `perftools-for-hip` and `perftools-for-omp-offload` 
+    need `lumi_g.sh` (or `lumi_g_after.sh`) to be sourced
 
 
 ## Materials
@@ -13,6 +16,7 @@ its subdirectories. Follow the Readme.md description (per each directory) and ge
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -24,6 +28,7 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 1+2+3 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-3_Exercises_day3.pdf)
+-->
 
 Archived materials on LUMI:
 

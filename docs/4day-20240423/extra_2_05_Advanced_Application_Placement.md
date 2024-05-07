@@ -6,9 +6,11 @@
 Course materials will be provided during and after the course.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/HPE/08_Advanced_Placement.pdf`
+-->
 
 Archived materials on LUMI:
 
