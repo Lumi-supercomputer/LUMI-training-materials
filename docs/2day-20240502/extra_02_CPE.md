@@ -1,6 +1,12 @@
 # The HPE Cray Programming Environment
 
+*Presenter: Kurt Lust (LUST)*
+
+<video src="https://462000265.lumidata.eu/2day-20240502/recordings/02_HPE_Cray_Programming_Environment.mp4" controls="controls">
+</video>
+<!--
 A video recording will follow.
+-->
 
 <!--
 Materials will be made available after the lecture

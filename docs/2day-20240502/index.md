@@ -63,6 +63,8 @@ materials are uploaded.
 | Exercises 2 | / | [notes](E04_Exercises_2.md) | / |
 | [LUMI Software Stacks](extra_05_Software_stacks.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-05-software.pdf) | [notes](05_Software_stacks.md) | [video](extra_05_Software_stacks.md) |
 | Exercises 3 | / | [notes](E05_Exercises_3.md) | / |
+| [Wrap-Up Day 1](extra_13_WrapUpDay1.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-13-WrapUpDay1.pdf) | / | [video](extra_13_WrapUpDay1.md) |
+| [Introduction Day 2](extra_14_IntroductionDay2.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-14-IntroductionDay2.pdf) | / | [video](extra_14_IntroductionDay2.md) |
 | [Slurm on LUMI](extra_06_Slurm.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-06-slurm.pdf) | [notes](06_Slurm.md) | [video](extra_06_Slurm.md) |
 | [Process and Thread Distribution and Binding](extra_07_Binding.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-07-binding.pdf) | [notes](07_Binding.md) | [video](extra_07_Binding.md) | 
 | Exercises 4 | / | [notes](E07_Exercises_4.md) | / |
@@ -71,7 +73,7 @@ materials are uploaded.
 | [Demo 1 (optional)](Demo1.md) | / | [notes](Demo1.md) | [video](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [notes](Demo2.md) | [video](Demo2.md#video-of-the-demo) |
 | [LUMI Support and Documentation](extra_10_Support.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-10-support.pdf) | [notes](10_Support.md) | [video](extra_10_Support.md) |
-| [LUMI in The Netherlands](extra_11_Netherlands.md) | / | / | / |
+| [LUMI in The Netherlands](extra_11_Netherlands.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-11-LUMI_in_The_Netherlands.pdf) | / | / |
 | [What Else?](extra_12_What_else.md) | [slides](https://462000265.lumidata.eu/2day-20240502/files/LUMI-2day-20240502-12-WhatElse.pdf) | / | / |
 | A1 Additional documentation | / | [notes](A01_Documentation.md) | / | 
 
