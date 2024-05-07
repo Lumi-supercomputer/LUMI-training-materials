@@ -12,6 +12,7 @@ Run on the system and get familiar with Slurm commands.
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -30,6 +31,7 @@ Temporary web-available materials:
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-1_04a-ProgrammingModelExamples_SLURM.pdf).
+-->
 
 Archived materials on LUMI:
 
@@ -40,6 +42,7 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`
+
 
 ## Q&A
 

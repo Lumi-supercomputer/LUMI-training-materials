@@ -86,7 +86,6 @@ downloaded from LUMI.
 | [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
 
 
-<!--
 ## Making the exercises after the course
 
 ### HPE
@@ -105,16 +104,14 @@ To reconstruct the exercise material in your own home, project or scratch direct
 tar -xf /appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2
 ```
 
-in the directory where you want to work on the exercises. This will create the `exercises/HPE` subdirectory
+in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
 from the training project. 
 
 However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
 they set the course project as the active project for Slurm and also set a reservation, use the
 `lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
 projects.
--->
 
-<!--
 ### AMD 
 
 There are [online notes about the AMD exercises](https://hackmd.io/@sfantao/H1QU6xRR3).
@@ -141,7 +138,7 @@ from the training project. You can do so in the same directory where you install
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
+
 
 ## Links to documentation
 

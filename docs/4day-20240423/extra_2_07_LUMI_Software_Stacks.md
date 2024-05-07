@@ -2,14 +2,13 @@
 
 *Presenter: Kurt Lust (LUST)*
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20240423/recordings/2_07_LUMI_Software_Stacks.mp4" controls="controls">
 </video>
--->
-
-Course materials will be provided during the course.
 
 <!--
+Course materials will be provided during the course.
+-->
+
 Materials available on the web:
 
 -   [Full notes of the lecture](notes_2_07_LUMI_Software_Stacks.md)
@@ -33,7 +32,7 @@ Archived materials on LUMI:
 
 -   The `cotainr` package was presented during the
     [September 27, 2023 user coffee break](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20230927-user-coffee-break-cotainr/)
--->
+
 
 ## Q&A
 
