@@ -7,10 +7,10 @@
 Course materials will be provided during and after the course.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20240423/recordings/4_11_Best_Practices_GPU_Optimization.mp4" controls="controls">
 </video>
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001098/Slides/AMD/session-6-ToolsInActionPytorchExample-LUMI-2024.pdf`
