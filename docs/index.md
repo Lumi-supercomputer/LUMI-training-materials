@@ -7,10 +7,10 @@
 Most recently completed main training events:
 
 -   4-day comprehensive LUMI training aimed at developers and advanced users:
-    [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
+    [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
 
--   1-day LUMI training aimed at regular users:
-    [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
+-   Introductory LUMI training aimed at regular users:
+    [LUMI 2-day training (May 2-3, 2023)](2day-20240502/index.md)
 
 Other recent LUST-organised trainings for which the material is still very up-to-date and
 relevant:
@@ -61,8 +61,9 @@ By theme in reverse chronological order:
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 -   Performance analysis tools
     -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
-    -   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
     -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
+-   Materials from Hackathons 
+    -   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
 -   EasyBuild on LUMI
     -   [EasyBuild course for CSC and local organisations (May 9/11, 2022)](EasyBuild-CSC-20220509/index.md)
 
