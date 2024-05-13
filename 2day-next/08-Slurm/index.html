@@ -3166,7 +3166,7 @@ lumid          up    4:00:00          1/6/1/8 nid[000016-000023]
 <p>The fourth column shows 4 numbers: The number of nodes that are currently fully or partially allocated
 to jobs, the number of idle nodes, the number of nodes in one of the other possible states (and not
 user-accessible) and the total number of nodes in the partition. Sometimes a large number of nodes
-can be in the "O"column, e.g., when mechanical maintenance is needed (like problem with the
+can be in the "O" column, e.g., when mechanical maintenance is needed (like problem with the
 cooling). Also note that the width of the <code>NODES</code> field is not enough as the total number
 of nodes for <code>standard-g</code> doesn't make sense, but this is easyly solved, e.g., using</p>
 <div class="highlight"><pre><span></span><code>sinfo -o &quot;%11P %.5a %.10l %.20F %N&quot;
@@ -3774,7 +3774,7 @@ gpu_check
 sleep<span class="w"> </span><span class="m">2</span>
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
 </code></pre></div>
-<p>As we are using <code>small-g</code> here instead of standard-g, we added the <code>#SBATCH --exclusive</code> and <code>#SBATCH --mem=480G</code> lines.</p>
+<p>As we are using <code>small-g</code> here instead of <code>standard-g</code>, we added the <code>#SBATCH --exclusive</code> and <code>#SBATCH --mem=480G</code> lines.</p>
 <p>A similar job script for a CPU-node in LUMI-C and now in the <code>standard</code> partition would look like:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#! /usr/bin/bash</span>
 <span class="c1">#SBATCH --job-name=slurm-perNode-minimal-standard</span>
