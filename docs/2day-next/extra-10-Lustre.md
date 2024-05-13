@@ -1,4 +1,4 @@
-# I/O and File Systems on LUMI
+# Using Lustre
 
 *Presenter: Kurt Lust (LUST)*
 
