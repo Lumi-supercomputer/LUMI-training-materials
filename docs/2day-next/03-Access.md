@@ -232,6 +232,8 @@ Web links
 
 LUMI has file spaces that are linked to a user account and file spaces that are linked to projects.
 
+### Per-user file spaces
+
 <figure markdown style="border: 1px solid #000">
   ![Slide File Spaces User](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesUser.png){ loading=lazy }
 </figure>
@@ -242,6 +244,8 @@ can be expanded. It should only be used for things that are not project-related 
 foremost for those things that Linux and software automatically stores in a home directory like
 user-specific software configuration files. It is not billed as users can exist temporarily without
 an active project but therefore is also very limited in size.
+
+### Per-project file spaces
 
 <figure markdown style="border: 1px solid #000">
   ![Slide File Spaces Project](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesProject.png){ loading=lazy }
@@ -257,6 +261,7 @@ storage budget of the project.
     etc. that will be needed for the duration of the project.
 
     Storing one TB for one hour on the disk based Lustre file systems costs 1 TB-hour.
+    As would storing 10 GB for 100 hours.
 
 2.  Semi-permanent scratch storage on a hard disk based Lustre filesystem accessed via
     `/scratch/project_46YXXXXXX`. Files in this storage space can in principle be erased 
@@ -279,9 +284,14 @@ storage budget of the project.
     Storing one TB for one hour on the object based file system costs 0.5 TB-hour.
 
 
+### Quota
+
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Further Information](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesFurtherInfo.png){ loading=lazy }
+  ![Slide File Spaces Quota](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesQuota.png){ loading=lazy }
 </figure>
+
+The slide above also shows the quota on each volume.
+This information is also [available in the LUMI docs](https://docs.lumi-supercomputer.eu/storage/).
 
 <!-- BELGIUM 
 The use of space in each file space is limited by block and file quota. Block quota limit the
@@ -297,7 +307,6 @@ Software installations that require tens of thousands of small files should be d
 containers (e.g., conda installations or any big Python installation) while data should also
 be organised in proper file formats rather than being dumped on the file system abusing the file
 system as a database.
-Quota extensions are currently handled by the central LUMI User Support Team.
 -->
 
 <!-- GENERAL More general version -->
@@ -312,9 +321,47 @@ Software installations that require tens of thousands of small files should be d
 containers (e.g., conda installations or any big Python installation) while data should also
 be organised in proper file formats rather than being dumped on the file system abusing the file
 system as a database.
-Quota extensions are currently handled by the central LUMI User Support Team.
 
-**So storage billing units come from the RA, block and file quota come from the LUMI User Support Team!**
+In the above slide, the "Capacity" column shows the block quota
+and the "Files" column show the total number of so-called inodes available in the file space.
+
+The project file spaces can be expanded in capacity within the limits specified.
+However, as big parallel file systems are very bad at handling lots of small files
+(see also the [session on Lustre](10-Lustre.md)), the files quota (or more accurately
+inode quota) are rather strict and not easily raised (and if raised, not by an order
+of magnitude).
+
+So storage use on LUMI is limited in two independent ways:
+
+-   Traditional Linux block and file quota limit the maximum capacity you can use (in volume and number of
+    inodes, roughly the number of files and directories combined).
+
+-   But actual storage use is also "billed" on a use-per-hour basis. The idea behind this is that a user may
+    run a program that generates a lot of data, but after some post-processing much of the data can be deleted
+    so that other users can use that capacity again, and to encourage that behaviour you are billed based not
+    on peak use, but based on the combination of the volume that you use and the time you use it for. 
+
+    Storage use is monitored hourly for the billing process. 
+    If you run out of storage billing units, you will not be able to run jobs anymore.
+
+    Storage in your home directory is not billed but that should not mean that you should 
+    abuse your home directory for other purposes then a home directory is meant to be used, 
+    and an extension of the home directory will never be granted. If you run out of space
+    for, e.g., caches, you should relocate them to, e.g., your scratch space, which can sometimes
+    be done by setting an environment variable and in other cases by just using symbolic
+    links to preserve the structure of the caching subdirectories in your home directory while
+    storing data elsewhere.
+
+**Quota extensions are currently handled by the central LUMI User Support Team. 
+But storage billing units, just as any billing unit, comes from your resource allocator,
+and the LUMI User Support Team cannot give you any storage billing units.**
+
+
+### Some additional information
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide File Spaces Further Information](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesFurtherInfo.png){ loading=lazy }
+</figure>
 
 LUMI has four disk based Lustre file systems that house `/users`, `/project` and `/scratch`.
 The `/project` and `/scratch` directories of your project will always be on the same parallel
@@ -617,7 +664,11 @@ Unfortunately there is no support yet for Globus or other forms of gridFTP.
 ## What is LUMI-O?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs.png){ loading=lazy }
+  ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_1.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_2.png){ loading=lazy }
 </figure>
 
 LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
@@ -646,6 +697,22 @@ Objects can be served on the web also. This is in fact how recordings of some of
 courses are served currently. However, LUMI-O is not meant to be used as a data publishing
 service and is not an alternative to services provided by, e.g., EUDAT or several local
 academic service providers.
+
+The object storage can be easily reached from outside LUMI also. In fact, during
+downtimes, LUMI-O is often still operational as its software stack is managed completely
+independently from LUMI. It is therefore also very well suited as a mechanism for data
+transfer to and from LUMI. Moreover, tools for object storage often perform much better
+on high latency long-distance connections than tools as `sftp`.
+
+LUMI-O is based on the [Ceph object file system](https://ceph.io/en/). 
+It has a total capacity of 30 PB. 
+Storage is persistent for the duration of a project.
+Projects get a quota of 150 TB and can create up to 1K buckets and 500K objects per
+bucket. These quota are currently fixed and cannot be modified.
+Storage on LUMI-O is billed at 0.5 TB·hour per TB per hour, half that of
+/scratch or /project. It can be a good alternative to store data from your project
+that still needs to be transferred but is not immediately needed by jobs, or to
+maintain backups on LUMI yourself.
 
 
 ## Accessing LUMI-O
