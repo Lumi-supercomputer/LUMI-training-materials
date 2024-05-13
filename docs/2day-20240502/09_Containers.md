@@ -931,7 +931,7 @@ The important parts here are:
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 
     `run-pytorch.sh` script). 
     We use the
-    ["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores).
+    ["Linear assignment of GCD, then match the cores" strategy](07_Binding.md#linear-assignment-of-gcd-then-match-the-cores).
 
 
 
@@ -984,7 +984,7 @@ srun --cpu-bind=mask_cpu:$MYMASKS \
 ```
 
 So basically you only need to take care of the proper CPU bindings where we again use the
-["Linear ssignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-BE-training-materials/2day-20240502/07_Binding/#linear-assignment-of-gcd-then-match-the-cores).
+["Linear assignment of GCD, then match the cores" strategy](07_Binding.md#linear-assignment-of-gcd-then-match-the-cores).
 
 
 ## Extending the containers
