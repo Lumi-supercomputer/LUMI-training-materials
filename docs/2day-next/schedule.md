@@ -31,6 +31,9 @@ DAY 1
         </td>
         <td><b><a href="../extra-01-Architecture/">LUMI Architecture</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>Some insight in the hardware of LUMI is necessary to understand what
+        LUMI can do and what it cannot do, and to understand how an application can
+        be mapped upon the machine for optimal performance.
         </td>
     </tr>
     <tr>
@@ -40,6 +43,11 @@ DAY 1
         </td>
         <td><b><a href="../extra-02-CPE/">HPE Cray Programming Environment</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>As Linux itself is not a complete supercomputer operating system, many components
+        that are essential for the proper functioning of a supercomputer are separate packages
+        (such as the Slurm scheduler discussed on day 2) or part of programming environments. 
+        It is important to understand the consequences of this, even if all you want is to simply
+        run a program.
         </td>
     </tr>
     <tr>
@@ -57,6 +65,7 @@ DAY 1
         </td>
         <td><b><a href="../extra-03_LUMI_Access/">Getting Access to LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>We discuss the options to log on to LUMI and to transfer data.
         </td>
     </tr>
     <tr>
@@ -82,6 +91,9 @@ DAY 1
         </td>
         <td><b><a href="../extra-04-Modules/">Modules on LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        LUMI uses Lmod, but as Lmod can be configured in different ways, even an experienced
+        Lmod user can learn from this presentation how we use modules on LUMI and how
+        modules can be found.
         </td>
     </tr>
     <tr>
@@ -107,6 +119,9 @@ DAY 1
         </td>
         <td><b><a href="../extra-05-SoftwareStacks/">LUMI Software Stacks</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        In this presentation we discuss how application software is made available to
+        users of LUMI. For users of smaller Tier-2 clusters with large support teams compared
+        to the user base of the machine, the approach taken on LUMI may be a bit unusual...
         </td>
     </tr>
     <tr>
@@ -149,6 +164,9 @@ DAY 2
         </td>
         <td><b><a href="../extra-08-Slurm/">Slurm on LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>Slurm is the batch job scheduler used on LUMI. As no two Slurm configurations are
+        identical, even an experienced Slurm user should have a quick look at the notes of this
+        talk to understand the particular configuration on LUMI.
         </td>
     </tr>
     <tr>
@@ -166,6 +184,9 @@ DAY 2
         </td>
         <td><b><a href="../extra-09-Binding/">Process and Thread Distribution and Binding</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>To get good performance on hardware with a strong hierarchy as AMD EPYC processors and
+        GPUs, it is important to map processes and threads properly on the hardware. This talk discusses
+        the various mechanisms available on LUMI for this.
         </td>
     </tr>
     <tr>
@@ -189,8 +210,12 @@ DAY 2
             14:00 CEST
             <br/><em>15:00 EEST</em>
         </td>
-        <td><b><a href="../extra-10-Lustre/">I/O and File Systems on LUMI</a></b>
+        <td><b><a href="../extra-10-Lustre/">Using Lustre</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>Lustre is a parallel file system and the main file system on LUMI.
+        It is important to realise what the strengths and weaknesses of Lustre at the
+        scale of a machine as LUMI are and how to use it properly and not disturb the
+        work of other users.
         </td>
     </tr>
     <tr>
@@ -200,6 +225,10 @@ DAY 2
         </td>
         <td><b><a href="../extra-11-Containers/">Containers on LUMI-C and LUMI-G</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>Containers are a way on LUMI to deal with the too-many-small-files software
+        installations on LUMI, e.g., large Python or Conda installations. They are also a 
+        way to install software that is hard to compile, e.g., because no source code is
+        available or because there are simply too many dependencies.
         </td>
     </tr>
     <tr>
@@ -217,6 +246,9 @@ DAY 2
         </td>
         <td><b><a href="../extra-12-Support/">LUMI Support and Documentation</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>Where can I find documentation or get training, and which support services are 
+        available for what problems? And how can I formulate a support ticket so that I can
+        get a quick answer without much back-and-forth mailing?
         </td>
     </tr>
     <tr>
