@@ -70,7 +70,7 @@ all his tasks. Here also the lumi-be-support@enccb.be mail address can be used.
 -->
 
 <!-- BELGIUM
-EuroHPC has also granted the EPICURE project that starts in February 2024 to set up a network for
+EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. Belgium also participates in that project as a partner
 in the LUMI consortium. However, this project is also so small that it will have to select the problems
 they tackle.
@@ -268,7 +268,7 @@ The LUMI User Support Team is responsible for providing L1 and basic L2 support 
 Their work starts from the moment that you have userid on LUMI (the local RA is responsible for ensuring
 that you get a userid when a project has been assigned).
 
-<!-- BELGIUM>
+<!-- BELGIUM
 The LUST is a distributed team roughly 10 FTE strong, with people in all LUMI consortium countries,
 but they work as a team, coordinated by CSC. The Belgian contribution currently consists of two people
 both working half time for LUMI and half time for user support in their own organisation (VSC and CÉCI).
