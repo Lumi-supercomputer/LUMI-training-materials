@@ -2933,7 +2933,8 @@ system as a database.
 <p>The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course or as you may have seen in other HPC courses already,
+As we shall see later in this course (in the <a href="../10-Lustre/">section on Lustre</a>)
+or as you may have seen in other HPC courses already,
 parallel file systems are not built to deal with hundreds of thousands of small files and are
 very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
 the home directory) but file quota are rather strict and will not easily get extended.
@@ -2970,6 +2971,15 @@ links to preserve the structure of the caching subdirectories in your home direc
 storing data elsewhere.</p>
 </li>
 </ul>
+<!-- BELGIUM 
+**Quota extensions are currently handled by the central LUMI User Support Team. 
+But storage billing units, just as any billing unit, comes from your resource allocator
+(so LUMI-BE for projects assigned through the Belgian channel and EuroHPC themselves for
+their projects),
+and the LUMI User Support Team cannot give you any storage billing units.**
+-->
+
+<!-- GENERAL More general version -->
 <p><strong>Quota extensions are currently handled by the central LUMI User Support Team. 
 But storage billing units, just as any billing unit, comes from your resource allocator,
 and the LUMI User Support Team cannot give you any storage billing units.</strong></p>
@@ -2981,7 +2991,7 @@ and the LUMI User Support Team cannot give you any storage billing units.</stron
 The <code>/project</code> and <code>/scratch</code> directories of your project will always be on the same parallel
 file system, but your home directory may be on a different one. Both are assigned automatically
 during project and account creation and these assignments cannot be changed by the LUMI User Support Team.
-As there is a many-to-may mapping between user accounts and projects it is not possible to
+As there is a many-to-many mapping between user accounts and projects it is not possible to
 ensure that user accounts are on the same file system as their main project. In fact, many users
 enter LUMI for the first time through a course project and not through one of their main compute
 projects...</p>
