@@ -72,7 +72,7 @@ materials are uploaded.
 | [Slurm on LUMI](extra-08-Slurm.md) | [slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-08-Slurm.pdf) | [notes](08-Slurm.md) | [video](extra-08-Slurm.md) |
 | [Process and Thread Distribution and Binding](extra-09-Binding.md) | [slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-09-Binding.pdf) | [notes](09-Binding.md) | [video](extra-09-Binding.md) | 
 | Exercises 4 | / | [notes](E09-Exercises-4.md) | / |
-| [I/O and File Systems on LUMI](extra-10-Lustre.md) | [slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-10-Lustre.pdf) | [notes](10-Lustre.md) | [video](extra-10-Lustre.md) |
+| [Using Lustre](extra-10-Lustre.md) | [slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-10-Lustre.pdf) | [notes](10-Lustre.md) | [video](extra-10-Lustre.md) |
 | [Containers on LUMI-C and LUMI-G](extra-11-Containers.md) | [slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-11-Containers.pdf) | [notes](11-Containers.md) | [video](extra-11-Containers.md) |
 | [Demo 1 (optional)](Demo1.md) | / | [notes](Demo1.md) | [video](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [notes](Demo2.md) | [video](Demo2.md#video-of-the-demo) |
