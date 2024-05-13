@@ -837,7 +837,7 @@ However, there is also a good side to the standard Cray PE behaviour. Updates of
 operating system or network software stack may break older versions of the MPI library. By letting
 the applications use the default libraries and updating the defaults to a newer version, most
 applications will still run while they would fail if any of the two tricks to force the use
-of the intended library version are used. This has actually happened after a big LUMIß update in
+of the intended library version are used. This has actually happened after a big LUMI update in
 March 2023, when all software that used rpath-linking had to be rebuild as the MPICH library
 that was present before the update did not longer work.
 
