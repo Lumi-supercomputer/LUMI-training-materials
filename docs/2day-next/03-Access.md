@@ -313,7 +313,8 @@ system as a database.
 The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course or as you may have seen in other HPC courses already,
+As we shall see later in this course (in the [section on Lustre](10-Lustre.md))
+or as you may have seen in other HPC courses already,
 parallel file systems are not built to deal with hundreds of thousands of small files and are
 very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
 the home directory) but file quota are rather strict and will not easily get extended.
@@ -352,6 +353,15 @@ So storage use on LUMI is limited in two independent ways:
     links to preserve the structure of the caching subdirectories in your home directory while
     storing data elsewhere.
 
+<!-- BELGIUM 
+**Quota extensions are currently handled by the central LUMI User Support Team. 
+But storage billing units, just as any billing unit, comes from your resource allocator
+(so LUMI-BE for projects assigned through the Belgian channel and EuroHPC themselves for
+their projects),
+and the LUMI User Support Team cannot give you any storage billing units.**
+-->
+
+<!-- GENERAL More general version -->
 **Quota extensions are currently handled by the central LUMI User Support Team. 
 But storage billing units, just as any billing unit, comes from your resource allocator,
 and the LUMI User Support Team cannot give you any storage billing units.**
