@@ -445,6 +445,16 @@ containers in user space.)
 Containers build with `cotainr` are used just as other containers, so through the `singularity` commands discussed
 before.
 
+<!-- BELGIUM 
+!!! Note "AI course"
+    The `cotainr` tool is also used extensively in the AI workshop that the
+    LUMI User Support Team organises from time to time. 
+    It is used in that course to build containers
+    with AI software on top of some 
+    [ROCm<sup>TM</sup> containers that we provide](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/). A link to the course material of that training was
+    not yet available at the time of writing.
+-->
+
 <!-- GENERAL More general version -->
 !!! Note "AI course"
     The `cotainr` tool is also used extensively in our AI training/workshop to build containers
