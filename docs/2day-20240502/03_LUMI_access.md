@@ -320,7 +320,7 @@ LUMI has four disk based Lustre file systems that house `/users`, `/project` and
 The `/project` and `/scratch` directories of your project will always be on the same parallel
 file system, but your home directory may be on a different one. Both are assigned automatically
 during project and account creation and these assignments cannot be changed by the LUMI User Support Team.
-As there is a many-to-may mapping between user accounts and projects it is not possible to
+As there is a many-to-many mapping between user accounts and projects it is not possible to
 ensure that user accounts are on the same file system as their main project. In fact, many users
 enter LUMI for the first time through a course project and not through one of their main compute
 projects...
