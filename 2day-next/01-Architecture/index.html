@@ -1,0 +1,3468 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-next/01-Architecture/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>The LUMI Architecture - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160v32zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0zm384-32v-32C384 71.6 312.4 0 224 0h-16v192h176z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16v-57.5c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0z"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4 2.5 6 8.3 9.9 14.8 9.9 28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 0c17.7 0 32 14.3 32 32v64h120c39.8 0 72 32.2 72 72v272c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72h120V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zM264 256a40 40 0 1 0-80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224h16z"/></svg>');--md-admonition-icon--audience:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M72 88a56 56 0 1 1 112 0 56 56 0 1 1-112 0zm-8 157.7c-10 11.2-16 26.1-16 42.3s6 31.1 16 42.3v-84.6zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5V416c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112h32c24 0 46.2 7.5 64.4 20.3zM448 416v-21.5c20-24.7 32-56.2 32-90.5 0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176h32c61.9 0 112 50.1 112 112 0 44.7-26.2 83.2-64 101.2V416c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0 56 56 0 1 1-112 0zm120 157.7v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm-80 272c0 16.2 6 31 16 42.3v-84.6c-10 11.3-16 26.1-16 42.3zm144-42.3v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zm64 42.3c0 44.7-26.2 83.2-64 101.2V448c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32v-42.8c-37.8-18-64-56.5-64-101.2 0-61.9 50.1-112 112-112h32c61.9 0 112 50.1 112 112z"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5l-14.1 37.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/></svg>');--md-admonition-icon--technical:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M160 96a96 96 0 1 1 192 0 96 96 0 1 1-192 0zm80 152v264l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32h30.3c63.6 0 125.6 19.6 177.7 56zm32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32v203c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z"/></svg>');--md-admonition-icon--intermediate:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9V320c0 28.4-10.8 57.7-22.3 80.8-6.5 13-13.9 25.8-22.5 37.6-3.2 4.3-4.1 9.9-2.3 15s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7.3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7-3.2-14.2-7.5-28.7-13.5-42v-24.6c0-30.2 10.2-58.7 27.9-81.5 12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5.8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1l280.6-101c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1c-7.6-2.7-15.6-4.1-23.7-4.1zM128 408c0 35.3 86 72 192 72s192-36.7 192-72l-15.3-145.4L354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6l-142.2-51.4L128 408z"/></svg>');--md-admonition-icon--advanced:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M219.3.5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9V160c0 70.7-57.3 128-128 128S96 230.7 96 160v-57.1l-48-9.6v65.1l15.7 78.4c.9 4.7-.3 9.6-3.3 13.3S52.8 256 48 256H16c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4V86.6C6.5 83.3 0 74.3 0 64c0-11.4 8.1-21.3 19.3-23.5l200-40zM111.9 327.7c10.5-3.4 21.8.4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5 65 20.9 112 81.7 112 153.6 0 17-13.8 30.7-30.7 30.7H30.7C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6z"/></svg>');--md-admonition-icon--lumi-be:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M48 0C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h96v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v80h96c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H48zm16 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16zM448 0c-17.7 0-32 14.3-32 32v480h64V192h144c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16H480c0-17.7-14.3-32-32-32z"/></svg>');--md-admonition-icon--nice-to-know:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M297.2 248.9c14.4-20.6 22.8-45.7 22.8-72.9 0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9 3.7 5.3 8.1 11.3 12.8 17.7 12.9 17.7 28.3 38.9 39.8 59.8 10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5-9.9-18-22.2-34.9-34.5-51.8-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176 16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3-5 7.2-10.2 14.3-15.4 21.4-12.3 16.8-24.6 33.7-34.5 51.8-5.9 10.8-9.6 22.5-11.8 34.5h-48.5c2.6-18.7 7.9-38.6 18.3-57.5 11.5-20.9 26.9-42.1 39.8-59.8 4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48 0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80 8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80v-16h160v16c0 44.2-35.8 80-80 80z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+  
+      
+
+    
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", function(ev) {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
+    
+    
+
+  
+  
+  
+    
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMI training materials - The LUMI Architecture" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-next/01-Architecture/" />
+  <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@LUMIhpc" />
+  <meta name="twitter:creator" content="@LUMIhpc" />
+  <meta name="twitter:title" content="LUMI training materials - The LUMI Architecture" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+
+  <style>
+    [data-md-color-primary="lumi"] {
+      --md-primary-fg-color: hsla(0, 0%, 100%, 1);
+      --md-primary-fg-color--light: hsla(0, 0%, 100%, 0.7);
+      --md-primary-fg-color--dark: hsla(0, 0%, 0%, 0.07);
+      --md-primary-bg-color: hsla(0, 0%, 0%, 0.87);
+      --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+      --md-button-bg-color: hsla(207,100%,28%, 1);
+      --md-button-bg-color--light: hsla(207,100%,38%, 1);
+      --md-typeset-a-color: hsla(207,100%,28%, 1);
+    }
+    
+    [data-md-color-accent="lumi"] {
+      --md-accent-fg-color: hsla(0,0%,0%, 1);
+      --md-accent-fg-color--transparent: hsla(0,0%,0%, 0.1);
+      --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+      --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    }
+  </style>
+
+  
+
+
+  
+  
+
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/extra-a8af0af3d0.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
+    />
+    <link
+      rel="stylesheet"
+      id="typekit-fonts-css"
+      href="https://use.typekit.net/nlo5lta.css?ver=5.5.3"
+      type="text/css" media="all"
+    />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lumi" data-md-color-accent="lumi">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-lumi-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The LUMI Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    User Updates
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Updates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    October-November 2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    August 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            August 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Low-noise mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dev-g and eap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Responsible use
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    User Coffee Breaks
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Coffee Breaks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20240502/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI May 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI May 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20240423/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI April 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI April 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20240208/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day February 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            1-day February 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/A01_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling November 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling November 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20231003/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI October 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI October 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Partner courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Partner courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230921/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day September 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            1-day September 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230530/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI May-June 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI May-June 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230509/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day May 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            1-day May 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hackathon April 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon April 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling April 2013
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling April 2013
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230214/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI February 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI February 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI-G January 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G January 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PEAP-Q November 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q November 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI-G August 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G August 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hackmd notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    EasyBuild May 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            EasyBuild May 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://klust.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PEAP-Q April 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_11" id="__nav_10_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_11">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q April 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hackmd notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Software Stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-kneed-to-know-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do I kneed to know this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI is ...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-spec-sheet-a-modular-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI spec sheet: A modular system
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-the-cpu-amd-7xx3-milanzen3-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-a-lumi-c-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: a LUMI-C node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building LUMI: a LUMI-C node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-strong-hierarchy-in-the-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      A strong hierarchy in the node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy-delays-in-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarchy: delays in numbers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-concept-lumi-g-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: Concept LUMI-G node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-what-a-lumi-g-node-really-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: What a LUMI-G node really looks like
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building LUMI: What a LUMI-G node really looks like">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-future-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the future looks like...
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-lumi-the-slingshot-interconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building LUMI: The Slingshot interconnect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembling-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembling LUMI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lumi-assembled" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI assembled
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="the-lumi-architecture">The LUMI Architecture<a class="headerlink" href="#the-lumi-architecture" title="Permanent link">&para;</a></h1>
+<p>In this presentation, we will build up LUMI part by part, stressing those
+aspects that are important to know to run on LUMI efficiently and define
+jobs that can scale.</p>
+<h2 id="why-do-i-kneed-to-know-this">Why do I kneed to know this?<a class="headerlink" href="#why-do-i-kneed-to-know-this" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Why know..." loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/WhyKnow.png" /></p>
+</figure>
+<p>You may wonder why you need to know about system architecture if all you want to do is to run 
+some programs.</p>
+<p>A supercomputer is <strong>not simply a scaled-up smartphone or PC</strong> that will offer good performance
+automatically. 
+It is a shared infrastructure and you don't get the whole machine to yourself.
+Instead you have to request a suitable fraction of the computer for the work you want to do.
+But it is also a very expensive infrastructure, with an investment of 160M EURO for LUMI
+and an estimated total cost (including operations) of 250M EURO. So it is important to use the computer
+efficiently. </p>
+<p>And that efficiency comes not for free. Instead in most cases it is important to properly map an 
+application on the available resources to run efficiently.  The way an application is developed
+is important for this, but it is not the only factor. Every application needs some user help 
+to run in the most efficient way, and that requires an understanding of</p>
+<ol>
+<li>
+<p>The <strong>hardware architecture</strong> of the supercomputer, which is something that we discuss in this
+    section.</p>
+</li>
+<li>
+<p>The <strong>middleware</strong>: the layers of software that sit between the application on one hand and the
+    hardware and operating system on the other hand. LUMI runs a sligthly modified version of Linux.
+    But Linux is not a supercomputer operating system. Missing functionality in Linux is offered
+    by other software layers instead that on supercomputers often come as part of the programming
+    environment.
+    This is a topic of discussion in several sessions of this course.</p>
+</li>
+<li>
+<p>The <strong>application</strong>. This is very domain-specific and application-specific and hence cannot be the
+    topic of a general course like this one. In fact, there are so many different applications and
+    often considerable domain knowledge is required so that a small support team like the one of 
+    LUMI cannot provide that information. </p>
+</li>
+<li>
+<p>Moreover, the way an application should be used may even depend on <strong>the particular problem that you
+    are trying to solve</strong>. Bigger problems, bigger computers, and different settings may be needed in
+    the application.</p>
+<p>It is up to scientific communities to organise trainings that teach you individual applications and
+how to use them for different problem types,
+and then up to users to combine the knowledge of an application obtained from such a course with the
+knowledge about the computer you want to use and its middleware obtained from courses such as this one
+or our 4-day more advanced course.</p>
+</li>
+</ol>
+<p>Some users expect that a support team can give answers to all those questions, even to the third and fourth
+bullet of the above list. If a support team could do that, it would basically imply that they could simply
+do all the research that users do and much faster as they are assumed to have the answer ready in hours...</p>
+<h2 id="lumi-is">LUMI is ...<a class="headerlink" href="#lumi-is" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide LUMI is..." loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/LUMIIs.png" /></p>
+</figure>
+<p>LUMI is a pre-exascale supercomputer, and not a superfast PC nor a compute cloud architecture.</p>
+<p>Each of these architectures have their own strengths and weaknesses and offer different 
+compromises and it is key to chose the right infrastructure for the job and use the right 
+tools for each infrastructure.</p>
+<p>Just some examples of using the wrong tools or infrastructure:</p>
+<ul>
+<li>
+<p><strong>The single thread performance of the CPU is lower than on a high-end PC.</strong> 
+    We've had users who were disappointed about the speed of a single core and were expecting
+    that this would be much faster than their PCs. Supercomputers however are optimised for 
+    performance per Watt and get their performance from using lots of cores through well-designed
+    software. If you want the fastest core possible, you'll need a gaming PC.</p>
+<p><em>E.g., the AMD 5800X is a popular CPU for high end gaming PCs using the same core architecture 
+as the CPUs in LUMI. It runs at a
+base clock of 3.8 GHz and a boost clock of 4.7 GHz if only one core is used and the system has
+proper cooling. The 7763 used in the compute nodes of LUMI-C runs at a base clock of 2.45 GHz
+and a boost clock of 3.5 GHz. If you have only one single core job to run on your PC, you'll
+be able to reach that boost clock while on LUMI you'd probably need to have a large part of
+the node for yourself, and even then the performance for jobs that are not memory bandwidth
+limited will be lower than that of the gaming PC.</em></p>
+</li>
+<li>
+<p><strong>For some data formats the GPU performance may be slower also than on a high end gaming PC.</strong>
+    This is even more so because
+    an MI250X should be treated as two GPUs for most practical purposes. The better double precision
+    floating point operations and matrix operations, also at full precision, require transistors also 
+    that on some other GPUs are used for rendering hardware or for single precision compute units.</p>
+<p><em>E.g., a single GPU die of the MI250X (half a GPU) has a peak FP32 performance at the boost clock
+of almost 24 TFlops or 48 TFlops
+in the packed format which is actually hard for a compiler to exploit, while the high-end AMD
+graphics GPU RX 7900 XTX claims 61 TFlops at the boost clock. But the FP64 performance of one MI250X 
+die is also close to 24 TFlops in vector math, while the RX 7900 XTX does less than 2 TFlops
+in that data format which is important for a lot of scientific computing applications.</em></p>
+</li>
+<li>
+<p><strong>Compute GPUs and rendering GPUs are different beasts these days.</strong>
+    We had a user who wanted to use the ray tracing units to do rendering. The MI250X does not
+    have texture units or ray tracing units though. It is not a real graphics processor anymore.</p>
+</li>
+<li>
+<p><strong>The environment is different also. It is not that because it runs some Linux it handles are your
+    Linux software.</strong>
+    A user complained that they did not succeed in getting their nice remote development environment to
+    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
+    It was a very nice environment but really made for local development and remote development in a 
+    cloud environment with virtual machines individually protected by personal firewalls and was 
+    not only hard to get working on a supercomputer but also insecure.</p>
+</li>
+<li>
+<p><strong>And supercomputers need proper software that exploits the strengths and works around the weaknesses
+    of their architecture.</strong><br />
+    CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
+    HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
+    published a paper with their experiences and it was mostly disappointment. The HPC infrastructure
+    didn't fit their model for software distribution and performance was poor. Basically their solution
+    was designed around the strengths of a typical cloud infrastructure and relied precisely on those things
+    that did make their cloud infrastructure more expensive than the HPC infrastructure they tested. It relied
+    on fast local disks that require a proper management layer in the software, (ab)using the file system as
+    a database for unstructured data, a software distribution mechanism that requires an additional daemon
+    running permanently on the compute nodes (and local storage on those nodes), ...</p>
+</li>
+</ul>
+<p>True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
+are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
+It is also a shared infrastructure but with a much more lightweight management layer than a cloud infrastructure
+and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
+other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also built according
+to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
+and application level. They perform best when streaming data through the machine at all levels of the 
+memory hierarchy and are not built at all for random access to small bits of data (where the definition of
+"small" depends on the level in the memory hierarchy).</p>
+<p>At several points in this course you will see how this impacts what you can do with a supercomputer and
+how you work with a supercomputer.</p>
+<p>And LUMI is not just a supercomputer, it is a pre-exascale supercomputer. This implies that it is using
+new and leading edge technology and pushing the limits of current technology. But this also means that
+it will have some features that many observe as problems that smaller clusters using more conventional
+technology will not have. Stability is definitely less, bigger networks definitely come with more 
+problems (and are an important cause of those stability problems), not everything scales as you would
+hope (think of the scheduler and file system IOPS discussed later in this course), ...</p>
+<h2 id="lumi-spec-sheet-a-modular-system">LUMI spec sheet: A modular system<a class="headerlink" href="#lumi-spec-sheet-a-modular-system" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide LUMI is..." loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/LUMISpecs.png" /></p>
+</figure>
+<p>So we've already seen that LUMI is in the first place a EuroHPC pre-exascale machine.
+LUMI is built to prepare for the exascale era and to fit in the EuroHPC ecosystem. 
+But it does not even mean
+that it has to cater to all pre-exascale compute needs. The EuroHPC JU tries to
+build systems that have some flexibility, but also does not try to cover 
+all needs with a single machine. They are building 3 pre-exascale systems
+with different architecture to explore multiple architectures and to cater
+to a more diverse audience. LUMI is an AMD GPU-based supercomputer, 
+Leonardo uses NVIDIA A100 GPUS, and MareNostrum5 has a very large CPU section besides an
+NVIDIA Hopper GPU section.</p>
+<p>LUMI is also a very modular machine designed according to the principles explored
+in a series of European projects, and in particular
+<a href="https://www.deep-projects.eu/">DEEP and its successors</a>) that explored
+the cluster-booster concept. E.g., in a complicated multiphysics simulation 
+you could be using regular CPU nodes for the physics that cannot be GPU-accelerated
+communicating with compute GPU nodes for the physics that can be GPU-accelerated,
+then add a number of CPU nodes to do the I/O and a specialised render GPU node for
+in-situ visualisation.</p>
+<p>LUMI is in the first place a huge <strong>GPGPU supercomputer</strong>. The GPU partition of
+LUMI, called <strong>LUMI-G</strong>, contains 2978 nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250X
+GPUs. Each node has 512 GB of RAM attached to the CPU (the maximum the CPU can handle
+without compromising bandwidth) and 128 GB of HBM2e memory per GPU. Each GPU node
+has a theoretical peak performance of nearly 200 TFlops in single (FP32) or double (FP64)
+precision vector arithmetic (and twice that with the packed FP32 format, but that 
+is not well supported so this number is not often quoted). The matrix units are
+capable of about 400 TFlops in FP32 or FP64. However, compared to the NVIDIA GPUs,
+the performance for lower precision formats used in some AI applications is not that
+stellar.</p>
+<p>LUMI also has a <strong>large CPU-only partition</strong>, called <strong>LUMI-C</strong>, for jobs that do not run well on GPUs,
+but also integrated enough with the GPU partition that it is possible to have
+applications that combine both node types.
+LUMI-C consists of 2048 nodes with 2 64-core AMD EPYC 7763 CPUs. 32 of those nodes
+have 1TB of RAM (with some of these nodes actually reserved for special purposes
+such as connecting to a Quantum computer), 128 have 512 GB and 1888 have
+256 GB of RAM.</p>
+<p>LUMI also has two smaller groups of nodes for <strong>interactive data analytics</strong>. 
+8 of those nodes have two 
+64-core Zen2/Rome CPUs with 4 TB of RAM per node, while 8 others have dual 64-core
+Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. 
+There is also an <strong>Open OnDemand based service (web interface)</strong> to make some fo those facilities
+available. Note though that these nodes are meant for a very specific use,
+so it is not that we will also be offering, e.g., GPU compute facilities
+on NVIDIA hardware, and that these are shared resources that should not be
+monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).</p>
+<p>LUMI also has a <strong>8 PB flash based file system</strong> running the <strong>Lustre parallel file system</strong>.
+This system is often denoted as LUMI-F. The bandwidth of that system is over 2 TB/s. 
+Note however that this is still a remote file system with a parallel file system on it,
+so do not expect that it will behave as the local SSD in your laptop. 
+But that is 
+also the topic of another session in this course.</p>
+<p>The main work storage is provided by <strong>4 20 PB hard disk based Lustre file systems</strong>
+with a bandwidth of 240 GB/s each. That section of the machine is often denoted 
+as LUMI-P. </p>
+<p>Big parallel file systems need to be used in the proper way to be able to offer the
+performance that one would expect from their specifications. This is important enough that 
+we have a separate session about that in this course.</p>
+<p>There is also a 30 PB <strong>object based file system</strong> 
+similar to the Allas service of CSC that some
+of the Finnish users may be familiar with is also being worked on. At the 
+moment the interface to that system is still rather primitive.</p>
+<p>Currently LUMI has <strong>4 login nodes</strong> for ssh access, called user access nodes in the HPE Cray
+world. They each have 2 64-core AMD EPYC 7742 processors and 1 TB of RAM.
+Note that  whereas the GPU and CPU compute nodes have the Zen3 architecture
+code-named "Milan", the processors on the login nodes are Zen2 processors,
+code-named "Rome". Zen3 adds some new instructions so if a compiler generates
+them, that code would not run on the login nodes. These instructions are basically
+used in cryptography though. However, many instructions have very different latency,
+so a compiler that optimises specifically for Zen3 may chose another ordering of
+instructions then when optimising for Zen2 so it may still make sense to compile
+specifically for the compute nodes on LUMI.</p>
+<p>There are also some additional
+login nodes for access via the web-based Open OnDemand interface.</p>
+<p>All compute nodes, login nodes and storage are linked together through a 
+<strong>high-performance interconnect</strong>. LUMI uses the <strong>Slingshot 11</strong> interconnect which
+is developed by HPE Cray, so <strong>not the Mellanox/NVIDIA InfiniBand</strong> that you may
+be familiar with from many smaller clusters, and as we shall discuss later
+this also influences how you work on LUMI.</p>
+<p>Early on a small partition for containerised micro-services managed with
+Kubernetes was also planned, but that may never materialize due to lack of 
+people to set it up and manage it.</p>
+<p>In this section of the course we will now build up LUMI step by step.</p>
+<h2 id="building-lumi-the-cpu-amd-7xx3-milanzen3-cpu">Building LUMI: The CPU AMD 7xx3 (Milan/Zen3) CPU<a class="headerlink" href="#building-lumi-the-cpu-amd-7xx3-milanzen3-cpu" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AMDMilanCCD.png" /></p>
+</figure>
+<p>The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
+Whereas Intel CPUs launched in the same period were built out of a single large
+monolithic piece of silicon (that only changed recently with some variants
+of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are made up
+of multiple so-called chiplets. </p>
+<p>The basic building block of Zen3 CPUs is the <strong>Core Complex Die (CCD)</strong>.
+Each CCD contains 8 cores, and each core has 32 kB of L1 instruction 
+and 32 kB of L1 data cache, and 512 kB of L2 cache. The L3 cache is shared
+across all cores on a chiplet and has a total size of 32 MB on LUMI (there are some
+variants of the processor where this is 96MB).
+At the user level, the <strong>instruction set is basically equivalent to that of the
+Intel Broadwell generation</strong>. AVX2 vector instructions and the FMA instruction are
+fully supported, but there is <strong>no support for any of the AVX-512</strong> versions that can
+be found on Intel Skylake server processors and later generations. Hence the number
+of floating point operations that a core can in theory do each clock cycle is 16 (in 
+double precision) rather than the 32 some Intel processors are capable of. </p>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide The AMD EPYC 7xx3 (Milan/Zen3) CPU (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AMDMilanCPU.png" /></p>
+</figure>
+<p>The full processor package for the AMD EPYC processors used in LUMI have
+8 such Core Complex Dies for a total of 64 cores. The <strong>caches are not
+shared between different CCDs</strong>, so it also implies that the processor has
+8 so-called L3 cache regions or domains. (Some cheaper variants have only 4 CCDs,
+and some have CCDs with only 6 or fewer cores enabled but the same 32 MB of L3
+cache per CCD).</p>
+<p>Each CCD connects to the memory/IO die through an Infinity Fabric link. 
+The memory/IO die contains the memory controllers,
+connections to connect two CPU packages together, PCIe lanes to connect to external
+hardware, and some additional hardware, e.g., for managing the processor. 
+The memory/IO die supports 4 dual channel DDR4 memory controllers providing 
+a total of 8 64-bit wide memory channels. 
+From a logical point of view the memory/IO-die is split in 4 quadrants,
+with each quadrant having a dual channel memory controller and 2 CCDs. They basically act
+as <strong>4 NUMA domains</strong>. For a core it is slightly faster to access memory in its own
+quadrant than memory attached to another quadrant, though for the 4 quadrants within
+the same socket the difference is small. (In fact, the BIOS can be set to show only
+two or one NUMA domain which is advantageous in some cases, like the typical load
+pattern of login nodes where it is impossible to nicely spread processes and
+their memory across the 4 NUMA domains).</p>
+<p>The theoretical memory bandwidth of a complete package is around 200 GB/s. However,
+that bandwidth is not available to a single core but <strong>can only be used if enough 
+cores spread over all CCDs are used</strong>.</p>
+<!-- BELGIUM
+!!! lumi-be "Clusters in Belgium"
+
+    The CPUs used in the LUMI-C compute nodes are identical to those used in 
+    the Cenaero/CÉCI cluster lucia or the Milan partition of the VSC cluster 
+    hortense. The UGent VSC cluster gallade uses a very similar processor also
+    but with more cache per CCD. Some other cluster, e.g., accelgor and doduo+ 
+    at UGent or the Milan partition of vaughan in at UAntwerpen, also use CPUs
+    of this generation but with only 4 CCDs per processor and/or 6 active cores 
+    per CCD. But many topics that we cover in this course also applies to those
+    clusters.
+
+    Some other clusters, e.g., the older Rome partition of the VSC cluster hortense,
+    the CÉCI cluster NIC5 at ULiège or the older main
+    partition of the VSC cluster vaughan at UAntwerpen, use the older Zen2/Rome
+    CPUs which are also used on the login nodes of LUMI. These have two groups
+    of 4 cores each with their own separated L3 cache per CCD and 4 or 8 CCDs per 
+    socket. 
+-->
+
+<h2 id="building-lumi-a-lumi-c-node">Building LUMI: a LUMI-C node<a class="headerlink" href="#building-lumi-a-lumi-c-node" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide LUMI-C node" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AMDMilanNode.png" /></p>
+</figure>
+<p>A compute node is then built out of two such processor packages, connected 
+through 4 16-bit wide Infinity Fabric connections with a total theoretical
+bandwidth of 144 GB/s in each direction. So note that the bandwidth in
+each direction is less than the memory bandwidth of a socket. Again, <strong>it is
+not really possible to use the full memory bandwidth of a node using just cores
+on a single socket</strong>. Only one of the two sockets has a direct connection to the
+high performance Slingshot interconnect though.</p>
+<h3 id="a-strong-hierarchy-in-the-node">A strong hierarchy in the node<a class="headerlink" href="#a-strong-hierarchy-in-the-node" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Strong hierarchy" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AMDMilanHierarchy.png" /></p>
+</figure>
+<p>As can be seen from the node architecture in the previous slide, the CPU compute
+nodes have a very hierarchical architecture. When mapping an application onto 
+one or more compute nodes, it is key for performance to take that hierarchy
+into account. This is also the reason why we will pay so much attention to
+thread and process pinning in this tutorial course.</p>
+<p>At the coarsest level, each core supports two hardware threads (what Intel calls
+hyperthreads). Those hardware threads share all the resources of a core, including the 
+L1 data and instruction caches and the L2 cache, execution units and space for
+register renaming. 
+At the next level, a Core Complex Die contains (up to) 8 cores. These cores share
+the L3 cache and the link to the memory/IO die. 
+Next, as configured on the LUMI compute nodes, there are 2 Core Complex Dies in a
+NUMA node. These two CCDs share the DRAM channels of that NUMA node.
+At the fourth level in our hierarchy 4 NUMA nodes are grouped in a socket. Those 4 
+nodes share an inter-socket link.
+At the fifth and last level in our shared memory hierarchy there are two sockets
+in a node. On LUMI, they share a single Slingshot inter-node link.</p>
+<p>The finer the level (the lower the number), the shorter the distance and hence the data delay
+is between threads that need to communicate with each other through the memory hierarchy, and
+the higher the bandwidth.</p>
+<p>This table tells us a lot about how one should map jobs, processes and threads
+onto a node. E.g., if a process has fewer then 8 processing threads running
+concurrently, these should be mapped to cores on a single CCD so that they can share 
+the L3 cache, unless they are sufficiently independent of one another, but even in the
+latter case the additional cores on those CCDs should not be used by other processes as
+they may push your data out of the cache or saturate the link to the memory/IO die and hence
+slow down some threads of your process. Similarly, on a 256 GB compute node each NUMA node has
+32 GB of RAM (or actually a bit less as the OS also needs memory, etc.), so if you have a job
+that uses 50 GB of memory but only, say, 12 threads, you should really have two NUMA nodes reserved
+for that job as otherwise other threads or processes running on cores in those NUMA nodes could saturate
+some resources needed by your job. It might also be preferential to spread those 12 threads over the 4 
+CCDs in those 2 NUMA domains unless communication through the L3 threads would be the bottleneck in your
+application.</p>
+<h3 id="hierarchy-delays-in-numbers">Hierarchy: delays in numbers<a class="headerlink" href="#hierarchy-delays-in-numbers" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Delays in numbers" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AMDMilanDelays.png" /></p>
+</figure>
+<p>This slide shows the Advanced Configuration and Power Interface
+System Locality distance Information Table (ACPI SLIT)
+as returned by, e.g., <code>numactl -H</code> which gives relative distances to
+memory from a core. E.g., a value of 32 means that access takes 3.2x times the 
+time it would take to access memory attached to the same NUMA node. 
+We can see from this table that the penalty for accessing memory in 
+another NUMA domain in the same socket is still relatively minor (20% 
+extra time), but accessing memory attached to the other socket is a lot 
+more expensive. If a process running on one socket would only access memory
+attached to the other socket, it would run a lot slower which is why Linux
+has mechanisms to try to avoid that, but this cannot be done in all scenarios
+which is why on some clusters you will be allocated cores in proportion to
+the amount of memory you require, even if that is more cores than you
+really need (and you will be billed for them).</p>
+<h2 id="building-lumi-concept-lumi-g-node">Building LUMI: Concept LUMI-G node<a class="headerlink" href="#building-lumi-concept-lumi-g-node" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Concept LUMI-G node" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/GPUnodeConcept.png" /></p>
+</figure>
+<p>This slide shows a conceptual view of a LUMI-G compute node. This node is
+unlike any Intel-architecture-CPU-with-NVIDIA-GPU compute node you may have 
+seen before, and rather mimics the architecture of the USA pre-exascale
+machines Summit and Sierra which have IBM POWER9 CPUs paired with 
+NVIDIA V100 GPUs.</p>
+<p>Each GPU node consists of one 64-core AMD EPYC CPU and 4 AMD MI250X GPUs. 
+So far nothing special. However, two elements make this compute node very
+special. First, the GPUs are not connected to the CPU though a PCIe bus. Instead
+they are connected through the same links that AMD uses to link the GPUs together,
+or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
+Infinity Fabric. This enables unified memory across CPU and GPUS and 
+provides partial cache coherency across the system. The CPUs coherently
+cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches 
+its own local memory.
+The second remarkable element is that the Slingshot interface cards
+connect directly to the GPUs (through a PCIe interface on the GPU) rather
+than to the CPU. The GPUs have a shorter path to the communication 
+network than the CPU in this design. </p>
+<p>This makes the LUMI-G compute node really a "GPU first" system. The architecture
+looks more like a GPU system with a CPU as the accelerator for tasks that a GPU is
+not good at such as some scalar processing or running an OS, rather than a CPU node
+with GPU accelerator.</p>
+<p>It is also a good fit with the cluster-booster design explored in the DEEP project
+series. In that design, parts of your application that cannot be
+properly accelerated would run on CPU nodes, while booster GPU nodes would be used for those parts 
+that can (at least if those two could execute concurrently with each other).
+Different node types are mixed and matched as needed for each specific application, 
+rather than building clusters with massive and expensive nodes
+that few applications can fully exploit. As the cost per transistor does not decrease
+anymore, one has to look for ways to use each transistor as efficiently as possible...</p>
+<p>It is also important to realise that even though we call the partition "LUMI-G", the MI250X
+is not a GPU in the true sense of the word. It is not a rendering GPU, which for AMD is 
+currently the RDNA architecture with version 3 out and version 4 coming, but a compute accelerator with
+an architecture that evolved from a GPU architecture, in this case the VEGA architecture
+from AMD. The architecture of the MI200 series is also known as CDNA2, with the MI100 series
+being just CDNA, the first version. Much of the hardware that does not serve compute purposes
+has been removed from the design to have more transistors available for compute. 
+Rendering is possible, but it will be software-based 
+rendering with some GPU acceleration for certain parts of the pipeline, but not full hardware
+rendering. </p>
+<!--
+The video units are still present though, likely for AI applications that process video.
+-->
+
+<p>This is not an evolution at AMD only. The same is happening with NVIDIA GPUs and there is a reason
+why the latest generation is called "Hopper" for compute and "Ada Lovelace" for rendering GPUs. 
+Several of the functional blocks in the Ada Lovelace architecture are missing in the Hopper 
+architecture to make room for more compute power and double precision compute units. E.g.,
+Hopper does not contain the ray tracing units of Ada Lovelace.
+The Intel Data Center GPU Max code named "Ponte Vecchio" is the only current GPU for 
+HPC that still offers full hardware rendering support (and even ray tracing).</p>
+<p>Graphics on one hand and HPC and AI on the other hand are becoming separate workloads for which
+manufacturers make different, specialised cards, and if you have applications that need both,
+you'll have to rework them to work in two phases, or to use two types of nodes and communicate
+between them over the interconnect, and look for supercomputers that support both workloads.
+And nowadays we're even starting to see a split between chips that really target AI and
+chips that target a more traditional HPC workload, with the latter threatened as there
+is currently much more money to make in the AI market. And within AI we're starting to 
+see specialised accelerators for inference.</p>
+<p>But so far for the sales presentation, let's get back to reality...</p>
+<h2 id="building-lumi-what-a-lumi-g-node-really-looks-like">Building LUMI: What a LUMI-G node really looks like<a class="headerlink" href="#building-lumi-what-a-lumi-g-node-really-looks-like" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Real LUMI-G node" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/GPUnodeReal.png" /></p>
+</figure>
+<p>Or the full picture with the bandwidths added to it:</p>
+<figure>
+  <img 
+    src="https://462000265.lumidata.eu/2day-next/img/lumig-node-architecture-rings.svg" 
+    width="842"
+    alt="LUMI-G compute nodes overview"
+  >
+</figure>
+
+<p>The LUMI-G node uses the 64-core AMD 7A53 EPYC processor, known under the code name "Trento".
+This is basically a Zen3 processor but with a customised memory/IO die, designed specifically 
+for HPE Cray (and in fact Cray itself, before the merger) for the USA Coral-project to build the
+Frontier supercomputer, the fastest system in the world at the end of 2022 according to at least
+the Top500 list. Just as the CPUs in the LUMI-C nodes, it is a design with 8 CCDs and a memory/IO
+die.</p>
+<p>The MI250X GPU is also not a single massive die, but contains two compute dies besides the 8 stacks of
+HBM2e memory, 4 stacks or 64 GB per compute die. The two compute dies in a package are linked together 
+through 4 16-bit Infinity Fabric links. These links run at a higher speed than the links
+between two CPU sockets in a LUMI-C node, but per link the bandwidth is still only
+50 GB/s per direction, creating a total bandwidth of 200 GB/s per direction between
+the two compute dies in an MI250X GPU. That amount of bandwidth is very low compared to
+even the memory bandwidth, which is roughly 1.6 TB/s peak per die, let alone compared
+to whatever bandwidth caches on the compute dies would have or the bandwidth of the internal structures that 
+connect all compute engines on the compute die. Hence the two dies in a single package cannot
+function efficiently as as single GPU which is one reason why each MI250X GPU on LUMI
+is actually seen as two GPUs. </p>
+<p>Each compute die uses a further 2 or 3 of those Infinity Fabric (or xGNI) links to connect
+to some compute dies in other MI250X packages. In total, each MI250X package is connected through
+5 such links to other MI250X packages. These links run at the same 25 GT/s speed as the 
+links between two compute dies in a package, but even then the bandwidth is only a meager 
+250 GB/s per direction, less than an NVIDIA A100 GPU which offers 300 GB/s per direction
+or the NVIDIA H100 GPU which offers 450 GB/s per direction. Each Infinity Fabric link may be
+twice as fast as each NVLINK 3 or 4 link (NVIDIA Ampere and Hopper respectively),
+offering 50 GB/s per direction rather than 25 GB/s per direction for NVLINK, 
+but each Ampere GPU has 12 such links and each Hopper GPU 18 (and in fact a further 18 similar ones to
+link to a Grace CPU), while each MI250X package has only 5 such links available to link to other GPUs
+(and the three that we still need to discuss).</p>
+<p>Note also that even though the connection between MI250X packages is all-to-all, the connection
+between GPU dies is all but all-to-all. as each GPU die connects to only 3 other GPU dies.
+There are basically two bidirectional rings that don't need to share links in the topology, and then some extra
+connections. The rings are:</p>
+<ul>
+<li>Green ring: 1 - 0 - 6 - 7 - 5 - 4 - 2 - 3 - 1</li>
+<li>Red ring: 1 - 0 - 2 - 3 - 7 - 6 - 4 - 5 - 1</li>
+</ul>
+<!--
+    Note the bit flip pattern in the latter: 001 - 000 - 010 - 011 - 111 - 110 - 100 - 101 - 001
+-->
+
+<p>These rings play a role in the inter-GPU communication in AI applications using RCCL.</p>
+<p>Each compute die is also connected to one CPU Core Complex Die (or as documentation of the
+node sometimes says, L3 cache region). This connection only runs at the same speed as the links
+between CPUs on the LUMI-C CPU nodes, i.e., 36 GB/s per direction (which is still enough for 
+all 8 GPU compute dies together to saturate the memory bandwidth of the CPU). 
+This implies that each of the 8 GPU dies has a preferred CPU die to work with, and this should
+definitely be taken into account when mapping processes and threads on a LUMI-G node. </p>
+<p>The figure also shows another problem with the LUMI-G node: The mapping between CPU cores/dies
+and GPU dies is all but logical:</p>
+<table>
+<thead>
+<tr>
+<th>GPU die</th>
+<th>CCD</th>
+<th>hardware threads</th>
+<th>NUMA node</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>6</td>
+<td>48-55, 112-119</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>7</td>
+<td>56-63, 120-127</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>16-23, 80-87</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>24-31, 88-95</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>0-7, 64-71</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>8-15, 72-79</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>32-39, 96-103</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>5</td>
+<td>40-47, 104, 11</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>and as we shall see later in the course, exploiting this is a bit tricky at the moment.</p>
+<!--
+!!! Note
+    It is not clear if the GPU compute dies are actually directly connected to the CPU compute
+    dies or via the memory/IO die. The former would imply that each CPU CCD would have two 
+    Infinity Fabric ports. As far as we are aware, this has never been show in AMD documentation,
+    but then it is known that the Zen4 8-core CCD has two such ports that are actually also
+    used in those EPYC 7004 SKUs that have only 4 CCDs.
+-->
+
+<h3 id="what-the-future-looks-like">What the future looks like...<a class="headerlink" href="#what-the-future-looks-like" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide The future we're preparing for..." loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/GPUnodeFuture.png" /></p>
+</figure>
+<p>Some users may be annoyed by the "small" amount of memory on each node. Others
+may be annoyed by the limited CPU capacity on a node compared to some systems 
+with NVIDIA GPUs. It is however very much in line with the cluster-booster
+philosophy already mentioned a few times, and it does seem to be the future
+according to AMD (with Intel also working into that direction). 
+In fact, it looks like with respect to memory 
+capacity things may even get worse.</p>
+<p>We saw the first little steps of bringing GPU and CPU closer together and 
+integrating both memory spaces in the USA pre-exascale systems Summit and Sierra.
+The LUMI-G node which was really designed for one of the first USA exascale systems
+continues on this philosophy, albeit with a CPU and GPU from a different manufacturer.
+Given that manufacturing large dies becomes prohibitively expensive in newer semiconductor
+processes and that the transistor density on a die is also not increasing at the same
+rate anymore with process shrinks, manufacturers are starting to look at other ways
+of increasing the number of transistors per "chip" or should we say package.
+So multi-die designs are here to stay, and as is already the case in the AMD CPUs,
+different dies may be manufactured with different processes for economical reasons.</p>
+<p>Moreover, a closer integration of CPU and GPU would not only make programming easier
+as memory management becomes easier, it would also enable some codes to run on GPU 
+accelerators that are currently bottlenecked by memory transfers between GPU and CPU.</p>
+<p>Such a chip is exactly what AMD launched in December 2023 with the MI300A version of 
+the MI300 series. 
+It employs 13 chiplets in two layers, linked to (still only) 8 
+memory stacks (albeit of a much faster type than on the MI250X). 
+The 4 chiplets on the
+bottom layer are the memory controllers and inter-GPU links (an they can be at the
+bottom as they produce less heat). Furthermore each package features 6 GPU dies
+(now called XCD or Accelerated Compute Die as they really can't do graphics) and
+3 Zen4 "Genoa" CPU dies. In the MI300A the memory is still limited to 8 16 GB stacks, 
+providing a total of 128 GB of RAM. The MI300X,  which is the regular version 
+without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
+but presumably those were not yet available when the design of MI300A was tested
+for the launch customer, the <a href="https://asc.llnl.gov/exascale/el-capitan">El Capitan supercomputer</a>. 
+<a href="https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart">HLRS is building the Hunter cluster based on AMD MI300A</a> 
+as a transitional system
+to their first exascale-class system Herder that will become operational by 2027.</p>
+<p>Intel at some point has shown only very conceptual drawings of its Falcon Shores chip 
+which it calls an XPU, but those drawings suggest that that chip will also support some low-bandwidth
+but higher capacity external memory, similar to the approach taken in some Sapphire 
+Rapids Xeon processors that combine HBM memory on-package with DDR5 memory outside 
+the package. Falcon Shores will be the next generation of Intel GPUs for HPC, after 
+Ponte Vecchio which will be used in the Aurora supercomputer. It is currently very likely
+though that Intel will revert to a traditional design for Falcon Shores and push
+out the integrated CPU+GPU model to a later generation.</p>
+<p>However, a CPU closely integrated with accelerators is nothing new as Apple Silicon is 
+rumoured to do exactly that in its latest generations, including the M-family chips.</p>
+<h2 id="building-lumi-the-slingshot-interconnect">Building LUMI: The Slingshot interconnect<a class="headerlink" href="#building-lumi-the-slingshot-interconnect" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Slingshot interconnect" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/Slingshot.png" /></p>
+</figure>
+<p>All nodes of LUMI, including the login, management and storage nodes, are linked
+together using the Slingshot interconnect (and almost all use Slingshot 11, the full
+implementation with 200 Gb/s bandwidth per direction).</p>
+<p>Slingshot is an interconnect developed by HPE Cray and based on Ethernet, but with
+proprietary extensions for better HPC performance. It adapts to the regular Ethernet
+protocols when talking to a node that only supports Ethernet, so one of the attractive
+features is that regular servers with Ethernet can be directly connected to the 
+Slingshot network switches.
+HPE Cray has a tradition of developing their own interconnect for very large systems.
+As in previous generations, a lot of attention went to adaptive routing and congestion
+control. There are basically two versions of it. The early version was named Slingshot 10,
+ran at 100 Gb/s per direction and did not yet have all features. It was used on the initial
+deployment of LUMI-C compute nodes but has since been upgraded to the full version.
+The full version with all features is called Slingshot 11. It supports a bandwidth of 200 Gb/s
+per direction, comparable to HDR InfiniBand with 4x links. </p>
+<p>Slingshot is a different interconnect from your typical Mellanox/NVIDIA InfiniBand implementation
+and hence also has a different software stack. This implies that there are no UCX libraries on
+the system as the Slingshot 11 adapters do not support that. Instead, the software stack is 
+based on libfabric (as is the stack for many other Ethernet-derived solutions and even Omni-Path
+has switched to libfabric under its new owner).</p>
+<p>LUMI uses the dragonfly topology. This topology is designed to scale to a very large number of 
+connections while still minimizing the amount of long cables that have to be used. However, with
+its complicated set of connections it does rely heavily on adaptive routing and congestion control for
+optimal performance more than the fat tree topology used in many smaller clusters.
+It also needs so-called high-radix switches. The Slingshot switch, code-named Rosetta, has 64 ports.
+16 of those ports connect directly to compute nodes (and the next slide will show you how).
+Switches are then combined in groups. Within a group there is an all-to-all connection between 
+switches: Each switch is connected to each other switch. So traffic between two nodes of a 
+group passes only via two switches if it takes the shortest route. However, as there is typically
+only one 200 Gb/s direct connection between two switches in a group, if all 16 nodes on two 
+switches in a group
+would be communicating heavily with each other, it is clear that some traffic will have to take a
+different route. In fact, it may be statistically better if the 32 involved nodes would be spread 
+more evenly over the group, so topology based scheduling of jobs and getting the processes of a job
+on as few switches as possible may not be that important on a dragonfly Slingshot network. 
+The groups in a slingshot network are then also connected in an all-to-all fashion, but the number
+of direct links between two groups is again limited so traffic again may not always want to take 
+the shortest path. The shortest path between two nodes in a dragonfly topology never involves 
+more than 3 hops between switches (so 4 switches): One from the switch the node is connected to 
+the switch in its group that connects to the other group, a second hop to the other group, and then
+a third hop in the destination group to the switch the destination node is attached to.</p>
+<h2 id="assembling-lumi">Assembling LUMI<a class="headerlink" href="#assembling-lumi" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide HPE Cray EX System" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AssemblyEX.png" /></p>
+</figure>
+<p>Let's now have a look at how everything connects together to the supercomputer LUMI.
+It does show that LUMI is not your standard cluster build out of standard servers.</p>
+<p>LUMI is built very compactly to minimise physical distance between nodes and to reduce
+the cabling mess typical for many clusters and the costs of cabling. High-speed copper cables 
+are expensive, but optical cables and the transceivers that are needed are even more
+expensive and actually also consume a significant amount of power compared to the switch
+power. The design of LUMI is compact enough that within a rack, switches can be connected
+with copper cables in the current network technology and optical cabling is only
+needed between racks.</p>
+<p>LUMI does use a custom rack design for the compute nodes that is also fully water cooled.
+It is build out of units that can contain up to 4 custom cabinets, and a cooling distribution
+unit (CDU). The size of the complex as depicted in the slide is approximately 12 m<sup>2</sup>.
+Each cabinet contains 8 compute chassis in 2 columns of 4 rows. In between the two
+columns is all the power circuitry. Each compute chassis can contain 8 compute blades
+that are mounted vertically. Each compute blade can contain multiple nodes, depending on
+the type of compute blades. HPE Cray have multiple types of compute nodes, also with 
+different types of GPUs. In fact, the Aurora supercomputer which uses Intel CPUs and GPUs and
+El Capitan, which uses the MI300A APUs (integrated CPU and GPU) will use the same
+design with a different compute blade. Each LUMI-C compute blade contains 4 compute nodes
+and two network interface cards, with each network interface card implementing two Slingshot
+interfaces and connecting to two nodes. A LUMI-G compute blade contains two nodes and
+4 network interface cards, where each interface card now connects to two GPUs in the same 
+node. All connections for power, management network and high performance interconnect
+of the compute node are at the back of the compute blade. At the front of the compute
+blades one can find the connections to the cooling manifolds that distribute cooling
+water to the blades. One compute blade of LUMI-G can consume up to 5kW, so the power
+density of this setup is incredible, with 40 kW for a single compute chassis.</p>
+<p>The back of each cabinet is equally genius. At the back each cabinet has 8 switch chassis,
+each matching the position of a compute chassis. The switch chassis contains the connection to
+the power delivery system and a switch for the management network and has 8 positions for 
+switch blades. These are mounted horizontally and connect directly to the compute blades.
+Each slingshot switch has 8x2 ports on the inner side for that purpose, two for each compute
+blade. Hence for LUMI-C two switch blades are needed in each switch chassis as each blade has
+4 network interfaces, and for LUMI-G 4 switch blades are needed for each compute chassis as
+those nodes have 8 network interfaces. Note that this also implies that the nodes on the same 
+compute blade of LUMI-C will be on two different switches even though in the node numbering they
+are numbered consecutively. For LUMI-G both nodes on a blade will be on a different pair of switches 
+and each node is connected to two switches. So when you get a few sequentially numbered nodes, they
+will not be on a single switch (LUMI-C) or switch pair (LUMI-G).
+The switch blades are also water cooled (each one can 
+consume up to 250W). No currently possible configuration of the Cray EX system needs 
+all switch positions in the switch chassis.</p>
+<p>This does not mean that the extra positions cannot be useful in the future. If not for an interconnect,
+one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based storage via blades as the 
+switch blade environment is certainly less hostile to such storage than the very dense and very hot
+compute blades.</p>
+<h2 id="lumi-assembled">LUMI assembled<a class="headerlink" href="#lumi-assembled" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide LUMI" loading="lazy" src="https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-01-Architecture/AssemblyLUMI.png" /></p>
+</figure>
+<p>This slide shows LUMI fully assembled (as least as it was at the end of 2022).</p>
+<p>At the front there are 5 rows of cabinets similar to the ones in the exploded Cray EX picture 
+on the previous slide.
+Each row has 2 CDUs and 6 cabinets with compute nodes. 
+The first row, the one with the wolf, contains all nodes of LUMI-C, while the other four 
+rows, with the letters of LUMI, contain the GPU accelerator nodes.
+At the back of the room there are more 
+regular server racks that house the storage, management nodes, some special compute nodes , etc.
+The total size is roughly the size of a tennis court. </p>
+<div class="admonition remark">
+<p class="admonition-title">Remark</p>
+<p>The water temperature that a system like the Cray EX can handle is so high that in fact the water can
+be cooled again with so-called "free cooling", by just radiating the heat to the environment rather 
+than using systems with compressors similar to air conditioning systems, especially in regions with a
+colder climate. The LUMI supercomputer is housed in Kajaani in Finland, with moderate temperature almost 
+year round, and the heat produced by the supercomputer is fed into the central heating system of the
+city, making it one of the greenest supercomputers in the world as it is also fed with renewable energy.</p>
+</div>
+<!-- BELGIUM
+## Local trainings
+
+The following trainings provide useful preliminary material for this section,
+and in one case even more details.
+
+-   VSC:
+
+    -   VSC@UAntwerpen: [Supercompters for Starters course](https://www.uantwerpen.be/en/research-facilities/calcua/training/),
+        organised twice each year.
+
+        [Almost complete course notes are available](https://klust.github.io/SupercomputersForStarters/)
+
+        This course given in 2 4 hour sessions goes into more detail about CPU architecutre, memory, storage, accelerators,
+        and the software that binds all hardware together to build a cluster.
+
+    -   The other introductory courses have a high-level overview of a cluster
+
+        -   [VSC@VUB HPC Introduction](https://hpc.vub.be/docs/slides/hpc-intro/)
+
+        -   [VSC@UGent Introduction to HPC](https://www.ugent.be/hpc/en/training/2023/introhpcugent)
+
+        -   [VSC@KULeuven HPC-intro](https://hpcleuven.github.io/HPC-intro/)
+
+-   CÉCI: The annual introductory course "Learning how to use HPC infrastructure" covers the basics 
+    of cluster architecture.
+
+    -   [2022 edition: presentation "Introduction to high-performance computing](https://indico.cism.ucl.ac.be/event/120/contributions/54/)
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+
+
+
+
+<footer class="md-footer">
+
+  
+
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      
+    <div class="md-footer-copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" 
+             style="border-width:0" 
+             src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+        />
+      </a>
+      This work is licensed under a&nbsp;
+      <a rel="license" 
+         href="http://creativecommons.org/licenses/by/4.0/"
+      >
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </div>
+
+      
+      <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
