@@ -63,7 +63,7 @@ DAY 1
             11:55 CEST
             <br/><em>12:55 EEST</em>
         </td>
-        <td><b><a href="../extra-03_LUMI_Access/">Getting Access to LUMI</a></b>
+        <td><b><a href="../extra-03-Access/">Getting Access to LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>We discuss the options to log on to LUMI and to transfer data.
         </td>
