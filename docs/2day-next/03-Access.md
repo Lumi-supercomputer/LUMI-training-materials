@@ -681,6 +681,13 @@ Unfortunately there is no support yet for Globus or other forms of gridFTP.
   ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_2.png){ loading=lazy }
 </figure>
 
+<!-- BELGIUM 
+LUMI-O is an object storage system (based on Ceph). 
+It is similar to a system that CSC, the company operating LUMI, built for users of Finland
+and is known there as Allas, though LUMI doesn't provide all the functionality of Allas.
+-->
+
+<!-- GENERAL More general version -->
 LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
 Allas, which is similar to the LUMI object storage system, though LUMI doesn't provide all
 the functionality of Allas.
