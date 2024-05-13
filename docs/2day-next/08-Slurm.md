@@ -321,7 +321,7 @@ Some useful commands with respect to Slurm partitions:
     The fourth column shows 4 numbers: The number of nodes that are currently fully or partially allocated
     to jobs, the number of idle nodes, the number of nodes in one of the other possible states (and not
     user-accessible) and the total number of nodes in the partition. Sometimes a large number of nodes
-    can be in the "O"column, e.g., when mechanical maintenance is needed (like problem with the
+    can be in the "O" column, e.g., when mechanical maintenance is needed (like problem with the
     cooling). Also note that the width of the `NODES` field is not enough as the total number
     of nodes for `standard-g` doesn't make sense, but this is easyly solved, e.g., using
 
@@ -979,7 +979,7 @@ partition, but note that running on these nodes is expensive!)
     echo -e "\nsacct for the job:\n$(sacct -j $SLURM_JOB_ID)\n"
     ```
 
-    As we are using `small-g` here instead of standard-g, we added the `#SBATCH --exclusive` and `#SBATCH --mem=480G` lines.
+    As we are using `small-g` here instead of `standard-g`, we added the `#SBATCH --exclusive` and `#SBATCH --mem=480G` lines.
 
     A similar job script for a CPU-node in LUMI-C and now in the `standard` partition would look like:
 
