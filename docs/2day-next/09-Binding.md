@@ -120,7 +120,7 @@ server processors, and is also relevant but often ignored in GPU clusters.
 -->
 
 <!-- GENERAL More general version -->
-As we have somewhat in the ["LUMI Architecture" session of this course](01-Architecture.md) and as you may know from other courses,
+As we have seen in the ["LUMI Architecture" session of this course](01-Architecture.md) and as you may know from other courses,
 modern supercomputer nodes have increasingly a very hierarchical architecture. This hierarchical architecture is extremely
 pronounced on the AMD EPYC architecture used in LUMI but is also increasingly showing up with Intel processors and the ARM
 server processors, and is also relevant but often ignored in GPU clusters.
