@@ -2933,7 +2933,7 @@ system as a database.
 <p>The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course (in the <a href="../10-Lustre/">section on Lustre</a>)
+As we shall see later in this course (in the <a href="../08-Lustre/">section on Lustre</a>)
 or as you may have seen in other HPC courses already,
 parallel file systems are not built to deal with hundreds of thousands of small files and are
 very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
@@ -2946,7 +2946,7 @@ system as a database.</p>
 and the "Files" column show the total number of so-called inodes available in the file space.</p>
 <p>The project file spaces can be expanded in capacity within the limits specified.
 However, as big parallel file systems are very bad at handling lots of small files
-(see also the <a href="../10-Lustre/">session on Lustre</a>), the files quota (or more accurately
+(see also the <a href="../08-Lustre/">session on Lustre</a>), the files quota (or more accurately
 inode quota) are rather strict and not easily raised (and if raised, not by an order
 of magnitude).</p>
 <p>So storage use on LUMI is limited in two independent ways:</p>
@@ -3133,7 +3133,7 @@ go back to by clicking the LUMI-logo in the upper left corner):</p>
 <p>The list of pinned apps may change over time, and more apps are available via the menu at the top.
 Most apps will run in the context of a job, so you will need billing units, and those apps will also
 present you with a form to chose the resources you want to use, but that will only be discussed in
-<a href="../08-Slurm/">the session on Slurm</a>.</p>
+<a href="../06-Slurm/">the session on Slurm</a>.</p>
 <p>Two apps don't run in the context of a job: The "Login node shell" and "Home Directory" apps, and we'll first
 have a look at those.</p>
 <p><figure markdown style="border: 1px solid #000">
@@ -3169,7 +3169,7 @@ are also restrictions on how big an archive Open OnDemand can create.</p>
 <a href="https://www.xfce.org/">Xfce desktop environment</a>. This app needs to run in the context of a job
 and although it can run on several partitions on LUMI, its main use is to be able to use some
 visualisation applications, so your best choice is likely to use the partition with visualisation
-GPUs (see the <a href="../08-Slurm/">session on Slurm</a>). As we have not discussed jobs yet, we will skip
+GPUs (see the <a href="../06-Slurm/">session on Slurm</a>). As we have not discussed jobs yet, we will skip
 how to fill in the form that is presented to you.</p>
 <p>The desktop is basically run in a <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing">VNC session</a>,
 a popular protocol for remote desktop support in Linux. It can be used through a web browser, which is what

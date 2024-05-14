@@ -2711,7 +2711,7 @@ but RCCL is basically the equivalent of NVIDIA NCCL.</p>
 </code></pre></div>
 <p>Fourth, we need to ensure that each task uses the proper GPU. This is one point where we 
 assume that one GPU (GCD) per task is used. The script also assumes that the
-<a href="../09-Binding/#linear-assignment-of-gcd-then-match-the-cores">"Linear assignment of GCD, then match the cores" idea</a>
+<a href="../07-Binding/#linear-assignment-of-gcd-then-match-the-cores">"Linear assignment of GCD, then match the cores" idea</a>
 is used, so we will need some more complicated CPU mapping in the job script.</p>
 <p>PyTorch also needs some initialisation that are basically the same on NVIDIA and
 AMD hardware. This includes setting a master for the communication (the first node of 
