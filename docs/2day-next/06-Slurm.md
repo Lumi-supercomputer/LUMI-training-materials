@@ -29,7 +29,7 @@
 ## What is Slurm
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide What is Slurm](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/WhatIsSlurm.png){ loading=lazy }
+  ![Slide What is Slurm](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/WhatIsSlurm.png){ loading=lazy }
 </figure>
 
 Slurm is both a resource manager and job scheduler for supercomputers in a single package.
@@ -78,7 +78,7 @@ is no better option at this moment that is sufficiently mature.
 ## Slurm concepts: Physical resources
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Slurm concepts 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/SlurmConceptsPhys.png){ loading=lazy }
+  ![Slide Slurm concepts 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/SlurmConceptsPhys.png){ loading=lazy }
 </figure>
 
 The machine model of Slurm is bit more limited than what we would like for LUMI. 
@@ -112,7 +112,7 @@ A **GPU** in Slurm is an accelerator and on LUMI corresponds to one GCD of an MI
 ## Slurm concepts: Logical resources
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Slurm concepts 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/SlurmConceptsLog.png){ loading=lazy }
+  ![Slide Slurm concepts 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/SlurmConceptsLog.png){ loading=lazy }
 </figure>
 
 -   A **partition**: is a job queue with limits and access control. Limits include maximum
@@ -157,7 +157,7 @@ A **GPU** in Slurm is an accelerator and on LUMI corresponds to one GCD of an MI
 ## Slurm is first and foremost a batch scheduler
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Slurm is first and foremost a batch scheduler](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/BatchScheduler.png){ loading=lazy }
+  ![Slide Slurm is first and foremost a batch scheduler](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/BatchScheduler.png){ loading=lazy }
 </figure>
 
 And LUMI is in the first place a batch processing supercomputer.
@@ -193,7 +193,7 @@ for a big job.
 ## A Slurm batch script
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide A Slurm batch script](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/BatchScript.png){ loading=lazy }
+  ![Slide A Slurm batch script](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/BatchScript.png){ loading=lazy }
 </figure>
 
 Slurm batch scripts (also called job scripts) are conceptually not that different from batch scripts for other HPC schedulers.
@@ -236,7 +236,7 @@ On the following slides we will explore in particular the second block and to so
 ## Partitions
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Partitions 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/Partitions_1.png){ loading=lazy }
+  ![Slide Partitions 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/Partitions_1.png){ loading=lazy }
 </figure>
 
 !!! Remark
@@ -273,16 +273,16 @@ of what each Slurm parameter really means. Overspecifying resources (using more 
 desired effect) may result in unexpected conflicts between parameters and error messages.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Partitions 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/Partitions_2.png){ loading=lazy }
+  ![Slide Partitions 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/Partitions_2.png){ loading=lazy }
 </figure>
 
 <!--
 <figure markdown style="border: 1px solid #000">
-  ![Slide Partitions allocatable per node](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PartitionsPerNode.png){ loading=lazy }
+  ![Slide Partitions allocatable per node](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PartitionsPerNode.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Partitions allocatable by resources](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PartitionsByResources.png){ loading=lazy }
+  ![Slide Partitions allocatable by resources](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PartitionsByResources.png){ loading=lazy }
 </figure>
 -->
 
@@ -294,7 +294,7 @@ operation of LUMI and depending on needs observed by the system administrators a
 User Support Team, so don't take the above tables in the slide for granted.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Partitions 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PartitionsCommands.png){ loading=lazy }
+  ![Slide Partitions 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PartitionsCommands.png){ loading=lazy }
 </figure>
 
 Some useful commands with respect to Slurm partitions:
@@ -438,7 +438,7 @@ Some useful commands with respect to Slurm partitions:
 ## Accounting of jobs
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Accounting of jobs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/Accounting.png){ loading=lazy }
+  ![Slide Accounting of jobs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/Accounting.png){ loading=lazy }
 </figure>
 
 The use of resources by a job is billed to projects, not users. All management is also
@@ -531,7 +531,7 @@ both work with some delay.
 ## Queueing and fairness
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Fairness of queueing](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/Fairness.png){ loading=lazy }
+  ![Slide Fairness of queueing](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/Fairness.png){ loading=lazy }
 </figure>
 
 !!! Remark
@@ -576,7 +576,7 @@ short experiments of half an hour or so often start quickly on LUMI even though 
 ## Managing Slurm jobs
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide MAnaging Slurm jobs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/ManageJob.png){ loading=lazy }
+  ![Slide MAnaging Slurm jobs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/ManageJob.png){ loading=lazy }
 </figure>
 
 Before experimenting with jobs on LUMI, it is good to discuss how to manage those jobs.
@@ -605,7 +605,7 @@ that in fact can also be found on the web.
     component of Slurm and can also be used to show information about individual job steps using
     the job step identifier (which is in most case `<jobID>.0` for the first regular job step and so on).
     We will cover this command in more detail 
-    [further in the notes of this session](08-Slurm.md/#the-sstat-command).
+    [further in the notes of this session](06-Slurm.md/#the-sstat-command).
 
 -   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html) can be used both while the
     job is running and when the job has finished. It is the main command to get information about a job
@@ -613,7 +613,7 @@ that in fact can also be found on the web.
     the information is available with some delay compared to the information obtained with `sstat` for
     a running job. It will also produce information about individual job steps. 
     We will cover this command in more detail 
-    [further in the notes of this session](08-Slurm.md/#the-sacct-command).
+    [further in the notes of this session](06-Slurm.md/#the-sacct-command).
 
 The `sacct` command will also be used in various examples in this section of the tutorial to investigate
 the behaviour of Slurm.
@@ -622,7 +622,7 @@ the behaviour of Slurm.
 ## Creating a Slurm job
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Creating a Slurm job](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/CreateJob.png){ loading=lazy }
+  ![Slide Creating a Slurm job](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/CreateJob.png){ loading=lazy }
 </figure>
 
 Slurm has three main commands to create jobs and job steps. 
@@ -665,7 +665,7 @@ supported on LUMI) you will have to use `srun` as the process starter.**
 ## Passing options to srun, salloc and sbatch
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Passing options to srun, salloc and sbatch](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PassingOptions.png){ loading=lazy }
+  ![Slide Passing options to srun, salloc and sbatch](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PassingOptions.png){ loading=lazy }
 </figure>
 
 There are several ways to pass options and flags to the `srun`, `salloc` and `sbatch` command.
@@ -702,7 +702,7 @@ variables set in the job by these commands.
 ## Specifying options
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Specifying options](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/SpecifyingOptions.png){ loading=lazy }
+  ![Slide Specifying options](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/SpecifyingOptions.png){ loading=lazy }
 </figure>
 
 Slurm commands have way more options and flags than we can discuss in this course or even the
@@ -745,7 +745,7 @@ same node.
 ## Some common options to all partitions
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Some common options to all partitions](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/SpecifyingCommonOptions.png){ loading=lazy }
+  ![Slide Some common options to all partitions](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/SpecifyingCommonOptions.png){ loading=lazy }
 </figure>
 
 For CPU and GPU requests, a different strategy should be used for "allocatable by node" and "allocatable by resource" partitions,
@@ -788,7 +788,7 @@ certainly needed with `salloc` also.
 ## Redirecting output 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Redirecting output](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/SpecifyingOutput.png){ loading=lazy }
+  ![Slide Redirecting output](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/SpecifyingOutput.png){ loading=lazy }
 </figure>
 
 Slurm has two options to redirect stdout and stderr respectively: `--output=<template>` or `-o <template>` for stdout
@@ -816,7 +816,7 @@ in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-22.0
 ## Requesting resources: CPUs and GPUs
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Requesting resources: CPUs and GPUs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/RequestingCPUsGPUs.png){ loading=lazy }
+  ![Slide Requesting resources: CPUs and GPUs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/RequestingCPUsGPUs.png){ loading=lazy }
 </figure>
 
 Slurm is very flexible in the way resources can be requested. Covering every scenario and every possible
@@ -876,7 +876,7 @@ pros and cons. We'll call them "per-node allocations" and "per-core allocations"
     but they may produce a warning or may not run at all if the job step cannot be mapped on the resources allocated to 
     the job.
 
-    More importantly, most options to do binding (see the [next chapter](09-Binding.md))
+    More importantly, most options to do binding (see the [next chapter](07-Binding.md))
     cannot be used or don't make sense anyway as there
     is no guarantee your cores will be allocated in a dense configuration.
 
@@ -897,7 +897,7 @@ mapping of each subjob on the available resources (e.g., in case of two jobs on 
 ## Resources for per-node allocations
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per-node allocations](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNode.png){ loading=lazy }
+  ![Slide Per-node allocations](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNode.png){ loading=lazy }
 </figure>
 
 In a per-node allocation, all you need to specify is the partition and the number of nodes needed, and in some cases,
@@ -1006,7 +1006,7 @@ partition, but note that running on these nodes is expensive!)
     would behave in the allocation without burning through tons of billing units.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per-node allocations: CPUs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNodeCPU.png){ loading=lazy }
+  ![Slide Per-node allocations: CPUs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNodeCPU.png){ loading=lazy }
 </figure>
 
 By default you will get all the CPUs in each node that is allocated in a per-node allocation.
@@ -1057,7 +1057,7 @@ The two options are:
     discuss later.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per-node allocations: GPUs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNodeGPU.png){ loading=lazy }
+  ![Slide Per-node allocations: GPUs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNodeGPU.png){ loading=lazy }
 </figure>
 
 By default you will get all the GPUs in each node that is allocated in a per-node allocation. The Slurm options
@@ -1105,7 +1105,7 @@ As these options are also forwarded to `srun`, it will save you from specifying 
 ## Per-node allocations: Starting a job step
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per-node allocations: Starting a job step](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNodeJobStep_1.png){ loading=lazy }
+  ![Slide Per-node allocations: Starting a job step](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNodeJobStep_1.png){ loading=lazy }
 </figure>
 
 Serial or shared-memory multithreaded programs in a batch script can in principle be run in 
@@ -1120,7 +1120,7 @@ homogeneous job steps at the moment, the typical case for most users) that each 
 of cores or hardware threads and, in case of GPU compute, access to a number of GPUs.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per-node allocations: Starting a job step (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNodeJobStep_2.png){ loading=lazy }
+  ![Slide Per-node allocations: Starting a job step (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNodeJobStep_2.png){ loading=lazy }
 </figure>
 
 There are several ways telling Slurm how many tasks should be created and what the 
@@ -1227,7 +1227,7 @@ to do so. Otherwise the developers of Slurm wouldn't have changed that behaviour
 ### A warning for GPU applications
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per-node allocations: A warning for GPU applications](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNodeJobstepWarningGPU.png){ loading=lazy }
+  ![Slide Per-node allocations: A warning for GPU applications](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNodeJobstepWarningGPU.png){ loading=lazy }
 </figure>
 
 Allocating GPUs with `--gpus-per-task` or `--tasks-per-gpu` may seem the most logical thing to do
@@ -1245,7 +1245,7 @@ like affinity masks for CPUs. It can be tricky to do though as many options for 
 mapping under the hood.
 
 As we need a mechanisms that are not yet discussed yet in this chapter, we refer to the
-[chapter "Process and thread distribution and binding"](09-Binding.md) for a more ellaborate
+[chapter "Process and thread distribution and binding"](07-Binding.md) for a more ellaborate
 discussion and a solution.
 
 Unfortunately using AMD GPUs in Slurm is more complicated then it should be (and we will see even
@@ -1255,7 +1255,7 @@ more problems).
 ## Turning simultaneous multithreading on or off
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Turning hardware threading on or off](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerNodeHardwareThreading.png){ loading=lazy }
+  ![Slide Turning hardware threading on or off](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerNodeHardwareThreading.png){ loading=lazy }
 </figure>
 
 Hardware threads are enabled by default at the operating system level. In Slurm however, regular
@@ -1585,7 +1585,7 @@ core. This is illustrated with the example below.
 ### When to use?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: When to use?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreWhenUse.png){ loading=lazy }
+  ![Slide Per core allocations: When to use?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreWhenUse.png){ loading=lazy }
 </figure>
 
 Not all jobs can use entire nodes efficiently, and therefore the LUMI setup does provide some
@@ -1615,15 +1615,15 @@ arguments of `sbatch` and `salloc` that you will need to run the job.
 ### Resource request
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: Resource request (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreResources_1.png){ loading=lazy }
+  ![Slide Per core allocations: Resource request (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreResources_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: Resource request (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreResources_2.png){ loading=lazy }
+  ![Slide Per core allocations: Resource request (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreResources_2.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: Resource request (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreResources_3.png){ loading=lazy }
+  ![Slide Per core allocations: Resource request (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreResources_3.png){ loading=lazy }
 </figure>
 
 To request an allocation, you have to specify the task structure of the job step you want to run using
@@ -1667,7 +1667,7 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
     is even more tricky to solve.
 
     We will again discuss a solution in the 
-    [Chapter "Process and thread distribution and binding"](09-Binding.md)
+    [Chapter "Process and thread distribution and binding"](07-Binding.md)
 
 4.  CPU memory. By default you get less than the memory per core on the node type. To change:
 
@@ -1693,7 +1693,7 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
     to the number of GPUs set aside in each of these nodes).
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: Warning: Allocations per socket?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreWarningSocket.png){ loading=lazy }
+  ![Slide Per core allocations: Warning: Allocations per socket?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreWarningSocket.png){ loading=lazy }
 </figure>
 
 !!! Warning "`--sockets-per-node` and `--ntasks-per-socket`"
@@ -1721,11 +1721,11 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
 ### Different job steps in a single job
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: Different job steps (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreJobstep_1.png){ loading=lazy }
+  ![Slide Per core allocations: Different job steps (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreJobstep_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Per core allocations: Different job steps (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PerCoreJobstep_2.png){ loading=lazy }
+  ![Slide Per core allocations: Different job steps (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PerCoreJobstep_2.png){ loading=lazy }
 </figure>
 
 It is possible to have an `srun` command with a different task structure in your job script.
@@ -2022,7 +2022,7 @@ GPU binding does not work for you.
 ## The job environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job environment](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/JobEnvironment.png){ loading=lazy }
+  ![Slide Job environment](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/JobEnvironment.png){ loading=lazy }
 </figure>
 
 On LUMI, `sbatch`, `salloc` and `srun` will all by default copy the environment in which they run to the
@@ -2056,7 +2056,7 @@ It is possible to change this behaviour or to define extra environment variables
     that is needed to have a job script in which you can work more or less normally is rather long.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Passing arguments](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/PassingArguments.png){ loading=lazy }
+  ![Slide Passing arguments](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PassingArguments.png){ loading=lazy }
 </figure>
 
 !!! Note "Passing argumetns to a batch script"
@@ -2122,7 +2122,7 @@ It is possible to change this behaviour or to define extra environment variables
 ## Automatic requeueing
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Automatic requeueing](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/AutomaticRequeueing.png){ loading=lazy }
+  ![Slide Automatic requeueing](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/AutomaticRequeueing.png){ loading=lazy }
 </figure>
 
 LUMI has the Slurm automatic requeueing of jobs upon node failure enabled. So jobs will be
@@ -2144,7 +2144,7 @@ There are some options to influence this behaviour:
 ## Job dependencies
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job dependencies](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/JobDependencies.png){ loading=lazy }
+  ![Slide Job dependencies](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/JobDependencies.png){ loading=lazy }
 </figure>
 
 The maximum wall time that a job can run on LUMI is fairly long for a Tier-0 system. Many other big systems in 
@@ -2203,7 +2203,7 @@ Interactive jobs can have several goals, e.g.,
 ### Interactive jobs with salloc
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Interactive jobs with salloc](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/JobInteractiveSalloc.png){ loading=lazy }
+  ![Slide Interactive jobs with salloc](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/JobInteractiveSalloc.png){ loading=lazy }
 </figure>
 
 This is a very good way of working for the first scenario described above. 
@@ -2285,7 +2285,7 @@ paragraph).
 ### Interactive jobs with srun
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Interactive jobs with srun](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/JobInteractiveSrun.png){ loading=lazy }
+  ![Slide Interactive jobs with srun](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/JobInteractiveSrun.png){ loading=lazy }
 </figure>
 
 Starting an interactive job with `srun` is good to get an interactive shell in which you want
@@ -2320,7 +2320,7 @@ CTRL-D key combination.
 ### Inspecting a running job
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Inpecting a running job](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/JobInteractiveAttach.png){ loading=lazy }
+  ![Slide Inpecting a running job](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/JobInteractiveAttach.png){ loading=lazy }
 </figure>
 
 On LUMI it is not possible to use `ssh` to log on to a compute node in use by one of your jobs.
@@ -2361,7 +2361,7 @@ TODO: Add some examples of how to use sstat or salloc for this?
 ## Job arrays
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job arrays](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/JobArrays.png){ loading=lazy }
+  ![Slide Job arrays](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/JobArrays.png){ loading=lazy }
 </figure>
 
 Job arrays is a mechanism to submit a large number of related jobs with the same batch script in a
@@ -2406,7 +2406,7 @@ job that then further start subjobs.
 ## Heterogeneous jobs
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Heterogeneous jobs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/HeterogeneousJobs.png){ loading=lazy }
+  ![Slide Heterogeneous jobs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/HeterogeneousJobs.png){ loading=lazy }
 </figure>
 
 A heterogeneous job is one in which multiple executables run in a single `MPI_COMM_WORLD`, or a single
@@ -2435,11 +2435,11 @@ bugs are being introduced.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Heterogeneous jobs: Example with #SBATCH](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/HeterogeneousJobsExampleSBATCH.png){ loading=lazy }
+  ![Slide Heterogeneous jobs: Example with #SBATCH](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/HeterogeneousJobsExampleSBATCH.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Heterogeneous jobs: Example with srun](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/HeterogeneousJobsExampleSrun.png){ loading=lazy }
+  ![Slide Heterogeneous jobs: Example with srun](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/HeterogeneousJobsExampleSrun.png){ loading=lazy }
 </figure>
 
 ??? Example "Let's show with an example (worked out more in the text than in the slides)"
@@ -2610,7 +2610,7 @@ bugs are being introduced.
 ## Simultaneous job steps
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Simultaneous job steps](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/SimultaneousJobSteps.png){ loading=lazy }
+  ![Slide Simultaneous job steps](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/SimultaneousJobSteps.png){ loading=lazy }
 </figure>
 
 It is possible to run multiple job steps in parallel on LUMI. The core of your job script would look
@@ -2723,11 +2723,11 @@ Some users may also be familiar with the `sreport` command, but it is of limited
 ### The `sstat` command
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job monitoring with sstat 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/MonitoringSstat_1.png){ loading=lazy }
+  ![Slide Job monitoring with sstat 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/MonitoringSstat_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job monitoring with sstat 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/MonitoringSstat_2.png){ loading=lazy }
+  ![Slide Job monitoring with sstat 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/MonitoringSstat_2.png){ loading=lazy }
 </figure>
 
 The `sstat` command is a command to get real-time information about a running job.
@@ -2793,7 +2793,7 @@ Or check the
 ### The `sacct` command
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job information with sacct 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/MonitoringSacct_1.png){ loading=lazy }
+  ![Slide Job information with sacct 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/MonitoringSacct_1.png){ loading=lazy }
 </figure>
 
 The `sacct` command shows information kept in the Slurm job accounting database.
@@ -2831,7 +2831,7 @@ but as there is a lot more information in the accounting database, the format op
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job information with sacct 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/MonitoringSacct_2.png){ loading=lazy }
+  ![Slide Job information with sacct 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/MonitoringSacct_2.png){ loading=lazy }
 </figure>
 
 As an example, let's check the CPU time and memory used by a job:
@@ -2862,7 +2862,7 @@ Or check the
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job information with sacct 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/MonitoringSacct_3.png){ loading=lazy }
+  ![Slide Job information with sacct 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/MonitoringSacct_3.png){ loading=lazy }
 </figure>
 
 Using `sacct` is a bit harder if you don't have the job ID of the job for which you want information.
@@ -2880,7 +2880,7 @@ its main purpose is. But you can find more information in the
 ### The `sreport` command
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Job information from sreport](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Slurm/MonitoringSreport.png){ loading=lazy }
+  ![Slide Job information from sreport](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/MonitoringSreport.png){ loading=lazy }
 </figure>
 
 The `sreport` command is a command to create summary reports from data in the Slurm accounting database.
