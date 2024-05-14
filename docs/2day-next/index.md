@@ -66,12 +66,12 @@ materials are uploaded.
 | [Exercises 1](ME03-Exercises-1.md) | / | / | /  | / |
 | [Modules on LUMI](M04-Modules.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-04-Modules.pdf) | [N](04-Modules.md) | [E](E04-Modules.md) | [V](M04-Modules.md) |
 | [Exercises 2](ME04-Exercises-2.md) | / | / | / | / |
-| [LUMI Software Stacks](M05-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-05-SoftwareStacks.pdf) | [N](05-SoftwareStacks.md) | [E](E05-SoftwareStacks) | [V](M05-SoftwareStacks.md) |
+| [LUMI Software Stacks](M05-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-05-SoftwareStacks.pdf) | [N](05-SoftwareStacks.md) | [E](E05-SoftwareStacks.md) | [V](M05-SoftwareStacks.md) |
 | [Exercises 3](ME05-Exercises-3.md) | / | / | / | / |
 | [Wrap-Up Day 1](MI02-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-I02-WrapUpDay1.pdf) | / | / | [V](MI02-WrapUpDay1.md) |
 | [Introduction Day 2](MI03-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-I03-IntroductionDay2.pdf) | / | / | [V](MI03-IntroductionDay2.md) |
-| [Slurm on LUMI](M06-Slurm.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-06-Slurm.pdf) | [N](06-Slurm.md) | [E](E06-Slurm) | [V](M06-Slurm.md) |
-| [Process and Thread Distribution and Binding](M07-Binding.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-07-Binding.pdf) | [N](07-Binding.md) | [E](E07-Binding) | [V](M07-Binding.md) | 
+| [Slurm on LUMI](M06-Slurm.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-06-Slurm.pdf) | [N](06-Slurm.md) | [E](E06-Slurm.md) | [V](M06-Slurm.md) |
+| [Process and Thread Distribution and Binding](M07-Binding.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-07-Binding.pdf) | [N](07-Binding.md) | [E](E07-Binding.md) | [V](M07-Binding.md) | 
 | [Exercises 4](ME07-Exercises-4.md) | / | / | / | / |
 | [Using Lustre](M08-Lustre.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-08-Lustre.pdf) | [N](08-Lustre.md) | / | [V](M08-Lustre.md) |
 | [Containers on LUMI-C and LUMI-G](M09-Containers.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-09-Containers.pdf) | [N](09-Containers.md) | / | [V](M09-Containers.md) |
