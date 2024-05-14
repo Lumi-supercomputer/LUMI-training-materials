@@ -313,7 +313,7 @@ system as a database.
 The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course (in the [section on Lustre](10-Lustre.md))
+As we shall see later in this course (in the [section on Lustre](08-Lustre.md))
 or as you may have seen in other HPC courses already,
 parallel file systems are not built to deal with hundreds of thousands of small files and are
 very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
@@ -328,7 +328,7 @@ and the "Files" column show the total number of so-called inodes available in th
 
 The project file spaces can be expanded in capacity within the limits specified.
 However, as big parallel file systems are very bad at handling lots of small files
-(see also the [session on Lustre](10-Lustre.md)), the files quota (or more accurately
+(see also the [session on Lustre](08-Lustre.md)), the files quota (or more accurately
 inode quota) are rather strict and not easily raised (and if raised, not by an order
 of magnitude).
 
@@ -537,7 +537,7 @@ Web links:
     The list of pinned apps may change over time, and more apps are available via the menu at the top.
     Most apps will run in the context of a job, so you will need billing units, and those apps will also
     present you with a form to chose the resources you want to use, but that will only be discussed in
-    [the session on Slurm](08-Slurm.md).
+    [the session on Slurm](06-Slurm.md).
 
     Two apps don't run in the context of a job: The "Login node shell" and "Home Directory" apps, and we'll first
     have a look at those.
@@ -586,7 +586,7 @@ Web links:
     [Xfce desktop environment](https://www.xfce.org/). This app needs to run in the context of a job
     and although it can run on several partitions on LUMI, its main use is to be able to use some
     visualisation applications, so your best choice is likely to use the partition with visualisation
-    GPUs (see the [session on Slurm](08-Slurm.md)). As we have not discussed jobs yet, we will skip
+    GPUs (see the [session on Slurm](06-Slurm.md)). As we have not discussed jobs yet, we will skip
     how to fill in the form that is presented to you.
 
     The desktop is basically run in a [VNC session](https://en.wikipedia.org/wiki/Virtual_Network_Computing),

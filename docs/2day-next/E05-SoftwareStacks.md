@@ -1,4 +1,4 @@
-# Exercises 3: LUMI Software Stacks and EasyBuild
+# Exercises: LUMI Software Stacks
 
 See [the instructions](index.md#setting-up-for-the-exercises)
 to set up for the exercises.
@@ -52,9 +52,6 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
 
         and see that (as expected from the name) we need to load `LUMI/22.08` and can then use it in any of the
         partitions.
-
-
-
 
 
 ## Installing software with EasyBuild
@@ -166,6 +163,7 @@ recipes for the 22.12 version of the software stack.*
         module unload cpeCray eb-tutorial
         ```
 
+
 ### Installing an EasyConfig given to you by LUMI User Support
 
 Sometimes we have no solution ready in the LUMI Software Library, but we prepare one or more
@@ -266,4 +264,3 @@ of the previous two exercises).
         module load py-eb-tutorial/1.0.0-cpeGNU-22.08-cray-python-3.9.12.1
         py-eb-tutorial
         ```
-
