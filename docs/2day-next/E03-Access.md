@@ -1,0 +1,46 @@
+# Exercises: Accessing LUMI
+
+See [the instructions](index.md#setting-up-for-the-exercises)
+to set up for the exercises.
+
+1.  Log on to an arbitrary login node of LUMI.
+
+    Can you find how to check your quota and status of your allocation?
+
+    ??? Solution "Click to see the solution."
+        How to check your quota and status of your allocation, is explained in
+        the message-of-the-day at the bottom of the "Announcements" section:
+        you can use the `lumi-workspaces` command.
+
+
+2.  How can you log on to a specific login node of LUMI, e.g., the login node "uan01"?
+  
+    ??? Solution "Click to see the solution."
+        To log in to the login node "uan01", use the hostname `lumi-uan01.csc.fi`
+        instead of `lumi.csc.fi`.
+
+        This may be useful if you use software on your desktop that tries to connect
+        repeatedly to LUMI and then tries to find, e.g., a running server that it 
+        created before.
+
+3.  Create a shell on a login node using the Open OnDemand web interface?
+  
+    ??? Solution "Click to see the solution."
+        -   Point your web browser to `https://www.lumi.csc.fi`. With some browsers
+            it is sufficient to type `lumi.csc.fi` in the address bar while others
+            require `www.lumi.csc.fi`.
+        -   Click the "Go to login" button. What you need to do here, depends on how
+            you got your account. For the course you will have to proceed with the 
+            "MyAccessID" option "Login Puhuri" in most cases.
+        -   Once you're in the web interface, click on "Login node shell" (likely the third
+            choice on the first line). It will open a new tab in the browser with a login shell
+            on LUMI. Note that Open OnDemand uses a different set of login nodes.
+
+4.  Try to transfer a file from your desktop/laptop to your home directory via the Open OnDemand web interface.
+
+    ??? Solution "Click to see the solution."
+        -   Go back into Open OnDemand if you have left it after the previous exercise.
+        -   On the main screen of the web interface, choose "Home directory".
+        -   Depending on the browser and your system you may be able to just drag-and-drop files 
+            into the frame that shows your files, or you can click the blue "Upload" button towards
+            the top of the screen.

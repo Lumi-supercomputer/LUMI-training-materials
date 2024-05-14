@@ -1,60 +1,13 @@
-# Exercises 1: Elementary access and the HPE Cray PE
+# Exercises: HPE Cray Programming Environment
 
 See [the instructions](index.md#setting-up-for-the-exercises)
 to set up for the exercises.
-
-## Accessing LUMI
-
-1.  Log on to an arbitrary login node of LUMI.
-
-    Can you find how to check your quota and status of your allocation?
-
-    ??? Solution "Click to see the solution."
-        How to check your quota and status of your allocation, is explained in
-        the message-of-the-day at the bottom of the "Announcements" section:
-        you can use the `lumi-workspaces` command.
-
-
-2.  How can you log on to a specific login node of LUMI, e.g., the login node "uan01"?
-  
-    ??? Solution "Click to see the solution."
-        To log in to the login node "uan01", use the hostname `lumi-uan01.csc.fi`
-        instead of `lumi.csc.fi`.
-
-        This may be useful if you use software on your desktop that tries to connect
-        repeatedly to LUMI and then tries to find, e.g., a running server that it 
-        created before.
-
-3.  Create a shell on a login node using the Open OnDemand web interface?
-  
-    ??? Solution "Click to see the solution."
-        -   Point your web browser to `https://www.lumi.csc.fi`. With some browsers
-            it is sufficient to type `lumi.csc.fi` in the address bar while others
-            require `www.lumi.csc.fi`.
-        -   Click the "Go to login" button. What you need to do here, depends on how
-            you got your account. For the course you will have to proceed with the 
-            "MyAccessID" option "Login Puhuri" in most cases.
-        -   Once you're in the web interface, click on "Login node shell" (likely the third
-            choice on the first line). It will open a new tab in the browser with a login shell
-            on LUMI. Note that Open OnDemand uses a different set of login nodes.
-
-4.  Try to transfer a file from your desktop/laptop to your home directory via the Open OnDemand web interface.
-
-    ??? Solution "Click to see the solution."
-        -   Go back into Open OnDemand if you have left it after the previous exercise.
-        -   On the main screen of the web interface, choose "Home directory".
-        -   Depending on the browser and your system you may be able to just drag-and-drop files 
-            into the frame that shows your files, or you can click the blue "Upload" button towards
-            the top of the screen.
-
-
-## Exercises on compiling software by hand
 
 *These exercises are optional during the session, but useful if you expect 
 to be compiling software yourself. The source files mentioned can be found in
 the subdirectory CPE of the download.*
 
-### Compilation of a program 1: A simple "Hello, world" program
+## Compilation of a program 1: A simple "Hello, world" program
 
 Four different implementations of a simple "Hello, World!" program are provided in the `CPE` subdirectory:
 
@@ -123,7 +76,7 @@ Try to compile these programs using the programming environment of your choice.
     ```
 
 
-### Compilation of a program 2: A program with BLAS
+## Compilation of a program 2: A program with BLAS
 
 In the `CPE` subdirectory you'll find the C program `matrix_mult_C.c`
 and the Fortran program `matrix_mult_F.f90`. Both do the same thing: a matrix-matrix
@@ -243,7 +196,7 @@ on the system is extreme). In fact, if you've done things well the time reported
     messages about not being able to find DGEMM.
 
 
-### Compilation of a program 3: A hybrid MPI/OpenMP program
+## Compilation of a program 3: A hybrid MPI/OpenMP program
 
 The file `mpi_omp_hello.c` is a hybrid MPI and OpenMP C program that sends a message
 from each thread in each MPI rank. It is basically a simplified version of the
