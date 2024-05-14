@@ -1,11 +1,9 @@
-# Exercises 2: Modules on LUMI
+# Exercises: Modules on LUMI
 
 <!-- TODO Check the Bison exercise. -->
 
 See [the instructions](index.md#setting-up-for-the-exercises)
 to set up for the exercises.
-
-## Exercises on the use of modules
 
 1.  The Cray CPE comes with a number of differently configured HDF5 libraries.
 
