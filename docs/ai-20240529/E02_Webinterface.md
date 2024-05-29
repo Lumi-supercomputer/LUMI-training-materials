@@ -11,6 +11,6 @@
 
 7.  I already have a project on LUMI that I wanted to carry the exercises out on, but I run into some problems. I changed the "HF_HOME" variable to my own project ("/scratch/project_465000956/hf-cache"), but I get an error of `OSError: [Errno 122] Disk quota exceeded`. What am I doing wrong?
 
-   -   Check your disk quota with the `lumi-workspaces` command. You likely have a too large volume or too many files in your scratch or home folder.
+    -   Check your disk quota with the `lumi-workspaces` command. You likely have a too large volume or too many files in your scratch or home folder.
 
-   -   **UPDATE**: (Lukas) There was an issue in the notebook that could cause this. This is now fixed, so you can update via `git pull`.
+    -   **UPDATE**: (Lukas) There was an issue in the notebook that could cause this. This is now fixed, so you can update via `git pull`.
