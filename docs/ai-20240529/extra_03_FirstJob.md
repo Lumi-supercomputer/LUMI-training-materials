@@ -2,6 +2,26 @@
 
 *Presenters:* Mats Sjöberg (CSC) and Lukas Prediger (CSC)
 
+
+## Extra materials
+
+-   [Slides of the presentation](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-03-First_AI_job.pdf)
+
+-   [Hands-on exercises](E03_FirstJob.md)
+
+-   [More extensive training materials on Slurm from the recent introdctory "Supercomputing with LUMI" course from May 2024](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/)
+
+    -   A more detailed introduction to Slurm but without AI-specific exemples is given in the 
+        ["Slurm on LUMI" presentation](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_06_Slurm/).
+        It also discusses the `sacct` command that can be used to get at least some resource use info
+        from jobs.
+
+    -   The presentation ["Process and Thread Distribution and Binding"](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_07_Binding/)
+        is more oriented towards traditional HPC codes, but the discussion on a proper mapping
+        of GPU dies onto CPU chiplets is also relevant for AI applications. But that is a discussion
+        for the second day of this course/workshop.
+
+
 ## Q&A
 
 1.  Why in --mem-per-gpu=60G it is 60 GB, not 64?

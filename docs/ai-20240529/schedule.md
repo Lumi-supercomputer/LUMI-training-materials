@@ -223,7 +223,7 @@ DAY 2
             <br/><em>11:55 EEST</em>
         </td>
         <td><b><a href="../extra_10_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenters: Samuel Añtao (AMD)</em>
+        <br/><em>Presenter: Samuel Añtao (AMD)</em>
         </td>
     </tr>
     <tr>

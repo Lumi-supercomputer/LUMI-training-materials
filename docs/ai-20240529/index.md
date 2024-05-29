@@ -48,7 +48,7 @@ materials are uploaded.
 | [Hands-on: Hyper-parameter tuning the PyTorch model using Ray](E09_Ray.md) | / | / |
 | [Extreme scale AI](extra_10_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-10-Extreme_scale_AI.pdf) | [video](extra_10_ExtremeScale.md) |
 | [Demo/Hands-on: Using multiple nodes](E10_ExtremeScale.md) | / | / |
-| [Loading raining data from Lustre and LUMI-O](extra_11_LUMIO.md) | / | [video](extra_11_LUMIO.md) |
+| [Loading training data from Lustre and LUMI-O](extra_11_LUMIO.md) | / | [video](extra_11_LUMIO.md) |
 | [Coupling machine learning with HPC simulation](extra_12_Coupling.md) | / | [video](extra_12_Coupling.md) |
 
 
