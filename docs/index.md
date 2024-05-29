@@ -6,6 +6,9 @@
 
 Most recently completed main training events:
 
+-   Moving your AI training jobs to LUMI: A Hands-On Workshop:
+    [2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
+
 -   4-day comprehensive LUMI training aimed at developers and advanced users:
     [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
 
