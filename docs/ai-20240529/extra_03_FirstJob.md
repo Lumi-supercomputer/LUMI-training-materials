@@ -4,14 +4,14 @@
 
 ## Q&A
 
-9.  Why in --mem-per-gpu=60G it is 60 GB, not 64?
+1.  Why in --mem-per-gpu=60G it is 60 GB, not 64?
 
     -   Because the nodes have only 480 GB available per user of the 512 GB, so 1/8th of that is a fair use per GPU. Which gives 60 GB. Note that this is CPU memory and not GPU memory!
 
         It was actually explained later in the presentation, after this question was asked. 
    
 
-10. Does AMD have some alternative to nvidia ngc? Premade singularity images?
+2.  Does AMD have some alternative to nvidia ngc? Premade singularity images?
 
     -   AMD has a [ROCm dockerHub project](https://hub.docker.com/u/rocm) where the latests containers go, e.g. Pytorch.
 
@@ -19,4 +19,13 @@
 
     -   The other part of the equation here is that the publicly available containers do not (they can't because of license issues) the network related bits, so they are not ready to run efficiently accross nodes. For that, we recommend using the LUMI provided containers under `/appl/local/containers/sif-images`. The containers suggested for this training event are based on those. More details will be given in a later session today.
 
+3.  When I use this command from the slides, it gives error & I am not sure which form should the compute_node take: 
 
+    ```
+    $ srun --overlap --pty --jobid=7240318 bash 
+    @compute_node$ rocm-smi
+    ``` 
+
+    Gives `/usr/bin/bash: @compute_node$: No such file or directory.` Should the "@compute_node$" be 1, or @1$, or @1, or small-g, or @small-g$ etc.?
+
+    -   If something ends on a `$` at the start of a line it is meant to refer to the command line prompt. And in this case this notation was used to denote a compute node command line prompt, showing the number of the compute node.
