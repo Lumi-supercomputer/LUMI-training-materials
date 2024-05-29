@@ -1,5 +1,4 @@
 # Moving your AI training jobs to LUMI workshop - Copenhagen, May 29-30 2024
-# Supercomputing with LUMI - Amsterdam, May 2-3, 2024
 
 ## Course organisation
 
