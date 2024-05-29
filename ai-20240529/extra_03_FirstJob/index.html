@@ -2577,6 +2577,16 @@
 </li>
 </ul>
 </li>
+<li>
+<p>When I use this command from the slides, it gives error &amp; I am not sure which form should the compute_node take: </p>
+<div class="highlight"><pre><span></span><code>$ srun --overlap --pty --jobid=7240318 bash 
+@compute_node$ rocm-smi
+</code></pre></div>
+<p>Gives <code>/usr/bin/bash: @compute_node$: No such file or directory.</code> Should the "@compute_node$" be 1, or @1$, or @1, or small-g, or @small-g$ etc.?</p>
+<ul>
+<li>If something ends on a <code>$</code> at the start of a line it is meant to refer to the command line prompt. And in this case this notation was used to denote a compute node command line prompt, showing the number of the compute node.</li>
+</ul>
+</li>
 </ol>
 
 
