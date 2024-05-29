@@ -97,7 +97,7 @@ DAY 1
             13:10 CEST
             <br/><em>14:10 EEST</em>
         </td>
-        <td><b>Hands-on: Checking GPU usage interactively using rocm-smi</b>
+        <td><b><a href="../E04_Workarounds/">Hands-on: Checking GPU usage interactively using rocm-smi</a></b>
         </td>
     </tr>
     <tr>
@@ -114,7 +114,7 @@ DAY 1
             13:50 CEST
             <br/><em>14:50 EEST</em>
         </td>
-        <td><b>Hands-on: Pull and run a container</b>
+        <td><b><a href="../E05_RunningContainers/">Hands-on: Pull and run a container</a></b>
         </td>
     </tr>
     <tr>
@@ -139,7 +139,7 @@ DAY 1
             14:45 CEST
             <br/><em>15:45 EEST</em>
         </td>
-        <td><b>Hands-on: Creating a conda environment file and building a container using cotainr</b>
+        <td><b><a href="../E06_BuildingContainers">Hands-on: Creating a conda environment file and building a container using cotainr</a></b>
         </td>
     </tr>
     <tr>
@@ -189,7 +189,7 @@ DAY 2
             09:30 CEST
             <br/><em>10:30 EEST</em>
         </td>
-        <td><b>Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP</b>
+        <td><b><a href="../E08_MultipleGPUs/">Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP</a></b>
         </td>
     </tr>
     <tr>
@@ -206,7 +206,7 @@ DAY 2
             10:20 CEST
             <br/><em>11:20 EEST</em>
         </td>
-        <td><b>Hands-on: Hyper-parameter tuning the PyTorch model using Ray</b>
+        <td><b><a href="../E09_Ray/">Hands-on: Hyper-parameter tuning the PyTorch model using Ray</a></b>
         </td>
     </tr>
     <tr>
@@ -231,7 +231,7 @@ DAY 2
             11:25 CEST
             <br/><em>12:25 EEST</em>
         </td>
-        <td><b> Demo/Hands-on: Using multiple nodesk</b>
+        <td><b><a href="../E10_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
         </td>
     </tr>
     <tr>
