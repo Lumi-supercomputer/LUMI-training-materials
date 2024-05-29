@@ -5,4 +5,6 @@
 
 ## Q&A
 
-/
+1.  I get the following error `ValueError: Invalid command cmd='bash conda_installer.sh -b -s -p /opt/conda' passed to Singularity resulted in the FATAL error: FATAL:   container creation failed: mount /appl->/appl error: while mounting /appl: destination /appl doesn't exist in container` when running `cotainr build python312.sif --system=lumi-c --conda-env=python312.yml`
+
+    -   Try logging in and out of LUMI. I have feeling that you have too many conflicting variables/modules set.
