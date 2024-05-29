@@ -47,7 +47,7 @@ DAY 1
             10:05 CEST
             <br/><em>11:05 EEST</em>
         </td>
-        <td><b>Hands-on: Run a simple PyTorch example notebook</b>
+        <td><b><a href="../E02_Webinterface/">Hands-on: Run a simple PyTorch example notebook</a></b>
         </td>
     </tr>
     <tr>
@@ -65,6 +65,14 @@ DAY 1
         </td>
         <td><b><a href="../extra_03_FirstJob/">Your first AI training job on LUMI</a></b>
         <br/><em>Presenters: Mats Sjöberg (CSC) and Lukas Prediger (CSC)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            11:20 CEST
+            <br/><em>12:20 EEST</em>
+        </td>
+        <td><b><a href="../E03_FirstJob/">Hands-on: Run a simple single-GPU PyTorch AI training job</a></b>
         </td>
     </tr>
     <tr>

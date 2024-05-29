@@ -32,7 +32,9 @@ materials are uploaded.
 |:-------------|:-------|:----------|
 | [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
 | [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
+| [Hands-on: Run a simple PyTorch example notebook](E02_Webinterface) | / | / |
 | [Your first AI training job on LUMI](extra_03_FirstJob.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-03-First_AI_job.pdf) | [video](extra_03_FirstJob.md) |
+| [Hands-on: Run a simple single-GPU PyTorch AI training job](E03_FirstJob.md) | / | / |
 | [Understanding GPU activity & checking jobs](extra_04_Workarounds.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-04-Understanding_GPU_activity.pdf) | [video](extra_04_Workarounds.md) |
 | [Running containers on LUMI](extra_05_RunningContainers.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-05-Running_containers_on_LUMI.pdf) | [video](extra_05_RunningContainers.md) |
 | [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
