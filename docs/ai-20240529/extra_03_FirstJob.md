@@ -29,3 +29,5 @@
     Gives `/usr/bin/bash: @compute_node$: No such file or directory.` Should the "@compute_node$" be 1, or @1$, or @1, or small-g, or @small-g$ etc.?
 
     -   If something ends on a `$` at the start of a line it is meant to refer to the command line prompt. And in this case this notation was used to denote a compute node command line prompt, showing the number of the compute node.
+
+    -   So you should use `srun --overlap --pty --jobid=7240318 bash` to open a terminal on the same node that your job is running on, then use the `rocm-smi` command in that new terminal.

@@ -31,4 +31,11 @@
 
     -   All GPU codes also launch from CPUs and in some cases that CPU part of the code is also multithreaded. Can't speak for your case, but earlier today a user wanted more than 7 cores per GPU... E.g., managing the loading of data is largely done by the CPU.
 
+3.  In the .py file, why do we specify remove_columns=["text", "label"] - should not only "label" be removed? (it is in the train_dataset.map and eval_dataset.map functions)
+
+    -   This is somewhat specific to the HuggingFace Trainer with this specific model, which expects the training data to be token ids, that is, integers, under key 'input_ids'. These are created during running the tokenizer in the script, but it means we can discard the actual `text` afterwards.
+
+4.  The script has finished training correctly, but did not print the generated reviews. Same problem with the reference solution. 
+
+    -   With the suggested configuration / resource allocation, the script probably ran out of time to finish training and generating reviews. Check from the output log if it says in the end `JOB xyz ON nid... CANCELLED AT ... DUE TO TIME LIMIT`. This is expected for this exercise. We will speed up the training using multiple GPUs in [Session 08](extra_08_MultipleGPUs.md) tomorrow.
 
