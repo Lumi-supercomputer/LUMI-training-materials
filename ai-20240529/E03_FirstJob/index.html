@@ -2553,7 +2553,36 @@
 <h1 id="hands-on-run-a-simple-single-gpu-pytorch-ai-training-job">Hands-on: Run a simple single-GPU PyTorch AI training job<a class="headerlink" href="#hands-on-run-a-simple-single-gpu-pytorch-ai-training-job" title="Permanent link">&para;</a></h1>
 <p><a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/blob/main/03_Your_first_AI_training_job_on_LUMI">Exercises on the course GitHub</a>.</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Is it alright/normal to always get the following message/warning in the start of our output file?</p>
+<div class="highlight"><pre><span></span><code>The following modules were not unloaded:
+  (Use &quot;module --force purge&quot; to unload all):
+
+  1) ModuleLabel/label   2) lumi-tools/24.05   3) init-lumi/0.2
+
+The following sticky modules could not be reloaded:
+
+  1) lumi-tools
+</code></pre></div>
+<ul>
+<li>
+<p>Yes, that is completely normal. If you want to know more about how the module system works, we recommend our regular <a href="http://lumi-supercomputer.github.io/intro-latest">introductory courses</a>. E.g., the <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_04_Modules/">lecture on modules of the recent Amsterdam training, currently our most recent training</a>. It is not possible to compress all relevant material of that course in this 2-day course unfortunately.</p>
+<p>Basically it is the result of some modules on LUMI being sticky, and all this is explained in <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/04_Modules/#sticky-modules-and-the-module-purge-command">this section of the notes of the modules talk of the Amsterdam intro course</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What is the rationele behind asking for 7 CPUs if you do the training on 1 GPU (Maybe it was mentioned during the presentation, but I lost connection at some point)?</p>
+<ul>
+<li>The nodes are configured to leave some CPUs free for GPU driver activity leaving 7 per GPU. It is useful to routinely ask for these so that if you are getting all the cpus associated with each GPU.</li>
+</ul>
+<p>Thanks, so in principle you could just ask for just 1 cpu, but it would kind of waste the other 6?</p>
+<ul>
+<li>All GPU codes also launch from CPUs and in some cases that CPU part of the code is also multithreaded. Can't speak for your case, but earlier today a user wanted more than 7 cores per GPU... E.g., managing the loading of data is largely done by the CPU.</li>
+</ul>
+</li>
+</ol>
 
 
 

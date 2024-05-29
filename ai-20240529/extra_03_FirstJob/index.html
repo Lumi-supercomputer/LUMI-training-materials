@@ -2520,6 +2520,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2535,6 +2552,32 @@
 
 <h1 id="your-first-training-job-on-lumi">Your first training job on LUMI<a class="headerlink" href="#your-first-training-job-on-lumi" title="Permanent link">&para;</a></h1>
 <p><em>Presenters:</em> Mats Sjöberg (CSC) and Lukas Prediger (CSC)</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Why in --mem-per-gpu=60G it is 60 GB, not 64?</p>
+<ul>
+<li>
+<p>Because the nodes have only 480 GB available per user of the 512 GB, so 1/8th of that is a fair use per GPU. Which gives 60 GB. Note that this is CPU memory and not GPU memory!</p>
+<p>It was actually explained later in the presentation, after this question was asked. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Does AMD have some alternative to nvidia ngc? Premade singularity images?</p>
+<ul>
+<li>
+<p>AMD has a <a href="https://hub.docker.com/u/rocm">ROCm dockerHub project</a> where the latests containers go, e.g. Pytorch.</p>
+</li>
+<li>
+<p>There is also <a href="https://www.amd.com/en/developer/resources/infinity-hub.html">InfinityHub</a> but this contains possibly more datated versions, so I recommend using DockerHub for AI-related images.</p>
+</li>
+<li>
+<p>The other part of the equation here is that the publicly available containers do not (they can't because of license issues) the network related bits, so they are not ready to run efficiently accross nodes. For that, we recommend using the LUMI provided containers under <code>/appl/local/containers/sif-images</code>. The containers suggested for this training event are based on those. More details will be given in a later session today.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
