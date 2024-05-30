@@ -240,7 +240,7 @@ DAY 2
             <br/><em>12:45 EEST</em>
         </td>
         <td><b><a href="../extra_11_LUMIO/">Loading training data from Lustre and LUMI-O</a></b>
-        <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        </br><em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
