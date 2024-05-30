@@ -5,7 +5,7 @@
 
 ## Extra materials
 
--   [Slides of the presentation](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-03-First_AI_job.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-03-First_AI_job.pdf)
 
 -   [Hands-on exercises](E03_FirstJob.md)
 

@@ -5,7 +5,7 @@
 
 ## Extra materials
 
--   [Slides from the presentation](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-08-Scaling_multiple_GPUs.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-08-Scaling_multiple_GPUs.pdf)
 
 -   [Hands-on exercises](E08_MultipleGPUs.md)
 

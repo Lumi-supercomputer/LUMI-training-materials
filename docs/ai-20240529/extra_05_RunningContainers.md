@@ -5,7 +5,7 @@
 
 ## Extra materials
 
--   [Slides of the presentation](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-05-Running_containers_on_LUMI.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-05-Running_containers_on_LUMI.pdf)
 
 -   [Hands-on exercises](E05_RunningContainers.md)
 
