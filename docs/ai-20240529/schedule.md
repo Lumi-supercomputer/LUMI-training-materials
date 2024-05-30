@@ -254,7 +254,7 @@ DAY 2
     <tr>
         <td>
             13:00 CEST
-            <br/><em>4:00 EEST</em>
+            <br/><em>14:00 EEST</em>
         </td>
         <td><b><a href="../extra_12_Coupling/">Coupling machine learning with HPC simulation</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
