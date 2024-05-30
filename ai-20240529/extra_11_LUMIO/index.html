@@ -2536,6 +2536,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#nice-to-knows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nice-to-knows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nice-to-knows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lumi-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI-O
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-cleanup-of-scratch-and-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto-cleanup of /scratch and /flash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -2591,6 +2624,26 @@
 </ul>
 </li>
 </ul>
+<h2 id="nice-to-knows">Nice-to-knows<a class="headerlink" href="#nice-to-knows" title="Permanent link">&para;</a></h2>
+<h3 id="lumi-o">LUMI-O<a class="headerlink" href="#lumi-o" title="Permanent link">&para;</a></h3>
+<p>Two nice things to know about LUMI-O</p>
+<ul>
+<li>
+<p>We actually use it during this course to serve you the slides and the videos. Though it is not meant to be a web server.</p>
+</li>
+<li>
+<p>As the LUMI-O software is done by a different team at CSC and not by HPE, it is often still up when LUMI is down. We cannot give a guarantee, but when a long downtime is announced, in the past LUMI-O was still available almost the whole downtime. So you may still be able to access data on LUMI-O, but not on the Lustre file systems when LUMI is down for maintenance.</p>
+</li>
+</ul>
+<p>But it is not meant for long-time data archiving. Storage on LUMI-O also disappears 90 days after your project ends. For long-term archiving and data publishing you need to use specialised services.</p>
+<h2 id="auto-cleanup-of-scratch-and-flash">Auto-cleanup of /scratch and /flash<a class="headerlink" href="#auto-cleanup-of-scratch-and-flash" title="Permanent link">&para;</a></h2>
+<p>Clean-up is not yet implemented on LUMI because until now there hasn't been a need to do so as the storage is empty enough.</p>
+<p>The limited size of /project is also because CSC wants to avoid that LUMI is used for long-term data storage.</p>
+<p>The idea is indeed that data is stored longtime on LUMI-O and transported to /scratch or /flash as needed as the assumption was that the whole dataset is rarely needed at the same time.</p>
+<p>Note that asking for more quota doesn't make sense if your project doesn't have the necessary storage billing units.
+Storing 20TB for one year on /scratch or /project would cost you 175,200 TB hours, so make sure you have enough storage
+billing units. There is enough storage on LUMI that resource allocators can grant decent amounts of storage, but it is
+not infinite. LUST cannot grant you storage billing units, that is something you need to negotiate with the instance that granted you your project on LUMI.</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <p>/</p>
 
