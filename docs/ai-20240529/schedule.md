@@ -257,7 +257,7 @@ DAY 2
             <br/><em>14:00 EEST</em>
         </td>
         <td><b><a href="../extra_12_Coupling/">Coupling machine learning with HPC simulation</a></b>
-        <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        </br><em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
