@@ -1,13 +1,13 @@
 ---
 # documentation: https://help.github.com/en/articles/workflow-syntax-for-github-actions
-name: deploy the "LUMI training materials" pages from a branch
+name: deploy from given branch
 on:  # yamllint disable-line rule:truthy
-workflow_dispatch:
-  inputs:
-    use_branch:
-      description: 'Branch to use for the web pages'
-      required: true
-      default: main
+  workflow_dispatch:
+    inputs:
+      use_branch:
+        description: 'Branch to use for the web pages'
+        required: true
+        default: main
 permissions:
   contents: write # to fetch code (actions/checkout) + deploy docs to GitHub Pages (gh-pages branch)
 jobs:

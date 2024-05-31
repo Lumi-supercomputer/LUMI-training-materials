@@ -1,6 +1,6 @@
 ---
 # documentation: https://help.github.com/en/articles/workflow-syntax-for-github-actions
-name: deploy the "LUMI training materials" pages (on push to main branch or manually)
+name: deploy on push to main or manually
 on:  # yamllint disable-line rule:truthy
   push:
     branches: main
