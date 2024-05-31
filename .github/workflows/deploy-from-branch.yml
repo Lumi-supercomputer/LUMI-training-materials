@@ -20,8 +20,8 @@ jobs:
           fetch-depth: 0
 
       - name: Checkout specific branch.
-          run: |
-            git checkout ${{ inputs.use_branch }}
+        run: |
+          git checkout ${{ inputs.use_branch }}
   
       - name: set up Python
         uses: actions/setup-python@v4
