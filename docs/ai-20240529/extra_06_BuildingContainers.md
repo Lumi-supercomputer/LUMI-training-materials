@@ -16,6 +16,23 @@
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
 
+-   Further reading materials from the slides:
+
+    -   [LUMI Docs containers page](https://docs.lumi-supercomputer.eu/software/containers/singularity/)
+
+    -   [LUMI Docs installing Python packages page](https://docs.lumi-supercomputer.eu/software/installing/python/)
+
+    -   [Cotainr conda env documentation](https://cotainr.readthedocs.io/en/latest/user_guide/conda_env.html)
+
+    -   [Conda environment documentation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+    -   [Pip requirements.txt file specification](https://pip.pypa.io/en/stable/reference/requirements-file-format/)
+
+    -   [ROCm compatibility kernel / user space compatibility](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/user-kernel-space-compat-matrix.html)
+
+-   The [additional training materials mentioned in the "Running containers" page](extra_05_RunningContainers.md#extra-materials)
+    are relevant for this presentation also.
+
 
 ## Remarks to things mentioned in the recording
 

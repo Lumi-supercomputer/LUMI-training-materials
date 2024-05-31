@@ -12,6 +12,8 @@
 
 -   [Hands-on exercises](E02_Webinterface.md)
 
+-   [Direct link to the LUMI web interface](https://www.lumi.csc.fi/)
+
 
 ## Q&A
 
