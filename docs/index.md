@@ -4,6 +4,10 @@
 
 ### Regular trainings
 
+Upcoming or currently running events:
+
+-   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
+
 Most recently completed main training events:
 
 -   Introductory LUMI training aimed at regular users:
