@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -2548,6 +2548,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Setting up for the exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#during-the-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      During the course
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-the-termination-of-the-course-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      After the termination of the course project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2594,19 +2618,59 @@
 </li>
 <li>
 <p><a href="https://md.sigma2.no/lumi-ai-workshop-may24?both">HedgeDoc for questions</a></p>
-</li>
-<li>
-<p>There are two Slurm reservations for the course. One for each day:</p>
-<ul>
-<li>First day: <code>AI_workshop</code> (on the <code>small-g</code> Slurm partition)</li>
-<li>Second day: <code>AI_workshop_2</code> (on the <code>standard-g</code> Slurm partition)</li>
-</ul>
+<p>Questions with longer-term relevance have been incorporated into the pages linked below.</p>
 </li>
 </ul>
+<!-- 
+-   There are two Slurm reservations for the course. One for each day:
+
+    -   First day: `AI_workshop` (on the `small-g` Slurm partition)
+    -   Second day: `AI_workshop_2` (on the `standard-g` Slurm partition)
+-->
+
 <h2 id="setting-up-for-the-exercises">Setting up for the exercises<a class="headerlink" href="#setting-up-for-the-exercises" title="Permanent link">&para;</a></h2>
+<h3 id="during-the-course">During the course<a class="headerlink" href="#during-the-course" title="Permanent link">&para;</a></h3>
 <p>If you have an active project on LUMI, you should be able to make the exercises in that project.
 To reduce the waiting time during the workshop, use the SLURM reservations we provide (see above).</p>
 <p>You can find all exercises on our <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop">AI workshop GitHub page</a></p>
+<h3 id="after-the-termination-of-the-course-project">After the termination of the course project<a class="headerlink" href="#after-the-termination-of-the-course-project" title="Permanent link">&para;</a></h3>
+<p>Setting up for the exercises is a bit more elaborate now.</p>
+<ul>
+<li>
+<p>The containers used in some of the exercises are no longer available in <code>/scratch/project_465001063/containers</code>.
+    You'll have to replace that directory now with <code>/appl/local/training/software/ai-20240529</code>.</p>
+<p>Alternatively you can download the containers as 
+<a href="https://462000265.lumidata.eu/ai-20240529/files/ai-20240529-containers.tar">a tar file</a>
+and untar in a directory of your choice (and point the scripts to that directory where needed).</p>
+</li>
+<li>
+<p>The exercises as they were during the course are 
+    <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202405291">available as the tag <code>ai-202405291</code> in the GitHub repository</a>. Whereas the repository could simply 
+    be cloned during the course, now you have to either:</p>
+<ul>
+<li>
+<p>Download the content of the repository as 
+    a <a href="https://462000265.lumidata.eu/ai-20240529/files/ai-20240529-Getting_Started_with_AI_workshop.tar">tar file</a>
+    or <a href="https://462000265.lumidata.eu/ai-20240529/files/ai-20240529-Getting_Started_with_AI_workshop.tar.bz2">bzip2-compressed tar file</a>
+    or <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/releases/tag/ai-202405291">from the GitHub release</a>
+    where you have a choice of formats,</p>
+</li>
+<li>
+<p>or clone the repository and then check out the tag <code>ai-202405291</code>:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop.git
+cd Getting_Started_with_AI_workshop
+git checkout ai-202405291
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<p>Note also that any reference to a reservation in Slurm has to be removed.</p>
+<p>The exercises were thoroughly tested at the time of the course. LUMI is an evolving supercomputer though,
+so it is expected that some exercises may fail over time, and modules that need to be loaded, will also
+change as at every update we have to drop some versions of the <code>LUMI</code> module as the programming environment
+is no longer functional. Likewise it is expected that at some point the ROCm driver on the system may
+become incompatible with the ROCm versions used in the containers for the course.</p>
 <h2 id="course-materials">Course materials<a class="headerlink" href="#course-materials" title="Permanent link">&para;</a></h2>
 <p><strong>Note:</strong> Some links in the table below will remain invalid until after the course when all
 materials are uploaded.</p>
@@ -2620,6 +2684,11 @@ materials are uploaded.</p>
 </thead>
 <tbody>
 <tr>
+<td style="text-align: left;"><a href="extra_00_Course_Introduction/">Welcome and course introduction</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="extra_00_Course_Introduction/">video</a></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="extra_01_Introduction/">Introduction to LUMI</a></td>
 <td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-01-Lumi_intro.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_01_Introduction/">video</a></td>
@@ -2630,9 +2699,19 @@ materials are uploaded.</p>
 <td style="text-align: left;"><a href="extra_02_Webinterface/">video</a></td>
 </tr>
 <tr>
+<td style="text-align: left;"><a href="E02_Webinterface/">Hands-on: Run a simple PyTorch example notebook</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E02_Webinterface/">video</a></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="extra_03_FirstJob/">Your first AI training job on LUMI</a></td>
 <td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-03-First_AI_job.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_03_FirstJob/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E03_FirstJob/">Hands-on: Run a simple single-GPU PyTorch AI training job</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E03_FirstJob/">video</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="extra_04_Workarounds/">Understanding GPU activity &amp; checking jobs</a></td>
@@ -2640,14 +2719,29 @@ materials are uploaded.</p>
 <td style="text-align: left;"><a href="extra_04_Workarounds/">video</a></td>
 </tr>
 <tr>
+<td style="text-align: left;"><a href="E04_Workarounds/">Hands-on: Checking GPU usage interactively using rocm-smi</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E04_Workarounds/">video</a></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="extra_05_RunningContainers/">Running containers on LUMI</a></td>
 <td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-05-Running_containers_on_LUMI.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_05_RunningContainers/">video</a></td>
 </tr>
 <tr>
+<td style="text-align: left;"><a href="E05_RunningContainers/">Hands-on: Pull and run a container</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E05_RunningContainers/">video</a></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="extra_06_BuildingContainers/">Building containers from Conda/pip environments</a></td>
 <td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-06-Building_containers_from_conda_pip_environments.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_06_BuildingContainers/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E06_BuildingContainers/">Hands-on: Creating a conda environment file and building a container using cotainr</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">/</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="extra_07_VirtualEnvironments/">Extending containers with virtual environments for faster testing</a></td>
@@ -2660,9 +2754,19 @@ materials are uploaded.</p>
 <td style="text-align: left;"><a href="extra_08_MultipleGPUs/">video</a></td>
 </tr>
 <tr>
+<td style="text-align: left;"><a href="E08_MultipleGPUs/">Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E08_MultipleGPUs/">video</a></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="extra_09_Ray/">Hyper-parameter tuning using Ray</a></td>
 <td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-09-Hyperparameter_tuning_ray.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_09_Ray/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E09_Ray/">Hands-on: Hyper-parameter tuning the PyTorch model using Ray</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E09_Ray/">video</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="extra_10_ExtremeScale/">Extreme scale AI</a></td>
@@ -2670,13 +2774,18 @@ materials are uploaded.</p>
 <td style="text-align: left;"><a href="extra_10_ExtremeScale/">video</a></td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="extra_11_LUMIO/">Loading raining data from Lustre and LUMI-O</a></td>
+<td style="text-align: left;"><a href="E10_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></td>
 <td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E10_ExtremeScale/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_11_LUMIO/">Loading training data from Lustre and LUMI-O</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-11-Training_Data_on_LUMI.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_11_LUMIO/">video</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="extra_12_Coupling/">Coupling machine learning with HPC simulation</a></td>
-<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-12-Coupling_Simulation_and_AI.pdf">slides</a></td>
 <td style="text-align: left;"><a href="extra_12_Coupling/">video</a></td>
 </tr>
 </tbody>
@@ -2793,7 +2902,7 @@ materials are uploaded.</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
       
     
   </body>

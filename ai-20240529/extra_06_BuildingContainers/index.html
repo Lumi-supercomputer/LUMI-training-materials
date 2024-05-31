@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2520,6 +2520,74 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extra-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extra materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks-to-things-mentioned-in-the-recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks to things mentioned in the recording
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remarks to things mentioned in the recording">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rocm-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROCm compatibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images-in-appllocalcontainerssif-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Images in /appl/local/containers/sif-images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-tool-provided-by-lumi-container-wrapper-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does the tool provided by lumi-container-wrapper do?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2535,6 +2603,110 @@
 
 <h1 id="building-containers-from-condapip-environments">Building containers from Conda/pip environments<a class="headerlink" href="#building-containers-from-condapip-environments" title="Permanent link">&para;</a></h1>
 <p><em>Presenter</em>: Christian Schou Oxvig (LUST &amp; DeiC)</p>
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/06_BuildingContainers.mp4" controls="controls">
+</video>
+
+<h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-06-Building_containers_from_conda_pip_environments.pdf">Presentation slides</a></p>
+</li>
+<li>
+<p><a href="../E06_BuildingContainers/">Hands-on exercises</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202405291/bonus_material">"Bonus materials" from the course GitHub</a>
+    contains among other things the files used to generate the container used in the course with
+    the <code>cotainr</code> tool.</p>
+</li>
+<li>
+<p>Further reading materials from the slides:</p>
+<ul>
+<li>
+<p><a href="https://docs.lumi-supercomputer.eu/software/containers/singularity/">LUMI Docs containers page</a></p>
+</li>
+<li>
+<p><a href="https://docs.lumi-supercomputer.eu/software/installing/python/">LUMI Docs installing Python packages page</a></p>
+</li>
+<li>
+<p><a href="https://cotainr.readthedocs.io/en/latest/user_guide/conda_env.html">Cotainr conda env documentation</a></p>
+</li>
+<li>
+<p><a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda environment documentation</a></p>
+</li>
+<li>
+<p><a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/">Pip requirements.txt file specification</a></p>
+</li>
+<li>
+<p><a href="https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/user-kernel-space-compat-matrix.html">ROCm compatibility kernel / user space compatibility</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>The <a href="../extra_05_RunningContainers/#extra-materials">additional training materials mentioned in the "Running containers" page</a>
+    are relevant for this presentation also.</p>
+</li>
+</ul>
+<h2 id="remarks-to-things-mentioned-in-the-recording">Remarks to things mentioned in the recording<a class="headerlink" href="#remarks-to-things-mentioned-in-the-recording" title="Permanent link">&para;</a></h2>
+<h3 id="rocm-compatibility">ROCm compatibility<a class="headerlink" href="#rocm-compatibility" title="Permanent link">&para;</a></h3>
+<p>The compatibility situation is actually even more complicated than explained in this presentation. The kernel driver for the GPUs depends on certain kernel versions. The kernel version depends on the version of the management interface of LUMI. So basically to do the upgrade to the 5.7 driver we need to update nearly everything on LUMI.</p>
+<p>Furthermore, we need to ensure that MPI also works. GPU-aware MPI also depends on versions of ROCm and driver. So before updating to a new ROCm version we also need versions of the HPE Programming Environment compatible with those ROCm versions or all users of traditional HPC simulation codes would be very unhappy. That is also a factor stopping the update, as the version that supports recent enough ROCm version has also come out just a few weeks ago. And breaks a lot of currently installed software...</p>
+<h3 id="images-in-appllocalcontainerssif-images">Images in <code>/appl/local/containers/sif-images</code><a class="headerlink" href="#images-in-appllocalcontainerssif-images" title="Permanent link">&para;</a></h3>
+<p>It is important to realise that the base images in <code>/appl/local/containers/sif-images</code> are symbolic links to the actual containers and they vary over time without warning. That may be a problem if you build on top of them, as all of a sudden things that you install on top of them may be incompatible with new packages in that container. So if you do that (topic of the next presentation) it is better to make a copy of the container and use that one.</p>
+<p>EasyBuild actually gets its container images from <code>/appl/local/containers/easybuild-sif-images</code> which contains copies from the container images as they were when the corresponding EasyConfig was created so that an EasyConfig with a given name will always use the same module. This to improve reproducibility. E.g., some more recent containers did require changes to the module to simulate the effect of <code>$WITH_CONDA</code> by injecting environment variables in the container.</p>
+<p>It is possible to extend an existing container with a virtual environment (topic of the next presentation) and automate that with EasyBuild, but it is complex enough that it might require help from someone with enough EasyBuild experience. An example is <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/PyTorch-2.2.0-rocm-5.6.1-python-3.10-singularity-exampleVenv-20240315/">this EasyConfig</a> but this is not something that an unexperienced user should try to create.</p>
+<h3 id="what-does-the-tool-provided-by-lumi-container-wrapper-do">What does the tool provided by <code>lumi-container-wrapper</code> do?<a class="headerlink" href="#what-does-the-tool-provided-by-lumi-container-wrapper-do" title="Permanent link">&para;</a></h3>
+<p>The <code>lumi-container-wrapper</code> provides a tool that enables to do some pip and conda installations in a file system friendly way. It also uses a base container but that one does not have a ROCm in it so it is of little use for AI software unless you can use the ROCm from the system. It basically does not change the base container, but installs the software in a separate SquashFS file. Furthermore, for each command it can find in the container, it will create a wrapper script outside the container that will call singularity with the right bindings to run that command in the container. It is actually rather hard to start the container "by hand" using the <code>singularity</code> command as you will also have to create the right bindmount for the SquashFS file containing the actual software installation.</p>
+<p>The <code>cotainr</code> tool on the other hand will take the selected base image and build a new container from it that can be used the way containers are normally used.</p>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>About installing environments/packages: How about if I work in a jupyter notebook for exploration and testing of data and algorithms and need some quite specific packages? Can I also not install them in that case?</p>
+<ul>
+<li>(Lukas) For early testing, you can install additional packages in a virtual environment. The next session will cover this. Just keep in mind that this stresses the network filesystem, so it shouldn't become your default option for package installation.</li>
+</ul>
+<p>Alright thanks. I just need a good solution for trying out various networks, setting etc. before running a larger model. And there the notebooks are ideal!</p>
+<ul>
+<li>(Kurt) Actually there is a way to ensure that the virtual environment does not stress the file system (by then packing it in a SquashFS file and bindmounting that in the container) and some of the more recent EasyConfigs for PyTorch already install some scripts to make organising that easier as it is rather technical.</li>
+</ul>
+</li>
+<li>
+<p>Can you use SingularityCE definition files to build containers on LUMI? As explained here https://docs.sylabs.io/guides/latest/user-guide/build_a_container.html</p>
+<ul>
+<li>
+<p>(Lukas): As far as I know, this often might not work, namely when the definition file performs any kind of installation step that would require superuser privileges on a normal system (e.g., installing software via one of the linux software/package managers), due to limitations in permissions/fakeroot on the system. It is usually easier to build these containers on your own system and then copy them to LUMI.</p>
+</li>
+<li>
+<p>(Kurt) Some things might actually work with the <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202405291/bonus_material">"unprivileged <code>proot</code> build process"</a> of SingularityCE 3.11, but the documentation is very unclear what works and what doesn't. We have already used it to extend an existing container with additional SUSE packages using the <code>zypper</code> command. See <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/Demo1/">Demo 1 from the Amsterdam course earlier this month</a>. But it is certainly not a solution that always works.</p>
+<p>We now have the <code>proot</code> command in the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/"><code>systools/23.09</code> module (LUMI Software Library page)</a> in the <code>CrayEnv</code> and <code>LUMI/23.09</code> stacks.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Where will be the conda env files located inside the container when we're making it from environment.yml? I suppose it cannot  be <code>~/.conda</code> as the home directory by default is bind inside the container. </p>
+<ul>
+<li>(Lukas): When using cotainr, the environment is installed to <code>/opt/conda/envs/conda_container_env/</code> inside the container.</li>
+</ul>
+</li>
+<li>
+<p>When I try to build my container in a LUMI-C node, I'm getting an error, which I surmise arises from a previous <code>salloc</code> command. Is there a way to avoid this, besides logging in/out?:</p>
+<div class="highlight"><pre><span></span><code>srun: error: Unable to confirm allocation for job 7241252: Invalid job id specified
+srun: Check SLURM_JOB_ID environment variable. Expired or invalid job 7241252
+</code></pre></div>
+<ul>
+<li><code>salloc</code> actually starts a new shell session with the SLURM environmental paramters set. Just write <code>exit</code> to exit that one and you should be back in your original one. You can check whether <code>$SLURM_JOB_ID</code> is still set.</li>
+</ul>
+<p><code>exit</code> worked, however the job had already expired, so i wouldn't have found a job id anyway. Thanks!</p>
+<ul>
+<li>
+<p>That's exactly the problem the variable is not unset/deleted even though it is not valid any longer.</p>
+</li>
+<li>
+<p>The problem is partly also because Slurm commands communicate with one another via environment variables that can take precedence over command line options. So starting a new Slurm job in an existing one can transfer those environment variables to the new job and result in very strange error messages.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
@@ -2633,7 +2805,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
     
   </body>

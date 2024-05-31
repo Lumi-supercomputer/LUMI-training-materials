@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -2520,6 +2520,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extra-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extra materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2535,6 +2561,76 @@
 
 <h1 id="your-first-training-job-on-lumi">Your first training job on LUMI<a class="headerlink" href="#your-first-training-job-on-lumi" title="Permanent link">&para;</a></h1>
 <p><em>Presenters:</em> Mats Sjöberg (CSC) and Lukas Prediger (CSC)</p>
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/03_FirstJob.mp4" controls="controls">
+</video>
+
+<h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-03-First_AI_job.pdf">Presentation slides</a></p>
+</li>
+<li>
+<p><a href="../E03_FirstJob/">Hands-on exercises</a></p>
+</li>
+<li>
+<p><a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/">More extensive training materials on Slurm from the recent introdctory "Supercomputing with LUMI" course from May 2024</a></p>
+<ul>
+<li>
+<p>A more detailed introduction to Slurm but without AI-specific exemples is given in the 
+    <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_06_Slurm/">"Slurm on LUMI" presentation</a>.
+    It also discusses the <code>sacct</code> command that can be used to get at least some resource use info
+    from jobs.</p>
+</li>
+<li>
+<p>The presentation <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_07_Binding/">"Process and Thread Distribution and Binding"</a>
+    is more oriented towards traditional HPC codes, but the discussion on a proper mapping
+    of GPU dies onto CPU chiplets is also relevant for AI applications. But that is a discussion
+    for the second day of this course/workshop.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Why in --mem-per-gpu=60G it is 60 GB, not 64?</p>
+<ul>
+<li>
+<p>Because the nodes have only 480 GB available per user of the 512 GB, so 1/8th of that is a fair use per GPU. Which gives 60 GB. Note that this is CPU memory and not GPU memory!</p>
+<p>It was actually explained later in the presentation, after this question was asked. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Does AMD have some alternative to nvidia ngc? Premade singularity images?</p>
+<ul>
+<li>
+<p>AMD has a <a href="https://hub.docker.com/u/rocm">ROCm dockerHub project</a> where the latests containers go, e.g. Pytorch.</p>
+</li>
+<li>
+<p>There is also <a href="https://www.amd.com/en/developer/resources/infinity-hub.html">InfinityHub</a> but this contains possibly more datated versions, so I recommend using DockerHub for AI-related images.</p>
+</li>
+<li>
+<p>The other part of the equation here is that the publicly available containers do not (they can't because of license issues) the network related bits, so they are not ready to run efficiently accross nodes. For that, we recommend using the LUMI provided containers under <code>/appl/local/containers/sif-images</code>. The containers suggested for this training event are based on those. More details will be given in a later session today.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>When I use this command from the slides, it gives error &amp; I am not sure which form should the compute_node take: </p>
+<div class="highlight"><pre><span></span><code>$ srun --overlap --pty --jobid=7240318 bash 
+@compute_node$ rocm-smi
+</code></pre></div>
+<p>Gives <code>/usr/bin/bash: @compute_node$: No such file or directory.</code> Should the "@compute_node$" be 1, or @1$, or @1, or small-g, or @small-g$ etc.?</p>
+<ul>
+<li>
+<p>If something ends on a <code>$</code> at the start of a line it is meant to refer to the command line prompt. And in this case this notation was used to denote a compute node command line prompt, showing the number of the compute node.</p>
+</li>
+<li>
+<p>So you should use <code>srun --overlap --pty --jobid=7240318 bash</code> to open a terminal on the same node that your job is running on, then use the <code>rocm-smi</code> command in that new terminal.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
@@ -2633,7 +2729,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
     
   </body>
