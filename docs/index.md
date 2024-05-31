@@ -6,14 +6,23 @@
 
 Most recently completed main training events:
 
--   Moving your AI training jobs to LUMI: A Hands-On Workshop:
-    [2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
-
--   4-day comprehensive LUMI training aimed at developers and advanced users:
-    [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
-
 -   Introductory LUMI training aimed at regular users:
     [LUMI 2-day training (May 2-3, 2023)](2day-20240502/index.md)
+
+    *Short URL to the most recently completed introductory training for regular users:
+    [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
+
+-   4-day comprehensive LUMI training aimed at developers and advanced users, mostly focusing on traditional HPC users:
+    [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
+
+    *Short URL to the most recently completed comprehensive LUMI training aimed at developers and advanced users:
+    [lumi-supercomputer.github.io/comprehensive-latest](https://lumi-supercomputer.github.io/comprehensive-latest)*
+
+-   Comprehensive training specifically for AI users:
+    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
+
+    *Short URL to the most recently completed training for AI users:
+    [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
 
 Other recent LUST-organised trainings for which the material is still very up-to-date and
 relevant:
@@ -53,7 +62,7 @@ By theme in reverse chronological order:
     -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
--   Comprehensive general LUMI trainings
+-   Comprehensive general LUMI trainings aimed at at developers and advanced users, mostly focusing on traditional HPC users
     -   [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
     -   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
     -   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)
@@ -62,6 +71,8 @@ By theme in reverse chronological order:
     -   [Detailed introduction to the LUMI-C environment and architecture (November 23/24, 2022)](PEAP-Q-20221123/index.md)
     -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
+-   Comprehensive AI trainings for LUMI:
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools
     -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
     -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
