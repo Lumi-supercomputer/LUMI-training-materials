@@ -2,7 +2,6 @@
 
 *Presenter:* Jørn Dietze (LUST)
 
-
 <video src="https://462000265.lumidata.eu/ai-20240529/recordings/01_Introduction.mp4" controls="controls">
 </video>
 

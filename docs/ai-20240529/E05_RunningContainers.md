@@ -9,6 +9,9 @@ module use /appl/local/training/modules/AI-20240529/
 module load singularity-userfilesystems singularity-CPEbits
 ```
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/E05_RunningContainers.mp4" controls="controls">
+</video>
+
 
 ## Q&A
 

@@ -2,6 +2,9 @@
 
 *Presenter*: Christian Schou Oxvig (LUST & DeiC)
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/06_BuildingContainers.mp4" controls="controls">
+</video>
+
 
 ## Extra materials
 

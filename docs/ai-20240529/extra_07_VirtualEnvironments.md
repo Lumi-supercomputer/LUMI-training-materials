@@ -2,6 +2,10 @@
 
 *Presenter:* Gregor Decristoforo (LUST)
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/07_VirtualEnvironments.mp4" controls="controls">
+</video>
+
+
 ## Extra materials
 
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20240529/files/LUMI-ai-20240529-07-Extending_containers.pdf)

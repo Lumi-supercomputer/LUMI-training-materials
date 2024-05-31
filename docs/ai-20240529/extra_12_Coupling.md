@@ -2,6 +2,9 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/12_Coupling.mp4" controls="controls">
+</video>
+
 
 ## Extra materials
 

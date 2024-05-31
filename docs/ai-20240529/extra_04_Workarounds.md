@@ -2,6 +2,9 @@
 
 *Presenter:* Samuel Añtao (AMD)
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/04_Workarounds.mp4" controls="controls">
+</video>
+
 
 ## Extra materials
 

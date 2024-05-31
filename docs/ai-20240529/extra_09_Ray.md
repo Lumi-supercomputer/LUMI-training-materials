@@ -2,6 +2,9 @@
 
 *Presenter:* Gregor Decristoforo (LUST)
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/09_Ray.mp4" controls="controls">
+</video>
+
 
 ## Extra materials
 

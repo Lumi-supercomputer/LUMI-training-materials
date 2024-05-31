@@ -2,6 +2,9 @@
 
 *Presenters:* Mats Sjöberg (CSC) and Lukas Prediger (CSC)
 
+<video src="https://462000265.lumidata.eu/ai-20240529/recordings/03_FirstJob.mp4" controls="controls">
+</video>
+
 
 ## Extra materials
 
