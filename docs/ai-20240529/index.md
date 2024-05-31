@@ -36,8 +36,7 @@ Setting up for the exercises is a bit more elaborate now.
     You'll have to replace that directory now with `/appl/local/training/software/ai-20240529`.
 
     Alternatively you can download the containers as 
-    [a tar file](https://462000265.lumidata.eu/ai-20240529/files/ai-20240529-containers.tar) or
-    [gzip2-compressed tar file](https://462000265.lumidata.eu/ai-20240529/files/ai-20240529-containers.tar.bz2)
+    [a tar file](https://462000265.lumidata.eu/ai-20240529/files/ai-20240529-containers.tar)
     and untar in a directory of your choice (and point the scripts to that directory where needed).
 
 -   The exercises as they were during the course are 

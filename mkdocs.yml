@@ -134,6 +134,8 @@ plugins:
       redirect_maps:
           comprehensive-latest.md: 4day-20240423/index.md
           intro-latest.md: 2day-20240502/index.md
+          AI-latest.md: ai-20240529/index.md
+          ai-latest.md: ai-20240529/index.md
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
           #Amsterdam-1.md: 2day-20240502/E03_Exercises_1.md
