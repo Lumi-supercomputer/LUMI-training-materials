@@ -1,0 +1,43 @@
+---
+# documentation: https://help.github.com/en/articles/workflow-syntax-for-github-actions
+name: deploy the "LUMI training materials" pages from a branch
+on:  # yamllint disable-line rule:truthy
+workflow_dispatch:
+  inputs:
+    use_branch:
+      description: 'Branch to use for the web pages'
+      required: true
+      default: main
+permissions:
+  contents: write # to fetch code (actions/checkout) + deploy docs to GitHub Pages (gh-pages branch)
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Checkout specific branch.
+          run: |
+            git checkout ${{ inputs.use_branch }}
+  
+        - name: set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: install mkdocs
+        run: |
+            pip install -r requirements.txt
+            mkdocs --version
+
+      - name: build docs
+        # We do a build first to ensure that building works as expected.
+        # We don't use --strict as we do want to ignore some warnings.
+        # run: mkdocs build --strict
+        run: mkdocs build
+
+      - name: deploy docs
+        run: mkdocs gh-deploy --force
