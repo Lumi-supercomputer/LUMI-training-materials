@@ -23,7 +23,7 @@ jobs:
           run: |
             git checkout ${{ inputs.use_branch }}
   
-        - name: set up Python
+      - name: set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
