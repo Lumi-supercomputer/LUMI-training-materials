@@ -21,7 +21,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: install mkdocs
+      - name: Checkout specific branch.
+        run: |
+          git checkout $GITHUB_REF_NAME
+    
+        - name: install mkdocs
         run: |
             pip install -r requirements.txt
             mkdocs --version
