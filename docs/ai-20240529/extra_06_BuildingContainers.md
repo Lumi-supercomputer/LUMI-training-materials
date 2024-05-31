@@ -12,7 +12,7 @@
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
 
--   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/bonus_material)
+-   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202405291/bonus_material)
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
 
@@ -56,7 +56,7 @@ The `cotainr` tool on the other hand will take the selected base image and build
 
     -   (Lukas): As far as I know, this often might not work, namely when the definition file performs any kind of installation step that would require superuser privileges on a normal system (e.g., installing software via one of the linux software/package managers), due to limitations in permissions/fakeroot on the system. It is usually easier to build these containers on your own system and then copy them to LUMI.
 
-    -   (Kurt) Some things might actually work with the ["unprivileged `proot` build process"](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/bonus_material) of SingularityCE 3.11, but the documentation is very unclear what works and what doesn't. We have already used it to extend an existing container with additional SUSE packages using the `zypper` command. See [Demo 1 from the Amsterdam course earlier this month](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/Demo1/). But it is certainly not a solution that always works.
+    -   (Kurt) Some things might actually work with the ["unprivileged `proot` build process"](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202405291/bonus_material) of SingularityCE 3.11, but the documentation is very unclear what works and what doesn't. We have already used it to extend an existing container with additional SUSE packages using the `zypper` command. See [Demo 1 from the Amsterdam course earlier this month](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/Demo1/). But it is certainly not a solution that always works.
 
         We now have the `proot` command in the [`systools/23.09` module (LUMI Software Library page)](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/systools/) in the `CrayEnv` and `LUMI/23.09` stacks.
 
