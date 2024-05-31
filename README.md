@@ -2,9 +2,8 @@
 
 ## Processing
 
-The web site is currently not build via GitHub actions but is built offline
-on a PC. The tool used is `mkdocs` as is also used for the 
-[mail LUMI documentation](https://github.com/Lumi-supercomputer/lumi-userguide).
+The web site can is built using the `mkdocs` tool that is also used for the 
+[main LUMI documentation](https://github.com/Lumi-supercomputer/lumi-userguide).
 However, the version of the software that is used to build this web site may be
 different, and some additional packages may be employed. See the 
 `requirements.txt` file in the repository.
@@ -24,15 +23,43 @@ be used to build the web site:
 -   `deploy-upstream`: Deploy the web site to the remote `upstream`, i.e., the 
     [production site on lumi-supercomputer.github.io](https://lumi-supercomputer.github.io/LUMI-training-materials/)
 
+Alternatively, it is also possible to rebuild the website using a GitHub action.
+The options are:
+
+-   When pushing to the main branch, the rebuild process will run automatically. So be careful not to
+    push unfinished work as this would bring the web site in an inconsistent state.
+
+-   It is aso possible to run the action manually:
+
+    -   Go to the repository in the web interface of GitHub (well, you might be there if you read this)
+
+    -   Click the "Actions" menu at the top of the screen.
+
+    -   In the left column, chose "Deploy on push to main or manually"
+
+    -   Now select the "Run workflow" dropdown box at the right
+
+    -   And use the drop-down box that appears now to select the branch.
+
+    -   And finally click on "Run workflow"
+
+The preferred workflow is to do all work via branches. During a course, when frequent updating of the web
+site is needed, it is better not to work on the main branch but on one branch for the duration of the course
+and process from that branch either by running `mkdocs` on your laptop or by triggering the deploy action
+manually in the branch that you are working on. In that way, if an annoying mess-up is made during the course,
+it is always easy to restore the training materials web site to the hopefully consistent state from before the
+course.
+
 
 ## Structure of the docs subdirectory
 
 -   Each regular course has its own subdirectory with materials in the `docs` subdirectory. As such it becomes
     rather easy to archive that material when no longer relevant.
 
-    Hackaton materials are also considered as a course.
+    Hackathon materials are also considered as a course.
 
-    Each course also has its own subdirectory in the LUMI-training-lumio `courses` subdirectory. The capitalisation
+    Each course also has its own subdirectory in the 
+    [LUMI-training-lumio `courses` subdirectory](https://github.com/klust/LUMI-training-lumio). The capitalisation
     of the name in there may be different as it has to be a valid bucket name and it turns out that it the character
     range that can be used for the name of a bucket on LUMI-O is rather limited, e.g., no capitals.
 
