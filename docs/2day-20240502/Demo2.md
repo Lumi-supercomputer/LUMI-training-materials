@@ -1,5 +1,7 @@
 # Demo option 2: A short walk-through for distributed learning
 
+## Description of the demo
+
 In this demo, we will install one of the PyTorch containers provided on LUMI
 and run a simple distributed learning example that the LUMI User Support Team also uses
 for internal testing.
@@ -20,7 +22,9 @@ This demo shows:
 </video>
 
 
-## Step 1: Getting some files that we will use
+## Notes
+
+### Step 1: Getting some files that we will use
 
 Let's create an installation directory for the demo. Set the environment variable
 `installdir` to a proper value for the directories on LUMI that you have access to.
@@ -60,7 +64,7 @@ for i in $(seq 0 31); do ln -s data "data$i"; done
 ```
 
 
-## Step 2: Installing the container
+### Step 2: Installing the container
 
 We can find an overview of the available PyTorch containers on the
 [PyTorch page in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/).
@@ -191,7 +195,7 @@ There is a lot of stuff in there. If we scroll up enough, we see:
     easy to access.
 
 
-## Step 3: Running a distributed learning example.
+### Step 3: Running a distributed learning example.
 
 The `conda-python-distributed` script is written to ease distributed learning with PyTorch.
 Distributed learning requires some initialisation of environment variables that are used by

@@ -1,5 +1,7 @@
 # Demo 1: Fooocus
 
+## Description of the demo
+
 [Fooocus](https://github.com/lllyasviel/Fooocus) is an AI-based image generating
 package that is available under the
 [GNU General Public License V3](https://github.com/lllyasviel/Fooocus/blob/main/LICENSE).
@@ -31,7 +33,9 @@ This demo shows:
 </video>
 
 
-## Step 1: Checking Fooocus
+## Notes
+
+### Step 1: Checking Fooocus
 
 Let's create an installation directory for the demo. Set the environment variable
 `installdir` to a proper value for the directories on LUMI that you have access to.
