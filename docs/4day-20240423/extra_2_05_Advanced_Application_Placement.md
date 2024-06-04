@@ -30,4 +30,17 @@ These materials can only be distributed to actual users of LUMI (active user acc
 
 ## Q&A
 
-/
+1.  Is the gpu direct RDMA supported on LUMI-G? And how to enable it?
+
+    -   ` MPICH_GPU_SUPPORT_ENABLED=1` 
+
+    -   It is also different than on NVIDIA platforms. On LUMI there is no equivalent to NVIDIA GPUdirect 
+        needed as the GPUs are connected to the CPUs via InfinityFabric/xGMI, which is much more powerful than PCIe.
+
+2.  What is the difference between `MPICH_GPU_SUPPORT_ENABLED` and `MPICH_GPU_SUPPORT`?
+
+    -   This is a typo on the slide, both should mention `MPICH_GPU_SUPPORT_ENABLED`, this will be fixed.
+
+3.  Is it possible to see that GPU-aware MPI is enabled from profiling?
+
+    -   Yes, but note that LUMI design by default implies copies from GPU memory to the network. 
