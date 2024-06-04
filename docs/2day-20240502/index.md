@@ -6,7 +6,9 @@
 
 -   [Schedule](schedule.md)
 
+<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-amsterdam-may24?both)
+-->
 
 <!--
 -   There are two Slurm reservations for the course:

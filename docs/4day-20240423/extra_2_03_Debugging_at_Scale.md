@@ -22,4 +22,7 @@ These materials can only be distributed to actual users of LUMI (active user acc
 
 ## Q&A
 
-/
+3.  Can all these tools be used with GPU offloading?
+
+    -   Sanitizers are not available for the GPUs with rocm 5.2, 
+        AMD is working on that with [ROCm 5.7](https://rocm.docs.amd.com/en/docs-5.7.0/understand/using_gpu_sanitizer.html).
