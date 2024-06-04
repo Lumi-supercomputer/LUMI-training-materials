@@ -136,17 +136,18 @@ A selection of man pages explicitly mentioned during the course:
 
     -   MPI itself: [`man intro_mpi`](https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html) or [`man mpi`](https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html)
 
-    -   libfabric: `man fabric`
+    -   libfabric: [`man fabric`](https://ofiwg.github.io/libfabric/v1.15.2/man/fabric.7.html)
 
-    -   CXI: `man fi_cxi'
+    -   CXI: `man fi_cxi` (no online version for the current version on LUMI)
 
 -   LibSci
 
-    -   `man intro_libsci` and `man intro_libsci_acc`
+    -   [`man intro_libsci`](https://cpe.ext.hpe.com/docs/csml/cray_libsci.html)
+        and `man intro_libsci_acc` (no online manual page, load `cray-libsci_acc` to see the manual page on the system)
 
-    -   `man intro_blas1`,
-        `man intro_blas2`,
-        `man intro_blas3`,
+    -   [`man intro_blas1`](https://cpe.ext.hpe.com/docs/csml/blas1.html),
+        [`man intro_blas2`](https://cpe.ext.hpe.com/docs/csml/blas2.html),
+        [`man intro_blas3`](https://cpe.ext.hpe.com/docs/csml/blas3.html),
         `man intro_cblas`
 
     -   `man intro_lapack`
@@ -155,7 +156,7 @@ A selection of man pages explicitly mentioned during the course:
 
     -   `man intro_irt`
 
-    -   `man intro_fftw3`
+    -   `man intro_fftw3` (with `cray-fftw` loaded)
 
 -   DSMML - Distributed Symmetric Memory Management Library 
     -   `man intro_dsmml`
@@ -229,6 +230,11 @@ information.
 
 -   [KTH Dardel documentation](https://www.pdc.kth.se/support). Dardel is the Swedish "baby-LUMI" system.
     Its CPU nodes use the AMD Rome CPU instead of AMD Milan, but its GPU nodes are the same as in LUMI.
+
+-   [GENCI Adastra documentation](https://dci.dci-gitlab.cines.fr/webextranet/index.html).
+    Adastra is another system similar to LUMI. Its GPU nodes are the same as on LUMI (but it also has
+    a small partition with the newer MI300A APUs) while the CPU partition uses the newer zen4/Genoa generation
+    AMD EPYC CPUs.
 
 -   [Setonix User Guide](https://support.pawsey.org.au/documentation/display/US/Setonix+User+Guide).
     Setonix is a Cray EX system at Pawsey Supercomputing Centre in Australia. The CPU and GPU compute
