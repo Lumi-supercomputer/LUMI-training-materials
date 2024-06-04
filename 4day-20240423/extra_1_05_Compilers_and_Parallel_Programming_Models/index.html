@@ -2572,8 +2572,56 @@ Temporary location of materials (for the lifetime of the training project):
 </li>
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<div class="admonition note">
+<p class="admonition-title">Alternative for modifying <code>LD_LIBRARY_PATH</code></p>
+<p>Instead of using
+<code>LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH</code>,
+you can also use the module <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-CrayPath/">lumi-CrayPath</a>. 
+Loading it essentially does that setting for <code>LD_LIBRARY_PATH</code>, unloading tries to restore the old situation, 
+and reloading while the module is already loaded, will adapt to a possibly modified <code>$CRAY_LD_LIBRARY_PATH</code>. 
+(So basically use it after loading all other modules that you need.)</p>
+</div>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Should we compile something on access node?</p>
+<ul>
+<li>
+<p>It is usually fine. Cray Programming environment (<code>PrgEnv-</code> modules) does cross-compilation 
+    but you need to understand what is your target architecture (<code>craype-</code> modules are responsible for that). 
+    For clarity LUMI Software Environment provides <code>partition</code> modules <code>/L</code> (for login nodes architecture) 
+    and <code>/C</code>, <code>/G</code> for CPU and AMD GPU nodes accordingly. </p>
+</li>
+<li>
+<p>Very big compiles should be done in a job.</p>
+</li>
+<li>
+<p>The <a href="../extra_2_07_LUMI_Software_Stacks/">last talk on day 2</a> will also give some more information 
+    about environments we offer that make configuring the target modules easier.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Can I write a code in which offloading is performed with HIP and CPU parallelization is with OpenMP in the same source code?</p>
+<ul>
+<li>Yes, you can. In this case you have to add <code>-fopenmp -xhip</code> in this order.</li>
+</ul>
+</li>
+<li>
+<p>Does LibSci have a sparse solver like pardiso solver in MKL? If no, does LUMI have a sparse solver of any kind in the modules?</p>
+<ul>
+<li>
+<p>From AMD point of view check https://github.com/ROCm/hipSPARSE, HPE can answer for the LibSci.</p>
+</li>
+<li>
+<p>No in libsci, only dense</p>
+</li>
+<li>
+<p>If any particular libraries are of interest then we would be able to suggest the best way to build them.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

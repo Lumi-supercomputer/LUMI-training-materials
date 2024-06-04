@@ -2604,7 +2604,73 @@ Temporary web-available materials:
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Instead of slurm I would be interested in using <a href="https://myqueue.readthedocs.io/en/latest/">myqueue</a> 
+    to submit my scripts. Do you know if this is possible? https://myqueue.readthedocs.io/en/latest/</p>
+<ul>
+<li>We do not recommend it but you can try it yourself. It may be tricky to configure properly 
+    and we do not offer support fot the tool. Remember you will be charged for automatically 
+    (re)submitted jobs which can run out of your control if the myqueue instance is not properly configured. </li>
+</ul>
+</li>
+<li>
+<p>I'm trying to compile the pi_hip.cpp <code>CC -xhip -o test.hip pi_hip.cpp</code>, BUT I am getting 26 warnings. e.g. </p>
+<div class="highlight"><pre><span></span><code>In file included from /opt/rocm/hip/include/hip/amd_detail/texture_fetch_functions.h:26:
+In file included from /opt/rocm/hip/include/hip/amd_detail/../../../../include/hip/amd_detail/texture_fetch_functions.h:28:
+/opt/rocm/hip/include/hip/hip_texture_types.h:25:9: warning: This file is deprecated. Use file from include path /opt/rocm-ver/include/ and prefix with hip [-W#pragma-messages]
+#pragma message(&quot;This file is deprecated. Use file from include path /opt/rocm-ver/include/ and prefix with hip”)
+</code></pre></div>
+<p>How to get rid of those warnings ? </p>
+<ul>
+<li>This is the Cray compiler wrapper including the old (deprecated) path. This is harmless and can be ignored. 
+    If it really bother you, you can use the <code>-Wno-#pragma-messages</code> compiler flag to silence the warning. </li>
+</ul>
+</li>
+<li>
+<p>How to launch one simple command with srun, which partition and command to use?</p>
+<ul>
+<li>
+<p>You need to specify partition with <code>-p</code> option, <code>standard-g</code> for GPU nodes and <code>standard</code> for CPU only</p>
+</li>
+<li>
+<p>Project account is also mandatory with <code>-A</code> option, <code>project_465001098</code> is for the training purpose</p>
+</li>
+<li>
+<p>You can also use reservation to use extra reserved resources, <code>--reservation=LUMItraining_G</code> or <code>LUMItraining_G</code>; this is only valid for this training</p>
+</li>
+<li>
+<p>To get actual GPU devices allocated, use <code>--gpus=</code> from <code>1</code> to <code>8</code>  for per node allocation</p>
+</li>
+<li>
+<p>Use <code>--exclusive</code> to get the node(s) allocated for your job exclusively, if you submit to <code>small(-g)</code> or <code>dev-g</code> partitions</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What if I get this error when trying to utilize GPU resources?</p>
+<div class="highlight"><pre><span></span><code>salloc -p dev-g -A project_465001098 -n 1 --gpus=8
+salloc: Pending job allocation 6925988
+salloc: job 6925988 queued and waiting for resources
+salloc: job 6925988 has been allocated resources
+salloc: Granted job allocation 6925988
+piangate@uan01:~/prova1&gt; rocm-smi 
+cat: /sys/module/amdgpu/initstate: No such file or directory
+ERROR:root:Driver not initialized (amdgpu not found in modules)
+</code></pre></div>
+<ul>
+<li>
+<p><code>salloc</code> gives you the reserved node, then you need srun to run on it 
+    (you see in the prompt that you are still on uan after the salloc). 
+    You can even open a bash on the compute node via <code>srun -n1 --pty bash</code> 
+    (best is to specify allocation time on salloc)</p>
+</li>
+<li>
+<p>Try <code>srun rocm-smi</code></p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
