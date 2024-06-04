@@ -2527,6 +2527,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description-of-the-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description of the demo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#video-of-the-demo" class="md-nav__link">
     <span class="md-ellipsis">
       Video of the demo
@@ -2536,6 +2545,16 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1-getting-some-files-that-we-will-use" class="md-nav__link">
     <span class="md-ellipsis">
       Step 1: Getting some files that we will use
@@ -2543,8 +2562,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-2-installing-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       Step 2: Installing the container
@@ -2552,13 +2571,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-3-running-a-distributed-learning-example" class="md-nav__link">
     <span class="md-ellipsis">
       Step 3: Running a distributed learning example.
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2578,6 +2602,7 @@
 
 
 <h1 id="demo-option-2-a-short-walk-through-for-distributed-learning">Demo option 2: A short walk-through for distributed learning<a class="headerlink" href="#demo-option-2-a-short-walk-through-for-distributed-learning" title="Permanent link">&para;</a></h1>
+<h2 id="description-of-the-demo">Description of the demo<a class="headerlink" href="#description-of-the-demo" title="Permanent link">&para;</a></h2>
 <p>In this demo, we will install one of the PyTorch containers provided on LUMI
 and run a simple distributed learning example that the LUMI User Support Team also uses
 for internal testing.</p>
@@ -2596,7 +2621,8 @@ for internal testing.</p>
 <video src="https://462000265.lumidata.eu/2day-20240502/recordings/Demo2-Distributed_learning.mp4" controls="controls">
 </video>
 
-<h2 id="step-1-getting-some-files-that-we-will-use">Step 1: Getting some files that we will use<a class="headerlink" href="#step-1-getting-some-files-that-we-will-use" title="Permanent link">&para;</a></h2>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-getting-some-files-that-we-will-use">Step 1: Getting some files that we will use<a class="headerlink" href="#step-1-getting-some-files-that-we-will-use" title="Permanent link">&para;</a></h3>
 <p>Let's create an installation directory for the demo. Set the environment variable
 <code>installdir</code> to a proper value for the directories on LUMI that you have access to.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/project/project_465001102/kurtlust/DEMO2
@@ -2624,7 +2650,7 @@ wget<span class="w"> </span>--recursive<span class="w"> </span>--level<span clas
 gunzip<span class="w"> </span>data/MNIST/raw/*.gz
 <span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">31</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>data<span class="w"> </span><span class="s2">&quot;data</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div>
-<h2 id="step-2-installing-the-container">Step 2: Installing the container<a class="headerlink" href="#step-2-installing-the-container" title="Permanent link">&para;</a></h2>
+<h3 id="step-2-installing-the-container">Step 2: Installing the container<a class="headerlink" href="#step-2-installing-the-container" title="Permanent link">&para;</a></h3>
 <p>We can find an overview of the available PyTorch containers on the
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch page in the LUMI Software Library</a>.
 We'll use a version that already has support for Python virtual environments built in as that 
@@ -2720,7 +2746,7 @@ tree<span class="w"> </span><span class="nv">$CONTAINERROOT</span>
     easy to access.</p>
 </li>
 </ul>
-<h2 id="step-3-running-a-distributed-learning-example">Step 3: Running a distributed learning example.<a class="headerlink" href="#step-3-running-a-distributed-learning-example" title="Permanent link">&para;</a></h2>
+<h3 id="step-3-running-a-distributed-learning-example">Step 3: Running a distributed learning example.<a class="headerlink" href="#step-3-running-a-distributed-learning-example" title="Permanent link">&para;</a></h3>
 <p>The <code>conda-python-distributed</code> script is written to ease distributed learning with PyTorch.
 Distributed learning requires some initialisation of environment variables that are used by
 PyTorch or by libraries from the ROCm<sup>TM</sup> stack. It passes its arguments to the

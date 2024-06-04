@@ -2573,7 +2573,27 @@ Temporary location of materials (for the lifetime of the training project):
 </ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Can you clarify the differences between: <code>ntasks-per-core</code> vs <code>ntasks-per-node</code> and <code>ntasks</code> in SLURM terminology?</p>
+<ul>
+<li><code>-ntasks</code> is the total number of MPI ranks, <code>-ntasks-per-node</code> is the number of MPI ranks per each node, 
+    e.g. I want to run 128 MPI ranks with 4 ranks per each node (i.e. 32 nodes), 
+    so I can use: <code>--ntasks=128 --ntasks-per-node=4</code>. 
+    The <code>-ntasks-per-core</code> is only relevant if you want to use hyperthreads. You can find more info with <code>man srun</code>.</li>
+</ul>
+</li>
+<li>
+<p>What does <code>$SBATCH --exclusive</code> do? is it quite mandatory to include it in my bash script when executing sbatch job? </p>
+<ul>
+<li><code>exclusive</code> is set for some queues, so you will get the entire node even if you are asking for less resources 
+     (you can use <code>scontrol show partition standard</code>, where <code>standard</code> is the queue, and check for the "EXCLUSIVE"). 
+     And you can use it in the other partitions (e.g., <code>small</code> and <code>small-g</code>) to get exclusive access to that node 
+     (and of course be billed for exclusive acces). But a node in <code>small</code> or <code>small-g</code> will still not be fully 
+     equivalent to a node in <code>standard</code> or <code>standard-g</code>, as some defaults, e.g., for memory, are set differently.</li>
+</ul>
+</li>
+</ol>
 
 
 

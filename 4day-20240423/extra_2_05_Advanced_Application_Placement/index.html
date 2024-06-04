@@ -2580,7 +2580,32 @@ contains several tools mentioned in the presentation.</p>
 were not mentioned and show more information about the actual binding.</p>
 </div>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Is the gpu direct RDMA supported on LUMI-G? And how to enable it?</p>
+<ul>
+<li>
+<p><code>MPICH_GPU_SUPPORT_ENABLED=1</code> </p>
+</li>
+<li>
+<p>It is also different than on NVIDIA platforms. On LUMI there is no equivalent to NVIDIA GPUdirect 
+    needed as the GPUs are connected to the CPUs via InfinityFabric/xGMI, which is much more powerful than PCIe.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What is the difference between <code>MPICH_GPU_SUPPORT_ENABLED</code> and <code>MPICH_GPU_SUPPORT</code>?</p>
+<ul>
+<li>This is a typo on the slide, both should mention <code>MPICH_GPU_SUPPORT_ENABLED</code>, this will be fixed.</li>
+</ul>
+</li>
+<li>
+<p>Is it possible to see that GPU-aware MPI is enabled from profiling?</p>
+<ul>
+<li>Yes, but note that LUMI design by default implies copies from GPU memory to the network. </li>
+</ul>
+</li>
+</ol>
 
 
 

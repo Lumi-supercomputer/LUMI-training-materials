@@ -2812,10 +2812,10 @@ to access that documentation.</p>
 <p>MPI itself: <a href="https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html"><code>man intro_mpi</code></a> or <a href="https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html"><code>man mpi</code></a></p>
 </li>
 <li>
-<p>libfabric: <code>man fabric</code></p>
+<p>libfabric: <a href="https://ofiwg.github.io/libfabric/v1.15.2/man/fabric.7.html"><code>man fabric</code></a></p>
 </li>
 <li>
-<p>CXI: `man fi_cxi'</p>
+<p>CXI: <code>man fi_cxi</code> (no online version for the current version on LUMI)</p>
 </li>
 </ul>
 </li>
@@ -2823,12 +2823,13 @@ to access that documentation.</p>
 <p>LibSci</p>
 <ul>
 <li>
-<p><code>man intro_libsci</code> and <code>man intro_libsci_acc</code></p>
+<p><a href="https://cpe.ext.hpe.com/docs/csml/cray_libsci.html"><code>man intro_libsci</code></a>
+    and <code>man intro_libsci_acc</code> (no online manual page, load <code>cray-libsci_acc</code> to see the manual page on the system)</p>
 </li>
 <li>
-<p><code>man intro_blas1</code>,
-    <code>man intro_blas2</code>,
-    <code>man intro_blas3</code>,
+<p><a href="https://cpe.ext.hpe.com/docs/csml/blas1.html"><code>man intro_blas1</code></a>,
+    <a href="https://cpe.ext.hpe.com/docs/csml/blas2.html"><code>man intro_blas2</code></a>,
+    <a href="https://cpe.ext.hpe.com/docs/csml/blas3.html"><code>man intro_blas3</code></a>,
     <code>man intro_cblas</code></p>
 </li>
 <li>
@@ -2841,7 +2842,7 @@ to access that documentation.</p>
 <p><code>man intro_irt</code></p>
 </li>
 <li>
-<p><code>man intro_fftw3</code></p>
+<p><code>man intro_fftw3</code> (with <code>cray-fftw</code> loaded)</p>
 </li>
 </ul>
 </li>
@@ -2961,6 +2962,12 @@ referred to during the course.</p>
 <li>
 <p><a href="https://www.pdc.kth.se/support">KTH Dardel documentation</a>. Dardel is the Swedish "baby-LUMI" system.
     Its CPU nodes use the AMD Rome CPU instead of AMD Milan, but its GPU nodes are the same as in LUMI.</p>
+</li>
+<li>
+<p><a href="https://dci.dci-gitlab.cines.fr/webextranet/index.html">GENCI Adastra documentation</a>.
+    Adastra is another system similar to LUMI. Its GPU nodes are the same as on LUMI (but it also has
+    a small partition with the newer MI300A APUs) while the CPU partition uses the newer zen4/Genoa generation
+    AMD EPYC CPUs.</p>
 </li>
 <li>
 <p><a href="https://support.pawsey.org.au/documentation/display/US/Setonix+User+Guide">Setonix User Guide</a>.
