@@ -6,6 +6,13 @@
 
 -   [Schedule](schedule.md)
 
+-   Reservations:
+
+    -   Day 1: on partition `standard`: `LUMI_profiling_1`
+
+    -   Day 2: on partition `standard-g`: `LUMI_profiling_2`  
+
+
 
 ## Course materials
 
