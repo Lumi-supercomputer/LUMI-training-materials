@@ -20,3 +20,29 @@
 
 Materials will follow as the course progresses
 
+Due to copyright issues some of the materials are only available to current LUMI users and have to be
+downloaded from LUMI.
+
+**Note:** Some links in the table below are dead and will remain so until after the end of the course.
+
+| Presentation | slides | recording |
+|:-------------|:-------|:----------|
+
+<!--
+| [Introduction](M_1_00_Course_Introduction.md) | / | [recording](M_1_00_Course_Introduction.md) |
+| [Programming Environment](M_1_01_HPE_PE.md) | [slides](M_1_01_HPE_PE.md) | [recording](M_1_01_HPE_PE.md) |
+| [Exercises #1](ME_1_01_HPE_PE.md) | / | / |
+| [Performance Analysis with Perftools](M_1_02_Perftools.md) | [slides](M_1_02_Perftools.md) | [recording](M_1_02_Perftools.md) |
+| [Improving Single-Core Efficiency](M_1_03_PerformanceOptimization.md) | [slides](M_1_03_PerformanceOptimization.md) | [recording](M_1_03_PerformanceOptimization.md) |
+| [Application Placement](M_1_04_ApplicationPlacement.md) | [slides](M_1_04_ApplicationPlacement.md) | [recording](M_1_04_ApplicationPlacement.md) |
+| [Demo and Exercises Part 1](M_1_05_PerformanceAnalysisAtWork_1.md) | / | / |
+| [Demo and Exercises Part 2](M_1_06_PerformanceAnalysisAtWork_2.md) | / | / |
+| [AMD Profiling Tools & GPU Optimization I](M_2_01_AMD_tools_1.md) | / | [recording](M_2_01_AMD_tools_1.md) |
+| [Exercises #2](ME_2_01_AMD_tools_1.md) | / | / |
+| [AMD Profiling Tools & GPU Optimization II](M_2_02_AMD_tools_2.md) | / | [recording](M_2_02_AMD_tools_2.md) |
+| [Exercises #3](ME_2_02_AMD_tools_2.md) | / | / |
+| [MPI Optimizations](M_2_03_MPI.md) | [slides](M_2_03_MPI.md) | [recording](M_2_03_MPI.md) |
+| [Exercises #4](ME_2_03_MPI.md) | / | / |
+| [I/O Optimizations](M_2_04_IO.md) | [slides](M_2_04_IO.md) | [recording](M_2_04_IO.md) |
+| [Exercises #5](ME_2_04_IO.md) | / | / |
+-->
