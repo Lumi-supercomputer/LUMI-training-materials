@@ -6,6 +6,8 @@
 
 -   [Schedule](schedule.md)
 
+-   [HedgeDoc for questions](https://md.sigma2.no/lumi-performance-workshop-june24?both)
+
 -   Course project: `project_465001154`
 
 -   Reservations:
