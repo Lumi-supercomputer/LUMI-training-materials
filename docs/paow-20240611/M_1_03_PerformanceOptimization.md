@@ -13,9 +13,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-1_03_cpu_performance_optimization.pdf`
 
-<!--
 -   Recording: `/appl/local/training/paow-20240611/recordings/1_03_PerformanceOptimization.mp4`
--->
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
