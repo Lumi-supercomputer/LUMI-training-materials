@@ -19,6 +19,20 @@ Archived materials on LUMI:
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
+Bash functions to convert between hexadecimal and binary (slide 17):
+
+``` bash
+# Convert hexa to binary
+0x () {
+    local val=$(tr '[a-z]' '[A-Z]' <<< $1)
+    echo "binary: `BC_LINE_LENGTH=0 bc <<< \"ibase=16;obase=2;$val\"`" 
+}
+# Convert binary to hexa
+0b () {
+    local val=$(tr '[a-z]' '[A-Z]' <<< $1)
+    echo "hexa: `BC_LINE_LENGTH=0 bc <<< \"ibase=2;obase=10000;$val\"`"
+}
+```
 
 ## Links
 
