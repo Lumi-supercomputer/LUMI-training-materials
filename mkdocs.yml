@@ -163,6 +163,13 @@ markdown_extensions:
   # tabbed contents
   - pymdownx.tabbed:
       alternate_style: true
+  # Caret and tilde for superscript and subscript and other uses
+  - pymdownx.caret
+  - pymdownx.tilde
+  # Mark extension to mark text.
+  - pymdownx.mark
+  # SmartSymbols (https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/)
+  - pymdownx.smartsymbols
   # Emojis
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
