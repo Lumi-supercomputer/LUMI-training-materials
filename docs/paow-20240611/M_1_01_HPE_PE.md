@@ -39,3 +39,21 @@ These materials can only be distributed to actual users of LUMI (active user acc
 4.  Question on packages in cray-python during the presentation.
 
     -    (Kurt) These are actually packages were linking to the Cray libraries is either essential (mpi4py) or where you need to take care to link to Cray LibSci if you want the performance offered by that library.
+
+5.  Fortran code for AMD GPU which compiler should be choose on LUMI?
+ 
+    a.  OpenMP offload
+   
+       -   Cray Fortran is defnitely more mature than the Fortran compiler included with ROCm (the latter in the `amd` module / `PrgEnv-amd`)
+
+           The system update that is planned to start on August 19 will be a big upgrade for ROCm and its compilers.
+
+    b.  hipfort
+   
+       -   Hipfort is a library to facilitate the implementation of C bindings 
+           for the HIP runtime and libraries.
+           You can use that with any compiler.
+
+6.  aocc flang, which flags could match the performance as gfortran (most of the code do with double complex number)?
+
+    -   It is difficult to tell for sure what will improve performance to match or exceed some other compiler. This will always need experimentation. Compilers have different defaults to floating point operation ordering, heuristics controlling unrolling and inlining. So, I'd start there and see the flags that influence. We can look into something more specific if there is a repro to experiement with. 
