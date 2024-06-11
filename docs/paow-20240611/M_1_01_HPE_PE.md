@@ -32,11 +32,19 @@ These materials can only be distributed to actual users of LUMI (active user acc
 
     -   It is not possible, the library will check that you are inside a parallel region and will do in serial only.
 
-    What if I realy want to do it like this, other options for the libs could be used?
+    What if I really want to do it like this, other options for the libs could be used?
 
     -   (Kurt) You are of course free to compile any other BLAS and Lapack implementation which may support nested parallelism. But it does imply that you cannot use pre-compiled software on LUMI that is built with \ cray-libsci\ .
 
-4.  Question on packages in cray-python during the presentation.
+3.  Question in the room about which target modules should be used:
+
+    -   The difference is likely not that large as there is not really an instruction set difference between zen2 and
+        zen3, but there are differences in the cache architecture and in the latency of various instructions.
+
+    -   Technically speaking: `craype-x86-milan` on the regular compute nodes, `craype-x86-rome` on the login nodes and
+        the nodes for data analytics (`largemem` and `lumid` Slurm partitions), and `craype-x86-trento` for the GPU nodes.
+
+4.  Question in the room about the limited number of packages in `cray-python`: Why these and no others?
 
     -    (Kurt) These are actually packages were linking to the Cray libraries is either essential (mpi4py) or where you need to take care to link to Cray LibSci if you want the performance offered by that library.
 
