@@ -20,7 +20,7 @@
     
     
       
-        <title>Reminder of the HPE Cray Programming Environment - LUMI training materials</title>
+        <title>LUMI Architecture, Programming and Runtime Environment - LUMI training materials</title>
       
     
     
@@ -114,7 +114,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Reminder of the HPE Cray Programming Environment" />
+  <meta property="og:title" content="LUMI training materials - LUMI Architecture, Programming and Runtime Environment" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/paow-20240611/M_1_01_HPE_PE/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Reminder of the HPE Cray Programming Environment" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI Architecture, Programming and Runtime Environment" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reminder-of-the-hpe-cray-programming-environment" class="md-skip">
+        <a href="#lumi-architecture-programming-and-runtime-environment" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reminder of the HPE Cray Programming Environment
+              LUMI Architecture, Programming and Runtime Environment
             
           </span>
         </div>
@@ -2586,6 +2586,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -2609,8 +2618,9 @@
                   
 
 
-<h1 id="reminder-of-the-hpe-cray-programming-environment">Reminder of the HPE Cray Programming Environment<a class="headerlink" href="#reminder-of-the-hpe-cray-programming-environment" title="Permanent link">&para;</a></h1>
+<h1 id="lumi-architecture-programming-and-runtime-environment">LUMI Architecture, Programming and Runtime Environment<a class="headerlink" href="#lumi-architecture-programming-and-runtime-environment" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Harvey Richardson (HPE)</em></p>
+<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
 <p>Temporary location of materials (for the lifetime of the training project):</p>
 <ul>
 <li>Slides: <code>/project/project_465001154/Slides/HPE/01_Architecture_PE_modules_slurm.pdf</code></li>
@@ -2625,7 +2635,34 @@
 
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>PAT only with the Cray compiler or all other back end ?</p>
+<ul>
+<li>Assuming by back-end you mean other compilers (GNU, AMD), the answer is yes. You should be able to use cray PAT with the different compilers.</li>
+</ul>
+</li>
+<li>
+<p>How to control number of openmp threads for libsci if it called inside a nasted openmp loop?</p>
+<ul>
+<li>The library is "OpenMP-aware", so it will not spawn nested threads if it is already inside an OpenMP region. </li>
+</ul>
+<p>Can you use nested OpenMP, e.g., on 16 cores use 4 threads at the outer level, having 4 threads for each LibSci routine? It is possible to set nested parallelism via OpenMP environment variables.</p>
+<ul>
+<li>It is not possible, the library will check that you are inside a parallel region and will do in serial only.</li>
+</ul>
+<p>What if I realy want to do it like this, other options for the libs could be used?</p>
+<ul>
+<li>(Kurt) You are of course free to compile any other BLAS and Lapack implementation which may support nested parallelism. But it does imply that you cannot use pre-compiled software on LUMI that is built with \ cray-libsci\ .</li>
+</ul>
+</li>
+<li>
+<p>Question on packages in cray-python during the presentation.</p>
+<ul>
+<li>(Kurt) These are actually packages were linking to the Cray libraries is either essential (mpi4py) or where you need to take care to link to Cray LibSci if you want the performance offered by that library.</li>
+</ul>
+</li>
+</ol>
 
 
 
