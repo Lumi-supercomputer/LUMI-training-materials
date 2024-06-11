@@ -18,8 +18,6 @@ Archived materials on LUMI:
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
-Bash functions to convert between hexadecimal and binary (slide 17):
-
 
 ## Q&A
 

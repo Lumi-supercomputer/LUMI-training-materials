@@ -35,11 +35,11 @@ downloaded from LUMI.
 | [Performance Analysis with Perftools](M_1_02_Perftools.md) | [slides](M_1_02_Perftools.md#materials) | [recording](M_1_02_Perftools.md) |
 | [Improving Single-Core Efficiency](M_1_03_PerformanceOptimization.md) | [slides](M_1_03_PerformanceOptimization.md#materials) | [recording](M_1_03_PerformanceOptimization.md) |
 | [Application Placement](M_1_04_ApplicationPlacement.md) | [slides](M_1_04_ApplicationPlacement.md#materials) | [recording](M_1_04_ApplicationPlacement.md) |
-| [Demo and Exercises Part 1](M_1_05_PerformanceAnalysisAtWork_1.md) | / | / |
+| [Demo and Exercises Part 1](M_1_05_PerformanceAnalysisAtWork_1.md) | [slides](M_1_05_PerformanceAnalysisAtWork_1.md#materials) | [recording](M_1_05_PerformanceAnalysisAtWork_1.md) |
+| [Demo and Exercises Part 2](M_1_06_PerformanceAnalysisAtWork_2.md) | [slides](M_1_06_PerformanceAnalysisAtWork_2.md#materials) | [recording](M_1_06_PerformanceAnalysisAtWork_2.md) |
 | [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
 
 <!--
-| [Demo and Exercises Part 2](M_1_06_PerformanceAnalysisAtWork_2.md) | / | / |
 | [AMD Profiling Tools & GPU Optimization I](M_2_01_AMD_tools_1.md) | [slides](M_2_01_AMD_tools_1.md#materials) | [recording](M_2_01_AMD_tools_1.md) |
 | [Exercises #2](ME_2_01_AMD_tools_1.md) | / | / |
 | [AMD Profiling Tools & GPU Optimization II](M_2_02_AMD_tools_2.md) | [slides](M_2_02_AMD_tools_2.md#materials) | [recording](M_2_02_AMD_tools_2.md) |
