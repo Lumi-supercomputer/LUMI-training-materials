@@ -2643,6 +2643,18 @@
 -->
 
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<p>Bash functions to convert between hexadecimal and binary (slide 17):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Convert hexa to binary</span>
+0x<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="k">$(</span>tr<span class="w"> </span><span class="s1">&#39;[a-z]&#39;</span><span class="w"> </span><span class="s1">&#39;[A-Z]&#39;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="nv">$1</span><span class="k">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;binary: `BC_LINE_LENGTH=0 bc &lt;&lt;&lt; \&quot;ibase=16;obase=2;</span><span class="nv">$val</span><span class="s2">\&quot;`&quot;</span><span class="w"> </span>
+<span class="o">}</span>
+<span class="c1"># Convert binary to hexa</span>
+0b<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="k">$(</span>tr<span class="w"> </span><span class="s1">&#39;[a-z]&#39;</span><span class="w"> </span><span class="s1">&#39;[A-Z]&#39;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="nv">$1</span><span class="k">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hexa: `BC_LINE_LENGTH=0 bc &lt;&lt;&lt; \&quot;ibase=2;obase=10000;</span><span class="nv">$val</span><span class="s2">\&quot;`&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../4day-20240423/extra_2_05_Advanced_Application_Placement/">Extended version of the talk in the 4-day comprehensive course of April 2024</a></li>
