@@ -22,7 +22,7 @@ DAY 1
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../M_1_00_Course_Introduction/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Emmanuel Ory (LUST), Jørn Dietze (LUST) and Harvey Richardson (HPE)</em>
+        <br/><em>Presenters: Jørn Dietze (LUST) and Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -30,7 +30,7 @@ DAY 1
             09:15 CEST
             <br/><em>10:15 EEST</em>
         </td>
-        <td><b><a href="../M_1_01_HPE_PE/">Reminder of the HPE Cray Programming Environment</a></b>
+        <td><b><a href="../M_1_01_HPE_PE/">LUMI Architecture, Programming and Runtime Environment</a></b>
         <br/><em>Presenters: Harvey Richardson (HPE)</em>
         </td>
     </tr>
@@ -39,8 +39,8 @@ DAY 1
             09:45 CEST
             <br/><em>10:45 EEST</em>
         </td>
-        <td><b><a href="../ME_1_01_HPE_PE/">Exercises</a></b>
-        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <td><b><a href="../ME_1_01_HPE_PE/">Exercises (session 1)</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>

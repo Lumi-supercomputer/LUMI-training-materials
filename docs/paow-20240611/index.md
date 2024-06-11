@@ -30,8 +30,9 @@ downloaded from LUMI.
 | Presentation | slides | recording |
 |:-------------|:-------|:----------|
 | [Introduction](M_1_00_Course_Introduction.md) | / | [recording](M_1_00_Course_Introduction.md) |
-| [Programming Environment](M_1_01_HPE_PE.md) | [slides](M_1_01_HPE_PE.md#materials) | [recording](M_1_01_HPE_PE.md) |
+| [Architecture, Programming and Runtime Environment](M_1_01_HPE_PE.md) | [slides](M_1_01_HPE_PE.md#materials) | [recording](M_1_01_HPE_PE.md) |
 | [Exercises #1](ME_1_01_HPE_PE.md) | / | / |
+| [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
 
 <!--
 | [Performance Analysis with Perftools](M_1_02_Perftools.md) | [slides](M_1_02_Perftools.md) | [recording](M_1_02_Perftools.md) |
