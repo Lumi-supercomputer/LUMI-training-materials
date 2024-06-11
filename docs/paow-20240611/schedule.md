@@ -56,7 +56,7 @@ DAY 1
             10:30 CEST
             <br/><em>11:30 EEST</em>
         </td>
-        <td><b><a href="../M_1_02_Perftools/">Introduction to performance analysis with Perftools</a></b>
+        <td><b><a href="../M_1_02_Perftools/">Introduction to Performance Analysis with Perftools</a></b>
         <br/><em>Presenters Thierry Braconnier (HPE)</em>
         </td>
     </tr>
@@ -65,7 +65,7 @@ DAY 1
             11:10 CEST
             <br/><em>12:10 EEST</em>
         </td>
-        <td><b><a href="../M_1_03_PerformanceOptimization/">Performance Optimization: Improving single-core efficiency</a></b>
+        <td><b><a href="../M_1_03_PerformanceOptimization/">Performance Optimization: Improving Single-Core Efficiency</a></b>
         <br/><em>Presenter: Jean-Yves Vet (HPE)</em>
         </td>
     </tr>
