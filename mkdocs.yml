@@ -17,6 +17,7 @@ theme:
     - toc.follow
     - content.code.annotate
     - content.code.copy
+    - content.footnote.tooltips # Still only for insiders when added, so does not yet work.
   favicon: assets/favicon-LUMI.png
   font: false
   palette:
@@ -174,6 +175,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # Footnotes (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#footnotes)
+  - footnotes
   # Table of contents on the side
   - toc:
       permalink: true
