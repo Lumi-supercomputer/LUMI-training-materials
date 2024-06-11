@@ -29,11 +29,11 @@ downloaded from LUMI.
 
 | Presentation | slides | recording |
 |:-------------|:-------|:----------|
-
-<!--
 | [Introduction](M_1_00_Course_Introduction.md) | / | [recording](M_1_00_Course_Introduction.md) |
 | [Programming Environment](M_1_01_HPE_PE.md) | [slides](M_1_01_HPE_PE.md) | [recording](M_1_01_HPE_PE.md) |
 | [Exercises #1](ME_1_01_HPE_PE.md) | / | / |
+
+<!--
 | [Performance Analysis with Perftools](M_1_02_Perftools.md) | [slides](M_1_02_Perftools.md) | [recording](M_1_02_Perftools.md) |
 | [Improving Single-Core Efficiency](M_1_03_PerformanceOptimization.md) | [slides](M_1_03_PerformanceOptimization.md) | [recording](M_1_03_PerformanceOptimization.md) |
 | [Application Placement](M_1_04_ApplicationPlacement.md) | [slides](M_1_04_ApplicationPlacement.md) | [recording](M_1_04_ApplicationPlacement.md) |
