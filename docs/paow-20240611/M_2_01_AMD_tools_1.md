@@ -2,27 +2,35 @@
 
 *Presenter: Samuel Antao (AMD)*
 
+<video src="https://462000265.lumidata.eu/paow-20240611/recordings/2_01_AMD_tools_1.mp4" controls="controls">
+</video>
+
+
 ## Materials
 
--   Directly available as web downloads:
+Directly available as web downloads:
 
-    -   [First part of the presentation: Overview of the profiling tools](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf)
+-   [First part of the presentation: Overview of the profiling tools](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf)
 
-    -   [Second part of the presentation: Omnitrace by example](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf)
+-   [Second part of the presentation: Omnitrace by example](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf)
 
--   Temporary location of materials (for the lifetime of the training project):
+<!--
+Temporary location of materials (for the lifetime of the training project):
 
-    -   Slides first part of the presentation: Overview of the profiling tools: `/project/project_465001154/Slides/AMD/AMD-session-1a-profiler-tools-overview.pdf`
+-   Slides first part of the presentation: Overview of the profiling tools: `/project/project_465001154/Slides/AMD/AMD-session-1a-profiler-tools-overview.pdf`
 
-    -   Slides second part of the presentation: Omnitrace by example: `/project/project_465001154/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
+-   Slides second part of the presentation: Omnitrace by example: `/project/project_465001154/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
 
-    -   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
+-   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
+-->
 
--   Archived materials on LUMI:
+Archived materials on LUMI:
 
-    -   Slides first part of the presentation: Overview of the profiling tools: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf`
+-   Slides first part of the presentation: Overview of the profiling tools: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf`
 
-    -   Slides second part of the presentation: Omnitrace by example: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf`
+-   Slides second part of the presentation: Omnitrace by example: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf`
+
+-   Recording: `/appl/local/training/paow-20240611/recordings/2_01_AMD_tools_1.mp4`
 
 
 ## References (from the slides)

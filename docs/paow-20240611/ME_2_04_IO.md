@@ -12,6 +12,7 @@ Exercises are in `Exercises/HPE/04_io`.
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -25,7 +26,7 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 2 temporarily available on
      [this link](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE_Day2.pdf)
-
+-->
 
 Archived materials on LUMI:
 
@@ -36,3 +37,6 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar`
+
+-   Recording: `/appl/local/training/paow-20240611/recordings/E2_04_IO.mp4`
+

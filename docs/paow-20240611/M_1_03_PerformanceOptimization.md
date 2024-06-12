@@ -5,9 +5,11 @@
 
 ## Materials
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001154/Slides/HPE/03_cpu_performance_optimization.pdf`
+-->
 
 Archived materials on LUMI:
 

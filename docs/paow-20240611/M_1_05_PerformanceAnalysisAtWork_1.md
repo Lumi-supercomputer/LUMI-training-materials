@@ -4,9 +4,11 @@
 
 ## Materials
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001154/Slides/HPE/05_Demo.pdf`
+-->
 
 Archived materials on LUMI:
 

@@ -14,6 +14,7 @@ See `Exercises/HPE/03_mpi/ProgrammingModelExamples_SLURM.pdf`
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -30,6 +31,7 @@ Temporary web-available materials:
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-E-2-03-ProgrammingModelExamples_SLURM.pdf).
+-->
 
 Archived materials on LUMI:
 
@@ -40,3 +42,5 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar`
+
+-   Recording: `/appl/local/training/paow-20240611/recordings/E2_03_MPI.mp4`

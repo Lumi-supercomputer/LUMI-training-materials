@@ -5,9 +5,11 @@
 
 ## Materials
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001154/Slides/HPE/02_introduction_to_performance_analysis_with_perftools.pdf`
+-->
 
 Archived materials on LUMI:
 
