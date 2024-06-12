@@ -134,7 +134,7 @@ DAY 2
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../M_2_01_AMD_tools_1/">AMD Profiling Tools Overview & Omnitrace</a></b>
-        <br/><em>Presenters: Samuel Añtao (AMD)</em>
+        <br/><em>Presenter: Samuel Añtao (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -143,7 +143,7 @@ DAY 2
             <br/><em>11:00 EEST</em>
         </td>
         <td><b><a href="../ME_2_01_AMD_tools_1/">Exercises (session 2)</a></b>
-        <br/><em>Presenter: Samuel Antao or George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Añtao (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -159,8 +159,8 @@ DAY 2
             10:45 CEST
             <br/><em>11:45 EEST</em>
         </td>
-        <td><b><a href="../M_2_02_AMD_tools_2/">AMD Profiling Tools & GPU Optimizations</a></b>
-        <br/><em>Presenters: Samuel Antao or George Markomanulis (AMD)</em>
+        <td><b><a href="../M_2_02_AMD_tools_2/">Introduction to Omniperf</a></b>
+        <br/><em>Presenters: Samuel Añtao (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -169,7 +169,7 @@ DAY 2
             <br/><em>12:#0 EEST</em>
         </td>
         <td><b><a href="../ME_2_02_AMD_tools_2/">Exercises (session 3)</a></b>
-        <br/><em>Presenter: Samuel Antao or George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Añtao (AMD)</em>
         </td>
     </tr>
     <tr>

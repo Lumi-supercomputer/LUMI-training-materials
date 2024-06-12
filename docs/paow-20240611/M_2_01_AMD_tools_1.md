@@ -23,6 +23,22 @@
     -   Slides second part of the presentation: Omnitrace by example: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf`
 
 
+## References (from the slides)
+
+-   [Omnitrace documentation web site](https://rocm.github.io/omnitrace/index.html)
+
+-   [Ghost Exhange OpenMP offload example suite on GitHub](https://github.com/amd/HPCTrainingExamples/tree/main/MPI-examples/GhostExchange/GhostExchange_ArrayAssign)
+
+-   [ROCm docs](https://rocm.docs.amd.com/en/latest/)
+
+-   [ROCm blog post "Introduction to profiling tools for AMD hardware"](https://rocm.blogs.amd.com/software-tools-optimization/profilers/README.html)
+
+-   [AMD Instinct(tm) GPU Training](https://fs.hlrs.de/projects/par/events/2024/GPU-AMD/) - 
+    Look for session 15, on day 4.
+
+-   [See also the materials linked in Exercise session #2](ME_2_01_AMD_tools_1.md)
+
+
 ## Q&A
 
 /
