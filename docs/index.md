@@ -4,9 +4,11 @@
 
 ### Regular trainings
 
+<!--
 Upcoming or currently running events:
 
--   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
+-   None
+-->
 
 Most recently completed main training events:
 
@@ -27,6 +29,8 @@ Most recently completed main training events:
 
     *Short URL to the most recently completed training for AI users:
     [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
+
+-   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
 
 Other recent LUST-organised trainings for which the material is still very up-to-date and
 relevant:
@@ -77,7 +81,8 @@ By theme in reverse chronological order:
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 -   Comprehensive AI trainings for LUMI:
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
--   Performance analysis tools
+-   Performance analysis tools and/or program optimization
+    -   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
     -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
     -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
 -   Materials from Hackathons 
