@@ -8,6 +8,8 @@
 
     -   [Slides](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_02_omiperf.pdf)
 
+    -   The last slides cover [exercises for this session](ME_2_02_AMD_tools_2.md#materials)
+
 -   Temporary location of materials (for the lifetime of the training project):
 
     -   Slides: `/project/project_465001154/Slides/AMD/AMD-session-2-omiperf.pdf`

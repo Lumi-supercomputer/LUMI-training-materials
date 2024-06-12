@@ -16,6 +16,8 @@
 
     -   Slides second part of the presentation: Omnitrace by example: `/project/project_465001154/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
 
+    -   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
+
 -   Archived materials on LUMI:
 
     -   Slides first part of the presentation: Overview of the profiling tools: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf`
