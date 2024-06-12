@@ -35,11 +35,8 @@ Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.pdf`
 
-<!--
 -   Exercises as bizp2-compressed tar file in
     `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar.bz2`
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar`
--->
-

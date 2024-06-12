@@ -47,3 +47,43 @@ downloaded from LUMI.
 | [Exercises #5](ME_2_04_IO.md) | / | / |
 | [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
 
+
+## Making the exercises afer the course
+
+### HPE
+
+The exercise material remains available in the course archive on LUMI:
+
+-   The PDF notes in `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.pdf`
+
+-   The other files for the exercises in either a
+    bzip2-compressed tar file `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar`.
+
+To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
+
+```
+tar -xf /appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar.bz2
+```
+
+in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
+from the training project. 
+
+However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
+they set the course project as the active project for Slurm and also set a reservation, use the
+`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
+projects.
+
+### AMD
+
+See the notes at each session.
+
+There is no guarantee though that the software that is referred to on the system, will be there forever
+or will still work after an update of the system.
+
+!!! Warning
+    The software and exercises were tested thoroughly at the time of the course. LUMI however is in
+    continuous evolution and changes to the system may break exercises and software
+
+
+
