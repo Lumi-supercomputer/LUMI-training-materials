@@ -92,7 +92,7 @@ DAY 1
             <br/><em>14:00 EEST</em>
         </td>
         <td><b><a href="../M_1_05_PerformanceAnalysisAtWork_1/">Optimization/performance analysis demo and exercise</a></b>
-        <br/><em>Presenters: Alfio Lazzaro (HPE) et al.</em>
+        <br/><em>Presenters: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -109,7 +109,7 @@ DAY 1
             <br/><em>16:00 EEST</em>
         </td>
         <td><b><a href="../M_1_06_PerformanceAnalysisAtWork_2/">Optimization/performance analysis demo and exercise</a></b>
-        <br/><em>Presenters: Alfio Lazzaro (HPE) et al.</em>
+        <br/><em>Presenters: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -133,8 +133,8 @@ DAY 2
             09:00 CEST
             <br/><em>10:00 EEST</em>
         </td>
-        <td><b><a href="../M_2_01_AMD_tools_1/">AMD Profiling Tools & GPU Optimizations</a></b>
-        <br/><em>Presenters: Samuel Antao or George Markomanolis (AMD)</em>
+        <td><b><a href="../M_2_01_AMD_tools_1/">AMD Profiling Tools Overview & Omnitrace</a></b>
+        <br/><em>Presenters: Samuel Añtao (AMD)</em>
         </td>
     </tr>
     <tr>

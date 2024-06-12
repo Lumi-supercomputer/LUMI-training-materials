@@ -37,10 +37,10 @@ downloaded from LUMI.
 | [Application Placement](M_1_04_ApplicationPlacement.md) | [slides](M_1_04_ApplicationPlacement.md#materials) | [recording](M_1_04_ApplicationPlacement.md) |
 | [Demo and Exercises Part 1](M_1_05_PerformanceAnalysisAtWork_1.md) | [slides](M_1_05_PerformanceAnalysisAtWork_1.md#materials) | [recording](M_1_05_PerformanceAnalysisAtWork_1.md) |
 | [Demo and Exercises Part 2](M_1_06_PerformanceAnalysisAtWork_2.md) | [slides](M_1_06_PerformanceAnalysisAtWork_2.md#materials) | [recording](M_1_06_PerformanceAnalysisAtWork_2.md) |
+| [AMD Profiling Tools Overview & Omnitrace](M_2_01_AMD_tools_1.md) | [slides](M_2_01_AMD_tools_1.md#materials) | [recording](M_2_01_AMD_tools_1.md) |
 | [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
 
 <!--
-| [AMD Profiling Tools & GPU Optimization I](M_2_01_AMD_tools_1.md) | [slides](M_2_01_AMD_tools_1.md#materials) | [recording](M_2_01_AMD_tools_1.md) |
 | [Exercises #2](ME_2_01_AMD_tools_1.md) | / | / |
 | [AMD Profiling Tools & GPU Optimization II](M_2_02_AMD_tools_2.md) | [slides](M_2_02_AMD_tools_2.md#materials) | [recording](M_2_02_AMD_tools_2.md) |
 | [Exercises #3](ME_2_02_AMD_tools_2.md) | / | / |

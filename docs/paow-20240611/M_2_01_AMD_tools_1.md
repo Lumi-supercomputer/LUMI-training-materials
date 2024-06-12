@@ -1,6 +1,6 @@
-# AMD tools & GPU Optimizations part 1
+# AMD Profiling Tools Overview & Omnitrace
 
-*Presenter: Samuel Antao or George Markomanolis (AMD)*
+*Presenter: Samuel Antao (AMD)*
 
 ## Materials
 
