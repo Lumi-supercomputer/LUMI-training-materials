@@ -38,10 +38,10 @@ downloaded from LUMI.
 | [Demo and Exercises Part 1](M_1_05_PerformanceAnalysisAtWork_1.md) | [slides](M_1_05_PerformanceAnalysisAtWork_1.md#materials) | [recording](M_1_05_PerformanceAnalysisAtWork_1.md) |
 | [Demo and Exercises Part 2](M_1_06_PerformanceAnalysisAtWork_2.md) | [slides](M_1_06_PerformanceAnalysisAtWork_2.md#materials) | [recording](M_1_06_PerformanceAnalysisAtWork_2.md) |
 | [AMD Profiling Tools Overview & Omnitrace](M_2_01_AMD_tools_1.md) | [slides](M_2_01_AMD_tools_1.md#materials) | [recording](M_2_01_AMD_tools_1.md) |
+| [Exercises #2](ME_2_01_AMD_tools_1.md) | / | / |
 | [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
 
 <!--
-| [Exercises #2](ME_2_01_AMD_tools_1.md) | / | / |
 | [AMD Profiling Tools & GPU Optimization II](M_2_02_AMD_tools_2.md) | [slides](M_2_02_AMD_tools_2.md#materials) | [recording](M_2_02_AMD_tools_2.md) |
 | [Exercises #3](ME_2_02_AMD_tools_2.md) | / | / |
 | [MPI Optimizations](M_2_03_MPI.md) | [slides](M_2_03_MPI.md) | [recording](M_2_03_MPI.md) |
