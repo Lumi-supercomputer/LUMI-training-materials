@@ -17,6 +17,7 @@ theme:
     - toc.follow
     - content.code.annotate
     - content.code.copy
+    - content.footnote.tooltips # Still only for insiders when added, so does not yet work.
   favicon: assets/favicon-LUMI.png
   font: false
   palette:
@@ -50,6 +51,8 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - Performance Analysis & Optimization June 2024:
+    - paow-20240611/index.md
   - AI workshop May 2024:
     - ai-20240529/index.md
   - Supercomputing with LUMI May 2024:
@@ -58,25 +61,25 @@ nav:
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - Comprehensive LUMI April 2024:
     - 4day-20240423/index.md
-  - "1-day February 2024":
-    - 1day-20240208/index.md
-    - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
-    - HPE Cray PE: 1day-20240208/video_02_HPE_Cray_Programming_Environment.md
-    - Modules: 1day-20240208/video_03_Modules_on_LUMI.md
-    - Software stacks: 1day-20240208/video_04_LUMI_Software_Stacks.md
-    - Exercises 1: 1day-20240208/05_Exercises_1.md
-    - Running jobs: 1day-20240208/video_06_Running_Jobs_on_LUMI.md
-    - Exercises 2: 1day-20240208/07_Exercises_2.md
-    - I/O and file systems: 1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices.md
-    - LUMI support: 1day-20240208/video_09_LUMI_User_Support.md
-    - Documentation: 1day-20240208/A01_Documentation.md
   - Profiling November 2023:
     - Profiling-20231122/index.md
-  - Comprehensive LUMI October 2023:
-    - 4day-20231003/index.md
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - "1-day February 2024":
+      - 1day-20240208/index.md
+      - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
+      - HPE Cray PE: 1day-20240208/video_02_HPE_Cray_Programming_Environment.md
+      - Modules: 1day-20240208/video_03_Modules_on_LUMI.md
+      - Software stacks: 1day-20240208/video_04_LUMI_Software_Stacks.md
+      - Exercises 1: 1day-20240208/05_Exercises_1.md
+      - Running jobs: 1day-20240208/video_06_Running_Jobs_on_LUMI.md
+      - Exercises 2: 1day-20240208/07_Exercises_2.md
+      - I/O and file systems: 1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices.md
+      - LUMI support: 1day-20240208/video_09_LUMI_User_Support.md
+      - Documentation: 1day-20240208/A01_Documentation.md
+    - Comprehensive LUMI October 2023:
+      - 4day-20231003/index.md
     - "1-day September 2023":
       - 1day-20230921/index.md
       - LUMI Architecture: 1day-20230921/01_Architecture.md
@@ -161,10 +164,19 @@ markdown_extensions:
   # tabbed contents
   - pymdownx.tabbed:
       alternate_style: true
+  # Caret and tilde for superscript and subscript and other uses
+  - pymdownx.caret
+  - pymdownx.tilde
+  # Mark extension to mark text.
+  - pymdownx.mark
+  # SmartSymbols (https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/)
+  - pymdownx.smartsymbols
   # Emojis
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # Footnotes (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#footnotes)
+  - footnotes
   # Table of contents on the side
   - toc:
       permalink: true
