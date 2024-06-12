@@ -20,7 +20,7 @@
     
     
       
-        <title>AMD tools & GPU Optimizations part 1 - LUMI training materials</title>
+        <title>AMD Profiling Tools Overview & Omnitrace - LUMI training materials</title>
       
     
     
@@ -114,7 +114,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - AMD tools & GPU Optimizations part 1" />
+  <meta property="og:title" content="LUMI training materials - AMD Profiling Tools Overview & Omnitrace" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/paow-20240611/M_2_01_AMD_tools_1/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - AMD tools & GPU Optimizations part 1" />
+  <meta name="twitter:title" content="LUMI training materials - AMD Profiling Tools Overview & Omnitrace" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amd-tools-gpu-optimizations-part-1" class="md-skip">
+        <a href="#amd-profiling-tools-overview-omnitrace" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AMD tools &amp; GPU Optimizations part 1
+              AMD Profiling Tools Overview &amp; Omnitrace
             
           </span>
         </div>
@@ -2579,6 +2579,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-from-the-slides" class="md-nav__link">
+    <span class="md-ellipsis">
+      References (from the slides)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2592,8 +2627,67 @@
                   
 
 
-<h1 id="amd-tools-gpu-optimizations-part-1">AMD tools &amp; GPU Optimizations part 1<a class="headerlink" href="#amd-tools-gpu-optimizations-part-1" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Samuel Antao or George Markomanolis (AMD)</em></p>
+<h1 id="amd-profiling-tools-overview-omnitrace">AMD Profiling Tools Overview &amp; Omnitrace<a class="headerlink" href="#amd-profiling-tools-overview-omnitrace" title="Permanent link">&para;</a></h1>
+<p><em>Presenter: Samuel Antao (AMD)</em></p>
+<video src="https://462000265.lumidata.eu/paow-20240611/recordings/2_01_AMD_tools_1.mp4" controls="controls">
+</video>
+
+<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
+<p>Directly available as web downloads:</p>
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf">First part of the presentation: Overview of the profiling tools</a></p>
+</li>
+<li>
+<p><a href="https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf">Second part of the presentation: Omnitrace by example</a></p>
+</li>
+</ul>
+<!--
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides first part of the presentation: Overview of the profiling tools: `/project/project_465001154/Slides/AMD/AMD-session-1a-profiler-tools-overview.pdf`
+
+-   Slides second part of the presentation: Omnitrace by example: `/project/project_465001154/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
+
+-   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
+-->
+
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>
+<p>Slides first part of the presentation: Overview of the profiling tools: <code>/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf</code></p>
+</li>
+<li>
+<p>Slides second part of the presentation: Omnitrace by example: <code>/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf</code></p>
+</li>
+<li>
+<p>Recording: <code>/appl/local/training/paow-20240611/recordings/2_01_AMD_tools_1.mp4</code></p>
+</li>
+</ul>
+<h2 id="references-from-the-slides">References (from the slides)<a class="headerlink" href="#references-from-the-slides" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://rocm.github.io/omnitrace/index.html">Omnitrace documentation web site</a></p>
+</li>
+<li>
+<p><a href="https://github.com/amd/HPCTrainingExamples/tree/main/MPI-examples/GhostExchange/GhostExchange_ArrayAssign">Ghost Exhange OpenMP offload example suite on GitHub</a></p>
+</li>
+<li>
+<p><a href="https://rocm.docs.amd.com/en/latest/">ROCm docs</a></p>
+</li>
+<li>
+<p><a href="https://rocm.blogs.amd.com/software-tools-optimization/profilers/README.html">ROCm blog post "Introduction to profiling tools for AMD hardware"</a></p>
+</li>
+<li>
+<p><a href="https://fs.hlrs.de/projects/par/events/2024/GPU-AMD/">AMD Instinct&trade; GPU Training</a> - 
+    Look for session 15, on day 4.</p>
+</li>
+<li>
+<p><a href="../ME_2_01_AMD_tools_1/">See also the materials linked in Exercise session #2</a></p>
+</li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<p>/</p>
 
 
 
@@ -2689,7 +2783,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>

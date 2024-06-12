@@ -2579,6 +2579,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2594,6 +2629,41 @@
 
 <h1 id="application-placement">Application Placement<a class="headerlink" href="#application-placement" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Jean-Yves Vet (HPE)</em></p>
+<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
+<!--
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides: `/project/project_465001154/Slides/HPE/04_Application_Placement.pdf`
+-->
+
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>
+<p>Slides: <code>/appl/local/training/paow-20240611/files/LUMI-paow-20240611-1_04_Application_Placement.pdf</code></p>
+</li>
+<li>
+<p>Recording: <code>/appl/local/training/paow-20240611/recordings/1_04_ApplicationPlacement.mp4</code></p>
+</li>
+</ul>
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
+<p>Bash functions to convert between hexadecimal and binary (slide 17):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Convert hexa to binary</span>
+0x<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="k">$(</span>tr<span class="w"> </span><span class="s1">&#39;[a-z]&#39;</span><span class="w"> </span><span class="s1">&#39;[A-Z]&#39;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="nv">$1</span><span class="k">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;binary: `BC_LINE_LENGTH=0 bc &lt;&lt;&lt; \&quot;ibase=16;obase=2;</span><span class="nv">$val</span><span class="s2">\&quot;`&quot;</span><span class="w"> </span>
+<span class="o">}</span>
+<span class="c1"># Convert binary to hexa</span>
+0b<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">val</span><span class="o">=</span><span class="k">$(</span>tr<span class="w"> </span><span class="s1">&#39;[a-z]&#39;</span><span class="w"> </span><span class="s1">&#39;[A-Z]&#39;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="nv">$1</span><span class="k">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hexa: `BC_LINE_LENGTH=0 bc &lt;&lt;&lt; \&quot;ibase=2;obase=10000;</span><span class="nv">$val</span><span class="s2">\&quot;`&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../4day-20240423/extra_2_05_Advanced_Application_Placement/">Extended version of the talk in the 4-day comprehensive course of April 2024</a></li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<p>/</p>
 
 
 
@@ -2689,7 +2759,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
