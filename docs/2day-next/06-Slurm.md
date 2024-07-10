@@ -294,7 +294,11 @@ operation of LUMI and depending on needs observed by the system administrators a
 User Support Team, so don't take the above tables in the slide for granted.
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Partitions 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PartitionsCommands.png){ loading=lazy }
+  ![Slide Partitions: Useful commands](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PartitionsCommands.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Partitions: Useful commands: sinfo -s example](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-06-Slurm/PartitionsCommandsSinfo.png){ loading=lazy }
 </figure>
 
 Some useful commands with respect to Slurm partitions:
@@ -696,7 +700,38 @@ that script. Likewise, with `srun` they have to be specified before the command 
 as otherwise they would be passed to that command as flags and options.
 
 Several options specified to `sbatch` or `salloc` are also forwarded to `srun` via `SLURM_*` environment
-variables set in the job by these commands.
+variables set in the job by these commands. These may interfere with options specified on the `srun`
+command line and lead to unexpected behaviour. 
+
+??? Example "Example: Conflict between `--ntasks` and `--ntasks-per-node`"
+
+    We'll meet this example later on in these notes,when we discuss
+    [starting a job step in per-node allocations](06-Slurm.md##resources-for-per-node-allocations).
+    You'll need some Slurm experience to understand this example at this point, but keep it
+    in mind when you read further in these notes.
+
+    Two different options to specify the number of tasks in a job step are 
+    `--ntasks` and `--ntasks-per-node`. The `--ntasks` command line options specifies the
+    total number of tasks for the job step, and these will be distributed across nodes
+    according to rules we will discuss later. The `--ntasks-per-node` command line option
+    on the other hand requests that that number of tasks is launched on each node of
+    the job (which really only makes sense if you have entire nodes, e.g., in node-exclusive
+    allocations) and is attractive as it is easy to scale your allocation by just changing
+    the number of nodes. 
+
+    Checking the 
+    [srun manual page for the `--ntasks-per-node` option](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks-per-node), 
+    you read that the `--ntasks` option takes precedence and if present, 
+    `--ntasks-per-node` will be interpreted as the **maximum** number of tasks per node.
+
+    Now depending on how the allocation was made, Slurm may set the environment variables
+    `SLURM_NTASKS` and `SLURM_NPROCS` (the latter for historical reasons) that have the
+    same effect as specifying `--ntasks`. So if these environment variables are present in
+    the environment of your job script, they have effectively the effect of specifying
+    `--ntasks` even though you did not specify it explicitly on the `srun` command line
+    and `--ntasks-per-node` will no longer be the exact number of tasks. And this may
+    happen even if you have never specified any `--ntasks` flag anywhere simply because
+    Slurm fills in some defaults for certain parameters when creating an allocation...
 
 
 ## Specifying options
@@ -2641,6 +2676,12 @@ is not enough to fill an exclusive node. It does turn out to be tricky though, e
 are being used, and with proper binding of the resources. In some cases the `--overlap` parameter of
 `srun` may help a bit. (And some have reported that in some cases `--exact` is needed instead, but this
 parameter is already implied if `--cpus-per-task` can be used.)
+
+Note that we have observed unexpected behaviour when using this on nodes that were not job-exclusive,
+likely caused by Slurm bugs. It also doesn't make much sense to use this feature in that case.
+The main reason to use it, is to be able to do proper mapping/binding of resources even when
+a single job step cannot fill a whole node. In other cases it may simply be easier to have 
+multiple jobs, one for each job step that you would run simultaneously.
 
 ??? example "A longer example"
     Consider the bash job script for an exclusive CPU node:
