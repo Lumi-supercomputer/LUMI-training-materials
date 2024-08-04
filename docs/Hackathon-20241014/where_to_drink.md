@@ -1,20 +1,37 @@
 # Curing mental distress after a hard day on LUMI
 
-We do realise that at night, you want to forget all the misery from the day. 
+The LUMI User Support Team realises that at night, you want to forget all the misery from the day. 
 The hunting for bugs, the temperamental file system of LUMI that freezes when you
 want to save your file so that it takes ages to get out of the editor...
 
 Belgium has a very famous medicine for curing that mental distress. It is called
-"beer" and is available in large quantities allover the city, with something
+"beer" and is available in large quantities all over the city, with something
 for every taste and budget. Some are even made for people who need a very strong
 medicine to forget. You cannot get it at pharmacies though (though the latter then
 have a remedy for the day after if you take an overdose of the medicine "beer"),
 but in specialised businesses called "bar" or "café".
 
+The medicine is tolerated well in modest quantities by most people. However, should you
+be taking any other medication, please consult your doctor or pharmacist to ensure that there
+are no conflicts with the medication you're already using. Some side effects may occur, 
+especially when the medicine is taken in large doses. These side effects include some
+drowsiness, and the day after, headache and intolerance for loud sounds.
+The medicine is also known to impair your ability to drive a vehicle. It is recommended
+to not drive a vehicle after using more than one glass of the medicine.
+
+We realise that many participants to the hackathon are scientist or have a background in science.
+Hence it is only natural that you may want to set up experiments to study and compare the 
+efficiency of the various recipes for the medicine that are available. In case you want to 
+set up a full pharmaceutical study with three groups (one taking the medicine, one getting a 
+placebo, and one not using anything), most places that sell the medicine will also be happy to
+sell you a placebo. The latter can usually be recognised by the writing "0.0%" or "0.4%"
+on the bottle. It is not always available in bulk though.
+
+
+## Where to get?
+
 The centre of the city is very touristic though and unfortunately this is not the place
-to find the best beer as too many tourists go for the cheaper volume stuff. The first
-couple of places in the list below are rather close to the central station and Grande Place
-though and have more to offer than the big tourist bars that I also mention.
+to find the best beer as too many tourists go for the cheaper volume stuff.
 
 Note that most bars in Brussels will have some of the local microbrewery beers on their
 menu and not only the large-volume industrial beers.
@@ -24,7 +41,7 @@ Some especially noteworthy places near the city centre:
 -   If you really, really want to be in the places where all tourists are (not my thing though),
     people usually mention:
 
-    -   [Delirium Café & Taphouse](https://maps.app.goo.gl/1p9Vbt22M3XtUfMe8) or
+    -   [Delirium Café & Taphouse](https://maps.app.goo.gl/1p9Vbt22M3XtUfMe8)
 
     -   [Beer Capital Brussels](https://maps.app.goo.gl/MJhrndDXxsSE52yp6).
 
@@ -36,8 +53,8 @@ Some especially noteworthy places near the city centre:
         ([Putterie 20](https://maps.app.goo.gl/BbN6q1R67o6b83rQ8))
         is a subsidiary of the Brewdog group that you can find in many big cities in Europe.
 
-        Not bad if you are in an urgent need when walking back from the hackathon venue 
-        to your hotel in the historic city centre and are in urgent need for some medicine,
+        Not bad if you are in an urgent need for some medicine when walking back from the hackathon venue 
+        to your hotel in the historic city centre,
         and it could be an option on Friday noon also if it is too early to leave to the 
         airport but you want to be close to the station as you don't want to carry around
         your luggage.
@@ -47,7 +64,7 @@ So some of the places I like more:
 -   [Moeder Lambic Fontainas](https://www.moederlambic.com/?lang=en) ([Place Fontainas/Fontainasplein 8]()) is a good choice 
     right in the city centre if you want a more typical place and not one that really aims at tourists as
     the places we mentioned before.
-    Moeder Lambic cannot compete with these in number of beers, but they do have more than just the stuff 
+    Moeder Lambic cannot compete with these places in number of beers, but they do have more than just the stuff 
     from the large breweries.
 
 -   [La Porte Noir](https://www.laportenoire.be/)
@@ -102,7 +119,7 @@ to the city centre only:
         They serve pizza also and are open every day.
 
     -   A bit further in Saint-Gilles is 
-        [Moeder Lambic Original]()
+        [Moeder Lambic Original](https://www.moederlambic.com/)
         ([Savoistraat/Rue de Savoie 68](https://maps.app.goo.gl/yU1r7mZFRPjZZEUg7)).
         A good place to drink the beer type that the Brussels area is most known for,
         Geuze and Lambic.
@@ -126,7 +143,7 @@ to the city centre only:
     some new office buildings on the former site, including the main office building of the
     administration of the Flemish government. 
 
-    Just north of the site there are two microbreweries with their own taproom:
+    Just north of that site there are two microbreweries with their own taproom:
 
     -   [Brasserie de la Senne](https://brasseriedelasenne.be/)
         ([Anna Bochdreef/Drève Anna Boch 19/21](https://maps.app.goo.gl/d1eBZAX3pp5q32V28))
@@ -153,7 +170,7 @@ to the city centre only:
     which is also [not far outside the pentagon area](https://maps.app.goo.gl/Gxa1UGu3Anc2bd4h6).
 
     They brew an excellent Lambic and Geuze, but the taste of it may be a bit on the extreme
-    end of the Gueze/Lambic spectrum and not everyone's thing. Personally, I think the beers
+    end of the Geuze/Lambic spectrum and not everyone's thing. Personally, I think the beers
     from. e.g.,  Oud Beersel and 3 Fonteinen are a bit more accessible to most and as a starter
     in this kind of beer. So depending on how adventurous you are when it comes to the taste of
     beer, you may be very happy or a bit disappointed. But it is certainly interesting to see
