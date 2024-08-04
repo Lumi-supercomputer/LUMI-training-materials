@@ -46,9 +46,8 @@ So some of the places I like more:
 
 -   [Moeder Lambic Fontainas](https://www.moederlambic.com/?lang=en) ([Place Fontainas/Fontainasplein 8]()) is a good choice 
     right in the city centre if you want a more typical place and not one that really aims at tourists as
-    [Delirium Café & Taphouse](https://maps.app.goo.gl/1p9Vbt22M3XtUfMe8) or
-    [Beer Capital Brussels](https://maps.app.goo.gl/MJhrndDXxsSE52yp6).
-    Moeder Lambic canno compete with these in number of beers, but they do have more than just the stuff 
+    the places we mentioned before.
+    Moeder Lambic cannot compete with these in number of beers, but they do have more than just the stuff 
     from the large breweries.
 
 -   [La Porte Noir](https://www.laportenoire.be/)
