@@ -21,7 +21,7 @@ There is also an airport sometimes called [Brussels South Airport](https://www.b
 but that one is really a significant distance from Brussels. A shuttle bus may be the best way to get to Brussels
 from there.
 
--   [Eating at night](where_to_eat.md)
+-   [In Belgium, we discuss tough problems at the dinner table, not in a meeting room, zoom session or a sauna](where_to_eat.md)
 
 -   [Curing mental distress after a hard day on LUMI](where_to_drink.md)
 
