@@ -4,7 +4,7 @@ The LUMI User Support Team realises that at night, you want to forget all the mi
 The hunting for bugs, the temperamental file system of LUMI that freezes when you
 want to save your file so that it takes ages to get out of the editor...
 
-Belgium has a very famous medicine for curing that mental distress. It is called
+Belgium has a very famous non-prescription medicine for curing that mental distress. It is called
 "beer" and is available in large quantities all over the city, with something
 for every taste and budget. Some are even made for people who need a very strong
 medicine to forget. You cannot get it at pharmacies though (though the latter then
@@ -61,10 +61,11 @@ Some especially noteworthy places near the city centre:
 
 So some of the places I like more:
 
--   [Moeder Lambic Fontainas](https://www.moederlambic.com/?lang=en) ([Place Fontainas/Fontainasplein 8]()) is a good choice 
+-   [Moeder Lambic Fontainas](https://www.moederlambic.com/?lang=en) 
+    ([Place Fontainas/Fontainasplein 8](https://maps.app.goo.gl/YzPGDnZ4vAALZZNu8)) is a good choice 
     right in the city centre if you want a more typical place and not one that really aims at tourists as
     the places we mentioned before.
-    Moeder Lambic cannot compete with these places in number of beers, but they do have more than just the stuff 
+    Moeder Lambic cannot compete with these tourist places in number of beers, but they do have more than just the stuff 
     from the large breweries.
 
 -   [La Porte Noir](https://www.laportenoire.be/)
@@ -73,7 +74,8 @@ So some of the places I like more:
     The selection is small, but they do have a selection of nice beers, both on tap
     and in the fridges.
     It is right next to the [Brasserie des Alexiens](https://www.brasseriedesalexiens.be/) 
-    (Rue des Alexiens/Cellebroersstraat 63) which is a highly recommended restaurant.
+    ([Rue des Alexiens/Cellebroersstraat 63](https://maps.app.goo.gl/SdjPCkGM1oLWbBfE8)) 
+    which is a highly recommended restaurant.
 
 -   [GIST](https://www.instagram.com/gistbeerandco)
     ([Oud Korenhuis/Place de la Vieille Halle aux Blés 30](https://maps.app.goo.gl/QNFAr5GGiWP5bmVz6))
@@ -93,6 +95,12 @@ from the historic city centre and outside the area known as the "pentagon"
 (look on a map and notice a more or less pentagonal area surrounded by bigger 
 roads and you'll know what I mean). I mention those places that are closest
 to the city centre only:
+
+-   The [Wolf food court](https://wolf.be/) 
+    ([Wolvengracht/Rue du Fossé aus Loups 50](https://maps.app.goo.gl/zHNTTg9A9wsSxYm79)).
+    has its own microbrewery. You can order their beer in the middle of the hall. 
+    From all breweries and brewery taprooms mentioned here, this one is closest to the
+    Grande Place and central station.
 
 -   [Brussels Beer Project](https://beerproject.be/) 
     started as a very small brewery but thanks to good marketing,
@@ -118,8 +126,10 @@ to the city centre only:
 
         They serve pizza also and are open every day.
 
-    -   A bit further in Saint-Gilles is 
-        [Moeder Lambic Original](https://www.moederlambic.com/)
+    Two other places in Saint-Gilles that are not brewery taprooms but regular craft beer bars
+    well worth a visit are:
+
+    -   [Moeder Lambic Original](https://www.moederlambic.com/)
         ([Savoistraat/Rue de Savoie 68](https://maps.app.goo.gl/yU1r7mZFRPjZZEUg7)).
         A good place to drink the beer type that the Brussels area is most known for,
         Geuze and Lambic.

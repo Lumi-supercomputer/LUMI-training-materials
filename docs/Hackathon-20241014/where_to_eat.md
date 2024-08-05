@@ -12,13 +12,15 @@ so any dish based on them, has disappeared.
 The first two are particular favourites of me, and after that I focus more on certain areas
 with lots of restaurants.
 
--   [Brasserie des Alexiens](https://www.brasseriedesalexiens.be/) (Rue des Alexiens/Cellebroersstraat 63)
+-   [Brasserie des Alexiens](https://www.brasseriedesalexiens.be/) 
+    ([Rue des Alexiens/Cellebroersstraat 63](https://maps.app.goo.gl/SdjPCkGM1oLWbBfE8))
     It opens only at 7pm. I've been there a few times with guests already who are always very satisfied.
     A highly recommended place. It is a bit more expensive, but then you also get a bit more space than in
     most other restaurants in this list. The place is in a former monastery.
     -   The bar [La Porte Noir](https://www.laportenoire.be/) next door is a good option for a beer before or afterwards.
   
--   [La porteuse d'eau](https://laporteuse.eu/en) (Avenue Jean Volders/Jean Voldersslaan 48)
+-   [La porteuse d'eau](https://laporteuse.eu/en) 
+    ([Avenue Jean Volders/Jean Voldersslaan 48](https://maps.app.goo.gl/7UhCW9KhghWZ6x4Y7))
     Interesting Art Deco building and interior, and the food is very much OK. It is a bit further away
     but still interesting for its architecture. There are more Art Deco restaurants in Brussels,
     but this one has the best reputation for the food. The vegetarian options are very limited though.
@@ -36,7 +38,7 @@ with lots of restaurants.
     -   Next to it is [Brasserie Greenwich Brussels](https://maps.app.goo.gl/PygkK1Y7W8D6Uh9N8),
         also with an interesting interior and said to be a good place.
     -   Diagonally opposite, at the corner of the street, is
-        [9 et Voisins](https://9-et-voisins.be/nl), another busy place with a good reputation.
+        [9 et Voisins](https://9-et-voisins.be/), another busy place with a good reputation.
         ([Google Maps](https://maps.app.goo.gl/SE1fVfLuHJ4Az9SdA))
 
 -   And in the same area: Sint-Goriksplein/Place Saint-Géry and in particular two streets leading to that
@@ -83,6 +85,7 @@ with lots of restaurants.
          ([Onderrichtstraat/Rue de l'Enseignement 18](https://maps.app.goo.gl/mdkoTwKP9qXXfNuu8))
          is a South-American restaurant with rave reviews on Google Maps, but also always busy which
          is already an indication.
+
 -   Beenhouwersstraat/Rue des Bouchers and in its extension, Grétystraat/Rue Gréty: This is the tourist trap
     area in Brussels when it comes to food. It may be fun to walk through especially the Rue des Bouchers,
     but but don't be tempted by the man at the door who lures you in with offers that seem interesting.
@@ -91,7 +94,8 @@ with lots of restaurants.
 
     Some places that range from acceptable to very good:
 
-    -   [Le Marmiton](https://lemarmiton.be/): A very good restaurant at the corner of the Galerie de la Reine.
+    -   [Le Marmiton](https://lemarmiton.be/): A very good restaurant at 
+        [the corner of the Galerie de la Reine](https://maps.app.goo.gl/FgvAAzGzwZBvuxH97).
         A bit more pricey, and it may be hard to find a table there without a reservation. But it has been
         recommended to me by FWO and is a restaurant they often use for dinners with their review boards.
     -   [Aux Armes de Bruxelles](https://auxarmesdebruxelles.com/en/home-2/) 
