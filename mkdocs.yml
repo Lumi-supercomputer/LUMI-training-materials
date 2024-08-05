@@ -51,6 +51,8 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - Hackathon October 2024:
+    - Hackathon-20241014/index.md
   - Performance Analysis & Optimization June 2024:
     - paow-20240611/index.md
   - AI workshop May 2024:
@@ -61,8 +63,6 @@ nav:
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - Comprehensive LUMI April 2024:
     - 4day-20240423/index.md
-  - Profiling November 2023:
-    - Profiling-20231122/index.md
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
@@ -78,6 +78,8 @@ nav:
       - I/O and file systems: 1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices.md
       - LUMI support: 1day-20240208/video_09_LUMI_User_Support.md
       - Documentation: 1day-20240208/A01_Documentation.md
+    - Profiling November 2023:
+      - Profiling-20231122/index.md
     - Comprehensive LUMI October 2023:
       - 4day-20231003/index.md
     - "1-day September 2023":
