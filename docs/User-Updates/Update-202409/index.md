@@ -108,6 +108,8 @@ Some enhancements were made to the EasyBuild configuration. Note that the name o
 `ebfiles_repo` to align with the standard name used by EasyBuild on other systems.
 The first time you load the `EasyBuild-user` module, it will try to adapt the name in
 your installation. The new configuration now also supports custom easyblocks in all
-repositories that are searched for easyconfig files.
+repositories that are searched for easyconfig files. On the login nodes, the level of
+parallelism for parallel build operations is restricted to 16 to not overload the login
+nodes and as a higher level of parallelism rarely generates much gains.
 
 
