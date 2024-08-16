@@ -455,6 +455,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    August-September 2024
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -464,6 +475,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#major-changes-to-the-programming-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Major changes to the programming environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lumi-software-stacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      The LUMI software stacks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2676,6 +2724,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#major-changes-to-the-programming-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Major changes to the programming environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lumi-software-stacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      The LUMI software stacks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2690,22 +2764,55 @@
 
 
 <h1 id="changes-after-the-update-of-august-september-2024">Changes after the update of August-September 2024<a class="headerlink" href="#changes-after-the-update-of-august-september-2024" title="Permanent link">&para;</a></h1>
-<p>Major changes to the programming environments:</p>
+<p><strong>This page will be updated as we learn about problems with the system after the
+update and figure out workarounds for problems. Even though this time we had the
+opportunity to do more testing then during previous updates, it was not on the 
+main system and the system was also not a full copy of LUMI. Moreover, it turns out
+that there are always users who use the system in a different way than we expected
+and run into problems that we did not expect.</strong></p>
+<p>Almost all software components on LUMI have received an update during the past system
+maintenance. The user-facing updates are:</p>
 <ul>
+<li>
+<p>The operating system is now SUSE Enterprise Linux 15 SP5 on the login nodes
+    (formerly SP4), and the matching version of Cray Operating System on the
+    compute nodes.</p>
+</li>
+<li>
+<p>Slurm is upgraded to version 23.02.7.</p>
+</li>
+<li>
+<p>The libfabric CXI provider has also been upgraded to a newer version. </p>
+</li>
 <li>
 <p>ROCm 6.0.3 is now the default ROCm version.</p>
 <p>The installed driver should be able to install ROCm version 5.6 to 6.2,
 but that does not imply that all of those versions will work with all
 versions of the Cray Programming Environment.</p>
 </li>
+</ul>
+<h2 id="major-changes-to-the-programming-environments">Major changes to the programming environments<a class="headerlink" href="#major-changes-to-the-programming-environments" title="Permanent link">&para;</a></h2>
+<p>Updating ROCm on LUMI is not as trivial as it seems. There are other components
+in the system that depend on ROCm also, and the most noteworthy of these is
+GPU-aware MPI. MPI is a very tricky piece of software on a supercomputer:
+It has to link with the applications on the system, but also needs to work
+closely together with the lower-level communication libraries on the system 
+(libfabric and the CXI provider on LUMI), the GPU accelerator driver and libraries
+for GPU-aware MPI (so the ROCm stack on LUMI), and with shared memory 
+communication/support libraries in the kernel (HPE uses xpmem). Any change
+to one of those components may require a change in the MPI library. 
+So you can understand that updating a system is not as simple as it may 
+appear, and the ROCm update has inevitably other consequences on the system:</p>
+<ul>
 <li>
 <p>The new 24.03 programming environment is the <strong>only programming environment
-    that is fully supported by HPE</strong> as it is the only programming environment on
+    that is fully supported by HPE</strong> on the new system configuration
+    as it is the only programming environment on
     the system with official support for the current version of the operating
     system and ROCm 6.0.</p>
 <p>It is therefore also the system default version of the programming environment.</p>
-<p>This implies that if you experience problems, the answer might be that you
-will have to move to 24.03 or at least try if the problems occur there too.</p>
+<p><strong>This implies that if you experience problems, the answer might be that you
+will have to move to 24.03 or at least try if the problems occur there too.</strong></p>
 </li>
 <li>
 <p>The second new programming environment on the system is 23.12. This is offered
@@ -2713,8 +2820,12 @@ will have to move to 24.03 or at least try if the problems occur there too.</p>
     version does not officially support ROCm 6.0.</p>
 </li>
 <li>
-<p>Older programming environments on the system are offered "as is" as they do 
-    not support the current version of the OS nor do they support ROCm 6.</p>
+<p>The 23.09 programming environment is also still on the system. It does
+    support SUSE 15SP5, but it does not officially support ROCm 6.0.</p>
+</li>
+<li>
+<p>Older programming environments on the system are offered "as is" as they 
+    support neither the current version of the OS nor ROCm 6.</p>
 <p>In fact, even repairing by trying to install the user-level libraries of older 
 versions of ROCm may not be a solution, as the versions that are fully
 supported by those programming environments are not supported by the current
@@ -2745,6 +2856,7 @@ of the <code>craype</code> wrapper module for that version of the CPE.</p>
 </ul>
 </li>
 </ul>
+<h2 id="the-lumi-software-stacks">The LUMI software stacks<a class="headerlink" href="#the-lumi-software-stacks" title="Permanent link">&para;</a></h2>
 <p>We are still in the process of building and installing new software stacks based on
 the 23.12 and 24.03 versions of the CPE. The <code>LUMI/23.12</code> stack will closely resemble
 the <code>23.09</code> stack as when we started preparing it, it was expected that this stack too
@@ -2756,6 +2868,12 @@ software stack are unpredictable, we do not make any promises about a specific d
 24.03, the default version of the LUMI stack will remain 23.09 until 24.03 is sufficiently
 complete. We do encourage all users to <strong>never</strong> load the <code>LUMI</code> module without specifying
 a version, as that will protect your jobscripts from future changes on the system.</p>
+<p>Some enhancements were made to the EasyBuild configuration. Note that the name of the
+<code>ebrepo_files</code> subdirectory of <code>$EBU_USER_PREFIX</code> and <code>/appl/lumi/mgmt</code> is now changed to
+<code>ebfiles_repo</code> to align with the standard name used by EasyBuild on other systems.
+The first time you load the <code>EasyBuild-user</code> module, it will try to adapt the name in
+your installation. The new configuration now also supports custom easyblocks in all
+repositories that are searched for easyconfig files.</p>
 
 
 
