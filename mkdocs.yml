@@ -43,6 +43,7 @@ nav:
   - Home: index.md
   - User Updates:
     - User-Updates/index.md
+    - August-September 2024: User-Updates/Update-202409/index.md
     - October-November 2023: User-Updates/Update-202311/index.md
     - August 2023: 
       - User-Updates/Update-202308/index.md
@@ -143,6 +144,7 @@ plugins:
           ai-latest.md: ai-20240529/index.md
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
+          update-202409.md: User-Updates/Update-202409/index.md
           #Amsterdam-1.md: 2day-20240502/E03_Exercises_1.md
           #Amsterdam-2.md: 2day-20240502/E04_Exercises_2.md
           #Amsterdam-3.md: 2day-20240502/E05_Exercises_3.md
