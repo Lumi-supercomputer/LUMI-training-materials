@@ -4,7 +4,7 @@
 
 **This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though this time we had the
-opportunity to do more testing then during previous updates, it was not on the 
+opportunity to do more testing then during previous updates, most testing was not on the 
 main system and the system was also not a full copy of LUMI. Moreover, it turns out
 that there are always users who use the system in a different way than we expected
 and run into problems that we did not expect.**
@@ -27,6 +27,8 @@ maintenance. The user-facing updates are:
     versions of the Cray Programming Environment. Each version of the Cray
     Programming Environment has only been tested with one or two versions of
     ROCm.
+
+-   Two new programming environments have been installed, see the next section.
 
 
 ## Major changes to the programming environments
@@ -55,9 +57,14 @@ appear, and the ROCm update has inevitably other consequences on the system:
 
     **This implies that if you experience problems, the answer might be that you
     will have to move to 24.03 or at least try if the problems occur there too.
-    The LUMI User Support Team will focus its efforts on making 24.03 available as
-    soon as possible and make it as complete as possible. We only support newer
+    The LUMI User Support Team will focus its efforts on making the software stack 
+    for 24.03 as complete as possible as soon as we can, and a lot of it is already
+    on the system. We only support newer
     versions of software though.**
+
+    The CCE and ROCm compilers in this programming environment are both based on 
+    Clang/LLVM 17 while the AOCC compiler (module `aocc/4.1.0`) is based on
+    Clang/LLVM 16.
 
 -   The second new programming environment on the system is 23.12. This is offered
     "as is", and problems cannot be excluded, especially with GPU software, as this
@@ -74,7 +81,7 @@ appear, and the ROCm update has inevitably other consequences on the system:
     ROCm 6.0, this is not possible. It may be better to recompile all GPU software,
     and this will be particularly troublesome with `PrgEnv-amd`/`cpeAMD` as you now
     get a much newer but also much stricter compiler based on Clang 17 rather than Clang
-    14. The LUST has recompiled the central software stack for LUMI-G and had to remove
+    1.  The LUST has recompiled the central software stack for LUMI-G and had to remove
     some packages due to compatibility problems with the newer and more strict compilers.
 
 -   Older programming environments on the system are offered "as is" as they 
@@ -113,13 +120,13 @@ appear, and the ROCm update has inevitably other consequences on the system:
 
 ## The LUMI software stacks
 
-We are still in the process of building and installing new software stacks based on
+We are building new software stacks based on 
 the 23.12 and 24.03 versions of the CPE. The `LUMI/23.12` stack will closely resemble
 the `23.09` stack as when we started preparing it, it was expected that this stack too
 would have been fully supported by HPE (but then we were planning an older version of
 ROCm), while the `24.03` stack contains more updates to packages in the central
-installation. They will appear on the system when ready. Since problems building a
-software stack are unpredictable, we do not make any promises about a specific date.
+installation. Most of `24.03` is already on the system; `23.12` will appear when it is 
+sufficiently ready.
 
 Note that the [LUMI documentation](https://docs.lumi-supercomputer.eu) 
 will receive several updates in the first weeks after the maintenance, and in particular the
@@ -132,9 +139,10 @@ using 24.03 to make newer versions of software available. However, as 24.03 beca
 only fully supported version due to the switch to ROCm 6.0, the LUST decided to refocus
 efforts on bringing 24.03 first to the system.
 
-Note that even though the system default version of the programming environment is
-24.03, the default version of the LUMI stack will remain 23.09 until 24.03 is sufficiently
-complete. We do encourage all users to **never** load the `LUMI` module without specifying
+Since the `LUMI/24.03` software stack is sufficiently ready and since it is the only stack
+we can truly support, it is also the default software stack so that it also aligns with the
+system default version of the programming environment.
+In any case, we do encourage all users to **never** load the `LUMI` module without specifying
 a version, as that will protect your jobscripts from future changes on the system.
 
 Some enhancements were made to the EasyBuild configuration. Note that the name of the
@@ -145,6 +153,11 @@ your installation. The new configuration now also supports custom easyblocks in 
 repositories that are searched for easyconfig files. On the login nodes, the level of
 parallelism for parallel build operations is restricted to 16 to not overload the login
 nodes and as a higher level of parallelism rarely generates much gains.
+
+**Note that we have put some effort in testing LUMI/23.09 and have rebuild the GPU version of
+the packages in LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
+may cause problems. However, we will not invest time in solving problems with older versions
+for which we already indicated that there would be problems.**
 
 
 ## How to get running again?
@@ -158,15 +171,51 @@ jobs that hang or produce incorrect results for other reasons.
 
     You may want to cancel jobs that are still in the queue from before the maintenance.
 
--   Do consider recompiling GPU software. In fact, we have seen that for software that
+-   As [explained in the courses](http://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/02_CPE/#warning-1-you-do-not-always-get-what-you-expect), by default the HPE Cray PE will use
+    system default versions of MPI etc., which are those of the 24.03 PE, even if older
+    modules are loaded. The idea behind this is that in most cases the latest one is the
+    most bug-free one and best adapted to the current OS and drivers on the system.
+
+    If that causes problems, you can try running using the exact versions of the libraries
+    that you actually selected. 
+
+    For this, you either prepend `LD_LIBRARY_PATH` with `CRAY_LD_LIBRARY_PATH`:
+
+    ```bash
+    export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+    ```
+
+    or, even simpler, load the module `lumi-CrayPath` after loading all modules and 
+    reload this module after every module change.
+
+    We expect mostly problems for GPU applications that have not been recompiled with 24.03
+    and ROCm 6 as there you might be mixing ROCm 5 libraries and ROCm 6 libraries as the
+    latter are used by the default MPI libraries.
+
+-   Something rather technical: Sometimes software installation procedures code paths to
+    libraries in the executable. The mechanisms that Linux uses for this are called rpath
+    and runpath. Binaries compiled before the system update may now try to look for libraries
+    in places where they no longer are, or may cause loading versions of libraries that are
+    no longer compatible with the system while you may be thinking it will load a newer version
+    through the modules that you selected or the default libraries.
+
+    Applications and libraries with known problems now or in the past are 
+    [OpenFOAM](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/o/OpenFOAM/),
+    [CDO](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/CDO/) and
+    [libdap](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/libdap/).
+
+    There is no other solution to this problem than to completely reinstall these packages,
+    and likely you'll have to use the latest compiler and/or LUMI stack to be fully safe.
+
+-   Do consider recompiling GPU software, even if it still seems to work just fine. 
+    In fact, we have seen that for software that
     could be recompiled in the LUMI/23.09 stack, performance increased due to the much
     better optimisations in the much newer ROCm version.
 
 -   Consider moving to the 24.03 programming environment, and if you are using the 
-    LUMI stacks, to the LUMI/24.03 stack as soon as the latter is available and complete
-    enough. Much work has already been done in preparing EasyBuild recipes for 
-    user-installable packages also. Those will become available as soon as the central
-    packages they depend upon, become available.
+    LUMI stacks, to the LUMI/24.03 stack, as soon as possible. 
+    Much work has already been done in preparing EasyBuild recipes for 
+    user-installable packages also.
 
 -   For users using containers: Depending on how you bind Cray MPICH to the container and
     which version of Cray MPICH you use for that, you may have to bind additional packages from
