@@ -502,9 +502,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-programming-environments" class="md-nav__link">
+  <a href="#unsupported-programming-environments" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported programming environments
+      (Un)supported programming environments
     </span>
   </a>
   
@@ -2774,9 +2774,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-programming-environments" class="md-nav__link">
+  <a href="#unsupported-programming-environments" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported programming environments
+      (Un)supported programming environments
     </span>
   </a>
   
@@ -2864,7 +2864,7 @@ ROCm.</p>
 </li>
 </ul>
 <h2 id="major-changes-to-the-programming-environments">Major changes to the programming environments<a class="headerlink" href="#major-changes-to-the-programming-environments" title="Permanent link">&para;</a></h2>
-<h3 id="supported-programming-environments">Supported programming environments<a class="headerlink" href="#supported-programming-environments" title="Permanent link">&para;</a></h3>
+<h3 id="unsupported-programming-environments">(Un)supported programming environments<a class="headerlink" href="#unsupported-programming-environments" title="Permanent link">&para;</a></h3>
 <p>Updating ROCm on LUMI is not as trivial as it seems. There are other components
 in the system that depend on ROCm also, and the most noteworthy of these is
 GPU-aware MPI. MPI is a very tricky piece of software on a supercomputer:
@@ -2881,7 +2881,7 @@ appear, and the ROCm update has inevitably other consequences on the system:</p>
 <p>The new 24.03 programming environment is the <strong>only programming environment
     that is fully supported by HPE</strong> on the new system configuration
     as it is the only programming environment on
-    the system with official support for the current version of the operating
+    the system with official support for both the current version of the operating
     system and ROCm 6.0.</p>
 <p>It is therefore also the system default version of the programming environment.</p>
 <p><strong>This implies that if you experience problems, the answer might be that you
@@ -2905,32 +2905,35 @@ Clang/LLVM 16.</p>
     support SUSE 15SP5, but it does not officially support ROCm 6.0. It was
     developed to be used with ROCm 5.2 or 5.5, depending on the version of the OS.</p>
 <p>As originally we planned to move to ROCm 5.7 instead of 6.0, it was expected
-that we would still be able to support this version of the programming environment.
+that we would still be able to support this version of the programming environment
+as the ROCm versions are close enough (this had worked in the past).
 However, due to the larger than expected upgrade of the system, moving directly to
 ROCm 6.0, this is not possible. It may be better to recompile all GPU software,
 and this will be particularly troublesome with <code>PrgEnv-amd</code>/<code>cpeAMD</code> as you now
 get a much newer but also much stricter compiler based on Clang 17 rather than Clang
-1.  The LUST has recompiled the central software stack for LUMI-G and had to remove
+14.  The LUST has recompiled the central software stack for LUMI-G and had to remove
 some packages due to compatibility problems with the newer and more strict compilers.</p>
 </li>
 <li>
 <p>Older programming environments on the system are offered "as is" as they 
     support neither the current version of the OS nor ROCm 6.</p>
 <p>In fact, even repairing by trying to install the user-level libraries of older 
-versions of ROCm may not be a solution, as the versions that are fully
+versions of ROCm may not be a solution, as the ROCm versions that are fully
 supported by those programming environments are not supported by the current
 ROCm driver on the system, and there can be only one driver.</p>
 <p>Expect problems in particular with GPU code. In most, if not all cases, the 
 proposed solution will be "upgrade to 24.03" as this is also the version for which
-we can receive upstream support.</p>
+we can receive upstream support. However, we even cannot guarantee the proper working
+of all CPU code, and recompiling may not be enough to solve problems. (In fact, we have
+had problems with some software on 22.08 already for over one year.)</p>
 </li>
 </ul>
 <h3 id="some-major-changes-to-the-programming-environment">Some major changes to the programming environment:<a class="headerlink" href="#some-major-changes-to-the-programming-environment" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>The <code>amd/6.0.3</code> module does not offer the complete ROCm environment as older
-    versions did. So you may now have to load the <code>rocm/6.0.3</code> module also pretty
-    much as was needed with the other programming environments for complete ROCm
+    versions did. So you may now have to load the <code>rocm/6.0.3</code> module also 
+    as was already needed with the other programming environments for complete ROCm
     support.</p>
 </li>
 <li>
@@ -2944,31 +2947,34 @@ right version of the wrappers is used with each type of GNU compiler module.
 If you are not using the LUMI stacks, it is best to use the proper <code>cpe</code> module
 to select a version of the programming environment and then use the default version
 of the <code>craype</code> wrapper module for that version of the CPE.</p>
+<p>You will have to be extra careful when installing software and double check if the
+right compilers are used. Unless you tell the configuration process exactly which
+compilers to use, it may pick up the system gcc instead which is rather old and just
+there to ensure that there is a level of compatibility between system libraries for
+all SUSE 15 versions.</p>
 </li>
 </ul>
 <h2 id="the-lumi-software-stacks">The LUMI software stacks<a class="headerlink" href="#the-lumi-software-stacks" title="Permanent link">&para;</a></h2>
 <p>We are building new software stacks based on 
-the 23.12 and 24.03 versions of the CPE. The <code>LUMI/23.12</code> stack will closely resemble
+the 23.12 and 24.03 versions of the CPE. The <code>LUMI/23.12</code> stack closely resembles
 the <code>23.09</code> stack as when we started preparing it, it was expected that this stack too
 would have been fully supported by HPE (but then we were planning an older version of
 ROCm), while the <code>24.03</code> stack contains more updates to packages in the central
-installation. Most of <code>24.03</code> is already on the system; <code>23.12</code> will appear when it is 
-sufficiently ready.</p>
+installation. Much of <code>24.03</code> and <code>23.12</code> was ready when the system was released again
+to users.</p>
 <p>Note that the <a href="https://docs.lumi-supercomputer.eu">LUMI documentation</a> 
-will receive several updates in the first weeks after the maintenance, and in particular the
+will receive several updates in the first weeks after the maintenance. The
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
-will not be fully consistent with what can be found on the system when it comes to the
-23.12 and 24.03 versions of the LUMI stack. The reason for this is that the preparations
-started when it was expected that 23.12 would also be fully supported and our plan was
-to make this as similar as possible to 23.09 to have a fast migration path for users while,
-using 24.03 to make newer versions of software available. However, as 24.03 became the
-only fully supported version due to the switch to ROCm 6.0, the LUST decided to refocus
-efforts on bringing 24.03 first to the system.</p>
+may not be fully consistent with what can be found on the system when it comes to the
+23.12 and 24.03 versions of the LUMI stack as we had originally intended another
+order of installing software as it was expected that 23.12 would be fully supported
+by HPE, something that was not possible anymore after the late decision to move to
+ROCm 6.0 instead.</p>
 <p>Since the <code>LUMI/24.03</code> software stack is sufficiently ready and since it is the only stack
 we can truly support, it is also the default software stack so that it also aligns with the
 system default version of the programming environment.
 In any case, we do encourage all users to <strong>never</strong> load the <code>LUMI</code> module without specifying
-a version, as that will protect your jobscripts from future changes on the system.</p>
+a version, as that will better protect your jobscripts from future changes on the system.</p>
 <p>Some enhancements were made to the EasyBuild configuration. Note that the name of the
 <code>ebrepo_files</code> subdirectory of <code>$EBU_USER_PREFIX</code> and <code>/appl/lumi/mgmt</code> is now changed to
 <code>ebfiles_repo</code> to align with the standard name used by EasyBuild on other systems.
@@ -2979,8 +2985,9 @@ parallelism for parallel build operations is restricted to 16 to not overload th
 nodes and as a higher level of parallelism rarely generates much gains.</p>
 <p><strong>Note that we have put some effort in testing LUMI/23.09 and have rebuild the GPU version of
 the packages in LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
-may cause problems. However, we will not invest time in solving problems with older versions
-for which we already indicated that there would be problems.</strong></p>
+may cause problems. However, we will not invest time in solving problems with even older versions
+of the LUMI stacks for which we already indicated before the maintenance
+that there would be problems.</strong></p>
 <h2 id="how-to-get-running-again">How to get running again?<a class="headerlink" href="#how-to-get-running-again" title="Permanent link">&para;</a></h2>
 <p>We encourage users to be extremely careful in order to not waste lots of billing units on
 jobs that hang or produce incorrect results for other reasons.</p>
@@ -3008,12 +3015,12 @@ and ROCm 6 as there you might be mixing ROCm 5 libraries and ROCm 6 libraries as
 latter are used by the default MPI libraries.</p>
 </li>
 <li>
-<p>Something rather technical: Sometimes software installation procedures code paths to
+<p>Something rather technical: Sometimes software installation procedures hard-code paths to
     libraries in the executable. The mechanisms that Linux uses for this are called rpath
     and runpath. Binaries compiled before the system update may now try to look for libraries
     in places where they no longer are, or may cause loading versions of libraries that are
     no longer compatible with the system while you may be thinking it will load a newer version
-    through the modules that you selected or the default libraries.</p>
+    through the modules that you selected or through the default libraries.</p>
 <p>Applications and libraries with known problems now or in the past are 
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/o/OpenFOAM/">OpenFOAM</a>,
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/CDO/">CDO</a> and
