@@ -2973,7 +2973,11 @@ this is also being handled by the module environment which will offer the
 <li>
 <p>23.12 and 24.03 use the <code>gcc-native</code> modules. They will, as older versions of the
     programming environment are phased out, completely replace the <code>gcc</code> modules.</p>
-<p>Note that using the GNU compilers without wrappers is different from before
+<p>The former <code>gcc</code> modules provided a version of the GNU compilers packaged by HPE
+and hence installed in <code>/opt/cray</code>. The new <code>gcc-native</code> modules provide the GNU 
+compilers from development packages in the SUSE Linux distribution. Hence
+executables and runtime libraries have moved to the standard SUSE locations.</p>
+<p>Note that using the GNU compilers without wrappers is therefore different from before
 in these modules. E.g., in <code>gcc-native/12.3</code>, the compilers are now called
 <code>gcc-12</code>, <code>g++-12</code> and <code>gfortran-12</code>.</p>
 <p>When using the GNU compilers with the wrappers, one should make sure that the
