@@ -126,8 +126,13 @@ appear, and the ROCm update has inevitably other consequences on the system:
 
 -   23.12 and 24.03 use the `gcc-native` modules. They will, as older versions of the
     programming environment are phased out, completely replace the `gcc` modules.
+    
+    The former `gcc` modules provided a version of the GNU compilers packaged by HPE
+    and hence installed in `/opt/cray`. The new `gcc-native` modules provide the GNU 
+    compilers from development packages in the SUSE Linux distribution. Hence
+    executables and runtime libraries have moved to the standard SUSE locations.
 
-    Note that using the GNU compilers without wrappers is different from before
+    Note that using the GNU compilers without wrappers is therefore different from before
     in these modules. E.g., in `gcc-native/12.3`, the compilers are now called
     `gcc-12`, `g++-12` and `gfortran-12`.
 
