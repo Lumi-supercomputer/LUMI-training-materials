@@ -4,6 +4,8 @@
 The instructions for getting to run again are deliberately towards the bottom
 of this text!**
 
+<span style="color:DarkBlue">Recent changes are in dark blue.</span>
+
 This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though this time we had the
 opportunity to do more testing then during previous updates, most testing was not on the 
@@ -195,6 +197,20 @@ the packages in the LUMI/23.09 central stack to as much as possible remove refer
 may cause problems. However, we will not invest time in solving problems with even older versions
 of the LUMI stacks for which we already indicated before the maintenance
 that there would be problems.**
+
+
+## <span style="color:DarkBlue">Other software stacks</span>
+
+<span style="color:DarkBlue">Local software stacks, with the one provided in `/appl/local/csc` as the most prominent example,
+are not managed by the LUMI User Support Team. They have to be updated by the organisation who
+provides them and LUST cannot tell when they will do that.</span>
+
+<span style="color:DarkBlue">Expect that modules my not function anymore or become unavailable
+for a while while updates are being made. If the package has an equivalent in the 
+LUST-provided LUMI software stack and a new user-installable EasyBuild recipe is ready already
+(see the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+for all available software),
+you can consider switching to those.</span>
 
 
 ## How to get running again?
