@@ -1,13 +1,15 @@
 # Changes after the update of August-September 2024
 
-**Please read to the bottom of this page before starting to run again on LUMI!.**
+**Please read to the bottom of this page before starting to run again on LUMI!.
+The instructions for getting to run again are deliberately towards the bottom
+of this text!**
 
-**This page will be updated as we learn about problems with the system after the
+This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though this time we had the
 opportunity to do more testing then during previous updates, most testing was not on the 
 main system and the system was also not a full copy of LUMI. Moreover, it turns out
 that there are always users who use the system in a different way than we expected
-and run into problems that we did not expect.**
+and run into problems that we did not expect.
 
 Almost all software components on LUMI have received an update during the past system
 maintenance. The user-facing updates are:
@@ -16,11 +18,12 @@ maintenance. The user-facing updates are:
     (formerly SP4), and the matching version of Cray Operating System on the
     compute nodes.
 
--   Slurm is upgraded to version 23.02.7.
+-   Slurm is upgraded to [version 23.02.7](https://slurm.schedmd.com/archive/slurm-23.02.7/man_index.html).
 
 -   The libfabric CXI provider has also been upgraded to a newer version. 
 
--   ROCm 6.0.3 is now the default ROCm version.
+-   ROCm 6.0.3 is now the system-installed and default ROCm version
+    and ROCm 5.2.3 is no longer on the system.
 
     The installed driver should be able to install ROCm version 5.6 to 6.2,
     but that does not imply that all of those versions will work with all
@@ -29,6 +32,9 @@ maintenance. The user-facing updates are:
     ROCm.
 
 -   Two new programming environments have been installed, see the next section.
+
+**As after previous maintenance periods, the visualisation nodes in the `lumid`
+partition are not yet available as they require a slightly different setup.**
 
 
 ## Major changes to the programming environments
@@ -49,9 +55,9 @@ appear, and the ROCm update has inevitably other consequences on the system:
 
 -   The new 24.03 programming environment is the **only programming environment
     that is fully supported by HPE** on the new system configuration
-    as it is the only programming environment on
+    as it is the **only programming environment on
     the system with official support for both the current version of the operating
-    system and ROCm 6.0.
+    system and ROCm 6.0.**
 
     It is therefore also the system default version of the programming environment.
 
@@ -59,7 +65,7 @@ appear, and the ROCm update has inevitably other consequences on the system:
     will have to move to 24.03 or at least try if the problems occur there too.
     The LUMI User Support Team will focus its efforts on making the software stack 
     for 24.03 as complete as possible as soon as we can, and a lot of it is already
-    on the system. We only support newer
+    on the system. We only support relatively recent
     versions of software though.**
 
     The CCE and ROCm compilers in this programming environment are both based on 
@@ -84,6 +90,7 @@ appear, and the ROCm update has inevitably other consequences on the system:
     get a much newer but also much stricter compiler based on Clang 17 rather than Clang
     14.  The LUST has recompiled the central software stack for LUMI-G and had to remove
     some packages due to compatibility problems with the newer and more strict compilers.
+    These packages return in newer versions in the 24.03 stack.
 
 -   Older programming environments on the system are offered "as is" as they 
     support neither the current version of the OS nor ROCm 6.
@@ -100,7 +107,17 @@ appear, and the ROCm update has inevitably other consequences on the system:
     had problems with some software on 22.08 already for over one year.)
 
 
-###  Some major changes to the programming environment:
+###  Some major changes to the programming environment
+
+-   Just as after previous updates, the module system has been tuned to load
+    the current ROCm module,
+    `rocm/6.0.3`, when you try to load one of the previous system ROCm versions,
+    including `rocm/5.2.3`. In some cases, programs will run just fine with the
+    newer version, in other cases issues may appear.
+
+    Some version of the HPE Cray PE also try to load non-existing ROCm versions and
+    this is also being handled by the module environment which will offer the
+    `rocm/6.0.3` and `amd/6.0.3` modules instead.
 
 -   The `amd/6.0.3` module does not offer the complete ROCm environment as older
     versions did. So you may now have to load the `rocm/6.0.3` module also 
@@ -127,6 +144,15 @@ appear, and the ROCm update has inevitably other consequences on the system:
     all SUSE 15 versions.
 
 
+### Known issues with the programming stack
+
+-   The `intro_mpi` manual page for the latest version of Cray MPICH (8.1.29) was missing.
+    Instead, the one from version 8.1.28 is shown which does lack some new information.
+
+    The [web version of the manual page offered by HPE](https://cpe.ext.hpe.com/docs/latest/mpt/mpich/intro_mpi.html)
+    is currently the one from version 8.1.29 though and very interesting reading.
+
+
 ## The LUMI software stacks
 
 We are building new software stacks based on 
@@ -140,11 +166,9 @@ to users.
 Note that the [LUMI documentation](https://docs.lumi-supercomputer.eu) 
 will receive several updates in the first weeks after the maintenance. The
 [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
-may not be fully consistent with what can be found on the system when it comes to the
-23.12 and 24.03 versions of the LUMI stack as we had originally intended another
-order of installing software as it was expected that 23.12 would be fully supported
-by HPE, something that was not possible anymore after the late decision to move to
-ROCm 6.0 instead.
+is mostly consistent with what can be found on the system when it comes to the
+23.12 and 24.03 versions of the LUMI stack, but you may find some EasyConfigs for
+packages that claim to be pre-installed but are not yet on the system.
 
 Since the `LUMI/24.03` software stack is sufficiently ready and since it is the only stack
 we can truly support, it is also the default software stack so that it also aligns with the
@@ -162,7 +186,7 @@ parallelism for parallel build operations is restricted to 16 to not overload th
 nodes and as a higher level of parallelism rarely generates much gains.
 
 **Note that we have put some effort in testing LUMI/23.09 and have rebuild the GPU version of
-the packages in LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
+the packages in the LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
 may cause problems. However, we will not invest time in solving problems with even older versions
 of the LUMI stacks for which we already indicated before the maintenance
 that there would be problems.**
@@ -173,13 +197,29 @@ that there would be problems.**
 We encourage users to be extremely careful in order to not waste lots of billing units on
 jobs that hang or produce incorrect results for other reasons.
 
+-   All GPU jobs have been put in "user hold" mode. It is up to you to release them when you
+    are confident that they will work properly. We recommend to not release them all at
+    once, as they may very well fail or even get stuck until the wall time expires,
+    and this will lead to a lot of wasted billing units on your project that we cannot
+    compensate for.
+
+    To release the jobs again, use the 
+    [`scontrol release` command](https://slurm.schedmd.com/archive/slurm-23.02.7/scontrol.html#OPT_release).
+    It argument is a comma-separated list of jobids, or alternatively you can use 
+    "`jobname=`" with the job's name which would attempt to release all jobs with
+    that name.
+
+    But first continue reading the text below...
+
 -   First check if your software still works properly. This is best done by first
     running a single smaller problem, then scaling up to your intended problem size,
     and only after a successful representative run, submit more jobs.
 
-    You may want to cancel jobs that are still in the queue from before the maintenance.
+    You may want to [cancel jobs](https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html) 
+    that are still in the queue from before the maintenance.
 
--   As [explained in the courses](http://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/02_CPE/#warning-1-you-do-not-always-get-what-you-expect), by default the HPE Cray PE will use
+-   As [explained in the courses](http://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/02_CPE/#warning-1-you-do-not-always-get-what-you-expect), 
+    by default the HPE Cray PE will use
     system default versions of MPI etc., which are those of the 24.03 PE, even if older
     modules are loaded. The idea behind this is that in most cases the latest one is the
     most bug-free one and best adapted to the current OS and drivers on the system.
@@ -209,8 +249,12 @@ jobs that hang or produce incorrect results for other reasons.
 
     Applications and libraries with known problems now or in the past are 
     [OpenFOAM](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/o/OpenFOAM/),
-    [CDO](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/CDO/) and
+    [CDO](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/CDO/),
+    [NCO](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/n/NCO/),
+    [PETSc](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PETSc/) and
     [libdap](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/libdap/).
+
+    This jobs will fail immediately so no billing units will be wasted.
 
     There is no other solution to this problem than to completely reinstall these packages,
     and likely you'll have to use the latest compiler and/or LUMI stack to be fully safe.
@@ -231,7 +275,8 @@ jobs that hang or produce incorrect results for other reasons.
     of ROCm in the container and the MPI libraries which may expect a different version.
     The LUST is also still gaining experience with this.
 
-    We will also update the AI containers as especially for those applications, ROCm 6 should
+    We will also update the AI containers in the coming weeks 
+    as especially for those applications, ROCm 6 should
     have great advantages and support (versions of) software that could not be supported before.
     The initial focus for AI-oriented containers will be on providing base images for containers based on
     ROCm 5.7 up to 6.2, and containers providing recent versions of PyTorch based on those
