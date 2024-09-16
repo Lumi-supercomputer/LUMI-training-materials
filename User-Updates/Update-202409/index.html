@@ -513,7 +513,16 @@
           <li class="md-nav__item">
   <a href="#some-major-changes-to-the-programming-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Some major changes to the programming environment:
+      Some major changes to the programming environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-issues-with-the-programming-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues with the programming stack
     </span>
   </a>
   
@@ -2785,7 +2794,16 @@
           <li class="md-nav__item">
   <a href="#some-major-changes-to-the-programming-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Some major changes to the programming environment:
+      Some major changes to the programming environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-issues-with-the-programming-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known issues with the programming stack
     </span>
   </a>
   
@@ -2830,13 +2848,15 @@
 
 
 <h1 id="changes-after-the-update-of-august-september-2024">Changes after the update of August-September 2024<a class="headerlink" href="#changes-after-the-update-of-august-september-2024" title="Permanent link">&para;</a></h1>
-<p><strong>Please read to the bottom of this page before starting to run again on LUMI!.</strong></p>
-<p><strong>This page will be updated as we learn about problems with the system after the
+<p><strong>Please read to the bottom of this page before starting to run again on LUMI!.
+The instructions for getting to run again are deliberately towards the bottom
+of this text!</strong></p>
+<p>This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though this time we had the
 opportunity to do more testing then during previous updates, most testing was not on the 
 main system and the system was also not a full copy of LUMI. Moreover, it turns out
 that there are always users who use the system in a different way than we expected
-and run into problems that we did not expect.</strong></p>
+and run into problems that we did not expect.</p>
 <p>Almost all software components on LUMI have received an update during the past system
 maintenance. The user-facing updates are:</p>
 <ul>
@@ -2846,13 +2866,14 @@ maintenance. The user-facing updates are:</p>
     compute nodes.</p>
 </li>
 <li>
-<p>Slurm is upgraded to version 23.02.7.</p>
+<p>Slurm is upgraded to <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/man_index.html">version 23.02.7</a>.</p>
 </li>
 <li>
 <p>The libfabric CXI provider has also been upgraded to a newer version. </p>
 </li>
 <li>
-<p>ROCm 6.0.3 is now the default ROCm version.</p>
+<p>ROCm 6.0.3 is now the system-installed and default ROCm version
+    and ROCm 5.2.3 is no longer on the system.</p>
 <p>The installed driver should be able to install ROCm version 5.6 to 6.2,
 but that does not imply that all of those versions will work with all
 versions of the Cray Programming Environment. Each version of the Cray
@@ -2863,6 +2884,8 @@ ROCm.</p>
 <p>Two new programming environments have been installed, see the next section.</p>
 </li>
 </ul>
+<p><strong>As after previous maintenance periods, the visualisation nodes in the <code>lumid</code>
+partition are not yet available as they require a slightly different setup.</strong></p>
 <h2 id="major-changes-to-the-programming-environments">Major changes to the programming environments<a class="headerlink" href="#major-changes-to-the-programming-environments" title="Permanent link">&para;</a></h2>
 <h3 id="unsupported-programming-environments">(Un)supported programming environments<a class="headerlink" href="#unsupported-programming-environments" title="Permanent link">&para;</a></h3>
 <p>Updating ROCm on LUMI is not as trivial as it seems. There are other components
@@ -2880,15 +2903,15 @@ appear, and the ROCm update has inevitably other consequences on the system:</p>
 <li>
 <p>The new 24.03 programming environment is the <strong>only programming environment
     that is fully supported by HPE</strong> on the new system configuration
-    as it is the only programming environment on
+    as it is the <strong>only programming environment on
     the system with official support for both the current version of the operating
-    system and ROCm 6.0.</p>
+    system and ROCm 6.0.</strong></p>
 <p>It is therefore also the system default version of the programming environment.</p>
 <p><strong>This implies that if you experience problems, the answer might be that you
 will have to move to 24.03 or at least try if the problems occur there too.
 The LUMI User Support Team will focus its efforts on making the software stack 
 for 24.03 as complete as possible as soon as we can, and a lot of it is already
-on the system. We only support newer
+on the system. We only support relatively recent
 versions of software though.</strong></p>
 <p>The CCE and ROCm compilers in this programming environment are both based on 
 Clang/LLVM 17 while the AOCC compiler (module <code>aocc/4.1.0</code>) is based on
@@ -2912,7 +2935,8 @@ ROCm 6.0, this is not possible. It may be better to recompile all GPU software,
 and this will be particularly troublesome with <code>PrgEnv-amd</code>/<code>cpeAMD</code> as you now
 get a much newer but also much stricter compiler based on Clang 17 rather than Clang
 14.  The LUST has recompiled the central software stack for LUMI-G and had to remove
-some packages due to compatibility problems with the newer and more strict compilers.</p>
+some packages due to compatibility problems with the newer and more strict compilers.
+These packages return in newer versions in the 24.03 stack.</p>
 </li>
 <li>
 <p>Older programming environments on the system are offered "as is" as they 
@@ -2928,8 +2952,18 @@ of all CPU code, and recompiling may not be enough to solve problems. (In fact, 
 had problems with some software on 22.08 already for over one year.)</p>
 </li>
 </ul>
-<h3 id="some-major-changes-to-the-programming-environment">Some major changes to the programming environment:<a class="headerlink" href="#some-major-changes-to-the-programming-environment" title="Permanent link">&para;</a></h3>
+<h3 id="some-major-changes-to-the-programming-environment">Some major changes to the programming environment<a class="headerlink" href="#some-major-changes-to-the-programming-environment" title="Permanent link">&para;</a></h3>
 <ul>
+<li>
+<p>Just as after previous updates, the module system has been tuned to load
+    the current ROCm module,
+    <code>rocm/6.0.3</code>, when you try to load one of the previous system ROCm versions,
+    including <code>rocm/5.2.3</code>. In some cases, programs will run just fine with the
+    newer version, in other cases issues may appear.</p>
+<p>Some version of the HPE Cray PE also try to load non-existing ROCm versions and
+this is also being handled by the module environment which will offer the
+<code>rocm/6.0.3</code> and <code>amd/6.0.3</code> modules instead.</p>
+</li>
 <li>
 <p>The <code>amd/6.0.3</code> module does not offer the complete ROCm environment as older
     versions did. So you may now have to load the <code>rocm/6.0.3</code> module also 
@@ -2954,6 +2988,15 @@ there to ensure that there is a level of compatibility between system libraries 
 all SUSE 15 versions.</p>
 </li>
 </ul>
+<h3 id="known-issues-with-the-programming-stack">Known issues with the programming stack<a class="headerlink" href="#known-issues-with-the-programming-stack" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The <code>intro_mpi</code> manual page for the latest version of Cray MPICH (8.1.29) was missing.
+    Instead, the one from version 8.1.28 is shown which does lack some new information.</p>
+<p>The <a href="https://cpe.ext.hpe.com/docs/latest/mpt/mpich/intro_mpi.html">web version of the manual page offered by HPE</a>
+is currently the one from version 8.1.29 though and very interesting reading.</p>
+</li>
+</ul>
 <h2 id="the-lumi-software-stacks">The LUMI software stacks<a class="headerlink" href="#the-lumi-software-stacks" title="Permanent link">&para;</a></h2>
 <p>We are building new software stacks based on 
 the 23.12 and 24.03 versions of the CPE. The <code>LUMI/23.12</code> stack closely resembles
@@ -2965,11 +3008,9 @@ to users.</p>
 <p>Note that the <a href="https://docs.lumi-supercomputer.eu">LUMI documentation</a> 
 will receive several updates in the first weeks after the maintenance. The
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>
-may not be fully consistent with what can be found on the system when it comes to the
-23.12 and 24.03 versions of the LUMI stack as we had originally intended another
-order of installing software as it was expected that 23.12 would be fully supported
-by HPE, something that was not possible anymore after the late decision to move to
-ROCm 6.0 instead.</p>
+is mostly consistent with what can be found on the system when it comes to the
+23.12 and 24.03 versions of the LUMI stack, but you may find some EasyConfigs for
+packages that claim to be pre-installed but are not yet on the system.</p>
 <p>Since the <code>LUMI/24.03</code> software stack is sufficiently ready and since it is the only stack
 we can truly support, it is also the default software stack so that it also aligns with the
 system default version of the programming environment.
@@ -2984,7 +3025,7 @@ repositories that are searched for easyconfig files. On the login nodes, the lev
 parallelism for parallel build operations is restricted to 16 to not overload the login
 nodes and as a higher level of parallelism rarely generates much gains.</p>
 <p><strong>Note that we have put some effort in testing LUMI/23.09 and have rebuild the GPU version of
-the packages in LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
+the packages in the LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
 may cause problems. However, we will not invest time in solving problems with even older versions
 of the LUMI stacks for which we already indicated before the maintenance
 that there would be problems.</strong></p>
@@ -2993,13 +3034,28 @@ that there would be problems.</strong></p>
 jobs that hang or produce incorrect results for other reasons.</p>
 <ul>
 <li>
+<p>All GPU jobs have been put in "user hold" mode. It is up to you to release them when you
+    are confident that they will work properly. We recommend to not release them all at
+    once, as they may very well fail or even get stuck until the wall time expires,
+    and this will lead to a lot of wasted billing units on your project that we cannot
+    compensate for.</p>
+<p>To release the jobs again, use the 
+<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/scontrol.html#OPT_release"><code>scontrol release</code> command</a>.
+It argument is a comma-separated list of jobids, or alternatively you can use 
+"<code>jobname=</code>" with the job's name which would attempt to release all jobs with
+that name.</p>
+<p>But first continue reading the text below...</p>
+</li>
+<li>
 <p>First check if your software still works properly. This is best done by first
     running a single smaller problem, then scaling up to your intended problem size,
     and only after a successful representative run, submit more jobs.</p>
-<p>You may want to cancel jobs that are still in the queue from before the maintenance.</p>
+<p>You may want to <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html">cancel jobs</a> 
+that are still in the queue from before the maintenance.</p>
 </li>
 <li>
-<p>As <a href="http://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/02_CPE/#warning-1-you-do-not-always-get-what-you-expect">explained in the courses</a>, by default the HPE Cray PE will use
+<p>As <a href="http://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/02_CPE/#warning-1-you-do-not-always-get-what-you-expect">explained in the courses</a>, 
+    by default the HPE Cray PE will use
     system default versions of MPI etc., which are those of the 24.03 PE, even if older
     modules are loaded. The idea behind this is that in most cases the latest one is the
     most bug-free one and best adapted to the current OS and drivers on the system.</p>
@@ -3023,8 +3079,11 @@ latter are used by the default MPI libraries.</p>
     through the modules that you selected or through the default libraries.</p>
 <p>Applications and libraries with known problems now or in the past are 
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/o/OpenFOAM/">OpenFOAM</a>,
-<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/CDO/">CDO</a> and
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/CDO/">CDO</a>,
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/n/NCO/">NCO</a>,
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PETSc/">PETSc</a> and
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/libdap/">libdap</a>.</p>
+<p>This jobs will fail immediately so no billing units will be wasted.</p>
 <p>There is no other solution to this problem than to completely reinstall these packages,
 and likely you'll have to use the latest compiler and/or LUMI stack to be fully safe.</p>
 </li>
@@ -3046,7 +3105,8 @@ and likely you'll have to use the latest compiler and/or LUMI stack to be fully 
     the system. Note that you may also run into runtime library conflicts between the version
     of ROCm in the container and the MPI libraries which may expect a different version.
     The LUST is also still gaining experience with this.</p>
-<p>We will also update the AI containers as especially for those applications, ROCm 6 should
+<p>We will also update the AI containers in the coming weeks 
+as especially for those applications, ROCm 6 should
 have great advantages and support (versions of) software that could not be supported before.
 The initial focus for AI-oriented containers will be on providing base images for containers based on
 ROCm 5.7 up to 6.2, and containers providing recent versions of PyTorch based on those
