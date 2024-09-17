@@ -161,6 +161,22 @@ high performance from the interconnect. For example,
 The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
 correction in software is not their task**. Some consortium countries may also have a local support
 team that can help.
+<!-- -->
+
+!!! Note "Some restrictions coming from software licenses"
+
+    -   Anaconda cannot be used legally on LUMI, neither can you use Miniconda to pull
+        packages from the Anaconda Public Repository. You have to use alternatives such as
+        [conda-forge](https://conda-forge.org/).
+
+        See point 2.1 of the 
+        ["Anaconda Terms of Service"](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service).
+
+    -   The LUMI support team cannot really help much with VASP as most people in the support 
+        team are not covered by a valid VASP license. VASP licenses typically even contain a list
+        of people who are allowed to touch the source code, and one person per license who can
+        download the source code.
+
 As a user, you have to realise that **not all Linux or even
 supercomputer software will work on LUMI**. This holds even more for software that comes only as
 a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
