@@ -147,22 +147,6 @@ community**.
     invests in packages that are developed by European companies or at least have large development
     teams in Europe.
 
-<!-- BELGIUM
-The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
-correction in software is not their task**. In Flanders some help is possible by the VSC Tier-0 support team
-but do not expect that they will port your whole application.
-As a user, you have to realise that **not all Linux or even
-supercomputer software will work on LUMI**. This holds even more for software that comes only as
-a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
-high performance from the interconnect. For example,
--->
-
-<!-- GENERAL More general version -->
-The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
-correction in software is not their task**. Some consortium countries may also have a local support
-team that can help.
-<!-- -->
-
 !!! Note "Some restrictions coming from software licenses"
 
     -   Anaconda cannot be used legally on LUMI, neither can you use Miniconda to pull
@@ -177,10 +161,25 @@ team that can help.
         of people who are allowed to touch the source code, and one person per license who can
         download the source code.
 
+<!-- BELGIUM
+The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
+correction in software is not their task**. In Flanders some help is possible by the VSC Tier-0 support team
+but do not expect that they will port your whole application.
 As a user, you have to realise that **not all Linux or even
 supercomputer software will work on LUMI**. This holds even more for software that comes only as
 a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
 high performance from the interconnect. For example,
+-->
+
+<!-- GENERAL More general version -->
+The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
+correction in software is not their task**. Some consortium countries may also have a local support
+team that can help.
+As a user, you have to realise that **not all Linux or even
+supercomputer software will work on LUMI**. This holds even more for software that comes only as
+a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
+high performance from the interconnect. For example,
+<!-- -->
 
 -   software that use NVIDIA proprietary programming models and
     libraries needs to be ported. 
