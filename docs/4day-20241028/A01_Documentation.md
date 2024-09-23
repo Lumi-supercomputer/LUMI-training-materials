@@ -10,15 +10,19 @@ and some more.
 
 ## Web documentation
 
--   [Slurm version 22.05.10, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-22.05.10/)
+-   [Slurm version 23.02.7, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-23.02.7/)
 
--   [HPE Cray Programming Environment web documentation](https://cpe.ext.hpe.com/docs/) has only become available in
-    May 2023 but is fairly complete by now. It does contain a lot of HTML-processed man pages in an easier-to-browse
+-   [HPE Cray Programming Environment web documentation](https://cpe.ext.hpe.com/docs/) 
+    contains a lot of HTML-processed man pages in an easier-to-browse
     format than the man pages on the system.
 
     The presentations on debugging and profiling tools referred a lot to pages that can be found on this web site.
     The manual pages mentioned in those presentations are also in the web documentation and are the easiest way
     to access that documentation.
+
+    -   [Specific documentation for CPE 24.03](https://cpe.ext.hpe.com/docs/24.03/index.html)
+
+    -   [Version for the most recent HPE release (may not be on LUMI)](https://cpe.ext.hpe.com/docs/latest/index.html)
 
 -   [Cray PE Github account](https://github.com/PE-Cray) with whitepapers and some documentation.
 
@@ -28,13 +32,17 @@ and some more.
 
 -   [Clang latest version documentation](https://clang.llvm.org/docs/index.html) (Usually for the latest version)
 
-    -   [Clang 13.0.0 version](https://releases.llvm.org/13.0.0/tools/clang/docs/index.html) (basis for aocc/3.2.0)
+    -   [Clang 13.0.0 version](https://releases.llvm.org/13.0.0/tools/clang/docs/index.html) 
+        (basis for aocc/3.2.0)
        
-    -   [Clang 14.0.0 version](https://releases.llvm.org/14.0.0/tools/clang/docs/index.html) (basis for rocm/5.2.3 and amd/5.2.3)
-  
-    -   [Clang 15.0.0 version](https://releases.llvm.org/15.0.0/tools/clang/docs/index.html) (cce/15.0.0 and cce/15.0.1 in 22.12/23.03)
+    -   [Clang 15.0.0 version](https://releases.llvm.org/15.0.0/tools/clang/docs/index.html) 
+        (cce/15.0.0 and cce/15.0.1 in 22.12/23.03)
 
-    -   [Clang 16.0.0 version](https://releases.llvm.org/15.0.0/tools/clang/docs/index.html) (cce/16.0.0 in 23.09)
+    -   [Clang 16.0.0 version](https://releases.llvm.org/16.0.0/tools/clang/docs/index.html) 
+        (cce/16.0.0 in 23.09 and aocc/4.1.0 in 23.12/24.03)
+
+    -   [Clang 17.0.1 version](https://releases.llvm.org/17.0.1/tools/clang/docs/index.html) 
+        (cce/17.0.0 in 23.12 and cce/17.0.1 in 24.03)
 
 -   [AMD Developer Information](https://www.amd.com/en/developer.html)
 
@@ -91,15 +99,15 @@ and some more.
             -   [2021 Linux Plumbers Conference presentation](https://lpc.events/event/11/contributions/997/attachments/928/1828/LPC2021-rocgdbdemo.pdf)
                 with [youTube video](https://youtu.be/IGWFph4SlpU) with a part of the presentation
 
-        -   [rocprof profiler](https://rocm.docs.amd.com/projects/rocprofiler/en/latest/rocprof.html)
+        -   [rocprof profiler](https://rocm.docs.amd.com/projects/rocprofiler/en/latest/)
 
-        -   [OmniTrace](https://amdresearch.github.io/omnitrace/index.html)
+        -   [OmniTrace](https://rocm.docs.amd.com/projects/omnitrace/en/latest/)
 
         -   [Omniperf](https://amdresearch.github.io/omniperf/)
 
--   [HDF5 generic documentation](https://hdfgroup.github.io/hdf5/)
+-   [HDF5 generic documentation](https://support.hdfgroup.org/releases/hdf5/latest-docs.html)
 
--   [SingularityCD 3.11 User Guide](https://docs.sylabs.io/guides/3.11/user-guide/index.html)
+-   [SingularityCE 4.1 User Guide](https://docs.sylabs.io/guides/4.1/user-guide/)
 
 
 ## Man pages
@@ -113,28 +121,34 @@ A selection of man pages explicitly mentioned during the course:
     | PrgEnv-cray            | `man craycc` | `man crayCC` | `man crayftn`  |
     | PrgEnv-gnu             | `man gcc`    | `man g++`    | `man gfortran` |
     | PrgEnv-aocc/PrgEnv-amd | -            | -            | -              |
-    | Compiler wrappers      | [`man cc`](https://cpe.ext.hpe.com/docs/craype/cc.html) | [`man CC`](https://cpe.ext.hpe.com/docs/craype/ccpp.html) | [`man ftn`](https://cpe.ext.hpe.com/docs/craype/ftn.html) |
+    | Compiler wrappers      | [`man cc`](https://cpe.ext.hpe.com/docs/24.03/craype/cc.html) | [`man CC`](https://cpe.ext.hpe.com/docs/24.03/craype/ccpp.html) | [`man ftn`](https://cpe.ext.hpe.com/docs/24.03/craype/ftn.html) |
 
 -   Web-based versions of the compiler wrapper manual pages (the version on the system is currently hijacked by
     the GNU manual pages):
 
-    -   [`man cc`](https://cpe.ext.hpe.com/docs/craype/cc.html)
+    -   [`man cc`](https://cpe.ext.hpe.com/docs/24.03/craype/cc.html)
+        (or [latest version](https://cpe.ext.hpe.com/docs/latest/craype/cc.html))
 
-    -   [`man CC`](https://cpe.ext.hpe.com/docs/craype/ccpp.html)
+    -   [`man CC`](https://cpe.ext.hpe.com/docs/24.03/craype/ccpp.html)
+        (or [latest version](https://cpe.ext.hpe.com/docs/latest/craype/ccpp.html))
 
-    -   [`man ftn`](https://cpe.ext.hpe.com/docs/craype/ftn.html) 
+    -   [`man ftn`](https://cpe.ext.hpe.com/docs/24.03/craype/ftn.html) 
+        (or [latest version](https://cpe.ext.hpe.com/docs/latest/craype/ftn.html))
 
 -   OpenMP in CCE
 
-    -   [`man intro_openmp`](https://cpe.ext.hpe.com/docs/cce/man7/intro_openmp.7.html)
+    -   [`man intro_openmp`](https://cpe.ext.hpe.com/docs/24.03/cce/man7/intro_openmp.7.html)
+        (or [latest version](https://cpe.ext.hpe.com/docs/latest/cce/man7/intro_openmp.7.html))
 
 -   OpenACC in CCE
 
-    -   [`man intro_openacc`](https://cpe.ext.hpe.com/docs/cce/man7/intro_openacc.7.html)
+    -   [`man intro_openacc`](https://cpe.ext.hpe.com/docs/24.03/cce/man7/intro_openacc.7.html)
+        (or [latest version](https://cpe.ext.hpe.com/docs/latest/cce/man7/intro_openacc.7.html))
 
 -   MPI:
 
-    -   MPI itself: [`man intro_mpi`](https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html) or [`man mpi`](https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html)
+    -   MPI itself: [`man intro_mpi`](https://cpe.ext.hpe.com/docs/24.03/mpt/mpich/intro_mpi.html) or [`man mpi`](https://cpe.ext.hpe.com/docs/24.03/mpt/mpich/intro_mpi.html)
+        (or [latest version](https://cpe.ext.hpe.com/docs/latest/mpt/mpich/intro_mpi.html))
 
     -   libfabric: `man fabric`
 
@@ -160,26 +174,27 @@ A selection of man pages explicitly mentioned during the course:
 -   DSMML - Distributed Symmetric Memory Management Library 
     -   `man intro_dsmml`
 
--   Slurm manual pages are also all [on the web](https://slurm.schedmd.com/archive/slurm-22.05.8/man_index.html) 
+-   Slurm manual pages are also all [on the web](https://slurm.schedmd.com/archive/slurm-23.02.7/man_index.html) 
     and are easily found by Google, but are usually those for the latest version.
+    The links on this page are for the version on LUMI at the time of the course.
 
-    -   [`man sbatch`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html)
+    -   [`man sbatch`](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html)
 
-    -   [`man srun`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html)
+    -   [`man srun`](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html)
 
-    -   [`man salloc`](https://slurm.schedmd.com/archive/slurm-22.05.10/salloc.html)
+    -   [`man salloc`](https://slurm.schedmd.com/archive/slurm-23.02.7/salloc.html)
 
-    -   [`man squeue`](https://slurm.schedmd.com/archive/slurm-22.05.10/squeue.html)
+    -   [`man squeue`](https://slurm.schedmd.com/archive/slurm-23.02.7/squeue.html)
 
-    -   [`man scancel`](https://slurm.schedmd.com/archive/slurm-22.05.10/scancel.html)
+    -   [`man scancel`](https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html)
 
-    -   [`man sinfo`](https://slurm.schedmd.com/archive/slurm-22.05.10/sinfo.html)
+    -   [`man sinfo`](https://slurm.schedmd.com/archive/slurm-23.02.7/sinfo.html)
 
-    -   [`man sstat`](https://slurm.schedmd.com/archive/slurm-22.05.10/sstat.html)
+    -   [`man sstat`](https://slurm.schedmd.com/archive/slurm-23.02.7/sstat.html)
 
-    -   [`man sacct`](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html)
+    -   [`man sacct`](https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html)
 
-    -   [`man scontrol`](https://slurm.schedmd.com/archive/slurm-22.05.10/scontrol.html)
+    -   [`man scontrol`](https://slurm.schedmd.com/archive/slurm-23.02.7/scontrol.html)
 
 
 ## Via the module system
