@@ -24,7 +24,7 @@ DAY 1
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_1_00_Introduction/">Welcome and introduction</a></b>
-        <br/><em>Presenters: ??? (LUST), Harvey Richardson (HPE)</em>
+        <br/><em>Presenters: Jørn Dietze (LUST), Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -576,7 +576,7 @@ DAY 4
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
-        <em>Presenter: ??? (LUST)</em>
+        <em>Presenter: Jørn Dietze (LUST)</em>
     </td>
     </tr>
      <tr>

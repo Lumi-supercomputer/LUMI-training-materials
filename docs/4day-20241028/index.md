@@ -43,11 +43,11 @@ downloaded from LUMI.
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
 | [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
-| [Introduction to the AMD ROCm Ecosystem](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_01_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) |
+| [Advanced Placement](extra_2_01_Advanced_Application_Placement.md) | [lumi](extra_2_05_Advanced_Application_Placement.md) | / | [lumi](extra_2_05_Advanced_Application_Placement.md) |
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |
 | [Exercises #5](extra_2_04_Exercises_5.md) | / | / | / |
-| [Advanced Placement](extra_2_05_Advanced_Application_Placement.md) | [lumi](extra_2_05_Advanced_Application_Placement.md) | / | [lumi](extra_2_05_Advanced_Application_Placement.md) |
+| [Introduction to the AMD ROCm Ecosystem](extra_2_05_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_01_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_06_Exercises_6.md) | / | / | / |
 | [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
