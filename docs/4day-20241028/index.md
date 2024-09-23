@@ -73,7 +73,7 @@ downloaded from LUMI.
 | [Tools in Action - An Example with Pytorch](extra_4_11_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_11_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_11_Best_Practices_GPU_Optimization.md) |
 | [LUMI User Support](extra_4_12_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-4_12_LUMI_Support_and_Documentation.pdf) | [web](notes_4_12_LUMI_Support_and_Documentation.md) | [web](extra_4_12_LUMI_Support_and_Documentation.md) |
 | [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-| [Appendix: Miscellaneous questions](A02_Misc_Questions.md) | / | [questions](A02_Misc_Questions.md) | / |
+<!-- | [Appendix: Miscellaneous questions](A02_Misc_Questions.md) | / | [questions](A02_Misc_Questions.md) | / | -->
 
 
 ## Making the exercises after the course
