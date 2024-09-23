@@ -20,17 +20,17 @@ DAY 1
 
     <tr>
         <td style="width:8em">
-            09:00 EEST
-            <br/><em>08:00 CEST</em>
+            09:00 CEST
+            <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_1_00_Introduction/">Welcome and introduction</a></b>
-        <br/><em>Presenters: Heidi Reiman (LUST), Harvey Richardson (HPE)</em>
+        <br/><em>Presenters: ??? (LUST), Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            09:15 EEST
-            <br/><em>08:15 CEST</em>
+            09:15 CEST
+            <br/><em>10:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_01_HPE_Cray_EX_Architecture/">HPE Cray EX architecture</a></b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
@@ -38,8 +38,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            10:15 EEST
-            <br/><em>09:15 CEST</em>
+            10:15 CEST
+            <br/><em>11:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_02_Programming_Environment_and_Modules/">Programming Environment and Modules</a></b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
@@ -47,18 +47,18 @@ DAY 1
     </tr>
     <tr>
         <td>
-            10:45 EEST
-            <br/><em>09:15 CEST</em>
+            10:45 CEST
+            <br/><em>11:45 EEST</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b>
         </td>
     </tr>
    <tr>
         <td>
-            11:00 EEST
-            <br/><em>10:00 CEST</em>
+            11:00 CEST
+            <br/><em>12:00 EEST</em>
         </td>
-        <td><b><a href="../extra_1_03_Running_Applications/">Running Applications</a></b>
+        <td><b><a href="../extra_1_03_Running_Applications/">First steps for running on Cray EX hardware</a></b>
         <ul>
             <li>Examples of using the Slurm Batch system, launching jobs on the front end and basic controls for job placement (CPU/GPU/NIC)</li> 
         </ul>
@@ -67,86 +67,86 @@ DAY 1
     </tr>
     <tr>
         <td>
-            11:20 EEST
-            <br/><em>10:20 CEST</em>
+            11:20 CEST
+            <br/><em>12:20 EEST</em>
         </td>
         <td><b><a href="../extra_1_04_Exercises_1/">Exercises (session #1)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            12:00 EEST
-            <br/><em>11:00 CEST</em>
+            12:00 CEST
+            <br/><em>13:00 EEST</em>
         </td>
         <td><b><em>Lunch break (90 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:30 EEST
-            <br/><em>12:30 CEST</em>
+            13:30 CEST
+            <br/><em>14:30 EEST</em>
         </td>
-        <td><b><a href="../extra_1_05_Compilers_and_Parallel_Programming_Models/">Compilers and Parallel Programming Models</a></b>
+        <td><b><a href="../extra_1_05_Compilers_and_Parallel_Programming_Models/">Overview of Compilers and Parallel Programming Models</a></b>
         <ul>
             <li>An introduction to the compiler suites available, including examples of how to get additional information about the compilation process.</li>
-            <li>Cray Compilation Environment (CCE) and options relevant to porting and performance. CCE classic to Clang transition.</li>
+            <li>Cray Compilation Environment (CCE) and options relevant to porting and performance.</li>
             <li>Description of the Parallel Programming models.</li>
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <em>Presenter: |Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            14:30 EEST
-            <br/><em>13:30 CEST</em>
+            14:30 CEST
+            <br/><em>15:30 EEST</em>
         </td>
         <td><b><a href="../extra_1_06_Exercises_2/">Exercises (session #2)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:00 EEST
-            <br/><em>14:00 CEST</em>
+            15:00 CEST
+            <br/><em>16:00 EEST</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:15 EEST
-            <br/><em>14:15 CEST</em>
+            15:15 CEST
+            <br/><em>16:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_07_Cray_Scientific_Libraries/">Cray Scientific Libraries</a></b>
         <ul>
             <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            15:45 EEST
-            <br/><em>14:45 CEST</em>
+            15:45 CEST
+            <br/><em>14:45 EEST</em>
         </td>
         <td><b><a href="../extra_1_08_Exercises_3/">Exercises (session #3)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            16:15 EEST
-            <br/><em>15:15 CEST</em>
+            16:15 CEST
+            <br/><em>15:15 EEST</em>
         </td>
-        <td><b><a href="../extra_1_09_Offload_CCE/">CCE Offloading Models</a></b>
+        <td><b><a href="../extra_1_09_Offload_CCE/">OpenACC and OpenMP offload with Cray Compilation Environment</a></b>
         <ul>
             <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            17:00 EEST
-            <br/><em>16:00 CEST</em>
+            17:00 CEST
+            <br/><em>18:00 EEST</em>
         </td>
         <td><b>Open Questions & Answers</b> 
         <br/>Participants are encouraged to continue with exercises in case there should be no questions.
@@ -154,8 +154,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            17:30 EEST
-            <br/><em>16:30 CEST</em>
+            17:30 CEST
+            <br/><em>18:30 EEST</em>
         </td>
         <td><b><em>End of the course day</em></b>
         </td>
@@ -170,36 +170,35 @@ DAY 2
     </tr>
     <tr>
         <td>
-            09:00 EEST
-            <br/><em>08:00 CEST</em>
+            09:00 CEST
+            <br/><em>10:00 EEST</em>
         </td>
-        <td><b><a href="../extra_2_01_Introduction_to_AMD_ROCm_Ecosystem/">Introduction to HIP Programming</a></b>
+        <td><b><a href="../extra_2_01_Advanced_Application_Placement/">Advanced Placement</a></b>
         <ul>
-            <li/> The AMD ROCm<sup>TM</sup> ecosystem
-            <li/> HIP programming
+            <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
         </ul>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <em>Presenter: Jean Pourroy (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            10:00 EEST
-            <br/><em>9:00 CEST</em>
+            10:00 CEST
+            <br/><em>11:00 EEST</em>
         </td>
         <td><b><a href="../extra_2_02_Exercises_4/">Exercises (session #4)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            10:30 EEST
-            <br/><em>09:30 CEST</em>
+            10:30 CEST
+            <br/><em>11:30 EEST</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b></td>
     </tr>
     <tr>
         <td>
-            10:45 EEST
-            <br/><em>09:45 CEST</em>
+            10:45 CEST
+            <br/><em>11:45 EEST</em>
         </td>
         <td><b><a href="../extra_2_03_Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
         <br/><em>Presenter: Thierry Braconnier (HPE)</em>
@@ -207,51 +206,52 @@ DAY 2
     </tr>
     <tr>
         <td>
-            11:30 EEST
-            <br/><em>10:30 CEST</em>
+            11:30 CEST
+            <br/><em>12:30 EEST</em>
         </td>
-        <td><b><a href="../extra_2_04_Exercises_5/">Exercises (session #4)</a></b>
+        <td><b><a href="../extra_2_04_Exercises_5/">Exercises (session #5)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            12:00 EEST
-            <br/><em>11:00 CEST</em>
+            12:00 CEST
+            <br/><em>13:00 EEST</em>
         </td>
         <td><b><em>Lunch break (80 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:20 EEST
-            <br/><em>12:20 CEST</em>
+            13:20 CEST
+            <br/><em>14:20 EEST</em>
         </td>
-        <td><b><a href="../extra_2_05_Advanced_Application_Placement/">Advanced Placement</a></b>
+        <td><b><a href="../extra_2_05_Introduction_to_AMD_ROCm_Ecosystem/">Introduction to the AMD ROCm ecosystem and HIP</a></b>
         <ul>
-            <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
+            <li/> The AMD ROCm<sup>TM</sup> ecosystem
+            <li/> HIP programming
         </ul>
-        <em>Presenter: Jean-Yves Vet (HPE)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            14:20 EEST
-            <br/><em>13:20 CEST</em>
+            14:20 CEST
+            <br/><em>13:20 EEST</em>
         </td>
-        <td><b><a href="../extra_2_06_Exercises_6/">Exercises (session #5)</a></b></td>
+        <td><b><a href="../extra_2_06_Exercises_6/">Exercises (session #6)</a></b></td>
     </tr>
     <tr>
         <td>
-            14:50 EEST
-            <br/><em>13:50 CEST</em>
+            14:50 CEST
+            <br/><em>15:50 EEST</em>
         </td>
         <td><b><em>Break (20 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:10 EEST
-            <br/><em>14:10 CEST</em>
+            15:10 CEST
+            <br/><em>16:10 EEST</em>
         </td>
         <td><b><a href="../extra_2_07_LUMI_Software_Stacks/">LUMI Software Stacks</a></b>
         <ul>
@@ -265,8 +265,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            17:00 EEST
-            <br/><em>16:00 CEST</em>
+            17:00 CEST
+            <br/><em>18:00 EEST</em>
         </td>
         <td><b>Open Questions & Answers</b>
         <br/>Participants are encouraged to continue with exercises in case there should be no questions.
@@ -274,8 +274,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            17:30 EEST
-            <br/><em>16:30 CEST</em>
+            17:30 CEST
+            <br/><em>18:30 EEST</em>
         </td>
         <td><b><em>End of the course day</em></b>
         </td>
@@ -290,8 +290,8 @@ DAY 3
     </tr>
     <tr>
         <td>
-            09:00 EEST
-            <br/><em>08:00 CEST</em>
+            09:00 CEST
+            <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_01_Introduction_to_Perftools/">Introduction to Perftools</a></b>
         <ul>
@@ -303,24 +303,24 @@ DAY 3
     </tr>
     <tr>
         <td>
-            09:40 EEST
-            <br/><em>08:40 CEST</em>  
+            09:40 CEST
+            <br/><em>10:40 EEST</em>  
         </td>
         <td><b><a href="../extra_3_02_Exercises_7/">Exercises (session #7)</a></b>
        </td>
     </tr>
     <tr>
         <td>
-            10:10 EEST
-            <br/><em>09:10 CEST</em>
+            10:10 CEST
+            <br/><em>11:10 EEST</em>
         </td>
         <td><b><em>Break (20 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            10:30 EEST
-            <br/><em>09:30 CEST</em>
+            10:30 CEST
+            <br/><em>11:30 EEST</em>
         </td>
         <td><b><a href="../extra_3_03_Advanced_Performance_Analysis/">Advanced Performance Analysis</a></b>
         <ul>
@@ -333,24 +333,24 @@ DAY 3
     </tr>
     <tr>
         <td>
-            11:30 EEST
-            <br/><em>10:30 CEST</em>
+            11:30 CEST
+            <br/><em>12:30 EEST</em>
         </td>
         <td><b><a href="../extra_3_04_Exercises_8/">Exercises (session #8)</a></b>
         </td>
     </tr>
    <tr>
         <td>
-            12:00 EEST
-            <br/><em>11:00 CEST</em>
+            12:00 CEST
+            <br/><em>13:00 EEST</em>
         </td>
         <td><b><em>Lunch break</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:15 EEST
-            <br/><em>12:15 CEST</em>
+            13:15 CEST
+            <br/><em>14:15 EEST</em>
         </td>
         <td><b><a href="../extra_3_05_Cray_MPI_on_Slingshot/">MPI Topics on the HPE Cray EX Supercomputer</a></b>
         <ul>
@@ -363,57 +363,57 @@ DAY 3
     </tr>
     <tr>
         <td>
-            14:15 EEST
-            <br/><em>13:15 CEST</em>
+            14:15 CEST
+            <br/><em>15:15 EEST</em>
         </td>
         <td><b><a href="../extra_3_06_Exercises_9/">Exercises (session #9)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:45 EEST
-            <br/><em>13:45 CEST</em>
+            14:45 CEST
+            <br/><em>15:45 EEST</em>
         </td>
         <td><b><em>Break</em></b>
         </td>
     <tr>
         <td>
-            15:00 EEST
-            <br/><em>14:00 CEST</em>
+            15:00 CEST
+            <br/><em>15:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            15:30 EEST
-            <br/><em>14:30 CEST</em>
+            15:30 CEST
+            <br/><em>16:30 EEST</em>
         </td>
         <td><b><a href="../extra_3_08_Exercises_10/">Exercises (session #10)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:45 EEST
-            <br/><em>14:45 CEST</em>
+            16:00 CEST
+            <br/><em>17:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_09_Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            16:25 EEST
-            <br/><em>15:25 CEST</em>
+            16:30 CEST
+            <br/><em>17:30 EEST</em>
         </td>
         <td><b><a href="../extra_3_10_Exercises_11/">Exercises (session #11)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            17:00 EEST
-            <br/><em>16:00 CEST</em>
+            17:00 CEST
+            <br/><em>18:00 EEST</em>
         </td>
         <td><b>Open Questions & Answers</b>
         <br/>Participants are encouraged to continue with exercises in case there should be no questions.</b>
@@ -421,8 +421,8 @@ DAY 3
     </tr>
     <tr>
         <td>
-            17:30 EEST
-            <br/><em>16:30 CEST</em>
+            17:30 CEST
+            <br/><em>18:30 EEST</em>
         </td>
         <td><b><em>End of the course day</em></b>
         </td>
@@ -437,53 +437,53 @@ DAY 4
     </tr>
     <tr>
         <td>
-            09:00 EEST
-            <br/><em>08:00 CEST</em>
+            09:00 CEST
+            <br/><em>08:00 EEST</em>
         </td>
         <td><b><a href="../extra_4_01_Introduction_to_Python_on_Cray_EX/">Introduction to Python on Cray EX</a></b>
         <ul>
             <li/>Cray Python for the Cray EX
         </ul>
-        <em>Presenter: Alfio Lazzaro (HPE)</em>
+        <em>Presenter: Jean Pourroy (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            09:10 EEST
-            <br/><em>08:10 CEST</em>
+            09:10 CEST
+            <br/><em>08:10 EEST</em>
         </td>
         <td><b><a href="../extra_4_02_Porting_to_GPU/">Porting Applications to GPU</a></b>
-        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            09:35 EEST
-            <br/><em>08:35 CEST</em>
+            09:20 CEST
+            <br/><em>10:20 EEST</em>
         </td>
         <td><b><a href="../extra_4_03_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
-        <br/><em>Presenter: Jean-Yves Vet (HPE)</em>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            10:00 EEST
-            <br/><em>09:00 CEST</em>
+            10:00 CEST
+            <br/><em>11:00 EEST</em>
         </td>
         <td><b><a href="../extra_4_04_Exercises_12/">Exercises (session #12)</a></b></td>
     </tr>
     <tr>
         <td>
-            10:15 EEST
-            <br/><em>09:15 CEST</em>
+            10:15 CEST
+            <br/><em>11:15 EEST</em>
         </td>
         <td><b><em>Break</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            10:30 EEST
-            <br/><em>09:30 CEST</em>
+            10:30 CEST
+            <br/><em>11:30 EEST</em>
         </td>
         <td><b><a href="../extra_4_05_IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
         <ul>
@@ -500,89 +500,89 @@ DAY 4
     </tr>
    <tr>
         <td>
-            11:30 EEST
-            <br/><em>10:30 CEST</em>
+            11:30 CEST
+            <br/><em>12:30 EEST</em>
         </td>
         <td><b><a href="../extra_4_06_Exercises_13/">Exercises (session #13)</a></b>
         </td>
     </tr>
      <tr>
         <td>
-            12:00 EEST
-            <br/><em>11:00 CEST</em>
+            12:00 CEST
+            <br/><em>13:00 EEST</em>
         </td>
         <td><b><em>Lunch break (60 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:00 EEST
-            <br/><em>12:00 CEST</em>
+            13:00 CEST
+            <br/><em>12:00 EEST</em>
         </td>
         <td><b><a href="../extra_4_07_AMD_Omnitrace/">Introduction to OmniTrace</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
       </td>
         </td>
     </tr>
     <tr>
         <td>
-            13:25 EEST
-            <br/><em>12:25 CEST</em>
+            13:25 CEST
+            <br/><em>14:25 EEST</em>
         </td>
         <td><b><a href="../extra_4_08_Exercises_14/">Exercises (session #14)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:45 EEST
-            <br/><em>12:45 CEST</em> 
+            13:45 CEST
+            <br/><em>12:45 EEST</em> 
         </td>
         <td><b><a href="../extra_4_09_AMD_Omniperf/">Introduction to Omniperf</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            14:10 EEST
-            <br/><em>13:10 CEST</em> 
+            14:10 CEST
+            <br/><em>15:10 EEST</em> 
         </td>
         <td><b><a href="../extra_4_10_Exercises_15/">Exercises (session #15)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:30 EEST
-            <br/><em>13:30 CEST</em> 
+            14:30 CEST
+            <br/><em>15:30 EEST</em> 
         </td>
         <td><b><em>Break</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:45 EEST
-            <br/><em>13:45 CEST</em> 
+            14:45 CEST
+            <br/><em>15:45 EEST</em> 
         </td>
         <td><b><a href="../extra_4_11_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
-        <br/><em>Presenter: George Markomanolis (AMD) and Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            16:15 EEST
-            <br/><em>15:15 CEST</em> 
+            16:15 CEST
+            <br/><em>17:15 EEST</em> 
         </td>
         <td><b><a href="../extra_4_12_LUMI_Support_and_Documentation/">LUMI User Support</a></b>
         <ul>
             <li>What can we help you with and what not? How to get help, how to write good support requests.</li>
             <li>Some typical/frequent support questions of users on LUMI?</li>
         </ul>
-        <em>Presenter: Kurt Lust (LUST)</em>
+        <em>Presenter: ??? (LUST)</em>
     </td>
     </tr>
      <tr>
         <td>
-            16:45 EEST
-            <br/><em>15:45 CEST</em> 
+            16:45 CEST
+            <br/><em>17:45 EEST</em> 
         </td>
         <td><b>Open Questions & Answers</b>
         <br/>Participants are encouraged to continue with exercises in case there should be no questions.
@@ -590,8 +590,8 @@ DAY 4
     </tr>
     <tr>
         <td>
-            17:15 EEST
-            <br/><em>16:15 CEST</em> 
+            17:15 CEST
+            <br/><em>18:15 EEST</em> 
         </td>
         <td><b><em>End of the course</em></b>
         </td>

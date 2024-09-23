@@ -1,13 +1,11 @@
-# Exercise session 4: Placement
+# Exercise session 6: HIP tools
 
-The files for the exercises can be found in `Exercises/HPE/day2/Binding`
-and `Exercises/HPE/day2/gpu_perf_binding`.
+Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@gmarkoma/lumi_finland),
+sections on [HIP Exercises](https://hackmd.io/@gmarkoma/lumi_finland#HIP-Exercises) and
+[Hipify](https://hackmd.io/@gmarkoma/lumi_finland#Hipify).
 
-Try different binding options for CPU execution (look at slides and use envars to change order and display the order) and for GPU execution (gpu_perf_binding). See also the PDF or `README.md` files in those directories.
+Exercise files can be copied from `Exercises/AMD/HPCTrainingExamples`.
 
-<!--
-Check slide 6 and 7 of the exercise assignments for more information.
--->
 
 ## Materials
 
@@ -18,27 +16,28 @@ No materials available at the moment.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   See the exercise assignments in
-    `/project/project_465001098/Slides/HPE/Exercises_day2.pdf`
-    `/project/project_465001098/Slides/HPE/Exercises.pdf` (whichever is present)
-
--   Exercise files in `/project/project_465001098/Exercises/day2`
-
-Temporary web-available materials:
-
--    Overview exercise assignments day 1-2 temporarily available on
-     [this link](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-2_Exercises_day2.pdf)
+-   Exercises can be copied from `/project/project_465001098/exercises/AMD/HPCTrainingExamples`
 -->
+
+Materials on the web:
+
+-   [AMD exercise assignments and notes](https://hackmd.io/@gmarkoma/lumi_finland)
+
+    [PDF backup](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.pdf)
+    and [local web backup](exercises_AMD_hackmd.md).
+
+-   Exercise files: 
+    [Download as .tar.bz2](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2)
+    or [download as .tar](https://462000265.lumidata.eu/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar)
 
 Archived materials on LUMI:
 
--   Exercise assignments in `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.pdf`
+-   Exercise assignments PDF: `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.pdf`
 
--   Exercises as bizp2-compressed tar file in
-    `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar.bz2`
+-   Exercise files:
+    `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar.bz2`
+    or `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_AMD.tar`
 
--   Exercises as uncompressed tar file in
-    `/appl/local/training/4day-20240423/files/LUMI-4day-20240423-Exercises_HPE.tar`
 
 ## Q&A
 
