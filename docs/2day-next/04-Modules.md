@@ -1,6 +1,6 @@
 # Modules on LUMI
 
-!!! Note "Intended audience"
+!!! Audience "Intended audience"
     As this course is designed for people already familiar with HPC systems and
     as virtually any cluster nowadays uses some form of module environment, this
     section assumes that the reader is already familiar with a module environment
@@ -30,7 +30,7 @@ installations and as system administrators prefer to have a software stack which
 possible from the system installation to keep the image that has to be loaded
 on the compute nodes small.
 
-Another use of modules not mentioned on the slide is to configure the programs
+Another use of modules is to configure the programs
 that are being activated. E.g., some packages expect certain additional environment
 variables to be set and modules can often take care of that also.
 
@@ -66,7 +66,7 @@ information for search and help information.
         [Lmod development on GitHub](https://github.com/TACC/Lmod)
 
 <!-- BELGIUM
-!!! Note "I know Lmod, should I continue?"
+!!! Audience "I know Lmod, should I continue?"
     Lmod is a very flexible tool. Not all sites using Lmod use all features, and
     Lmod can be configured in different ways to the extent that it may even look
     like a very different module system for people coming from another cluster.
@@ -78,7 +78,7 @@ information for search and help information.
 -->
 
 <!-- GENERAL More general version -->
-!!! Note "I know Lmod, should I continue?"
+!!! Audience "I know Lmod, should I continue?"
     Lmod is a very flexible tool. Not all sites using Lmod use all features, and
     Lmod can be configured in different ways to the extent that it may even look
     like a very different module system for people coming from another cluster.
@@ -163,37 +163,36 @@ An easy example (though a tricky one as there are other mechanisms at play also)
 a different programming environment in the default login environment right after login:
 
 ```
-$ module load PrgEnv-aocc
+$ module load PrgEnv-gnu
 ```
 
 which results in the next slide:
 
 <!-- Used window size 23x95 -->
-<!-- ![module load PrgEnv-aocc](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_BenefitsHierarchyDemo.png) -->
+<!-- ![module load PrgEnv-gnu](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_BenefitsHierarchyDemo.png) -->
 <figure markdown style="border: 1px solid #000">
-  ![module load PrgEnv-aocc](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/BenefitsHierarchyDemo.png)
+  ![module load PrgEnv-gnu](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/BenefitsHierarchyDemo.png)
 </figure>
-
 
 The first two lines of output are due to to other mechanisms that are at work here, 
 and the order of the lines may seem strange but that has to do with the way Lmod works
 internally. Each of the PrgEnv modules hard loads a compiler module which is why Lmod tells
-you that it is loading `aocc/3.2.0`. However, there is also another mechanism at work that
-causes `cce/16.0.0` and `PrgEnv-cray/8.4.0` to be unloaded, but more about that in the next
+you that it is loading `gcc-native/13.2`. However, there is also another mechanism at work that
+causes `cce/17.0.1` and `PrgEnv-cray/8.5.0` to be unloaded, but more about that in the next
 subsection (next slide).
 
 The important line for the hierarchy in the output are the lines starting with 
-"Due to MODULEPATH changes...".
+"`Due to MODULEPATH changes...`".
 Remember that we said that each module has a corresponding **module file**. Just as binaries
 on a system, these are **organised in a directory structure**, and there is a path, in this
-case MODULEPATH, that determines where Lmod will look for module files. The hierarchy is
-implemented with a directory structure and the environment variable MODULEPATH, and
-when the `cce/16.0.0` module was unloaded and `aocc/3.2.0` module was loaded, that 
-MODULEPATH was changed. As a result, the version of the cray-mpich module for the 
-`cce/16.0.0` compiler became unavailable, but one with the same module name for the
-`aocc/3.2.0` compiler became available and hence Lmod unloaded the version for the
-`cce/16.0.0` compiler as it is no longer available but loaded the matching one for
-the `aocc/3.2.0` compiler. 
+case `MODULEPATH`, that determines where Lmod will look for module files. The hierarchy is
+implemented with a directory structure and the environment variable `MODULEPATH`, and
+when the `cce/17.0.1` module was unloaded and `gcc-native/13.2` module was loaded, that 
+`MODULEPATH` was changed. As a result, the version of the cray-mpich module for the 
+`cce/17.0.1` compiler became unavailable, but one with the same module name for the
+`gcc-native/13.2` compiler became available and hence Lmod unloaded the version for the
+`cce/17.0.1` compiler as it is no longer available but loaded the matching one for
+the `gcc-native/13.2` compiler. 
 
 
 ## About module names and families
@@ -210,7 +209,7 @@ to a `module unload` of the first module and a `module load` of the second).
 This gives you an automatic protection against some conflicts if the names of the modules
 are properly chosen. 
 
-!!! Note
+!!! Remark
     Some clusters do not allow the automatic unloading of a module with the same
     name as the one you're trying to load, but on LUMI we felt that this is a 
     necessary feature to fully exploit a hierarchy.
@@ -220,19 +219,19 @@ Lmod goes further also. It also has a **family concept**: A module can belong to
 The family property is something that is defined in the module file. It is commonly 
 used on systems with multiple compilers and multiple MPI implementations to ensure 
 that each compiler and each MPI implementation can have a logical name without 
-encoding that name in the version string (like needing to have `compiler/gcc-11.2.0`
-or `compiler/gcc/11.2.0`
-rather than `gcc/11.2.0`), while still having an easy way to avoid having two 
+encoding that name in the version string (like needing to have `compiler/gcc-13.2`
+or `compiler/gcc/13.2`
+rather than `gcc-native/13.2`), while still having an easy way to avoid having two 
 compilers or MPI implementations loaded at the same time. 
 On LUMI, the conflicting module of the same family will be unloaded automatically
 when loading another module of that particular family.
 
 This is shown in the example in the previous subsection (the `module load PrgEnv-gnu` in 
 a fresh long shell) in two places. It is the mechanism that unloaded `PrgEnv-cray`
-when loading `PrgEnv-gnu` and that then unloaded `cce/16.0.1` when the 
-`PrgEnv-gnu` module loaded the `gcc/11.2.0` module.
+when loading `PrgEnv-gnu` and that then unloaded `cce/17.0.1` when the 
+`PrgEnv-gnu` module loaded the `gcc-native/13.2` module.
 
-!!! Note
+!!! Remark
     Some clusters do not allow the automatic unloading of a module of the same
     family as the one you're trying to load and produce an error message instead.
     On LUMI, we felt that this is a necessary feature to fully exploit the 
@@ -251,7 +250,7 @@ packages or tens of Python packages that a software stack may contain.
 In fact, as the software for each module is installed in a separate directory
 it would also create a performance problem due to excess directory accesses simply
 to find out where a command is located, and very long search path environment
-variables such as PATH or the various variables packages such as Python, R or Julia use
+variables such as `PATH` or the various variables packages such as Python, R or Julia use
 to find extension packages.
 On LUMI related packages are often bundled in a single module. 
 
@@ -301,24 +300,16 @@ There are three ways to use `module spider`, discovering software in more and mo
 Let's first run the `module spider` command. The output varies over time, but at the time of writing,
 and leaving out a lot of the output, one would have gotten:
 
-<!--
-![module spider 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/imp_ModuleSpiderCommand_1.png)
-
-![module spider 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/imp_ModuleSpiderCommand_2.png)
-
-![module spider 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/imp_ModuleSpiderCommand_3.png)
--->
- 
 <figure markdown style="border: 1px solid #000">
   ![module spider 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_2.png)
+  ![module spider 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_2.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_3.png)
+  ![module spider 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_3.png)
 </figure>
 
 On the second screen we see, e.g., the ARMForge module which was available in just a single version
@@ -340,10 +331,6 @@ $ module spider FFTW
 
 produces
 
-<!--
-![module spider FFTW](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderFFTW.png)
--->
-
 <figure markdown style="border: 1px solid #000">
   ![module spider FFTW](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderFFTW.png)
 </figure>
@@ -357,23 +344,17 @@ The output also suggests us to dig a bit deeper and
 check for a specific version, so let's run
 
 ```bash
-$ module spider cray-fftw/3.3.10.3
+$ module spider cray-fftw/3.3.10.7
 ```
 
 This produces:
 
-<!--
-![module spider cray-fftw/3.3.10.5](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderFFTWVersion_1.png)
-
-![module spider cray-fftw/3.3.10.5](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderFFTWVersion_2.png)
--->
-
 <figure markdown style="border: 1px solid #000">
-  ![module spider cray-fftw/3.3.10.5](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderFFTWVersion_1.png)
+  ![module spider cray-fftw/3.3.10.7](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderFFTWVersion_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider cray-fftw/3.3.10.5](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderFFTWVersion_2.png)
+  ![module spider cray-fftw/3.3.10.7](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderFFTWVersion_2.png)
 </figure>
 
 We now get a long list of possible combinations of modules that would enable us to load this module.
@@ -382,8 +363,9 @@ a weakness when module spider is used with the HPE Cray PE. In some cases, not a
 are shown (and this is the case here as the module is actually available directly after login and also
 via some other combinations of modules that are not shown). This is because the HPE Cray Programming
 Environment is system-installed and sits next to the application software stacks that are managed differently,
-but in some cases also because the HPE Cray PE sometimes fails to give the complete combination of modules
-that is needed. The command does work well with the software managed by the LUMI User Support Team as the
+but in some cases also because the HPE Cray PE uses Lmod in a different way than intended by the Lmod developers,
+causing the spider command to not find some combinations that would actually work.
+The command does work well with the software managed by the LUMI User Support Team as the
 next two examples will show.
 
 
@@ -396,31 +378,25 @@ next two examples will show.
 To see if GNUplot is available, we'd first search for the name of the package:
 
 ```bash
-$ module spider GNUplot
+$ module spider gnuplot
 ```
 
 This produces:
 
-<!--
-![module spider GNUplot](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderGnuplot_1.png)
-
-![module spider GNUplot](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderGnuplot_2.png)
--->
-
 <figure markdown style="border: 1px solid #000">
-  ![module spider GNUplot](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplot_1.png)
+  ![module spider GNUplot screen 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplot_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider GNUplot](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplot_2.png)
+  ![module spider GNUplot screen 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplot_2.png)
 </figure>
 
-The output again shows that the search is not case sensitive which is fortunate as uppercase and lowercase
+<!-- The output again shows that the search is not case sensitive which is fortunate as uppercase and lowercase
 letters are not always used in the same way on different clusters. Some management tools for scientific software
-stacks will only use lowercase letters, while the package we use for the LUMI software stacks often uses both.
+stacks will only use lowercase letters, while the package we use for the LUMI software stacks often uses both. -->
 
 We see that there are a lot of versions installed on the system and that the version actually contains more 
-information (e.g., `-cpeGNU-23.09`) that we will explain in the next part of this course. But you might of
+information (e.g., `-cpeGNU-24.03`) that we will explain in the next part of this course. But you might of
 course guess that it has to do with the compilers that were used. It may look strange to you to have the same
 software built with different compilers. However, mixing compilers is sometimes risky as a library compiled
 with one compiler may not work in an executable compiled with another one, so to enable workflows that use
@@ -431,23 +407,17 @@ line in terms of the other software that you will be using.
 The output again suggests to dig a bit further for more information, so let's try
 
 ```bash
-$ module spider gnuplot/5.4.8-cpeGNU-23.09
+$ module spider gnuplot/5.4.10-cpeGNU-24.03
 ```
 
 This produces:
 
-<!--
-![module spider gnuplot/5.4.8-cpeGNU-23.09](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderGnuplotVersion_1.png)
-
-![module spider gnuplot/5.4.8-cpeGNU-23.09](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderGnuplotVersion_2.png)
--->
-
 <figure markdown style="border: 1px solid #000">
-  ![module spider gnuplot/5.4.8-cpeGNU-23.09](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplotVersion_1.png)
+  ![module spider gnuplot/5.4.10-cpeGNU-24.03 screen 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplotVersion_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider gnuplot/5.4.8-cpeGNU-23.09](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplotVersion_2.png)
+  ![module spider gnuplot/5.4.10-cpeGNU-24.03 screen 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderGnuplotVersion_2.png)
 </figure>
 
 In this case, this module is provided by 3 different combinations of modules that also will be explained
@@ -459,6 +429,7 @@ and we sometimes have to do some effort to fit all information in there.
 For some packages we also have additional information in our
 [LUMI Software Library web site](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) so it is often
 worth looking there also.
+
 
 ### Example 4: Searching for an extension of a module: CMake.
 
@@ -479,44 +450,36 @@ $ module spider CMake
 
 which produces
 
-<!--
-![module spider cmake](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderCMake.png)
--->
-
 <figure markdown style="border: 1px solid #000">
   ![module spider cmake](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCMake.png)
 </figure>
 
-The output above shows us that there are actually 5 other versions of CMake on the system, but their
+The output above shows us that there are actually 3 other versions of CMake on the system, but their
 version is followed by `(E)` which says that they are extensions of other modules.
 There is no module called `CMake` on the system. 
 But Lmod already tells us
 how to find out which module actually provides the CMake tools. So let's try
 
 ```bash
-$ module spider CMake/3.27.7
+$ module spider CMake/3.29.3
 ```
 
 which produces
 
-<!--
-![module spider CMake/3.27.7](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleSpiderCMakeVersion_1.png)
--->
-
 <figure markdown style="border: 1px solid #000">
-  ![module spider CMake/3.27.7](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCMakeVersion_1.png)
+  ![module spider CMake/3.29.3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCMakeVersion_1.png)
 </figure>
 
 This shows us that the version is provided by a number of `buildtools` modules, and for each of those
 modules also shows us which other modules should be loaded to get access to the commands. E.g.,
-the first line tells us that there is a module `buildtools/23.09` that provides that version of CMake, but
-that we first need to load some other modules, with `LUMI/23.09` and `partition/L` (in that order) 
+the first line tells us that there is a module `buildtools/24.03` that provides that version of CMake, but
+that we first need to load some other modules, with `LUMI/24.03` and `partition/L` (in that order) 
 one such combination.
 
 So in this case, after
 
 ```bash
-$ module load LUMI/23.09 partition/L buildtools/23.09
+$ module load LUMI/24.03 partition/L buildtools/24.03
 ```
 
 the `cmake` command would be available.
@@ -524,7 +487,7 @@ the `cmake` command would be available.
 And you could of course also use
 
 ```
-$ module spider buildtools/23.09
+$ module spider buildtools/24.03
 ```
 
 to get even more information about the buildtools module, including any help included in the module.
@@ -551,19 +514,13 @@ $ module keyword https
 
 which produces the following output:
 
-<!-- Use a window of 105x23 -->
-<!--
-![module keyword https](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleKeywordHTTPS_1.png)
-
-![module keyword https](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleKeywordHTTPS_2.png)
--->
-
+<!-- Use a window of 95x23 -->
 <figure markdown style="border: 1px solid #000">
-  ![module keyword https](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleKeywordHTTPS_1.png)
+  ![module keyword https screen 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleKeywordHTTPS_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module keyword https](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleKeywordHTTPS_2.png)
+  ![module keyword https screen 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleKeywordHTTPS_2.png)
 </figure>
 
 `cURL` and `wget` are indeed 
@@ -617,21 +574,7 @@ chosen a software stack but want to clean up your environment.
 Let us look at the output of the `module avail` command, taken just after login on the system at the
 time of writing of these notes (the exact list of modules shown is a bit fluid):
 
-<!-- Use a window of 106x23 -->
-<!--
-![module avail slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleAvail_1.png)
-
-![module avail slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleAvail_2.png)
-
-![module avail slide 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleAvail_3.png)
-
-![module avail slide 4](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleAvail_4.png)
-
-![module avail slide 5](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleAvail_5.png)
-
-![module avail slide 6](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules-img/img_ModuleAvail_6.png)
--->
-
+<!-- Use a window of 95x23 -->
 <figure markdown style="border: 1px solid #000">
   ![module avail slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_1.png)
 </figure>
@@ -656,6 +599,34 @@ time of writing of these notes (the exact list of modules shown is a bit fluid):
   ![module avail slide 6](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_6.png)
 </figure>
 
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 7](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_7.png)
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 8](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_8.png)
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 9](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_9.png)
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 10](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_10.png)
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 11](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_11.png)
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 12](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_12.png)
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![module avail slide 13](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_13.png)
+</figure>
+
 Next to the names of modules you sometimes see one or more letters.
 The `(D)` means that that is currently the default version of the module, the one that will be loaded
 if you do not specify a version. Note that the default version may depend on other modules that are already
@@ -665,17 +636,19 @@ The `(L)` means that a module is currently loaded.
 
 The `(S)` means that the module is a sticky module.
 
-Next to the `rocm` module (on the fourth screen) you see `(D:5.0.2:5.2.0)`. 
-The `D` means that this version of the module, `5.2.3`, is currently the default on
-the system. The two version numbers next to this module show that the module can also 
-be loaded as `rocm/5.0.2` and `rocm/5.2.0`. These are two modules that were removed
-from the system during the last update of the system, but version 5.2.3 can be loaded
-as a replacement of these modules so that software that used the removed modules may
-still work without recompiling.
+Next to the `rocm` module (on the fourth screen) you see 
+`(5.0.2:5.1.0:5.2.0:5.2.3:5.5.1:5.7.0:6.0.0)`.
+This shows that the `rocm/6.0.3` module can also 
+be loaded as `rocm/5.0.2` or any of the other versions in that list.
+Some of them were old versions that have been removed from the system in later updates,
+and others are versions that are hard-coded some of the Cray PE modules and other
+files but have never been on the system as we had an already patched version.
+(E.g., the 24.03 version of the Cray PE will sometimes try to load `rocm/6.0.0` 
+while we have immediate had `rocm/6.0.3` on the system which corrects some bugs).
 
 At the end of the overview the extensions are also shown. If this would be fully implemented on LUMI, the list
 could become very long. However, as we shall see next, there is an easy way to hide those from view.
-We haven't used them very intensely so far as there was a bug in older versions of Lmod so that turning off
+We haven't used extensions very intensely so far as there was a bug in older versions of Lmod so that turning off
 the view didn't work and so that extensions that were not in available modules, were also shown. But that
 is fixed in current versions.
 
@@ -722,8 +695,18 @@ from regular users.
 
 !!! Example
     An example that will only become clear in the next session: When working with the software stack
-    called `LUMI/23.09`, which is built upon the HPE Cray Programming Environment version 23.09,
+    called `LUMI/24.03`, which is built upon the HPE Cray Programming Environment version 24.03,
     all (well, most) of the modules corresponding to other versions of the Cray PE are hidden.
+
+    Just try
+
+    ```
+    $ module load LUMI/24.03
+    $ module avail
+    ```
+
+    and you'll see a lot of new packages that have become available, but will also see less Cray PE 
+    modules.
 
 
 ## Getting help with the module help command
@@ -748,8 +731,8 @@ Try, e.g., the following commands:
 
 ```
 $ module help cray-mpich
-$ module help cray-python/3.10.10
-$ module help buildtools/23.09
+$ module help cray-python/3.11.7
+$ module help buildtools/24.03
 ```
 
 Lmod also has another command that produces more limited information (and is currently not fully exploited
@@ -761,8 +744,9 @@ Try, e.g.,:
 
 ```
 $ module whatis Subversion
-$ module whatis Subversion/1.14.2
+$ module whatis Subversion/1.14.3
 ```
+
 
 ## A note on caching
 
@@ -819,7 +803,7 @@ is loaded that makes this one or an equivalent module available again.
     $ module load craype-network-ofi
 
     Activating Modules:
-      1) cray-mpich/8.1.27
+      1) cray-mpich/8.1.29
     ```
 
     The `cray-mpich` module needs both a valid network architecture target module to be loaded
@@ -864,8 +848,8 @@ so links may break over time.**
     -   VSC@UGent: Modules are briefly coverd in the "Introduction to HPC-UGent" course. The Lmod setup on the
         clusters at UGent is more restrictive than on LUMI with several usefull features disabled.
 
-        -   [Slides](https://www.ugent.be/hpc/en/training/2023/introhpc202306) and [YouTube recording](https://www.ugent.be/hpc/en/training/introhpcugent-recording)
-            of the June 9, 2023 session.
+        -   [Slides](https://www.ugent.be/hpc/en/training/2024/introduction-to-hpc-ugent-2024-09-20.pdf) and [YouTube recording](https://www.ugent.be/hpc/en/training/introhpcugent-recording)
+            of the September 20, 2024 session.
 
     -   VSC@KULeuven: Modules are discussed in the [Linux for HPC course](https://hpcleuven.github.io/Linux-for-HPC/)
 
