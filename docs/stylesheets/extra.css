@@ -1,3 +1,33 @@
+/* admonition remark */
+.md-typeset .admonition.remark,
+.md-typeset details.remark {
+    border-color: rgb(68, 138, 255);
+}
+.md-typeset .remark > .admonition-title,
+.md-typeset .remark > summary {
+    background-color: rgba(68, 138, 255, 0.1);
+}
+.md-typeset .remark > .admonition-title::before,
+.md-typeset .remark > summary::before {
+    background-color: rgb(68, 138, 255);
+    -webkit-mask-image: var(--md-admonition-icon--remark);
+            mask-image: var(--md-admonition-icon--remark);
+}
+/* admonition audience */
+.md-typeset .admonition.audience,
+.md-typeset details.audience {
+    border-color: rgb(68, 138, 255);
+}
+.md-typeset .audience > .admonition-title,
+.md-typeset .audience > summary {
+    background-color: rgba(68, 138, 255, 0.1);
+}
+.md-typeset .audience > .admonition-title::before,
+.md-typeset .audience > summary::before {
+    background-color: rgb(68, 138, 255);
+    -webkit-mask-image: var(--md-admonition-icon--audience);
+            mask-image: var(--md-admonition-icon--audience);
+}
 /* admonition demo */
 .md-typeset .admonition.demo,
 .md-typeset details.demo {
@@ -16,45 +46,105 @@
 /* admonition exercise */
 .md-typeset .admonition.exercise,
 .md-typeset details.exercise {
-    border-color: rgb(252, 148, 3);
+    border-color: rgb(247, 3, 211);
 }
 .md-typeset .exercise > .admonition-title,
 .md-typeset .exercise > summary {
-    background-color: rgba(252, 148, 3, 0.1);
+    background-color: rgba(247, 3, 211, 0.1);
 }
 .md-typeset .exercise > .admonition-title::before,
 .md-typeset .exercise > summary::before {
-    background-color: rgb(252, 148, 3);
+    background-color: rgb(247, 3, 211);
     -webkit-mask-image: var(--md-admonition-icon--exercise);
             mask-image: var(--md-admonition-icon--exercise);
-}
-/* admonition remark */
-.md-typeset .admonition.remark,
-.md-typeset details.remark {
-    border-color: rgb(68, 138, 255);
-}
-.md-typeset .remark > .admonition-title,
-.md-typeset .remark > summary {
-    background-color: rgba(68, 138, 255, 0.1);
-}
-.md-typeset .remark > .admonition-title::before,
-.md-typeset .remark > summary::before {
-    background-color: rgb(68, 138, 255);
-    -webkit-mask-image: var(--md-admonition-icon--remark);
-            mask-image: var(--md-admonition-icon--remark);
 }
 /* admonition solution */
 .md-typeset .admonition.solution,
 .md-typeset details.solution {
-    border-color: rgb(52, 23, 218);
+    border-color: rgb(14, 228, 232);
 }
 .md-typeset .solution > .admonition-title,
 .md-typeset .solution > summary {
-    background-color: rgba(52, 23, 218, 0.1);
+    background-color: rgba(14, 228, 232, 0.1);
 }
 .md-typeset .solution > .admonition-title::before,
 .md-typeset .solution > summary::before {
-    background-color: rgb(52, 23, 218);
+    background-color: rgb(14, 228, 232);
     -webkit-mask-image: var(--md-admonition-icon--solution);
             mask-image: var(--md-admonition-icon--solution);
+}
+/* admonition technical */
+.md-typeset .admonition.technical,
+.md-typeset details.technical {
+    border-color: rgb(255, 32, 32);
+}
+.md-typeset .technical > .admonition-title,
+.md-typeset .technical > summary {
+    background-color: rgba(255, 32, 32, 0.1);
+}
+.md-typeset .technical > .admonition-title::before,
+.md-typeset .technical > summary::before {
+    background-color: rgb(255, 32, 32);
+    -webkit-mask-image: var(--md-admonition-icon--technical);
+            mask-image: var(--md-admonition-icon--technical);
+}
+/* admonition intermediate */
+.md-typeset .admonition.intermediate,
+.md-typeset details.intermediate {
+    border-color: rgb(241, 173, 0);
+}
+.md-typeset .intermediate > .admonition-title,
+.md-typeset .intermediate > summary {
+    background-color: rgba(241, 173, 0, 0.1);
+}
+.md-typeset .intermediate > .admonition-title::before,
+.md-typeset .intermediate > summary::before {
+    background-color: rgb(241, 173, 0);
+    -webkit-mask-image: var(--md-admonition-icon--intermediate);
+            mask-image: var(--md-admonition-icon--intermediate);
+}
+/* admonition advanced */
+.md-typeset .admonition.advanced,
+.md-typeset details.advanced {
+    border-color: rgb(255, 32, 32);
+}
+.md-typeset .advanced > .admonition-title,
+.md-typeset .advanced > summary {
+    background-color: rgba(255, 32, 32, 0.1);
+}
+.md-typeset .advanced > .admonition-title::before,
+.md-typeset .advanced > summary::before {
+    background-color: rgb(255, 32, 32);
+    -webkit-mask-image: var(--md-admonition-icon--advanced);
+            mask-image: var(--md-admonition-icon--advanced);
+}
+/* admonition lumi-be */
+.md-typeset .admonition.lumi-be,
+.md-typeset details.lumi-be {
+    border-color: rgb(240, 220, 3);
+}
+.md-typeset .lumi-be > .admonition-title,
+.md-typeset .lumi-be > summary {
+    background-color: rgba(240, 220, 3, 0.1);
+}
+.md-typeset .lumi-be > .admonition-title::before,
+.md-typeset .lumi-be > summary::before {
+    background-color: rgb(240, 220, 3);
+    -webkit-mask-image: var(--md-admonition-icon--lumi-be);
+            mask-image: var(--md-admonition-icon--lumi-be);
+}
+/* admonition nice-to-know */
+.md-typeset .admonition.nice-to-know,
+.md-typeset details.nice-to-know {
+    border-color: rgb(240, 220, 3);
+}
+.md-typeset .nice-to-know > .admonition-title,
+.md-typeset .nice-to-know > summary {
+    background-color: rgba(240, 220, 3, 0.1);
+}
+.md-typeset .nice-to-know > .admonition-title::before,
+.md-typeset .nice-to-know > summary::before {
+    background-color: rgb(240, 220, 3);
+    -webkit-mask-image: var(--md-admonition-icon--nice-to-know);
+            mask-image: var(--md-admonition-icon--nice-to-know);
 }
