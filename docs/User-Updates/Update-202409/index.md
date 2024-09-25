@@ -311,6 +311,13 @@ jobs that hang or produce incorrect results for other reasons.
     ROCm versions, as PyTorch is the most used AI application on LUMI.
 
 
+## <span style="color:DarkBlue">FAQ</span>
+
+<span style="color:DarkBlue">See the 
+[separate "Frequently Asked Questions" page](202409_FAQ.md)
+compiled from questions asked by users after the first few user coffee breaks after the update.</span>
+
+
 ## <span style="color:DarkBlue">Other documentation</span>
 
 <span style="color:DarkBlue">See the 
