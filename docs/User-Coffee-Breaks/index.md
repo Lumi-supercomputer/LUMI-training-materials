@@ -2,6 +2,8 @@
 
 In reverse chronological order:
 
+-   [LUMI Update Webinar (October 2, 2024)](20241002-user-coffee-break-LUMI-update.md)
+
 -   [HyperQueue (January 31, 2024)](20240131-user-coffee-break-HyperQueue.md)
 
 -   [Open OnDemand: A web interface for LUMI (November 29, 2023)](20231129-user-coffee-break-OoD.md)

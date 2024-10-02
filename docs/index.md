@@ -42,6 +42,8 @@ relevant:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
+-   [LUMI Update Webinar (October 2, 2024)](User-Coffee-Breaks/20241002-user-coffee-break-LUMI-update.md)
+
 -   [HyperQueue (January 31, 2024)](User-Coffee-Breaks/20240131-user-coffee-break-HyperQueue.md)
 
 -   [Open OnDemand: A web interface for LUMI (November 29, 2023)](User-Coffee-Breaks/20231129-user-coffee-break-OoD.md)
