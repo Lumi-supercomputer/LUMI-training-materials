@@ -1,8 +1,7 @@
 # Changes after the update of August-September 2024
 
-**Please read to the bottom of this page before starting to run again on LUMI!.
-The instructions for getting to run again are deliberately towards the bottom
-of this text!**
+**See also the 
+[recording of the user update webinar of October 2, 2024](../../User-Coffee-Breaks/20241002-user-coffee-break-LUMI-update.md).**
 
 <span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
