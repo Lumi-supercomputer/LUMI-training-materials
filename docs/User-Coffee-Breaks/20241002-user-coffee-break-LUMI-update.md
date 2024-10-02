@@ -5,9 +5,9 @@
 <video src="https://462000265.lumidata.eu/user-coffee-breaks/recordings/20241002-user-coffee-break-LUMI-update.mp4" controls="controls">
 </video>
 
-Slides of the presentations
+Slides of the presentations:
 
--   HPE presentation: to come
+-   [HPE presentation](https://462000265.lumidata.eu/user-coffee-breaks/files/20241002-user-coffe-break-LUMI-update-HPE.pdf)
 
 -   [LUST presentation](https://462000265.lumidata.eu/user-coffee-breaks/files/20241002-user-coffe-break-LUMI-update-LUST.pdf)
 
