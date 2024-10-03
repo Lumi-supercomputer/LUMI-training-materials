@@ -115,6 +115,11 @@ to the city centre only:
         easy to reach by tram from the park between the Parliament and Royal Palace near
         HOEK38.
 
+-   [Brasserie Surréaliste](https://www.brasseriesurrealiste.com/) at the
+    [Nieuwe Graanmarkt/Place du Nouveau Marché aux Grains 23](https://maps.app.goo.gl/oQyx4DYp7gQgmiGH9) and housed in an
+    Art Deco building from 1932, is a small brewery with taproom and restaurant. Open on
+    Wednesday, Thursday and Friday from 5pm and Saturday from noon.
+
 -   Saint-Gilles, south of the pentagon, is a very multicultural community. Yet there are some
     very nice beer bars.
 
@@ -167,14 +172,19 @@ to the city centre only:
         is my personal favourite small brewery in Brussels. 
         The [brewpub/taproom](https://lasourcebeer.be/pages/bar) is a bit tricky to find: It is in
         the far left corner of a big hall named [BE-HERE](https://maps.app.goo.gl/gnDnV7FHpiyAubW68)
-        that you enter through a port.
+        that you enter through a port. They typically have 5 beers from the tank and 13-14 beers on 
+        tap.
 
-        They brew a variety of styles and their beers rarely disappoint me. 
+        They brew a variety of styles and their beers rarely disappoint me. You'll find fruited sours,
+        several IPA variants, porters or stouts, but often also their own lager beer. They're one of the
+        few though where it may be hard to find the (near) alcohol-free variant.
+
+        During the evening, they do serve pizza also (until 21:30 except on Sundays, then until 20:30).
 
         Closed on Monday and Tuesday though.
 
 -   In case you would not fly back home on Friday afternoon and would like to learn how Lambic,
-    the most famous beer from the Brussels area, is brewed (and what the difference is between
+    the most famous beer type from the Brussels area, is brewed (and what the difference is between
     Geuze and Lambic), you can visit the 
     [Cantillon Brewery and Brussels Museum of the Geuze](https://www.cantillon.be/?lang=en)
     which is also [not far outside the pentagon area](https://maps.app.goo.gl/Gxa1UGu3Anc2bd4h6).
