@@ -115,6 +115,11 @@ to the city centre only:
         easy to reach by tram from the park between the Parliament and Royal Palace near
         HOEK38.
 
+-   [Brasserie Surréaliste](https://www.brasseriesurrealiste.com/) at the
+    [Nieuwe Graanmarkt/Place du Nouveau Marché aux Grains 23](https://maps.app.goo.gl/oQyx4DYp7gQgmiGH9) and housed in an
+    Art Deco building from 1932, is a small brewery with taproom and restaurant. Open on
+    Wednesday, Thursday and Friday from 5pm and Saturday from noon.
+
 -   Saint-Gilles, south of the pentagon, is a very multicultural community. Yet there are some
     very nice beer bars.
 
@@ -179,7 +184,7 @@ to the city centre only:
         Closed on Monday and Tuesday though.
 
 -   In case you would not fly back home on Friday afternoon and would like to learn how Lambic,
-    the most famous beer from the Brussels area, is brewed (and what the difference is between
+    the most famous beer type from the Brussels area, is brewed (and what the difference is between
     Geuze and Lambic), you can visit the 
     [Cantillon Brewery and Brussels Museum of the Geuze](https://www.cantillon.be/?lang=en)
     which is also [not far outside the pentagon area](https://maps.app.goo.gl/Gxa1UGu3Anc2bd4h6).
