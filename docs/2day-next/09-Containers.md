@@ -150,7 +150,8 @@ the compute nodes. It is a system command that is installed with the OS, so no m
 to enable it. We can also offer only a single version of singularity or its close cousin AppTainer 
 as singularity/AppTainer simply don't really like running multiple versions next to one another, 
 and currently the version that
-we offer is determined by what is offered by the OS. Currently we offer Singularity Community Edition 3.11.
+we offer is determined by what is offered by the OS. Currently we offer 
+[Singularity Community Edition 4.1.3](https://docs.sylabs.io/guides/4.1/user-guide/).
 
 To work with containers on LUMI you will either need to pull the container from a container registry,
 e.g., [DockerHub](https://hub.docker.com/), or bring in the container either by creating a tarball from a
@@ -212,10 +213,10 @@ So you should pull containers from a container repository, or build the containe
 and then transfer it to LUMI.
 
 There is some support for building on top of an existing singularity container using what the SingularityCE user guide
-calls ["unprivileged proot builds"](https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds). 
+calls ["unprivileged proot builds"](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds). 
 This requires loading the `proot` command which is provided by the `systools/23.09` module or later versions provided
 in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
-[mentions several restrictions of this process](https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds).
+[mentions several restrictions of this process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
 and adds software using system package managers, an unprivileged proot build is appropriate. 
 If your definition file compiles and installs large complex software from source, 
@@ -447,8 +448,9 @@ before.
 
 <!-- BELGIUM 
 !!! Note "AI course"
-    The `cotainr` tool is also used extensively in the AI workshop that the
-    LUMI User Support Team organises from time to time. 
+    The `cotainr` tool is also used extensively in the 
+    [AI workshop that the LUMI User Support Team](https://lumi-supercomputer.github.io/AI-latest) 
+    organises from time to time. 
     It is used in that course to build containers
     with AI software on top of some 
     [ROCm<sup>TM</sup> containers that we provide](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/). A link to the course material of that training was
@@ -457,10 +459,10 @@ before.
 
 <!-- GENERAL More general version -->
 !!! Note "AI course"
-    The `cotainr` tool is also used extensively in our AI training/workshop to build containers
-    with AI software on top of some 
-    [ROCm<sup>TM</sup> containers that we provide](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/). A link to the course material of that training was
-    not yet available at the time of this course.
+    The `cotainr` tool is also used extensively in our 
+    [AI training/workshop](https://lumi-supercomputer.github.io/AI-latest) 
+    to build containers with AI software on top of some 
+    [ROCm<sup>TM</sup> containers that we provide](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/). 
 
 
 ### Container wrapper for Python packages and conda
