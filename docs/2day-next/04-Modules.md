@@ -1,6 +1,10 @@
 # Modules on LUMI
 
+<<<<<<< HEAD
 !!! Audience "Intended audience"
+=======
+!!! Note "Intended audience"
+>>>>>>> d29ac9afe0235877a733cea208d6868af0e3a04b
     As this course is designed for people already familiar with HPC systems and
     as virtually any cluster nowadays uses some form of module environment, this
     section assumes that the reader is already familiar with a module environment
@@ -30,7 +34,11 @@ installations and as system administrators prefer to have a software stack which
 possible from the system installation to keep the image that has to be loaded
 on the compute nodes small.
 
+<<<<<<< HEAD
 Another use of modules is to configure the programs
+=======
+Another use of modules not mentioned on the slide is to configure the programs
+>>>>>>> d29ac9afe0235877a733cea208d6868af0e3a04b
 that are being activated. E.g., some packages expect certain additional environment
 variables to be set and modules can often take care of that also.
 
@@ -429,7 +437,6 @@ and we sometimes have to do some effort to fit all information in there.
 For some packages we also have additional information in our
 [LUMI Software Library web site](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) so it is often
 worth looking there also.
-
 
 ### Example 4: Searching for an extension of a module: CMake.
 

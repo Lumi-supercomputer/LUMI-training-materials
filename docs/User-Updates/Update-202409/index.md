@@ -1,8 +1,7 @@
 # Changes after the update of August-September 2024
 
-**Please read to the bottom of this page before starting to run again on LUMI!.
-The instructions for getting to run again are deliberately towards the bottom
-of this text!**
+**See also the 
+[recording of the user update webinar of October 2, 2024](../../User-Coffee-Breaks/20241002-user-coffee-break-LUMI-update.md).**
 
 <span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
@@ -151,13 +150,20 @@ appear, and the ROCm update has inevitably other consequences on the system:
     all SUSE 15 versions.
 
 
-### Known issues with the programming stack
+### Known issues with the programming environment
 
 -   The `intro_mpi` manual page for the latest version of Cray MPICH (8.1.29) was missing.
     Instead, the one from version 8.1.28 is shown which does lack some new information.
 
     The [web version of the manual page offered by HPE](https://cpe.ext.hpe.com/docs/latest/mpt/mpich/intro_mpi.html)
     is currently the one from version 8.1.29 though and very interesting reading.
+
+-   <span style="color:DarkBlue">It turns out that the Cray Fortran compilers 17.0.0 (23.12) and 
+    17.0.1 (24.12) have some severe regressions compared to the 16.0.1 version (23.09).
+    See, e.g., [a list of issues identified on the Frontier supercomputer](https://docs.olcf.ornl.gov/systems/frontier_user_guide.html#olcfdev-1803-cce-17-0-0-fortran-issues).
+    Unfortunately LUMI has never had a ROCm 5.5 installation which is the best ROCm version for 
+    CCE 16.0.1 on the new version of the operating system.
+    </span>
 
 
 ## The LUMI software stacks
@@ -303,3 +309,16 @@ jobs that hang or produce incorrect results for other reasons.
     ROCm 5.7 up to 6.2, and containers providing recent versions of PyTorch based on those
     ROCm versions, as PyTorch is the most used AI application on LUMI.
 
+
+## <span style="color:DarkBlue">FAQ</span>
+
+<span style="color:DarkBlue">See the 
+[separate "Frequently Asked Questions" page](202409_FAQ.md)
+compiled from questions asked by users after the first few user coffee breaks after the update.</span>
+
+
+## <span style="color:DarkBlue">Other documentation</span>
+
+<span style="color:DarkBlue">See the 
+[separate "Documentation links" page](202409_Documentation.md)
+for links to the relevant documentation for Slurm and CPE components.</span>
