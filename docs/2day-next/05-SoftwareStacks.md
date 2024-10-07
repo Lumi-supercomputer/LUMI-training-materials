@@ -326,7 +326,7 @@ and from the name of the modules you can see which compilers we used.
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
 
-First there are the **LUMI/22.08, LUMI/22.12, LUMI/23.03 and LUMI/23.09 modules**. 
+First there are the **LUMI/24.03, LUMI/23.12, LUMI/23.09, LUMI/23.03, LUMI/22.12 and LUMI/22.08 modules**. 
 Each of the LUMI modules loads a particular version of the LUMI stack.
 
 The **second level consists of partition modules**. 
