@@ -960,21 +960,21 @@ of a package that are not yet installed if the easyconfigs don't follow the nami
 convention. Each part of the name also corresponds to a parameter in the easyconfig 
 file.
 
-Consider, e.g., the easyconfig file `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`.
+Consider, e.g., the easyconfig file `GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb`.
 
 1.  The first part of the name, `GROMACS`, is the name of the package, specified by the
     `name` parameter in the easyconfig, and is after installation also the name of the
     module.
-2.  The second part, `2022.5`, is the version of GROMACS and specified by the
+2.  The second part, `2024.3`, is the version of GROMACS and specified by the
     `version` parameter in the easyconfig.
-3.  The next part, `cpeGNU-23.09` is the name and version of the toolchain,
+3.  The next part, `cpeGNU-24.03` is the name and version of the toolchain,
     specified by the `toolchain` parameter in the easyconfig. The version of the
     toolchain must always correspond to the version of the LUMI stack. So this is
-    an easyconfig for installation in `LUMI/23.09`.
+    an easyconfig for installation in `LUMI/24.03`.
 
     This part is not present for the SYSTEM toolchain
 
-4.  The final part, `-PLUMED-2.9.0-noPython-CPU`, is the version suffix and used to provide
+4.  The final part, `-PLUMED-2.9.2-noPython-CPU`, is the version suffix and used to provide
     additional information and distinguish different builds with different options
     of the same package. It is specified in the `versionsuffix` parameter of the
     easyconfig.
@@ -984,7 +984,7 @@ Consider, e.g., the easyconfig file `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-no
 The version, toolchain + toolchain version and versionsuffix together also combine
 to the version of the module that will be generated during the installation process.
 Hence this easyconfig file will generate the module 
-`GROMACS/2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU`.
+`GROMACS/2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU`.
 
 
 ### Installing software
@@ -1105,7 +1105,7 @@ eb --search GROMACS
   ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3_partial_2.png){ loading=lazy }
 </figure>
 
-Now let's take the variant `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`. 
+Now let's take the variant `GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb`. 
 This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
 from `LUMI/23.09`, and a build meant for CPU-only systems. The `-CPU` extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
@@ -1113,7 +1113,7 @@ for AMD GPUs in active development so even before LUMI-G was active we chose to 
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
 ```bash
-eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D
+eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
@@ -1124,11 +1124,11 @@ it can be turned on.
 !!! Demo "The output of this command looks like:"
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
     </figure>
 
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
@@ -1141,27 +1141,27 @@ To install GROMACS and also automatically install missing dependencies (only PLU
 in this case), we run
 
 ```bash
-eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
+eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r
 ```
 
 !!! Demo "Running EasyBuild to install GROMACS and dependency"
     The command
 
     ```bash
-    eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
+    eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r
     ```
 
     results in:
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
     </figure>
 
     EasyBuild detects PLUMED is a dependency and because of the `-r` option, it first installs the
     required version of PLUMED.
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
     </figure>
 
     When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
@@ -1176,19 +1176,19 @@ eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
     MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
     </figure>
 
 
