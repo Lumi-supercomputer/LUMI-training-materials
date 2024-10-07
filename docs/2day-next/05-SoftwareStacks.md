@@ -826,9 +826,9 @@ eb --search VASP
 will tell you for which versions of VASP LUMI provides EasyBuild recipes, but you will still have
 to download the source file that the EasyBuild recipe expects. 
 Put it somewhere in a directory, and then from that
-directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
+directory run EasyBuild, for instance for VASP 6.4.2 with the GNU compilers:
 ```bash
-eb VASP-6.4.1-cpeGNU-22.12-build01.eb –r . 
+eb VASP-6.4.2-cpeGNU-23.09-build02.eb –r . 
 ```
 
 ### More advanced work (2): Repositories
