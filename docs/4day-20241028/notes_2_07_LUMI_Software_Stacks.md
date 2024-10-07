@@ -1106,8 +1106,8 @@ eb --search GROMACS
 </figure>
 
 Now let's take the variant `GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb`. 
-This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
-from `LUMI/23.09`, and a build meant for CPU-only systems. The `-CPU` extension is not
+This is GROMACS 2024.3 with the PLUMED 2.9.2 plugin, built with the GNU compilers
+from `LUMI/24.03`, and a build meant for CPU-only systems. The `-CPU` extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
