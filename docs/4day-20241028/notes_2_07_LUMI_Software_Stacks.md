@@ -250,6 +250,31 @@ We also have an extensible software stack based on **Spack** which has been pre-
 from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
 support nor do we do any bugfixing in Spack.
 
+Some partner organisations in the LUMI consortium also provide pre-installed software on LUMI.
+This software is not manages by the LUMI User Support Team and as a consequence of this, support
+is only provided through those organisations that manage the software. Though they did promise
+to offer some basic support for everybody, the level of support may be different depending on
+how your project ended up on LUMI as they receive no EuroHPC funding for this. 
+There is also no guarantee that software in those stacks is compatible with anything else
+on LUMI. The stacks are provided by modules whose name starts with `Local-`.
+Currently there are two such stacks on LUMI:
+
+-   `Local-CSC`: Enables software installed and maintained by CSC. 
+    Most of that software is available to all users, though some packages are 
+    restricted or only useful to users of other CSC services (e.g., the allas module).
+
+    Some of that software builds on software in the LUMI stacks, some is based on 
+    containers with wrapper scripts, and some is compiled outside of any software 
+    management environment on LUMI.
+
+    The names of the modules don't follow the conventions of the LUMI stacks, but those
+    used on the Finnish national systems.
+
+-   `Local-quantum` contains some packages of general use, but also some packages that 
+    are only relevant to Finnish researchers with an account on the Helmi quantum computer. 
+    Helmi is not a EuroHPC-JU computer so being eligible for an account on LUMI does 
+    not mean that you are also eligible for an account on Helmi.
+
 In the far future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.
