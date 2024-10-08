@@ -165,6 +165,20 @@ appear, and the ROCm update has inevitably other consequences on the system:
     CCE 16.0.1 on the new version of the operating system.
     </span>
 
+-   <span style="color:DarkBlue">The Fortran compiler of the `cce/16.0.1` module does not
+    always play nicely with the `rocm/6.0.3` module. We have observed `LLVM ERROR` crashes.
+    This is not unexpected as that compiler version was never tested by HPE Cray against 
+    ROCm 6 but was developed for use with ROCm 5.2 or 5.5. 
+    </span>
+
+    <span style="color:DarkBlue">A workaround is to load the `rocm/5.4.6` module in
+    `CrayEnv` or `LUMI/23.09 partition/G` and compile with that module loaded. This then
+    however causes problems when running, with the executable failing to detect the GPUs,
+    and that is then solved again by using the `rocm/6.0.3` module when running the code.
+    Note that ROCm 5.4 is not officially supported by the current driver, which may be the
+    cause of the problems when running.
+    </span>
+
 
 ## The LUMI software stacks
 
