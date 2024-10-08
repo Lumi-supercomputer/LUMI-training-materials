@@ -1,6 +1,6 @@
 # HPE Cray PE tools introduction
 
-<em>Presenter: Alfio Lazzaro (HPE)</em>
+<em>Presenter: Harvey Richardson and Alfio Lazzaro (HPE)</em>
 
 <!-- 
 -   Slides on LUMI in `/appl/local/training/profiling-20241009/files/01_HPE_Cray_PE_tools.pdf`

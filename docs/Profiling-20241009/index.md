@@ -6,18 +6,20 @@
 For each session, the schedule also contains a link to the page with downloadable materials and
 the recordings.
 
+[Original schedule (PDF)](https://462000265.lumidata.eu/profiling-20241009/files/2024-10_Pre-Hackathon-Profiling-Agenda.pdf)
+
 <table style="text-align: left;">
 <tbody>
     <tr>
         <td>10:15 CEST<br/><em>11:15 EEST</em></td>
         <td><b><A href="00_Introduction/">Welcome and introduction</a></b>
-        <br><em>Presenter: Jørn Dietze (LUST)</em>
+        <br><em>Presenter: Jørn Dietze (LUST) and Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>10:30 CEST<br/><em>11:30 EEST</em></td>
         <td><b><a href="01_HPE_Cray_PE_tools/">HPE Cray PE tools introduction</a></b>
-        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        <br/><em>Presenter: Harvey Richardson and Alfio Lazzaro (HPE)</em>
        </td>
     </tr>
     <tr>
