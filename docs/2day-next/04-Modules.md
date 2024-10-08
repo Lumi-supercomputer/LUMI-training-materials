@@ -1,10 +1,6 @@
 # Modules on LUMI
 
-<<<<<<< HEAD
 !!! Audience "Intended audience"
-=======
-!!! Note "Intended audience"
->>>>>>> d29ac9afe0235877a733cea208d6868af0e3a04b
     As this course is designed for people already familiar with HPC systems and
     as virtually any cluster nowadays uses some form of module environment, this
     section assumes that the reader is already familiar with a module environment
@@ -34,11 +30,7 @@ installations and as system administrators prefer to have a software stack which
 possible from the system installation to keep the image that has to be loaded
 on the compute nodes small.
 
-<<<<<<< HEAD
 Another use of modules is to configure the programs
-=======
-Another use of modules not mentioned on the slide is to configure the programs
->>>>>>> d29ac9afe0235877a733cea208d6868af0e3a04b
 that are being activated. E.g., some packages expect certain additional environment
 variables to be set and modules can often take care of that also.
 
@@ -148,6 +140,17 @@ Lmod has **several tools to search for modules**.
     available modules. 
 -   But Lmod also has other commands, `module spider` and `module keyword`, to 
     search in the list of installed modules.
+
+    On LUMI, we had to restrict the search space of `module spider`. By default, `module spider`
+    will only search in the Cray PE modules, the CrayEnv stack and the LUMI stacks. This is done 
+    for performance reasons. However, as we shall discuss later, you can load a module or set an
+    environment variable to enable searching all installed modules. The behaviour is also not
+    fully consistent. Lmod uses a cache which it refreshes once every 24 hours, or after manually
+    clearing the cache. If a rebuild happens while modules from another software stack are available,
+    that stack will also be indexed and results for that stack shown in the results of 
+    `module spider`. It is a price we had to pay though as due to the large number of modules
+    and the many organisations managing modules, the user cache rebuild time became too long
+    and system caches are hard to manage also.
 
 
 ## Benefits of a hierarchy
@@ -278,6 +281,9 @@ to optimised math libraries.
 </figure>
 
 There are three ways to use `module spider`, discovering software in more and more detail.
+All variants however will by default only check the Cray PE, the CrayEnv stack and the
+LUMI stacks, unless another software stack is loaded through a module or `module use`
+statement and the cache is regenerated during that period.
 
 1.  `module spider` by itself will show a list of all installed software with a short description.
     Software is bundled by name of the module, and it shows the description taken from the default
@@ -691,6 +697,30 @@ all included Python or R packages in that list) you may want to hide those. You 
 loading the `ModuleExtensions/hide` module and undo this again by loading
 `ModuleExtensions/show`.
 
+There are two ways to tell `module spider` to search in all installed modules. One is more meant as a 
+temporary solution: Load
+
+```bash
+module load ModuleFullSpider/on
+```
+
+and this is turned off again by force-unloading this module or loading
+
+```bash
+module load ModuleFullSpider/off
+```
+
+The second and permanent way is to set add the line
+
+```bash
+export LUMI_FULL_SPIDER=1
+```
+
+to your `.profile` file and from then on, `module spider` will index all modules on the system.
+Note that this can have a large impact on the performance of the `module spider` and
+`module avail` commands that can easily "hang" for a minute or more if a cache rebuild is
+needed, which is the case after installing software with EasyBuild or once every 24 hours.
+
 We also hide some modules from regular users because we think they are not useful at all for regular
 users or not useful in the context you're in at the moment. 
 You can still load them if you know they exist and specify the full version but 
@@ -699,6 +729,13 @@ them by loading `ModulePowerUser/LUMI`. Use this at your own risk however, we wi
 things work if you use modules that are hidden in the context you're in
 or if you try to use any module that was designed for us to maintain the system and is therefore hidden 
 from regular users.
+
+Another way to show hidden modules also, is to use the `--show_hidden` flag of the module command
+with the `avail` subcommand: `module --show_hidden avail`. 
+
+With `ModulePowerUser`, all modules will be displayed as if they are regular modules, while
+`module --show_hidden avail` will still grey the hidden modules and add an `(H)` to them
+so that they are easily recognised.
 
 !!! Example
     An example that will only become clear in the next session: When working with the software stack
