@@ -905,7 +905,7 @@ the second level is sometimes used but the third level is very tricky and both t
 are often better replaced with other mechanisms that will also be discussed in this chapter on distribution
 and binding.
 
-The [general form of the `--distribution` option](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_distribution) is 
+The [general form of the `--distribution` option](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_distribution) is 
 
 ```
 --distribution={*|block|cyclic|arbitrary|plane=<size>}[:{*|block|cyclic|fcyclic}[:{*|block|cyclic|fcyclic}]][,{Pack|NoPack}]
@@ -993,7 +993,7 @@ Task-to-CPU binding is controlled through the Slurm option
 ```
 
 We'll describe a few of the possibilities for the `<type>` parameter but for a more concrete overview
-we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_cpu-bind)
+we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_cpu-bind)
 
 -   `--cpu-bind=threads` is the default behaviour on LUMI.
 
@@ -1066,7 +1066,7 @@ Task-to-GPU binding is done with
 --gpu-bind=[verbose,]<type>
 ```
 
-[(see the Slurm manual)](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_gpu-bind)
+[(see the Slurm manual)](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_gpu-bind)
 which is somewhat similar to `--cpu-binding` (to the extent that that makes sense).
 
 Some options for the `<type>` parameter that are worth considering:

@@ -601,17 +601,17 @@ that in fact can also be found on the web.
         so another user may submit a job that gets a higher priority than yours, pushing back the start
         time of your job. So it is basically a random number generator.
 
--   To delete a job, use [`scancel <jobID>`](https://slurm.schedmd.com/archive/slurm-22.05.10/scancel.html)
+-   To delete a job, use [`scancel <jobID>`](https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html)
 
 -   An important command to manage jobs while they are running is 
-    [`sstat -j <jobID>`](https://slurm.schedmd.com/archive/slurm-22.05.10/sstat.html).
+    [`sstat -j <jobID>`](https://slurm.schedmd.com/archive/slurm-23.02.7/sstat.html).
     This command display real-time information directly gathered from the resource manager
     component of Slurm and can also be used to show information about individual job steps using
     the job step identifier (which is in most case `<jobID>.0` for the first regular job step and so on).
     We will cover this command in more detail 
     [further in the notes of this session](06-Slurm.md/#the-sstat-command).
 
--   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html) can be used both while the
+-   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html) can be used both while the
     job is running and when the job has finished. It is the main command to get information about a job
     after the job has finished. All information comes from a database, also while the job is running, so 
     the information is available with some delay compared to the information obtained with `sstat` for
@@ -683,9 +683,9 @@ For the `sbatch` command this are the `SBATCH_*` environment variables, for `sal
 the `SALLOC_*` environment variables and for `srun` the `SLURM_*` and some `SRUN_*` environment variables.
 For the `sbatch` command this will overwrite values on the `#SBATCH` lines. You can find
 lists in the manual pages of the 
-[`sbatch`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html),
-[ `salloc`](https://slurm.schedmd.com/archive/slurm-22.05.10/salloc.html) and
-[`srun`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html) command.
+[`sbatch`](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html),
+[ `salloc`](https://slurm.schedmd.com/archive/slurm-23.02.7/salloc.html) and
+[`srun`](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html) command.
 Specifying command line options via environment variables that are hidden in your
 `.profile` or `.bashrc` file or any script that you run before starting your work,
 is not free of risks. Users often forget that they set those environment variables and
@@ -720,7 +720,7 @@ command line and lead to unexpected behaviour.
     the number of nodes. 
 
     Checking the 
-    [srun manual page for the `--ntasks-per-node` option](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks-per-node), 
+    [srun manual page for the `--ntasks-per-node` option](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks-per-node), 
     you read that the `--ntasks` option takes precedence and if present, 
     `--ntasks-per-node` will be interpreted as the **maximum** number of tasks per node.
 
@@ -844,8 +844,8 @@ information. Examples are `%x` which will be replaced with the name of the job (
 `--job-name`) and `%j` which will be replaced with the job ID (job number). It is recommended to always include 
 the latter in the template for the filename as this ensures unique names if the same job script would be run a 
 few times with different input files. Discussing all patterns that can be used for the filename is outside the
-scope of this tutorial, but you can find them all in the [sbatch manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html)
-in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E).
+scope of this tutorial, but you can find them all in the [sbatch manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html)
+in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E).
 
 
 ## Requesting resources: CPUs and GPUs
@@ -1164,7 +1164,7 @@ resources are for each individual task, but this scheme is an easy scheme:
 1.  Specifying the number of tasks: You can specify per node or the total number:
 
     1.  Specifying the total number of tasks: 
-        [`--ntasks=<ntasks` or `-n ntasks`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks).
+        [`--ntasks=<ntasks` or `-n ntasks`](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks).
         There is a risk associated to this approach which is the same as when specifying the
         total number of GPUs for a job: If you change the number of nodes, then you should
         change the total number of tasks also. However, it is also very useful in certain cases.
@@ -1173,12 +1173,12 @@ resources are for each individual task, but this scheme is an easy scheme:
         total number of nodes makes perfect sense.
 
     2.  Specifying on a per node basis: 
-        [`--ntasks-per-node=<ntasks>`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks-per-core) 
+        [`--ntasks-per-node=<ntasks>`](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks-per-core) 
         is possible in combination with `--nodes` according to the Slurm manual. 
         In fact, this would be a logical thing to do in a per node allocation. 
         **However, we see it fail on LUMI when it is used as an option for `srun` and not with `sbatch`, 
         even though it should work
-        [according to the documentation](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html#OPT_ntasks-per-core).**
+        [according to the documentation](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks-per-core).**
 
         The reason for the failure is that Slurm when starting a batch job defines a large number of `SLURM_*` and
         `SRUN_*` variables. Some only give information about the allocation, but others are picked up by `srun` as
@@ -2201,11 +2201,11 @@ With this statement, the job defined by the job script `jobdpend.slurm` will not
 given jobID has ended successfully (and you may have to clean up the queue if it never ends successfully). But 
 there are other possibilities also, e.g., start another job after a list of jobs has ended, or after a job has
 failed. We refer to the 
-[sbatch manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html) where you should 
-[look for `--dependency` on the page](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html#OPT_dependency).
+[sbatch manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html) where you should 
+[look for `--dependency` on the page](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#OPT_dependency).
 
 It is also possible to automate the process of submitting a chain of dependent jobs. For this the
-`sbatch` flag [`--parsable`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html#OPT_parsable)
+`sbatch` flag [`--parsable`](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#OPT_parsable)
 can be used which on LUMI will only print the job number of the job being submitted. So to 
 let the job defined by `jobdepend.slurm` run after the job defined by `jobfirst.slurm` while 
 submitting both at the same time, you can use something like
@@ -2828,7 +2828,7 @@ which task that is and on which node it is running.
 
 You can get a list of output fields using `sstat -e` or `sstat --helpformat`. 
 Or check the 
-["Job Status Fields" section in the `sstat` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sstat.html#SECTION_Job-Status-Fields). That page also contains further examples.
+["Job Status Fields" section in the `sstat` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/sstat.html#SECTION_Job-Status-Fields). That page also contains further examples.
 
 
 ### The `sacct` command
@@ -2899,7 +2899,7 @@ in that column.
 
 You can get a list of output fields using `sacct -e` or `sacct --helpformat`. 
 Or check the 
-["Job Accounting Fields" section in the `sacct` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html#SECTION_Job-Accounting-Fields). That page also contains further examples.
+["Job Accounting Fields" section in the `sacct` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html#SECTION_Job-Accounting-Fields). That page also contains further examples.
 
 
 <figure markdown style="border: 1px solid #000">
@@ -2915,7 +2915,7 @@ administrators.
 
 This is only a very brief introduction to `sacct`, basically so that you know that it exists and what
 its main purpose is. But you can find more information in the
-[`sacct` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html)
+[`sacct` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html)
 
 
 ### The `sreport` command
@@ -2939,7 +2939,7 @@ irrelevant to get an idea of how the CPU billing units were consumed.
 
 This section is mostly to discourage you to use `sreport` as its information is often misleading and certainly
 it it is used to follow up your use of billing units on LUMI, but should you insist, there is more information
-in the [`sreport` manual page](https://slurm.schedmd.com/archive/slurm-22.05.10/sreport.html).
+in the [`sreport` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/sreport.html).
 
 
 <!-- BELGIUM

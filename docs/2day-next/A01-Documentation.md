@@ -10,7 +10,7 @@ and some more.
 
 ## Web documentation
 
--   [Slurm version 22.05.10, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-22.05.10/)
+-   [Slurm version 23.02.7, on the system at the time of the course](https://slurm.schedmd.com/archive/slurm-23.02.7/)
 
 -   [HPE Cray Programming Environment web documentation](https://cpe.ext.hpe.com/docs/) has only become available in
     May 2023 and is a work-in-progress. It does contain a lot of HTML-processed man pages in an easier-to-browse
@@ -163,23 +163,23 @@ A selection of man pages explicitly mentioned during the course:
 -   Slurm manual pages are also all [on the web](https://slurm.schedmd.com/archive/slurm-22.05.8/man_index.html) 
     and are easily found by Google, but are usually those for the latest version.
 
-    -   [`man sbatch`](https://slurm.schedmd.com/archive/slurm-22.05.10/sbatch.html)
+    -   [`man sbatch`](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html)
 
-    -   [`man srun`](https://slurm.schedmd.com/archive/slurm-22.05.10/srun.html)
+    -   [`man srun`](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html)
 
-    -   [`man salloc`](https://slurm.schedmd.com/archive/slurm-22.05.10/salloc.html)
+    -   [`man salloc`](https://slurm.schedmd.com/archive/slurm-23.02.7/salloc.html)
 
-    -   [`man squeue`](https://slurm.schedmd.com/archive/slurm-22.05.10/squeue.html)
+    -   [`man squeue`](https://slurm.schedmd.com/archive/slurm-23.02.7/squeue.html)
 
-    -   [`man scancel`](https://slurm.schedmd.com/archive/slurm-22.05.10/scancel.html)
+    -   [`man scancel`](https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html)
 
-    -   [`man sinfo`](https://slurm.schedmd.com/archive/slurm-22.05.10/sinfo.html)
+    -   [`man sinfo`](https://slurm.schedmd.com/archive/slurm-23.02.7/sinfo.html)
 
-    -   [`man sstat`](https://slurm.schedmd.com/archive/slurm-22.05.10/sstat.html)
+    -   [`man sstat`](https://slurm.schedmd.com/archive/slurm-23.02.7/sstat.html)
 
-    -   [`man sacct`](https://slurm.schedmd.com/archive/slurm-22.05.10/sacct.html)
+    -   [`man sacct`](https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html)
 
-    -   [`man scontrol`](https://slurm.schedmd.com/archive/slurm-22.05.10/scontrol.html)
+    -   [`man scontrol`](https://slurm.schedmd.com/archive/slurm-23.02.7/scontrol.html)
 
 
 ## Via the module system
