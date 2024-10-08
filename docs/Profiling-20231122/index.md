@@ -1,4 +1,4 @@
-# HPE and AMD profiling tools (November 2022, 2023)
+# HPE and AMD profiling tools (November 22, 2023)
 
 
 ## Schedule
