@@ -84,6 +84,7 @@ By theme in reverse chronological order:
 -   Comprehensive AI trainings for LUMI:
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools and/or program optimization
+    -   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
     -   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
     -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
     -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
