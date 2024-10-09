@@ -4,9 +4,6 @@
 
 -   Slides on LUMI in `/appl/local/training/profiling-20241009/files/01_HPE_Cray_PE_tools.pdf`
 
-<!-- 
--   Files from the demo on LUMI in `/appl/local/training/profiling-20241009/files/01_HPE_Demo.tar`
-
 -   Recordings: To make the presentations more accessible, the presentation has been split in
     6 parts:
 
@@ -29,7 +26,6 @@
         `/appl/local/training/profiling-20241009/recordings/01f_HPE_Cray_PE_tools__Performance_analysis.mp4`
 
     The "GDB for HPC" slides (114-127) were not covered in the presentation.
--->
 
 HPE training materials can only be shared with other LUMI users and therefore are not available on the
 web.
