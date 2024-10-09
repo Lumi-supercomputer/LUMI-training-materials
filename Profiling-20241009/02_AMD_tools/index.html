@@ -2826,7 +2826,7 @@
 
 
 <h1 id="amd-rocmtm-profiling-tools">AMD ROCm<sup>TM</sup> profiling tools<a class="headerlink" href="#amd-rocmtm-profiling-tools" title="Permanent link">&para;</a></h1>
-<p><em>Presenters: Samuel Antao and George Markomanolis (AMD)</em></p>
+<p><em>Presenter: Samuel Antao (AMD)</em></p>
 <ul>
 <li>
 <p>Slides:</p>
@@ -2846,17 +2846,13 @@
 </li>
 </ul>
 <!--
--   Recording in `/appl/local/training/profiling-20241009/recordings/02_Intro_rocprof.mp4`
--->
-
-<!--
-=== "Part 1: rocprof"
+=== "Part 1: GPU timeline profiling"
     <video src="https://462000265.lumidata.eu/profiling-20241009/recordings/02a_AMD_tools__rocprof.mp4" controls="controls"></video>
 
-=== "Part 2: OmniTrace"
+=== "Part 2:  OmniPerf and the roofline model"
     <video src="https://462000265.lumidata.eu/profiling-20241009/recordings/02b_AMD_tools__OmniTrace.mp4" controls="controls"></video>
 
-=== "Part 3: OmniPerf"
+=== "Part 3: Tips and Tricks"
     <video src="https://462000265.lumidata.eu/profiling-20241009/recordings/02c_AMD_tools__OmniPerf.mp4" controls="controls"></video>
 
 The recordings are also available on LUMI in
@@ -2864,7 +2860,59 @@ The recordings are also available on LUMI in
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<div class="admonition note">
+<p class="admonition-title">Slide 7</p>
+<p>We now have a <code>rocm/6.2.2</code> module on the system which is built by LUST, but there are 
+compatibility problems with the CCE compilers as ROCm 6.2 is based on Clang/LLVM 18 
+which has some conflicts with Clang/LLVM 17 from the 24.03 CPE. You can find it in <code>CrayEnv</code> 
+and <code>LUMI/24.03 partition/G</code>.</p>
+</div>
+<ol>
+<li>
+<p>Can we give multiple kernel names for omniprof for the profiling?</p>
+<ul>
+<li>Yes you can usually up to 10 kernels but there could be more probably</li>
+</ul>
+</li>
+<li>
+<p>Is there a way to capture the kernel running not every time, but in certain intervals. 
+    For example only profile "my_great_kernel" every 5 runs.</p>
+<ul>
+<li>I am not sure for every 5 but you can say profile the 5<sup>th</sup> execution, 10<sup>th</sup>, etc. so this 
+    is manual. However, it is improtant to know that all the kernels are running in the order 
+    that they are called, so 5<sup>th</sup> execution does not mean is the kernel we want, you need to 
+    identify first which call is for your kernel. Although they were planning to change it, 
+    I need to check if something is changed.</li>
+</ul>
+<p>Thanks. This was exactly my question. a specific kernel's 5<sup>th</sup> and 10<sup>th</sup> invocation. I guess one 
+can check the order of kernels that are and map the invocation to the specific kernel one wants to profile. </p>
+<ul>
+<li>I know this was under discussion but I assume the profiling team had more urgent tasks to solve, I will ask though.</li>
+</ul>
+</li>
+<li>
+<p>Which modules do I need to load in order to use rocprofv3?</p>
+<ul>
+<li>
+<p>You need ROCm 6.2 and later, then it is included there, no other module required</p>
+</li>
+<li>
+<p>After loading <code>rocm/6.2.2</code> (see above), it is in <code>$EBROOTROCM/bin</code> and also in the path. 
+   However, loading this will likely also cause your code to use libraries from ROCm 6.2.2 which may cause some problems with some codes.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>pftrace files generated with rocprofv3 can quickly get rather large, I tried to upload one to 
+    perfetto which had 1 GB. Can the size of the output files be reduced easily?</p>
+<ul>
+<li>I am not aware of a way to reduce the profile size. You can use, though, the offline 
+    trace processor tool. Perfetto UI will look for an instance of that trace processor. 
+    You can even choose to have the trace processor running remotelly (on LUMI) and forward 
+    that with SSH to your laptop.</li>
+</ul>
+</li>
+</ol>
 
 
 

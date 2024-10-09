@@ -2871,6 +2871,15 @@ web.</p>
     Proper linking to <code>gcc</code> has been fixed in PE 24.07 (not yet on LUMI).</li>
 </ul>
 </li>
+<li>
+<p>How does <code>ROCR_VISIBLE_DEVICES</code> interact with OpenMP calls that detect the number of 
+    devices ("omp_get_num_devices") and set/get the default target device ("omp_set_default_device" 
+    and "omp_get_default_device")?</p>
+<ul>
+<li>It works at the lowest level of the ROCm stack and will limit what the OpenMP runtime 
+    can detect. For example you might only see one device from OpenMP (or a HIP program) </li>
+</ul>
+</li>
 </ol>
 
 
