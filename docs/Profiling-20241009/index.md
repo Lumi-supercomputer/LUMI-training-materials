@@ -30,7 +30,7 @@ the recordings.
     <tr>
         <td>13:00 CEST<br/><em>14:00 EEST</em></td>
         <td><b><a href="02_AMD_tools/">AMD ROCm<sup>TM</sup> profiling tools</a></b>
-        <br/><em>Presenter: George Markomanolis (AMD)</em>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -59,18 +59,15 @@ the recordings.
 
 ## Extras
 
-/
+-   [Links to documentation of commands on LUMI](A01-Documentation.md)
 
-<!--
-Extra downloads:
-
--   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, is not a regular application but 
+-   [Perfetto](https://perfetto.dev/), the "program" used to visualise the output of omnitrace, 
+    is not a regular application but 
     [a browser application](https://ui.perfetto.dev/). Some browsers nowadays offer the option to install it on your
     system in a way that makes it look and behave more like a regular application (Chrome, Edge among others).
 
 Some of the exercises used in the course are based on exercises or other material available in various GitHub repositories:
 
 -   [vcopy.cpp example from the Omniperf presentation](https://raw.githubusercontent.com/AMDResearch/omniperf/main/sample/vcopy.cpp)
-   
+
 -   [mini-nbody from the AMD exercises](https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/master/mini-nbody)
--->

@@ -44,4 +44,10 @@ web.
         However, `gcc-13` is always available, so don't need to load the `gcc-native-mixed` module. 
         Proper linking to `gcc` has been fixed in PE 24.07 (not yet on LUMI).
 
+2.  How does `ROCR_VISIBLE_DEVICES` interact with OpenMP calls that detect the number of 
+    devices ("omp_get_num_devices") and set/get the default target device ("omp_set_default_device" 
+    and "omp_get_default_device")?
+   
+    -   It works at the lowest level of the ROCm stack and will limit what the OpenMP runtime 
+        can detect. For example you might only see one device from OpenMP (or a HIP program) 
 
