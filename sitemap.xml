@@ -1896,6 +1896,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/A01-Documentation/</loc>
+         <lastmod>2024-10-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/</loc>
          <lastmod>2024-10-09</lastmod>
          <changefreq>daily</changefreq>
