@@ -30,6 +30,8 @@ on the bottle. It is not always available in bulk though.
 
 ## Where to get?
 
+See also [this map on Google Maps](https://www.google.com/maps/d/u/0/edit?mid=1CHURBGrKZ8QyHro8hXZe70QjZ52bvI4&usp=sharing).
+
 The centre of the city is very touristic though and unfortunately this is not the place
 to find the best beer as too many tourists go for the cheaper volume stuff.
 

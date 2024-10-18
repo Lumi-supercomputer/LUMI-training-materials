@@ -1,5 +1,7 @@
 # Good places to discuss tough problems
 
+See also [this map on Google Maps](https://www.google.com/maps/d/u/0/edit?mid=1CHURBGrKZ8QyHro8hXZe70QjZ52bvI4&usp=sharing).
+
 Just some suggestions. There are many more decent restaurants in Brussels especially
 if you are alone or only with a small group. In general most places that score a 4 or more
 on Google Maps are decent places. For vegetarians and certainly for vegans, the options may 
