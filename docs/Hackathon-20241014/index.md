@@ -85,3 +85,8 @@ likely contactless payment with your bank or credit card or certain smartphone p
     -   12:00: Sandwich lunch.
 
     -   13:00: End. We need to vacate the room at that time.
+
+
+## Other information
+
+-   [Hedgedoc for collaboration](https://md.sigma2.no/lumi-hackathon-2024?both)
