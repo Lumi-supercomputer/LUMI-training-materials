@@ -1646,11 +1646,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20241028/where_to_drink/</loc>
-         <lastmod>2024-10-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/EasyBuild-CSC-20220509/</loc>
          <lastmod>2024-10-21</lastmod>
          <changefreq>daily</changefreq>
@@ -1662,6 +1657,16 @@
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Hackathon-20241014/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Hackathon-20241014/localinfo/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Hackathon-20241014/schedule/</loc>
          <lastmod>2024-10-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1892,6 +1897,36 @@
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20231122/03_Exercises/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/00_Introduction/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/01_HPE_Cray_PE_tools/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/02_AMD_tools/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/03_Exercises/</loc>
+         <lastmod>2024-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/Profiling-20241009/A01-Documentation/</loc>
          <lastmod>2024-10-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
