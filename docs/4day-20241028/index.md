@@ -3,6 +3,28 @@
 ## Course organisation
 
 -   Location: [SURF, Science Park 140, 1098 XG Amsterdam, The Netherlands](https://maps.app.goo.gl/GL1npKVy5Je5UFxJ7)
+
+-   The public transportation is run by [GVB](https://www.gvb.nl/).
+
+    -   Whatever type of ticket you have, you always need to check in and check out. 
+
+        It is now perfectly possible to do so with your bank card, but of course you
+        should use the same one to check in and check out.
+
+        If you use your bank card, you can use their app Gappie to follow up your use.
+        The app also provides routing, and you can by regular single or multi-day
+        tickets in it that will then work with a QR code.
+
+    -   [Gappie app for iOS](https://apps.apple.com/nl/app/gvb-reis-app/id1544439867) and
+        [Gappie app for Android](https://play.google.com/store/apps/details?id=nl.gvb.reizigersapp)
+
+    -   Multi-day tickets are interesting if you take public transportation a lot.
+        You can buy them in the Gappie app, but 
+        opening the app and scanning the QR code is a slow process compared to tapping a
+        credit card on the reader. If all travel you need is from a hotel in the centre 
+        to the venue and back, it isn't worth it.
+
+-   [Amsterdam is more than canals and the red light district](where_to_drink.md)
    
 -   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20241028/files/2024-10_General-LUMI-Training-Agenda.pdf)
 
