@@ -322,6 +322,13 @@ and leaving out a lot of the output, one would have gotten:
   ![module spider 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_2.png)
 </figure>
 
+In the above display, the `ARMForge` module is currently available in only one version.
+The `Autoconf` package is offered in two versions, but in both cases as an extension of another
+module as the blue `(E)` in the output shows. The `Blosc` package is available in many versions,
+but they are not all shown as the `...` suggests.
+
+After a few more screens, we get the last one:
+
 <figure markdown style="border: 1px solid #000">
   ![module spider 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleSpiderCommand_3.png)
 </figure>
