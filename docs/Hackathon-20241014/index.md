@@ -6,7 +6,8 @@
 
 -   [Tentative schedule](schedule.md)
 
--   [Hedgedoc for collaboration](https://md.sigma2.no/lumi-hackathon-2024?both)
+-   [Hedgedoc for collaboration](https://md.sigma2.no/lumi-hackathon-2024?both) (will become unavailable over time,
+    so the link may be dead)
 
 
 ## A brief introduction to Belgian culture
