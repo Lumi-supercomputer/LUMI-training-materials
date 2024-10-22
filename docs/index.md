@@ -4,11 +4,9 @@
 
 ### Regular trainings
 
-<!--
-Upcoming or currently running events:
+Upcoming or currently running events with materials already partly available:
 
--   None
--->
+-   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
 
 Most recently completed main training events:
 
@@ -35,7 +33,7 @@ Most recently completed main training events:
 Other recent LUST-organised trainings for which the material is still very up-to-date and
 relevant:
 
--   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
+-   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
 
 
 ### LUMI User Coffee Break Talks
@@ -73,6 +71,7 @@ By theme in reverse chronological order:
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 -   Comprehensive general LUMI trainings aimed at at developers and advanced users, mostly focusing on traditional HPC users
+    -   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
     -   [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
     -   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)
     -   [Comprehensive general LUMI course (May 30 - June 2, 2023)](4day-20230530/index.md)

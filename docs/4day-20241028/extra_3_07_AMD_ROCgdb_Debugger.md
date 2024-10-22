@@ -13,7 +13,7 @@ Course materials will be provided during and after the course.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001098/Slides/AMD/session-2-rocgdb-tutorial.pdf`
+-   Slides: `/project/project_465001362/Slides/AMD/session-2-rocgdb-tutorial.pdf`
 -->
 
 <!--

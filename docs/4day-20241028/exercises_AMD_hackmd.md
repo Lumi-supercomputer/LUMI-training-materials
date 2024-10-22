@@ -28,36 +28,36 @@ If you are able to log in with the ssh command, you should be able to use the se
 copy the presentation slides from lumi to view them.
 
 ```
-scp lumi:/project/project_465001098/Slides/AMD/<file_name> <local_filename>
+scp lumi:/project/project_465001362/Slides/AMD/<file_name> <local_filename>
 ```
 
 You can also copy all the slides with the . From your local system:
 
 ```
 mkdir slides
-scp -r lumi:/project/project_465001098/Slides/AMD/* slides
+scp -r lumi:/project/project_465001362/Slides/AMD/* slides
 ```
 
 If you don't have the additions to the config file, you would need a longer command:
 
 ```
 mkdir slides
-scp -r -i <HOME_DIRECTORY>/.ssh/<public ssh key file> <username>@lumi.csc.fi:/project/project_465001098/slides/AMD/ slides
+scp -r -i <HOME_DIRECTORY>/.ssh/<public ssh key file> <username>@lumi.csc.fi:/project/project_465001362/slides/AMD/ slides
 ```
 
 or for a single file
 
 ```
-scp -i <HOME_DIRECTORY>/.ssh/<public ssh key file> <username>@lumi.csc.fi:/project/project_465001098/slides/AMD/<file_name> <local_filename>
+scp -i <HOME_DIRECTORY>/.ssh/<public ssh key file> <username>@lumi.csc.fi:/project/project_465001362/slides/AMD/<file_name> <local_filename>
 ```
 
 ## HIP Exercises
 
 We assume that you have already allocated resources with `salloc`
 
-`cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .`
+`cp -r /project/project_465001362/Exercises/AMD/HPCTrainingExamples/ .`
 
-`salloc -N 1 -p standard-g --gpus=1 -t 10:00 -A project_465001098 --reservation LUMItraining_G`
+`salloc -N 1 -p standard-g --gpus=1 -t 10:00 -A project_465001362 --reservation LUMItraining_G`
 
 ```
 module load craype-accel-amd-gfx90a
@@ -68,7 +68,7 @@ The examples are also available on github:
 ```
 git clone https://github.com/amd/HPCTrainingExamples
 ```
-However, we recommend using the version in `/project/project_465001098/Exercises/AMD/HPCTrainingExamples` as it has been tuned to the current LUMI environment.
+However, we recommend using the version in `/project/project_465001362/Exercises/AMD/HPCTrainingExamples` as it has been tuned to the current LUMI environment.
 
 ### Basic examples
 
@@ -91,7 +91,7 @@ We can use SLURM submission script, let's call it `hip_batch.sh`:
 #SBATCH --gpus=1
 #SBATCH -t 10:00
 #SBATCH --reservation LUMItraining_G
-#SBATCH -A project_465001098
+#SBATCH -A project_465001362
 
 module load craype-accel-amd-gfx90a
 module load rocm
@@ -136,7 +136,7 @@ We’ll use the same HPCTrainingExamples that were downloaded for the first exer
 
 Get a node allocation. 
 ```
-salloc -N 1 --ntasks=1 --gpus=1 -p standard-g -A project_465001098 –-t 00:10:00`--reservation LUMItraining_G
+salloc -N 1 --ntasks=1 --gpus=1 -p standard-g -A project_465001362 –-t 00:10:00`--reservation LUMItraining_G
 ```
 
 A batch version of the example is also shown.
@@ -207,7 +207,7 @@ A batch version of Exercise 2 is:
 #SBATCH --ntasks=1
 #SBATCH --gpus=1
 #SBATCH -p standard-g
-#SBATCH -A project_465001098
+#SBATCH -A project_465001362
 #SBATCH -t 00:10:00
 #SBATCH --reservation  LUMItraining_G
 
@@ -241,7 +241,7 @@ Get the exercise: `git clone https://github.com/AMD/HPCTrainingExamples.git`
 
 If required, copy the exercises: 
 
-`cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .`
+`cp -r /project/project_465001362/Exercises/AMD/HPCTrainingExamples/ .`
 
 Go to `HPCTrainingExamples/HIP/saxpy`
 
@@ -253,7 +253,7 @@ Edit the `saxpy.hip` file and comment out the two hipMalloc lines.
 ```
 
 Allocate resources:
-`salloc -N 1 -p standard-g --gpus=1 -t 30:00 -A project_465001098 --reservation LUMItraining_G`
+`salloc -N 1 -p standard-g --gpus=1 -t 30:00 -A project_465001362 --reservation LUMItraining_G`
 
 Now let's try using rocgdb to find the error.
  
@@ -527,7 +527,7 @@ We can see that there are multiple problems with this kernel. X and Y are not in
 
 Setup environment
 ```
-salloc -N 1 --gpus=8 -p standard-g --exclusive -A project_465001098 -t 20:00 --reservation LUMItraining_G
+salloc -N 1 --gpus=8 -p standard-g --exclusive -A project_465001362 -t 20:00 --reservation LUMItraining_G
 
 module load PrgEnv-cray
 module load craype-accel-amd-gfx90a
@@ -661,7 +661,7 @@ module load rocm/5.4.3 omnitrace/1.10.3-rocm-5.4.x
 
 * Allocate resources with `salloc`
 
-`salloc -N 1 --ntasks=1 --partition=standard-g --gpus=1 -A project_465001098  --time=00:15:00 --reservation LUMItraining_G`
+`salloc -N 1 --ntasks=1 --partition=standard-g --gpus=1 -A project_465001362  --time=00:15:00 --reservation LUMItraining_G`
 
 
 * Check the various options and their values and also a second command for description
@@ -679,7 +679,7 @@ module load rocm/5.4.3 omnitrace/1.10.3-rocm-5.4.x
 
 * Get the training examples:
 
- `cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .`
+ `cp -r /project/project_465001362/Exercises/AMD/HPCTrainingExamples/ .`
 
 * Compile and execute saxpy
     * `cd HPCTrainingExamples/HIP/saxpy`
@@ -774,8 +774,8 @@ source /pfs/lustrep2/projappl/project_462000125/samantao-public/omnitools/venv/b
 * Reserve a GPU, compile the exercise and execute Omniperf, observe how many times the code is executed
 
 ```
-salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465001098 --time=00:30:00
-cp -r /project/project_465001098/Exercises/AMD/HPCTrainingExamples/ .
+salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465001362 --time=00:30:00
+cp -r /project/project_465001362/Exercises/AMD/HPCTrainingExamples/ .
 cd HPCTrainingExamples/HIP/dgemm/
 mkdir build
 cd build

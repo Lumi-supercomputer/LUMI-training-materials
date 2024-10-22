@@ -250,6 +250,31 @@ We also have an extensible software stack based on **Spack** which has been pre-
 from the Cray PE. This stack is offered as-is for users who know how to use Spack, but we don't offer much
 support nor do we do any bugfixing in Spack.
 
+Some partner organisations in the LUMI consortium also provide pre-installed software on LUMI.
+This software is not manages by the LUMI User Support Team and as a consequence of this, support
+is only provided through those organisations that manage the software. Though they did promise
+to offer some basic support for everybody, the level of support may be different depending on
+how your project ended up on LUMI as they receive no EuroHPC funding for this. 
+There is also no guarantee that software in those stacks is compatible with anything else
+on LUMI. The stacks are provided by modules whose name starts with `Local-`.
+Currently there are two such stacks on LUMI:
+
+-   `Local-CSC`: Enables software installed and maintained by CSC. 
+    Most of that software is available to all users, though some packages are 
+    restricted or only useful to users of other CSC services (e.g., the allas module).
+
+    Some of that software builds on software in the LUMI stacks, some is based on 
+    containers with wrapper scripts, and some is compiled outside of any software 
+    management environment on LUMI.
+
+    The names of the modules don't follow the conventions of the LUMI stacks, but those
+    used on the Finnish national systems.
+
+-   `Local-quantum` contains some packages of general use, but also some packages that 
+    are only relevant to Finnish researchers with an account on the Helmi quantum computer. 
+    Helmi is not a EuroHPC-JU computer so being eligible for an account on LUMI does 
+    not mean that you are also eligible for an account on Helmi.
+
 In the far future we will also look at **a stack based on the common EasyBuild toolchains as-is**, but we do expect
 problems with MPI that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for this development.
@@ -391,6 +416,17 @@ Lmod has **several tools to search for modules**.
 -   But Lmod also has other commands, `module spider` and `module keyword`, to 
     search in the list of installed modules.
 
+    On LUMI, we had to restrict the search space of `module spider`. By default, `module spider`
+    will only search in the Cray PE modules, the CrayEnv stack and the LUMI stacks. This is done 
+    for performance reasons. However, as we shall discuss later, you can load a module or set an
+    environment variable to enable searching all installed modules. The behaviour is also not
+    fully consistent. Lmod uses a cache which it refreshes once every 24 hours, or after manually
+    clearing the cache. If a rebuild happens while modules from another software stack are available,
+    that stack will also be indexed and results for that stack shown in the results of 
+    `module spider`. It is a price we had to pay though as due to the large number of modules
+    and the many organisations managing modules, the user cache rebuild time became too long
+    and system caches are hard to manage also.
+
 
 ### Module spider command
 
@@ -403,6 +439,9 @@ Lmod has **several tools to search for modules**.
 (The content of this slide is really meant to be shown in practice on a command line.)
 
 There are three ways to use `module spider`, discovering software in more and more detail.
+All variants however will by default only check the Cray PE, the CrayEnv stack and the
+LUMI stacks, unless another software stack is loaded through a module or `module use`
+statement and the cache is regenerated during that period.
 
 1.  `module spider` by itself will show a list of all installed software with a short description.
     Software is bundled by name of the module, and it shows the description taken from the default
@@ -748,6 +787,29 @@ loading the `ModuleExtensions/hide` module and undo this again by loading
     module avail
     ```
 
+There are two ways to tell `module spider` to search in all installed modules. One is more meant as a 
+temporary solution: Load
+
+```bash
+module load ModuleFullSpider/on
+```
+
+and this is turned off again by force-unloading this module or loading
+
+```bash
+module load ModuleFullSpider/off
+```
+
+The second and permanent way is to set add the line
+
+```bash
+export LUMI_FULL_SPIDER=1
+```
+
+to your `.profile` file and from then on, `module spider` will index all modules on the system.
+Note that this can have a large impact on the performance of the `module spider` and
+`module avail` commands that can easily "hang" for a minute or more if a cache rebuild is
+needed, which is the case after installing software with EasyBuild or once every 24 hours.
 
 We also **hide some modules from regular users** because we think they are not useful at all for regular
 users or not useful in the context you're in at the moment. For instance, when working in the `LUMI/24.03`
@@ -759,6 +821,13 @@ you cannot see them with `module available`. It is possible though to still show
 them by loading `ModulePowerUser/LUMI`. Use this at your own risk however, we will not help you to make
 things work or to use any module that was designed for us to maintain the system.
 
+Another way to show hidden modules also, is to use the `--show_hidden` flag of the module command
+with the `avail` subcommand: `module --show_hidden avail`. 
+
+With `ModulePowerUser`, all modules will be displayed as if they are regular modules, while
+`module --show_hidden avail` will still grey the hidden modules and add an `(H)` to them
+so that they are easily recognised.
+
 ???+Demo "Demo"
 
     Try the following commands:
@@ -766,6 +835,7 @@ things work or to use any module that was designed for us to maintain the system
     ```bash
     module load LUMI/24.03
     module avail
+    module --show_hidden avail
     module load ModulePowerUser
     module avail
     ```
@@ -960,21 +1030,21 @@ of a package that are not yet installed if the easyconfigs don't follow the nami
 convention. Each part of the name also corresponds to a parameter in the easyconfig 
 file.
 
-Consider, e.g., the easyconfig file `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`.
+Consider, e.g., the easyconfig file `GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb`.
 
 1.  The first part of the name, `GROMACS`, is the name of the package, specified by the
     `name` parameter in the easyconfig, and is after installation also the name of the
     module.
-2.  The second part, `2022.5`, is the version of GROMACS and specified by the
+2.  The second part, `2024.3`, is the version of GROMACS and specified by the
     `version` parameter in the easyconfig.
-3.  The next part, `cpeGNU-23.09` is the name and version of the toolchain,
+3.  The next part, `cpeGNU-24.03` is the name and version of the toolchain,
     specified by the `toolchain` parameter in the easyconfig. The version of the
     toolchain must always correspond to the version of the LUMI stack. So this is
-    an easyconfig for installation in `LUMI/23.09`.
+    an easyconfig for installation in `LUMI/24.03`.
 
     This part is not present for the SYSTEM toolchain
 
-4.  The final part, `-PLUMED-2.9.0-noPython-CPU`, is the version suffix and used to provide
+4.  The final part, `-PLUMED-2.9.2-noPython-CPU`, is the version suffix and used to provide
     additional information and distinguish different builds with different options
     of the same package. It is specified in the `versionsuffix` parameter of the
     easyconfig.
@@ -984,7 +1054,7 @@ Consider, e.g., the easyconfig file `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-no
 The version, toolchain + toolchain version and versionsuffix together also combine
 to the version of the module that will be generated during the installation process.
 Hence this easyconfig file will generate the module 
-`GROMACS/2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU`.
+`GROMACS/2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU`.
 
 
 ### Installing software
@@ -1105,15 +1175,15 @@ eb --search GROMACS
   ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3_partial_2.png){ loading=lazy }
 </figure>
 
-Now let's take the variant `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`. 
-This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
-from `LUMI/23.09`, and a build meant for CPU-only systems. The `-CPU` extension is not
+Now let's take the variant `GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb`. 
+This is GROMACS 2024.3 with the PLUMED 2.9.2 plugin, built with the GNU compilers
+from `LUMI/24.03`, and a build meant for CPU-only systems. The `-CPU` extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
 ```bash
-eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D
+eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D
 ```
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
@@ -1124,11 +1194,11 @@ it can be turned on.
 !!! Demo "The output of this command looks like:"
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
     </figure>
 
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
@@ -1141,27 +1211,27 @@ To install GROMACS and also automatically install missing dependencies (only PLU
 in this case), we run
 
 ```bash
-eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
+eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r
 ```
 
 !!! Demo "Running EasyBuild to install GROMACS and dependency"
     The command
 
     ```bash
-    eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
+    eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r
     ```
 
     results in:
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
     </figure>
 
     EasyBuild detects PLUMED is a dependency and because of the `-r` option, it first installs the
     required version of PLUMED.
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
     </figure>
 
     When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
@@ -1176,19 +1246,19 @@ eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
     MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
+      ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
     </figure>
 
 
@@ -1509,7 +1579,8 @@ the compute nodes. It is a system command that is installed with the OS, so no m
 to enable it. We can also offer only a single version of singularity or its close cousin AppTainer 
 as singularity/AppTainer simply don't really like running multiple versions next to one another, 
 and currently the version that
-we offer is determined by what is offered by the OS. Currently we offer Singularity Community Edition 3.11.
+we offer is determined by what is offered by the OS. Currently we offer 
+[Singularity Community Edition 4.1.3](https://docs.sylabs.io/guides/4.1/user-guide/).
 
 To work with containers on LUMI you will either need to pull the container from a container registry,
 e.g., [DockerHub](https://hub.docker.com/), or bring in the container by copying the singularity `.sif` file.
@@ -1572,7 +1643,7 @@ and then transfer it to LUMI.
 There is some support for building on top of an existing singularity container using what the SingularityCE user guide
 calls "unprivileged proot builds". This requires loading the `proot` command which is provided by the `systools` module
 in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
-[mentions several restrictions of this process](https://docs.sylabs.io/guides/3.11/user-guide/build_a_container.html#unprivilged-proot-builds).
+[mentions several restrictions of this process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
 and adds software using system package managers, an unprivileged proot build is appropriate. 
 If your definition file compiles and installs large complex software from source, 

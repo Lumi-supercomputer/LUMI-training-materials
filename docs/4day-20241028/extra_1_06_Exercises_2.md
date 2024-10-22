@@ -13,12 +13,12 @@ No materials available at the moment.
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
-    `/project/project_465001098/Slides/HPE/Exercises.pdf`
+    `/project/project_465001362/Slides/HPE/Exercises.pdf`
 
 -   Exercise materials in 
-    `/project/project_465001098/Exercises/HPE/day1/ProgrammingModels`.
+    `/project/project_465001362/Exercises/HPE/day1/ProgrammingModels`.
 
-    See `/project/project_465001098/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
+    See `/project/project_465001362/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
 
 Temporary web-available materials:
 

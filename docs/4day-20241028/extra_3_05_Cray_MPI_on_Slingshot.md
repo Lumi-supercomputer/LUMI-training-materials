@@ -7,7 +7,7 @@ Course materials will be provided during and after the course.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001098/Slides/HPE/11_cray_mpi_MPMD_medium.pdf`
+-   Slides: `/project/project_465001362/Slides/HPE/11_cray_mpi_MPMD_medium.pdf`
 -->
 
 <!--

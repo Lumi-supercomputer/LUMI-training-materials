@@ -13,9 +13,9 @@ Course materials will be provided during and after the course.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001098/Slides/AMD/session-6-ToolsInActionPytorchExample-LUMI-2024.pdf`
+-   Slides: `/project/project_465001362/Slides/AMD/session-6-ToolsInActionPytorchExample-LUMI-2024.pdf`
 
--   Scripts: `/project/project_465001098/Exercises/AMD/Pytorch`
+-   Scripts: `/project/project_465001362/Exercises/AMD/Pytorch`
 -->
 
 <!--
