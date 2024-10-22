@@ -1,5 +1,7 @@
 # Good places to discuss tough problems
 
+See also [this map on Google Maps](https://www.google.com/maps/d/u/0/edit?mid=1CHURBGrKZ8QyHro8hXZe70QjZ52bvI4&usp=sharing).
+
 Just some suggestions. There are many more decent restaurants in Brussels especially
 if you are alone or only with a small group. In general most places that score a 4 or more
 on Google Maps are decent places. For vegetarians and certainly for vegans, the options may 
@@ -35,11 +37,14 @@ with lots of restaurants.
         The interior may not look nice at all but has character, and the food is good.
         It is a very busy place though, even during the week (which already shows that it likely 
         offers good value for money). I've been there with guests also and they too liked it.
-    -   Next to it is [Brasserie Greenwich Brussels](https://maps.app.goo.gl/PygkK1Y7W8D6Uh9N8),
-        also with an interesting interior and said to be a good place.
     -   Diagonally opposite, at the corner of the street, is
         [9 et Voisins](https://9-et-voisins.be/), another busy place with a good reputation.
+        Not as good as Fin de Sciècle though
         ([Google Maps](https://maps.app.goo.gl/SE1fVfLuHJ4Az9SdA))
+    -   Next to Fin de Sciècle is [Brasserie Greenwich Brussels](https://maps.app.goo.gl/PygkK1Y7W8D6Uh9N8),
+        also with an interesting interior. It used to be a pretty good place but I've heard less good
+        things from them recently, and the place is definitely not as busy as it used to be which
+        is already a sign.
 
 -   And in the same area: Sint-Goriksplein/Place Saint-Géry and in particular two streets leading to that
     place: [Jules Van Praetstraat/Rue Jules Van Praet](https://maps.app.goo.gl/fA2X61x2BhFuN4Cx6)
@@ -53,6 +58,7 @@ with lots of restaurants.
     and surrounding streets, especially the Vlaamsesteenweg/Rue de Flandre.
     Most, but not all places there are decent . Personally, I don't thrust most of the fish restaurants
     on the corner of the big, long square (Vismarkt/Marché aux Poissons or Baksteenkaai/Quai aux Briques).
+    They are too cheap to be able to offer a decent quality.
     On the Vlaamsesteenweg/Rue de Flandre there are also a couple of Asian restaurants which
     may be a good option for vegetarians.
 
@@ -65,14 +71,16 @@ with lots of restaurants.
     -   [Brasserie Le Lombard](https://www.lelombard.eu/) on the
         corner with the [Rue du Lombard/Lombardstraat](https://maps.app.goo.gl/FvU68Y8aNcaks35g7) has nice food also. 
         You may have to order at the bar.
-    -   [Le Plattesteen](https://www.facebook.com/pages/Le-Plattesteen/164972750182270) on the [opposite corner](https://maps.app.goo.gl/Xka8ff5g37uQL8LX8)
+    -   [Le Plattesteen](https://www.facebook.com/pages/Le-Plattesteen/164972750182270) on the 
+        [opposite corner](https://maps.app.goo.gl/Xka8ff5g37uQL8LX8)
         has also a decent reputation. Not spectacular, but a bit less expensive than many other places
         and the price/quality ratio is certainly OK. The reviews are certainly rather mixed and waiting times
         can be a bit longer, but I've always had a decent meal there. They also have some more simple traditional
         dishes, as Belgium is not only about "steak frites".
 
 -   Restaurants in the neighbourhood of HOEK 38 that should be OK:
-    -    [La Tana](https://latana.be/) ([Rue de l'Enseignement/Onderrichtsstraat 27](https://maps.app.goo.gl/3hTHvv5gqHhAYLrLA)) is an Italian restaurant
+    -    [La Tana](https://latana.be/) ([Rue de l'Enseignement/Onderrichtsstraat 27](https://maps.app.goo.gl/3hTHvv5gqHhAYLrLA)) 
+         is an Italian restaurant
          that also specialises in craft beers and has very nice Italian imports. The food is likely real
          Italian. E.g., the Pasta Carbonara that I had there, looked a lot more like what I would expect
          from reading the recipe rather than the typical cheese sauce with uncooked bacon or even ham 
