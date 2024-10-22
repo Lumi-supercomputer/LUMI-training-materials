@@ -219,7 +219,7 @@ Another soft compatibility problem that I did not yet mention is that software t
 of thousands of small files and abuses the file system as a database** rather than using structured
 data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason LUMI
 also requires to **containerize conda and Python installations**. 
-On LUMI two tools are offered for this. 
+On LUMI three tools are offered for this. 
 
 1.  [cotainr](https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool) 
     is a tool developed by the Danish LUMI-partner DeIC that helps with building some types of 
@@ -230,8 +230,12 @@ On LUMI two tools are offered for this.
     the Python provided by the `cray-python` module. On LUMI the tool is called
     [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/)
     but users of the CSC national systems will know it as Tykky. 
+3.  SingularityCE supports the so-called 
+    [unprivileged proot build process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds) 
+    to build containers. With this process, it is also possible to add additional OS packages, etc., to the container.
 
-Both tools are pre-installed on the system and ready-to-use.
+Both cotainr and lumi-container-wrapper are pre-installed on the system as modules. Furthermore, there is also
+a module that provides the `proot` command needed by the SingularityCE unprivileged proot build process.
 
 
 ### Organisation of the software in software stacks
@@ -378,6 +382,20 @@ same software on LUMI-C and on the login or large memory nodes and don't want tw
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.
 
+!!! Note "Supported stacks after the August 2024 system update"
+    Since 24.03 is the only version of the Cray Programming Environment currently fully supported
+    by HPE on LUMI, as it is the only version which is from the ground up built for ROCm/6.0, 
+    SUSE Enterprise 15 SP5, and the current version of the SlingShot software, it is also the only
+    fully supported version of the LUMI software stacks.
+
+    The 23.12 and 23.09 version function reasonably well, but keep in mind that 23.09 was originally
+    meant to be used with ROCm 5.2 or 5.5 depending on the SUSE version while you will now get a much
+    newer version of the compilers that come with ROCm.
+
+    The even older stacks are only there for projects that were using them. We've had problems with
+    them already in the past and they currently don't work properly anymore for installing software
+    via EasyBuild.
+
 
 ## EasyBuild to extend the LUMI software stack
 
@@ -387,13 +405,14 @@ explicitly load the partition/L module.
   ![Installing software on HPC systems](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-05-SoftwareStacks/EasyBuildInstallingSoftwareHPC.png){ loading=lazy }
 </figure>
 
-Software on HPC systems is **rarely installed from RPMs** (a popular format to package Linux software
+Software on HPC systems is **rarely installed from RPMs** 
+(**R**ed Hat **P**ackage **M**anager, a popular format to package Linux software
 distributed as binaries) or any other similar format for various reasons. Generic RPMs are
 **rarely optimised for the specific CPU** of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
 hard to even impossible.
 Secondly generic RPMs **might not even work with the specific LUMI environment**. They may not fully
-support the Slingshot interconnect and hence run at reduced speed, or they may need particular
+support the SlingShot interconnect and hence run at reduced speed, or they may need particular
 kernel modules or daemons that are not present on the system or they may not work well with
 the resource manager on the system. 
 This is expected to happen especially with packages that require specific MPI versions
@@ -714,14 +733,13 @@ always added for CPU-only system, but in case of GROMACS there already is a GPU 
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
+
 ```bash
 eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D
 ```
+
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
-when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
-look for dependencies in a preset search path. The installation of dependencies is not automatic
-since there are scenarios where this is not desired and it cannot be turned off as easily as
-it can be turned on.
+when installing this package.
 
 !!! Demo "The output of this command looks like:"
 
@@ -734,11 +752,17 @@ it can be turned on.
     </figure>
 
 
-Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
-But it will do so automatically when we run
+To install GROMACS and also automatically install missing dependencies (only PLUMED
+in this case), we run
+
 ```bash
 eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r
 ```
+
+The `-r` argument tells EasyBuild to also look for dependencies in a preset search path
+and to install them. The installation of dependencies is not automatic
+since there are scenarios where this is not desired and it cannot be turned off as easily as
+it can be turned on.
 
 !!! Demo "Running EasyBuild to install GROMACS and dependency"
     The command
