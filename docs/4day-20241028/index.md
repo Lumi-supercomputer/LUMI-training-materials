@@ -1,4 +1,4 @@
-# Comprehensive General LUMI Training, October 28-31, 2024
+# Advanced LUMI Training, October 28-31, 2024
 
 ## Course organisation
 
