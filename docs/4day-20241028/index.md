@@ -37,12 +37,17 @@
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course-oct24?both)
 -->
 
-<!--
--   There are two Slurm reservations for the course:
+-   During the course, there are two Slurm reservations available:
 
-    -   CPU nodes: `training_cpu`
-    -   GPU nodes: `training-gpu`
--->
+    -   CPU nodes: `lumic_ams`
+    -   GPU nodes: `lumig_ams`
+
+    They can be used in conjunction with the training project `project_465001362`.
+
+    Note that the reservations and course project should only be used for making the exercises 
+    during the course and not for running your own jobs. 
+    The resources allocated to the course are very limited.
+
 
 ## Course materials
 

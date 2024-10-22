@@ -14,7 +14,7 @@ No materials available at the moment.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Exercises can be copied from `/project/project_465001098/exercises/AMD/HPCTrainingExamples`
+-   Exercises can be copied from `/project/project_465001362/exercises/AMD/HPCTrainingExamples`
 -->
 
 <!--
