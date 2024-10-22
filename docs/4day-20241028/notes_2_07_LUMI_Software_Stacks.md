@@ -213,15 +213,25 @@ code that was never meant to be used by people who don't understand the code.
 
 Another soft compatibility problem that I did not yet mention is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
-data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
-also require to **containerize conda and Python installations**. We do offer a container-based wrapper
-that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the `cray-python` module. On LUMI the tool is called
-[lumi-container-wrapper](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/)
-but it may by some from CSC also be known as Tykky. As an alternative we also offer
-[cotainr](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), a tool developed by
-the Danish LUMI-partner DeIC that helps with building some types of containers that can be built in
-user space and can be used to containerise a conda-installation.
+data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason LUMI
+also requires to **containerize conda and Python installations**. 
+On LUMI three tools are offered for this. 
+
+1.  [cotainr](https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool) 
+    is a tool developed by the Danish LUMI-partner DeIC that helps with building some types of 
+    containers that can be built in user space. Its current version focusses on containerising 
+    a conda-installation.
+2.  The second tool is a container-based wrapper generator that offers 
+    a way to install conda packages or to install Python packages with pip on top of 
+    the Python provided by the `cray-python` module. On LUMI the tool is called
+    [lumi-container-wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/)
+    but users of the CSC national systems will know it as Tykky. 
+3.  SingularityCE supports the so-called 
+    [unprivileged proot build process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds) 
+    to build containers. With this process, it is also possible to add additional OS packages, etc., to the container.
+
+Both cotainr and lumi-container-wrapper are pre-installed on the system as modules. Furthermore, there is also
+a module that provides the `proot` command needed by the SingularityCE unprivileged proot build process.
 
 
 ### Organisation of the software in software stacks
@@ -364,10 +374,10 @@ same software on LUMI-C and on the login or large memory nodes and don't want tw
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.
 
-!!! Note "Supported stacks"
+!!! Note "Supported stacks after the August 2024 system update"
     Since 24.03 is the only version of the Cray Programming Environment currently fully supported
     by HPE on LUMI, as it is the only version which is from the ground up built for ROCm/6.0, 
-    SUSE Enterprise 15 SP5, and the current version of the SlingShot hardware, it is also the only
+    SUSE Enterprise 15 SP5, and the current version of the SlingShot software, it is also the only
     fully supported version of the LUMI software stacks.
 
     The 23.12 and 23.09 version function reasonably well, but keep in mind that 23.09 was originally
@@ -453,42 +463,15 @@ statement and the cache is regenerated during that period.
     tools that are bundled in one module to reduce the module clutter findable.
 
 2.  `module spider` with the name of a package will show all versions of that package installed on
-    the system. This is also case-insensitive. Let's try for instance `module spider gnuplot`. This
-    will show 18 versions of GNUplot. There were 4 installations of GNUplot 5.4.3, five of 5.4.6,
-    6 of 5.4.8 and 
-    and 4 of 5.4.10 at the moment the slide was made  (see further down these notes for the output). The 
-    remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
-    versions for two or three compilers is that no two compiler modules can be loaded simultaneously,
-    and this offers a solution to use multiple tools without having to rebuild your environment for
-    every tool, and hence also to combine tools. 
+    the system. This is also case-insensitive. It works both for packages and for the names
+    of extensions. There is a subtlety though: If a match in the exact case is found, it will
+    no longer look for extensions that may have the same name but in a different case.
 
-    Now try `module spider CMake`. We see that there were four versions at the moment the slides were made,
-    3.24.0, 3.25.2, 3.27.7 and 3.29.3, 
-    that are shown in blue with an "E" behind the name. That is because these are not provided 
-    by a module called
-    `CMake` on LUMI, but by another module that in this case contains
-    a collection of popular build tools and that we will discover shortly.
-    
-    <!-- You may also see a couple of regular modules called `cmake` that come from software installed
-    differently.-->
-
-3.  The third use of `module spider` is with the full name of a module. Try for instance
-    `module spider gnuplot/5.4.10-cpeGNU-24.03`. This will now show full help information for
-    the specific module, including what should be done to make the module available. For 
-    this GNUplot module we see that there are three ways to load the module: By loading `LUMI/24.03` 
-    combined with `partition/C`, by loading `LUMI/23.03` combined with `partition/G`
-    or by loading `LUMI/24.03` combined with `partition/L`. So use only
-    a single line, but chose it in function of the other modules that you will also need. In this case
-    it means that that version of GNUplot is available in the `LUMI/24.03` stack which we could already
-    have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
-    partition. This does however not always work with the Cray Programming Environment modules.
-
-    We can also use `module spider` with the name and version of an extension. So try
-    `module spider CMake/3.29.3`. This will now show us that this tool is in the `buildtools/24.03`
-    module (among others) and give us 4 different options to load that module as it is provided in the `CrayEnv`
-    and the `LUMI/24.03` software stacks and for all partitions (basically because we don't do
-    processor-specific optimisations for these tools).
-
+3.  The third use of `module spider` is with the full name of a module. 
+    In this case, we get the full information on how the module can be made available
+    for loading if it is not yet available, and for packages also some help information
+    about the package if the module includes this information. 
+  
 ???+Demo "Demo module spider"
 
     Try the following commands:
@@ -509,9 +492,18 @@ statement and the cache is regenerated during that period.
       ![module spider demo slide 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_2.png){ loading=lazy }
     </figure>
 
+    In the above display, the `ARMForge` module is currently available in only one version.
+    The `Autoconf` package is offered in two versions, but in both cases as an extension of another
+    module as the blue `(E)` in the output shows. The `Blosc` package is available in many versions,
+    but they are not all shown as the `...` suggests.
+
+    After a few more screens, we get the last one:
+
     <figure markdown style="border: 1px solid #000">
       ![module spider demo slide 3](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_3.png){ loading=lazy }
     </figure>
+    
+    Let's now try for instance `module spider gnuplot`. 
 
     <figure markdown style="border: 1px solid #000">
       ![module spider demo slide 4](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplot_1.png){ loading=lazy }
@@ -521,9 +513,31 @@ statement and the cache is regenerated during that period.
       ![module spider demo slide 5](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplot_2.png){ loading=lazy }
     </figure>
 
+    This shows 18 versions of GNUplot. There are 4 installations of GNUplot 5.4.3, five of 5.4.6,
+    6 of 5.4.8 and 
+    and 4 of 5.4.10 at the moment the slide was made. The 
+    remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
+    versions for two or three compilers is that no two compiler modules can be loaded simultaneously,
+    and this offers a solution to use multiple tools without having to rebuild your environment for
+    every tool, and hence also to combine tools.
+
+    Now try `module spider CMake`. 
+
     <figure markdown style="border: 1px solid #000">
       ![module spider demo slide 6](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCMake_1.png){ loading=lazy }
     </figure>
+
+    We see that there were four versions at the moment this slide was made,
+    3.24.0, 3.25.2, 3.27.7 and 3.29.3, 
+    that are shown in blue with an "E" behind the name. That is because these are not provided 
+    by a module called
+    `CMake` on LUMI, but by another module that in this case contains
+    a collection of popular build tools and that we will discover shortly.
+    
+    <!-- You may also see a couple of regular modules called `cmake` that come from software installed
+    differently.-->
+    
+    Noe try `module spider gnuplot/5.4.10-cpeGNU-24.03`. 
 
     <figure markdown style="border: 1px solid #000">
       ![module spider demo slide 7](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplotVersion_1.png){ loading=lazy }
@@ -533,9 +547,26 @@ statement and the cache is regenerated during that period.
       ![module spider demo slide 8](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplotVersion_2.png){ loading=lazy }
     </figure>
 
+    This now shows full help information for
+    the specific module, including what should be done to make the module available. For 
+    this GNUplot module we see that there are three ways to load the module: By loading `LUMI/24.03` 
+    combined with `partition/C`, by loading `LUMI/23.03` combined with `partition/G`
+    or by loading `LUMI/24.03` combined with `partition/L`. So use only
+    a single line, but chose it in function of the other modules that you will also need. In this case
+    it means that that version of GNUplot is available in the `LUMI/24.03` stack which we could already
+    have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
+    partition. This does however not always work with the Cray Programming Environment modules.
+
+    Finally, try `module spider CMake/3.29.3` (remember this was an extension of a module):
+
     <figure markdown style="border: 1px solid #000">
       ![module spider demo slide 9](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCMakeVersion_1.png){ loading=lazy }
     </figure>
+
+    This now shows us that this tool is in the `buildtools/24.03`
+    module (among others) and gives us 4 different options to load that module as it is provided in the `CrayEnv`
+    and the `LUMI/24.03` software stacks and for all partitions (basically because we don't do
+    processor-specific optimisations for these tools).
 
 
 ### Module keyword command
@@ -851,7 +882,8 @@ so that they are easily recognised.
   ![Installing software on HPC systems](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingSoftwareHPC.png){ loading=lazy }
 </figure>
 
-Software on HPC systems is **rarely installed from RPMs** (a popular format to package Linux software
+Software on HPC systems is **rarely installed from RPMs** 
+(**R**ed Hat **P**ackage **M**anager, a popular format to package Linux software
 distributed as binaries) or any other similar format for various reasons. Generic RPMs are
 **rarely optimised for the specific CPU** of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
@@ -1182,14 +1214,13 @@ always added for CPU-only system, but in case of GROMACS there already is a GPU 
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run 
+
 ```bash
 eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D
 ```
+
 The `-D` flag tells EasyBuild to just perform a check for the dependencies that are needed
-when installing this package, while the `-r` argument is needed to tell EasyBuild to also 
-look for dependencies in a preset search path. The installation of dependencies is not automatic
-since there are scenarios where this is not desired and it cannot be turned off as easily as
-it can be turned on.
+when installing this package.
 
 !!! Demo "The output of this command looks like:"
 
@@ -1213,6 +1244,12 @@ in this case), we run
 ```bash
 eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r
 ```
+
+The `-r` argument tells EasyBuild to also look for dependencies in a preset search path
+and to install them. The installation of dependencies is not automatic
+since there are scenarios where this is not desired and it cannot be turned off as easily as
+it can be turned on.
+
 
 !!! Demo "Running EasyBuild to install GROMACS and dependency"
     The command
