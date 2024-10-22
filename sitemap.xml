@@ -1626,6 +1626,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20241028/where_to_drink/</loc>
+         <lastmod>2024-10-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/EasyBuild-CSC-20220509/</loc>
          <lastmod>2024-10-22</lastmod>
          <changefreq>daily</changefreq>
