@@ -36,7 +36,7 @@ In alphabetical order:
 
 -   Exciting
     -   Group: [SOLgroup](https://sol.physik.hu-berlin.de/),
-        Department of Phusics, Humbold Universität zu Berlin (Germany)
+        Department of Physics, Humbold Universität zu Berlin (Germany)
     -   Domain: DFT
     -   Main programming languages and models: Fortran, with MPI and OpenMP offload
     -   Code: [exciting](https://exciting-code.org/)
@@ -45,7 +45,8 @@ In alphabetical order:
         -   [Final presentation](https://462000265.lumidata.eu/hackathon-20241014/files/2-2-Exciting_final.pdf)
 
 -   FAISER x ASTERIX
-    -   Group: Particle Physics and Astrophysics, Helsinki University (Finland)
+    -   Group: [Space Physics Research Group](https://blogs.helsinki.fi/spacephysics/esimerkkisivu/), Particle Physics and Astrophysics, 
+        and [Complex Systems Computation Group](https://researchportal.helsinki.fi/en/organisations/complex-systems-computation-group), Department of Computer Science, Helsinki University (Finland)
     -   Domain: AI and plasma physics
     -   Main programming languages and models: C++, Python, Rust and Julia
     -   Codes: [Vlassiator](https://github.com/fmihpc/vlasiator) and [Asterix](https://github.com/kstppd/asterix)
@@ -82,7 +83,7 @@ In alphabetical order:
         -   [Final presentation](https://462000265.lumidata.eu/hackathon-20241014/files/6-2-SAPIEN_final.pdf)
 
 -   SignLlava
-    -   Group: University of West Bohemia (Czech Republic)
+    -   Group: [Department of Cybernetics](https://www.kky.zcu.cz/en/) and [NTIS](https://www.ntis.zcu.cz/en/), University of West Bohemia (Czech Republic)
     -   Domain: AI
     -   Main programming languages and models Python, HIP
     -   Code: [Sign_LLaVA](https://github.com/JSALT2024/Sign_LLaVA)
@@ -102,7 +103,7 @@ In alphabetical order:
         -   [Final presentation](https://462000265.lumidata.eu/hackathon-20241014/files/8-2-SOD2D_final.pdf)
 
 -   SPH-EXA
-    -   Group: [High Performance Computing Group](),
+    -   Group: [High Performance Computing Group](https://hpc.dmi.unibas.ch/),
         Department of Mathematics and Compute Science, University of Basel (Switzerland),
         but CSCS and the Universität Zurich are also inbvolved with code development.
     -   Domain: Hydrodynamics simulations
