@@ -37,43 +37,45 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 What is being discussed in this subsection may be a bit surprising.
 Containers are often marketed as a way to provide reproducible science and as an easy way to transfer
 software from one machine to another machine. However, containers are neither of those and this becomes 
-very clear when using containers built on your typical Mellanox/NVIDIA InfiniBand based clusters with
-Intel processors and NVIDIA GPUs on LUMI.
+very clear when using containers build on your typical Mellanox/NVIDIA InfiniBand based clusters with
+Intel processors and NVIDIA GPUs on LUMI. This is only true if you transport software between 
+sufficiently similar machines (which is why they do work very well in, e.g., the management nodes
+of a cluster, or a server farm).
 
 First, computational results are almost never 100% reproducible because of the very nature of how computers
-work. You can only expect reproducibility of sequential codes between equal hardware. As soon as you change the
+work. If you use any floating point computation, you can only expect reproducibility of sequential codes 
+between equal hardware. As soon as you change the
 CPU type, some floating point computations may produce slightly different results, and as soon as you go parallel
-this may even be the case between two runs on exactly the same hardware and software. Containers may offer more
-reproducibility than recompiling software for a different platform, but all you're trying to do is reproducing 
-the same wrong result as in particular floating point operations are only an approximation for real numbers. 
-When talking about reproducibility, you should think the way experimentalists do: You have a result and an 
-error margin, and it is important to have an idea of that error margin too.
+this may even be the case between two runs on exactly the same hardware and with exactly the same software. 
+Besides, by the very nature of 
+floating point computations, you know that the results are wrong if you really want to work with
+real numbers. What matters is understanding how wrong the results are
+and reproduce results that fall within expected error margins for the computation. This is no different from
+reproducing a lab experiment where, e.g., each measurement instrument introduces errors.
+The only thing that containers do reproduce very well, is your software stack. But not without problems:
 
-But full portability is as much a myth. Containers are really only guaranteed to be portable between similar systems.
-They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
-in the container, but that is where it stops. Containers are usually built for a particular CPU architecture and GPU
-architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
-there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
-to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
-kernel. Those can be a problem. A container that is not build to support the Slingshot interconnect, may fail 
-(or if you're lucky just fall back to
-TCP sockets in MPI, completely killing scalability, but technically speaking still working so portable). 
-Containers that expect a certain version range of a particular driver on the system may fail if a different, out-of-range
-version of that driver is on the system instead (think the ROCm driver).
-
-Even if a container is portable to LUMI, it may not yet be performance-portable. E.g., without proper support for the
-interconnect it may still run but in a much slower mode. 
-Containers that expect the knem kernel extension for good 
-intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.
-But one should also realise that speed gains in the x86
+Containers are certainly not performance portable unless they have been designed to run optimally on a range of hardware
+and your hardware falls into that range. E.g., without proper support for the
+interconnect it may still run but in a much slower mode. But one should also realise that speed gains in the x86
 family over the years come to a large extent from adding new instructions to the CPU set, and that two processors
 with the same instructions set extensions may still benefit from different optimisations by the compilers. 
-Not using the proper instruction set extensions can have a lot of influence. At UAntwerpen we've seen GROMACS 
+Not using the proper instruction set extensions can have a lot of influence. At my local site we've seen GROMACS 
 doubling its speed by choosing proper options, and the difference can even be bigger.
 
 Many HPC sites try to build software as much as possible from sources to exploit the available hardware as much as 
 possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
 investment represents 32 million EURO and a lot of science can be done for that money...
+
+But even full portability is a myth, even if you wouldn't care much about performance (which is already a bad
+idea on an infrastructure as expensive as LUMI). Containers are really only guaranteed to be portable between similar systems.
+When well built, they are more portable than just a binary as you may be able to deal with missing or different libraries
+in the container, but that is where it ends. Containers are usually built for a particular CPU architecture and GPU
+architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
+there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
+to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
+kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
+TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
+intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.
 
 
 ## But what can they then do on LUMI?
@@ -128,6 +130,15 @@ investment represents 32 million EURO and a lot of science can be done for that 
     These containers use some software from Conda, a newer ROCm version installed through RPMs, and some 
     performance-critical code that is compiled specifically for LUMI.
 
+*   Isolation is often considered as an advantage of containers also. Though this is certainly true and 
+    important when running multiple services on a single server (as it limits problems when the security 
+    of a container is compromised to that container), in an HPC context it is often more a pain in the butt
+    than a good feature, as debugging and performance profiling also becomes a lot harder.
+
+    In fact, with the current state of container technology, it is often a pain also when running MPI applications
+    as it would be much better to have only a single container per node, running MPI inside the container at the
+    node level and then betweeen containers on different nodes.
+
 Remember though that whenever you use containers, you are the system administrator and not LUST. We can impossibly
 support all different software that users want to run in containers, and all possible Linux distributions they may
 want to run in those containers. We provide some advice on how to build a proper container, but if you chose to
@@ -154,9 +165,11 @@ we offer is determined by what is offered by the OS. Currently we offer
 [Singularity Community Edition 4.1.3](https://docs.sylabs.io/guides/4.1/user-guide/).
 
 To work with containers on LUMI you will either need to pull the container from a container registry,
-e.g., [DockerHub](https://hub.docker.com/), or bring in the container either by creating a tarball from a
-docker container on the remote system and then converting that to the singularity `.sif` format on LUMI,
-or by copying the singularity `.sif` file.
+e.g., [DockerHub](https://hub.docker.com/), bring in the container either by creating a tarball from a
+docker container on the remote system and then converting that to the singularity `.sif` format on LUMI
+or by copying the singularity `.sif` file, or use those container build features of singularity 
+that can be supported on LUMI within the security constraints
+(which is why there are no user namespaces on LUMI).
 
 Singularity does offer a command to pull in a Docker container and to convert it to singularity format.
 E.g., to pull a container for the Julia language from DockerHub, you'd use
@@ -1243,7 +1256,7 @@ we want to repeat the limitations:
     using a very old version of ROCm or a very new version compared to what is available
     on LUMI, may not always work as expected.
 
-*   The support for building containers on LUMI is currently very limited due to security
+*   The support for building containers on LUMI is currently limited due to security
     concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
     will not work.
 
