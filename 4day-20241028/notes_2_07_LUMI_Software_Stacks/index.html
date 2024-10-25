@@ -3354,7 +3354,7 @@
 <ol>
 <li>It uses a <strong>novel interconnect</strong> which is an extension of Ethernet rather than being based on InfiniBand, 
     and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. </li>
-<li>It also uses a <strong>relatively new GPU architecture</strong>, AMD CDNA2, with an immature software ecosystem. 
+<li>It also uses a <strong>relatively new GPU architecture</strong>, AMD CDNA2, with a not fully mature software ecosystem. 
     The GPU nodes are really <strong>GPU-first</strong>, with the <strong>interconnect cards connected directly to the GPU packages</strong> 
     and only one CPU socket, and another feature which is relatively new: the option to use a <strong>partly coherent fully unified memory</strong>
     space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
@@ -3365,8 +3365,9 @@
     have zen3-based CPUs, and the compute GPU nodes have AMD compute GPUs while the visualisation nodes have
     NVIDIA rendering GPUs. </li>
 </ol>
-<p>Given the novel interconnect and GPU we do expect that both system and application
-software will be immature at first and <strong>evolve quickly</strong>, hence we needed a setup that enables us
+<p>Given the rather novel interconnect and GPU we cannot expect that all system and application software
+is already fully mature and we need to be prepared for <strong>fast evolution</strong>, 
+hence we needed a setup that enables us
 to remain very agile, which leads to different compromises compared to a software stack for a more
 conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.</p>
 </li>
@@ -3536,15 +3537,25 @@ another support channel. We cannot install every single piece of often badly doc
 code that was never meant to be used by people who don't understand the code.</p>
 <p>Another soft compatibility problem that I did not yet mention is that software that <strong>accesses tens
 of thousands of small files and abuses the file system as a database</strong> rather than using structured
-data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason we
-also require to <strong>containerize conda and Python installations</strong>. We do offer a container-based wrapper
-that offers a way to install conda packages or to install Python packages with pip on top of 
-the Python provided by the <code>cray-python</code> module. On LUMI the tool is called
-<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/">lumi-container-wrapper</a>
-but it may by some from CSC also be known as Tykky. As an alternative we also offer
-<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/">cotainr</a>, a tool developed by
-the Danish LUMI-partner DeIC that helps with building some types of containers that can be built in
-user space and can be used to containerise a conda-installation.</p>
+data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason LUMI
+also requires to <strong>containerize conda and Python installations</strong>. 
+On LUMI three tools are offered for this. </p>
+<ol>
+<li><a href="https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool">cotainr</a> 
+    is a tool developed by the Danish LUMI-partner DeIC that helps with building some types of 
+    containers that can be built in user space. Its current version focusses on containerising 
+    a conda-installation.</li>
+<li>The second tool is a container-based wrapper generator that offers 
+    a way to install conda packages or to install Python packages with pip on top of 
+    the Python provided by the <code>cray-python</code> module. On LUMI the tool is called
+    <a href="https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/">lumi-container-wrapper</a>
+    but users of the CSC national systems will know it as Tykky. </li>
+<li>SingularityCE supports the so-called 
+    <a href="https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds">unprivileged proot build process</a> 
+    to build containers. With this process, it is also possible to add additional OS packages, etc., to the container.</li>
+</ol>
+<p>Both cotainr and lumi-container-wrapper are pre-installed on the system as modules. Furthermore, there is also
+a module that provides the <code>proot</code> command needed by the SingularityCE unprivileged proot build process.</p>
 <h3 id="organisation-of-the-software-in-software-stacks">Organisation of the software in software stacks<a class="headerlink" href="#organisation-of-the-software-in-software-stacks" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Organisation: Software stacks" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksOrganisation.png" /></p>
@@ -3684,10 +3695,10 @@ same software on LUMI-C and on the login or large memory nodes and don't want tw
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.</p>
 <div class="admonition note">
-<p class="admonition-title">Supported stacks</p>
+<p class="admonition-title">Supported stacks after the August 2024 system update</p>
 <p>Since 24.03 is the only version of the Cray Programming Environment currently fully supported
 by HPE on LUMI, as it is the only version which is from the ground up built for ROCm/6.0, 
-SUSE Enterprise 15 SP5, and the current version of the SlingShot hardware, it is also the only
+SUSE Enterprise 15 SP5, and the current version of the SlingShot software, it is also the only
 fully supported version of the LUMI software stacks.</p>
 <p>The 23.12 and 23.09 version function reasonably well, but keep in mind that 23.09 was originally
 meant to be used with ROCm 5.2 or 5.5 depending on the SUSE version while you will now get a much
@@ -3763,39 +3774,15 @@ statement and the cache is regenerated during that period.</p>
 </li>
 <li>
 <p><code>module spider</code> with the name of a package will show all versions of that package installed on
-    the system. This is also case-insensitive. Let's try for instance <code>module spider gnuplot</code>. This
-    will show 18 versions of GNUplot. There were 4 installations of GNUplot 5.4.3, five of 5.4.6,
-    6 of 5.4.8 and 
-    and 4 of 5.4.10 at the moment the slide was made  (see further down these notes for the output). The 
-    remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
-    versions for two or three compilers is that no two compiler modules can be loaded simultaneously,
-    and this offers a solution to use multiple tools without having to rebuild your environment for
-    every tool, and hence also to combine tools. </p>
-<p>Now try <code>module spider CMake</code>. We see that there were four versions at the moment the slides were made,
-3.24.0, 3.25.2, 3.27.7 and 3.29.3, 
-that are shown in blue with an "E" behind the name. That is because these are not provided 
-by a module called
-<code>CMake</code> on LUMI, but by another module that in this case contains
-a collection of popular build tools and that we will discover shortly.</p>
-<!-- You may also see a couple of regular modules called <code>cmake</code> that come from software installed
-differently.-->
+    the system. This is also case-insensitive. It works both for packages and for the names
+    of extensions. There is a subtlety though: If a match in the exact case is found, it will
+    no longer look for extensions that may have the same name but in a different case.</p>
 </li>
 <li>
-<p>The third use of <code>module spider</code> is with the full name of a module. Try for instance
-    <code>module spider gnuplot/5.4.10-cpeGNU-24.03</code>. This will now show full help information for
-    the specific module, including what should be done to make the module available. For 
-    this GNUplot module we see that there are three ways to load the module: By loading <code>LUMI/24.03</code> 
-    combined with <code>partition/C</code>, by loading <code>LUMI/23.03</code> combined with <code>partition/G</code>
-    or by loading <code>LUMI/24.03</code> combined with <code>partition/L</code>. So use only
-    a single line, but chose it in function of the other modules that you will also need. In this case
-    it means that that version of GNUplot is available in the <code>LUMI/24.03</code> stack which we could already
-    have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
-    partition. This does however not always work with the Cray Programming Environment modules.</p>
-<p>We can also use <code>module spider</code> with the name and version of an extension. So try
-<code>module spider CMake/3.29.3</code>. This will now show us that this tool is in the <code>buildtools/24.03</code>
-module (among others) and give us 4 different options to load that module as it is provided in the <code>CrayEnv</code>
-and the <code>LUMI/24.03</code> software stacks and for all partitions (basically because we don't do
-processor-specific optimisations for these tools).</p>
+<p>The third use of <code>module spider</code> is with the full name of a module. 
+    In this case, we get the full information on how the module can be made available
+    for loading if it is not yet available, and for packages also some help information
+    about the package if the module includes this information. </p>
 </li>
 </ol>
 <details class="demo" open="open">
@@ -3813,27 +3800,64 @@ module<span class="w"> </span>spider<span class="w"> </span>CMake/3.29.3
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 2" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_2.png" />
 </figure></p>
+<p>In the above display, the <code>ARMForge</code> module is currently available in only one version.
+The <code>Autoconf</code> package is offered in two versions, but in both cases as an extension of another
+module as the blue <code>(E)</code> in the output shows. The <code>Blosc</code> package is available in many versions,
+but they are not all shown as the <code>...</code> suggests.</p>
+<p>After a few more screens, we get the last one:</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 3" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_3.png" />
 </figure></p>
+<p>Let's now try for instance <code>module spider gnuplot</code>. </p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 4" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplot_1.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 5" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplot_2.png" />
 </figure></p>
+<p>This shows 18 versions of GNUplot. There are 4 installations of GNUplot 5.4.3, five of 5.4.6,
+6 of 5.4.8 and 
+and 4 of 5.4.10 at the moment the slide was made. The 
+remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
+versions for two or three compilers is that no two compiler modules can be loaded simultaneously,
+and this offers a solution to use multiple tools without having to rebuild your environment for
+every tool, and hence also to combine tools.</p>
+<p>Now try <code>module spider CMake</code>. </p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 6" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCMake_1.png" />
 </figure></p>
+<p>We see that there were four versions at the moment this slide was made,
+3.24.0, 3.25.2, 3.27.7 and 3.29.3, 
+that are shown in blue with an "E" behind the name. That is because these are not provided 
+by a module called
+<code>CMake</code> on LUMI, but by another module that in this case contains
+a collection of popular build tools and that we will discover shortly.</p>
+<!-- You may also see a couple of regular modules called <code>cmake</code> that come from software installed
+differently.-->
+<p>Noe try <code>module spider gnuplot/5.4.10-cpeGNU-24.03</code>. </p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 7" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplotVersion_1.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 8" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplotVersion_2.png" />
 </figure></p>
+<p>This now shows full help information for
+the specific module, including what should be done to make the module available. For 
+this GNUplot module we see that there are three ways to load the module: By loading <code>LUMI/24.03</code> 
+combined with <code>partition/C</code>, by loading <code>LUMI/23.03</code> combined with <code>partition/G</code>
+or by loading <code>LUMI/24.03</code> combined with <code>partition/L</code>. So use only
+a single line, but chose it in function of the other modules that you will also need. In this case
+it means that that version of GNUplot is available in the <code>LUMI/24.03</code> stack which we could already
+have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
+partition. This does however not always work with the Cray Programming Environment modules.</p>
+<p>Finally, try <code>module spider CMake/3.29.3</code> (remember this was an extension of a module):</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module spider demo slide 9" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCMakeVersion_1.png" />
 </figure></p>
+<p>This now shows us that this tool is in the <code>buildtools/24.03</code>
+module (among others) and gives us 4 different options to load that module as it is provided in the <code>CrayEnv</code>
+and the <code>LUMI/24.03</code> software stacks and for all partitions (basically because we don't do
+processor-specific optimisations for these tools).</p>
 </details>
 <h3 id="module-keyword-command">Module keyword command<a class="headerlink" href="#module-keyword-command" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
@@ -3932,21 +3956,18 @@ are loaded already.</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="module av slide 10" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_10.png" />
 </figure></p>
-<p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 11" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_11.png" />
-</figure></p>
 <p>On the screen we also see the list of target modules.
 This screenshot was taken at login in the login environment, when those modules that are
 irrelevant to LUMI or to the chosen variant of the LUMI software stack are not yet hidden.</p>
 <p>The above screen also shows the modules for the software stack that we have discussed earlier in this text.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 12" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_12.png" />
+  <img alt="module av slide 11" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_11.png" />
 </figure></p>
 <p>And the screen above shows some extensions of modules (but the list is short at this point as
 most modules containing extensions only become available after loading one of the software
 stacks).</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="module av slide 13" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_13.png" />
+  <img alt="module av slide 12" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_12.png" />
 </figure></p>
 <p>At the end of the output we also get some information about the meaning of the 
 letters used in the display.</p>
@@ -4073,7 +4094,8 @@ module<span class="w"> </span>avail
 <figure style="border: 1px solid #000">
 <p><img alt="Installing software on HPC systems" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingSoftwareHPC.png" /></p>
 </figure>
-<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> (a popular format to package Linux software
+<p>Software on HPC systems is <strong>rarely installed from RPMs</strong> 
+(<strong>R</strong>ed Hat <strong>P</strong>ackage <strong>M</strong>anager, a popular format to package Linux software
 distributed as binaries) or any other similar format for various reasons. Generic RPMs are
 <strong>rarely optimised for the specific CPU</strong> of the system as they have to work on a range
 of systems and including optimised code paths in a single executable for multiple architectures is
@@ -4368,14 +4390,11 @@ from <code>LUMI/24.03</code>, and a build meant for CPU-only systems. The <code>
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
-To install it, we first run 
+To install it, we first run </p>
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb<span class="w"> </span>–D
 </code></pre></div>
-The <code>-D</code> flag tells EasyBuild to just perform a check for the dependencies that are needed
-when installing this package, while the <code>-r</code> argument is needed to tell EasyBuild to also 
-look for dependencies in a preset search path. The installation of dependencies is not automatic
-since there are scenarios where this is not desired and it cannot be turned off as easily as
-it can be turned on.</p>
+<p>The <code>-D</code> flag tells EasyBuild to just perform a check for the dependencies that are needed
+when installing this package.</p>
 <div class="admonition demo">
 <p class="admonition-title">The output of this command looks like:</p>
 <p><figure markdown style="border: 1px solid #000">
@@ -4393,6 +4412,10 @@ it can be turned on.</p>
 in this case), we run</p>
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb<span class="w"> </span>-r
 </code></pre></div>
+<p>The <code>-r</code> argument tells EasyBuild to also look for dependencies in a preset search path
+and to install them. The installation of dependencies is not automatic
+since there are scenarios where this is not desired and it cannot be turned off as easily as
+it can be turned on.</p>
 <div class="admonition demo">
 <p class="admonition-title">Running EasyBuild to install GROMACS and dependency</p>
 <p>The command</p>
@@ -4608,21 +4631,22 @@ due to a lack of personpower to get this running and then to support this.</p>
 Containers are often marketed as a way to provide reproducible science and as an easy way to transfer
 software from one machine to another machine. However, containers are neither of those and this becomes 
 very clear when using containers build on your typical Mellanox/NVIDIA InfiniBand based clusters with
-Intel processors and NVIDIA GPUs on LUMI.</p>
+Intel processors and NVIDIA GPUs on LUMI. This is only true if you transport software between 
+sufficiently similar machines (which is why they do work very well in, e.g., the management nodes
+of a cluster, or a server farm).</p>
 <p>First, computational results are almost never 100% reproducible because of the very nature of how computers
-work. You can only expect reproducibility of sequential codes between equal hardware. As soon as you change the
+work. If you use any floating point computation, you can only expect reproducibility of sequential codes 
+between equal hardware. As soon as you change the
 CPU type, some floating point computations may produce slightly different results, and as soon as you go parallel
-this may even be the case between two runs on exactly the same hardware and software.</p>
-<p>But full portability is as much a myth. Containers are really only guaranteed to be portable between similar systems.
-They may be a little bit more portable than just a binary as you may be able to deal with missing or different libraries
-in the container, but that is where it stops. Containers are usually built for a particular CPU architecture and GPU
-architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
-there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
-to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
-kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
-TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
-intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.</p>
-<p>Even if a container is portable to LUMI, it may not yet be performance portable. E.g., without proper support for the
+this may even be the case between two runs on exactly the same hardware and with exactly the same software. 
+Besides, by the very nature of 
+floating point computations, you know that the results are wrong if you really want to work with
+real numbers. What matters is understanding how wrong the results are
+and reproduce results that fall within expected error margins for the computation. This is no different from
+reproducing a lab experiment where, e.g., each measurement instrument introduces errors.
+The only thing that containers do reproduce very well, is your software stack. But not without problems:</p>
+<p>Containers are certainly not performance portable unless they have been designed to run optimally on a range of hardware
+and your hardware falls into that range. E.g., without proper support for the
 interconnect it may still run but in a much slower mode. But one should also realise that speed gains in the x86
 family over the years come to a large extent from adding new instructions to the CPU set, and that two processors
 with the same instructions set extensions may still benefit from different optimisations by the compilers. 
@@ -4631,6 +4655,16 @@ doubling its speed by choosing proper options, and the difference can even be bi
 <p>Many HPC sites try to build software as much as possible from sources to exploit the available hardware as much as 
 possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
 investment represents 32 million EURO and a lot of science can be done for that money...</p>
+<p>But even full portability is a myth, even if you wouldn't care much about performance (which is already a bad
+idea on an infrastructure as expensive as LUMI). Containers are really only guaranteed to be portable between similar systems.
+When well built, they are more portable than just a binary as you may be able to deal with missing or different libraries
+in the container, but that is where it ends. Containers are usually built for a particular CPU architecture and GPU
+architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
+there is in fact more: containers talk to other hardware too, and on an HPC system the first piece of hardware that comes
+to mind is the interconnect. And they use the kernel of the host and the kernel modules and drivers provided by that
+kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
+TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
+intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.</p>
 <h3 id="but-what-can-they-then-do-on-lumi">But what can they then do on LUMI?<a class="headerlink" href="#but-what-can-they-then-do-on-lumi" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="But what can they then do on LUMI?" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersCanDoOnLUMI.png" /></p>
@@ -4669,6 +4703,16 @@ right versions.</p>
 <p>This often comes with limitations though, as (a) that ROCm version is still limited by the drivers on the 
 system and (b) we've seen incompatibilities between newer ROCm versions and the Cray MPICH libraries.</p>
 </li>
+<li>
+<p>Isolation is often considered as an advantage of containers also. The isolation helps
+    preventing that software picks up libraries it should not pick up. In a context with 
+    multiple services running on a single server, it limits problems when the security of a container
+    is compromised to that container. However, it also comes with a big disadvantage in an
+    HPC context: Debugging and performance profiling also becomes a lot harder.</p>
+<p>In fact, with the current state of container technology, it is often a pain also when running MPI applications
+as it would be much better to have only a single container per node, running MPI inside the container at the
+node level and then between containers on different nodes.</p>
+</li>
 </ul>
 <p>Remember though that whenever you use containers, you are the system administrator and not LUST. We can impossibly
 support all different software that users want to run in containers, and all possible Linux distributions they may
@@ -4689,7 +4733,11 @@ and currently the version that
 we offer is determined by what is offered by the OS. Currently we offer 
 <a href="https://docs.sylabs.io/guides/4.1/user-guide/">Singularity Community Edition 4.1.3</a>.</p>
 <p>To work with containers on LUMI you will either need to pull the container from a container registry,
-e.g., <a href="https://hub.docker.com/">DockerHub</a>, or bring in the container by copying the singularity <code>.sif</code> file.</p>
+e.g., <a href="https://hub.docker.com/">DockerHub</a>, bring in the container either by creating a tarball from a
+docker container on the remote system and then converting that to the singularity <code>.sif</code> format on LUMI
+or by copying the singularity <code>.sif</code> file, or use those container build features of singularity 
+that can be supported on LUMI within the security constraints
+(which is why there are no user namespaces on LUMI).</p>
 <p>Singularity does offer a command to pull in a Docker container and to convert it to singularity format.
 E.g., to pull a container for the Julia language from DockerHub, you'd use</p>
 <div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>pull<span class="w"> </span>docker://julia
@@ -4731,7 +4779,8 @@ be able to do, will never be supported.</p>
 <p>So you should pull containers from a container repository, or build the container on your own workstation
 and then transfer it to LUMI.</p>
 <p>There is some support for building on top of an existing singularity container using what the SingularityCE user guide
-calls "unprivileged proot builds". This requires loading the <code>proot</code> command which is provided by the <code>systools</code> module
+calls <a href="https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds">"unprivileged proot builds"</a>.
+This requires loading the <code>proot</code> command which is provided by the <code>systools</code> module
 in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
 <a href="https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds">mentions several restrictions of this process</a>.
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
@@ -4796,7 +4845,7 @@ running a container means. You can check if it is present and what it does with 
 includes a script to tell singularity what <code>singularity run</code> should do.</p>
 </details>
 <p>You want your container to be able to interact with the files in your account on the system.
-Singularity will automatically mount <code>$HOME</code>, <code>/tmp</code>, <code>/proc</code>, <code>/sys</code> and <code>dev</code> in the container,
+Singularity will automatically mount <code>$HOME</code>, <code>/tmp</code>, <code>/proc</code>, <code>/sys</code> and <code>/dev</code> in the container,
 but this is not enough as your home directory on LUMI is small and only meant to be used for
 storing program settings, etc., and not as your main work directory. (And it is also not billed
 and therefore no extension is allowed.) Most of the time you want to be able to access files in
@@ -4963,12 +5012,6 @@ that run those commands in the container with the SquashFS file system mounted i
 what goes on behind the screen...</p>
 </details>
 <p>The wrapper module also offers a pip-based command to build upon the Cray Python modules already present on the system</p>
-<p>The final tool is <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/"><strong><code>cotainr</code></strong></a>, 
-a tool developed by DeIC, the Danish partner in the LUMI consortium.
-It is another tool to pack a Conda installation into a container, but it does so in a more container-like
-way (so no wrapper scripts). Just as <code>lumi-container-wrapper</code>, it runs entirely in user space and doesn't need
-any special rights. (For the container specialists: It is based on the container sandbox idea to build
-containers in user space.)</p>
 <h3 id="pre-built-ai-containers">Pre-built AI containers<a class="headerlink" href="#pre-built-ai-containers" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Environment enhancements (3): Prebuilt AI containers" loading="lazy" src="https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersEnvironmentEnhancement_3.png" /></p>
@@ -5014,7 +5057,14 @@ is often to tell it to use the Cray MPICH libraries from the system instead.</p>
 RCCL plugin to fully use the SlingShot 11 interconnect.</p>
 </li>
 <li>
-<p>The support for building containers on LUMI is currently very limited due to security
+<p>As containers rely on drivers in the kernel of the host OS, the AMD driver may also
+    cause problems. AMD only guarantees compatibility of the driver with two minor versions
+    before and after the ROCm release for which the driver was meant. Hence containers 
+    using a very old version of ROCm or a very new version compared to what is available
+    on LUMI, may not always work as expected.</p>
+</li>
+<li>
+<p>The support for building containers on LUMI is currently limited due to security
     concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
     will not work.</p>
 </li>
