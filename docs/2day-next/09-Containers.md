@@ -130,14 +130,15 @@ intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead
     These containers use some software from Conda, a newer ROCm version installed through RPMs, and some 
     performance-critical code that is compiled specifically for LUMI.
 
-*   Isolation is often considered as an advantage of containers also. Though this is certainly true and 
-    important when running multiple services on a single server (as it limits problems when the security 
-    of a container is compromised to that container), in an HPC context it is often more a pain in the butt
-    than a good feature, as debugging and performance profiling also becomes a lot harder.
+*   Isolation is often considered as an advantage of containers also. The isolation helps
+    preventing that software picks up libraries it should not pick up. In a context with 
+    multiple services running on a single server, it limits problems when the security of a container
+    is compromised to that container. However, it also comes with a big disadvantage in an
+    HPC context: Debugging and performance profiling also becomes a lot harder.
 
     In fact, with the current state of container technology, it is often a pain also when running MPI applications
     as it would be much better to have only a single container per node, running MPI inside the container at the
-    node level and then betweeen containers on different nodes.
+    node level and then between containers on different nodes.
 
 Remember though that whenever you use containers, you are the system administrator and not LUST. We can impossibly
 support all different software that users want to run in containers, and all possible Linux distributions they may
@@ -226,16 +227,16 @@ So you should pull containers from a container repository, or build the containe
 and then transfer it to LUMI.
 
 There is some support for building on top of an existing singularity container using what the SingularityCE user guide
-calls ["unprivileged proot builds"](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds). 
-This requires loading the `proot` command which is provided by the `systools/23.09` module or later versions provided
+calls ["unprivileged proot builds"](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
+This requires loading the `proot` command which is provided by the `systools` module
 in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
 [mentions several restrictions of this process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
 and adds software using system package managers, an unprivileged proot build is appropriate. 
 If your definition file compiles and installs large complex software from source, 
-you may wish to investigate `--remote` or `--fakeroot` builds instead." 
-But on LUMI we cannot yet
-provide `--fakeroot` builds due to security constraints (as that process also requires user namespaces).
+you may wish to investigate `--remote` or `--fakeroot` builds instead." But as we just said,
+on LUMI we cannot yet
+provide `--fakeroot` builds due to security constraints.
 
 <!-- TODO: Do not forget to correct the link above to a new version of singularity. -->
 
