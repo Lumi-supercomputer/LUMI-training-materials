@@ -26,7 +26,7 @@ In this part of the training, we cover:
 
     1.  It uses a **novel interconnect** which is an extension of Ethernet rather than being based on InfiniBand, 
         and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. 
-    2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with an immature software ecosystem. 
+    2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with a not fully mature software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
         and only one CPU socket, and another feature which is relatively new: the option to use a **partly coherent fully unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
@@ -37,8 +37,9 @@ In this part of the training, we cover:
         have zen3-based CPUs, and the compute GPU nodes have AMD compute GPUs while the visualisation nodes have
         NVIDIA rendering GPUs. 
         
-    Given the novel interconnect and GPU we do expect that both system and application
-    software will be immature at first and **evolve quickly**, hence we needed a setup that enables us
+    Given the rather novel interconnect and GPU we cannot expect that all system and application software
+    is already fully mature and we need to be prepared for **fast evolution**, 
+    hence we needed a setup that enables us
     to remain very agile, which leads to different compromises compared to a software stack for a more
     conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.
 
@@ -700,10 +701,6 @@ chosen a software stack but want to clean up your environment.
       ![module av slide 10](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_10.png){ loading=lazy }
     </figure>
 
-    <figure markdown style="border: 1px solid #000">
-      ![module av slide 11](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_11.png){ loading=lazy }
-    </figure>
-
     On the screen we also see the list of target modules.
     This screenshot was taken at login in the login environment, when those modules that are
     irrelevant to LUMI or to the chosen variant of the LUMI software stack are not yet hidden.
@@ -711,7 +708,7 @@ chosen a software stack but want to clean up your environment.
     The above screen also shows the modules for the software stack that we have discussed earlier in this text.
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 12](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_12.png){ loading=lazy }
+      ![module av slide 11](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_11.png){ loading=lazy }
     </figure>
 
     And the screen above shows some extensions of modules (but the list is short at this point as
@@ -719,7 +716,7 @@ chosen a software stack but want to clean up your environment.
     stacks).
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 13](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_13.png){ loading=lazy }
+      ![module av slide 12](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_12.png){ loading=lazy }
     </figure>
 
     At the end of the output we also get some information about the meaning of the 
@@ -1605,14 +1602,15 @@ intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead
     This often comes with limitations though, as (a) that ROCm version is still limited by the drivers on the 
     system and (b) we've seen incompatibilities between newer ROCm versions and the Cray MPICH libraries.
 
-*   Isolation is often considered as an advantage of containers also. Though this is certainly true and 
-    important when running multiple services on a single server (as it limits problems when the security 
-    of a container is compromised to that container), in an HPC context it is often more a pain in the butt
-    than a good feature, as debugging and performance profiling also becomes a lot harder.
+*   Isolation is often considered as an advantage of containers also. The isolation helps
+    preventing that software picks up libraries it should not pick up. In a context with 
+    multiple services running on a single server, it limits problems when the security of a container
+    is compromised to that container. However, it also comes with a big disadvantage in an
+    HPC context: Debugging and performance profiling also becomes a lot harder.
 
     In fact, with the current state of container technology, it is often a pain also when running MPI applications
     as it would be much better to have only a single container per node, running MPI inside the container at the
-    node level and then betweeen containers on different nodes.
+    node level and then between containers on different nodes.
 
 Remember though that whenever you use containers, you are the system administrator and not LUST. We can impossibly
 support all different software that users want to run in containers, and all possible Linux distributions they may
@@ -1702,7 +1700,8 @@ So you should pull containers from a container repository, or build the containe
 and then transfer it to LUMI.
 
 There is some support for building on top of an existing singularity container using what the SingularityCE user guide
-calls "unprivileged proot builds". This requires loading the `proot` command which is provided by the `systools` module
+calls ["unprivileged proot builds"](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
+This requires loading the `proot` command which is provided by the `systools` module
 in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
 [mentions several restrictions of this process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
@@ -2077,6 +2076,12 @@ we want to repeat the limitations:
 
     Likewise, for containers for distributed AI, one may need to inject an appropriate
     RCCL plugin to fully use the SlingShot 11 interconnect.
+
+*   As containers rely on drivers in the kernel of the host OS, the AMD driver may also
+    cause problems. AMD only guarantees compatibility of the driver with two minor versions
+    before and after the ROCm release for which the driver was meant. Hence containers 
+    using a very old version of ROCm or a very new version compared to what is available
+    on LUMI, may not always work as expected.
 
 *   The support for building containers on LUMI is currently limited due to security
     concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
