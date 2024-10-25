@@ -643,10 +643,6 @@ time of writing of these notes (the exact list of modules shown is a bit fluid):
   ![module avail slide 12](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_12.png)
 </figure>
 
-<figure markdown style="border: 1px solid #000">
-  ![module avail slide 13](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-04-Modules/ModuleAvail_13.png)
-</figure>
-
 Next to the names of modules you sometimes see one or more letters.
 The `(D)` means that that is currently the default version of the module, the one that will be loaded
 if you do not specify a version. Note that the default version may depend on other modules that are already
