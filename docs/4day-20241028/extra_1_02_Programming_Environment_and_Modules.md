@@ -2,13 +2,13 @@
 
 *Presenter: Harvey Richardson (HPE)*
 
-Course materials will be provided during and after the course.
-
 <!--
+Course materials will be provided during and after the course.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001362/Slides/HPE/02_PE_and_Modules.pdf`
--->
 
 <!--
 Archived materials on LUMI:

@@ -24,7 +24,9 @@
         credit card on the reader. If all travel you need is from a hotel in the centre 
         to the venue and back, it isn't worth it.
 
--   [Amsterdam is more than canals and the red light district](where_to_drink.md)
+-   Amsterdam is more than canals and the red light district.
+    [You don't have to drink only water and milk](where_to_drink.md) and
+    [there is more food than "bitterballen" from the FEBO](where_to_eat.md).
    
 -   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20241028/files/2024-10_General-LUMI-Training-Agenda.pdf)
 
@@ -33,9 +35,7 @@
      *The dynamic schedule also contains links to pages with information about the course materials, but 
      those links are also available below on this page.*
 
-<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course-oct24?both)
--->
 
 -   During the course, there are two Slurm reservations available:
 
@@ -60,8 +60,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-<!--
 | [Introduction](extra_1_00_Introduction.md) | / | / | [web](extra_1_00_Introduction.md) |
 | [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) | / | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) |
 | [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [lumi](extra_1_02_Programming_Environment_and_Modules.md) | / | [lumi](extra_1_02_Programming_Environment_and_Modules.md) |
@@ -72,6 +70,8 @@ downloaded from LUMI.
 | [Cray Scientific Libraries](extra_1_07_Cray_Scientific_Libraries.md) | [lumi](extra_1_07_Cray_Scientific_Libraries.md) | / | [lumi](extra_1_07_Cray_Scientific_Libraries.md) |
 | [Exercises #3](extra_1_08_Exercises_3.md) | / | / | / |
 | [CCE Offloading Models](extra_1_09_Offload_CCE.md) | [lumi](extra_1_09_Offload_CCE.md) | / | [lumi](extra_1_09_Offload_CCE.md) |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+<!--
 | [Advanced Placement](extra_2_01_Advanced_Application_Placement.md) | [lumi](extra_2_05_Advanced_Application_Placement.md) | / | [lumi](extra_2_05_Advanced_Application_Placement.md) |
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |

@@ -1,18 +1,15 @@
 # Exercise session 3: Cray Scientific Libraries
 
-<!--
 The files for the exercises are in
 `Exercises/HPE/day1/libsci_acc`.
 
 Test with LibSci_ACC, check the different interfaces and environment variables.
--->
 
 
 ## Materials
 
 No materials available at the moment.
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See `/project/project_465001362/Slides/HPE/Exercises.pdf` or
@@ -29,7 +26,6 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 1 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_Exercises_day1.pdf)
--->
 
 <!--
 Archived materials on LUMI:

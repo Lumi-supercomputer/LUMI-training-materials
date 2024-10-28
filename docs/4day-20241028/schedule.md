@@ -92,7 +92,7 @@ DAY 1
             <li>Cray Compilation Environment (CCE) and options relevant to porting and performance.</li>
             <li>Description of the Parallel Programming models.</li>
         </ul>
-        <em>Presenter: |Harvey Richardson (HPE)</em>
+        <em>Presenters: Harvey Richardson and Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>

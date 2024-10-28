@@ -27,7 +27,7 @@ recent history and does by no means imply that you can order all those beers now
 of a list that mirrors what is available now, I've included that list instead as the menu.
 
 The list is sorted according to walking distance from the SURF building in Science Park,
-but you'll have to be a good swimmer for one of them (or take a ferry).
+but you'll have to be a good swimmer for one of them (or take a free ferry).
 
 -   [Poesiat & Kater](https://poesiatenkater.nl/).
     This brewery is just 1.4km walking from the SURF building in Science Park
@@ -79,7 +79,7 @@ but you'll have to be a good swimmer for one of them (or take a ferry).
 
 -   [De Bierfabriek](https://www.bierfabriek.com/amsterdam/en/):
     Brewery and restaurant in the centre of the city, not far from the Rokin 
-    metro station.
+    metro station. The beer is slightly below avereage though.
 
     ([Google Maps](https://maps.app.goo.gl/RarUonGS4AXVnZ1p9)) <!-- 5.1km -->
     ([Scores of their beers on Untappd](https://untappd.com/Bierfabriek/beer))
