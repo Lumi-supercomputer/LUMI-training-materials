@@ -2956,7 +2956,33 @@ Archived materials on LUMI:
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>The storage space in the home directory is quite limited, and there are relatively 
+    few files. When I install custom software or use EasyBuild to install a few packages, 
+    I quickly run out of space. How can I manage this situation? and manage the 
+    number of files is relatively small....</p>
+<ul>
+<li>
+<p>In our documentation we discuss several options: 
+    https://docs.lumi-supercomputer.eu/storage/#about-the-number-of-files-quota. 
+    It depends a little bit on why you run into the quota. If you have to many files 
+    because of a Python installation you can consider using containers. 
+    If it is during compilation you may consider using the scratch space. 
+    If the not the number of files, but the size is the problem you can look at using 
+    your project storage. 
+    In any case, it may be a good idea to install your Easybuild recipes in the project, 
+    for all members, instead of in your home folder. 
+    See also: https://docs.lumi-supercomputer.eu/software/installing/easybuild/#preparation-set-the-location-for-your-easybuild-installation. </p>
+</li>
+<li>
+<p>The home directory should only be used for the things that really belong in a home
+    directory as Linux puts them there (like caches). It should not be used to store 
+    data from your project or to install software.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
