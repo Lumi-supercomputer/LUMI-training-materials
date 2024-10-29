@@ -2933,7 +2933,40 @@ contains several tools mentioned in the presentation.</p>
 were not mentioned and show more information about the actual binding.</p>
 </div>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>In the slide with the <code>lscpu | grep -Ei "CPU\ "</code> we saw this distribution of NUMA nodes CPUs. What do the 4 last rows refer to? e.g. "NUMA node0 CPU(s): 0-15, 64-79"</p>
+<ul>
+<li>(alfio) these are the core ids, so node0 has cores with ids 0 to 15 and then 64 to 79 (hyperthread cores)</li>
+</ul>
+<p>Ah okay, so it does not have to do with the distance of those nodes between each other, right?</p>
+<ul>
+<li>No, the "relative" distance is the command <code>numactl -H</code>
+`</li>
+</ul>
+</li>
+<li>
+<p>Does <code>--exclusive</code> flag make the available memory on each node be distributed equally among CPUs defined by <code>--cpus-per-node</code>? Or do we still need to set it via <code>--mem-per-cpu</code> or something like that?</p>
+<ul>
+<li>
+<p>(alfio) exclusive is only to get the entire node, without sharing with other users.</p>
+</li>
+<li>
+<p>(Kurt) Defaults set by the sysadmins still apply, so you may want to use, e.g., '--mem=0' to get all CPU memory on the node, or even better, <code>--mem=224G</code> or <code>--mem=480G</code> for regular LUMI-C and LUMI-G nodes respectively as that would protect you from getting nodes where a system memory leak may have reduced the amount of memory available to a user.</p>
+<p>Memory is always a pool per node and not limited per task. This is in fact essential to make communication through shared memory possible and is also why <code>--gpu-bind</code> in Slurm does not work: It currently creates a so-called cgroup per GPU which makes memory-to-memory communication impossible.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Why is <code>gpu_check</code> reporting Bus_ID dc? That's a PCI bridge, not a GPU (the GPU is de). Is it just a output issue in the <code>gpu_check</code> binary?</p>
+<ul>
+<li>
+<p>(Kurt) I'd have to check the code to see how the Bus_id is determined. It is basically the code of the ORNL hello_jobstep program a bit reworked with some extra output (but the determination of the ID is taken from the hello_jobstep code if I remember correclty). This will be something to look into after the course. It is strange that it is only for this GPU, the other ones correspond to what I see in <code>lstopo</code>.</p>
+<p>Bug located, just a constant in the code with the wrong value. It will be fixed next week or the week after, at the next update of the software stack.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
