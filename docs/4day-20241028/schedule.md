@@ -140,7 +140,7 @@ DAY 1
         <ul>
             <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
         </ul>
-        <em>Presenter: Harvey Richardson (HPE)</em>
+        <em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -177,7 +177,7 @@ DAY 2
         <ul>
             <li>More detailed treatment of Slurm binding technology and OpenMP controls.</li>
         </ul>
-        <em>Presenter: Jean Pourroy (HPE)</em>
+        <em>Presenter: Jean-Yves Vet (HPE)</em>
         </td>
     </tr>
     <tr>

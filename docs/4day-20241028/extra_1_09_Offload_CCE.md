@@ -1,6 +1,6 @@
 # CCE Offloading Models
 
-*Presenter: Harvey Richardson (HPE)*
+*Presenter: Alfio Lazzaro (HPE)*
 
 <!--
 Course materials will be provided during and after the course.

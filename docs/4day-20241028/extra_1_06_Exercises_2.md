@@ -44,4 +44,14 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+12. Is this an expected result that when I switch compilers from Cray to GNU I get 
+    pi_threads and pi_hybrid tests twice faster execution time? (i.e. cray binaries 
+    run slower than gnu compiled versions)
+
+    -   (Alfio) with a single thread? Do yo get any warning? I can speculate that CCE does a default binding, so all threads will use the same cores. In any case, the exercise is not meant to check the performance, rather to get familiar with modules and compilers.
+
+    -   (Kurt) A bit surprising, but I didn't check. The default OpenMP behaviour of CCE is actually very decent. On the other hand, the default in GNU is to use `-O0` so if you don't specify proper optimisation options, the GNU compiler tends to be the slowest. Note though that if you are running on the login nodes, timings can be unreproducible.
+
+    Thanks for your insights. I was suprised too. I get the speed-up for all models: serial (just 20% though), thread (OpenMP) and hybrid (mpi+OpenMP). I know it is just a simple test, but this was a funny result. Maybe the test is too small to show any scalability performance gains from Cray profiling.
+
+
