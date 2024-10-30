@@ -22,10 +22,12 @@ Temporary location of materials (for the lifetime of the training project):
     `/project/project_465001362/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
     for more information.
 
+<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_Exercises_day1.pdf)
+-->
 
 <!--
 Archived materials on LUMI:

@@ -1,8 +1,8 @@
 # Exercise session 15: Omniperf
 
 <!--
-Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@gmarkoma/lumi_finland),
-section on [Omniperf](https://hackmd.io/@gmarkoma/lumi_finland#Omniperf).
+Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@sfantao/lumi-training-ams-2024),
+section on [Omniperf](https://hackmd.io/@sfantao/lumi-training-ams-2024#Omniperf).
 
 Exercise files can be copied from `Exercises/AMD/HPCTrainingExamples`.
 -->
@@ -21,7 +21,7 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Materials on the web:
 
--   [AMD exercise assignments and notes](https://hackmd.io/@gmarkoma/lumi_finland#Omniperf)
+-   [AMD exercise assignments and notes](https://hackmd.io/@sfantao/lumi-training-ams-2024#Omniperf)
 
     [PDF backup](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf)
     and [local web backup](exercises_AMD_hackmd.md#omniperf).

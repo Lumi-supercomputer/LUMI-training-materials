@@ -23,10 +23,12 @@ Temporary location of materials (for the lifetime of the training project):
 
 -   Exercise files in `/project/project_465001362/Exercises/day2`
 
+<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1-2 temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_Exercises_day2.pdf)
+-->
 
 <!--
 Archived materials on LUMI:

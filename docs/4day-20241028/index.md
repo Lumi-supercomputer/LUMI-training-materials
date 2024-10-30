@@ -77,10 +77,6 @@ downloaded from LUMI.
 | [Introduction to the AMD ROCm Ecosystem](extra_2_05_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_05_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_05_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_06_Exercises_6.md) | / | / | / |
 | [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-<!--
-| [Exercises #6](extra_2_06_Exercises_6.md) | / | / | / |
-| [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
 | [Exercises #7](extra_3_02_Exercises_7.md) | / | / | / |
 | [Advanced Performance Analysis](extra_3_03_Advanced_Performance_Analysis.md) | [lumi](extra_3_03_Advanced_Performance_Analysis.md) | / |  [lumi](extra_3_03_Advanced_Performance_Analysis.md) |
@@ -91,6 +87,8 @@ downloaded from LUMI.
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+<!--
 | [Introduction to Python on Cray EX](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
 | [Frameworks for porting applications to GPUs](extra_4_02_Porting_to_GPU.md) | [lumi](extra_4_02_Porting_to_GPU.md) | / |[lumi](extra_4_02_Porting_to_GPU.md) |
 | [Performance Optimization: Improving single-core Efficiency](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) |

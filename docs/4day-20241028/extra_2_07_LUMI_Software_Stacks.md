@@ -64,7 +64,7 @@ Archived materials on LUMI:
 
     -   The problem is when using Anaconda. Conda is not a problem, as long as you use the best practices. See also the LUMI documentation: https://docs.lumi-supercomputer.eu/software/installing/python/. 
 
-    -   (Kurt) Any installation with lots of small files should be containerised. But there is also a licensing issue. Anaconda cannot be legally used on LUMI. The miniconda program can be used, but not to install from the main Anaconda channel, only from conda-forge and external channels. Other public domain implementations come with their own license and may nor may not be used.
+    -   (Kurt) There are two separate and independent issues. Firstly,  any installation with lots of small files should be containerised, and most Python or conda installations are like that. Secondly, there is also a licensing issue specifically with Anaconda. I encourage you to have a look at the license, and [there is a link in the notes](notes_2_07_LUMI_Software_Stacks.md#software-policies). Anaconda cannot be legally used on LUMI (or your university cluster or workstation for the same reason). The miniconda program can be used, but not to install from the main Anaconda channel, only from conda-forge and external channels. Other public domain implementations come with their own license and may nor may not be used.
 
 3.  Since the list of available modules gets so big and the old ones are shown first, what are the policies of keeping support for outdated software?
 

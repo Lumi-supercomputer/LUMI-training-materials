@@ -21,6 +21,7 @@ Temporary location of materials (for the lifetime of the training project):
 
     See `/project/project_465001362/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
 
+<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1 temporarily available on
@@ -28,6 +29,7 @@ Temporary web-available materials:
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_04a-ProgrammingModelExamples_SLURM.pdf).
+-->
 
 <!--
 Archived materials on LUMI:
