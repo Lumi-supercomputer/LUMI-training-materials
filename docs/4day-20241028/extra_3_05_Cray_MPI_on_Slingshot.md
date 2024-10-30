@@ -23,4 +23,6 @@ These materials can only be distributed to actual users of LUMI (active user acc
 
 ## Q&A
 
-/
+1.  For the 2D neighbour exchange example on the slides, isn't it easier to let `MPI_Cart_create()` deal with the reordering and just use whatever it returns? And then ask the MPI_Cart_shift() for neighbours?
+   
+    -   Cart may not create an optimal solution. It may not be aware about things like node-layout and NUMA domains.
