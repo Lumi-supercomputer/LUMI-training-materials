@@ -2926,7 +2926,14 @@ Course materials will be provided during and after the course.
 
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>For the 2D neighbour exchange example on the slides, isn't it easier to let <code>MPI_Cart_create()</code> deal with the reordering and just use whatever it returns? And then ask the MPI_Cart_shift() for neighbours?</p>
+<ul>
+<li>Cart may not create an optimal solution. It may not be aware about things like node-layout and NUMA domains.</li>
+</ul>
+</li>
+</ol>
 
 
 
