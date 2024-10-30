@@ -2988,6 +2988,34 @@ Course materials will be provided during the course.
 </li>
 </ul>
 </li>
+<li>
+<p>So you said that conda cannot be used, but it also says in the file that Conda can be used if it comes in containers? Does that mean that we can use <code>mamba (miniconda)</code> in the containers, or can we also use <code>conda</code> there?</p>
+<ul>
+<li>
+<p>The problem is when using Anaconda. Conda is not a problem, as long as you use the best practices. See also the LUMI documentation: https://docs.lumi-supercomputer.eu/software/installing/python/. </p>
+</li>
+<li>
+<p>(Kurt) There are two separate and independent issues. Firstly,  any installation with lots of small files should be containerised, and most Python or conda installations are like that. Secondly, there is also a licensing issue specifically with Anaconda. I encourage you to have a look at the license, and <a href="../notes_2_07_LUMI_Software_Stacks/#software-policies">there is a link in the notes</a>. Anaconda cannot be legally used on LUMI (or your university cluster or workstation for the same reason). The miniconda program can be used, but not to install from the main Anaconda channel, only from conda-forge and external channels. Other public domain implementations come with their own license and may nor may not be used.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Since the list of available modules gets so big and the old ones are shown first, what are the policies of keeping support for outdated software?</p>
+<ul>
+<li>
+<p>We remove whole SW stacks from time to time after major system upgrades, after showing lmod deprecation warnings and then hiding it. </p>
+<p>Note that the old version issue only exists in the output of <code>module spider</code>. With <code>module avail</code> you will
+only see the versions that are relevant for the version of the LUMI stack that you have selected.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>To install VASP + VTST + 'VASPSOL++' + CPVASP (VASP plugins) @Lumi, how should I proceed with the installation, and which installation methods should I choose? If using EasyBuild (EB), how should I configure the installation files?
+(When I search using eb -S VASP, I cannot find any preconfigured EasyBuild easyconfigs files that include VTST, VASPsol++, or other plugins(CP-VASP). Would it be possible for you to provide such EasyConfigs or help to find them? )</p>
+<ul>
+<li>We cannot fully support VASP and even if there were no licensing issues, as we cannot do all installations for everybody with all plugins etc that a single user may require and have to focus on those combinations for which we expect more demand. You will very likely have to do a manual installation following the VASP installation instructions and knowing how to use the Cray PE compilers. I know someone in the Flemish local support team is looking into such an EasyConfig which may or may not adaptable to Linux. But software with such restrictive licenses as VASP are nearly impossible to support. As we don't have access to the VASP sources due to its license, we cannot do anything and have to rely on external parties with access.</li>
+</ul>
+</li>
 </ol>
 
 
