@@ -8,9 +8,10 @@ Try different compiler optimizations and see the impact on performance.
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -22,9 +23,7 @@ Temporary web-available materials:
 
 -    Overview exercise assignments temporarily available on
      [this link](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_Exercises_day4.pdf)
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.pdf`
@@ -34,7 +33,6 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.tar`
--->
 
 
 ## Q&A

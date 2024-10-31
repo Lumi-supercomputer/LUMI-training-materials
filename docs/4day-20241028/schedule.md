@@ -450,19 +450,19 @@ DAY 4
     <tr>
         <td>
             09:10 CEST
-            <br/><em>08:10 EEST</em>
+            <br/><em>10:10 EEST</em>
         </td>
-        <td><b><a href="../extra_4_02_Porting_to_GPU/">Porting Applications to GPU</a></b>
+        <td><b><a href="../extra_4_02_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
         <br/><em>Presenter: Jean Pourroy (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>
-            09:20 CEST
-            <br/><em>10:20 EEST</em>
+            09:50 CEST
+            <br/><em>10:50 EEST</em>
         </td>
-        <td><b><a href="../extra_4_03_Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
-        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        <td><b><a href="../extra_4_03_Porting_to_GPU/">Porting Applications to GPU</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>

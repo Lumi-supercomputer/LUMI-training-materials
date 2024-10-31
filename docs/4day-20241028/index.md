@@ -87,11 +87,9 @@ downloaded from LUMI.
 | [Exercises #10](extra_3_08_Exercises_10.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-<!--
 | [Introduction to Python on Cray EX](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
-| [Frameworks for porting applications to GPUs](extra_4_02_Porting_to_GPU.md) | [lumi](extra_4_02_Porting_to_GPU.md) | / |[lumi](extra_4_02_Porting_to_GPU.md) |
-| [Performance Optimization: Improving single-core Efficiency](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) |
+| [Performance Optimization: Improving single-core Efficiency](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) |
+| [Frameworks for porting applications to GPUs](extra_4_03_Porting_to_GPU.md) | [lumi](extra_4_03_Porting_to_GPU.md) | / |[lumi](extra_4_03_Porting_to_GPU.md) |
 | [Exercises #12](extra_4_04_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_05_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) |
 | [Exercises #13](extra_4_06_Exercises_13.md) | / | / | / |
@@ -101,6 +99,8 @@ downloaded from LUMI.
 | [Exercises #15](extra_4_10_Exercises_15.md) | / | / | / |
 | [Tools in Action - An Example with Pytorch](extra_4_11_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_11_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_11_Best_Practices_GPU_Optimization.md) |
 | [LUMI User Support](extra_4_12_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_12_LUMI_Support_and_Documentation.pdf) | [web](notes_4_12_LUMI_Support_and_Documentation.md) | [web](extra_4_12_LUMI_Support_and_Documentation.md) |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+<!--
 -->
 <!-- | [Appendix: Miscellaneous questions](A02_Misc_Questions.md) | / | [questions](A02_Misc_Questions.md) | / | -->
 
