@@ -2926,7 +2926,19 @@ Course materials will be provided during and after the course.
 
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Why is it recommended to run Python codes not using multi-threading/multi-processing still with <code>srun</code>?</p>
+<ul>
+<li>
+<p>not sure I understand the question, <code>srun</code> allows to run on the compute nodes (otherwise you will run on the login nodes if you use <code>salloc</code>)</p>
+</li>
+<li>
+<p>Note also that in a batch job, there is a difference between calling a program with and without srun. Without srun, it runs in the context of the batch job step, which includes, e.g., all hyperthreads on all cores of the first node of the job available to the job, while with <code>srun</code>, the LUMI-default <code>--hint=nomultithread</code> would apply.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
