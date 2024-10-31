@@ -31,4 +31,5 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+1.  How to query for the information about a job which has already finished?
+    -   Check the many output options of `sacct`, this is the command to request information for finished jobs. See also the man page of `sacct`. The [link for the version that is currently on LUMI](https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html), is in the [Appendix with documentation that you'll find on the web site of this course](A01_Documentation.md). The `-o` or `--format` command line flag enables you to specify a lot of different fields with information about the job.

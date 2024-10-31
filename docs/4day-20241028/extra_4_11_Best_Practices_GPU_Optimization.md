@@ -22,21 +22,19 @@ Materials on the web:
 
 -   [Slides on the web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_11_Best_Practices_GPU_Optimization.pdf)
 
-<!--
 -   Downloadable scripts as
     [bzip2-compressed tar archive](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_11_scripts.tar.bz2) and 
     [uncompressed tar archive](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_11_scripts.tar)
--->
 
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-4_11_Best_Practices_GPU_Optimization.pdf`
 
-<!--
 -   Scripts as
     bzip2-compressed tar archive in `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-4_11_scripts.tar.bz2` and
     uncompressed tar archive in `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-4_11_scripts.tar`.
 
+<!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/4_11_Best_Practices_GPU_Optimization.mp4`
 -->
 
