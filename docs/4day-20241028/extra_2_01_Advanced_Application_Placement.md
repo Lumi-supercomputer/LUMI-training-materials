@@ -12,10 +12,10 @@ Temporary location of materials (for the lifetime of the training project):
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-2_05_Advanced_Application_Placement.pdf`
+-   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-2_01_Advanced_Application_Placement.pdf`
 
 <!--
--   Recording: `/appl/local/training/4day-20241028/recordings/2_05_Advanced_Application_Placement.mp4`
+-   Recording: `/appl/local/training/4day-20241028/recordings/2_01_Advanced_Application_Placement.mp4`
 -->
 
 These materials can only be distributed to actual users of LUMI (active user account).

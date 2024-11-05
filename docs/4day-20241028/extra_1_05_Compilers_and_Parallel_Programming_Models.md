@@ -14,6 +14,8 @@ Archived materials on LUMI:
 
 <!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/1_05_Compilers_and_Parallel_Programming_Models.mp4`
+
+-   Could add references from the last slide?
 -->
 
 These materials can only be distributed to actual users of LUMI (active user account).

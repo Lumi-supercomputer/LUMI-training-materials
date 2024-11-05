@@ -12,7 +12,7 @@ Temporary location of materials (for the lifetime of the training project):
 
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-3_03_Advanced_Performance_analysis.pdf`
+-   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-3_03_Advanced_Performance_Analysis.pdf`
 
 <!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/3_03_Advanced_Performance_Analysis.mp4`
