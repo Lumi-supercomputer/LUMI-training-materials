@@ -20,8 +20,8 @@ Materials on the web:
 
 -   [AMD exercise assignments and notes](https://hackmd.io/@sfantao/lumi-training-ams-2024#Debugging)
 
-    <!-- [PDF backup](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf)
-    and [local web backup](exercises_AMD_hackmd.md#debugging). -->
+    [PDF backup](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf)
+    and [local web backup](exercises_AMD_hackmd.md#debugging).
 
 -   Exercise files: 
     [Download as .tar.bz2](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar.bz2)

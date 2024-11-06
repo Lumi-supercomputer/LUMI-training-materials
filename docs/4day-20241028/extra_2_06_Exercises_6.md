@@ -17,7 +17,6 @@ Temporary location of materials (for the lifetime of the training project):
 -   Exercises can be copied from `/project/project_465001362/exercises/AMD/HPCTrainingExamples`
 -->
 
-<!--
 Materials on the web:
 
 -   [AMD exercise assignments and notes](https://hackmd.io/@sfantao/lumi-training-ams-2024)
@@ -28,9 +27,7 @@ Materials on the web:
 -   Exercise files: 
     [Download as .tar.bz2](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar.bz2)
     or [download as .tar](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar)
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments PDF: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf`
@@ -38,7 +35,6 @@ Archived materials on LUMI:
 -   Exercise files:
     `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar.bz2`
     or `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar`
--->
 
 
 ## Q&A
