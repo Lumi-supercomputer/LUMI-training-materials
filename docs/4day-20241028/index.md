@@ -105,7 +105,6 @@ downloaded from LUMI.
 <!-- | [Appendix: Miscellaneous questions](A02_Misc_Questions.md) | / | [questions](A02_Misc_Questions.md) | / | -->
 
 
-<!--
 ## Making the exercises after the course
 
 ### HPE
@@ -136,7 +135,7 @@ projects.
 
 There are [online notes about the AMD exercises](https://hackmd.io/@sfantao/H1QU6xRR3).
 A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf)
-and is particularly useful should the online notes become unavailable. 
+and is particularly useful should the online notes become unavailable. However, some lines are incomplete.
 A [web backup](exercises_AMD_hackmd.md) is also available, but corrections to the original made after the course
 are not included.
 
@@ -158,7 +157,7 @@ from the training project. You can do so in the same directory where you install
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
+
 
 ## Links to documentation
 
