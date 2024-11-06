@@ -2,7 +2,9 @@
 
 *Presenter: Harvey Richardson (HPE)*
 
+<!--
 Course materials will be provided during and after the course.
+-->
 
 <!--
 Temporary location of materials (for the lifetime of the training project):
@@ -10,7 +12,6 @@ Temporary location of materials (for the lifetime of the training project):
 -   Slides: `/project/project_465001362/Slides/HPE/14_IO_medium_LUMI.pdf`
 -->
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-4_05_IO_Optimization_Parallel_IO.pdf`
@@ -18,7 +19,6 @@ Archived materials on LUMI:
 -   Recording: `/appl/local/training/4day-20241028/recordings/4_05_IO_Optimization_Parallel_IO.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
--->
 
 
 ## Links

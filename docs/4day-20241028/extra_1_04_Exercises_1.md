@@ -1,18 +1,17 @@
 # Exercise session 1: Running applications
 
-<!--
 Exercises are in `Exercises/HPE/day1/ProgrammingModels`.`
 
 See `Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
 Run on the system and get familiar with Slurm commands.
--->
 
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -24,6 +23,7 @@ Temporary location of materials (for the lifetime of the training project):
 
     See `/project/project_465001362/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
 
+<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1 temporarily available on

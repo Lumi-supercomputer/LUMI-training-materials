@@ -1,11 +1,9 @@
 # Exercise session 4: Placement
 
-<!--
 The files for the exercises can be found in `Exercises/HPE/day2/Binding`
 and `Exercises/HPE/day2/gpu_perf_binding`.
 
 Try different binding options for CPU execution (look at slides and use envars to change order and display the order) and for GPU execution (gpu_perf_binding). See also the PDF or `README.md` files in those directories.
--->
 
 <!--
 Check slide 6 and 7 of the exercise assignments for more information.
@@ -13,9 +11,10 @@ Check slide 6 and 7 of the exercise assignments for more information.
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -24,6 +23,7 @@ Temporary location of materials (for the lifetime of the training project):
 
 -   Exercise files in `/project/project_465001362/Exercises/day2`
 
+<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1-2 temporarily available on

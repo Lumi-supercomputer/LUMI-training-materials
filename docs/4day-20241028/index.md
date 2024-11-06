@@ -24,7 +24,9 @@
         credit card on the reader. If all travel you need is from a hotel in the centre 
         to the venue and back, it isn't worth it.
 
--   [Amsterdam is more than canals and the red light district](where_to_drink.md)
+-   Amsterdam is more than canals and the red light district.
+    [You don't have to drink only water and milk](where_to_drink.md) and
+    [there is more food than "bitterballen" from the FEBO](where_to_eat.md).
    
 -   [Original schedule (PDF)](https://462000265.lumidata.eu/4day-20241028/files/2024-10_General-LUMI-Training-Agenda.pdf)
 
@@ -33,9 +35,7 @@
      *The dynamic schedule also contains links to pages with information about the course materials, but 
      those links are also available below on this page.*
 
-<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course-oct24?both)
--->
 
 -   During the course, there are two Slurm reservations available:
 
@@ -60,8 +60,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
-<!--
 | [Introduction](extra_1_00_Introduction.md) | / | / | [web](extra_1_00_Introduction.md) |
 | [HPE Cray EX Architecture](extra_1_01_HPE_Cray_EX_Architecture.md) | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) | / | [lumi](extra_1_01_HPE_Cray_EX_Architecture.md) |
 | [Programming Environment and Modules](extra_1_02_Programming_Environment_and_Modules.md) | [lumi](extra_1_02_Programming_Environment_and_Modules.md) | / | [lumi](extra_1_02_Programming_Environment_and_Modules.md) |
@@ -76,7 +74,7 @@ downloaded from LUMI.
 | [Exercises #4](extra_2_02_Exercises_4.md) | / | / | / |
 | [Debugging at Scale](extra_2_03_Debugging_at_Scale.md) | [lumi](extra_2_03_Debugging_at_Scale.md) | / |  [lumi](extra_2_03_Debugging_at_Scale.md) |
 | [Exercises #5](extra_2_04_Exercises_5.md) | / | / | / |
-| [Introduction to the AMD ROCm Ecosystem](extra_2_05_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_01_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_01_Introduction_to_AMD_ROCm_Ecosystem.md) |
+| [Introduction to the AMD ROCm Ecosystem](extra_2_05_Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_05_Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](extra_2_05_Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #6](extra_2_06_Exercises_6.md) | / | / | / |
 | [LUMI Software Stacks](extra_2_07_LUMI_Software_Stacks.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-2_07_software_stacks.pdf) | [web](notes_2_07_LUMI_Software_Stacks.md) |  [web](extra_2_07_LUMI_Software_Stacks.md) |
 | [Introduction to Perftools](extra_3_01_Introduction_to_Perftools.md) | [lumi](extra_3_01_Introduction_to_Perftools.md) | / |  [lumi](extra_3_01_Introduction_to_Perftools.md) |
@@ -90,8 +88,8 @@ downloaded from LUMI.
 | [Introduction to ROC-Profiler (rocprof)](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](extra_3_09_Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #11](extra_3_10_Exercises_11.md) | / | / | / |
 | [Introduction to Python on Cray EX](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | [lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) | / |[lumi](extra_4_01_Introduction_to_Python_on_Cray_EX.md) |
-| [Frameworks for porting applications to GPUs](extra_4_02_Porting_to_GPU.md) | [lumi](extra_4_02_Porting_to_GPU.md) | / |[lumi](extra_4_02_Porting_to_GPU.md) |
-| [Performance Optimization: Improving single-core Efficiency](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_03_Performance_Optimization_Improving_Single_Core.md) |
+| [Performance Optimization: Improving single-core Efficiency](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) | / | [lumi](extra_4_02_Performance_Optimization_Improving_Single_Core.md) |
+| [Frameworks for porting applications to GPUs](extra_4_03_Porting_to_GPU.md) | [lumi](extra_4_03_Porting_to_GPU.md) | / |[lumi](extra_4_03_Porting_to_GPU.md) |
 | [Exercises #12](extra_4_04_Exercises_12.md) | / | / | / |
 | [Optimizing Large Scale I/O](extra_4_05_IO_Optimization_Parallel_IO.md) | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) | / | [lumi](extra_4_05_IO_Optimization_Parallel_IO.md) |
 | [Exercises #13](extra_4_06_Exercises_13.md) | / | / | / |
@@ -101,11 +99,12 @@ downloaded from LUMI.
 | [Exercises #15](extra_4_10_Exercises_15.md) | / | / | / |
 | [Tools in Action - An Example with Pytorch](extra_4_11_Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_11_Best_Practices_GPU_Optimization.pdf) | / | [web](extra_4_11_Best_Practices_GPU_Optimization.md) |
 | [LUMI User Support](extra_4_12_LUMI_Support_and_Documentation.md) | [web](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-4_12_LUMI_Support_and_Documentation.pdf) | [web](notes_4_12_LUMI_Support_and_Documentation.md) | [web](extra_4_12_LUMI_Support_and_Documentation.md) |
+| [Appendix: Additional documentation](A01_Documentation.md) | / | [documentation](A01_Documentation.md) | / |
+<!--
 -->
 <!-- | [Appendix: Miscellaneous questions](A02_Misc_Questions.md) | / | [questions](A02_Misc_Questions.md) | / | -->
 
 
-<!--
 ## Making the exercises after the course
 
 ### HPE
@@ -136,7 +135,7 @@ projects.
 
 There are [online notes about the AMD exercises](https://hackmd.io/@sfantao/H1QU6xRR3).
 A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf)
-and is particularly useful should the online notes become unavailable. 
+and is particularly useful should the online notes become unavailable. However, some lines are incomplete.
 A [web backup](exercises_AMD_hackmd.md) is also available, but corrections to the original made after the course
 are not included.
 
@@ -158,7 +157,7 @@ from the training project. You can do so in the same directory where you install
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
+
 
 ## Links to documentation
 

@@ -1,24 +1,24 @@
 # Exercise session 5: Cray PE Debugging Tools
 
-<!--
 Exercises are in `Exercises/HPE/day2/debugging`.
 
 Try the debugging tools in this subdirectory.
 There are `Readme.md` files in every directory with more information.
--->
 
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See `/project/project_465001362/Slides/HPE/Exercises.pdf`
 
 -   Exercise files in `/project/project_465001362/Exercises/HPE/day2/debugging`
 
+<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1+2 temporarily available on
