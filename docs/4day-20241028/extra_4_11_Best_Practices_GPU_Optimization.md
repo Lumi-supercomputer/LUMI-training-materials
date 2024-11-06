@@ -7,16 +7,16 @@
 Course materials will be provided during and after the course.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20241028/recordings/4_11_Best_Practices_GPU_Optimization.mp4" controls="controls">
 </video>
--->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001362/Slides/AMD/session-6-ToolsInActionPytorchExample-LUMI-2024.pdf`
 
 -   Scripts: `/project/project_465001362/Exercises/AMD/Pytorch`
+-->
 
 Materials on the web:
 
@@ -34,9 +34,8 @@ Archived materials on LUMI:
     bzip2-compressed tar archive in `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-4_11_scripts.tar.bz2` and
     uncompressed tar archive in `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-4_11_scripts.tar`.
 
-<!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/4_11_Best_Practices_GPU_Optimization.mp4`
--->
+
 
 !!! Note "PyTorch in the LUMI Software Library" 
     The example in this demo is also used as the example in our

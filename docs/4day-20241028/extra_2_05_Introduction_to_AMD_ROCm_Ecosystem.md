@@ -7,14 +7,14 @@
 Course materials will be provided during and after the course.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20241028/recordings/2_05_Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls">
 </video>
--->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001362/Slides/AMD/session 01a - HIP and ROCm.pdf`
+-->
 
 Materials available on the web:
 
@@ -28,9 +28,7 @@ Archived materials on LUMI:
 
 -   Extra slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-2_05_Extra_HIP_Optimization.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/2_05_Introduction_to_AMD_ROCm_Ecosystem.mp4`
--->
 
 
 ## Q&A

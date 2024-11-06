@@ -2,10 +2,8 @@
 
 *Presenter: Kurt Lust (LUST)*
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20241028/recordings/2_07_LUMI_Software_Stacks.mp4" controls="controls">
 </video>
--->
 
 <!--
 Course materials will be provided during the course.
@@ -21,9 +19,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-2_07_software_stacks.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/2_07_LUMI_Software_Stacks.mp4`
--->
 
 
 ## Additional materials

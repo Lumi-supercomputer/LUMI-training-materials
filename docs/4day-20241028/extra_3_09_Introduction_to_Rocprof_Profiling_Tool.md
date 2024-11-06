@@ -7,14 +7,14 @@
 Course materials will be provided during and after the course.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/4day-20241028/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4" controls="controls">
 </video>
--->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001362/Slides/AMD/session-3-introduction-to-rocprof.pdf`
+-->
 
 Materials on the web:
 
@@ -24,9 +24,7 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-3_09_Introduction_to_Rocprof_Profiling_Tool.pdf`
 
-<!--
 -   Recording: `/appl/local/training/4day-20241028/recordings/3_09_Introduction_to_Rocprof_Profiling_Tool.mp4`
--->
 
 
 !!! Note
