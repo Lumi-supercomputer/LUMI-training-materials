@@ -4,9 +4,11 @@
 
 ### Regular trainings
 
+<!--
 Upcoming or currently running events with materials already partly available:
 
 -   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
+-->
 
 Most recently completed main training events:
 
