@@ -20,7 +20,7 @@
     
     
       
-        <title>AMD Exercises - LUMI training materials</title>
+        <title>LUMI Training - Amsterdam, Nederlands (October 2024) - LUMI training materials</title>
       
     
     
@@ -114,7 +114,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - AMD Exercises" />
+  <meta property="og:title" content="LUMI training materials - LUMI Training - Amsterdam, Nederlands (October 2024)" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20241028/exercises_AMD_hackmd/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - AMD Exercises" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI Training - Amsterdam, Nederlands (October 2024)" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amd-exercises" class="md-skip">
+        <a href="#lumi-training-amsterdam-nederlands-october-2024" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AMD Exercises
+              LUMI Training - Amsterdam, Nederlands (October 2024)
             
           </span>
         </div>
@@ -2991,6 +2991,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exploring-rocprofv3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploring RocprofV3
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3007,9 +3016,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dynamic-instrumentation" class="md-nav__link">
+  <a href="#dynamic-instrumentation-the-commands-take-a-significant-ammount-of-time" class="md-nav__link">
     <span class="md-ellipsis">
-      Dynamic instrumentation
+      Dynamic instrumentation (the commands take a significant ammount of time)
     </span>
   </a>
   
@@ -3084,9 +3093,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mnist-example" class="md-nav__link">
+  <a href="#pytorch-example" class="md-nav__link">
     <span class="md-ellipsis">
-      MNIST example
+      Pytorch example
     </span>
   </a>
   
@@ -3107,7 +3116,7 @@
                   
 
 
-<h1 id="amd-exercises">AMD Exercises<a class="headerlink" href="#amd-exercises" title="Permanent link">&para;</a></h1>
+<h1 id="lumi-training-amsterdam-nederlands-october-2024">LUMI Training - Amsterdam, Nederlands (October 2024)<a class="headerlink" href="#lumi-training-amsterdam-nederlands-october-2024" title="Permanent link">&para;</a></h1>
 <h3 id="login-to-lumi">Login to Lumi<a class="headerlink" href="#login-to-lumi" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>ssh USERNAME@lumi.csc.fi
 </code></pre></div>
@@ -3142,7 +3151,7 @@ scp -r -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&g
 <h2 id="hip-exercises">HIP Exercises<a class="headerlink" href="#hip-exercises" title="Permanent link">&para;</a></h2>
 <p>We assume that you have already allocated resources with <code>salloc</code></p>
 <p><code>cp -r /project/project_465001362/Exercises/AMD/HPCTrainingExamples/ .</code></p>
-<p><code>salloc -N 1 -p standard-g --gpus=1 -t 10:00 -A project_465001362 --reservation LUMItraining_G</code></p>
+<p><code>salloc -N 1 -p standard-g --gpus=1 -t 10:00 -A project_465001362 --reservation lumig_ams</code></p>
 <p><div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
 module load PrgEnv-amd
 module load rocm
@@ -3163,7 +3172,7 @@ srun -n 1 ./vectoradd
 #SBATCH -N 1
 #SBATCH --gpus=1
 #SBATCH -t 10:00
-#SBATCH --reservation LUMItraining_G
+#SBATCH --reservation lumig_ams
 #SBATCH -A project_465001362
 
 module load craype-accel-amd-gfx90a
@@ -3194,7 +3203,7 @@ The variable <code>export HCC_AMDGPU_TARGET=gfx90a</code> is not needed in case 
 <h2 id="hipify">Hipify<a class="headerlink" href="#hipify" title="Permanent link">&para;</a></h2>
 <p>We’ll use the same HPCTrainingExamples that were downloaded for the first exercise.</p>
 <p>Get a node allocation. 
-<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --gpus=1 -p standard-g -A project_465001362 –-t 00:10:00`--reservation LUMItraining_G
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --gpus=1 -p standard-g -A project_465001362 –-t 00:10:00`--reservation lumig_ams
 </code></pre></div></p>
 <p>A batch version of the example is also shown.</p>
 <h3 id="hipify-examples">Hipify Examples<a class="headerlink" href="#hipify-examples" title="Permanent link">&para;</a></h3>
@@ -3245,7 +3254,7 @@ GPU on a node.
 #SBATCH -p standard-g
 #SBATCH -A project_465001362
 #SBATCH -t 00:10:00
-#SBATCH --reservation  LUMItraining_G
+#SBATCH --reservation  lumig_ams
 
 module load craype-accel-amd-gfx90a
 module load rocm
@@ -3267,11 +3276,8 @@ cd ../../..
 <p>The first exercise will be the same as the one covered in the presentation so that we
 can focus on the mechanics. Then there will be additional exercises to explore further 
 or you can start debugging your own applications.</p>
-<!-- 
-Get the exercise: `git clone https://github.com/AMD/HPCTrainingExamples.git`
--->
-
-<p>If required, copy the exercises: </p>
+<p>Get the exercise: <code>git clone https://github.com/AMD/HPCTrainingExamples.git</code></p>
+<p>If preferred, copy the exercises: </p>
 <p><code>cp -r /project/project_465001362/Exercises/AMD/HPCTrainingExamples/ .</code></p>
 <p>Go to <code>HPCTrainingExamples/HIP/saxpy</code></p>
 <p>Edit the <code>saxpy.hip</code> file and comment out the two hipMalloc lines.</p>
@@ -3279,7 +3285,7 @@ Get the exercise: `git clone https://github.com/AMD/HPCTrainingExamples.git`
 72 //hipMalloc(&amp;d_y, size);
 </code></pre></div>
 <p>Allocate resources:
-<code>salloc -N 1 -p standard-g --gpus=1 -t 30:00 -A project_465001362 --reservation LUMItraining_G</code></p>
+<code>salloc -N 1 -p standard-g --gpus=1 -t 30:00 -A project_465001362 --reservation lumig_ams</code></p>
 <p>Now let's try using rocgdb to find the error.</p>
 <p>Compile the code with</p>
 <p><code>hipcc --offload-arch=gfx90a -o saxpy saxpy.hip</code></p>
@@ -3493,14 +3499,14 @@ $9 = 1
 <p>We can see that there are multiple problems with this kernel. X and Y are not initialized. Each value of X is multiplied by 1.0 and then added to the existing value of Y.</p>
 <h2 id="rocprof">Rocprof<a class="headerlink" href="#rocprof" title="Permanent link">&para;</a></h2>
 <p>Setup environment
-<div class="highlight"><pre><span></span><code>salloc -N 1 --gpus=8 -p standard-g --exclusive -A project_465001362 -t 20:00 --reservation LUMItraining_G
+<div class="highlight"><pre><span></span><code>salloc -N 1 --gpus=8 -p standard-g --exclusive -A project_465001362 -t 20:00 --reservation lumig_ams
 
 module load PrgEnv-cray
 module load craype-accel-amd-gfx90a
 module load rocm
 </code></pre></div>
-Download examples repo and navigate to the <code>HIPIFY</code> exercises
-<div class="highlight"><pre><span></span><code>cd ~/HPCTrainingExamples/HIPIFY/mini-nbody/hip/
+Obtain examples repo and navigate to the <code>HIPIFY</code> exercises
+<div class="highlight"><pre><span></span><code>cd HPCTrainingExamples/HIPIFY/mini-nbody/hip/
 </code></pre></div></p>
 <p>Compile and run one case. We are on the front-end node, so we have two ways to compile for the 
 GPU that we want to run on. </p>
@@ -3510,7 +3516,7 @@ GPU that we want to run on. </p>
 </code></pre></div></li>
 <li>The other option is to compile on the compute node where the compiler will auto-detect which GPU is present. Note that the autodetection may fail if you do not have all the GPUs (depending on the ROCm version). If that occurs, you will need to set <code>export ROCM_GPU=gfx90a</code>. </li>
 </ol>
-<div class="highlight"><pre><span></span><code>srun hipcc -I../ -DSHMOO nbody-orig.cpp -o nbody-orig
+<div class="highlight"><pre><span></span><code>srun hipcc -I../ -DSHMOO nbody-orig.hip -o nbody-orig
 </code></pre></div>
 <p>Now Run <code>rocprof</code> on nbody-orig to obtain hotspots list
 <div class="highlight"><pre><span></span><code>srun rocprof --stats nbody-orig 65536
@@ -3551,14 +3557,17 @@ w/s Zoom in/out
 a/d Pan left/right
 </code></pre></div>
 <h4 id="perfetto-issue">Perfetto issue<a class="headerlink" href="#perfetto-issue" title="Permanent link">&para;</a></h4>
-<p>Perfetto seems to introduced a bug, Sam created a container with a perfetto version that works with the rocprof traces. If you want to use that one you need to run docker on your laptop.</p>
-<p>From your laptop:
-<div class="highlight"><pre><span></span><code> sudo dockerd
+<p>You could open a browser and go to <a href="https://ui.perfetto.dev/">https://ui.perfetto.dev/</a> to load the latest version of the tool but we recomment using an older version that is known to work well with traces generated by rocprof. For that, make sure you start a session to connect to LUMI as:
+<div class="highlight"><pre><span></span><code>ssh -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi-uan03.csc.fi -L10000:uan03:10000
 </code></pre></div>
-and in another terminal
-<div class="highlight"><pre><span></span><code> sudo docker run -it --rm -p 10000:10000 --name myperfetto sfantao/perfetto4rocm
+and then connect to <a href="http://localhost:10000">http://localhost:10000</a>.</p>
+<p>Alternatively you can run perfetto on your laptop if you have a Docker installed with:
+<div class="highlight"><pre><span></span><code>docker run -it --rm -p 10000:10000 --name myperfetto sfantao/perfetto4rocm
 </code></pre></div></p>
-<p>The  open your web browser to: <code>http://localhost:10000/</code> and open the trace.</p>
+<p>You need to have the Docker daemon running in your workstation, e.g.:
+<div class="highlight"><pre><span></span><code> sudo dockerd
+</code></pre></div></p>
+<p>We can now proceed to connect your web browser to: <code>http://localhost:10000/</code> and open the trace.</p>
 <p><img alt="image" src="https://user-images.githubusercontent.com/109979778/225451481-46ffd521-2453-4caa-8d28-fa4e0f4c4889.png" /></p>
 <p>Read about hardware counters available for the GPU on this system (look for gfx90a section)
 <div class="highlight"><pre><span></span><code>less $ROCM_PATH/lib/rocprofiler/gfx_metrics.xml
@@ -3578,21 +3587,30 @@ You'll notice that <code>rocprof</code> runs 3 passes, one for each set of count
 <p>Contents of <code>rocprof_counters.csv</code>
 <div class="highlight"><pre><span></span><code>cat rocprof_counters.csv
 </code></pre></div></p>
+<h4 id="exploring-rocprofv3">Exploring RocprofV3<a class="headerlink" href="#exploring-rocprofv3" title="Permanent link">&para;</a></h4>
+<p>Rocprofv3 is becoming the recommended version for ROCm 6.2 onward. You can experiment with this version by running:
+<div class="highlight"><pre><span></span><code>module use /appl/local/containers/test-modules
+module load rocm/6.2.2
+</code></pre></div>
+We can now repeat the experiment we did before and obtain a HIP trace with the kernels and copy information:
+<div class="highlight"><pre><span></span><code>srun rocprofv3 --hip-trace --kernel-trace --memory-copy-trace --output-format=pftrace -- ./nbody-orig 65536
+</code></pre></div>
+Notice the difference in the options in comparison to rocprof V1. One can be more selective on what to collect. You would also notice that the profiler is faster and has less overhead. It also has the choice of using <code>pftrace</code> format that are more compatible with latest versions of the Perfetto UI <a href="https://ui.perfetto.dev/">https://ui.perfetto.dev/</a>. The trace will look similar to what seen before with a slightly different convention for the namming of the different sections:</p>
+<p><img alt="image" src="https://hackmd.io/_uploads/B101ekuxJx.png" /></p>
 <h2 id="omnitrace">Omnitrace<a class="headerlink" href="#omnitrace" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Load Omnitrace</li>
 </ul>
-<p>Omnitrace is known to work better with ROCm versions more recent than 5.2.3. So we use a ROCm 5.4.3 installation for this.
+<p>For ROCm versions older than 6.2, Omnitrace is not installed as part of the ROCm suite. So we use a separate instalation for this.
 <div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
 module load PrgEnv-amd
+module load cray-python
 
-module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
-module load rocm/5.4.3 omnitrace/1.10.3-rocm-5.4.x
-</code></pre></div></p>
-<ul>
-<li>Allocate resources with <code>salloc</code></li>
-</ul>
-<p><code>salloc -N 1 --ntasks=1 --partition=standard-g --gpus=1 -A project_465001362  --time=00:15:00 --reservation LUMItraining_G</code></p>
+module use /appl/local/containers/test-modules
+module load rocm/6.0.3 omnitrace/1.12.0-rocm6.0.x
+</code></pre></div>
+* Allocate resources with <code>salloc</code></p>
+<p><code>salloc -N 1 --ntasks=1 --partition=standard-g --gpus=1 -A project_465001362  --time=00:15:00 --reservation lumig_ams</code></p>
 <ul>
 <li>Check the various options and their values and also a second command for description</li>
 </ul>
@@ -3649,14 +3667,14 @@ module load rocm/5.4.3 omnitrace/1.10.3-rocm-5.4.x
 <p>Check the duration</p>
 </li>
 </ul>
-<h4 id="dynamic-instrumentation">Dynamic instrumentation<a class="headerlink" href="#dynamic-instrumentation" title="Permanent link">&para;</a></h4>
+<h4 id="dynamic-instrumentation-the-commands-take-a-significant-ammount-of-time">Dynamic instrumentation (the commands take a significant ammount of time)<a class="headerlink" href="#dynamic-instrumentation-the-commands-take-a-significant-ammount-of-time" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Execute dynamic instrumentation: <code>time srun -n 1 --gpus 1 omnitrace-instrument -- ./saxpy</code> and check the duration</li>
+<li>Execute dynamic instrumentation: <code>time srun -n 1 -c 7 --gpus 1 omnitrace-instrument -- ./saxpy</code> and check the duration</li>
 </ul>
-<!-- * Execute dynamic instrumentation: `time srun -n 1 --gpus 1 omnitrace-instrument -- ./Jacobi_hip -g 1 1` and check the duration (may fail?) -->
+<!-- * Execute dynamic instrumentation: `time srun -n 1 -c 7 --gpus 1 omnitrace-instrument -- ./Jacobi_hip -g 1 1` and check the duration (may fail?) -->
 <ul>
-<li>About Jacobi example, as the dynamic instrumentation wuld take long time, check what the binary calls and gets instrumented: <code>nm --demangle Jacobi_hip | egrep -i ' (t|u) '</code></li>
-<li>Available functions to instrument: <code>srun -n 1 --gpus 1 omnitrace-instrument -v 1 --simulate --print-available functions -- ./Jacobi_hip -g 1 1</code><ul>
+<li>About Jacobi example, as the dynamic instrumentation would take long time, check what the binary calls and gets instrumented: <code>nm --demangle Jacobi_hip | egrep -i ' (t|u) '</code></li>
+<li>Available functions to instrument: <code>srun -n 1 -c 7 --gpus 1 omnitrace-instrument -v 1 --simulate --print-available functions -- ./Jacobi_hip -g 1 1</code><ul>
 <li>the simulate option means that it will not execute the binary </li>
 </ul>
 </li>
@@ -3701,15 +3719,13 @@ OMNITRACE_SAMPLING_FREQ = 100
 <ul>
 <li>Load Omniperf:</li>
 </ul>
-<p>Omniperf is using a virtual environemtn to keep its python dependencies.
-<div class="highlight"><pre><span></span><code>module load cray-python
-module load craype-accel-amd-gfx90a
+<p>Omniperf uses a separate instalation as it is not part of ROCm before its version 6.2. Let's load it in our environment.
+<div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
 module load PrgEnv-amd
+module load cray-python
 
-module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
-module load rocm/5.4.3 omniperf/1.0.10-rocm-5.4.x
-
-source /pfs/lustrep2/projappl/project_462000125/samantao-public/omnitools/venv/bin/activate
+module use /appl/local/containers/test-modules
+module load rocm/6.0.3 omniperf/2.1.0
 </code></pre></div></p>
 <ul>
 <li>Reserve a GPU, compile the exercise and execute Omniperf, observe how many times the code is executed</li>
@@ -3722,7 +3738,7 @@ cd build
 cmake ..
 make
 cd bin
-srun -n 1 omniperf profile -n dgemm -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv
+srun -n 1 -c 7 omniperf profile -n dgemm -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv
 </code></pre></div>
 <ul>
 <li>
@@ -3732,7 +3748,7 @@ srun -n 1 omniperf profile -n dgemm -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 1
 <p>Now is created a workload in the directory workloads with the name dgemm (the argument of the -n). So, we can analyze it</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/mi200/ &amp;&gt; dgemm_analyze.txt
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/MI200/ &amp;&gt; dgemm_analyze.txt
 </code></pre></div>
 <ul>
 <li>If you want to only roofline analysis, then execute: <code>srun -n 1 omniperf profile -n dgemm --roof-only -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv</code></li>
@@ -3741,20 +3757,20 @@ srun -n 1 omniperf profile -n dgemm -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 1
 <ul>
 <li>We can select specific IP Blocks, like:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/mi200/ -b 7.1.2
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/MI200/ -b 7.1.2
 </code></pre></div>
 <p>But you need to know the code of the IP Block</p>
 <ul>
 <li>If you have installed Omniperf on your laptop (no ROCm required for analysis) then you can download the data and execute:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>omniperf analyze -p workloads/dgemm/mi200/ --gui
+<div class="highlight"><pre><span></span><code>omniperf analyze -p workloads/dgemm/MI200/ --gui
 </code></pre></div>
 <ul>
 <li>Open the web page: http://IP:8050/  The IP will be displayed in the output</li>
 </ul>
 <p>For more exercises, visit here: <code>https://github.com/amd/HPCTrainingExamples/tree/main/OmniperfExamples</code> or locally <code>HPCTrainingExamples/OmniperfExamples</code>, there are 5 exercises, in each directory there is a readme file with instructions.</p>
-<h2 id="mnist-example">MNIST example<a class="headerlink" href="#mnist-example" title="Permanent link">&para;</a></h2>
-<p>This example is supported by the files in <code>/project/project_465000644/Exercises/AMD/Pytorch</code>.
+<h2 id="pytorch-example">Pytorch example<a class="headerlink" href="#pytorch-example" title="Permanent link">&para;</a></h2>
+<p>This example is supported by the files in <code>/project/project_465001362/Exercises/AMD/Pytorch</code>.
 These script experiment with different tools with a more realistic application. They cover PyTorch, how to install it, run it and then profile and debug a MNIST based training. We selected the one in https://github.com/kubeflow/examples/blob/master/pytorch_mnist/training/ddp/mnist/mnist_DDP.py but the concept would be similar for any PyTorch-based distributed training.</p>
 <p>This is mostly based on a two node allocation.</p>
 <ul>
@@ -3771,31 +3787,27 @@ These script experiment with different tools with a more realistic application. 
 <code>./03-install-conda.sh</code></p>
 </li>
 <li>
-<p>Installing PyTorch from source on top of a base condo environment. It builds with debug symbols which can be useful to facilitate debugging.
-<code>./04-install-source.sh</code></p>
-</li>
-<li>
 <p>Testing a container prepared for LUMI that comprises PyTorch. 
-<code>./05-test-container.sh</code></p>
+<code>./04-test-container.sh</code></p>
 </li>
 <li>
 <p>Test the right affinity settings.
-<code>./06-afinity-testing.sh</code></p>
+<code>./05-afinity-testing.sh</code></p>
 </li>
 <li>
 <p>Complete example with MNIST training with all the trimmings to run it properly on LUMI.
-<code>./07-mnist-example.sh</code></p>
+<code>./06-mnist-example.sh</code></p>
 </li>
 <li>
 <p>Examples using rocprof, Omnitrace and Omniperf.
-<code>./08-mnist-rocprof.sh</code>
-<code>./09-mnist-omnitrace.sh</code>
-<code>./10-mnist-omnitrace-python.sh</code>
-<code>./11-mnist-omniperf.sh</code></p>
+<code>./07-mnist-rocprof.sh</code>
+<code>./08-mnist-omnitrace.sh</code>
+<code>./09-mnist-omnitrace-python.sh</code>
+<code>./10-mnist-omniperf.sh</code></p>
 </li>
 <li>
-<p>Example that debugs an hang in the application leveraging rocgdb.
-<code>./12-mnist-debug.sh</code></p>
+<p>Example using Pytorch built-in profiling capabilities.
+<code>./11-mnist-pytorch-profile.sh</code></p>
 </li>
 </ul>
 

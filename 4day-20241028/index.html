@@ -2907,6 +2907,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#making-the-exercises-after-the-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making the exercises after the course
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making the exercises after the course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hpe" class="md-nav__link">
+    <span class="md-ellipsis">
+      HPE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMD
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links-to-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Links to documentation
@@ -3256,59 +3289,49 @@ downloaded from LUMI.</p>
 -->
 <!-- | [Appendix: Miscellaneous questions](A02_Misc_Questions.md) | / | [questions](A02_Misc_Questions.md) | / | -->
 
-<!--
-## Making the exercises after the course
-
-### HPE
-
-The exercise material remains available in the course archive on LUMI:
-
--   The PDF notes in `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.pdf`
-
--   The other files for the exercises in either a
-    bzip2-compressed tar file `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.tar`.
-
-To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
-
+<h2 id="making-the-exercises-after-the-course">Making the exercises after the course<a class="headerlink" href="#making-the-exercises-after-the-course" title="Permanent link">&para;</a></h2>
+<h3 id="hpe">HPE<a class="headerlink" href="#hpe" title="Permanent link">&para;</a></h3>
+<p>The exercise material remains available in the course archive on LUMI:</p>
+<ul>
+<li>
+<p>The PDF notes in <code>/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.pdf</code></p>
+</li>
+<li>
+<p>The other files for the exercises in either a
+    bzip2-compressed tar file <code>/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.tar.bz2</code> or
+    an uncompressed tar file <code>/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.tar</code>.</p>
+</li>
+</ul>
+<p>To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:</p>
 <div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_HPE.tar.bz2
 </code></pre></div>
-
-in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
-from the training project. 
-
-However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
+<p>in the directory where you want to work on the exercises. This will create the <code>Exercises/HPE</code> subdirectory
+from the training project. </p>
+<p>However, instead of running the <code>lumi_c.sh</code> or <code>lumi_g.sh</code> scripts that only work for the course as 
 they set the course project as the active project for Slurm and also set a reservation, use the
-`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
-projects.
-
-### AMD 
-
-There are [online notes about the AMD exercises](https://hackmd.io/@sfantao/H1QU6xRR3).
-A [PDF print-out with less navigation features is also available](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf)
-and is particularly useful should the online notes become unavailable. 
-A [web backup](exercises_AMD_hackmd.md) is also available, but corrections to the original made after the course
-are not included.
-
-The other files for the exercises are available in 
-either a bzip2-compressed tar file `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD_.tar.bz2` or
-an uncompressed tar file `/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar` and can also be downloaded. 
-( [bzip2-compressed tar download](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar.bz2) or 
-[uncompressed tar download](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar))
-
-To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
-
+<code>lumi_c_after.sh</code> and <code>lumi_g_after.sh</code> scripts instead, but first edit them to use one of your
+projects.</p>
+<h3 id="amd">AMD<a class="headerlink" href="#amd" title="Permanent link">&para;</a></h3>
+<p>There are <a href="https://hackmd.io/@sfantao/H1QU6xRR3">online notes about the AMD exercises</a>.
+A <a href="https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.pdf">PDF print-out with less navigation features is also available</a>
+and is particularly useful should the online notes become unavailable. However, some lines are incomplete.
+A <a href="exercises_AMD_hackmd/">web backup</a> is also available, but corrections to the original made after the course
+are not included.</p>
+<p>The other files for the exercises are available in 
+either a bzip2-compressed tar file <code>/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD_.tar.bz2</code> or
+an uncompressed tar file <code>/appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar</code> and can also be downloaded. 
+( <a href="https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar.bz2">bzip2-compressed tar download</a> or 
+<a href="https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar">uncompressed tar download</a>)</p>
+<p>To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:</p>
 <div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/4day-20241028/files/LUMI-4day-20241028-Exercises_AMD.tar.bz2
 </code></pre></div>
-
-in the directory where you want to work on the exercises. This will create the `exercises/AMD` subdirectory
-from the training project. You can do so in the same directory where you installed the HPE exercises.
-
-!!! Warning
-    The software and exercises were tested thoroughly at the time of the course. LUMI however is in
-    continuous evolution and changes to the system may break exercises and software
--->
-
+<p>in the directory where you want to work on the exercises. This will create the <code>exercises/AMD</code> subdirectory
+from the training project. You can do so in the same directory where you installed the HPE exercises.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The software and exercises were tested thoroughly at the time of the course. LUMI however is in
+continuous evolution and changes to the system may break exercises and software</p>
+</div>
 <h2 id="links-to-documentation">Links to documentation<a class="headerlink" href="#links-to-documentation" title="Permanent link">&para;</a></h2>
 <p><a href="A01_Documentation/">The links to all documentation mentioned during the talks is on a separate page</a>.</p>
 <h2 id="external-material-for-exercises">External material for exercises<a class="headerlink" href="#external-material-for-exercises" title="Permanent link">&para;</a></h2>
