@@ -70,11 +70,11 @@ nav:
     - 2day-20240502/index.md
   #- "Comprehensive LUMI NEXT": 
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
-  - Comprehensive LUMI April 2024:
-    - 4day-20240423/index.md
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - Comprehensive LUMI April 2024:
+      - 4day-20240423/index.md
     - "1-day February 2024":
       - 1day-20240208/index.md
       - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
@@ -146,7 +146,8 @@ plugins:
   # redirects to avoid broken URLs in original version of the tutorial (June 2020)
   - redirects:
       redirect_maps:
-          comprehensive-latest.md: 4day-20240423/index.md
+          comprehensive-latest.md: 4day-20241028/index.md
+          advanced-latest.md: 4day-20241028/index.md
           intro-latest.md: 2day-20240502/index.md
           AI-latest.md: ai-20240529/index.md
           ai-latest.md: ai-20240529/index.md

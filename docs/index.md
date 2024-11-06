@@ -16,11 +16,11 @@ Most recently completed main training events:
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
 
--   4-day comprehensive LUMI training aimed at developers and advanced users, mostly focusing on traditional HPC users:
-    [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
+-   4-day advanced LUMI training aimed at developers and advanced users, mostly focusing on traditional HPC users:
+    [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
 
     *Short URL to the most recently completed comprehensive LUMI training aimed at developers and advanced users:
-    [lumi-supercomputer.github.io/comprehensive-latest](https://lumi-supercomputer.github.io/comprehensive-latest)*
+    [lumi-supercomputer.github.io/advanced-latest](https://lumi-supercomputer.github.io/advanced-latest)*
 
 -   Comprehensive training specifically for AI users:
     [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
