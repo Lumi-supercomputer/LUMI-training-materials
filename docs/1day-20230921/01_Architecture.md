@@ -108,24 +108,24 @@ Just some examples of using the wrong tools or infrastructure:
     HPC and less cloud and that they expected a 40% cost reduction that way.
     At that time they were working with CSCS to bring part of the computations to the 
     Piz Daint system. It turned out to be a lot harder than expected, to quote from the CSCS website:
-    ["The data access patterns and rates of our workflows are not typical of a supercomputer environment. 
+    *["The data access patterns and rates of our workflows are not typical of a supercomputer environment. 
     In addition, for some workflows, certain resource requirements exceed what a 
-    general-purpose supercomputer typically provides; a lot of tuning therefore needs to be put in place."](https://www.cscs.ch/science/physics/2019/piz-daint-takes-on-tier-2-function-in-worldwide-lhc-computing-grid)
+    general-purpose supercomputer typically provides; a lot of tuning therefore needs to be put in place."](https://www.cscs.ch/science/physics/2019/piz-daint-takes-on-tier-2-function-in-worldwide-lhc-computing-grid)*
     And in the end the conclusion was that 
-    [""Piz Daint" is slightly more cost-effective."](https://www.cscs.ch/science/physics/2019/piz-daint-takes-on-tier-2-function-in-worldwide-lhc-computing-grid).
+    *[""Piz Daint" is slightly more cost-effective."](https://www.cscs.ch/science/physics/2019/piz-daint-takes-on-tier-2-function-in-worldwide-lhc-computing-grid).*
 
     Several publications show the work that needed to be done. E.g.,
-    [F.G. Sciacca on behalf of the ATLAS Collaboration, "Enabling ATLAS big data processing on Piz Daint at CSCS", EPJ Web of Conferences *245*, 09005(2020)](https://doi.org/10.1051/epjconf/202024509005)
+    [F.G. Sciacca on behalf of the ATLAS Collaboration, "Enabling ATLAS big data processing on Piz Daint at CSCS", EPJ Web of Conferences **245**, 09005(2020)](https://doi.org/10.1051/epjconf/202024509005)
     shows that in the end a dedicated partition had to be created as the needs for the LHC
     processing were to different to fit in the regular HPC compute partitions of Piz Daint.
-    To quote from the paper, "A large part of the codebase, like event generators and detector
+    To quote from the paper, *["A large part of the codebase, like event generators and detector
     simulation toolkits feature legacy code that has historically been developed according to the serial
     paradigm: events are processed serially on a single thread and embarrassingly parallel processing
     occurs for scalability purposes in multi-processor systems. HPC systems, on the contrary are
     usually optimised for scalable parallel software that exploits the tight interconnection between
     nodes and makes use of accelerators. In addition, network and I/O patterns diﬀer greatly from
     those of HEP workloads. This raises the necessity of adapting the HPC to such aspects of the
-    HEP computational environment."
+    HEP computational environment."](https://doi.org/10.1051/epjconf/202024509005)*
 
     Additional hardware and system software needed to be brought in, including servers to bring 
     CernVM-FS to the compute nodes in a way compatible with the Cray environment (and its specific
