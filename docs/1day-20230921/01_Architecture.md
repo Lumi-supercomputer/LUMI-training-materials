@@ -103,7 +103,7 @@ Just some examples of using the wrong tools or infrastructure:
     optimised more for bandwidth than small individual operations. 
 
 
-??? Example "Bringing CERN LHC computations to an HPC infrastructure."
+??? Example "Case Study: Bringing CERN LHC computations to an HPC infrastructure."
     CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
     HPC and less cloud and that they expected a 40% cost reduction that way.
     At that time they were working with CSCS to bring part of the computations to the 
@@ -137,7 +137,10 @@ Just some examples of using the wrong tools or infrastructure:
     additional budget, not only for the hardware but also for the additional system administration tasks,
     and that the more usual case for all but extremely large projects is that the workflow has
     to adapt to the HPC cluster as even if money and resources would not be a problem, it is not feasible to make
-    (likely conflicting) modifications for each project.
+    (likely conflicting) modifications for each project. And a dedicated partition for each
+    application is not an option either as that makes it impossible to run large scalable applications
+    at the scale of the full machine, which should be the primary goal of a true Tier-0 supercomputer
+    as that is impossible on any other machine.
 
 True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
