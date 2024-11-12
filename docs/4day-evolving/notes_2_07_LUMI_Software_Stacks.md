@@ -1,7 +1,7 @@
 # LUMI Software Stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![What this talk is about](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/IntroWhatThisTalkIs.png){ loading=lazy }
+  ![What this talk is about](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/IntroWhatThisTalkIs.png){ loading=lazy }
 </figure>
 
 In this part of the training, we cover:
@@ -18,7 +18,7 @@ In this part of the training, we cover:
 ### Design considerations
 
 <figure markdown style="border: 1px solid #000">
-  ![Design consideration](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/SoftwareStacksDesignConsiderations.png){ loading=lazy }
+  ![Design consideration](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksDesignConsiderations.png){ loading=lazy }
 </figure>
 
 -   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
@@ -31,11 +31,11 @@ In this part of the training, we cover:
         and only one CPU socket, and another feature which is relatively new: the option to use a **partly coherent fully unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
         only been seen in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
-        for some USA pre-exascale systems, and of course in Apple Silicon M-series but then without the NUMA character
-        (except maybe for the Ultra version that consists of two dies).
+        for some USA pre-exascale systems, and is also rumoured to be in the Apple Silicon M-series 
+        but then without the NUMA character (except maybe for the Ultra version that consists of two dies).
     3.  LUMI is also **inhomogeneous** because some nodes have zen2 processors while the two main compute partitions
-        have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
-        NVIDIA GPUs. 
+        have zen3-based CPUs, and the compute GPU nodes have AMD compute GPUs while the visualisation nodes have
+        NVIDIA rendering GPUs. 
         
     Given the novel interconnect and GPU we do expect that both system and application
     software will be immature at first and **evolve quickly**, hence we needed a setup that enables us
@@ -131,7 +131,7 @@ those packages.
 ### Software policies
 
 <figure markdown style="border: 1px solid #000">
-  ![Software policies](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/SoftwareStacksPolicies.png){ loading=lazy }
+  ![Software policies](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksPolicies.png){ loading=lazy }
 </figure>
 
 As any site, we also have a number of policies about software installation, and we're still further
@@ -227,7 +227,7 @@ user space and can be used to containerise a conda-installation.
 ### Organisation of the software in software stacks
 
 <figure markdown style="border: 1px solid #000">
-  ![Organisation: Software stacks](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/SoftwareStacksOrganisation.png){ loading=lazy }
+  ![Organisation: Software stacks](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksOrganisation.png){ loading=lazy }
 </figure>
 
 On LUMI we have several software stacks.
@@ -260,7 +260,7 @@ the AMD GPU ecosystem, so we make no promises whatsoever about a time frame for 
 #### Bare environment and CrayEnv
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing the Cray PE: BAre and CrayEnv](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/SoftwareStacksAccessingCrayPE_1.png){ loading=lazy }
+  ![Accessing the Cray PE: BAre and CrayEnv](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksAccessingCrayPE_1.png){ loading=lazy }
 </figure>
 
 Right after login you have a **very bare environment available with the Cray Programming Environment
@@ -281,7 +281,7 @@ Environment **works exactly as you'd expect from this course**.
 #### LUMI stack
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing the Cray PE: LUMI stack](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/SoftwareStacksAccessingCrayPE_2.png){ loading=lazy }
+  ![Accessing the Cray PE: LUMI stack](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksAccessingCrayPE_2.png){ loading=lazy }
 </figure>
 
 The **third way** to access the Cray Programming Environment is through the **LUMI software stacks**, where each stack
@@ -307,12 +307,12 @@ compilers we used.
 #### LUMI stack module organisation
 
 <figure markdown style="border: 1px solid #000">
-  ![The LUMI software stack](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/SoftwareStacksAccessingCrayPE_3.png){ loading=lazy }
+  ![The LUMI software stack](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/SoftwareStacksAccessingCrayPE_3.png){ loading=lazy }
 </figure>
 
 To manage the heterogeneity in the hardware, the LUMI software stack uses **two levels of modules**
 
-First there are the **LUMI/22.08, LUMI/22.12, LUMI/23.03 and LUMI/23.09 modules**. 
+First there are the **LUMI/24.03, LUMI/23.12, LUMI/23.09, LUMI/23.03, LUMI/22.12 and LUMI/22.08 modules**. 
 Each of the LUMI modules loads a particular version of the LUMI stack.
 
 The **second level consists of partition modules**. 
@@ -339,6 +339,20 @@ same software on LUMI-C and on the login or large memory nodes and don't want tw
 installed software, you'll have to make sure that after reloading the LUMI module in your job script you
 explicitly load the partition/L module.
 
+!!! Note "Supported stacks"
+    Since 24.03 is the only version of the Cray Programming Environment currently fully supported
+    by HPE on LUMI, as it is the only version which is from the ground up built for ROCm/6.0, 
+    SUSE Enterprise 15 SP5, and the current version of the SlingShot hardware, it is also the only
+    fully supported version of the LUMI software stacks.
+
+    The 23.12 and 23.09 version function reasonably well, but keep in mind that 23.09 was originally
+    meant to be used with ROCm 5.2 or 5.5 depending on the SUSE version while you will now get a much
+    newer version of the compilers that come with ROCm.
+
+    The even older stacks are only there for projects that were using them. We've had problems with
+    them already in the past and they currently don't work properly anymore for installing software
+    via EasyBuild.
+
 
 ## Lmod on LUMI
 
@@ -346,7 +360,7 @@ explicitly load the partition/L module.
 ### Exploring modules with Lmod
 
 <figure markdown style="border: 1px solid #000">
-  ![Exploring modules with Lmod](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODExploringModulesLMOD.png){ loading=lazy }
+  ![Exploring modules with Lmod](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODExploringModulesLMOD.png){ loading=lazy }
 </figure>
 
 Contrary to some other module systems, or even some other Lmod installations, **not all modules are
@@ -383,7 +397,7 @@ Lmod has **several tools to search for modules**.
 ***Demo moment 1 (when infrastructure for a demo is available)***
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderOverview.png){ loading=lazy }
+  ![module spider](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderOverview.png){ loading=lazy }
 </figure>
 
 (The content of this slide is really meant to be shown in practice on a command line.)
@@ -401,38 +415,39 @@ There are three ways to use `module spider`, discovering software in more and mo
 
 2.  `module spider` with the name of a package will show all versions of that package installed on
     the system. This is also case-insensitive. Let's try for instance `module spider gnuplot`. This
-    will show 17 versions of GNUplot. There were 9 installations of GNUplot 5.4.3, five of 5.4.6
-    and 3 of 5.4.8 at the moment the slide was made  (see further down these notes for the output). The 
+    will show 18 versions of GNUplot. There were 4 installations of GNUplot 5.4.3, five of 5.4.6,
+    6 of 5.4.8 and 
+    and 4 of 5.4.10 at the moment the slide was made  (see further down these notes for the output). The 
     remainder of the name shows us with what compilers gnuplot was compiled. The reason to have 
     versions for two or three compilers is that no two compiler modules can be loaded simultaneously,
     and this offers a solution to use multiple tools without having to rebuild your environment for
     every tool, and hence also to combine tools. 
 
-    Now try `module spider CMake`. We see that there were five versions at the moment the slides were made,
-    3.22.2, 3.23.2, 3.24.0, 3.25.2 and 3.27.7, 
+    Now try `module spider CMake`. We see that there were four versions at the moment the slides were made,
+    3.24.0, 3.25.2, 3.27.7 and 3.29.3, 
     that are shown in blue with an "E" behind the name. That is because these are not provided 
     by a module called
     `CMake` on LUMI, but by another module that in this case contains
     a collection of popular build tools and that we will discover shortly.
     
-    You may also see a couple of regular modules called `cmake` that come from software installed
-    differently.
+    <!-- You may also see a couple of regular modules called `cmake` that come from software installed
+    differently.-->
 
 3.  The third use of `module spider` is with the full name of a module. Try for instance
-    `module spider gnuplot/5.4.8-cpeGNU-23.09`. This will now show full help information for
+    `module spider gnuplot/5.4.10-cpeGNU-24.03`. This will now show full help information for
     the specific module, including what should be done to make the module available. For 
-    this GNUplot module we see that there are three ways to load the module: By loading `LUMI/23.09` 
-    combined with `partition/C`, by loading `LUMI/23.09` combined with `partition/G`
-    or by loading `LUMI/23.09` combined with `partition/L`. So use only
+    this GNUplot module we see that there are three ways to load the module: By loading `LUMI/24.03` 
+    combined with `partition/C`, by loading `LUMI/23.03` combined with `partition/G`
+    or by loading `LUMI/24.03` combined with `partition/L`. So use only
     a single line, but chose it in function of the other modules that you will also need. In this case
-    it means that that version of GNUplot is available in the `LUMI/23.09` stack which we could already
+    it means that that version of GNUplot is available in the `LUMI/24.03` stack which we could already
     have guessed from its name, with binaries for the login and large memory nodes and the LUMI-C compute
     partition. This does however not always work with the Cray Programming Environment modules.
 
     We can also use `module spider` with the name and version of an extension. So try
-    `module spider CMake/3.27.7`. This will now show us that this tool is in the `buildtools/23.09`
+    `module spider CMake/3.29.3`. This will now show us that this tool is in the `buildtools/24.03`
     module (among others) and give us 4 different options to load that module as it is provided in the `CrayEnv`
-    and the `LUMI/23.09` software stacks and for all partitions (basically because we don't do
+    and the `LUMI/24.03` software stacks and for all partitions (basically because we don't do
     processor-specific optimisations for these tools).
 
 ???+Demo "Demo module spider"
@@ -442,52 +457,52 @@ There are three ways to use `module spider`, discovering software in more and mo
     ```bash
     module spider
     module spider gnuplot
-    module spider cmake
-    module spider gnuplot/5.4.8-cpeGNU-23.09
-    module spider CMake/3.27.7
+    module spider CMake
+    module spider gnuplot/5.4.10-cpeGNU-24.03
+    module spider CMake/3.29.3
     ```
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 1](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderCommand_1.png){ loading=lazy }
+      ![module spider demo slide 1](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_1.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 2](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderCommand_2.png){ loading=lazy }
+      ![module spider demo slide 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_2.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 3](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderCommand_3.png){ loading=lazy }
+      ![module spider demo slide 3](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCommand_3.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 4](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderGnuplot_1.png){ loading=lazy }
+      ![module spider demo slide 4](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplot_1.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 5](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderGnuplot_2.png){ loading=lazy }
+      ![module spider demo slide 5](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplot_2.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 6](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderCMake_1.png){ loading=lazy }
+      ![module spider demo slide 6](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCMake_1.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 7](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderGnuplotVersion_1.png){ loading=lazy }
+      ![module spider demo slide 7](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplotVersion_1.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 8](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderGnuplotVersion_2.png){ loading=lazy }
+      ![module spider demo slide 8](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderGnuplotVersion_2.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module spider demo slide 9](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleSpiderCMakeVersion_1.png){ loading=lazy }
+      ![module spider demo slide 9](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleSpiderCMakeVersion_1.png){ loading=lazy }
     </figure>
 
 
 ### Module keyword command
 
 <figure markdown style="border: 1px solid #000">
-  ![module keyword command](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleKeyword.png){ loading=lazy }
+  ![module keyword command](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleKeyword.png){ loading=lazy }
 </figure>
 
 Lmod has a second way of searching for modules: `module keyword`. It searches 
@@ -506,11 +521,11 @@ to discover software that is installed on the system.
     ```
 
     <figure markdown style="border: 1px solid #000">
-      ![module keyword demo slide 1](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleKeywordHTTPS_1.png){ loading=lazy }
+      ![module keyword demo slide 1](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleKeywordHTTPS_1.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module keyword demo slide 2](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleKeywordHTTPS_2.png){ loading=lazy }
+      ![module keyword demo slide 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleKeywordHTTPS_2.png){ loading=lazy }
     </figure>
 
     `cURL` and `wget` are indeed 
@@ -520,7 +535,7 @@ to discover software that is installed on the system.
 ### Sticky modules and module purge
 
 <figure markdown style="border: 1px solid #000">
-  ![Sticky modules and module purge](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODStickyModules.png){ loading=lazy }
+  ![Sticky modules and module purge](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODStickyModules.png){ loading=lazy }
 </figure>
 
 On some systems you will be taught to avoid `module purge` as many HPC systems do their default user
@@ -552,7 +567,7 @@ chosen a software stack but want to clean up your environment.
     ```
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 1](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_1.png){ loading=lazy }
+      ![module av slide 1](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_1.png){ loading=lazy }
     </figure>
 
     Note the very descriptive titles in the above screenshot.
@@ -561,39 +576,72 @@ chosen a software stack but want to clean up your environment.
     the letter "L" denotes that the module is loaded, but we'll come back to 
     that later also. The letter "S" denotes a sticky module.
 
+    Note also the two categories for the PE modules. The target modules get their own block
+    which will be shown further down in the output.
+
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 2](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_2.png){ loading=lazy }
+      ![module av slide 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_2.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 3](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_3.png){ loading=lazy }
+      ![module av slide 3](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_3.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 4](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_4.png){ loading=lazy }
+      ![module av slide 4](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_4.png){ loading=lazy }
     </figure>
 
-    Note the two categories for the PE modules. The target modules get their own block.
-    The screen below also shows `(D:5.0.2:5.2.0)` next to the `rocm` module. 
-    The `D` means that this version of the module, `5.2.3`, is currently the default on
-    the system. The two version numbers next to this module show that the module can also 
-    be loaded as `rocm/5.0.2` and `rocm/5.2.0`. These are two modules that were removed
-    from the system during the last update of the system, but version 5.2.3 can be loaded
-    as a replacement of these modules so that software that used the removed modules may
-    still work without recompiling.
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 5](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_5.png){ loading=lazy }
+    </figure>
 
-    Towards the bottom of the screen we also see the start of the list of target modules.
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 6](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_6.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 7](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_7.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 8](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_8.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 9](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_9.png){ loading=lazy }
+    </figure>
+
+    The screen above also shows `(5.0.2:5.1.0:5.2.0:5.2.3:5.5.1:5.7.0:6.0.0)` 
+    next to the `rocm` module. This shows that the `rocm/6.0.3` module can also 
+    be loaded as `rocm/5.0.2` or any of the other versions in that list.
+    Some of them were old versions that have been removed from the system in later updates,
+    and we now load the newer version as often binaries of programs will still run that way.
+    Others are versions that are hard-coded some of the Cray PE modules and other
+    files, but have never been on the system as we had an already patched version.
+    (E.g., the 24.03 version of the Cray PE will sometimes try to load `rocm/6.0.0` 
+    while we have immediate had `rocm/6.0.3` on the system which corrects some bugs).
+
+    The `D` next to modules that have multiple versions, denotes which version is 
+    currently the default. It is the version that will be loaded if you don't specify a 
+    module version. The default version may differ depending on which other modules 
+    are loaded already.
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 10](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_10.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![module av slide 11](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_11.png){ loading=lazy }
+    </figure>
+
+    On the screen we also see the list of target modules.
     This screenshot was taken at login in the login environment, when those modules that are
     irrelevant to LUMI or to the chosen variant of the LUMI software stack are not yet hidden.
 
-    <figure markdown style="border: 1px solid #000">
-      ![module av slide 5](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_5.png){ loading=lazy }
-    </figure>
-
-    In the above screen we see the modules for the software stack that we have discussed earlier in this text.
+    The above screen also shows the modules for the software stack that we have discussed earlier in this text.
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 6](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_6.png){ loading=lazy }
+      ![module av slide 12](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_12.png){ loading=lazy }
     </figure>
 
     And the screen above shows some extensions of modules (but the list is short at this point as
@@ -601,7 +649,7 @@ chosen a software stack but want to clean up your environment.
     stacks).
 
     <figure markdown style="border: 1px solid #000">
-      ![module av slide 7](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODModuleAvail_7.png){ loading=lazy }
+      ![module av slide 13](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODModuleAvail_13.png){ loading=lazy }
     </figure>
 
     At the end of the output we also get some information about the meaning of the 
@@ -610,7 +658,7 @@ chosen a software stack but want to clean up your environment.
     Try the following commands and carefully observe the output:
 
     ```bash
-    module load LUMI/23.09 buildtools
+    module load LUMI/24.03 buildtools
     module list
     module purge
     module list
@@ -637,7 +685,7 @@ display style of the modules**.
 ### Changing how the module list is displayed
 
 <figure markdown style="border: 1px solid #000">
-  ![Changing how the module list is displayed](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/LMODChangingModuleListDisplay.png){ loading=lazy }
+  ![Changing how the module list is displayed](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/LMODChangingModuleListDisplay.png){ loading=lazy }
 </figure>
 
 You may have noticed already that by default you **don't see the directories in which the module
@@ -702,8 +750,8 @@ loading the `ModuleExtensions/hide` module and undo this again by loading
 
 
 We also **hide some modules from regular users** because we think they are not useful at all for regular
-users or not useful in the context you're in at the moment. For instance, when working in the `LUMI/23.09`
-stack we prefer that users use the Cray programming environment modules that come with release 23.09 of that
+users or not useful in the context you're in at the moment. For instance, when working in the `LUMI/24.03`
+stack we prefer that users use the Cray programming environment modules that come with release 24.03 of that
 environment, and cannot guarantee compatibility of other modules with already installed software, so
 we hide the other ones from view.
 You can still load them if you know they exist but 
@@ -716,7 +764,7 @@ things work or to use any module that was designed for us to maintain the system
     Try the following commands:
 
     ```bash
-    module load LUMI/23.09
+    module load LUMI/24.03
     module avail
     module load ModulePowerUser
     module avail
@@ -730,7 +778,7 @@ things work or to use any module that was designed for us to maintain the system
 ### Installing software on HPC systems
 
 <figure markdown style="border: 1px solid #000">
-  ![Installing software on HPC systems](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildInstallingSoftwareHPC.png){ loading=lazy }
+  ![Installing software on HPC systems](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingSoftwareHPC.png){ loading=lazy }
 </figure>
 
 Software on HPC systems is **rarely installed from RPMs** (a popular format to package Linux software
@@ -762,7 +810,7 @@ And they do **take care of dependency handling** in a way that is compatible wit
 ### Extending the LUMI stack with EasyBuild
 
 <figure markdown style="border: 1px solid #000">
-  ![Extending the LUMI stack with EasyBuild](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildExtendingLUMIStack.png){ loading=lazy }
+  ![Extending the LUMI stack with EasyBuild](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildExtendingLUMIStack.png){ loading=lazy }
 </figure>
 
 On LUMI EasyBuild is the primary software installation tool. 
@@ -813,7 +861,7 @@ Spack, e.g., because it likes to write in its own directories while running.
 ### EasyBuild recipes - easyconfigs
 
 <figure markdown style="border: 1px solid #000">
-  ![EasyBuild recipes - easyconfigs](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildEasyConfig.png){ loading=lazy }
+  ![EasyBuild recipes - easyconfigs](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildEasyConfig.png){ loading=lazy }
 </figure>
 
 EasyBuild uses a build recipe for each individual package, or better said, each individual module
@@ -839,7 +887,7 @@ Most or all of these steps can be influenced by parameters in the easyconfig.
 ### The toolchain concept
 
 <figure markdown style="border: 1px solid #000">
-  ![The toolchain concept](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildToolchain_1.png){ loading=lazy }
+  ![The toolchain concept](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildToolchain_1.png){ loading=lazy }
 </figure>
 
 EasyBuild uses the toolchain concept. A toolchain consists of compilers, an MPI implementation
@@ -863,7 +911,7 @@ before.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![The toolchain concept 2](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildToolchain_2.png){ loading=lazy }
+  ![The toolchain concept 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildToolchain_2.png){ loading=lazy }
 </figure>
 
 There is also a special toolchain called the SYSTEM toolchain that uses the compiler
@@ -903,7 +951,7 @@ this may work.
 ### EasyConfig names and module names
 
 <figure markdown style="border: 1px solid #000">
-  ![easyconfig names and module names](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyConfigModuleNames.png){ loading=lazy }
+  ![easyconfig names and module names](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyConfigModuleNames.png){ loading=lazy }
 </figure>
 
 There is a convention for the naming of an EasyConfig as shown on the slide. This is not
@@ -944,7 +992,7 @@ Hence this easyconfig file will generate the module
 #### Step 1: Where to install
 
 <figure markdown style="border: 1px solid #000">
-  ![Step 1: Where to install](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildInstallingStep1.png){ loading=lazy }
+  ![Step 1: Where to install](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep1.png){ loading=lazy }
 </figure>
 
 Let's now discuss how you can extend the central LUMI software stack with packages that you
@@ -976,7 +1024,7 @@ who want to use the software should set that variable.
 #### Step 2: Configure the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Step 2: Configure the environment](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildInstallingStep2_1.png){ loading=lazy }
+  ![Step 2: Configure the environment](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep2_1.png){ loading=lazy }
 </figure>
 
 The next step is to configure your environment. First load the proper version of the LUMI
@@ -1003,16 +1051,14 @@ the software that is installed that way it is sufficient to ensure that `EBU_USE
 the proper value before loading the `LUMI` module.**
 
 <figure markdown style="border: 1px solid #000">
-  ![Step 2: Configure the environment - Demo](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildInstallingStep2_2.png){ loading=lazy }
+  ![Step 2: Configure the environment - Demo](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep2_2.png){ loading=lazy }
 </figure>
 
 
 #### Step 3: Install the software.
 
-***Demo moment 2***
-
 <figure markdown style="border: 1px solid #000">
-  ![Step 3: Install the software](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildInstallingStep3.png){ loading=lazy }
+  ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3_partial_1.png){ loading=lazy }
 </figure>
 
 Let's look at GROMACS as an example. I will not try to do this completely live though as the 
@@ -1023,9 +1069,41 @@ The easy way is to check the [LUMI Software Library](https://lumi-supercomputer.
 which lists all software that we manage via EasyBuild and make available either pre-installed on
 the system or as an EasyBuild recipe for user installation.
 A command-line alternative is to use `eb -S` or `eb --search` for that. So in our example this is
+
 ``` bash
 eb --search GROMACS
 ```
+
+!!! Note "Results of the searches:"
+
+    In the LUMI Software Library, after some scrolling through 
+    [the page for GROMACS](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/), 
+    the list of EasyBuild recipes is found in the 
+    ["User-installable modules (and EasyConfigs)"](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/#user-installable-modules-and-easyconfigs)
+    section:
+
+    <figure markdown style="border: 1px solid #000">
+      ![GROMACS in the LUMI Software Library](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSSoftLib.png){ loading=lazy }
+    </figure>
+
+    `eb --search GROMACS` produces:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb --search GROMACS](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSSearch_1.png){ loading=lazy }
+    </figure>
+
+    while `eb -S GROMACS` produces:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb -S GROMACS](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSSearch_2.png){ loading=lazy }
+    </figure>
+
+    The information provided by both variants of the search command is the same, but `-S` presents the information in a more
+    compact form.
+
+<figure markdown style="border: 1px solid #000">
+  ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3_partial_2.png){ loading=lazy }
+</figure>
 
 Now let's take the variant `GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb`. 
 This is GROMACS 2022.5 with the PLUMED 2.9.0 plugin, built with the GNU compilers
@@ -1043,67 +1121,93 @@ look for dependencies in a preset search path. The installation of dependencies 
 since there are scenarios where this is not desired and it cannot be turned off as easily as
 it can be turned on.
 
+!!! Demo "The output of this command looks like:"
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_01.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSDep_02.png){ loading=lazy }
+    </figure>
+
 Looking at the output we see that EasyBuild will also need to install `PLUMED` for us.
-But it will do so automatically when we run
+
+<figure markdown style="border: 1px solid #000">
+  ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3_partial_3.png){ loading=lazy }
+</figure>
+
+To install GROMACS and also automatically install missing dependencies (only PLUMED
+in this case), we run
+
 ```bash
 eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
 ```
 
+!!! Demo "Running EasyBuild to install GROMACS and dependency"
+    The command
+
+    ```bash
+    eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r
+    ```
+
+    results in:
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_01.png){ loading=lazy }
+    </figure>
+
+    EasyBuild detects PLUMED is a dependency and because of the `-r` option, it first installs the
+    required version of PLUMED.
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_02.png){ loading=lazy }
+    </figure>
+
+    When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
+    It mentions something we haven't seen when installing PLUMED:
+
+    ```
+    == starting iteration #0
+    ```
+
+    GROMACS can be installed in many configurations, and they generate executables with different names.
+    Our EasyConfig combines 4 popular installations in one: Single and double precision and with and without
+    MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (3)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_03.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (4)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_04.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (5)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_05.png){ loading=lazy }
+    </figure>
+
+    <figure markdown style="border: 1px solid #000">
+      ![eb GROMACS-2022.5-cpeGNU-23.09-PLUMED-2.9.0-noPython-CPU.eb -r (6)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildGROMACSInst_06.png){ loading=lazy }
+    </figure>
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Step 3: Install the software](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3.png){ loading=lazy }
+</figure>
+
 This takes too long to wait for, but once it finished the software should be available
 and you should be able to see the module in the output of
+
 ```bash
 module avail
 ```
-
-???+demo "Demo of the EasyBuild installation of GROMACS"
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb --search](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_01.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -S](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_02.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -D](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_03.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -D](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_04.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_05.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_06.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_07.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_08.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_09.png){ loading=lazy }
-    </figure>
-
-    <figure markdown style="border: 1px solid #000">
-      ![eb -r](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildGROMACS_10.png){ loading=lazy }
-    </figure>
-
-***End of demo moment 2***
 
 
 #### Step 3: Install the software - Note
 
 <figure markdown style="border: 1px solid #000">
-  ![Step 3: Install the software - Note](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildInstallingStep3Note.png){ loading=lazy }
+  ![Step 3: Install the software - Note](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildInstallingStep3Note.png){ loading=lazy }
 </figure>
 
 Installing software this way is **100% equivalent to an installation in the central software
@@ -1135,7 +1239,7 @@ rm -rf $HOME/.cache/lmod
 ### More advanced work
 
 <figure markdown style="border: 1px solid #000">
-  ![More advanced work](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildAdvanced_1.png){ loading=lazy }
+  ![More advanced work](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildAdvanced_1.png){ loading=lazy }
 </figure>
 
 You can also install some EasyBuild recipes that you got from support. For this it is best to
@@ -1159,16 +1263,16 @@ eb --search VASP
 ```
 will tell you for which versions of VASP we already have build instructions, but you will still have
 to download the file that the EasyBuild recipe expects. Put it somewhere in a directory, and then from that
-directory run EasyBuild, for instance for VASP 6.3.0 with the GNU compilers:
+directory run EasyBuild, for instance for VASP 6.4.2 with the GNU compilers:
 ```bash
-eb VASP-6.4.1-cpeGNU-22.12-build01.eb –r . 
+eb VASP-6.4.2-cpeGNU-23.09-build02.eb –r . 
 ```
 
 
 ### More advanced work (2): Repositories
 
 <figure markdown style="border: 1px solid #000">
-  ![More advanced work (2)](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildAdvanced_2.png){ loading=lazy }
+  ![More advanced work (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildAdvanced_2.png){ loading=lazy }
 </figure>
 
 It is also possible to have your own clone of the `LUMI-EasyBuild-contrib` GitHub repository
@@ -1192,7 +1296,7 @@ easyconfig files go in `$EBU_USER_PREFIX/UserRepo/easybuild/easyconfigs`.
 ### More advanced work (3): Reproducibility
 
 <figure markdown style="border: 1px solid #000">
-  ![More advanced work (3)](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildAdvanced_3.png){ loading=lazy }
+  ![More advanced work (3)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildAdvanced_3.png){ loading=lazy }
 </figure>
 
 EasyBuild also takes care of a **high level of reproducibility of installations**.
@@ -1208,13 +1312,13 @@ you could manually put the downloaded installation files for licensed software.
 
 Moreover, EasyBuild also keeps **copies of all installed easyconfig files in two locations**.
 
-1.  There is a **copy in `$EBU_USER_PREFIX/ebrepo_files`**. And in fact, EasyBuild will use this version
+1.  There is a **copy in `$EBU_USER_PREFIX/ebfiles_repo`**. And in fact, EasyBuild will use this version
     first if you try to re-install and did not delete this version first. This is a policy
     we set on LUMI which has **both its advantages and disadvantages**. The **advantage** is that it ensures
     that the **information that EasyBuild has about the installed application is compatible with what is
     in the module files**. But the **disadvantage** of course is that if you install an EasyConfig file
     without being in the subdirectory that contains that file, **it is easily overlooked that it
-    is installing based on the EasyConfig in the `ebrepo_files` subdirectory** and not based on the
+    is installing based on the EasyConfig in the `ebfiles_repo` subdirectory** and not based on the
     version of the recipe that you likely changed and is in your user repository or one of the 
     other repositories that EasyBuild uses.
 2.  The second copy is with the installed software in `$EBU_USER_PREFIX/SW` in a subdirectory
@@ -1228,7 +1332,7 @@ Moreover, EasyBuild also keeps **copies of all installed easyconfig files in two
 ### EasyBuild tips & tricks
 
 <figure markdown style="border: 1px solid #000">
-  ![EasyBuild additional tips&tricks](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildTipsTricks.png){ loading=lazy }
+  ![EasyBuild additional tips&tricks](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildTipsTricks.png){ loading=lazy }
 </figure>
 
 Updating the version of a package often requires only trivial changes in the easyconfig file.
@@ -1258,7 +1362,7 @@ build or modify recipes. It sometimes also tells why we did things in a particul
 ### EasyBuild training for advanced users and developers
 
 <figure markdown style="border: 1px solid #000">
-  ![EasyBuild training](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/EasyBuildTraining.png){ loading=lazy }
+  ![EasyBuild training](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/EasyBuildTraining.png){ loading=lazy }
 </figure>
 
 I also want to give some pointers to more information in case you want to learn a lot more
@@ -1282,7 +1386,7 @@ that can be found on
 ## Containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Containers on LUMI](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersIntro.png){ loading=lazy }
+  ![Containers on LUMI](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersIntro.png){ loading=lazy }
 </figure>
 
 Let's now switch to using containers on LUMI. 
@@ -1307,7 +1411,7 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 ### What do containers not provide
 
 <figure markdown style="border: 1px solid #000">
-  ![What do containers not provide](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersNotProvide.png){ loading=lazy }
+  ![What do containers not provide](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersNotProvide.png){ loading=lazy }
 </figure>
 
 What is being discussed in this subsection may be a bit surprising.
@@ -1346,7 +1450,7 @@ investment represents 32 million EURO and a lot of science can be done for that 
 ### But what can they then do on LUMI?
 
 <figure markdown style="border: 1px solid #000">
-  ![But what can they then do on LUMI?](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersCanDoOnLUMI.png){ loading=lazy }
+  ![But what can they then do on LUMI?](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersCanDoOnLUMI.png){ loading=lazy }
 </figure>
 
 
@@ -1392,7 +1496,7 @@ neglect it it is up to you to solve the problems that occur.
 ### Managing containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing containers](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersManaging_1.png){ loading=lazy }
+  ![Managing containers](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersManaging_1.png){ loading=lazy }
 </figure>
 
 On LUMI, we currently support only one container runtime.
@@ -1432,13 +1536,13 @@ pull operation so save on your storage billing units).
 
     <!-- Used a 105x23 window size -->
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity pull slide 1](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExamplePull_1.png){ loading=lazy }
+      ![Demo singularity pull slide 1](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExamplePull_1.png){ loading=lazy }
     </figure>
 
     We do get a lot of warnings but usually this is perfectly normal and usually they can be safely ignored.
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity pull slide 2](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExamplePull_2.png){ loading=lazy }
+      ![Demo singularity pull slide 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExamplePull_2.png){ loading=lazy }
     </figure>
 
     The process ends with the creation of the file `jula_latest.sif`. 
@@ -1446,12 +1550,12 @@ pull operation so save on your storage billing units).
     Note however that the process has left a considerable number of files in `~/.singularity ` also:
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity pull slide 3](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExamplePull_3.png){ loading=lazy }
+      ![Demo singularity pull slide 3](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExamplePull_3.png){ loading=lazy }
     </figure>
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing containers (2)](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersManaging_2.png){ loading=lazy }
+  ![Managing containers (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersManaging_2.png){ loading=lazy }
 </figure>
 
 There is currently limited support for building containers on LUMI and I do not expect that to change quickly.
@@ -1485,7 +1589,7 @@ OS kernel on LUMI (and some for ROCm are already there).
 ### Interacting with containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Interacting with containers](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersInteracting.png){ loading=lazy }
+  ![Interacting with containers](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersInteracting.png){ loading=lazy }
 </figure>
 
 There are basically three ways to interact with containers.
@@ -1499,7 +1603,7 @@ singularity shell container.sif
 ???+demo "Demo singularity shell"
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity shell](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleShell.png){ loading=lazy }
+      ![Demo singularity shell](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleShell.png){ loading=lazy }
     </figure>
 
     In this screenshot we checked the contents of the `/opt` directory before and after the
@@ -1518,7 +1622,7 @@ singularity exec container.sif uname -a
 ???+demo "Demo singularity exec"
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity exec](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleExec.png){ loading=lazy }
+      ![Demo singularity exec](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleExec.png){ loading=lazy }
     </figure>
 
     In this screenshot we execute the `uname -a` command before and with the
@@ -1549,7 +1653,7 @@ singularity inspect --runscript container.sif
 ???+demo "Demo singularity run"
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity run](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleRun.png){ loading=lazy }
+      ![Demo singularity run](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleRun.png){ loading=lazy }
     </figure>
 
     In this screenshot we start the julia interface in the container using
@@ -1573,7 +1677,7 @@ flag or via the `SINGULARITY_BIND` or `SINGULARITY_BINDPATH` environment variabl
 ### Running containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![/running containers on LUMI](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersRunning.png){ loading=lazy }
+  ![/running containers on LUMI](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersRunning.png){ loading=lazy }
 </figure>
 
 Just as for other jobs, you need to use Slurm to run containers on the compute nodes.
@@ -1611,7 +1715,7 @@ Cray SlingShot in particular and for full GPU support.
 ### Enhancements to the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Environment enhancements](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersEnvironmentEnhancement_1.png){ loading=lazy }
+  ![Environment enhancements](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersEnvironmentEnhancement_1.png){ loading=lazy }
 </figure>
 
 To make life easier, LUST with the support of CSC did implement some modules
@@ -1674,7 +1778,7 @@ be a better alternative.
 ### cotainr: Build Conda containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Environment enhancements (2)](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersEnvironmentEnhancement_2.png){ loading=lazy }
+  ![Environment enhancements (2)](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersEnvironmentEnhancement_2.png){ loading=lazy }
 </figure>
 
 The third tool is [**`cotainr`**](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), 
@@ -1736,7 +1840,7 @@ We will not raise your file quota if it is to house such installation in your `/
     Now you can follow the commands on the slides below:
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 1](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleWrapper_1.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 1](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleWrapper_1.png){ loading=lazy }
     </figure>
 
     On the slide above we prepared the environment.
@@ -1752,25 +1856,25 @@ We will not raise your file quota if it is to house such installation in your `/
     the process:
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 2](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleWrapper_2.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 2](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleWrapper_2.png){ loading=lazy }
     </figure>
 
     The tool will first build the conda installation in a tempororary work directory
     and also uses a base container for that purpose.
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 3](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleWrapper_3.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 3](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleWrapper_3.png){ loading=lazy }
     </figure>
 
     The conda installation itself though is stored in a SquashFS file that is then
     used by the container.
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 4](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleWrapper_4.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 4](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleWrapper_4.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 65](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleWrapper_5.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 65](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleWrapper_5.png){ loading=lazy }
     </figure>
 
     In the slide above we see the installation contains both a singularity container
@@ -1780,7 +1884,7 @@ We will not raise your file quota if it is to house such installation in your `/
     that run those commands in the container with the SquashFS file system mounted in it.
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 6](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersExampleWrapper_6.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 6](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersExampleWrapper_6.png){ loading=lazy }
     </figure>
 
     So as you can see above, we can simply use the `python3` command without realising
@@ -1799,7 +1903,7 @@ containers in user space.)
 ### Pre-built AI containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Environment enhancements (3): Prebuilt AI containers](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersEnvironmentEnhancement_3.png){ loading=lazy }
+  ![Environment enhancements (3): Prebuilt AI containers](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersEnvironmentEnhancement_3.png){ loading=lazy }
 </figure>
 
 LUST with the help of AMD is also building some containers with popular AI software.
@@ -1823,7 +1927,7 @@ with a container label.
 ### Conclusion: Container limitations on LUMI-C
 
 <figure markdown style="border: 1px solid #000">
-  ![Container limitations on LUMI](https://462000265.lumidata.eu/4day-2024next/img/LUMI-4day-2024XXXX-software/ContainersLimitations.png){ loading=lazy }
+  ![Container limitations on LUMI](https://462000265.lumidata.eu/4day-20241028/img/LUMI-4day-20241028-software/ContainersLimitations.png){ loading=lazy }
 </figure>
 
 To conclude the information on using singularity containers on LUMI,
