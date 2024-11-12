@@ -2,6 +2,13 @@
 
 *Presenter:* Gregor Decristoforo (LUST)
 
+Contents:
+
+-   Using pip venvs to extend existing containers
+-   Create a SquashFS file for venv
+-   Pros, cons and caveats of this approach
+
+
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/07_VirtualEnvironments.mp4" controls="controls"></video>
 -->

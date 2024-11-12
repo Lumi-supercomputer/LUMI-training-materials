@@ -2,6 +2,12 @@
 
 *Presenter:* Jørn Dietze (LUST)
 
+Content:
+
+-   How LUMI differs from other clusters
+-   AMD GPUs instead of NVIDIA
+-   Slingshot Interconnect
+
 <!-- 
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/01_Introduction.mp4" controls="controls"></video>
 -->

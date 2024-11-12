@@ -2,6 +2,12 @@
 
 *Presenters:* Mats Sjöberg (CSC) and Lukas Prediger (CSC)
 
+Content:
+
+-   Introduction to the Open OnDemand web interface
+-   Using PyTorch in JupyterLab on LUMI
+-   Limitations of the web-based interactive interface and the CLI interface
+  
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/02_Webinterface.mp4" controls="controls"></video>
 -->

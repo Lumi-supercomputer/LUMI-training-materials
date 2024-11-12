@@ -89,7 +89,7 @@ DAY 1
             <br/><em>13:50 EET</em>
         </td>
         <td><b><a href="../extra_04_Workarounds/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenter: Samuel Añtao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -206,7 +206,7 @@ DAY 2
             10:35 CET
             <br/><em>11:35 EET</em>
         </td>
-        <td><b><a href="../extra_10_ExtremeScale/">Extreme scale AI</a></b>
+        <td><b><a href="../extra_09_ExtremeScale/">Extreme scale AI</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
@@ -215,7 +215,7 @@ DAY 2
             11:20 CET
             <br/><em>12:20 EET</em>
         </td>
-        <td><b><a href="../E10_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
+        <td><b><a href="../E09_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
         </td>
     </tr>
     <tr>
@@ -231,7 +231,7 @@ DAY 2
             12:25 CET
             <br/><em>13:25 EET</em>
         </td>
-        <td><b><a href="../extra_12_Coupling/">Coupling machine learning with HPC simulation</a></b>
+        <td><b><a href="../extra_10_Coupling/">Coupling machine learning with HPC simulation</a></b>
         </br><em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>

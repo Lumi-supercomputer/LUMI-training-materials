@@ -1,6 +1,13 @@
 # Extreme-scale AI
 
-*Presenter:* Samuel Añtao
+*Presenters:* Samuel Antão (AMD) and Harvey Richardson (HPE)
+
+Content:
+
+-   Model parallelism on LUMI via FSDP or DeepSpeed
+-   Scaling beyond a single node 
+-   Loading training data from Lustre and LUMI-O
+
 
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/10_ExtremeScale.mp4" controls="controls"></video>
@@ -13,7 +20,7 @@
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Extreme_scale_AI.pdf)
 -->
 
--   [Demo and hands-on exercises](E10_ExtremeScale.md)
+-   [Demo and hands-on exercises](E09_ExtremeScale.md)
 
 
 <!--

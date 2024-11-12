@@ -2,6 +2,11 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
+Content:
+
+-   Coupling workflows, interoperability, frameworks and [SmartSim](https://github.com/CrayLabs/SmartSim).
+
+
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/12_Coupling.mp4" controls="controls"></video>
 -->

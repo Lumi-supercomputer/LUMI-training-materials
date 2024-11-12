@@ -1,6 +1,12 @@
 # Building containers from Conda/pip environments
 
-*Presenter*: ??? (LUST)
+*Presenter*: Jørn Dietze (LUST)
+
+Content:
+
+-   Containers from conda/pip environments
+-   Recipes for PyTorch, Tensorflow, and JAX/Flax on LUMI
+
 
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/06_BuildingContainers.mp4" controls="controls"></video>

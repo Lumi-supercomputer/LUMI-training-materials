@@ -6,9 +6,11 @@
 
 -   [Tentative schedule](schedule.md)
 
+<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-nov24?both)
    
-    Questions with longer-term relevance have been incorporated into the pages linked below.
+    Questions with longer-term relevance will be incorporated into the pages linked below.
+-->
 
 <!-- 
 -   There are two Slurm reservations for the course. One for each day:
@@ -92,12 +94,9 @@ materials are uploaded.
 | [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
 | [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
 | [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
-| [Hyper-parameter tuning using Ray](extra_09_Ray.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-09-Hyperparameter_tuning_ray.pdf) | [video](extra_09_Ray.md) |
-| [Hands-on: Hyper-parameter tuning the PyTorch model using Ray](E09_Ray.md) | / | [video](E09_Ray.md) |
-| [Extreme scale AI](extra_10_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Extreme_scale_AI.pdf) | [video](extra_10_ExtremeScale.md) |
-| [Demo/Hands-on: Using multiple nodes](E10_ExtremeScale.md) | / | [video](E10_ExtremeScale.md) |
-| [Loading training data from Lustre and LUMI-O](extra_11_LUMIO.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-11-Training_Data_on_LUMI.pdf) | [video](extra_11_LUMIO.md) |
-| [Coupling machine learning with HPC simulation](extra_12_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-12-Coupling_Simulation_and_AI.pdf) | [video](extra_12_Coupling.md) |
+| [Extreme scale AI](extra_00_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
+| [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
+| [Coupling machine learning with HPC simulation](extra_10_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Coupling_Simulation_and_AI.pdf) | [video](extra_10_Coupling.md) |
 -->
 
 ## Web links

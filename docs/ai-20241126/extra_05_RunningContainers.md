@@ -1,6 +1,14 @@
 # Running containers on LUMI
 
-*Presenter*: ??? (LUST)
+*Presenter*: Jan Vicherek (LUST)
+
+Content:
+
+-   What is a container and what can it do
+-   How do you use containers
+-   Mounting filesystem into containers
+-   Official LUMI (FakeCPE) containers
+
 
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/05_RunningContainers.mp4" controls="controls"></video>

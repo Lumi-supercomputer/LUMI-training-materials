@@ -2,6 +2,12 @@
 
 *Presenters:* Mats Sjöberg (CSC) and Lukas Prediger (CSC)
 
+Content:
+
+-   Using LUMI via the command line
+-   Submitting and running AI training jobs using the batch system
+
+
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/03_FirstJob.mp4" controls="controls"></video>
 -->

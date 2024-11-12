@@ -2,6 +2,13 @@
 
 *Presenters:* Mats Sjöberg (CSC) and Lukas Prediger (CSC)
 
+Content:
+
+-   PyTorch DDP on LUMI
+-   Setting up the experiment as a SLURM batch job
+-   Setting the correct CPU-GPU bindings
+
+
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
 -->
