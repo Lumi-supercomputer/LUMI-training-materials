@@ -55,7 +55,7 @@ DAY 1
             10:35 CET
             <br/><em>11:35 EET</em>
         </td>
-        <td><b><em>Break (25 minutes)</em></b>
+        <td><b><em>Break (15 minutes)</em></b>
         </td>
     </tr>
     <tr>
@@ -106,7 +106,7 @@ DAY 1
             <br/><em>14:30 EET</em>
         </td>
         <td><b><a href="../extra_05_RunningContainers/">Running containers on LUMI</a></b>
-        </br><em>Presenter: ??? (LUST)</em>
+        </br><em>Presenter: Jan Vicherek (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -119,8 +119,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            14:50 CET
-            <br/><em>15:50 EET</em>
+            14:10 CET
+            <br/><em>15:10 EET</em>
         </td>
         <td><b><em>Break (15 minutes)</em></b>
         </td>
@@ -131,7 +131,7 @@ DAY 1
             <br/><em>15:25 EET</em>
         </td>
         <td><b><a href="../extra_06_BuildingContainers/">Building containers from conda/pip environments</a></b>
-        </br><em>Presenter: ??? (LUST)</em>
+        </br><em>Presenter: Jørn Dietze (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -156,13 +156,14 @@ DAY 1
             15:25 CET
             <br/><em>16:25 EET</em>
         </td>
-        <td><b>Getting started with your own project</b>
+        <td><b>Hands-on: Getting started with your own project</b>
+        <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
         </td>
     </tr>
     <tr>
         <td>
-            16:25 CET
-            <br/><em>17:25 EET</em>
+            16:10 CET
+            <br/><em>17:10 EET</em>
         </td>
         <td><b>End of the course day</b> 
         </td>
@@ -186,19 +187,10 @@ DAY 2
     </tr>
     <tr>
         <td>
-            09:30 CET
-            <br/><em>10:30 EET</em>
+            09:40 CET
+            <br/><em>10:40 EET</em>
         </td>
         <td><b><a href="../E08_MultipleGPUs/">Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP</a></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            10:00 CET
-            <br/><em>11:00 EET</em>
-        </td>
-        <td><b><a href="../extra_09_Ray/">Hyper-parameter tuning using Ray on LUMI</a></b>
-        </br><em>Presenter: Gregor Decristoforo (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -206,55 +198,38 @@ DAY 2
             10:20 CET
             <br/><em>11:20 EET</em>
         </td>
-        <td><b><a href="../E09_Ray/">Hands-on: Hyper-parameter tuning the PyTorch model using Ray</a></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            10:40 CET
-            <br/><em>11:40 EET</em>
-        </td>
         <td><b><em>Break (15 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            10:55 CET
-            <br/><em>11:55 EET</em>
+            10:35 CET
+            <br/><em>11:35 EET</em>
         </td>
         <td><b><a href="../extra_10_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenter: Samuel Añtao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            11:25 CET
-            <br/><em>12:25 EET</em>
+            11:20 CET
+            <br/><em>12:20 EET</em>
         </td>
         <td><b><a href="../E10_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            11:45 CET
-            <br/><em>12:45 EET</em>
+            11:40 CET
+            <br/><em>12:40 EET</em>
         </td>
-        <td><b><a href="../extra_11_LUMIO/">Loading training data from Lustre and LUMI-O</a></b>
-        </br><em>Presenter: Harvey Richardson (HPE)</em>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            12:00 CET
-            <br/><em>13:00 EET</em>
-        </td>
-        <td><b><em>Lunch break (60 minutes)</em></b>
+        <td><b><em>Lunch break (45 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:00 CET
-            <br/><em>14:00 EET</em>
+            12:25 CET
+            <br/><em>13:25 EET</em>
         </td>
         <td><b><a href="../extra_12_Coupling/">Coupling machine learning with HPC simulation</a></b>
         </br><em>Presenter: Harvey Richardson (HPE)</em>
@@ -262,16 +237,17 @@ DAY 2
     </tr>
     <tr>
         <td>
-            13:30 CET
-            <br/><em>14:30 EET</em>
+            12:55 CET
+            <br/><em>13:55 EET</em>
         </td>
-        <td><b>Advancing your own project</b>
+        <td><b>Hands-on: Advancing your own project</b>
+        <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
         </td>
     </tr>
     <tr>
         <td>
-            16:00 CET
-            <br/><em>17:00 EET</em>
+            15:45 CET
+            <br/><em>16:45 EET</em>
         </td>
         <td><b>End of the course day</b> 
         </td>
