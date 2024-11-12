@@ -4,11 +4,9 @@
 
 ### Regular trainings
 
-<!--
 Upcoming or currently running events with materials already partly available:
 
--   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
--->
+-   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
 
 Most recently completed main training events:
 
