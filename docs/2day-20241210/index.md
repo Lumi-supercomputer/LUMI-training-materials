@@ -1,4 +1,4 @@
-# Supercomputing with LUMI - Online course, Cecember 10-11, 2024
+# Supercomputing with LUMI - Online course, December 10-11, 2024
 
 ## Course organisation
 
