@@ -1,4 +1,4 @@
-# Moving your AI training jobs to LUMI workshop - Copenhagen, May 29-30 2024
+# Moving your AI training jobs to LUMI workshop - Ostrava, November 26-27 2024
 
 ## Course organisation
 
