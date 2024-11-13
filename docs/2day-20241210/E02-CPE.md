@@ -19,14 +19,14 @@ Four different implementations of a simple "Hello, World!" program are provided 
 Try to compile these programs using the programming environment of your choice.
 
 ??? Solution "Click to see the solution."
-    We'll use the default version of the programming environment (23.09 at the moment of the
-    course in May 2024), but in case you want to use
-    a particular version, e.g., the 22.12 version, and want to be very sure that all modules are
+    We'll use the default version of the programming environment (24.03 at the moment of the
+    course in December 2024), but in case you want to use
+    a particular version, e.g., the 23.12 version, and want to be very sure that all modules are
     loaded correctly from the start you could consider using
 
     ```
-    module load cpe/22.12
-    module load cpe/22.12
+    module load cpe/23.12
+    module load cpe/23.12
     ```
 
     So note that we do twice the same command as the first iteration does not always succeed to reload
@@ -46,10 +46,7 @@ Try to compile these programs using the programming environment of your choice.
     ```
 
     which will generate an executable named `a.out`. 
-    If you are not comfortable using the default version of `gcc` (which produces the warning message when
-    loading the `PrgEnv-gnu` module) you can always load the `gcc/11.2.0` module instead after loading
-    `PrgEnv-gnu`.
-
+    
     Of course it is better to give the executable a proper
     name which can be done with the `-o` compiler option:
 
@@ -94,12 +91,16 @@ Note that the time results may be very unreliable as we are currently doing this
 nodes. In the session of Slurm you'll learn how to request compute nodes and it might be
 interesting to redo this on a compute node with a larger matrix size as the with a matrix size
 of 1000 all data may stay in the third level cache and you will not notice the differences that
-you should note. Also, because these nodes are shared with a lot of people any benchmarking
+you should note. Also, because these nodes are shared with a lot of people, any benchmarking
 is completely unreliable.
 
+<!--
 If this program takes more than half a minute or so before the first result line in the table,
 starting with `ijk-variant`, is printed, you've very likely done something wrong (unless the load
 on the system is extreme). In fact, if you've done things well the time reported for the
+`ijk`-variant should be well under 3 seconds for both the C and Fortran versions...
+-->
+If you're doing things right, the time reported for the
 `ijk`-variant should be well under 3 seconds for both the C and Fortran versions...
 
 ??? Solution "Click to see the solution."
@@ -123,7 +124,7 @@ on the system is extreme). In fact, if you've done things well the time reported
 
     Note that we add the `-O3` option and it is very important to add either `-O2` or `-O3` as by default
     the GNU compiler will generate code without any optimization for debugging purposes, and that code is
-    in this case easily five times or more slower. So if you got much longer run times than indicated this
+    in this case easily four times or more slower. So if you got much longer run times than indicated this
     is likely the mistake that you made.
 
     To use the Cray C compiler instead only one small change is needed: Loading a different programming 
@@ -177,14 +178,15 @@ on the system is extreme). In fact, if you've done things well the time reported
     for the AMD Fortran compiler.
 
     When running the program you will see that even though the 6 different loop orderings 
-    produce the same result, the time needed to compile the matrix-matrix product is very
+    produce the same result, the time needed to compute the matrix-matrix product is very
     different and those differences would be even more pronounced with bigger matrices
     (which you can do after the session on using Slurm).
 
     The exercise also shows that not all codes are equal even if they produce a result of the
     same quality. The six different loop orderings run at very different speed, and none of our
     simple implementations can beat a good library, in this case the BLAS library included in
-    LibSci.
+    LibSci. The optimal variants are also different for C and Fortran as the matrix elements
+    are stored in a different order in memory.
 
     The results with the Cray Fortran compiler are particularly interesting. The result for
     the BLAS library is slower which we do not yet understand, but it also turns out that 
@@ -193,7 +195,15 @@ on the system is extreme). In fact, if you've done things well the time reported
     multiplication and replaced it with a call to the BLAS library. The Fortran 90 matrix
     multiplication is also replaced by a call of the DGEMM routine. To confirm all this,
     unload the `cray-libsci` module and try to compile again and you will see five error
-    messages about not being able to find DGEMM.
+    messages about not being able to find DGEMM. If you don't want the Cray Fortran compiler
+    to recognise patterns that it can replace with library routines, add the `-h nopattern`
+    flag to the command line:
+
+    ```
+    module load PrgEnv-cray
+    ftn -O3 -h nopattern matrix_mult_F.f90 -o matrix_mult_F_cray.x
+    ```
+
 
 
 ## Compilation of a program 3: A hybrid MPI/OpenMP program
