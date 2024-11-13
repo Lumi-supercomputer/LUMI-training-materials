@@ -24,7 +24,7 @@ to set up for the exercises.
         ```
 
         can produce a lot of output on the system. It will show you three modules though 
-        (but this might be under "Other possible matches") that have `cray-` in their name:
+        (but this might be under "Other possible matches" in the second case) that have `cray-` in their name:
         `cray-hdf5`, `cray-hdf5-parallel` and `cray-netcdf-hdf5parallel`. The first two of
         these really provide HDF5 configured in two different ways. The third one is another
         library using HDF5 as a backend. The other `hdf5` modules that you might see are
@@ -39,7 +39,7 @@ to set up for the exercises.
         and then for a specific version
 
         ```
-        module spider cray-hdf5/1.12.2.7
+        module spider cray-hdf5/1.12.2.11
         ```
 
         and see that there is not much information. Even worse, the help of this particular version
@@ -47,7 +47,7 @@ to set up for the exercises.
         where the info is, is
 
         ```
-        /opt/cray/pe/hdf5/1.12.2.7/release_info.md
+        /opt/cray/pe/hdf5/1.12.2.11/release_info.md
         ```
 
         (and the same holds true for `cray-hdf5-parallel`)
@@ -98,7 +98,7 @@ to set up for the exercises.
             module spider bison
             ```
 
-            to look for Bison, you wouldn't have found the version in `buildtools` which is the main 
+            to look for Bison, you may not have found the version in `buildtools` which is the main 
             version of Bison on LUMI in the main supported software stack (see the next presentation),
             but only versions that are currently on the system and installed through Spack.
 
@@ -113,18 +113,18 @@ to set up for the exercises.
         that they may be linked to a stack, with `module spider` you'll first see that it is an extension of
         a module and see the versions. You may again see some versions installed with Spack.
 
-        Let's check further for `htop/3.2.1` that should exist according to `module spider htop`:
+        Let's check further for `htop/3.3.0` that should exist according to `module spider htop`:
 
         ```
-        module spider htop/3.2.1
+        module spider htop/3.3.0
         ```
 
-        tells us that this version of `htop` is available in all partitions of `LUMI/22.08` and `LUMI/22.06`,
+        tells us that this version of `htop` is available in all partitions of `LUMI/24.03`
         and in `CrayEnv`. Let us just run it in the `CrayEnv` environment:
 
         ```
         module load CrayEnv
-        module load systools/22.08
+        module load systools/24.03
         htop
         ```
 
