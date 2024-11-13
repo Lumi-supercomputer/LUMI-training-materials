@@ -1,4 +1,4 @@
-# Schedule
+# Schedule proposal 2, with separate talk on LUMI-O
 
 <ul>
     <li><a href="#Day1">Day 1</a>
@@ -12,13 +12,13 @@ DAY 1
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day1"><b>DAY 1 - ADD DATE</b></a>
+            <a name="Day1"><b>DAY 1 - 10 December 2024</b></a>
         </td>
     </tr>
     <tr>
         <td style="width:8em">
-            09:15 CEST
-            <br/><em>10:15 EEST</em>
+            09:00 CET
+            <br/><em>10:00 EET</em>
         </td>
         <td><b><a href="../MI01-IntroductionCourse/">Welcome and Introduction</a></b>
         <!--<br/><em>Presenters: Kurt Lust (LUST) and Jørn Dietze (LUST)</em>-->
@@ -26,8 +26,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            09:30 CEST
-            <br/><em>10:30 EEST</em>
+            09:15 CET
+            <br/><em>10:15 EET</em>
         </td>
         <td><b><a href="../M01-Architecture/">LUMI Architecture</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
@@ -38,8 +38,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            10:15 CEST
-            <br/><em>11:15 EEST</em>
+            10:00 CET
+            <br/><em>11:00 EET</em>
         </td>
         <td><b><a href="../M02-CPE/">HPE Cray Programming Environment</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
@@ -52,16 +52,16 @@ DAY 1
     </tr>
     <tr>
         <td>
-            11:15 CEST
-            <br/><em>12:15 EEST</em>
+            11:00 CET
+            <br/><em>12:00 EET</em>
         </td>
-        <td><b><em>Break and networking (30 minutes)</em></b>
+        <td><b><em>Break (30 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            11:45 CEST
-            <br/><em>12:45 EEST</em>
+            11:20 CET
+            <br/><em>12:20 EET</em>
         </td>
         <td><b><a href="../M03-Access/">Getting Access to LUMI</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
@@ -70,24 +70,24 @@ DAY 1
     </tr>
     <tr>
         <td>
-            12:30 CEST
-            <br/><em>13:30 EEST</em>
-        </td>
-        <td><b><em>Lunch break (60 minutes)</em></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            13:30 CEST
-            <br/><em>14:30 EEST</em>
+            11:50 CET
+            <br/><em>12:50 EET</em>
         </td>
         <td><b><a href="../ME03-Exercises-1/">Exercises (session #1)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:00 CEST
-            <br/><em>15:00 EEST</em>
+            12:20 CET
+            <br/><em>13:20 EET</em>
+        </td>
+        <td><b><em>Lunch break (55 minutes)</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            13:15 CET
+            <br/><em>14:15 EET</em>
         </td>
         <td><b><a href="../M04-Modules/">Modules on LUMI</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -98,24 +98,24 @@ DAY 1
     </tr>
     <tr>
         <td>
-            14:40 CEST
-            <br/><em>15:40 EEST</em>
+            13:55 CET
+            <br/><em>14:55 EET</em>
         </td>
         <td><b><a href="../ME04-Exercises-2/">Exercises (session #2)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:00 CEST
-            <br/><em>16:00 EEST</em>
+            14:15 CET
+            <br/><em>15:15 EET</em>
         </td>
-        <td><b><em>Break and networking (20 minutes)</em></b>
+        <td><b><em>Break (20 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:20 CEST
-            <br/><em>16:20 EEST</em>
+            14:35 CET
+            <br/><em>15:35 EET</em>
         </td>
         <td><b><a href="../M05-SoftwareStacks/">LUMI Software Stacks</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
@@ -126,32 +126,33 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:20 CEST
-            <br/><em>17:20 EEST</em>
+            15:35 CET
+            <br/><em>16:35 EET</em>
         </td>
         <td><b><a href="../ME05-Exercises-3/">Exercises (session #3)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            16:50 CEST
-            <br/><em>17:50 EEST</em>
+            15:55 CET
+            <br/><em>16:55 EET</em>
         </td>
         <td><b><a href="../MI02_WrapUpDay1">Wrap-up of the day</a></b> 
         </td>
     </tr>
     <tr>
         <td>
-            17:00 CEST
-            <br/><em>18:00 EEST</em>
+            16:00 CET
+            <br/><em>17:00 EET</em>
         </td>
-        <td><b>Free Q&A</a></b> 
+        <td><b>Free Q&A</a></b>
+        <br/>LUSTers stay onlLine to answer further questions
         </td>
     </tr>
     <tr>
         <td>
-            17:30 CEST
-            <br/><em>18:30 EEST</em>
+            16:30 CET
+            <br/><em>17:30 EET</em>
         </td>
         <td><b>End of day 1</a></b> 
         </td>
@@ -161,13 +162,13 @@ DAY 2
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day2"><b>DAY 2 - ADD DATE</b></a>
+            <a name="Day2"><b>DAY 2 - 11 December 2024</b></a>
         </td>
     </tr>
     <tr>
         <td style="width:8em">
-            09:15 CEST
-            <br/><em>10:15 EEST</em>
+            09:00 CET
+            <br/><em>10:00 EET</em>
         </td>
         <td><b><a href="../MI03-IntroductionDay2">Short welcome, recap and plan for the day</a></b>
         <!--<br/><em>Presenters: Kurt Lust (LUST) and Jørn Dietze (LUST)</em>-->
@@ -175,8 +176,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            09:30 CEST
-            <br/><em>10:30 EEST</em>
+            09:15 CET
+            <br/><em>10:15 EET</em>
         </td>
         <td><b><a href="../M06-Slurm/">Slurm on LUMI</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
@@ -187,16 +188,16 @@ DAY 2
     </tr>
     <tr>
         <td>
-            11:00 CEST
-            <br/><em>12:00 EEST</em>
+            10:45 CET
+            <br/><em>11:45 EET</em>
         </td>
-        <td><b><em>Break and networking (30 minutes)</em></b>
+        <td><b><em>Break (20 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            11:30 CEST
-            <br/><em>12:30 EEST</em>
+            11:05 CET
+            <br/><em>12:05 EET</em>
         </td>
         <td><b><a href="../M07-Binding/">Process and Thread Distribution and Binding</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
@@ -207,24 +208,24 @@ DAY 2
     </tr>
     <tr>
         <td>
-            12:30 CEST
-            <br/><em>13:30 EEST</em>
-        </td>
-        <td><b><em>Lunch break (60 minutes)</em></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            13:30 CEST
-            <br/><em>14:30 EEST</em>
+            11:55 CET
+            <br/><em>12:55 EET</em>
         </td>
         <td><b><a href="../E09-Exercises-4/">Exercises (session #4)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:00 CEST
-            <br/><em>15:00 EEST</em>
+            12:25 CET
+            <br/><em>13:25 EET</em>
+        </td>
+        <td><b><em>Lunch break</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            13:20 CET
+            <br/><em>14:20 EET</em>
         </td>
         <td><b><a href="../M08-Lustre/">Using Lustre</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -236,8 +237,36 @@ DAY 2
     </tr>
     <tr>
         <td>
-            14:30 CEST
-            <br/><em>15:30 EEST</em>
+            13:50 CET
+            <br/><em>14:50 EET</em>
+        </td>
+        <td><b><a href="../M08-LUMI-O/">Using object storage</a></b>
+        <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>LUMI also has an object storage system. It is useful as a staging location
+        to transfer data to LUMI, but some programs may also benefit from accessing the 
+        object storage directly.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:15 CET
+            <br/><em>15:15 EET</em>
+        </td>
+        <td><b><a href="../E09-Exercises-5/">Exercises (session #5)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:30 CET
+            <br/><em>15:30 EET</em>
+        </td>
+        <td><b><em>Break (20 minutes)</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:50 CET
+            <br/><em>15:50 EET</em>
         </td>
         <td><b><a href="../M09-Containers/">Containers on LUMI-C and LUMI-G</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -249,16 +278,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            15:30 CEST
-            <br/><em>16:30 EEST</em>
-        </td>
-        <td><b><em>Break and networking (30 minutes)</em></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            16:00 CEST
-            <br/><em>17:00 EEST</em>
+            15:50 CET
+            <br/><em>16:50 EET</em>
         </td>
         <td><b><a href="../M10-Support/">LUMI Support and Documentation</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -269,37 +290,28 @@ DAY 2
     </tr>
     <tr>
         <td>
-            16:30 CEST
-            <br/><em>17:30 EEST</em>
+            16:20 CET
+            <br/><em>17:20 EET</em>
         </td>
-        <td><b>SPACE FOR A LOCAL TALK</b>
-        <!-- When no local talk, extend the Lustre and containers presentation by 5 minutes each. -->
-        <!--<em>Presenter: Whoever</em>-->
-        </td>
-    </tr>
-    <tr>
-        <td>
-            16:45 CEST
-            <br/><em>17:45 EEST</em>
-        </td>
-        <td><b><a href="../MI04-WhatElse/">What Else?
-        A brief discussion about what else LUST offers, what is not covered in this course,
-        and how you can learn about it.</a></b>
+        <td><b><a href="../MI04-WhatElse/">What Else?</a></b>
+        <br/>A brief discussion about what else LUST offers, what is not covered in this course,
+        and how you can learn about it.</b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         </td>
     </tr>
     <tr>
         <td>
-            17:00 CEST
-            <br/><em>18:00 EEST</em>
+            16:30 CET
+            <br/><em>17:30 EET</em>
         </td>
         <td><b>Free Q&A</b> 
+        <br/>LUSTers stay around to answer questions.
         </td>
     </tr>
     <tr>
         <td>
-            17:30 CEST
-            <br/><em>18:30 EEST</em>
+            17:00 CET
+            <br/><em>18:00 EET</em>
         </td>
         <td><b>End of day 2</a></b> 
         </td>

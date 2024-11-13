@@ -2,7 +2,9 @@
 
 ## Course organisation
 
--   [Schedule](schedule.md)
+-   [Schedule proposal 1](schedule_1.md)
+-   [Revised schedule proposal](schedule_2.md)
+-   [Further revised schedule proposal](schedule_3.md)
 
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-amsterdam-may24?both)
