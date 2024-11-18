@@ -1,6 +1,6 @@
 # Containers on LUMI-C and LUMI-G
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 Containers are a way on LUMI to deal with the too-many-small-files software
 installations on LUMI, e.g., large Python or Conda installations. They are also a 

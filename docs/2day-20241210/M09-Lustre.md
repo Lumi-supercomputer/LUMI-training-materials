@@ -1,6 +1,6 @@
 # Using Lustre
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Emanuele Vitali*
 
 Lustre is a parallel file system and the main file system on LUMI.
 It is important to realise what the strengths and weaknesses of Lustre at the

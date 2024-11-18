@@ -1,6 +1,6 @@
 # Getting Access to LUMI
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Gregor Decristoforo*
 
 We discuss the options to log on to LUMI and to transfer data.
 

@@ -1,6 +1,6 @@
 # LUMI Software Stacks
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 In this presentation we discuss how application software is made available to
 users of LUMI. For users of smaller Tier-2 clusters with large support teams compared
