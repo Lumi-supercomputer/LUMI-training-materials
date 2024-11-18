@@ -70,7 +70,7 @@ DAY 1
             11:00 CET
             <br/><em>12:00 EET</em>
         </td>
-        <td><b><em>Break (30 minutes)</em></b>
+        <td><b><em>Break</em></b>
         </td>
     </tr>
     <tr>
@@ -96,7 +96,7 @@ DAY 1
             12:20 CET
             <br/><em>13:20 EET</em>
         </td>
-        <td><b><em>Lunch break (55 minutes)</em></b>
+        <td><b><em>Lunch break</em></b>
         </td>
     </tr>
     <tr>
@@ -124,7 +124,7 @@ DAY 1
             14:15 CET
             <br/><em>15:15 EET</em>
         </td>
-        <td><b><em>Break (20 minutes)</em></b>
+        <td><b><em>Break</em></b>
         </td>
     </tr>
     <tr>
@@ -218,7 +218,7 @@ DAY 2
             10:45 CET
             <br/><em>11:45 EET</em>
         </td>
-        <td><b><em>Break (20 minutes)</em></b>
+        <td><b><em>Break</em></b>
         </td>
     </tr>
     <tr>
@@ -287,7 +287,7 @@ DAY 2
             14:45 CET
             <br/><em>15:45 EET</em>
         </td>
-        <td><b><em>Break (20 minutes)</em></b>
+        <td><b><em>Break</em></b>
         </td>
     </tr>
     <tr>
