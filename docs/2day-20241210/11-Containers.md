@@ -3,7 +3,7 @@
 ## What are we talking about in this chapter?
 
 <figure markdown style="border: 1px solid #000">
-  ![Containers on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersIntro.png){ loading=lazy }
+  ![Containers on LUMI](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersIntro.png){ loading=lazy }
 </figure>
 
 Let's now switch to using containers on LUMI. 
@@ -31,7 +31,7 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 ## What do containers not provide
 
 <figure markdown style="border: 1px solid #000">
-  ![What do containers not provide](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersNotProvide.png){ loading=lazy }
+  ![What do containers not provide](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersNotProvide.png){ loading=lazy }
 </figure>
 
 What is being discussed in this subsection may be a bit surprising.
@@ -81,7 +81,7 @@ intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead
 ## But what can they then do on LUMI?
 
 <figure markdown style="border: 1px solid #000">
-  ![But what can they then do on LUMI?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersCanDoOnLUMI.png){ loading=lazy }
+  ![But what can they then do on LUMI?](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersCanDoOnLUMI.png){ loading=lazy }
 </figure>
 
 
@@ -149,7 +149,7 @@ neglect it it is up to you to solve the problems that occur.
 ## Managing containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing containers](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersManaging_1.png){ loading=lazy }
+  ![Managing containers](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersManaging_1.png){ loading=lazy }
 </figure>
 
 On LUMI, we currently support only one container runtime.
@@ -194,13 +194,13 @@ pull operation so save on your storage billing units).
 
     <!-- Used a 105x23 window size -->
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity pull slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExamplePull_1.png){ loading=lazy }
+      ![Demo singularity pull slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExamplePull_1.png){ loading=lazy }
     </figure>
 
     We do get a lot of warnings but usually this is perfectly normal and usually they can be safely ignored.
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity pull slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExamplePull_2.png){ loading=lazy }
+      ![Demo singularity pull slide 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExamplePull_2.png){ loading=lazy }
     </figure>
 
     The process ends with the creation of the file `jula_latest.sif`. 
@@ -208,12 +208,12 @@ pull operation so save on your storage billing units).
     Note however that the process has left a considerable number of files in `~/.singularity ` also:
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity pull slide 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExamplePull_3.png){ loading=lazy }
+      ![Demo singularity pull slide 3](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExamplePull_3.png){ loading=lazy }
     </figure>
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing containers (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersManaging_2.png){ loading=lazy }
+  ![Managing containers (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersManaging_2.png){ loading=lazy }
 </figure>
 
 There is currently limited support for building containers on LUMI and I do not expect that to change quickly.
@@ -247,7 +247,7 @@ OS kernel on LUMI (and some for ROCm are already there).
 ## Interacting with containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Interacting with containers](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersInteracting.png){ loading=lazy }
+  ![Interacting with containers](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersInteracting.png){ loading=lazy }
 </figure>
 
 There are basically three ways to interact with containers.
@@ -261,7 +261,7 @@ singularity shell container.sif
 ???+demo "Demo singularity shell"
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity shell](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleShell.png){ loading=lazy }
+      ![Demo singularity shell](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleShell.png){ loading=lazy }
     </figure>
 
     In this screenshot we checked the contents of the `/opt` directory before and after the
@@ -280,7 +280,7 @@ singularity exec container.sif uname -a
 ???+demo "Demo singularity exec"
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity exec](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleExec.png){ loading=lazy }
+      ![Demo singularity exec](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleExec.png){ loading=lazy }
     </figure>
 
     In this screenshot we execute the `uname -a` command before and with the
@@ -311,7 +311,7 @@ singularity inspect --runscript container.sif
 ???+demo "Demo singularity run"
 
     <figure markdown style="border: 1px solid #000">
-      ![Demo singularity run](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleRun.png){ loading=lazy }
+      ![Demo singularity run](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleRun.png){ loading=lazy }
     </figure>
 
     In this screenshot we start the julia interface in the container using
@@ -346,7 +346,7 @@ users can access all their files using the same paths as outside the container.
 ## Running containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![/running containers on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersRunning.png){ loading=lazy }
+  ![/running containers on LUMI](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersRunning.png){ loading=lazy }
 </figure>
 
 Just as for other jobs, you need to use Slurm to run containers on the compute nodes.
@@ -384,7 +384,7 @@ Cray Slingshot in particular and for full GPU support.
 ## Enhancements to the environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Environment enhancements](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersEnvironmentEnhancement_1.png){ loading=lazy }
+  ![Environment enhancements](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersEnvironmentEnhancement_1.png){ loading=lazy }
 </figure>
 
 To make life easier, LUST with the support of CSC did implement some modules
@@ -448,7 +448,7 @@ be a better alternative.
 ### cotainr: Build Conda containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Environment enhancements (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersEnvironmentEnhancement_2.png){ loading=lazy }
+  ![Environment enhancements (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersEnvironmentEnhancement_2.png){ loading=lazy }
 </figure>
 
 The third tool is [**`cotainr`**](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), 
@@ -553,7 +553,7 @@ We will not raise your file quota if it is to house such installation in your `/
     Now you can follow the commands on the slides below:
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleWrapper_1.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleWrapper_1.png){ loading=lazy }
     </figure>
 
     On the slide above we prepared the environment.
@@ -569,25 +569,25 @@ We will not raise your file quota if it is to house such installation in your `/
     the process:
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleWrapper_2.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleWrapper_2.png){ loading=lazy }
     </figure>
 
     The tool will first build the conda installation in a tempororary work directory
     and also uses a base container for that purpose.
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleWrapper_3.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 3](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleWrapper_3.png){ loading=lazy }
     </figure>
 
     The conda installation itself though is stored in a SquashFS file that is then
     used by the container.
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 4](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleWrapper_4.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 4](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleWrapper_4.png){ loading=lazy }
     </figure>
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 65](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleWrapper_5.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 65](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleWrapper_5.png){ loading=lazy }
     </figure>
 
     In the slide above we see the installation contains both a singularity container
@@ -597,7 +597,7 @@ We will not raise your file quota if it is to house such installation in your `/
     that run those commands in the container with the SquashFS file system mounted in it.
 
     <figure markdown style="border: 1px solid #000">
-      ![demo lumi-container-wrapper slide 6](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersExampleWrapper_6.png){ loading=lazy }
+      ![demo lumi-container-wrapper slide 6](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersExampleWrapper_6.png){ loading=lazy }
     </figure>
 
     So as you can see above, we can simply use the `python3` command without realising
@@ -613,7 +613,7 @@ We will not raise your file quota if it is to house such installation in your `/
 ### Pre-built AI containers
 
 <figure markdown style="border: 1px solid #000">
-  ![Environment enhancements (3): Prebuilt AI containers](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersPrebuiltAI.png){ loading=lazy }
+  ![Environment enhancements (3): Prebuilt AI containers](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersPrebuiltAI.png){ loading=lazy }
 </figure>
 
 LUST with the help of AMD is also building some containers with popular AI software.
@@ -650,7 +650,7 @@ At the time of the course, there are containers for
 ## Running the AI containers - complicated way without modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Running the AI containers without EasyBuild-generated module](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAiComplicated.png){ loading=lazy }
+  ![Running the AI containers without EasyBuild-generated module](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAiComplicated.png){ loading=lazy }
 </figure>
 
 The containers that we provide have everything they need to use RCCL and/or MPI on LUMI.
@@ -701,7 +701,7 @@ as a command in the script that is executed in the container or on the command l
 ## Running the containers through EasyBuild-generated modules
 
 <figure markdown style="border: 1px solid #000">
-  ![Running the AI containers with EasyBuild-generated module - slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAIEasyBuild_1.png){ loading=lazy }
+  ![Running the AI containers with EasyBuild-generated module - slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIEasyBuild_1.png){ loading=lazy }
 </figure>
 
 Doing all those initialisations, is a burden. Therefore we provide EasyBuild recipes to "install" the containers
@@ -739,7 +739,7 @@ install extra packages, and we provide an example of how to do that with
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Running the AI containers with EasyBuild-generated module - slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAIEasyBuild_2.png){ loading=lazy }
+  ![Running the AI containers with EasyBuild-generated module - slide 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIEasyBuild_2.png){ loading=lazy }
 </figure>
 
 Installing the EasyBuild recipes for those containers is also done via the `EasyBuild-user` module,
@@ -779,7 +779,7 @@ are not explained in this text. You can find more information on the
 [PyTorch page in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch).**
 
 <figure markdown style="border: 1px solid #000">
-  ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAIExampleNoEasyBuild_1.png){ loading=lazy }
+  ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIExampleNoEasyBuild_1.png){ loading=lazy }
 </figure>
 
 We'll need to create a number of scripts before we can even run the container.
@@ -813,7 +813,7 @@ if __name__ == '__main__':
 ```
 
 <figure markdown style="border: 1px solid #000">
-  ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAIExampleNoEasyBuild_2.png){ loading=lazy }
+  ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIExampleNoEasyBuild_2.png){ loading=lazy }
 </figure>
 
 Second, we need a script that we will run in the container. Store the script as
@@ -943,7 +943,7 @@ AMD ROCm environment. We notice a number of things:
     this version of the script.**
 
 <figure markdown style="border: 1px solid #000">
-  ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAIExampleNoEasyBuild_3.png){ loading=lazy }
+  ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 3](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIExampleNoEasyBuild_3.png){ loading=lazy }
 </figure>
 
 And finally you need a job script that you can then submit with `sbatch`. Lets call it `my-job.sh`:
@@ -985,7 +985,7 @@ The important parts here are:
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 
     `run-pytorch.sh` script). 
     We use the
-    ["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-next/07-Binding/#linear-assignment-of-gcd-then-match-the-cores).
+    ["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-20241210/07-Binding/#linear-assignment-of-gcd-then-match-the-cores).
 
 
 
@@ -1004,7 +1004,7 @@ are not explained in this text. You can find more information on the
 [PyTorch page in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch).**
 
 <figure markdown style="border: 1px solid #000">
-  ![Example: Distributed learning with PyTorch, using an EasyBuild-generated module](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/RunningAIExampleEasyBuild.png){ loading=lazy }
+  ![Example: Distributed learning with PyTorch, using an EasyBuild-generated module](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIExampleEasyBuild.png){ loading=lazy }
 </figure>
 
 It turns out that the first two above scripts in the example above, are fairly generic.
@@ -1038,7 +1038,7 @@ srun --cpu-bind=mask_cpu:$MYMASKS \
 ```
 
 So basically you only need to take care of the proper CPU bindings where we again use the
-["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-next/07-Binding/#linear-assignment-of-gcd-then-match-the-cores).
+["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-20241210/07-Binding/#linear-assignment-of-gcd-then-match-the-cores).
 
 
 ## Extending the containers
@@ -1050,7 +1050,7 @@ extend the containers that we provide:
 ### Extending the container with `cotainr`
 
 <figure markdown style="border: 1px solid #000">
-  ![Extending containers with cotainr](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ExtendingCotainr.png){ loading=lazy }
+  ![Extending containers with cotainr](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ExtendingCotainr.png){ loading=lazy }
 </figure>
 
 The LUMI Software Library offers some [container images for ROCm<sup>TM</sup>](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/).
@@ -1108,7 +1108,7 @@ instead.
 ### Extending the container with the singularity unprivileged `proot` build 
 
 <figure markdown style="border: 1px solid #000">
-  ![Extending containers with the singularity unprivileged proot build process](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ExtendingSingularityBuild.png){ loading=lazy }
+  ![Extending containers with the singularity unprivileged proot build process](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ExtendingSingularityBuild.png){ loading=lazy }
 </figure>
 
 Singularity specialists can also build upon an existing container using `singularity build`. 
@@ -1162,7 +1162,7 @@ file and in fact, the module that was generated with EasyBuild might just work..
 ### Extending the container through a Python virtual environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Extending the containers through a Python virtual environment - slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ExtendingPVenv_1.png){ loading=lazy }
+  ![Extending the containers through a Python virtual environment - slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ExtendingPVenv_1.png){ loading=lazy }
 </figure>
 
 Some newer containers installed with EasyBuild already include a pre-initialised virtual environment 
@@ -1199,7 +1199,7 @@ pip install pytorch-lightning
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Extending the containers through a Python virtual environment - slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ExtendingPVenv_2.png){ loading=lazy }
+  ![Extending the containers through a Python virtual environment - slide 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ExtendingPVenv_2.png){ loading=lazy }
 </figure>
 
 As already discussed before in this session of the tutorial, such a Python virtual environment has the potential
@@ -1225,7 +1225,7 @@ performance.
 ## Conclusion: Container limitations on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Container limitations on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Containers/ContainersLimitations.png){ loading=lazy }
+  ![Container limitations on LUMI](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/ContainersLimitations.png){ loading=lazy }
 </figure>
 
 To conclude the information on using singularity containers on LUMI,

@@ -152,7 +152,7 @@ DAY 1
             15:55 CET
             <br/><em>16:55 EET</em>
         </td>
-        <td><b><a href="../M10-Support/">LUMI Support and Documentation</a></b>
+        <td><b><a href="../M06-Support/">LUMI Support and Documentation</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>Where can I find documentation or get training, and which support services are 
         available for what problems? And how can I formulate a support ticket so that I can
@@ -206,7 +206,7 @@ DAY 2
             09:15 CET
             <br/><em>10:15 EET</em>
         </td>
-        <td><b><a href="../M06-Slurm/">Slurm on LUMI</a></b>
+        <td><b><a href="../M07-Slurm/">Slurm on LUMI</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>Slurm is the batch job scheduler used on LUMI. As no two Slurm configurations are
         identical, even an experienced Slurm user should have a quick look at the notes of this
@@ -226,7 +226,7 @@ DAY 2
             11:05 CET
             <br/><em>12:05 EET</em>
         </td>
-        <td><b><a href="../M07-Binding/">Process and Thread Distribution and Binding</a></b>
+        <td><b><a href="../M08-Binding/">Process and Thread Distribution and Binding</a></b>
         <!--<br/><em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>To get good performance on hardware with a strong hierarchy as AMD EPYC processors and
         GPUs, it is important to map processes and threads properly on the hardware. This talk discusses
@@ -238,7 +238,7 @@ DAY 2
             12:00 CET
             <br/><em>13:00 EET</em>
         </td>
-        <td><b><a href="../E09-Exercises-4/">Exercises (session #4)</a></b>
+        <td><b><a href="../ME08-Exercises-4/">Exercises (session #4)</a></b>
         </td>
     </tr>
     <tr>
@@ -254,7 +254,7 @@ DAY 2
             13:25 CET
             <br/><em>14:25 EET</em>
         </td>
-        <td><b><a href="../M08-Lustre/">Using Lustre</a></b>
+        <td><b><a href="../M09-Lustre/">Using Lustre</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>Lustre is a parallel file system and the main file system on LUMI.
         It is important to realise what the strengths and weaknesses of Lustre at the
@@ -267,7 +267,7 @@ DAY 2
             13:55 CET
             <br/><em>14:55 EET</em>
         </td>
-        <td><b><a href="../M08-LUMI-O/">Using object storage</a></b>
+        <td><b><a href="../M10-ObjectStorage/">Using object storage</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>LUMI also has an object storage system. It is useful as a staging location
         to transfer data to LUMI, but some programs may also benefit from accessing the 
@@ -279,7 +279,7 @@ DAY 2
             14:25 CET
             <br/><em>15:25 EET</em>
         </td>
-        <td><b><a href="../E09-Exercises-5/">Exercises (session #5)</a></b>
+        <td><b><a href="../ME10-Exercises-5/">Exercises (session #5)</a></b>
         </td>
     </tr>
     <tr>
@@ -295,7 +295,7 @@ DAY 2
             15:05 CET
             <br/><em>16:05 EET</em>
         </td>
-        <td><b><a href="../M09-Containers/">Containers on LUMI-C and LUMI-G</a></b>
+        <td><b><a href="../M11-Containers/">Containers on LUMI-C and LUMI-G</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
         <br/>Containers are a way on LUMI to deal with the too-many-small-files software
         installations on LUMI, e.g., large Python or Conda installations. They are also a 

@@ -64,16 +64,18 @@ materials are uploaded.
 | [Exercises 2](ME04-Exercises-2.md) | / | / | / | / |
 | [LUMI Software Stacks](M05-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-05-SoftwareStacks.pdf) | [N](05-SoftwareStacks.md) | [E](E05-SoftwareStacks.md) | [V](M05-SoftwareStacks.md) |
 | [Exercises 3](ME05-Exercises-3.md) | / | / | / | / |
+| [LUMI Support and Documentation](M06-Support.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-06-Support.pdf) | [N](06-Support.md) | / | [V](M06-Support.md) |
 | [Wrap-Up Day 1](MI02-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I02-WrapUpDay1.pdf) | / | / | [V](MI02-WrapUpDay1.md) |
 | [Introduction Day 2](MI03-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I03-IntroductionDay2.pdf) | / | / | [V](MI03-IntroductionDay2.md) |
-| [Slurm on LUMI](M06-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-06-Slurm.pdf) | [N](06-Slurm.md) | [E](E06-Slurm.md) | [V](M06-Slurm.md) |
-| [Process and Thread Distribution and Binding](M07-Binding.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-07-Binding.pdf) | [N](07-Binding.md) | [E](E07-Binding.md) | [V](M07-Binding.md) | 
-| [Exercises 4](ME07-Exercises-4.md) | / | / | / | / |
-| [Using Lustre](M08-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Lustre.pdf) | [N](08-Lustre.md) | / | [V](M08-Lustre.md) |
-| [Containers on LUMI-C and LUMI-G](M09-Containers.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-09-Containers.pdf) | [N](09-Containers.md) | / | [V](M09-Containers.md) |
+| [Slurm on LUMI](M07-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-07-Slurm.pdf) | [N](07-Slurm.md) | [E](E07-Slurm.md) | [V](M07-Slurm.md) |
+| [Process and Thread Distribution and Binding](M08-Binding.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Binding.pdf) | [N](08-Binding.md) | [E](E08-Binding.md) | [V](M08-Binding.md) | 
+| [Exercises 4](ME08-Exercises-4.md) | / | / | / | / |
+| [Using Lustre](M09-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-09-Lustre.pdf) | [N](09-Lustre.md) | / | [V](M09-Lustre.md) |
+| [Object Storage](M10-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-10-ObjectStorage.pdf) | [N](10-ObjectStorage.md) | [E](E10-ObjectStorage) | [V](M10-ObjectStorage.md) |
+| [Exercises 5](ME10-Exercises-5.md) | / | / | / | / |
+| [Containers on LUMI-C and LUMI-G](M11-Containers.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-11-Containers.pdf) | [N](11-Containers.md) | / | [V](M11-Containers.md) |
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | / | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | / | [V](Demo2.md#video-of-the-demo) |
-| [LUMI Support and Documentation](M10-Support.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-10-Support.pdf) | [N](10-Support.md) | / | [V](M10-Support.md) |
 | [What Else?](MI04-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I04-WhatElse.pdf) | / | / | [V](MI04-WhatElse.md) |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
 

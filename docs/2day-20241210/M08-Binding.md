@@ -13,16 +13,16 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/07-Binding.mp4" controls="controls">
+<video src="https://462000265.lumidata.eu/2day-20241210/recordings/08-Binding.mp4" controls="controls">
 </video>
 -->
 -    A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-07-Binding.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Binding.pdf)
 
--   [Course notes](07-Binding.md)
+-   [Course notes](08-Binding.md)
 
--   [Exercises](E07-Binding.md)
+-   [Exercises](E08-Binding.md)
 
 ## Q&A
 

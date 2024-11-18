@@ -14,14 +14,14 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/10-Support.mp4" controls="controls">
+<video src="https://462000265.lumidata.eu/2day-20241210/recordings/06-Support.mp4" controls="controls">
 </video>
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-10-Support.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-06-Support.pdf)
 
--   [Course notes](10-Support.md)
+-   [Course notes](06-Support.md)
 
 
 ## Q&A

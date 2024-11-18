@@ -3,7 +3,7 @@
 ## Who pays the bills?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Who pays the bills](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/WhoPays.png){ loading=lazy }
+  ![Slide Who pays the bills](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/WhoPays.png){ loading=lazy }
 </figure>
 
 LUMI is one of the larger EuroHPC supercomputers. EuroHPC currently funds 
@@ -74,7 +74,7 @@ Web links:
 ## Users and projects
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Projects and users 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/ProjectsUsers_1.png){ loading=lazy }
+  ![Slide Projects and users 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/ProjectsUsers_1.png){ loading=lazy }
 </figure>
 
 LUMI works like most European large supercomputers: Users are members of projects.
@@ -132,7 +132,7 @@ LUMI projects will typically have multiple project numbers which may be a bit co
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Projects and users 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/ProjectsUsers_2.png){ loading=lazy }
+  ![Slide Projects and users 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/ProjectsUsers_2.png){ loading=lazy }
 </figure>
 
 Besides projects there are also user accounts. 
@@ -166,7 +166,7 @@ directory.)
 ## Project management
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Project Management](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/ProjectManagement.png){ loading=lazy }
+  ![Slide Project Management](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/ProjectManagement.png){ loading=lazy }
 </figure>
 
 A large system like LUMI with many entities giving independent access to the system to users 
@@ -235,7 +235,7 @@ LUMI has file spaces that are linked to a user account and file spaces that are 
 ### Per-user file spaces
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces User](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesUser.png){ loading=lazy }
+  ![Slide File Spaces User](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/FileSpacesUser.png){ loading=lazy }
 </figure>
 
 The only permanent file space linked to a user account is the home directory which is of the form
@@ -248,7 +248,7 @@ an active project but therefore is also very limited in size.
 ### Per-project file spaces
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Project](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesProject.png){ loading=lazy }
+  ![Slide File Spaces Project](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/FileSpacesProject.png){ loading=lazy }
 </figure>
 
 Each project also has 4 permanent or semi-permanent file spaces that are all billed against the
@@ -287,7 +287,7 @@ storage budget of the project.
 ### Quota
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Quota](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesQuota.png){ loading=lazy }
+  ![Slide File Spaces Quota](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/FileSpacesQuota.png){ loading=lazy }
 </figure>
 
 The slide above also shows the quota on each volume.
@@ -370,7 +370,7 @@ and the LUMI User Support Team cannot give you any storage billing units.**
 ### Some additional information
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Further Information](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/FileSpacesFurtherInfo.png){ loading=lazy }
+  ![Slide File Spaces Further Information](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/FileSpacesFurtherInfo.png){ loading=lazy }
 </figure>
 
 LUMI has four disk based Lustre file systems that house `/users`, `/project` and `/scratch`.
@@ -430,7 +430,7 @@ Web links:
 ## Access
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Access](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/Access.png){ loading=lazy }
+  ![Slide Access](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/Access.png){ loading=lazy }
 </figure>
 
 LUMI currently has 4 login nodes through which users can enter the system via key-based ssh.
@@ -514,14 +514,14 @@ Web links:
     [www.lumi.csc.fi](https://www.lumi.csc.fi). You will get the screen:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 1](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_01.png){ loading=lazy }
+      ![Open OnDemand slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_01.png){ loading=lazy }
     </figure>
 
     Most likely you just want to log on, so click on "Go to login" and the "Select authentication provider"
     screen should appear, with a link to give you more information about which authentication method to use:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_02.png){ loading=lazy }
+      ![Open OnDemand slide 2](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_02.png){ loading=lazy }
     </figure>
 
     Basically, if you are a CSC user (and definitely when you're on a CSC 462* project) you'll want to use the "CSC"
@@ -531,7 +531,7 @@ Web links:
     go back to by clicking the LUMI-logo in the upper left corner):
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 3](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_03.png){ loading=lazy }
+      ![Open OnDemand slide 3](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_03.png){ loading=lazy }
     </figure>
 
     The list of pinned apps may change over time, and more apps are available via the menu at the top.
@@ -543,7 +543,7 @@ Web links:
     have a look at those.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 4](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_04.png){ loading=lazy }
+      ![Open OnDemand slide 4](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_04.png){ loading=lazy }
     </figure>
 
     The "Login node shell" does just what you expect from it": It opens a tab in the browser with a shell
@@ -553,13 +553,13 @@ Web links:
     used for small work or not too heavy compilations.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 5](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_05.png){ loading=lazy }
+      ![Open OnDemand slide 5](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_05.png){ loading=lazy }
     </figure>
 
     Let's now select the "Home Directory" app. We get:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 6](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_06.png){ loading=lazy }
+      ![Open OnDemand slide 6](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_06.png){ loading=lazy }
     </figure>
 
     The "Home Directory" app presents you with an interface through which you cannot only browse
@@ -573,13 +573,13 @@ Web links:
     For transferring lots of data, transfer via LUMI-O is certainly the better option at the moment.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 7](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_07.png){ loading=lazy }
+      ![Open OnDemand slide 7](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_07.png){ loading=lazy }
     </figure>
 
     Finally, let's have a look at the "Desktop" app.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 8](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_08.png){ loading=lazy }
+      ![Open OnDemand slide 8](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_08.png){ loading=lazy }
     </figure>
 
     The "Desktop" app will present you with a simple GUI desktop based on the
@@ -596,7 +596,7 @@ Web links:
     After launching/connecting to the desktop you get:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 9](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_09.png){ loading=lazy }
+      ![Open OnDemand slide 9](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/OpenOnDemand_09.png){ loading=lazy }
     </figure>
 
     There is a small settings menu hidden at the left (expanded in the picture) to do some settings of the web
@@ -613,7 +613,7 @@ Web links:
 ## Data transfer
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Data Transfer](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/DataTransfer.png){ loading=lazy }
+  ![Slide Data Transfer](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/DataTransfer.png){ loading=lazy }
 </figure>
 
 There are currently two main options to transfer data to and from LUMI.
@@ -674,11 +674,11 @@ Unfortunately there is no support yet for Globus or other forms of gridFTP.
 ## What is LUMI-O?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_1.png){ loading=lazy }
+  ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOWhatIs_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_2.png){ loading=lazy }
+  ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOWhatIs_2.png){ loading=lazy }
 </figure>
 
 <!-- BELGIUM 
@@ -735,7 +735,7 @@ maintain backups on LUMI yourself.
 ## Accessing LUMI-O
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Accessing LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOAccessing.png){ loading=lazy }
+  ![Slide Accessing LUMI-O](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOAccessing.png){ loading=lazy }
 </figure>
 
 Access to LUMI-O is based on temporary keys that need to be generated via a web interface
@@ -760,7 +760,7 @@ In the future access via Open OnDemand should also become possible.
 ### Key generation
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Accessing LUMI-O: Key generation](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOAccessingKeyGeneration.png){ loading=lazy }
+  ![Slide Accessing LUMI-O: Key generation](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOAccessingKeyGeneration.png){ loading=lazy }
 </figure>
 
 Keys are generated via a web interface that can be found at
@@ -775,21 +775,21 @@ Let's walk through the interface:
     with a welcome screen on which you have to click the "Go to login" button.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_01.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_01.png){ loading=lazy }
     </figure>
 
     This will present you with the already familiar (from Open OnDemand) screen to select
     your authentication provider:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_02.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_02.png){ loading=lazy }
     </figure>
 
     Proceed with login in through your relevant authentication provider (not shown here)
     and you will be presented with a screen that show your active projects:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_03.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_03.png){ loading=lazy }
     </figure>
 
     Click the project for which you want to generate a key, and the column to the right will appear.
@@ -801,13 +801,13 @@ Let's walk through the interface:
     Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_04.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (4)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_04.png){ loading=lazy }
     </figure>
 
     Now click on the key to get more information about the key: 
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (5)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_05.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (5)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_05.png){ loading=lazy }
     </figure>
 
     At the top of the screen you see three elements that will be important if you use the LUMI command line tool
@@ -817,7 +817,7 @@ Let's walk through the interface:
     Scrolling down a bit more:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (6)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_06.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (6)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_06.png){ loading=lazy }
     </figure>
 
     The "Extend key" field can be used to extend the life of the key, to a maximum of 168 hours past the current time.
@@ -826,7 +826,7 @@ Let's walk through the interface:
     (see the list on the slide). After selecting "rclone" and clicking the "Generate" button, a new screen opens:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (7)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_07.png){ loading=lazy }
+      ![Slide Accessing LUMI-O: Credentials management web interface (7)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOCredentialsWeb_07.png){ loading=lazy }
     </figure>
 
     This screen shows us the snippet for the rclone configuration file (on Linux it is
@@ -838,7 +838,7 @@ Let's walk through the interface:
 ## Configuring LUMI-O tools
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Configuring LUMI-O tools](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOConfiguringTools.png){ loading=lazy }
+  ![Slide Configuring LUMI-O tools](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIOConfiguringTools.png){ loading=lazy }
 </figure>
 
 On LUMI, you can use the `lumnio-conf` tool to configure `rclone` and `s3cmd`. 
@@ -859,7 +859,7 @@ should also work when you run the tools on a different computer.
 ## rclone on LUMI-O
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIORclone.png){ loading=lazy }
+  ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-03-Access/LUMIORclone.png){ loading=lazy }
 </figure>
 
 The `rclone` configuration file for LUMI-O contains two end points, and unfortunately at the moment
