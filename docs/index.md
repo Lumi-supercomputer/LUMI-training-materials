@@ -4,11 +4,11 @@
 
 ### Regular trainings
 
-<!--
 Upcoming or currently running events with materials already partly available:
 
--   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
--->
+-   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
+
+-   [Intro course: Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
 
 Most recently completed main training events:
 
@@ -68,6 +68,7 @@ relevant:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
+    -   [Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
     -   [Supercomputing with LUMI (May, 2024 in Amsterdam)](2day-20240502/index.md)
     -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
