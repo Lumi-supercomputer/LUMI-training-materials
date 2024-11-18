@@ -15,7 +15,7 @@
     -   GPU nodes: `LUMI_Intro_SURF_standardg` (on the `standard-g` Slurm partition)
 -->
 
-
+<!--
 ## Setting up for the exercises
 
 If you have an active project on LUMI, you should be able to make the exercises in that project.
@@ -45,15 +45,19 @@ You will only need an very minimum of CPU and GPU billing units for this.
     [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20241210/files/exercises-20241210.tar.gz)
 
 -   You're all set to go!
+-->
 
 
 ## Course materials
 
-**Note:** Some links in the table below will remain invalid until after the course when all
+**Note:** Some links in the table below may remain invalid until after the course when all
 materials are uploaded.
 
 | Presentation | Slides | Notes | Exercises | Recording |
 |:-------------|:-------|:------|:----------|:----------|
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
+
+<!--
 | [Welcome and Introduction](MI01-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I01-IntroductionCourse.pdf) | / | / | [V](MI01-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](00-Introduction.md) | / |  / | 
 | [LUMI Architecture](M01-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf) | [N](01-Architecture.md) | / | [V](M01-Architecture.md) |
@@ -77,7 +81,7 @@ materials are uploaded.
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | / | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | / | [V](Demo2.md#video-of-the-demo) |
 | [What Else?](MI04-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I04-WhatElse.pdf) | / | / | [V](MI04-WhatElse.md) |
-| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
+-->
 
 
 ## Web links
@@ -95,6 +99,7 @@ materials are uploaded.
     -   [Archive of PRACE training materials](https://training.prace-ri.eu/) (no https unfortunately)
 
 
+<!--
 ## Acknowledgement
 
 Though a LUST course, the course borrows a lot of material from
@@ -104,3 +109,4 @@ which in turn was prepared in the framework of the
 The VSC is funded by 
 [FWO - Fonds Wetenschappelijk Onderzoek - Vlaanderen](https://www.fwo.be/en/)
 (or Research Foundation – Flanders). 
+-->

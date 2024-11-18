@@ -1,5 +1,6 @@
 # Exercises 4: Running jobs with Slurm
 
+<!--
 ## Intro
 
 For these exercises, you'll need to take care of some settings:
@@ -34,9 +35,14 @@ and then you can load either the module `exercises/small` or `exercises/standard
 	```
 
 	to get an idea of what these modules do. Can you see which environment variables they set?
+-->
 
 
 ## Exercises
 
+Exercises will be made available during the course
+
+<!--
 -   Start with the [exercises on "Slurm on LUMI"](E07-Slurm.md)
 -   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E08-Binding.md)
+-->
