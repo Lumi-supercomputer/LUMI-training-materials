@@ -1,4 +1,4 @@
-# Schedule proposal 3, with separate talk on LUMI-O and support talk on day 1.
+# Schedule
 
 ## Themes
 
