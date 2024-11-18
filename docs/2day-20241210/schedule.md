@@ -1,8 +1,23 @@
-# Schedule proposal 2, with separate talk on LUMI-O
+# Schedule proposal 3, with separate talk on LUMI-O and support talk on day 1.
+
+## Themes
 
 <ul>
-    <li><a href="#Day1">Day 1</a>
-    <li><a href="#Day2">Day 2</a>
+    <li/><a href="#Day1">Day 1</a>: Exploring LUMI from the login nodes and web interface
+    <li/><a href="#Day2">Day 2</a>
+        <ul>
+            <li/>Running jobs efficiently
+            <li/>Storing data on LUMI: Lustre parallel file system and object storage
+            <li/>Containers on LUMI-C and LUMI-G (with some attention to AI)
+        </ul>
+</ul>
+
+
+## Schedule
+
+<ul>
+    <li/><a href="#Day1">Day 1</a>
+    <li/><a href="#Day2">Day 2</a>
 </ul>
 
 <table style="text-align: left;">
@@ -137,13 +152,25 @@ DAY 1
             15:55 CET
             <br/><em>16:55 EET</em>
         </td>
+        <td><b><a href="../M10-Support/">LUMI Support and Documentation</a></b>
+        <!--<em>Presenter: Kurt Lust (LUST)</em>-->
+        <br/>Where can I find documentation or get training, and which support services are 
+        available for what problems? And how can I formulate a support ticket so that I can
+        get a quick answer without much back-and-forth mailing?
+        </td>
+    </tr>
+    <tr>
+        <td>
+            16:25 CET
+            <br/><em>17:25 EET</em>
+        </td>
         <td><b><a href="../MI02_WrapUpDay1">Wrap-up of the day</a></b> 
         </td>
     </tr>
     <tr>
         <td>
-            16:00 CET
-            <br/><em>17:00 EET</em>
+            16:30 CET
+            <br/><em>17:30 EET</em>
         </td>
         <td><b>Free Q&A</a></b>
         <br/>LUSTers stay onlLine to answer further questions
@@ -151,8 +178,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:30 CET
-            <br/><em>17:30 EET</em>
+            17:00 CET
+            <br/><em>18:00 EET</em>
         </td>
         <td><b>End of day 1</a></b> 
         </td>
@@ -208,24 +235,24 @@ DAY 2
     </tr>
     <tr>
         <td>
-            11:55 CET
-            <br/><em>12:55 EET</em>
+            12:00 CET
+            <br/><em>13:00 EET</em>
         </td>
         <td><b><a href="../E09-Exercises-4/">Exercises (session #4)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            12:25 CET
-            <br/><em>13:25 EET</em>
+            12:30 CET
+            <br/><em>13:30 EET</em>
         </td>
         <td><b><em>Lunch break</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:20 CET
-            <br/><em>14:20 EET</em>
+            13:25 CET
+            <br/><em>14:25 EET</em>
         </td>
         <td><b><a href="../M08-Lustre/">Using Lustre</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -237,8 +264,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            13:50 CET
-            <br/><em>14:50 EET</em>
+            13:55 CET
+            <br/><em>14:55 EET</em>
         </td>
         <td><b><a href="../M08-LUMI-O/">Using object storage</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -249,24 +276,24 @@ DAY 2
     </tr>
     <tr>
         <td>
-            14:15 CET
-            <br/><em>15:15 EET</em>
+            14:25 CET
+            <br/><em>15:25 EET</em>
         </td>
         <td><b><a href="../E09-Exercises-5/">Exercises (session #5)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:30 CET
-            <br/><em>15:30 EET</em>
+            14:45 CET
+            <br/><em>15:45 EET</em>
         </td>
         <td><b><em>Break (20 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:50 CET
-            <br/><em>15:50 EET</em>
+            15:05 CET
+            <br/><em>16:05 EET</em>
         </td>
         <td><b><a href="../M09-Containers/">Containers on LUMI-C and LUMI-G</a></b>
         <!--<em>Presenter: Kurt Lust (LUST)</em>-->
@@ -278,20 +305,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            15:50 CET
-            <br/><em>16:50 EET</em>
-        </td>
-        <td><b><a href="../M10-Support/">LUMI Support and Documentation</a></b>
-        <!--<em>Presenter: Kurt Lust (LUST)</em>-->
-        <br/>Where can I find documentation or get training, and which support services are 
-        available for what problems? And how can I formulate a support ticket so that I can
-        get a quick answer without much back-and-forth mailing?
-        </td>
-    </tr>
-    <tr>
-        <td>
-            16:20 CET
-            <br/><em>17:20 EET</em>
+            16:05 CET
+            <br/><em>17:05 EET</em>
         </td>
         <td><b><a href="../MI04-WhatElse/">What Else?</a></b>
         <br/>A brief discussion about what else LUST offers, what is not covered in this course,
@@ -301,8 +316,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            16:30 CET
-            <br/><em>17:30 EET</em>
+            16:15 CET
+            <br/><em>17:15 EET</em>
         </td>
         <td><b>Free Q&A</b> 
         <br/>LUSTers stay around to answer questions.
@@ -310,8 +325,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            17:00 CET
-            <br/><em>18:00 EET</em>
+            16:45 CET
+            <br/><em>17:45 EET</em>
         </td>
         <td><b>End of day 2</a></b> 
         </td>
