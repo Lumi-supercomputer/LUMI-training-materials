@@ -57,7 +57,10 @@ materials are uploaded.
 |:-------------|:-------|:------|:----------|:----------|
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
 
-<!--
+Work copy during preparations:
+
+| Presentation | Slides | Notes | Exercises | Recording |
+|:-------------|:-------|:------|:----------|:----------|
 | [Welcome and Introduction](MI01-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I01-IntroductionCourse.pdf) | / | / | [V](MI01-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](00-Introduction.md) | / |  / | 
 | [LUMI Architecture](M01-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf) | [N](01-Architecture.md) | / | [V](M01-Architecture.md) |
@@ -81,7 +84,7 @@ materials are uploaded.
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | / | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | / | [V](Demo2.md#video-of-the-demo) |
 | [What Else?](MI04-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I04-WhatElse.pdf) | / | / | [V](MI04-WhatElse.md) |
--->
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
 
 
 ## Web links
