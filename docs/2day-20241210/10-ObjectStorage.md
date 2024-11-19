@@ -6,8 +6,29 @@
   ![Slide Why know...](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/WhyKnow.png){ loading=lazy }
 </figure>
 
+Most LUMI users will be unfamiliar with object storage. 
+It is a popular storage technology in the cloud, with Amazon AWS S3 as the best known example.
 
-## What is LUMI-O?
+On LUMI, the LUMI-O object storage system is probably the best option to transfer data to and
+from LUMI. Tools for object storage access often reach a much higher bandwidth than
+a single sftp connection can reach.
+
+Object storage is also a good technology if you want a backup of some of your data and
+want to make that backup on LUMI itself. The object storage is completely separate from 
+the regular storage of LUMI and hence offers additional security, though not as secure 
+as if you would make a backup at a different compute centre.
+
+In some research communities where cloud computing is more common, some datasets
+may come in cloud-optimised formats, i.e., formats optimised for object storage.
+Putting such data on the parallel file system without completely changing the 
+data format is usually not a good idea.
+
+In this section of the notes, we will discuss the properties of object storage
+and show you how to get started. It is by no means meant as a reference manual
+for all tools that one can use.
+
+
+## In short: What is LUMI-O?
 
 <figure markdown style="border: 1px solid #000">
   ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOWhatIs_1.png){ loading=lazy }
@@ -51,7 +72,8 @@ courses are served currently. However, LUMI-O is not meant to be used as a data 
 service and is not an alternative to services provided by, e.g., EUDAT or several local
 academic service providers.
 
-The object storage can be easily reached from outside LUMI also. In fact, during
+The object storage can be easily reached from outside LUMI also with full access 
+control (and without webbrowsers). In fact, during
 downtimes, LUMI-O is often still operational as its software stack is managed completely
 independently from LUMI. It is therefore also very well suited as a mechanism for data
 transfer to and from LUMI. Moreover, tools for object storage often perform much better
@@ -68,7 +90,7 @@ that still needs to be transferred but is not immediately needed by jobs, or to
 maintain backups on LUMI yourself.
 
 
-## Lustre versus LUMI-O
+## A comparison between Lustre and LUMI-O
 
 Or: What are the differences between a parallel filesystem and object storage?
 
@@ -79,6 +101,150 @@ Or: What are the differences between a parallel filesystem and object storage?
 <figure markdown style="border: 1px solid #000">
   ![Slide Lustre vs LUMI-O (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LustreVsLUMIO_2.png){ loading=lazy }
 </figure>
+
+***Integration with the system***
+
+The Lustre parallel filesystem is very closely integrated in LUMI. In fact, it is the only
+non-local filesystem that is served directly to the compute nodes. Other remote filesystems
+on the Cray architecture are served via DVS, Data Virtualisation Service, a service that 
+forwards requests to the actual filesystem services running on management nodes. HPE Cray
+does this to minimise the number of OS daemons running in the background. Client software
+on the compute and login nodes must also fairly closely match the server software on 
+the actual Lustre servers. As a result of all this, the Lustre software has to be updated
+with all other system software on LUMI and, e.g., the Lustre filesystems are not available
+when LUMI is down for maintenance. 
+
+The LUMI-O object storage system on the other hand, 
+is a separate system, though located physically fairly close to LUMI. Its software setup
+is completely independent from the software on the LUMI supercomputer itself. It has 
+a regular TCP/IP connection to LUMI, but all other software to access data on LUMI-O from
+LUMI runs entirely in user space. Client software also hardly depends on the version of the
+Ceph server software as the protocol between both is fairly stable. As a result, upgrades
+of LUMI do not affect LUMI-O and vice-versa, so LUMI-O is almost always available even when
+LUMI is down. Moreover, the server software of LUMI-O can often be upgraded on-the-fly, without
+noticeable downtime. Client and server also communicate through a web-based API.
+
+***Organisation of data***
+
+The organisation of data is also very different on Lustre and LUMI-O. 
+Lustre, although very different of the local filesystem(s) on your laptop or smartphone
+or more traditional networked filesystems common for networks of PCs or workstations,
+uses the same organisation of data as those filesystems. Data is organised in files
+stored in a hierarchical directory structure. In fact, Lustre behaves as much as possible
+as other classical shared filesystems: Data written on one compute node is almost immediately
+noticed on other compute nodes also. (In fact, this is also the main cause of performance
+problems for some operations on Lustre.)
+
+These files can be read, written, modified and/or appended, and deleted. So one can change 
+only a fraction of the data in the file without working on the other data, and different
+compute nodes can write to different parts of a file simultaneously.
+
+The object storage system puts data as objects in buckets, and buckets are on a 
+per-project basis. So there is basically a 3-level hierarchy: project, buckets and
+objects, with each level just a flat space. Bucket names have to be unique within a project,
+and object names have to be unique within a bucket.
+
+Buckets cannot contain other buckets (contrary to directories which can contain other
+directories). Objects are not really arranged in a hierarchy, even though some tools
+make it appear as if this is the case by showing them in a directory tree-like 
+structure, but this structure is really just created based on the "names" of the objects
+(the correct terminology is the key of the object) and you will notice that structuring 
+the objects like this in a view is actually a rather expensive operation in client software.
+
+Objects are managed through simple atomic operations. One can put an object in the object
+storage, get its content, copy an object or delete an object. But contrary to a file 
+in Lustre, the object cannot be modified: One cannot simply change a part of the content,
+but the object needs to be replaced with a new object.
+
+Some tools can do multipart uploads: An large object is uploaded in multiple parts (which
+can create more parallelism and hence have a higher combined bandwidth), but these parts
+are actually objects by themselves that are combined in a single object at the end.
+If the upload would get interrupted, the parts would actually continue to live as 
+separate objects unless a suitable bucket policy is set
+(and we have run into issues already with a user depleting their quota on LUMI-O with
+stale objects from failed multipart uploads).
+
+***Optimised for?***
+
+Lustre is optimised first and for most for bandwidth to the compute nodes when doing
+large file I/O operations from multiple nodes to a file. This optimisation for performance
+also implies that simpler schemes for redundancy have to be used. Data is protected from
+a single disk failure and on most systems even from dual disk failure, but performance
+will be reduced during a disk repair action and even though the server functions are usually
+done in high availability pairs, we have seen more than one case where a server pair fails
+making part of the data inaccessible.
+
+The LUMI-O object storage is much more optimised for reliability and uses a very
+complicated internal redundancy scheme. On LUMI-O each object is spread over 11 so-called
+storage nodes, spread over at least 6 racks, with never more than 2 storage nodes in a single
+rack. As only 8 storage nodes of an object are needed to recover the data of an object, one 
+can even lose an entire rack of hardware while keeping the object available.
+
+
+***Access***
+
+Lustre, as it is fully integrated in LUMI (or any other supercomputer that uses it),
+has no separate authentication. You log on to LUMI and you have access to files on the
+Lustre file system based on permissions: your userid and the linux group(s) that you belong to.
+You will see your files as on any other POSIX file system. No external access is possible
+and it depends completely on the authentication system of LUMI running and working properly.
+
+The LUMI-O object storage works with a separate credentials-based authentication system. 
+These credentials have to be created first in one of two ways that we will discus later
+and they have a very finite lifetime after which they need to be regenerated (when expired)
+or extended (if you do so before expiration).
+
+In fact, in LUMI-O, projects are handled as so-called "single user tenants/accounts": 
+the project numerical ID (e.g., 465000001) is both the tenant/account name and project
+name. LUMI-O will not further distinguish between the users in a LUMI project. 
+Hence it is definitely not an option to make a backup from your home directory in a way
+that it would be secured from access by other users in your LUMI project.
+
+LUMI-O clients and servers talk to each other via a web based API. There is a whole range
+of tools for all popular operating systems that support this API, both command line tools
+and GUI tools. In this world, external access is natural. 
+There is really no difference in accessing LUMI-O from LUMI or from any other
+internet-connected computer. It is even possible to access LUMI-O via a web browser
+if such access is set up properly. It is documented in the bottom parts of the
+["Advanced usage of LUI-O" page in the LUMI docs](https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#sharing-data-with-other-projects).
+
+
+***MDS and ODS***
+
+Both Lustre and the Ceph object storage system work with metadata servers (MDS) and object data servers (ODS),
+but this is where the similarities end. The internal organisation of MDS and ODS is 
+completely different in both, but those differences are not that important at the
+level of this tutorial.
+
+
+***Parallelism is key to performance***
+
+Both Lustre and LUMI-O require parallel access to get the optimal performance. How that parallelism is best organised,
+is very different though.
+
+Lustre will perform best when large accesses are made to large files by multiple processes preferably on 
+multiple nodes of the supercomputer. Parallelism through accessing different files from each process will
+be far less performant and may even lead to an overload on the metadata servers.
+
+The object storage is different in that respect: As operations on objects are atomic, they should
+also be accessed from a single process. But multiple processes or threads should access multiple 
+objects simultaneously for optimal access. However, even in those cases the bandwidth will be 
+somewhat limited as the network connection between LUMI-O and LUMI is a lot less as between
+the Lustre object data servers and the LUMI compute nodes, as both are fully integrated in the
+same high performance interconnect.
+
+
+***Cost***
+
+The hardware required for Lustre may not be as expensive as for some other fileservers, but a hard disk
+based Lustre filesystem is still not cheap and if you want a performant flash based filesystem that can
+endure a high write load also and not only a high read load, it is very expensive. The LUMI-O hardware 
+is a lot cheaper, though this is also partly because it has a lower bandwidth.
+
+The billing units accounted for storage on LUMI reflect the purchase cost per petabyte for LUMI-O and 
+the Lustre filesystems, with the object storage billed at half the price of the hard disk based Lustre
+filesystems and the flash based Lustre filesystem at 10 times the cost of the hard disk based one.
+
 
 <figure markdown style="border: 1px solid #000">
   ![Slide Lustre vs LUMI-O (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LustreVsLUMIO_3.png){ loading=lazy }
@@ -91,23 +257,30 @@ Or: What are the differences between a parallel filesystem and object storage?
   ![Slide Accessing LUMI-O](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOAccessing.png){ loading=lazy }
 </figure>
 
-Access to LUMI-O is based on temporary keys that need to be generated via a web interface
-(though there may be alternatives in the future).
+Access to LUMI-O is based on temporary credentials that need to be generated via 
+one of two web interfaces: Either a dedicated credential management portal,
+or the Open OnDemand interface to LUMI that we discussed in the 
+["Getting access" session](03-Access.md).
 
 There are currently three command-line tools pre-installed on LUMI: 
 [rclone](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone)
 (which is the easiest tool if you want public and private data), 
 [s3cmd](https://docs.lumi-supercomputer.eu/storage/lumio/#s3cmd) 
 and [restic](https://docs.lumi-supercomputer.eu/storage/lumio/#restic).
+All these tools are made available through the `lumio` module that can
+be loaded in any software stack.
+
+The []`boto3` Python package](https://pypi.org/project/boto3/) 
+is a good choice if you need programmatic access to
+the object storage. Note that you need to use fairly recent versions which in turn
+require a more recent Python than the system Python on LUMI (but any of the `cray-python`
+modules would be sufficient).
 
 But you can also access LUMI-O with similar tools from outside LUMI. Configuring them
 may be a bit tricky and the LUMI User Support Team cannot help you with each and every client
 tool on your personal machine. However, the web interface that is used to generate the keys,
 can also generate code snippets or configuration file snippets for various tools, and
 that will make configuring them a lot easier.
-
-In the future access via Open OnDemand should also become possible.
-
 
 
 ### Credential management web interface
@@ -160,7 +333,7 @@ Let's walk through the interface:
     Now click on the key to get more information about the key: 
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface (5)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsWebCreate_05.png){ loading=lazy }
+      ![Slide Credentials management web interface: Check credentials](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsWebCheck.png){ loading=lazy }
     </figure>
 
     At the top of the screen you see three elements that will be important if you use the LUMI command line tool
