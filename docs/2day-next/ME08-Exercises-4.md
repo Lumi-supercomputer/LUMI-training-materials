@@ -38,5 +38,5 @@ and then you can load either the module `exercises/small` or `exercises/standard
 
 ## Exercises
 
--   Start with the [exercises on "Slurm on LUMI"](E06-Slurm.md)
--   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E07-Binding.md)
+-   Start with the [exercises on "Slurm on LUMI"](E07-Slurm.md)
+-   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E08-Binding.md)
