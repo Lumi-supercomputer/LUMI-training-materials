@@ -3,7 +3,7 @@
 ## File systems on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![File systems on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/FileSystemLumi.png){ loading=lazy }
+  ![File systems on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/FileSystemLumi.png){ loading=lazy }
 </figure>
 
 Supercomputing since the second half of the 1980s has almost always been about 
@@ -40,11 +40,11 @@ and to reduce the memory footprint of the OS on the compute nodes.
 ## Lustre building blocks
 
 <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreBuildingBlocks1.png){ loading=lazy }
+  ![Lustre building blocks](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreBuildingBlocks1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreBuildingBlocks2.png){ loading=lazy }
+  ![Lustre building blocks (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreBuildingBlocks2.png){ loading=lazy }
 </figure>
 
 A key element of Lustre - but also of other parallel file systems for large parallel
@@ -122,12 +122,12 @@ A Lustre system consists of the following blocks:
 ## Striping: Large files are spread across OSTs
 
 <figure markdown style="border: 1px solid #000">
-  ![Large files are spread across OSTs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreFileStriping.png){ loading=lazy }
+  ![Large files are spread across OSTs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreFileStriping.png){ loading=lazy }
 </figure>
 
 <!--
 <figure markdown>
-  ![Figure striping](../img/08-Lustre_chunks_of_File.svg)
+  ![Figure striping](../img/09-Lustre_chunks_of_File.svg)
    <caption>Striping a file across 4 (non-consecutive) OSTs</caption>
 </figure>
 -->
@@ -170,7 +170,7 @@ And unfortunately there is no single set of parameters that is good for all user
 ## Accessing a file
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing a file](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreFileAccess.png){ loading=lazy }
+  ![Accessing a file](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreFileAccess.png){ loading=lazy }
 </figure>
 
 Let's now study how Lustre will access a file for reading or writing. Let's assume that the
@@ -191,7 +191,7 @@ second client in the above picture wants to write something to the file.
 ## Parallelism is key!
 
 <figure markdown style="border: 1px solid #000">
-  ![Parallelism is key! (slide 1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreParallelismKey_1.png){ loading=lazy }
+  ![Parallelism is key! (slide 1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreParallelismKey_1.png){ loading=lazy }
 </figure>
 
 The metadata servers can be the bottleneck in a Lustre setup. 
@@ -236,7 +236,7 @@ bandwidth to the interconnect and processing capacity of the client software
 of a single node might become the limiting factor.
 
 <figure markdown style="border: 1px solid #000">
-  ![Parallelism is key! (slide 2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreParallelismKey_2.png){ loading=lazy }
+  ![Parallelism is key! (slide 2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreParallelismKey_2.png){ loading=lazy }
 </figure>
 
 Not all codes are using Lustre optimally though, even with the best care of their users.
@@ -291,7 +291,7 @@ deal better with small files are being made, but they may come at a high hardwar
 ## How to determine the striping values?
 
 <figure markdown style="border: 1px solid #000">
-  ![How to determine the striping values?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreDetermineParameters.png){ loading=lazy }
+  ![How to determine the striping values?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreDetermineParameters.png){ loading=lazy }
 </figure>
 
 If you only access relatively small files (up to a few hundreds of kilobytes) and access them 
@@ -332,7 +332,7 @@ with a stripe size of 1 GB you'd be engaging only a single OST for each write op
 ## Managing the striping parameters
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreManageStriping1.png){ loading=lazy }
+  ![Managing the striping parameters (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreManageStriping1.png){ loading=lazy }
 </figure>
 
 The basic Lustre command for regular users to do special operations on Lustre is the
@@ -367,7 +367,7 @@ filesystem, with the capacity.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreManageStriping2.png){ loading=lazy }
+  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreManageStriping2.png){ loading=lazy }
 </figure>
 
 Striping in Lustre is set at a filesystem level by the sysadmins, but users can
@@ -417,11 +417,11 @@ object of the file.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreManageStriping3.png){ loading=lazy }
+  ![Managing the striping parameters (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreManageStriping3.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreManageStriping4.png){ loading=lazy }
+  ![Managing the striping parameters (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreManageStriping4.png){ loading=lazy }
 </figure>
 
 The final subcommand that we will discuss is the `setstripe` subcommand to set the striping policy
@@ -504,11 +504,11 @@ exists).
 ## The metadata servers
 
 <figure markdown style="border: 1px solid #000">
-  ![The metadata servers (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreMDS_1.png){ loading=lazy }
+  ![The metadata servers (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreMDS_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![The metadata servers (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LustreMDS_2.png){ loading=lazy }
+  ![The metadata servers (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LustreMDS_2.png){ loading=lazy }
 </figure>
 
 Parallelising metadata access is very difficult. Even large Lustre filesystems have very
@@ -577,7 +577,7 @@ unfortunately).
 ## Lustre on LUMI
 
 <figure markdown style="border: 1px solid #000">
-  ![Lustre on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Lustre/LumiLustreOnLumi.png){ loading=lazy }
+  ![Lustre on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/LumiLustreOnLumi.png){ loading=lazy }
 </figure>
 
 LUMI has 5 Lustre filesystems:

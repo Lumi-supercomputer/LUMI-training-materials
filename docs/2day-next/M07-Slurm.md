@@ -14,16 +14,16 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/06-Slurm.mp4" controls="controls">
+<video src="https://462000265.lumidata.eu/2day-next/recordings/07-Slurm.mp4" controls="controls">
 </video>
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-06-Slurm.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-07-Slurm.pdf)
 
--   [Course notes](06-Slurm.md)
+-   [Course notes](07-Slurm.md)
 
--   [Exercises](E06-Slurm.md)
+-   [Exercises](E07-Slurm.md)
 
 
 ## Q&A
