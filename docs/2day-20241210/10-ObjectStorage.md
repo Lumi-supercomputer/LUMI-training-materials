@@ -250,6 +250,26 @@ filesystems and the flash based Lustre filesystem at 10 times the cost of the ha
   ![Slide Lustre vs LUMI-O (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LustreVsLUMIO_3.png){ loading=lazy }
 </figure>
 
+The differences between a parallel file system and object storage also translate into differences
+in "file formats" between both (with "file formats" between quotes as we cannot speak about files on
+the object storage). The best way of managing life data on both systems is very different.
+
+Take as an example [netCDF](https://www.unidata.ucar.edu/software/netcdf/) versus the 
+[zarr data format](https://guide.cloudnativegeo.org/zarr/intro.html). 
+Both are popular in, e.g., earth and climate science.
+NetCDF is a file format developed specifically with supercomputers with large parallel file systems
+in mind, while zarr is a cloud-optimised technology. 
+You cannot work with netCDF files from an object storage system as they would be stored as a single
+object and only atomic operations are possible.
+Zarr on the other hand is da format to store large-scale N-dimensional data on an object storage
+system by breaking it up in a structured set of objects that each can be accessed with atomic 
+operations. But if you bring that hierarchy of objects as individual files onto a parallel file system,
+you risk creating problems with the metadata server as you will be dealing with lots of small files.
+
+There is no "best" here: both are different technologies, developed with a specific purpose in mind,
+and which one you should use is hence dictated by the technology that you want to use to store your
+data. 
+
 
 ## Accessing LUMI-O: General principles
 
@@ -260,27 +280,42 @@ filesystems and the flash based Lustre filesystem at 10 times the cost of the ha
 Access to LUMI-O is based on temporary credentials that need to be generated via 
 one of two web interfaces: Either a dedicated credential management portal,
 or the Open OnDemand interface to LUMI that we discussed in the 
-["Getting access" session](03-Access.md).
+["Getting access" session](03-Access.md). 
+We will discuss both options in this chapter of the notes.
 
-There are currently three command-line tools pre-installed on LUMI: 
+There are currently three command-line tools pre-installed on LUMI
+to transfer data back and forth between LUMI and LUMI-O: 
 [rclone](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone)
-(which is the easiest tool if you want public and private data), 
+(which is the easiest tool if you want both public web-accessible and private data), 
 [s3cmd](https://docs.lumi-supercomputer.eu/storage/lumio/#s3cmd) 
 and [restic](https://docs.lumi-supercomputer.eu/storage/lumio/#restic).
 All these tools are made available through the `lumio` module that can
 be loaded in any software stack.
 
-The []`boto3` Python package](https://pypi.org/project/boto3/) 
+The [`boto3` Python package](https://pypi.org/project/boto3/) 
 is a good choice if you need programmatic access to
 the object storage. Note that you need to use fairly recent versions which in turn
 require a more recent Python than the system Python on LUMI (but any of the `cray-python`
-modules would be sufficient).
+modules would be sufficient). As it is better to containerize Python installations with
+many packages on LUMI, and as most users also prefer to work with virtual environments,
+it is not pre-installed on LUMI as it would be impossible to embed it into the Cray
+Python distributions.
 
 But you can also access LUMI-O with similar tools from outside LUMI. Configuring them
 may be a bit tricky and the LUMI User Support Team cannot help you with each and every client
-tool on your personal machine. However, the web interface that is used to generate the keys,
+tool on your personal machine. However, the dedicated credential management web interface
 can also generate code snippets or configuration file snippets for various tools, and
 that will make configuring them a lot easier.
+
+There also exist GUI-based tools for all popular operating systems. Almost every tool
+suitable for AWS S3 storage should also work for LUMI-O when properly configured.
+
+The Open OnDemand web interface also has a tool to show buckets and objects on LUMI-O
+in a folder-like structure (created based on object "names" with slashes) and can be
+used to upload and download objects, but it is not a substitute for the specific tools
+for object storage. When you upload or download via the web browser, you don't talk directly
+to LUMI-O, but you use a web browser that talks to the web server using web APIs, with all
+performance limitations of those protocols, and the web server then talks to LUMI-O.
 
 
 ### Credential management web interface
@@ -289,10 +324,14 @@ that will make configuring them a lot easier.
   ![Slide Credential management web interface](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialWebOverview.png){ loading=lazy }
 </figure>
 
-Keys are generated via a web interface that can be found at
+One way to create the credentials to access LUMI-O, is via the
+the credential management web interface that can be found at
 [auth.lumidata.eu](https://auth.lumidata.eu).
-In the future it should become possible to do so directly in the Open OnDemand interface,
-and may even from the command line.
+This system runs independently from LUMI, just as the object storage 
+itself, and usually remains available during downtimes of LUMI.
+So even though you may prefer creating credentials via Open OnDemand, it
+is good to learn to use this system as it can still give you access to your 
+data on LUMI-O while LUMI is down for maintenance.
 
 Let's walk through the interface:
 
@@ -318,10 +357,11 @@ Let's walk through the interface:
       ![Slide Credentials management web interface (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsWebCreate_03.png){ loading=lazy }
     </figure>
 
-    Click the project for which you want to generate a key, and the column to the right will appear.
-    Chose how long the key should be valid (1 week or 168 hours is the maximum currently, but the
-    life can be extended) and a description for the key. The latter is useful if you generate multiple
-    keys for different use. E.g., for security reasons you may want to use different keys from different
+    Click the project for which you want to generate access credentials (called "authentication keys"
+    or "access keys" in the interface), and the column to the right will appear.
+    Chose how long the authentication key should be valid (1 week or 168 hours is the maximum currently, but the
+    life can be extended) and a description for the authentication key. The latter is useful if you generate multiple
+    keys for different use. E.g., for security reasons you may want to use different authentication keys from different
     machines so that one machine can be disabled quickly if the machine would be compromised or stolen.
 
     Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
@@ -338,7 +378,9 @@ Let's walk through the interface:
 
     At the top of the screen you see three elements that will be important if you use the LUMI command line tool
     `lumio-conf` to generate configuration files for `rclone` and `s3cmd`: the project number (but you knew that one),
-    the "Access key" and "Secret key".
+    the "Access key" and "Secret key". The access key and secret key will also be needed if you configure other clients,
+    e.g., a GUI client on your laptop, by hand. The other bit of information that is useful if you configure tools by hand,
+    is the endpoint URL, which is "https://lumidata.eu/" and is not shown in the interface.
 
     Scrolling down a bit more:
 
@@ -347,6 +389,13 @@ Let's walk through the interface:
     </figure>
 
     The "Extend key" field can be used to extend the life of the key, to a maximum of 168 hours past the current time.
+    You can extend the life of an access key as often as you can, but it is not possible to create an access key that 
+    remains valid for more than 168 hours. This is done for security reasons as now a compromised key can only be
+    used for a limited amount of time, even if you haven't noticed that the access key has been compromised and hence
+    fail to invalidate the access key in the interface.
+
+    The credential management interface can also be used to generate snippets for configuration files for
+    various tools:
 
     <figure markdown style="border: 1px solid #000">
       ![Slide Credentials management web interface: Configuring tools (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsWebToolConfig_01.png){ loading=lazy }
@@ -368,9 +417,10 @@ Let's walk through the interface:
 ### Credential management through Open OnDemand
 
 <figure markdown style="border: 1px solid #000">
-    ![Slide Credentials management through Open OnDemand (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_01.png){ loading=lazy }
+  ![Slide Credentials management through Open OnDemand (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_01.png){ loading=lazy }
 </figure>
 
+TODO
 
 
 ## Configuring LUMI-O tools through a command line interface
@@ -379,19 +429,27 @@ Let's walk through the interface:
   ![Slide Configuring LUMI-O tools](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCLIToolConfig.png){ loading=lazy }
 </figure>
 
-On LUMI, you can use the `lumnio-conf` tool to configure `rclone` and `s3cmd`. 
+On LUMI, you can use the `lumio-conf` tool to configure `rclone` and `s3cmd`. 
 To access the tool, you need to load the `lumio` module first, which is always available.
 The same module will also load a module that makes `rclone`, `s3cmd` and `restic` available.
 
-Whe starting `lumio-conf`, it will present with a couple of questions: The project number
+Whe starting `lumio-conf`, it will present you with a couple of questions: The project number
 associated with the key, the access key and the secret key. We have shown above where in the web
 interface that information can be found. A future version may or may not be more automatic.
 As we shall see in the next slide, currently the `rclone` configuration generated by this tool
-is (unfortunately) different from the one generated by the web interface.
+is (unfortunately) different from the one generated by either the credential management web 
+interface or Open OnDemand.
 
 Another way to configure tools for object storage access is simply via the code snippets
 and configuration files snippets as has already been discussed before. The same snippets 
 should also work when you run the tools on a different computer.
+E.g., for rclone the configuration file on Linux is
+`~/.config/rclone/rclone.conf`
+and the code snippet can be added to that file (or replace an earlier code snippet
+for the same project). These code snippets can also be used to configure tools on 
+your own laptop or other systems that you have access to. As we have discussed already,
+there is no difference in accessing LUMI-O from LUMI or from other systems if the same
+tools are used.
 
 
 ### Remark: rclone configurations on LUMI-O
@@ -410,8 +468,21 @@ both ways discussed on the previous slide, produce different end points.
         possible to have both types in a single bucket though.
 -   When using the web generator you get specific end points for each project, so it is possible
     to access data from multiple projects simultaneously from a single configuration file:
-    - `lumi-46YXXXXXX-private` is the end point to be used for buckets and objects that should be private, and
-    - `lumi-46YXXXXXX-public` is the end point for data that should be publicly accessible.
+    -   `lumi-46YXXXXXX-private` is the end point to be used for buckets and objects that should be private, and
+    -   `lumi-46YXXXXXX-public` is the end point for data that should be publicly accessible.
+
+
+## Policies and ACLs
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Policies and ACLs](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/PoliciesACLs.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Policies and ACLs: Examples](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/PoliciesACLsExamples.png){ loading=lazy }
+</figure>
+
+
 
 
 ## Tips & tricks
@@ -419,7 +490,6 @@ both ways discussed on the previous slide, produce different end points.
 <figure markdown style="border: 1px solid #000">
   ![Slide Tips & tricks](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/TipsAndTricks_01.png){ loading=lazy }
 </figure>
-
 
 A description of the main `rclone` commands is outside the scope of this tutorial, but some options
 are discussed in [the LUMI documentation](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone),
@@ -440,7 +510,17 @@ for even more documentation.
     -   [S3cmd tools usage](https://s3tools.org/usage)
     -   [restic documentation](https://restic.readthedocs.io/en/latest/)
 
+<!--
+-   Other tools that we've successfully used:
 
+    -   [rclone browser](https://kapitainsky.github.io/RcloneBrowser/).
+        It uses the regular rclone configuration file on macOS (`~/.config/rclone/rclone.conf`
+        as mentioned above). TODO: Windows?
 
+        It hasn't seen any new release since 2020 though so is mostly abandonware.
 
+    -   We've had some success with [CommanderOne](https://ftp-mac.com/)
+        on macOS, but this is a commercial package.
+
+-->
 
