@@ -110,17 +110,12 @@ Just some examples of using the wrong tools or infrastructure:
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.
 
--   **And supercomputers need proper software that exploits the strengths and works around the weaknesses
+-   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
     of their architecture.**  
-    CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
-    HPC and less cloud and that they expected a 40% cost reduction that way. A few years later they
-    published a paper with their experiences and it was mostly disappointment. The HPC infrastructure
-    didn't fit their model for software distribution and performance was poor. Basically their solution
-    was designed around the strengths of a typical cloud infrastructure and relied precisely on those things
-    that did make their cloud infrastructure more expensive than the HPC infrastructure they tested. It relied
-    on fast local disks that require a proper management layer in the software, (ab)using the file system as
-    a database for unstructured data, a software distribution mechanism that requires an additional daemon
-    running permanently on the compute nodes (and local storage on those nodes), ...
+    Supercomputers are optimised to run very scalable applications cost-efficiently, but that
+    requires well parallelised software and data storage in a proper way so that data can be 
+    streamed in and out of the machine efficiently from big shared filesystems that are also 
+    optimised more for bandwidth than small individual operations. 
 
 True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
