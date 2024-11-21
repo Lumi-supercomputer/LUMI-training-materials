@@ -1,5 +1,10 @@
 # LUMI-O object storage
 
+TODO:
+*   clear up confusion key and name
+*   Talk about pseudo-folders similar as in the CSC Allas documentation
+*   Add OOD stuff.
+
 ## Why do I kneed to know this?
 
 <figure markdown style="border: 1px solid #000">
@@ -382,6 +387,20 @@ Let's walk through the interface:
     e.g., a GUI client on your laptop, by hand. The other bit of information that is useful if you configure tools by hand,
     is the endpoint URL, which is "https://lumidata.eu/" and is not shown in the interface.
 
+    !!! Note "Note: One more configuration parameter"
+        LUMI-O requires path-style (https://projectnum.lumidata.eu/bucket) addressing to buckets while
+        not the virtual-hosted style (https://bucket.projectnum.lumidata.eu) is not supported.
+        From a technical point of view, this is because the 
+        `*.lumidata.eu` wildcard TLS certificate can only represent one layer of subdomains
+        which is used for the project numbers.
+
+        Many clients default to this, but some will require a configuration option or an environment variable.
+        Commonly used parameters and environment variables are `use_path_style`, `force_path_style`
+        or `S3_FORCE_PATH_STYLE`. Notably `aws-sdk` defaults to trying virtual-hosted style when reading public buckets.
+
+        Note that we can only give hints on how to do things, but the LUMI User Support Team cannot support any
+        possible client and certainly not commercial ones to which we cannot get access.
+
     Scrolling down a bit more:
 
     <figure markdown style="border: 1px solid #000">
@@ -478,10 +497,174 @@ both ways discussed on the previous slide, produce different end points.
   ![Slide Policies and ACLs](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/PoliciesACLs.png){ loading=lazy }
 </figure>
 
+Access to buckets and objects is controlled through policies and access control lists (ACLs).
+
+Policies are set at the bucket level only, but it is possible to build very complex
+policies that restrict access to some objects. It is a very powerful mechanism,
+but also one that is rather hard to use. In Ceph, the object storage system on LUMI,
+policies are a relatively new addition. Ceph policies are a subset of the policies
+on Amazon AWS S3 storage. There is some information on policies in the
+["Advanced usage of LUMI-O" section of the LUMI docs](https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#granular-access-management)
+and the [section on "Bucket Policies" in the Ceph Reef documentation](https://docs.ceph.com/en/reef/radosgw/bucketpolicy/)
+is also relevant.
+
+ACLs are a less sophisticated mechanism. They can be applied to both buckets and objects.
+However, they can only add rights and not take rights away. Moreover, they need to be
+applied to each object in a bucket separately (though commands will usually provide 
+an option to apply them recursively to all objects in a bucket or maybe even pseudo-folder).
+They are an easy way though to make an bucket or an individual object public.
+
+Note that a private bucket can contain public objects which you can then still see through,
+e.g., a web browser if you know the name of an object, or a bucket can be public but contain
+only private objects in which case you can only list the objects.
+
+When using `rclone` on LUMI, specific access control lists will be attached to each object 
+depending on which end point name you have used.
+
+
+### Some examples
+
 <figure markdown style="border: 1px solid #000">
   ![Slide Policies and ACLs: Examples](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/PoliciesACLsExamples.png){ loading=lazy }
 </figure>
 
+The `s3cmd` command is your friend if you want to inspect or change policies and
+ACLs on LUMI. It is available via the `lumio` module.
+
+1.  You can make a bucket and all objects in it public with
+
+    ```
+    s3cmd setacl --recursive --acl-public s3://bucket/ 
+    ```
+
+    (replace "bucket" with the name of the bucket) or private with
+
+    ```
+    s3cmd setacl --recursive --acl-private s3://bucket/
+    ```
+
+2.  You can grant or revoke read rights to a bucket with
+
+    ```
+    s3cmd setacl --acl-grant=’read:465000000$465000000’ s3://bucket
+    s3cmd setacl --acl-revoke=’read:465000000$465000000’ s3://bucket
+    ```
+
+    Note the use of single quotes as we want to avoid that the Linux shell interpretes
+    `$465000000` as a (non-existent) environment variable. And of course, replace "465000000"
+    with your project number.
+
+    One can also grant or revoke read rights to an object in a similar way.
+
+3.  Checking the current ACLs and more of an object, can also be done with the `s3cmd` command.
+
+    Some examples (but you cannot try them yourself as you'd need access credentials for the 
+    462000265 project that contains those buckets and objects):
+
+    -   A bucket used to serve the images on this page:
+
+        ```
+        s3cmd info s3://2day-20241210
+        ```
+
+        produces
+
+        ```
+        s3://2day-20241210/ (bucket):
+          Location:  lumi-prod
+          Payer:     BucketOwner
+          Ownership: none
+          Versioning:none
+          Expiration rule: none
+          Block Public Access: none
+          Policy:    none
+          CORS:      none
+          ACL:       *anon*: READ
+          ACL:       LUMI training material: FULL_CONTROL
+          URL:       http://lumidata.eu/2day-20241210/
+        ```
+
+        Note the ACL "`*anon*: READ`" in the output, showing that this is a public bucket.
+
+    -   An example of an object in that bucket:
+
+        ```
+        s3cmd info s3://2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png
+        ```
+
+        where the output shows again that this is a public object:
+
+        ```
+        s3://2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png (object):
+          File size: 4384337
+          Last mod:  Thu, 21 Nov 2024 14:55:47 GMT
+          MIME type: image/png
+          Storage:   STANDARD
+          MD5 sum:   69e1f1460cff3fca79730530e7fb28d7
+          SSE:       none
+          Policy:    none
+          CORS:      none
+          ACL:       *anon*: READ
+          ACL:       LUMI training material: FULL_CONTROL
+          URL:       http://lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png
+          x-amz-meta-mtime: 1732200870.757744714
+        ```
+
+    -   However, if you try
+
+        ```
+        s3cmd info s3://4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf
+        ``` 
+
+        you get
+
+        ```
+        s3://4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf (object):
+          File size: 1299322
+          Last mod:  Wed, 06 Nov 2024 09:28:35 GMT
+          MIME type: application/pdf
+          Storage:   STANDARD
+          MD5 sum:   9f2ec727731feba562c401fb0cb156c1
+          SSE:       none
+          Policy:    none
+          CORS:      none
+          ACL:       LUMI training material: FULL_CONTROL
+          x-amz-meta-mtime: 1730109719.352306659
+        ```
+
+        you see that there is no ACL "`*anon*: READ`" as this is a private object, and even though
+        the bucket it is in is public: 
+
+        ```
+        s3cmd info s3://4day-20241028/
+        ```
+
+        shows
+
+        ```
+        s3://4day-20241028/ (bucket):
+          Location:  lumi-prod
+          Payer:     BucketOwner
+          Ownership: none
+          Versioning:none
+          Expiration rule: none
+          Block Public Access: none
+          Policy:    none
+          CORS:      none
+          ACL:       *anon*: READ
+          ACL:       LUMI training material: FULL_CONTROL
+          URL:       http://lumidata.eu/4day-20241028/
+        ```
+
+        you'll see that, e.g., accessing
+        [https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf)
+        or
+        [https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf](https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf)
+        produces an error message, while
+        [https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png)
+        or
+        [https://lumidata.eu/462000265:2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png](https://lumidata.eu/462000265:2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png)
+        are links to the object used before in this example and work.
 
 
 
