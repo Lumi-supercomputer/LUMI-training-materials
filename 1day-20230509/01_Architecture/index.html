@@ -3327,44 +3327,6 @@ tools for each infrastructure.</p>
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.</p>
 </li>
-<li>
-<p>CERN came telling on a EuroHPC Summit Week before the COVID pandemic that they would start using more
-    HPC and less cloud and that they expected a 40% cost reduction that way.
-    At that time they were working with CSCS to bring part of the computations to the 
-    Piz Daint system. It turned out to be a lot harder than expected, to quote from the CSCS website:
-    <a href="https://www.cscs.ch/science/physics/2019/piz-daint-takes-on-tier-2-function-in-worldwide-lhc-computing-grid">"The data access patterns and rates of our workflows are not typical of a supercomputer environment. 
-    In addition, for some workflows, certain resource requirements exceed what a 
-    general-purpose supercomputer typically provides; a lot of tuning therefore needs to be put in place."</a>
-    And in the end the conclusion was that 
-    <a href="https://www.cscs.ch/science/physics/2019/piz-daint-takes-on-tier-2-function-in-worldwide-lhc-computing-grid">""Piz Daint" is slightly more cost-effective."</a>.</p>
-<p>Several publications show the work that needed to be done. E.g.,
-<a href="https://doi.org/10.1051/epjconf/202024509005">F.G. Sciacca on behalf of the ATLAS Collaboration, "Enabling ATLAS big data processing on Piz Daint at CSCS", EPJ Web of Conferences <strong>245</strong>, 09005(2020)</a>
-shows that in the end a dedicated partition had to be created as the needs for the LHC
-processing were to different to fit in the regular HPC compute partitions of Piz Daint.
-To quote from the paper, <em><a href="https://doi.org/10.1051/epjconf/202024509005">"A large part of the codebase, like event generators and detector
-simulation toolkits feature legacy code that has historically been developed according to the serial
-paradigm: events are processed serially on a single thread and embarrassingly parallel processing
-occurs for scalability purposes in multi-processor systems. HPC systems, on the contrary are
-usually optimised for scalable parallel software that exploits the tight interconnection between
-nodes and makes use of accelerators. In addition, network and I/O patterns diﬀer greatly from
-those of HEP workloads. This raises the necessity of adapting the HPC to such aspects of the
-HEP computational environment."</a></em></p>
-<p>Additional hardware and system software needed to be brought in, including servers to bring 
-CernVM-FS to the compute nodes in a way compatible with the Cray environment (and its specific
-setup to ensure scalability), and a specifically tuned GPFS file system needed to be installed.
-A significant portion of the cost advantage of an HPC infrastructure was lost due to the 
-cost of all the customizations and additional hardware.</p>
-<p>In the end, CERN did use the HPC infrastructure, but it had to be transformed first to make
-it a bit more similar to a grid infrastructure (somewhat the precursor of cloud for science). 
-It is clear that a center can only adapt an HPC system to such applications if there is a sufficient
-additional budget, not only for the hardware but also for the additional system administration tasks,
-and that the more usual case for all but extremely large projects is that the workflow has
-to adapt to the HPC cluster as even if money and resources would not be a problem, it is not feasible to make
-(likely conflicting) modifications for each project. And a dedicated partition for each
-application is not an option either as that makes it impossible to run large scalable applications
-at the scale of the full machine, which should be the primary goal of a true Tier-0 supercomputer
-as that is impossible on any other machine.</p>
-</li>
 </ul>
 <p>True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
