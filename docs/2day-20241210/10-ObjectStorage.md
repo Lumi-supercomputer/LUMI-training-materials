@@ -1,9 +1,5 @@
 # LUMI-O object storage
 
-TODO:
-*   clear up confusion key and name
-*   Talk about pseudo-folders similar as in the CSC Allas documentation
-*   Add OOD stuff.
 
 ## Why do I kneed to know this?
 
@@ -53,12 +49,13 @@ and is known there as Allas, though LUMI doesn't provide all the functionality o
 LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
 Allas, which is similar to the LUMI object storage system, though LUMI doesn't provide all
 the functionality of Allas.
+<!-- END more general version. -->
 
 Object file systems need specific tools to access data. They are usually not mounted as a regular
 filesystem (though some tools can make them appear as a regular file system) and accessing them
-needs authentication via temporary keys that are different from your ssh keys and are not only
+needs authentication via temporary authentication keys that are different from your ssh keys and are not only
 bound to you, but also to the project for which you want to access LUMI-O. So if you want to use
-LUMI-O for multiple projects simultaneously, you'll need keys for each project.
+LUMI-O for multiple projects simultaneously, you'll need authentication keys for each project.
 
 Object storage is not organised in files and directories. A much flatter structure is used with buckets
 that contain objects:
@@ -68,9 +65,12 @@ that contain objects:
 
 -   **Objects**: Any type of data. An object is stored in a bucket.
 
--   **Metadata**: Both buckets and objects have metadata specific to them. The metadata of a bucket specifies, 
-    e.g., the access rights to the bucket. While traditional file systems have fixed metadata (filename, 
-    creation date, type, etc.), an object storage allows you to add custom metadata.
+-   **Metadata**: Both buckets and objects have metadata specific to them. 
+    One element of the metadata is the name of the bucket or object. But metadata
+    can also contains the access rights to the bucket or object.
+    While traditional file systems have fixed metadata (filename, 
+    creation date, type, etc.), an object storage allows you to add custom metadata
+    in the form of (key, value) pairs.
 
 Objects can be served on the web also. This is in fact how recordings of some of the LUST
 courses are served currently. However, LUMI-O is not meant to be used as a data publishing
@@ -129,6 +129,7 @@ of LUMI do not affect LUMI-O and vice-versa, so LUMI-O is almost always availabl
 LUMI is down. Moreover, the server software of LUMI-O can often be upgraded on-the-fly, without
 noticeable downtime. Client and server also communicate through a web-based API.
 
+
 ***Organisation of data***
 
 The organisation of data is also very different on Lustre and LUMI-O. 
@@ -152,9 +153,12 @@ and object names have to be unique within a bucket.
 Buckets cannot contain other buckets (contrary to directories which can contain other
 directories). Objects are not really arranged in a hierarchy, even though some tools
 make it appear as if this is the case by showing them in a directory tree-like 
-structure, but this structure is really just created based on the "names" of the objects
-(the correct terminology is the key of the object) and you will notice that structuring 
-the objects like this in a view is actually a rather expensive operation in client software.
+structure based on slashes used un the name of the objects, 
+but this structure is really just created based on those names
+and you will notice that structuring 
+the objects like this in a view is actually a rather expensive operation in client software
+as the software always needs to go through all objects in the bucket and select the appropriate
+ones.
 
 Objects are managed through simple atomic operations. One can put an object in the object
 storage, get its content, copy an object or delete an object. But contrary to a file 
@@ -168,6 +172,7 @@ If the upload would get interrupted, the parts would actually continue to live a
 separate objects unless a suitable bucket policy is set
 (and we have run into issues already with a user depleting their quota on LUMI-O with
 stale objects from failed multipart uploads).
+
 
 ***Optimised for?***
 
@@ -323,7 +328,7 @@ to LUMI-O, but you use a web browser that talks to the web server using web APIs
 performance limitations of those protocols, and the web server then talks to LUMI-O.
 
 
-### Credential management web interface
+### The credential management web interface
 
 <figure markdown style="border: 1px solid #000">
   ![Slide Credential management web interface](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialWebOverview.png){ loading=lazy }
@@ -433,14 +438,149 @@ Let's walk through the interface:
     or public (i.e., also web-accessible).
 
 
-### Credential management through Open OnDemand
+### Credential management and access through Open OnDemand
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Credentials management through Open OnDemand (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_01.png){ loading=lazy }
+  ![Slide Credentials management through Open OnDemand Overview](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODOverview.png){ loading=lazy }
 </figure>
 
-TODO
+The LUMI Open OnDemand-based web interface can also be used to generate 
+authentication keys for LUMI-O. It can create configuration files for 
+`rclone` and `s3cmd` but doesn't have all the other features of the dedicated credential
+management web interface discussed above.
+The "Home Directory" app can also be used to browse, download and upload objects and to
+create buckets. It is a tool based on `rclone` and also provides a view similar to many
+other viewers. The view is based on pseudo-folders which we will discuss below.
 
+Note however that this interface is not a replacement for proper tools for access to
+object storage. Uploading and downloading objects is not done via object storage tools, 
+but via web protocols. The web server talks to the object storage using proper tools,
+but to your browser using the regular web API upload and download features. Hence it is
+only suitable for relatively small objects and you'll quickly run into speed restrictions
+that native object storage tools will not have.
+
+Let us now again walk through the interface.
+
+
+!!! Demo "A walk through the Open OnDemand web interface to LUMI-O"
+    *This demo was made with a project that course participants have no access to,
+    but it gives the idea.*
+
+    After entering the URL [www.lumi.csc.fi](https://www.lumi.csc.fi/), you're greeted
+    with the usual login procedure that we discussed already. After logging in, you 
+    get the app overview screen:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Credentials management through Open OnDemand (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_01.png){ loading=lazy }
+    </figure>
+
+    To create an authentication key and to configure `rclone` and `s3cmd`, open the
+    "Cloud storage configuration" app. You will be presented with the following screen:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Credentials management through Open OnDemand (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_02.png){ loading=lazy }
+    </figure>
+
+    At the top of the screen there is an overview of currently configured remotes. This are actually
+    the endpoints for `rclone`. Currently this is still empty as no remotes are configured for the
+    user. Let's scroll down a bit:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Credentials management through Open OnDemand (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_03.png){ loading=lazy }
+    </figure>
+
+    Here we see the part of the screen where we can create an authentication key.
+    First select the project for which you want to create an authentication key.
+    
+    Besides the authentication key, by default an `rclone` endpoint to create buckets and upload objects with 
+    private access only will also be created and this cannot be turned off as the endpoint will also 
+    be used by another app that we discuss later. However, two checkboxes enable the creation of 
+    a config file `~/.s3cfg` sor `s3cmd` and an `rclone` endpoint to create buckets and objects with public
+    access ACL can also be created.
+
+    The `rclone` endpoints are stored in the `rclone` configuration file
+    `~/.config/rclone/rclone.cfg` where they will replace the same endpoints for the project
+    if they are already present. Other endpoints will not be removed from the configuration file.
+
+    Finally, click the "Submit" button. If no suitable key exists, one will be created, and the 
+    requested endpoint and configuration file(s) will be created or updated. When a key is created,
+    it is created with the maximum life span of 7 days (168 hours), but if a suitable one exists, it is
+    currently not extended. (It appears that only a key with the description
+    "lumi web interface" is properly recognised as the other key already existed but had its
+    life span extended.)
+
+    We now notice some changes at the top of that screen:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Credentials management through Open OnDemand (4)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_04.png){ loading=lazy }
+    </figure>
+
+    We've created both a private and a public `rclone` endpoint with the name
+    `lumi-465000095-private` and `lumi-465000095-public` respectively. These endpoints can also be used
+    with the command line `rclone` tool provided by the `lumio` module.
+
+    The "Delete" button can used to delete the endpoint only, but the authentication key will not be revoked, i.e., the
+    key remains valid. The "Revoke" button will invalidate the key and destroy the `rclone` endpoint(s) as 
+    they don't make sense anymore.
+
+    Let's check the previously discussed dedicated web credentials portal:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Credentials management through Open OnDemand (5)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_05.png){ loading=lazy }
+    </figure>
+
+    A key with the description "lumi web interface" is now visible, and this interface can still be used to 
+    extend its life span or create configuration file snippets for other tools. It is just another key.
+
+    (The screenshot is a bit misleading here. The other key "Laptop" actually existed but was not picked up by
+    Open OnDemand, it is just that its life span was extended before making this screenshot which was probably a
+    bad choice.)
+
+    Let's now also have a look at another Open OnDemand app that enables us to browse buckets and objects for the project
+    for which we have created credentials:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Browsing through Open OnDemand (1)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODBrowse_01.png){ loading=lazy }
+    </figure>
+
+    We went back to the start screen of Open OnDemand and now open the "Home Directory" app.
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Browsing through Open OnDemand (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODBrowse_02.png){ loading=lazy }
+    </figure>
+
+    We now see our home directory and project, scratch and flash directory for all our projects, but also the two 
+    endpoints that we just created (assuming we did indeed select the check box to create a public endpoint also). The screenshot
+    is taken after selecting `lumi-465000095` in the left column and shows the buckets available to that project. Note that they
+    are shown in exactly the same way as directories (folders) would be shown for the regular filesystem, but in fact, they are 
+    buckets with, e.g., all the naming restrictions of buckets. 
+
+    Let's now select the `training-materials-web` bucket to arrive at:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Browsing through Open OnDemand (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODBrowse_03.png){ loading=lazy }
+    </figure>
+
+    At the top of the right pane we now see the "path" `lumi-465000095-public:/training-materials-web/`.
+    This however is a pseudo-path: The first element is actually the rclone endpoint while the second element is the name of
+    the bucket. The screen also shows the folder `intro-evolving`. This is neither a bucket nor a true folder. It is an artificial
+    creation and if we click a bit further we will see what's going on:
+
+    <figure markdown style="border: 1px solid #000">
+      ![Slide Browsing through Open OnDemand (4)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODBrowse_04.png){ loading=lazy }
+    </figure>
+
+    The top bar now shows `lumi-465000095-public:/training-materials-web/intro-evolving.files/` while we also get a list
+    of elements that look like files. These are the objects, but don't be mistaken: The name of the first object in the 
+    list is not `exercises-evolvong.tar`, but it is the object named 
+    `intro-evolving/files/exercises-evolving.tar` in the bucket `training-materials-web` in the project `46500095`.
+    The slashes in the name are used to create a "pseudo-folder" view to bring more structure into the flat space of
+    objects, but the organisation internally in object storage is completely different from a regular filesystem.
+
+    Note that we would also see the same objects had we used the `lumi-465000095-private` endpoint in the right column:
+    Both are endpoints for the same project and the browser cannot distinguish between objects created via one or the
+    other endpoint. Those endpoints only matter when creating an object as they determine access rights.
+  
 
 ## Configuring LUMI-O tools through a command line interface
 
@@ -452,8 +592,8 @@ On LUMI, you can use the `lumio-conf` tool to configure `rclone` and `s3cmd`.
 To access the tool, you need to load the `lumio` module first, which is always available.
 The same module will also load a module that makes `rclone`, `s3cmd` and `restic` available.
 
-Whe starting `lumio-conf`, it will present you with a couple of questions: The project number
-associated with the key, the access key and the secret key. We have shown above where in the web
+When starting `lumio-conf`, it will present you with a couple of questions: The project number
+associated with the authentication key, the access key and the secret key. We have shown above where in the web
 interface that information can be found. A future version may or may not be more automatic.
 As we shall see in the next slide, currently the `rclone` configuration generated by this tool
 is (unfortunately) different from the one generated by either the credential management web 
@@ -489,6 +629,11 @@ both ways discussed on the previous slide, produce different end points.
     to access data from multiple projects simultaneously from a single configuration file:
     -   `lumi-46YXXXXXX-private` is the end point to be used for buckets and objects that should be private, and
     -   `lumi-46YXXXXXX-public` is the end point for data that should be publicly accessible.
+
+The reason for this is that `lumio-conf` also creates a configuration file for `s3cmd`.
+That configuration file cannot contain information for multiple projects, and hence the 
+rclone configuration file generated by `lumio-conf` was also not set up with multiple projects
+in mind.
 
 
 ## Policies and ACLs
@@ -668,6 +813,88 @@ ACLs on LUMI. It is available via the `lumio` module.
 
 
 
+## Sharing data
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Sharing data](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/SharingData.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Sharing data: Pre-signed URLs](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/SharingDataPresignedURL.png){ loading=lazy }
+</figure>
+
+LUMI-O is also a nice solution to share data between projects and with the outside world. 
+But note that this does not turn LUMI-O in a data publication and archiving service. There
+are specific services for that in Europe (e.g., [EUDAT](https://www.eudat.eu/) offerings).
+Each solution has its own limitations though:
+
+1.  Public buckets and objects can be read by anyone in the world, even with a simple web browser.
+    Whether all objects can be listed or not, depends on the read rights of the bucket. But just as
+    it is possible in Linux/UNIX to make a file readable in an otherwise unreadable directory (so 
+    an `ls` on the directory would not work), this is also possible on LUMI-O by using a private
+    bucket with a public object.
+
+    Using public objects is actually used to serve the slides and presentations in this course.
+
+2.  It is also possible to grant specific projects access to buckets and objects of another project.
+    This is done via access control lists and has already been discussed in the previous examples.
+
+    The way to access those buckets and objects then differs between `s3cmd` and `rclone`:
+
+    -   As `s3cmd` knows only one set of authentication tokens, it is not needed to indicate which
+        credentials should be used if the `~/.s3cfg` file is correct. E.g., listing all objects in 
+        the bucket "bucket" of project "46XXXXXXX" can be done with:
+
+        ```
+        s3cmd ls s3://46XXXXXXX:bucket/
+        ```
+
+        so you need to specify - as one could expect as the bucket namespace is per project - the bucket 
+        and the project that contains the bucket.
+
+    -   The `rclone` configuration file can contain multiple endpoints for multiple projects, so here
+        we will also need to specify the endpoint from which the credentials should be used. Assume
+        that a user in project 46AAAAAAA has been given read rights to the bucket "bucket" in project
+        "46XXXXXXX" and has an endpoint `lumi-46AAAAAAA-private` configured, then that user can list
+        the objects in that bucket with:
+
+        ```
+        rclone ls lumi-46AAAAAAA-private:"46XXXXXXX:bucket"
+        ```
+
+3.  The third technique is using presigned URLs. These are URLs created specifically for access to
+    a specific bucket or object. Everyone with the URL can access the bucket or object, without further
+    authentication. It is possible to create a link with a limited validity period (and this is actually
+    a good idea as URLs can fall in the wrong hands.)
+
+    Presigned URLs depend on the authentication key that was used to create them. If the authentication key
+    expires or is revoked, the link will no longer be valid, even if this happens within the validity period
+    of the link. And it is also possible to revoke the link.
+
+    Presigned URLs can be created and managed through the `rclone link` command. E.g.,
+
+    ```
+    rclone link --expire 2d lumi-46YXXXXXX-private:bucket/object
+    ```
+
+    will print a URL that can be used to access the object "object" in the bucket "bucket" of project
+    46YXXXXXX, and that link will expire automatically 48 hours after creation.
+
+4.  The most rudimentary method for data sharing with another user is of course to simply invite that user
+    to the project. Then data can even be shared in the `/project`, `/scratch` and `/flash` directory of
+    the project and not only on LUMI-O. 
+
+    This is however not always possible.
+
+    -   Users that entered the system through Puhuri, i.e., a project with a project number starting with
+        465 cannot always be invited to a CSC project (projects starting with 462). They would first need to get
+        a CSC userid to have access to myCSC and may end up with a second userID on LUMI.
+
+    -   Users who entered LUMI though Puhuri, i.e., a 462 project, need to 
+        [link their account first to MyAccessID](https://docs.csc.fi/accounts/how-to-manage-user-information/)
+        or they would get a second userID on LUMI when invited by a Puhuri-managed project. 
+
+
 ## Tips & tricks
 
 <figure markdown style="border: 1px solid #000">
@@ -678,6 +905,13 @@ A description of the main `rclone` commands is outside the scope of this tutoria
 are discussed in [the LUMI documentation](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone),
 and the same page also contains some documentation for `s3cmd` and `restic`. See the links below
 for even more documentation.
+
+Note also that sharing data from project A with project B does not protect the data from being 
+deleted when project A ends. If the data on LUMI-O is in the space of project A, then that data
+will be deleted after the 90-day grace period after the end of the project, even if project B is
+still a valid project. On LUMI-O, data is not deleted while a project is valid, is made read-only
+after the end of a project for a 90-day grace period, and is then queued for deletion, so
+just as for the Lustre filesystems, you need to move out the data in time.
 
 
 ## Further LUMI-O documentation
