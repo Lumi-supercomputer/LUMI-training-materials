@@ -223,7 +223,7 @@ DAY 2
             11:25 CET
             <br/><em>12:25 EET</em>
         </td>
-        <td><b><a href="../extra_10_FileSystems/">Extreme scale AI</a></b>
+        <td><b><a href="../extra_10_FileSystems/">Loading training data from Lustre and LUMI-O</a></b>
         <br/><em>Presenter: Harvey Richardson (AMD)</em>
         </td>
     </tr>

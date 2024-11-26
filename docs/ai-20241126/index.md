@@ -80,8 +80,6 @@ materials are uploaded.
 | [Welcome and course introduction](extra_00_Course_Introduction.md) | / | [video](extra_00_Course_Introduction.md) |
 | [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
 | [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
-
-<!--
 | [Hands-on: Run a simple PyTorch example notebook](E02_Webinterface.md) | / | [video](E02_Webinterface.md) |
 | [Your first AI training job on LUMI](extra_03_FirstJob.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-03-First_AI_job.pdf) | [video](extra_03_FirstJob.md) |
 | [Hands-on: Run a simple single-GPU PyTorch AI training job](E03_FirstJob.md) | / | [video](E03_FirstJob.md) |
@@ -92,6 +90,8 @@ materials are uploaded.
 | [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
 | [Hands-on: Creating a conda environment file and building a container using cotainr](E06_BuildingContainers.md) | / | / |
 | [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
+
+<!--
 | [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
 | [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
 | [Extreme scale AI](extra_00_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |

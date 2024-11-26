@@ -15,9 +15,7 @@ Content:
 
 ## Extra materials
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-03-First_AI_job.pdf)
--->
 
 -   [Hands-on exercises](E03_FirstJob.md)
 
