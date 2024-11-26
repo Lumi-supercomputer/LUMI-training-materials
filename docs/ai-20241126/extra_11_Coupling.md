@@ -8,14 +8,14 @@ Content:
 
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20241126/recordings/12_Coupling.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20241126/recordings/11_Coupling.mp4" controls="controls"></video>
 -->
 
 
 ## Extra materials
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-12-Coupling_Simulation_and_AI.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-11-Coupling_Simulation_and_AI.pdf)
 -->
 
 -   References from the slides:

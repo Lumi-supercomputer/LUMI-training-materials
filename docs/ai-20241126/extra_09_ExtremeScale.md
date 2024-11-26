@@ -1,12 +1,11 @@
 # Extreme-scale AI
 
-*Presenters:* Samuel Antão (AMD) and Harvey Richardson (HPE)
+*Presenters:* Samuel Antão (AMD)
 
 Content:
 
 -   Model parallelism on LUMI via FSDP or DeepSpeed
 -   Scaling beyond a single node 
--   Loading training data from Lustre and LUMI-O
 
 
 <!--

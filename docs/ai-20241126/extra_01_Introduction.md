@@ -17,9 +17,7 @@ Content:
 
 More materials will become available during and shortly after the course
 
-<!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-02-Using_LUMI_web_UI.pdf)
--->
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-01-Lumi_intro.pdf)
 
 
 ## Q&A
