@@ -3022,7 +3022,43 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>I get this:
+    <div class="highlight"><pre><span></span><code>srun: fatal: SLURM_MEM_PER_CPU, SLURM_MEM_PER_GPU, and SLURM_MEM_PER_NODE are mutually exclusive.
+</code></pre></div></p>
+<ul>
+<li>It is exactly what this said: You cannot combine different ways of requesting memory in a single job. You should make a choice between <code>--mem-per-cpu</code>, <code>--mem-per-gpu</code> or <code>--mem</code>. </li>
+</ul>
+<p>I follow exactly the solution which is --mem-per-gpu.</p>
+<ul>
+<li>Are you launching the job from a Login node shell? If you launch from a Compute node shell it might already have some Slurm settings activated.</li>
+<li>I'm running from vscode terminal.</li>
+</ul>
+</li>
+<li>
+<p>Would <code>--cpus-per-gpu=7</code> also work when allocating on LUMI-G, instead of <code>--cpus-per-task=7 * ngpus</code>?</p>
+<ul>
+<li>
+<p>If you mean as an alternative to <code>--cpus-per-task</code>, then probably, although I haven't tested it.</p>
+</li>
+<li>
+<p>The <code>srun</code> manual is a bit confusing, I'd avoid it as it implies another option which is only for job steps. Or at least check carefully t  first time you use it with techniques we will see later today that you don't get more GPUs in your job allocation than you expected.</p>
+<p>Slurm can sometimes show very unexpected behaviour with some options. They may also conflict with standard options set for some partitions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If we used <code>sbatch run.sh</code>, why do we use srun within it? Is there any advantage of it?</p>
+<ul>
+<li>
+<p><code>sbatch</code> only creates a job allocation. Work in Slurm is usually done in <code>job steps</code>, and they are created with <code>srun</code>. Some options that you specify with <code>sbatch</code> only take effect in regular job steps created with <code>srun</code>. </p>
+<p>Well, I am oversimplifying, as <code>sbatch</code> does create a special job step, called the "batch job step". But that one only has resources on the first node. It basically gets all resources requested on the first node of the job. Settings like <code>--hint=nomultithread</code> (which is actually a default on LUMI) also have no effect in the batch job step.</p>
+<p>In a single-node job <code>srun</code> may not seem useful, but it actually is if you start a multi-process job. Moreover, <code>srun</code> is the only way to get access to other nodes of the job apart from the one on which the batch job step runs. You will see examples later in this course.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

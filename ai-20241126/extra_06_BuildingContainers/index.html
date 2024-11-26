@@ -3106,7 +3106,23 @@ The `cotainr` tool on the other hand will take the selected base image and build
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>In the LUMI stack there are python modules with e.g. numpy compiled against the Cray stack. Since when we build containers with cotainr we mainly use the <code>conda-forge</code> channel, is there a way to have the system libraries inside instead? Kind of like when we bring the system packages into a venv? Or would be the performance gain be negligible anyway?</p>
+<ul>
+<li>
+<p>You'd have to build the Python packages that use those libraries explicitly to use the HPE Cray LibSci libraries, and then make sure that all packages that use, e.g., BLAS use that library, or you may get symbol conflicts when loading software.</p>
+<p>Cray LibSci isn't really superior to other good BLAS libraries. I'm not sure what conda-forge uses, but it is likely OpenBLAS and if that OpenBLAS library they use is compiled properly for multiple architectures, it is likely simply OK. -&gt; Perfect! </p>
+<p>For MPI, there is a high level of compatibility at the binary interface (called the ABI or Application Binary Interface) between different recent MPICH implementations, so there one can often swap out the MPI library - at least if it is MPICH-derived and not Open MPI - for the one on LUMI. There the advantage is significant as the standard libraries do not include proper support for SlingShot, though in some cases, an MPI library that supports libfabric can be told to use the libfabric from the system instead which is enough to get good performance except probably when GPU-aware MPI is required.</p>
+<p>For BLAS, the low-level linear algebra library on top of which many other libraries are built, there is no standardised binary interface and there using another library without recompiling is rarely possible. In principle, if the library that a binary uses (which will usually then be installed in the container) would be too bad, you can try to recompile a version of that library specifically for LUMI, but that would be advanced work.</p>
+<p>For GPU-accelerated programs, it is rather likely that all time critical work is done on the GPU and then it matters to get the communication right (so the RCCL plugin and/or MPI depending on what the software uses) while the linear algebra libraries come from ROCm anyway and contain a code path optimised for the MI250X.</p>
+</li>
+<li>
+<p>I have seen cases though where it would be nice if we could build on top of Cray Python and its numerical libraries, or build NumPy etc outselves, but that is then mainly if we also have to integrate other software that interfaces with Python through a shared library file rather than just an external executable that Python calls. We start seeing this with users who combine machine learning with traditional HPC. We're still exploring ways to build such containers on LUMI, as due to security reasons there are a lot of restrictions for building containers. It is definitely more advanced stuff than can be discussed in this course. There might be a market for an advanced on-line one-day course about building containers on LUMI... -&gt; Sounds very interesting!</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

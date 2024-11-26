@@ -3025,7 +3025,20 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>So using sbatch bills compute time only as long as the scripts are running, while salloc keeps billing for as long as specified even if the scripts stopped running?</p>
+<ul>
+<li>
+<p><strong>(Lukas)</strong> Essentially yes. <code>salloc</code> essentially allocated the resources and then enters into a new shell environment from which all following (srun) commands are run on the compute node. So in a way you are in an interactive terminal on the compute node and as long as that is active you are billed for the resources. As far as I now recall, you can actually step out of it by simply typing <code>exit</code>, which will then also free the allocation.</p>
+</li>
+<li>
+<p>Both bill you for the time of the job, i.e., the time that the resources are set aside for you. With <code>sbatch</code> the job ends when the batch script ends and everything is cleaned up then. With <code>salloc</code>, the job ends when you leave the shell created by <code>salloc</code>, unless you reach the time limit before that, and the resources are only freed for other users when the job ends, i.e., the time limit expires or you leave the shell created by <code>salloc</code>, effectively terminating the <code>salloc</code> command. </p>
+<p>As Lukas said, exit or CTRL-D takes you out of that shell, but be careful if you created subshells into that shell...</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
