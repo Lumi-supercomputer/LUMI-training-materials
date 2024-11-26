@@ -2446,7 +2446,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_10_Coupling/</loc>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_10_FileSystems/</loc>
+         <lastmod>2024-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_11_Coupling/</loc>
          <lastmod>2024-11-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
