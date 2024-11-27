@@ -3,9 +3,7 @@
 *Presenter:* Harvey Richardson(HPE)
 <br/>*Co-author:*  Alessandro Rigazzi (HPE)
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/11_Coupling.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials

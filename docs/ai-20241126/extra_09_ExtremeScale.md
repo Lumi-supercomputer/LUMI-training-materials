@@ -8,9 +8,7 @@ Content:
 -   Scaling beyond a single node 
 
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/09_ExtremeScale.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials

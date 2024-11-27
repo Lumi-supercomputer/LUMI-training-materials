@@ -2,9 +2,7 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/10_TrainingData.mp4" controls="controls"></video>
--->
 
 ## Extra materials
 

@@ -9,9 +9,7 @@ Content:
 -   Setting the correct CPU-GPU bindings
 
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials
