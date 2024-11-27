@@ -249,7 +249,7 @@ DAY 2
             13:30 CET
             <br/><em>14:30 EET</em>
         </td>
-        <td><b>Hands-on: Advancing your own project</b>
+        <td><b><a href="../E12_Project_and_QA">Hands-on: Advancing your own project and Q&A</a></b>
         <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
         </td>
     </tr>

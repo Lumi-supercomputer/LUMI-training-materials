@@ -4,7 +4,7 @@
 
 -   Location: [IT4Innovations, Studentská 6231/1B, Ostrava – Poruba, 708 00, Czech Republic](https://maps.app.goo.gl/HryAYm9wRdSZDpXk9)
 
--   [Tentative schedule](schedule.md)
+-   [Schedule](schedule.md)
 
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-nov24?both)
@@ -87,6 +87,7 @@ materials are uploaded.
 | [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
 | [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
 | [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
+| [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | / |
 
 
 ## Web links

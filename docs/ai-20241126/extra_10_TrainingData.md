@@ -65,38 +65,7 @@ not infinite. LUST cannot grant you storage billing units, that is something you
     -   [Harvey] Lustre uses locks to manage contention to a file and this can be slow if you end up writing to the same parts of a file and particularly if you do that from multiple clients (nodes). I think you can turn off this locking if you are managing the consisteny yourself but this is an advanced topic and we would need to discuss it further.
 
 
-2.  ROCm 6.3 came out yesterday. What improvements can we expect for AI, and is there any chance to get it on LUMI?
-
-    -   I am actually unsure if has been officially released. It has been made available for testing but the actual release should come with release notes in https://rocm.docs.amd.com/en/latest/about/release-notes.html.
-
-    -   ROCm 6.3 has to be tested as it is getting out of expected driver support. Hopefully, it can be made available in a container to start with.
-
-    Looks like someone at AMD has been a bit uncareful then: https://community.amd.com/t5/ai/unlocking-new-horizons-in-ai-and-hpc-with-the-release-of-amd/ba-p/726434 was picked up by a lot of press last night.
-
-
-3.  Is Megatron-LM a possibility on LUMI?
-
-    -   I think TurkuNLP group (University of Turku, Finland) and Silo AI have been using that for training large language models on LUMI. So, yes, although it might not work out-of-the-box, they might be using a version that has been ported to LUMI.
-
-    -   Megatron-Deepspeed is supported in AMD GPUs. There are hipified version of Megatron-LM that have been succesfully hipified for LUMI.
-
-4.  Is ONNX supported?
-
-    -   I haven't tested it myself on LUMI, but I don't see why it wouldn't work.
-
-    -   ONNX runtime should be supported.
-
-5.  If we use accelerate, do we still need to set the torch thread strategy to spawn in our script?
-
-    -   Yes
-
-
-6.  Does it make sense / any advantage to using torch compile with FSDP?
-
-    -   It's difficult to give general guidance around this. It may make sense to your application - is a matter of testing and see if it works as expected.
-
-
-7.  Are "*.parquet" files supported?
+2.  Are "*.parquet" files supported?
 
     -   It should be, this is just a matter of having the right python modules installed.
 

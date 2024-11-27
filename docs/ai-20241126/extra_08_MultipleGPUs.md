@@ -21,4 +21,9 @@ Content:
 
 ## Q&A
 
-/
+1.  Do you have experience of setting cpu affinity for Pytorch Lightning? Is it automatically taken care of?
+
+    -   I don't have experience with Lightning in particular, but I'm pretty sure it doesn't work automatically as the specific setup differs from system to system and there's no easy way to automatically detect it.
+
+
+
