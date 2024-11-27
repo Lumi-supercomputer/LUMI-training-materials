@@ -1,4 +1,4 @@
-# Scaling to multiple GPUs
+# Scaling AI training to multiple GPUs
 
 *Presenters:* Mats Sjöberg (CSC) and Lukas Prediger (CSC)
 
@@ -16,9 +16,7 @@ Content:
 
 ## Extra materials
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-08-Scaling_multiple_GPUs.pdf)
--->
 
 -   [Hands-on exercises](E08_MultipleGPUs.md)
 

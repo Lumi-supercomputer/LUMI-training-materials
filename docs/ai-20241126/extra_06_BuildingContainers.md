@@ -8,9 +8,7 @@ Content:
 -   Recipes for PyTorch, Tensorflow, and JAX/Flax on LUMI
 
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/06_BuildingContainers.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials

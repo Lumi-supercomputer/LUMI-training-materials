@@ -8,9 +8,7 @@ Content:
 -   AMD GPUs instead of NVIDIA
 -   Slingshot Interconnect
 
-<!-- 
-<video src="https://462000265.lumidata.eu/ai-20241126/recordings/01_Introduction.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/ai-20241126/recordings/01_Lumi_Introduction.mp4" controls="controls"></video>
 
 
 ## Extra materials

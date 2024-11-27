@@ -88,7 +88,7 @@ DAY 1
             12:50 CET
             <br/><em>13:50 EET</em>
         </td>
-        <td><b><a href="../extra_04_Workarounds/">Understanding GPU activity & checking jobs</a></b>
+        <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
@@ -97,7 +97,7 @@ DAY 1
             13:10 CET
             <br/><em>14:10 EET</em>
         </td>
-        <td><b><a href="../E04_Workarounds/">Hands-on: Checking GPU usage interactively using rocm-smi</a></b>
+        <td><b><a href="../E04_CheckingGPU/">Hands-on: Checking GPU usage interactively using rocm-smi</a></b>
         </td>
     </tr>
     <tr>
@@ -212,33 +212,33 @@ DAY 2
     </tr>
     <tr>
         <td>
-            11:05 CET
-            <br/><em>12:05 EET</em>
+            11:15 CET
+            <br/><em>12:15 EET</em>
         </td>
         <td><b><a href="../E09_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            11:25 CET
-            <br/><em>12:25 EET</em>
+            11:30 CET
+            <br/><em>12:30 EET</em>
         </td>
-        <td><b><a href="../extra_10_FileSystems/">Loading training data from Lustre and LUMI-O</a></b>
+        <td><b><a href="../extra_10_TrainingData/">Loading training data on LUMI</a></b>
         <br/><em>Presenter: Harvey Richardson (AMD)</em>
         </td>
     </tr>
     <tr>
         <td>
-            11:45 CET
-            <br/><em>12:45 EET</em>
+            12:00 CET
+            <br/><em>13:00 EET</em>
         </td>
         <td><b><em>Lunch break (60 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            12:45 CET
-            <br/><em>13:45 EET</em>
+            13:00 CET
+            <br/><em>14:00 EET</em>
         </td>
         <td><b><a href="../extra_11_Coupling/">Coupling machine learning with HPC simulation</a></b>
         </br><em>Presenter: Harvey Richardson (HPE)</em>
@@ -246,8 +246,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            13:15 CET
-            <br/><em>14:15 EET</em>
+            13:30 CET
+            <br/><em>14:30 EET</em>
         </td>
         <td><b>Hands-on: Advancing your own project</b>
         <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.

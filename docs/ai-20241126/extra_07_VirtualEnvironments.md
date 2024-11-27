@@ -9,9 +9,7 @@ Contents:
 -   Pros, cons and caveats of this approach
 
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/07_VirtualEnvironments.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials

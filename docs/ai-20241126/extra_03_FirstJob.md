@@ -8,9 +8,7 @@ Content:
 -   Submitting and running AI training jobs using the batch system
 
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/03_FirstJob.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials

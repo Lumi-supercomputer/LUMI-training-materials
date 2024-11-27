@@ -2,11 +2,6 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
-Content:
-
--   Coupling workflows, interoperability, frameworks and [SmartSim](https://github.com/CrayLabs/SmartSim).
-
-
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/11_Coupling.mp4" controls="controls"></video>
 -->
@@ -30,7 +25,7 @@ Content:
 
         -   Talk: "Reducing the overhead of coupling machine learning models between Python and Fortran"
             [YouTube video](https://www.youtube.com/watch?v=Ei6H_BoQ7g4)
-            and [slides](https://jackatkinson.net/slides/RSECon23/RSECon23.html#/title-slide)
+            and [slides](https://jackatkinson.net/slides/)
 
     -   Interoperability at framework level:
 
