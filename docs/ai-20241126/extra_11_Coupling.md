@@ -1,6 +1,7 @@
 # Coupling machine learning with HPC simulation
 
-*Presenter:* Harvey Richardson (HPE)
+*Presenter:* Harvey Richardson(HPE)
+<br/>*Co-author:*  Alessandro Rigazzi (HPE)
 
 <!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/11_Coupling.mp4" controls="controls"></video>
@@ -9,9 +10,7 @@
 
 ## Extra materials
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-11-Coupling_Simulation_and_AI.pdf)
--->
 
 -   References from the slides:
 
@@ -33,9 +32,13 @@
             on [GitHub](https://github.com/scientific-computing/FKB)
             and [paper on arXiv](https://arxiv.org/abs/2004.10652)
 
-    -   [CrayLabs SmartSim on GitHub](https://github.com/CrayLabs/SmartSim)
-        and the [SmartSim Example Zoo on GitHub](https://github.com/CrayLabs/SmartSim-Zoo)
+    -   CrayLabs SmartSim:
 
+        -   [CrayLabs SmartSim on GitHub](https://github.com/CrayLabs/SmartSim)
+
+        -   [SmartSim Example Zoo on GitHub](https://github.com/CrayLabs/SmartSim-Zoo)
+
+        -   [Archer2 webinar "Exploring new computations frontiers with SmartSim"](https://www.archer2.ac.uk/training/courses/241024-smartsim-vt/)
 
 ## Q&A
 

@@ -95,10 +95,8 @@ materials are uploaded.
 | [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
 | [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
 | [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
-
-<!--
 | [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
--->
+
 
 ## Web links
 

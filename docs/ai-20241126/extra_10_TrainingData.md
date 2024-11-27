@@ -8,9 +8,7 @@
 
 ## Extra materials
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Training_Data_on_LUMI.pdf)
--->
 
 -   Links from the "More Information" slide:
 
@@ -56,7 +54,7 @@ not infinite. LUST cannot grant you storage billing units, that is something you
 
 ## Q&A
 
-3.  What would be the preferred way to manage concurrent writing to the same file on the shared FS? Say I have a big inference job, and I want to flush the predictions to disk without keeping them in memory. One possible (naive) solution is to assign separate files to each process and then concatenate them when the inference is done. But this has the downside to require more storage than necessary, if we would be able to save such predictions to the same file. I have tried using Dask, but Dataframe support for GPU is limited to NVIDIA GPUs, unless we recompile it ourselves.
+1.  What would be the preferred way to manage concurrent writing to the same file on the shared FS? Say I have a big inference job, and I want to flush the predictions to disk without keeping them in memory. One possible (naive) solution is to assign separate files to each process and then concatenate them when the inference is done. But this has the downside to require more storage than necessary, if we would be able to save such predictions to the same file. I have tried using Dask, but Dataframe support for GPU is limited to NVIDIA GPUs, unless we recompile it ourselves.
 
     -   Usually using a single data container to be accessed by different processes, potentially from different nodes, perform best if one sets some sort of stripping in Lustre FS for the folder where that file resides. It will cause that file to be chunked over different FS servers (details on this would be given in the talk before lunch) which means you can have each node writting/reading to/from different I/O servers, maximizing I/O BW. Specialised containers, like HDF5, also offer mechanisms to coordinate the reads and writes from different processes - a given process can read a piece of data (from FS - slower) and pass it to some other process over MPI ( node-tonode - faster). These containers will benefit of proper stripping as well.
 
@@ -68,4 +66,43 @@ not infinite. LUST cannot grant you storage billing units, that is something you
 
     -   [Harvey] Lustre uses locks to manage contention to a file and this can be slow if you end up writing to the same parts of a file and particularly if you do that from multiple clients (nodes). I think you can turn off this locking if you are managing the consisteny yourself but this is an advanced topic and we would need to discuss it further.
 
+
+2.  ROCm 6.3 came out yesterday. What improvements can we expect for AI, and is there any chance to get it on LUMI?
+
+    -   I am actually unsure if has been officially released. It has been made available for testing but the actual release should come with release notes in https://rocm.docs.amd.com/en/latest/about/release-notes.html.
+
+    -   ROCm 6.3 has to be tested as it is getting out of expected driver support. Hopefully, it can be made available in a container to start with.
+
+    Looks like someone at AMD has been a bit uncareful then: https://community.amd.com/t5/ai/unlocking-new-horizons-in-ai-and-hpc-with-the-release-of-amd/ba-p/726434 was picked up by a lot of press last night.
+
+
+3.  Is Megatron-LM a possibility on LUMI?
+
+    -   I think TurkuNLP group (University of Turku, Finland) and Silo AI have been using that for training large language models on LUMI. So, yes, although it might not work out-of-the-box, they might be using a version that has been ported to LUMI.
+
+    -   Megatron-Deepspeed is supported in AMD GPUs. There are hipified version of Megatron-LM that have been succesfully hipified for LUMI.
+
+4.  Is ONNX supported?
+
+    -   I haven't tested it myself on LUMI, but I don't see why it wouldn't work.
+
+    -   ONNX runtime should be supported.
+
+5.  If we use accelerate, do we still need to set the torch thread strategy to spawn in our script?
+
+    -   Yes
+
+
+6.  Does it make sense / any advantage to using torch compile with FSDP?
+
+    -   It's difficult to give general guidance around this. It may make sense to your application - is a matter of testing and see if it works as expected.
+
+
+7.  Are "*.parquet" files supported?
+
+    -   It should be, this is just a matter of having the right python modules installed.
+
+    Is it ("*.parquet") causing latency in reading? Is it  a good choice to prepare the data for training?
+
+    -   This is impossible to answer as it depends on how you access the data in the Parquet file. Each file format has strengths and weaknesses and is optimised for certain types of data and certain access patterns. In this case, it assumes that you want to access only certain columns in most accesses, but all rows. If you then access the data the other way around, row by row, it would likely be extremely slow.
 
