@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_10_FileSystems/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/E04_CheckingGPU/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Loading training data from Lustre and LUMI-O - LUMI training materials</title>
+        <title>Hands-on: Checking GPU usage interactively using rocm-smi - LUMI training materials</title>
       
     
     
@@ -114,9 +114,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Loading training data from Lustre and LUMI-O" />
+  <meta property="og:title" content="LUMI training materials - Hands-on: Checking GPU usage interactively using rocm-smi" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_10_FileSystems/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/E04_CheckingGPU/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Loading training data from Lustre and LUMI-O" />
+  <meta name="twitter:title" content="LUMI training materials - Hands-on: Checking GPU usage interactively using rocm-smi" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#loading-training-data-from-lustre-and-lumi-o" class="md-skip">
+        <a href="#hands-on-checking-gpu-usage-interactively-using-rocm-smi" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Loading training data from Lustre and LUMI-O
+              Hands-on: Checking GPU usage interactively using rocm-smi
             
           </span>
         </div>
@@ -2992,9 +2992,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extra-materials" class="md-nav__link">
+  <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
-      Extra materials
+      Q&amp;A
     </span>
   </a>
   
@@ -3015,25 +3015,28 @@
                   
 
 
-<h1 id="loading-training-data-from-lustre-and-lumi-o">Loading training data from Lustre and LUMI-O<a class="headerlink" href="#loading-training-data-from-lustre-and-lumi-o" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Harvey Richardson</em></p>
-<p>Content:</p>
+<h1 id="hands-on-checking-gpu-usage-interactively-using-rocm-smi">Hands-on: Checking GPU usage interactively using rocm-smi<a class="headerlink" href="#hands-on-checking-gpu-usage-interactively-using-rocm-smi" title="Permanent link">&para;</a></h1>
+<!--
+[Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202411261/04_Understanding_GPU_activity_and_checking_jobs).
+-->
+<p><a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/04_Understanding_GPU_activity_and_checking_jobs">Exercises on the course GitHub</a>.</p>
+<video src="https://462000265.lumidata.eu/ai-20241126/recordings/E04_CheckingGPU.mp4" controls="controls"></video>
+
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>So using sbatch bills compute time only as long as the scripts are running, while salloc keeps billing for as long as specified even if the scripts stopped running?</p>
 <ul>
 <li>
-<p>Filesystems and object storage</p>
+<p><strong>(Lukas)</strong> Essentially yes. <code>salloc</code> essentially allocated the resources and then enters into a new shell environment from which all following (srun) commands are run on the compute node. So in a way you are in an interactive terminal on the compute node and as long as that is active you are billed for the resources. As far as I now recall, you can actually step out of it by simply typing <code>exit</code>, which will then also free the allocation.</p>
 </li>
 <li>
-<p>best practices for AI data</p>
+<p>Both bill you for the time of the job, i.e., the time that the resources are set aside for you. With <code>sbatch</code> the job ends when the batch script ends and everything is cleaned up then. With <code>salloc</code>, the job ends when you leave the shell created by <code>salloc</code>, unless you reach the time limit before that, and the resources are only freed for other users when the job ends, i.e., the time limit expires or you leave the shell created by <code>salloc</code>, effectively terminating the <code>salloc</code> command. </p>
+<p>As Lukas said, exit or CTRL-D takes you out of that shell, but be careful if you created subshells into that shell...</p>
 </li>
 </ul>
-<!--
-<video src="https://462000265.lumidata.eu/ai-20241126/recordings/10_FileSystems.mp4" controls="controls"></video>
--->
-
-<h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
-<!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10_FileSystems.pdf)
--->
+</li>
+</ol>
 
 
 
