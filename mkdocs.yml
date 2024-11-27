@@ -46,7 +46,7 @@ nav:
     - August-September 2024: 
       - User-Updates/Update-202409/index.md
       - FAQ: User-Updates/Update-202409/202409_FAQ.md
-      - Documenation links: User-Updates/Update-202409/202409_Documentation.md
+      - Documentation links: User-Updates/Update-202409/202409_Documentation.md
     - October-November 2023: User-Updates/Update-202311/index.md
     - August 2023: 
       - User-Updates/Update-202308/index.md
@@ -59,26 +59,35 @@ nav:
     - 2day-20241210/index.md
   - AI workshop November 2024:
     - ai-20241126/index.md
+    - Schedule: ai-20241126/schedule.md
+    - Course materials: ai-20241126/index.html#course-materials
   - Advanced LUMI October 2024:
     - 4day-20241028/index.md
     - Schedule: 4day-20241028/schedule.md
+    - Course materials: 4day-20241028/index.html#course-materials
   - Hackathon October 2024:
     - Hackathon-20241014/index.md
   - Profiling October 2024:
     - Profiling-20241009/index.md
   - Performance Analysis & Optimization June 2024:
     - paow-20240611/index.md
-  - AI workshop May 2024:
-    - ai-20240529/index.md
+    - Schedule: paow-20240611/schedule.md
+    - Course materials: paow-20240611/index.html#course-materials
   - Supercomputing with LUMI May 2024:
     - 2day-20240502/index.md
+    - Schedule: 2day-20240502/schedule.md
+    - Course materials: 2day-20240502/index.html#course-materials
   #- "Comprehensive LUMI NEXT": 
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - AI workshop May 2024:
+      - ai-20240529/index.md
+      - Schedule: ai-20240529/schedule.md
     - Comprehensive LUMI April 2024:
       - 4day-20240423/index.md
+      - Schedule: 4day-20240423/schedule.md
     - "1-day February 2024":
       - 1day-20240208/index.md
       - LUMI Architecture: 1day-20240208/video_01_LUMI_Architecture.md
@@ -153,8 +162,8 @@ plugins:
           comprehensive-latest.md: 4day-20241028/index.md
           advanced-latest.md: 4day-20241028/index.md
           intro-latest.md: 2day-20240502/index.md
-          AI-latest.md: ai-20240529/index.md
-          ai-latest.md: ai-20240529/index.md
+          AI-latest.md: ai-20241126/index.md
+          ai-latest.md: ai-20241126/index.md
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
           update-202409.md: User-Updates/Update-202409/index.md

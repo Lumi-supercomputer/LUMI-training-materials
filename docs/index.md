@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
-
 -   [Intro course: Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
 
 Most recently completed main training events:
@@ -25,7 +23,7 @@ Most recently completed main training events:
     [lumi-supercomputer.github.io/advanced-latest](https://lumi-supercomputer.github.io/advanced-latest)*
 
 -   Comprehensive training specifically for AI users:
-    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
+    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
 
     *Short URL to the most recently completed training for AI users:
     [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
@@ -84,6 +82,7 @@ By theme in reverse chronological order:
     -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 -   Comprehensive AI trainings for LUMI:
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools and/or program optimization
     -   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
