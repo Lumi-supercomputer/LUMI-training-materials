@@ -3032,9 +3032,7 @@
 <li>Setting up the experiment as a SLURM batch job</li>
 <li>Setting the correct CPU-GPU bindings</li>
 </ul>
-<!--
 <video src="https://462000265.lumidata.eu/ai-20241126/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
--->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3046,7 +3044,14 @@
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Do you have experience of setting cpu affinity for Pytorch Lightning? Is it automatically taken care of?</p>
+<ul>
+<li>I don't have experience with Lightning in particular, but I'm pretty sure it doesn't work automatically as the specific setup differs from system to system and there's no easy way to automatically detect it.</li>
+</ul>
+</li>
+</ol>
 
 
 

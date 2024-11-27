@@ -491,27 +491,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/index.links.noGit/</loc>
-         <lastmod>2024-11-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/index.noLinks.noGit/</loc>
-         <lastmod>2024-11-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/schedule.links.noGit/</loc>
-         <lastmod>2024-11-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/schedule/</loc>
-         <lastmod>2024-11-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/schedule.noLinks.noGit/</loc>
          <lastmod>2024-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2392,6 +2372,11 @@
     </url>
     <url>
          <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/E09_ExtremeScale/</loc>
+         <lastmod>2024-11-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/E12_Project_and_QA/</loc>
          <lastmod>2024-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
