@@ -3064,11 +3064,10 @@
 -->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
-<!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Training_Data_on_LUMI.pdf)
--->
-
 <ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Training_Data_on_LUMI.pdf">Presentation slides</a></p>
+</li>
 <li>
 <p>Links from the "More Information" slide:</p>
 <ul>
@@ -3134,6 +3133,62 @@ not infinite. LUST cannot grant you storage billing units, that is something you
 <li>
 <p>[Harvey] Lustre uses locks to manage contention to a file and this can be slow if you end up writing to the same parts of a file and particularly if you do that from multiple clients (nodes). I think you can turn off this locking if you are managing the consisteny yourself but this is an advanced topic and we would need to discuss it further.</p>
 </li>
+</ul>
+</li>
+<li>
+<p>ROCm 6.3 came out yesterday. What improvements can we expect for AI, and is there any chance to get it on LUMI?</p>
+<ul>
+<li>
+<p>I am actually unsure if has been officially released. It has been made available for testing but the actual release should come with release notes in https://rocm.docs.amd.com/en/latest/about/release-notes.html.</p>
+</li>
+<li>
+<p>ROCm 6.3 has to be tested as it is getting out of expected driver support. Hopefully, it can be made available in a container to start with.</p>
+</li>
+</ul>
+<p>Looks like someone at AMD has been a bit uncareful then: https://community.amd.com/t5/ai/unlocking-new-horizons-in-ai-and-hpc-with-the-release-of-amd/ba-p/726434 was picked up by a lot of press last night.</p>
+</li>
+<li>
+<p>Is Megatron-LM a possibility on LUMI?</p>
+<ul>
+<li>
+<p>I think TurkuNLP group (University of Turku, Finland) and Silo AI have been using that for training large language models on LUMI. So, yes, although it might not work out-of-the-box, they might be using a version that has been ported to LUMI.</p>
+</li>
+<li>
+<p>Megatron-Deepspeed is supported in AMD GPUs. There are hipified version of Megatron-LM that have been succesfully hipified for LUMI.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Is ONNX supported?</p>
+<ul>
+<li>
+<p>I haven't tested it myself on LUMI, but I don't see why it wouldn't work.</p>
+</li>
+<li>
+<p>ONNX runtime should be supported.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If we use accelerate, do we still need to set the torch thread strategy to spawn in our script?</p>
+<ul>
+<li>Yes</li>
+</ul>
+</li>
+<li>
+<p>Does it make sense / any advantage to using torch compile with FSDP?</p>
+<ul>
+<li>It's difficult to give general guidance around this. It may make sense to your application - is a matter of testing and see if it works as expected.</li>
+</ul>
+</li>
+<li>
+<p>Are "*.parquet" files supported?</p>
+<ul>
+<li>It should be, this is just a matter of having the right python modules installed.</li>
+</ul>
+<p>Is it ("*.parquet") causing latency in reading? Is it  a good choice to prepare the data for training?</p>
+<ul>
+<li>This is impossible to answer as it depends on how you access the data in the Parquet file. Each file format has strengths and weaknesses and is optimised for certain types of data and certain access patterns. In this case, it assumes that you want to access only certain columns in most accesses, but all rows. If you then access the data the other way around, row by row, it would likely be extremely slow.</li>
 </ul>
 </li>
 </ol>
