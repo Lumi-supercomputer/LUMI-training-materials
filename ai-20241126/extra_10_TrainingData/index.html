@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_09_ExtremeScale/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_10_TrainingData/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Extreme-scale AI - LUMI training materials</title>
+        <title>Loading training data on LUMI - LUMI training materials</title>
       
     
     
@@ -114,9 +114,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Extreme-scale AI" />
+  <meta property="og:title" content="LUMI training materials - Loading training data on LUMI" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_09_ExtremeScale/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_10_TrainingData/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -126,7 +126,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Extreme-scale AI" />
+  <meta name="twitter:title" content="LUMI training materials - Loading training data on LUMI" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -188,7 +188,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extreme-scale-ai" class="md-skip">
+        <a href="#loading-training-data-on-lumi" class="md-skip">
           Skip to content
         </a>
       
@@ -245,7 +245,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extreme-scale AI
+              Loading training data on LUMI
             
           </span>
         </div>
@@ -3001,6 +3001,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#nice-to-knows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nice-to-knows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nice-to-knows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lumi-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      LUMI-O
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-cleanup-of-scratch-and-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto-cleanup of /scratch and /flash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -3024,69 +3057,82 @@
                   
 
 
-<h1 id="extreme-scale-ai">Extreme-scale AI<a class="headerlink" href="#extreme-scale-ai" title="Permanent link">&para;</a></h1>
-<p><em>Presenters:</em> Samuel Antão (AMD)</p>
-<p>Content:</p>
-<ul>
-<li>Model parallelism on LUMI via FSDP or DeepSpeed</li>
-<li>Scaling beyond a single node </li>
-</ul>
+<h1 id="loading-training-data-on-lumi">Loading training data on LUMI<a class="headerlink" href="#loading-training-data-on-lumi" title="Permanent link">&para;</a></h1>
+<p><em>Presenter:</em> Harvey Richardson (HPE)</p>
 <!--
-<video src="https://462000265.lumidata.eu/ai-20241126/recordings/09_ExtremeScale.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20241126/recordings/10_TrainingData.mp4" controls="controls"></video>
 -->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-09-Extreme_scale_AI.pdf">Presentation slides</a></p>
-</li>
-<li>
-<p><a href="../E09_ExtremeScale/">Demo and hands-on exercises</a></p>
-</li>
-</ul>
 <!--
-## Remark: Why is binding not easier in Slurm?
-
-There are some reasons why the situation with the binding is not better:
-
--   Slurm GPU binding is broken and uses a technique that breaks communication with RCCL and GPU-aware MPI
-
--   One change that would offer some improvement is system-wide and would have a large impact on LUMI-C also, 
-    necessitating retraining all users and probably making some use scenarios on that partition difficult.
-
--   It is not easy either because you can only do something with few environment variables or a pre-made script 
-    if every user would nicely request 7 cores per GPU requested. On `small-g` you now basically have a lot of 
-    fragmentation. I'm not sure if "CPU" could be redefined in Slurm to mean "1 CCD" but that might very well 
-    be the change that sysadmins told me would also be in effect on LUMI-C where it would not be appreciated by 
-    users.
-
--   And as we say in another course: "Slurm is not a good scheduler, but we don't have a better one yet".
-    Current HPC schedulers were designed in the days that nodes had just one or 2 CPU cores and no accelerators
-    and they don't sufficiently understand the hierarchy in resources and proximity between various components.
-
--   Preset are not easy. What may be ideal for some AI workflows may not work for others, or may not work for all
-    the other users on LUMI that do simulation or other types of data processing and analysis.
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20241126/files/LUMI-ai-20241126-10-Training_Data_on_LUMI.pdf)
 -->
 
+<ul>
+<li>
+<p>Links from the "More Information" slide:</p>
+<ul>
+<li>
+<p><a href="https://docs.lumi-supercomputer.eu/storage/lumio/">LUMI-O in the LUMI documentation</a></p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/code/rohanrao/tutorial-on-reading-large-datasets">Generic Tutorial on reading large datasets</a></p>
+</li>
+<li>
+<p><a href="https://servicedesk.surf.nl/wiki/display/WIKI/Best+Practice+for+Data+Formats+in+Deep+Learning">Best Practice for Data Formats in Deep Learning (SURF)</a></p>
+</li>
+<li>
+<p><a href="https://docs.ray.io/en/latest/train/user-guides/data-loading-preprocessing.html">Ray data loading</a></p>
+</li>
+<li>
+<p><a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">Pytorch Tutorial on pre-defined datasets/dataloaders</a></p>
+</li>
+<li>
+<p>Example of keeping training data in memory: 
+    <a href="https://linklings.s3.amazonaws.com/organizations/pasc/pasc23/submissions/stype119/jvCyu-msa152s2.pdf">“Scaling Out Deep Learning Convergence Training on LUMI”, Diana Moise &amp; Samuel Antao</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="nice-to-knows">Nice-to-knows<a class="headerlink" href="#nice-to-knows" title="Permanent link">&para;</a></h2>
+<h3 id="lumi-o">LUMI-O<a class="headerlink" href="#lumi-o" title="Permanent link">&para;</a></h3>
+<p>Two nice things to know about LUMI-O</p>
+<ul>
+<li>
+<p>We actually use it during this course to serve you the slides and the videos. Though it is not meant to be a web server.</p>
+</li>
+<li>
+<p>As the LUMI-O software is done by a different team at CSC and not by HPE, it is often still up when LUMI is down. We cannot give a guarantee, but when a long downtime is announced, in the past LUMI-O was still available almost the whole downtime. So you may still be able to access data on LUMI-O, but not on the Lustre file systems when LUMI is down for maintenance.</p>
+</li>
+</ul>
+<p>But it is not meant for long-time data archiving. Storage on LUMI-O also disappears 90 days after your project ends. For long-term archiving and data publishing you need to use specialised services.</p>
+<h2 id="auto-cleanup-of-scratch-and-flash">Auto-cleanup of /scratch and /flash<a class="headerlink" href="#auto-cleanup-of-scratch-and-flash" title="Permanent link">&para;</a></h2>
+<p>Clean-up is not yet implemented on LUMI because until now there hasn't been a need to do so as the storage is empty enough.</p>
+<p>The limited size of /project is also because CSC wants to avoid that LUMI is used for long-term data storage.</p>
+<p>The idea is indeed that data is stored longtime on LUMI-O and transported to /scratch or /flash as needed as the assumption was that the whole dataset is rarely needed at the same time.</p>
+<p>Note that asking for more quota doesn't make sense if your project doesn't have the necessary storage billing units.
+Storing 20TB for one year on /scratch or /project would cost you 175,200 TB hours, so make sure you have enough storage
+billing units. There is enough storage on LUMI that resource allocators can grant decent amounts of storage, but it is
+not infinite. LUST cannot grant you storage billing units, that is something you need to negotiate with the instance that granted you your project on LUMI.</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Do you have experience of setting cpu affinity for Pytorch Lightning? Is it automatically taken care of?</p>
+<p>What would be the preferred way to manage concurrent writing to the same file on the shared FS? Say I have a big inference job, and I want to flush the predictions to disk without keeping them in memory. One possible (naive) solution is to assign separate files to each process and then concatenate them when the inference is done. But this has the downside to require more storage than necessary, if we would be able to save such predictions to the same file. I have tried using Dask, but Dataframe support for GPU is limited to NVIDIA GPUs, unless we recompile it ourselves.</p>
 <ul>
-<li>I don't have experience with Lightning in particular, but I'm pretty sure it doesn't work automatically as the specific setup differs from system to system and there's no easy way to automatically detect it.</li>
+<li>
+<p>Usually using a single data container to be accessed by different processes, potentially from different nodes, perform best if one sets some sort of stripping in Lustre FS for the folder where that file resides. It will cause that file to be chunked over different FS servers (details on this would be given in the talk before lunch) which means you can have each node writting/reading to/from different I/O servers, maximizing I/O BW. Specialised containers, like HDF5, also offer mechanisms to coordinate the reads and writes from different processes - a given process can read a piece of data (from FS - slower) and pass it to some other process over MPI ( node-tonode - faster). These containers will benefit of proper stripping as well.</p>
+</li>
+<li>
+<p>On DataFrame, I understand there is support for that in the workings for AMD GPUs, I'll try to know more.</p>
+</li>
 </ul>
-</li>
-<li>
-<p>Is it possible to set CPU affinity without using <code>numactl</code>, and directly via SLURM? I had some scripts that used <code>datasets</code> and <code>accelerate</code> that were only able to use the psysical cores (0 to n/2, where n is the number of threads shown in htop), unless we would launch the script via <code>numactl --cpunodebind 0-3 --membind 0-3</code>. The same would also apply on LUMI-C with NUMA nodes 0-7.</p>
+<p>(User) I guess my question was more about how to avoid race conditions and data mangling with multiple processes, rather than maximizing the available resources. A possibility I found was to manually set up queues and locks, but this has the unfortunate downside that as the world size increases, more time will be waited by each process to write to the file. I was hoping more for a plug and play solution at higher level that manages distributed writing (i.e. Dask, possibly Ray or similar). </p>
 <ul>
 <li>
-<p>Slurm has various options to set the affinity per task. Note that Linux exposes 2x the number of cpus as you have cores because each core supports two hardware threads. It is normally not advantageous to use the high numbered 'cpu's (the second thread per core). There is a talk on this topic in the 4-day LUMI comprehensive course but it is mostly written for people running MPI and MPI/OpenMP HPC applications.</p>
+<p>I guess that, regardless of the framework, they will handle the races for you. I don't have a recomended way, I see this more understanding what your selected framework is doing. You could select any framework that "simplifies" your management and then assess performance for it. I've seen people going with Arrow, others with HDF5 (https://docs.h5py.org/en/stable/).The performance impliciations come when these frameworks write to disk and that can usually be improved with stripping. Maybe we can have a discussion on this during the upcomming I/O talk.</p>
 </li>
 <li>
-<p>And there is also material in <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/extra_07_Binding/">this presentation from the last 2-day course</a>, slide 11 and following (though you may need to go to the slids before that also to understand), and recording from 22:20 on.</p>
-</li>
-<li>
-<p>The second hyperthread on LUMI is by default unavailable to applications started with <code>srun</code> as the option <code>--hint=nomultithread</code> is set by default. If you want access to them, you need to specify <code>--hint=multithread</code>, which you can already do in an <code>#SBATCH</code> line. Slurm uses control groups at the job level, i.e., if only part of a node is allocated to a job, this will be done with a cgroup on each node, and uses CPU affinity at the task level.</p>
+<p>[Harvey] Lustre uses locks to manage contention to a file and this can be slow if you end up writing to the same parts of a file and particularly if you do that from multiple clients (nodes). I think you can turn off this locking if you are managing the consisteny yourself but this is an advanced topic and we would need to discuss it further.</p>
 </li>
 </ul>
 </li>
