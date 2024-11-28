@@ -77,13 +77,13 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
 
 *Note*: If you want to be able to uninstall all software installed through the exercises
 easily, we suggest you make a separate EasyBuild installation for the course, e.g.,
-in `/scratch/project_465001102/$USER/eb-course` if you make the exercises during the course:
+in `/scratch/project_465001603/$USER/eb-course` if you make the exercises during the course:
 
 -   Start from a clean login shell with only the standard modules loaded.
 -   Set `EBU_USER_PREFIX`: 
      
     ```
-    export EBU_USER_PREFIX=/scratch/project_465001102/$USER/eb-course
+    export EBU_USER_PREFIX=/scratch/project_465001603/$USER/eb-course
     ```
 
     You'll need to do that in every shell session where you want to install or use that software.
@@ -94,7 +94,7 @@ in `/scratch/project_465001102/$USER/eb-course` if you make the exercises during
     that you just created.
 
     ```
-    rm -rf /scratch/project_465001102/$USER/eb-course
+    rm -rf /scratch/project_465001603/$USER/eb-course
     ```
 
 
