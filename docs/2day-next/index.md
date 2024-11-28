@@ -33,11 +33,11 @@ You will only need an very minimum of CPU and GPU billing units for this.
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465001102/$USER/exercises
-    cd /scratch/project_465001102/$USER/exercises
+    mkdir -p /scratch/project_465001603/$USER/exercises
+    cd /scratch/project_465001603/$USER/exercises
     ```
 
-    where you have to replace `project_465001102` using the number of your own project.
+    where you have to replace `project_465001603` using the number of your own project.
 
 -   Now download the exercises and un-tar:
 
