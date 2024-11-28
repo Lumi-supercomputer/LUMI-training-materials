@@ -37,7 +37,7 @@ Let's create an installation directory for the demo. Set the environment variabl
 `installdir` to a proper value for the directories on LUMI that you have access to.
 
 ``` bash
-installdir=/project/project_465001102/kurtlust/DEMO1
+installdir=/project/project_465001603/kurtlust/DEMO1
 mkdir -p "$installdir" ; cd "$installdir"
 ```
 
@@ -386,7 +386,7 @@ cd "$installdir/Fooocus-$fooocusversion"
 We'll start an interactive job with a single GPU:
 
 ``` bash
-srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465001102 --pty bash
+srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465001603 --pty bash
 ```
 
 The necessary modules will still be available, but if you are running from a new shell, you 
@@ -440,7 +440,7 @@ Fooocus code,
 ``` bash
 module load LUMI/23.09
 module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-Fooocus-singularity-20240315
-srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465001102 --pty \
+srun -psmall-g -n1 -c7 --time=30:00 --gpus=1 --mem=60G -A project_465001603 --pty \
    bash -c 'echo -e "Running on $(hostname)\n" ; singularity exec $SIF python launch.py --listen --disable-xformers'
 ```
 
