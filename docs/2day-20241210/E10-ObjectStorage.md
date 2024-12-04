@@ -8,10 +8,6 @@ during the course sessions or immediately thereafter.
 
 ## Ideas for the exercises
 
--   Use lumio-conf to create a config file for s3cmd.
--   Verify the ACLs for the buckets and objects in the training project
-    -   List buckets and objects
-    -   Verify the ACLs
 -   Check that you can access a public object in both a private and a public object in the training project.
 -   TODO: Can we list something in 462000265?
 -   Create a sharing link to a private bucket private object and check in a private browser window that it indeed works.
@@ -65,7 +61,7 @@ during the course sessions or immediately thereafter.
 
     Do not close your browser window after this exercise as it will prove useful for other exercises./
 
-    ??? Solution "Click to see the solution"
+    ??? Solution "Click here to see the solution."
 
         Solving this exercise requires again several steps.
 
@@ -207,6 +203,229 @@ during the course sessions or immediately thereafter.
         However, the web based credential management system is more closely integrated with the object storage
         itself and has a different maintenance cycle. Hence it can remain available when LUMI is down, so that
         users can still access their data on LUMI-O from their home institution or personal computer.
+
+4.  Which buckets and objects are there in the training project `project_465001603`? Check with the command line
+    tools for which you prepared the configuration file in the previous exercise
+    (as we have done this already with Open OnDemand)
+
+    Hint: Many commands have a `--help` option to get you on the way.
+
+    ??? Solution "Click here to see the solution."
+
+        -   With `s3cmd`: `s3cmd ls` will show you the buckets. It will return something like
+
+            ```
+            2024-11-30 10:31  s3://training.private
+            2024-11-30 10:31  s3://training.public
+            ```
+
+            There may be more lines if some course participants have already created additional buckets.
+
+            And we can then use `s3cmd ls s3://training.private` to see the objects in that bucket.
+            It will hopefully (if nobody messed with the bucket) return:
+
+            ```
+                                DIR  s3://training.private/HTML/
+            2024-11-30 10:51    59   s3://training.private/private-in-private.txt
+            2024-11-30 10:51    58   s3://training.private/public-in-private.txt
+            ```
+
+            This is not the complete object list as it shows a pseudo-folder view. The first line starts with `DIR` which 
+            indicates a pseudo-directory, but you can now use 
+
+            ```
+            s3cmd ls s3://training.private/HTML/
+            ```
+
+            where the slash at the end is actually important to see
+
+            ```
+            2024-11-30 10:51   235   s3://training.private/HTML/private.html
+            ```
+
+        -   With `rclone`: Now we need to specify the endpoint as `rclone` supports multiple projects in a 
+            single configuration.
+
+            The command to use is now: `rclone ls lumi-465001603-private:` which returns something similar to
+
+            ```
+                235 training.private/HTML/private.html
+                59 training.private/private-in-private.txt
+                58 training.private/public-in-private.txt
+                231 training.public/HTML/public.html
+                58 training.public/private-in-public.txt
+                57 training.public/public-in-public.txt
+            ```
+
+            Now if you'd try `rclone ls lumi-465001603-public:` instead, you'd see exactly the same because
+            these are two endpoints for the same project. Their behaviour is different though when uploading
+            objects.
+
+            In these case we also already see all three objects in both the `training.private` and `training.public`
+            buckets.
+
+5.  Check the ACLs of the `training.public` and `training.private` buckets and the objects in those buckets.
+    Which objects are publicly available and which are not?
+
+    ??? Solution "Click here to see the solution."
+
+        Your friend for this is the `s3cmd info` command. 
+        E.g., to check the bucket `training.public`, use `s3cmd info s3://training.public`.
+        The crucial lines in the output are:
+
+        ```
+        ACL:       *anon*: READ
+        ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+        ```
+
+        The last line will always be present, with the name of the project and then `FULL_CONTROL`
+        as whoever has the credentials of the project can do everything with the bucket. The first line
+        says that everybody has read rights to this bucket and tells that this is a public bucket.
+        When you use `s3cmd info s3://training.private`, only the second line will be present in the
+        output, telling that this is a private object.
+
+        To check the credentials of the `public-in-private.txt` object in the `training.private`
+        bucket, use
+
+        ```
+        s3cmd info s3://training.private/public-in-private.txt
+        ``` 
+
+        The output will contain
+
+        ```
+        ACL:       *anon*: READ
+        ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+        ```
+
+        which shows that this object is actually public. So a private bucket can contain a public object,
+        and in fact, you can access it with, e.g., a web browser without authenticating anywhere.
+
+        You can do this for all objects in both commands:
+
+        ```
+        s3cmd info s3://training.public/public-in-public.txt
+        s3cmd info s3://training.public/private-in-public.txt
+        s3cmd info s3://training.private/public-in-private.txt
+        s3cmd info s3://training.private/private-in-private.txt
+        s3cmd info s3://training.public/HTML/public.html
+        s3cmd info s3://training.private/HTML/private.html
+        ```
+
+        The name of each object suggests the answer.
+
+6.  Use command line tools to download the file `private-in-private.txt` from the `training.private` bucket in
+    the `project_465001603` training project of this training.
+
+    ??? Solution "Click here to see the solution."
+
+        -   With `s3cmd`: 
+
+            ```
+            s3cmd get s3://training.private/private-in-private.txt
+            ```
+
+        -   With `rclone`:
+
+            ```
+            rclone copy lumi-465001603-private:training.private/private-in-private.txt .
+        ```
+
+7.  What would be the web-URL to access the public object `public-in-public.txt` in the `training.public` bucket?
+    Next try the same strategy to access `private-in-public.txt` in the  `training.public` bucket and both
+    `public-in-private.txt` and `private-in-private.txt` in the `training.private` bucket. What works and what doesn't?
+
+    ??? Solution "Click here to see the solution."
+
+        -   `public-in-public.txt` in the `training.public` bucket:
+            [https://465001603.lumidata.eu/training.public/public-in-public.txt](https://465001603.lumidata.eu/training.public/public-in-public.txt)
+            or
+            [https://lumidata.eu/465001603:training.public/public-in-public.txt](https://lumidata.eu/465001603:training.public/public-in-public.txt)
+            both work. So we can access a public object in a public bucket.
+
+        -   `private-in-public.txt` in the `training.public` bucket:
+            Neither
+            [https://465001603.lumidata.eu/training.public/private-in-public.txt](https://465001603.lumidata.eu/training.public/private-in-public.txt)
+            nor
+            [https://lumidata.eu/465001603:training.public/private-in-public.txt](https://lumidata.eu/465001603:training.public/private-in-public.txt)
+            work.
+
+        -   `public-in-private.txt` in the `training.private` bucket:
+            [https://465001603.lumidata.eu/training.private/public-in-private.txt](https://465001603.lumidata.eu/training.private/public-in-private.txt)
+            or
+            [https://lumidata.eu/465001603:training.private/public-in-private.txt](https://lumidata.eu/465001603:training.private/public-in-private.txt)
+            both work. So we can access a public object in a public bucket.
+
+        -   `private-in-private.txt` in the `training.private` bucket:
+            Neither
+            [https://465001603.lumidata.eu/training.private/private-in-private.txt](https://465001603.lumidata.eu/training.private/private-in-private.txt)
+            nor
+            [https://lumidata.eu/465001603:training.private/private-in-private.txt](https://lumidata.eu/465001603:training.private/private-in-private.txt)
+            work.
+
+
+    ??? Remark "Check this remark only after the solution."
+        So if we can access public objects in both public and private buckets, what is then the difference between both?
+        Well, in a public bucket you can list the objects without using credentials while you cannot in a private bucket.
+
+        Try either 
+        [https://465001603.lumidata.eu/training.private](https://465001603.lumidata.eu/training.private) or
+        [https://lumidata.eu/465001603:training.private](https://lumidata.eu/465001603:training.private)
+        and notice that you get a cryptic error message.
+
+        However, try either
+        [https://465001603.lumidata.eu/training.public](https://465001603.lumidata.eu/training.public) or
+        [https://lumidata.eu/465001603:training.public](https://lumidata.eu/465001603:training.public)
+        and you get a much longer answer though again rather cryptic for ordinary people. It is an XML file
+        and if you read through it, you'll find the names of the objects that we know are in the bucket.
+
+8.  Create a web link (presigned URL) to share the private object `HTML/private.html` in the `training.private` bucket. Next
+    open a private browser window and check that the link indeed works (we use a private browser window / incognito mode to
+    be sure that it doesn't pick up any credentials anywhere just to be sure).
+
+    ??? Solution "Click here to see the solution."
+
+        For this, we can use the `rclone link` tool: 
+
+        ```
+        rclone link lumi-465001603-private:training.private/HTML/private.html
+        ```
+
+        will produce output that will look like this:
+
+        ```
+        2024/12/04 21:43:29 NOTICE: S3 bucket training.private path HTML: Public Link: Reducing expiry to 1w as off is greater than the max time allowed
+        https://lumidata.eu/training.private/HTML/private.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KEII85V27JOJTCGM6XQQ%2F20241204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T194329Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=35a3bc04d997d50471ecd1a6637cd063f9dfb2a40e173f758030d6ced48926bf
+        ```
+
+        Note that the validity is automatically restricted to 7 days (604800 seconds) which is a limit imposed by LUMI, but the link would actually fail
+        sligthly earlier as the key expires if the lifetime of the key used to create the link, is not extended.
+
+        One can also set a shorter link lifetime, e.g.,
+
+        ```
+        rclone link --expire 2d lumi-465001603-private:training.private/HTML/private.html
+        ```
+
+        which will produce output that will look like this:
+
+        ```
+        https://lumidata.eu/training.private/HTML/private.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KEII85V27JOJTCGM6XQQ%2F20241204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T194645Z&X-Amz-Expires=172800&X-Amz-SignedHeaders=host&X-Amz-Signature=055f936dc0c23576cf2ba6211c4465f6f2488501c27a7096d0c9af0925d8f884
+        ```
+
+        so just the URL without further warning. But if you analyse the URL carefully, you see the field 
+        `X-Amz-Expires=172800` which indicates that the link expires after 2 days or 172800 seconds.
+
+<!-- FUTURE EXERCISE TO WORK ON
+8.  On LUMI, `project_462000265` is used to store materials from previous trainings and make some of those materials
+    available on the web. However, you are not part of that project so cannot request an authentication key for that
+    project. However, as some files are public, you are able to access some buckets and objects in this project with
+    some tools. We've created two buckets, `intro-training.public` and `intro-training.private` with the same contents
+    and ACLs as the `training-public` and `training-private` buckets in the `project_465001603` training project.
+    Let's see if we can access them with command line tools.
+
+    NO SOLUTION FOUND YET AND NOT SURE IF s3cmd COULD DO IT.
+-->
 
 
 ## Exercises that can be made in your own project
