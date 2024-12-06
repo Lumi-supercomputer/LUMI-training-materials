@@ -1,4 +1,4 @@
-# Supercomputing with LUMI - Online course, December 10-11, 2024
+# Intro to Supercomputing with LUMI - Online course, December 10-11, 2024
 
 ## Course organisation
 
@@ -10,12 +10,12 @@
 
 -   Project for the course: `project_465001603`.
 
-<!--
--   There are two Slurm reservations for the course:
+    This project provides resources for the exercises. The project should not be used for your own work!
 
-    -   CPU nodes: `LUMI_Intro_SURF_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_SURF_standardg` (on the `standard-g` Slurm partition)
--->
+-   There are two Slurm reservations for the course for the exercises on he second day:
+
+    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
+    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
 
 <!--
 ## Setting up for the exercises
@@ -65,6 +65,33 @@ Work copy during preparations:
 |:-------------|:-------|:------|:----------|:----------|
 | [Welcome and Introduction](MI01-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I01-IntroductionCourse.pdf) | / | / | [V](MI01-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](00-Introduction.md) | / |  / | 
+| [LUMI Architecture](M01-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf) | / | / | [V](M01-Architecture.md) |
+| [HPE Cray Programming Environment](M02-CPE.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-02-CPE.pdf) | [N](02-CPE.md) | [E](E02-CPE.md) | [V](M02-CPE.md) |
+| [Getting Access to LUMI](M03-Access.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-03-Access.pdf) | [N](03-Access.md) | [E](E03-Access.md) | [V](M03-Access.md) |
+| [Exercises 1](ME03-Exercises-1.md) | / | / | /  | / |
+| [Modules on LUMI](M04-Modules.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-04-Modules.pdf) | [N](04-Modules.md) | [E](E04-Modules.md) | [V](M04-Modules.md) |
+| [Exercises 2](ME04-Exercises-2.md) | / | / | / | / |
+| [LUMI Software Stacks](M05-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-05-SoftwareStacks.pdf) | [N](05-SoftwareStacks.md) | [E](E05-SoftwareStacks.md) | [V](M05-SoftwareStacks.md) |
+| [Exercises 3](ME05-Exercises-3.md) | / | / | / | / |
+| [LUMI Support and Documentation](M06-Support.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-06-Support.pdf) | / | / | [V](M06-Support.md) |
+| [Wrap-Up Day 1](MI02-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I02-WrapUpDay1.pdf) | / | / | [V](MI02-WrapUpDay1.md) |
+| [Introduction Day 2](MI03-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I03-IntroductionDay2.pdf) | / | / | [V](MI03-IntroductionDay2.md) |
+| [Slurm on LUMI](M07-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-07-Slurm.pdf) | / | [E](E07-Slurm.md) | [V](M07-Slurm.md) |
+| [Process and Thread Distribution and Binding](M08-Binding.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Binding.pdf) | / | [E](E08-Binding.md) | [V](M08-Binding.md) | 
+| [Exercises 4](ME08-Exercises-4.md) | / | / | / | / |
+| [Using Lustre](M09-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-09-Lustre.pdf) | / | / | [V](M09-Lustre.md) |
+| [Object Storage](M10-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-10-ObjectStorage.pdf) | [N](10-ObjectStorage.md) | [E](E10-ObjectStorage) | [V](M10-ObjectStorage.md) |
+| [Exercises 5](ME10-Exercises-5.md) | / | / | / | / |
+| [Containers on LUMI-C and LUMI-G](M11-Containers.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-11-Containers.pdf) | [N](11-Containers.md) | / | [V](M11-Containers.md) |
+| [What Else?](MI04-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I04-WhatElse.pdf) | / | / | [V](MI04-WhatElse.md) |
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
+
+Copy from previous notes, still including links to notes that are no longer valid:
+
+| Presentation | Slides | Notes | Exercises | Recording |
+|:-------------|:-------|:------|:----------|:----------|
+| [Welcome and Introduction](MI01-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I01-IntroductionCourse.pdf) | / | / | [V](MI01-IntroductionCourse.md) |
+| Introduction to the course notes | / | [N](00-Introduction.md) | / |  / | 
 | [LUMI Architecture](M01-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf) | [N](01-Architecture.md) | / | [V](M01-Architecture.md) |
 | [HPE Cray Programming Environment](M02-CPE.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-02-CPE.pdf) | [N](02-CPE.md) | [E](E02-CPE.md) | [V](M02-CPE.md) |
 | [Getting Access to LUMI](M03-Access.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-03-Access.pdf) | [N](03-Access.md) | [E](E03-Access.md) | [V](M03-Access.md) |
@@ -87,6 +114,7 @@ Work copy during preparations:
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | / | [V](Demo2.md#video-of-the-demo) |
 | [What Else?](MI04-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I04-WhatElse.pdf) | / | / | [V](MI04-WhatElse.md) |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
+
 
 
 ## Web links
