@@ -694,7 +694,11 @@ Yet to be able to properly use the containers, users do need to take care of som
     container.
     
 -   By default your home directory will be available in the container, but as your home directory is not your
-    main workspace, you may want to bind your subdirectory in `/project`, `/scratch` and/or `/flash` also.
+    main workspace, you may want to bind your subdirectory in `/project`, `/scratch` and/or `/flash` also, using, e.g.,
+
+    ```
+    -B /pfs,/scratch,/projappl,/project,/flash
+    ```
 
 There are also a number of components that may need further initialisation:
 
