@@ -4,14 +4,9 @@
 Most of these exercises require access to the training project and hence can only be made
 during the course sessions or immediately thereafter.
 
+They have to be made in order, as the first exercises create the access credentials and
+tools configuration files that are used in the following exercises.
 
-
-## Ideas for the exercises
-
--   Check that you can access a public object in both a private and a public object in the training project.
--   TODO: Can we list something in 462000265?
--   Create a sharing link to a private bucket private object and check in a private browser window that it indeed works.
--   Use rclone to create a public bucket and put an example file in it. View that file via a web link.
 
 ## Exercises to be made in the training project
 
@@ -243,6 +238,20 @@ during the course sessions or immediately thereafter.
             2024-11-30 10:51   235   s3://training.private/HTML/private.html
             ```
 
+            Now if we use instead
+
+            ```
+            s3cmd ls --recursive s3://training.private
+            ```
+
+            we do get all objects in the bucket:
+
+            ```
+            2024-11-30 10:51   235   s3://training.private/HTML/private.html
+            2024-11-30 10:51    59   s3://training.private/private-in-private.txt
+            2024-11-30 10:51    58   s3://training.private/public-in-private.txt
+            ```
+
         -   With `rclone`: Now we need to specify the endpoint as `rclone` supports multiple projects in a 
             single configuration.
 
@@ -416,16 +425,224 @@ during the course sessions or immediately thereafter.
         so just the URL without further warning. But if you analyse the URL carefully, you see the field 
         `X-Amz-Expires=172800` which indicates that the link expires after 2 days or 172800 seconds.
 
-<!-- FUTURE EXERCISE TO WORK ON
-8.  On LUMI, `project_462000265` is used to store materials from previous trainings and make some of those materials
+9.  **Data sharing example** On LUMI, `project_462000265` is used to store materials from previous trainings and make some of those materials
     available on the web. However, you are not part of that project so cannot request an authentication key for that
-    project. However, as some files are public, you are able to access some buckets and objects in this project with
+    project. But, as some files are public, you are able to access some buckets and objects in this project with
     some tools. We've created two buckets, `intro-training.public` and `intro-training.private` with the same contents
-    and ACLs as the `training-public` and `training-private` buckets in the `project_465001603` training project.
+    and ACLs as the `training.public` and `training.private` buckets in the `project_465001603` training project.
     Let's see if we can access them with command line tools.
 
-    NO SOLUTION FOUND YET AND NOT SURE IF s3cmd COULD DO IT.
--->
+    List the objects in both buckets.
+
+    ??? Solution "Click here to see the solution."
+
+        -   With `s3cmd`: 
+
+            ```
+            s3cmd ls --recursive s3://462000265:intro-training.public/
+            ```
+
+            returns something along the lines of
+
+            ```
+            2024-12-07 17:31   231   s3://462000265:intro-training.public/HTML/public.html
+            2024-12-07 17:31   343   s3://462000265:intro-training.public/HTML/shared.html
+            2024-12-07 17:31    58   s3://462000265:intro-training.public/private-in-public.txt
+            2024-12-07 17:31    57   s3://462000265:intro-training.public/public-in-public.txt
+            ```
+
+            while
+
+            ```
+            s3cmd ls --recursive s3://462000265:intro-training.private/
+            ```
+
+            returns
+
+            ```
+            ERROR: Access to bucket '462000265:intro-training.private' was denied
+            ERROR: S3 error: 403 (AccessDenied)
+            ```
+
+            This should not surprise you, as you are not a member of the `462000265` project and are not using
+            access credentials for that project in this exercise, but for `465001603` training project.
+
+            Note that in the first command we did list an object whose name suggests that it is a private object.
+
+        -   With `rclone`: 
+
+            ```
+            rclone ls lumi-465001603-private:"462000265:intro-training.public"
+            ``` 
+
+            returns something along the lines of
+
+            ```
+                231 HTML/public.html
+                343 HTML/shared.html
+                58 private-in-public.txt
+                57 public-in-public.txt
+            ```
+
+            while
+
+            ```
+            rclone ls lumi-465001603-private:"462000265:intro-training.private"
+            ``` 
+
+            returns something similar to
+
+            ```
+            2024/12/07 19:39:03 Failed to ls: AccessDenied:
+                status code: 403, request id: tx0000092793a87e000e519-0067548837-61b0c46-lumi-prod, host id:
+            ```
+
+            so an error (as we would expect, see the comments for the solution with `s3cmd`)
+
+10. We continue on the data sharing example. 
+    Can we check the ACLs of the objects in the `intro-training.public` bucket?
+
+    ??? Solution "Click here to see the solution." 
+
+        For this exercise, `s3cmd` is our friend.
+
+        Let's try for `public-in-public.txt`: The output of
+
+        ```
+        s3cmd info s3://462000265:intro-training.public/public-in-public.txt
+        ```
+
+        actually produces output with an error message. The precise output:
+
+        ```
+        File size: 57
+        Last mod:  Sat, 07 Dec 2024 17:31:04 GMT
+        MIME type: text/plain
+        Storage:   STANDARD
+        MD5 sum:   db24072368ff20ad202395aa7dd66487
+        SSE:       none
+        Policy:    Not available: GetPolicy permission is needed to read the policy
+        ERROR: Access to bucket '462000265:intro-training.public' was denied
+        ERROR: S3 error: 403 (AccessDenied)
+        ```
+
+        The reason is that listing permissions does require more rights than the ones we have in the bucket
+        because even though the bucket itself is actually public to the world, this is not enough
+        to also check permissions.
+
+11. We continue on the data sharing example. 
+    Download the `HTML/public.html` from the `intro-training.public` bucket.
+    We couldn't check in the previous exercise, but this is actually a public object in a public
+    bucket.
+    Can you do so with a web browser also (or the `wget` or `curl` commands if you are familiar
+    with them)?
+    
+    ??? Solution "Click here to see the solution."
+
+        -   With `s3cmd`:
+  
+            ```
+            s3cmd get s3://462000265:intro-training.public/HTML/public.html
+            ```
+
+        -   With `rclone`:
+
+            ```
+            rclone copy lumi-465001603-private:"462000265:intro-training.public/HTML/public.html" .
+            ```
+
+        -   With a web browser: both the URL
+            [https://462000265.lumidata.eu/intro-training.public/HTML/public.html](https://462000265.lumidata.eu/intro-training.public/HTML/public.html)
+            and 
+            [https://lumidata.eu/462000265:intro-training.public/HTML/public.html](https://lumidata.eu/462000265:intro-training.public/HTML/public.html)
+            work.
+
+        -   With the `wget` command: both
+
+            ```
+            wget https://462000265.lumidata.eu/intro-training.public/HTML/public.html
+            ```
+
+            and
+
+            ```
+            wget https://lumidata.eu/462000265:intro-training.public/HTML/public.html
+            ```
+
+            work.
+
+        -   With the `curl` command: Both
+
+            ```
+            curl https://462000265.lumidata.eu/intro-training.public/HTML/public.html
+            ```
+
+            and
+
+            ```
+            curl https://lumidata.eu/462000265:intro-training.public/HTML/public.html
+            ```
+
+            will print the content of the file on the terminal.
+
+            ```
+            curl -o public.html https://462000265.lumidata.eu/intro-training.public/HTML/public.html
+            ```
+
+            would store the result in the file `public.html` in the current directory.
+
+
+12. We continue on the data sharing example. 
+    Download the `HTML/shared.html` from the `intro-training.private` bucket.
+    This is a private object in a private bucket that has been explicitly shared with the
+    training project using
+
+    ```
+    s3cmd setacl --acl-grant='read:465001603$465001603' s3://intro-training.private/HTML/shared.html
+    ```
+    
+    ??? Solution "Click here to see the solution."
+
+        -   With `s3cmd`:
+  
+            ```
+            s3cmd get s3://462000265:intro-training.private/HTML/shared.html
+            ```
+
+            so we can use `s3cmd` to download this object, even though it is otherwise fully
+            private except for the explicit read rights given to the training project.
+
+        -   With `rclone`:
+
+            ```
+            rclone copy lumi-465001603-private:"462000265:intro-training.private/HTML/shared.html" .
+            ```
+
+            and this also works.
+
+        -   Trying to use any of the other tools of the previous exercise will fail though. E.g.,
+            neither the web URL 
+            [https://462000265.lumidata.eu/intro-training.private/HTML/shared.html](https://462000265.lumidata.eu/intro-training.private/HTML/shared.html)
+            nor
+            [https://lumidata.eu/462000265:intro-training.private/HTML/shared.html](https://lumidata.eu/462000265:iintro-training.private/HTML/shared.html)
+
+            nor any of the commands
+
+            ```
+            wget https://462000265.lumidata.eu/intro-training.private/HTML/shared.html
+            wget https://lumidata.eu/462000265:intro-training.private/HTML/shared.html
+            curl https://462000265.lumidata.eu/intro-training.private/HTML/shared.html
+            curl https://lumidata.eu/462000265:intro-training.private/HTML/shared.html
+            ```
+
+            work as these would need read rights for anonymous users which are not granted as this is
+            a private object.
+
+        The presigned URL is more interesting if you want to quickly share an object with someone
+        (e.g., if the LUMI User Support Teams asks you for a reproducer) and are not too concerned
+        that someone else may get hold of the link, while the method of data sharing used here,
+        will give permanent access to users of another project, or at least, until the access is
+        specifically revoked, but there is no chance that someone else would gain access.
 
 
 ## Exercises that can be made in your own project
