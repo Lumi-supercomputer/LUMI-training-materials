@@ -840,7 +840,7 @@ module avail
 </figure>
 
 Installing software this way is **99% equivalent to an installation in the central software
-tree**. The application is compiled in exactly the same way as we would do and served from Lustre file systems in both cases. The one difference is that the central software stack is on all 4 Lustre 
+tree**. The application is compiled in exactly the same way as we would do and served from Lustre file systems in both cases. The one difference is that the central software stack is on all 4 hard disk based Lustre 
 filesystem for availability reasons if one of the file systems is taken down for maintanence 
 (and a bit for performance reasons as executable and shared library loading for a big
 multi-node job will likely be spread across 4 filesystems),
