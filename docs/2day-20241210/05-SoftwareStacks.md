@@ -839,9 +839,16 @@ module avail
   ![Installing: Install the software](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-05-SoftwareStacks/EasyBuildInstallingStep3Note.png){ loading=lazy }
 </figure>
 
-Installing software this way is **100% equivalent to an installation in the central software
-tree**. The application is compiled in exactly the same way as we would do and served from the
-same file systems. But it helps **keep the output of `module avail` reasonably short** and **focused
+Installing software this way is **99% equivalent to an installation in the central software
+tree**. The application is compiled in exactly the same way as we would do and served from Lustre file systems in both cases. The one difference is that the central software stack is on all 4 Lustre 
+filesystem for availability reasons if one of the file systems is taken down for maintanence 
+(and a bit for performance reasons as executable and shared library loading for a big
+multi-node job will likely be spread across 4 filesystems),
+but on the other hand, as long as the retention policy is not active, you could even
+use `/flash` for a software installation if you have enough storage billing units
+and get better startup performance for some packages, or even better runtime performance
+for those packages that keep opening files in the software installation.
+Furthermore, it helps **keep the output of `module avail` reasonably short** and **focused
 on your projects**, and it **puts you in control of installing updates**. For instance, we may find out
 that something in a module does not work for some users and that it needs to be re-installed. 
 Do this in the central stack and either you have to chose a different name or risk breaking running
