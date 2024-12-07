@@ -206,9 +206,14 @@ markdown_extensions:
   # Table of contents on the side
   - toc:
       permalink: true
+  # More sophisticated tables: @span command.
+  # Needs stylesheets from https://github.com/Neoteroi/mkdocs-plugins/releases/
+  - neoteroi.spantable
 
 extra_css:
   - stylesheets/extra.css
+  # From https://github.com/Neoteroi/mkdocs-plugins/releases/tag/v0.0.6:
+  - stylesheets/neoteroi-mkdocs.css
  
 extra:
   # add links in bottom right
