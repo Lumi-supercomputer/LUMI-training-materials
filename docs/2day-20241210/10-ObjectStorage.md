@@ -60,6 +60,10 @@ LUMI-O for multiple projects simultaneously, you'll need authentication keys for
 Object storage is not organised in files and directories. A much flatter structure is used with buckets
 that contain objects:
 
+-   **Projects**: LUMI-O works with "single user tenants/accounts", where the LUMI project number
+    is both the tenant/account and LUMI-O project. So the individual users in a LUMI project
+    are not know on LUMI-O and all users in a LUMI project have the same access to LUMI-O.
+
 -   **Buckets**: Containers used to store one or more objects. Object storage uses a flat structure with 
    only one level which means that buckets cannot contain other buckets.
 
@@ -172,6 +176,8 @@ If the upload would get interrupted, the parts would actually continue to live a
 separate objects unless a suitable bucket policy is set
 (and we have run into issues already with a user depleting their quota on LUMI-O with
 stale objects from failed multipart uploads).
+The configuration that the LUMI-O tools generate for `s3cmd` enables multipart uploads of 
+big objects.
 
 
 ***Optimised for?***
@@ -184,7 +190,7 @@ will be reduced during a disk repair action and even though the server functions
 done in high availability pairs, we have seen more than one case where a server pair fails
 making part of the data inaccessible.
 
-The LUMI-O object storage is much more optimised for reliability and uses a very
+The LUMI-O object storage is much more optimised for reliability and resilience. It uses a very
 complicated internal redundancy scheme. On LUMI-O each object is spread over 11 so-called
 storage nodes, spread over at least 6 racks, with never more than 2 storage nodes in a single
 rack. As only 8 storage nodes of an object are needed to recover the data of an object, one 
@@ -216,7 +222,7 @@ and GUI tools. In this world, external access is natural.
 There is really no difference in accessing LUMI-O from LUMI or from any other
 internet-connected computer. It is even possible to access LUMI-O via a web browser
 if such access is set up properly. It is documented in the bottom parts of the
-["Advanced usage of LUI-O" page in the LUMI docs](https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#sharing-data-with-other-projects).
+["Advanced usage of LUMI-O" page in the LUMI docs](https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#sharing-data-with-other-projects).
 
 
 ***MDS and ODS***
@@ -271,7 +277,7 @@ NetCDF is a file format developed specifically with supercomputers with large pa
 in mind, while zarr is a cloud-optimised technology. 
 You cannot work with netCDF files from an object storage system as they would be stored as a single
 object and only atomic operations are possible.
-Zarr on the other hand is da format to store large-scale N-dimensional data on an object storage
+Zarr on the other hand is a format to store large-scale N-dimensional data on an object storage
 system by breaking it up in a structured set of objects that each can be accessed with atomic 
 operations. But if you bring that hierarchy of objects as individual files onto a parallel file system,
 you risk creating problems with the metadata server as you will be dealing with lots of small files.
@@ -393,13 +399,13 @@ Let's walk through the interface:
     is the endpoint URL, which is "https://lumidata.eu/" and is not shown in the interface.
 
     !!! Note "Note: One more configuration parameter"
-        LUMI-O requires path-style (https://projectnum.lumidata.eu/bucket) addressing to buckets while
-        not the virtual-hosted style (https://bucket.projectnum.lumidata.eu) is not supported.
+        LUMI-O requires path-style (https://projectnum.lumidata.eu/bucket) addressing to buckets. 
+        The so-called virtual-hosted style (https://bucket.projectnum.lumidata.eu) is not supported.
         From a technical point of view, this is because the 
         `*.lumidata.eu` wildcard TLS certificate can only represent one layer of subdomains
         which is used for the project numbers.
 
-        Many clients default to this, but some will require a configuration option or an environment variable.
+        Many clients default to path-style addressing, but some will require a configuration option or an environment variable.
         Commonly used parameters and environment variables are `use_path_style`, `force_path_style`
         or `S3_FORCE_PATH_STYLE`. Notably `aws-sdk` defaults to trying virtual-hosted style when reading public buckets.
 
@@ -433,7 +439,7 @@ Let's walk through the interface:
     </figure>
 
     This screen shows us the snippet for the rclone configuration file (on Linux it is
-    `~/.config/rclone/rclone.conf`). Notice that it creates to so-called endpoints. In the slide
+    `~/.config/rclone/rclone.conf`). Notice that it creates two so-called endpoints. In the slide
     this is `lumi-465001102-private` and `lumi-465001102-public`, for storing buckets and objects which are private
     or public (i.e., also web-accessible).
 
@@ -481,9 +487,9 @@ Let us now again walk through the interface.
       ![Slide Credentials management through Open OnDemand (2)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_02.png){ loading=lazy }
     </figure>
 
-    At the top of the screen there is an overview of currently configured remotes. This are actually
-    the endpoints for `rclone`. Currently this is still empty as no remotes are configured for the
-    user. Let's scroll down a bit:
+    At the top of the screen there is an overview of currently configured remotes. These are actually
+    the endpoints for `rclone`. In this example, this section is still empty as no remotes are 
+    configured for the user. Let's scroll down a bit:
 
     <figure markdown style="border: 1px solid #000">
       ![Slide Credentials management through Open OnDemand (3)](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCredentialsOODCreate_03.png){ loading=lazy }
@@ -495,7 +501,7 @@ Let us now again walk through the interface.
     Besides the authentication key, by default an `rclone` endpoint to create buckets and upload objects with 
     private access only will also be created and this cannot be turned off as the endpoint will also 
     be used by another app that we discuss later. However, two checkboxes enable the creation of 
-    a config file `~/.s3cfg` sor `s3cmd` and an `rclone` endpoint to create buckets and objects with public
+    a configuration file for `s3cmd` and an `rclone` endpoint to create buckets and objects with public
     access ACL can also be created.
 
     The `rclone` endpoints are stored in the `rclone` configuration file
@@ -572,7 +578,7 @@ Let us now again walk through the interface.
 
     The top bar now shows `lumi-465000095-public:/training-materials-web/intro-evolving.files/` while we also get a list
     of elements that look like files. These are the objects, but don't be mistaken: The name of the first object in the 
-    list is not `exercises-evolvong.tar`, but it is the object named 
+    list is not `exercises-evolving.tar`, but it is the object named 
     `intro-evolving/files/exercises-evolving.tar` in the bucket `training-materials-web` in the project `46500095`.
     The slashes in the name are used to create a "pseudo-folder" view to bring more structure into the flat space of
     objects, but the organisation internally in object storage is completely different from a regular filesystem.
@@ -592,8 +598,7 @@ Let us now again walk through the interface.
   ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/LUMIOCLIToolConfigRcloneS3cmd.png){ loading=lazy }
 </figure>
 
-**The materials in this section are only valid for the `lumio/2.0.0` module and newer. `lumio/2.0.0` is the
-default at the time of the course.**
+**The materials in this section are only valid for the `lumio/2.0.0` module and newer. `lumio/2.0.0` is the default at the time of the course.**
 
 On LUMI, you can use the `lumio-conf` tool to configure `rclone`, `s3cmd`, `aws`
 and the `boto3` Python packages. 
@@ -618,7 +623,7 @@ file can contain information for only one project, the following solution was ch
 
 -   The tool creates the configuration file `~/.s3cfg-lumi-46YXXXXXX` specific for the project,
 
--    and overwrite the `˜/.s3cfg` configuration file with the new configuration.
+-    and overwrites the `˜/.s3cfg` configuration file with the new configuration.
     
 So if you want to use `s3cmd` for only one project, or for the last project for which you used
 `lumio-conf`, you can simply use it as in all the `s3cmd` examples, while if you want to use it
@@ -848,7 +853,7 @@ ACLs on LUMI. It is available via the `lumio` module.
         [https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf](https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf)
         or
         [https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf](https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf)
-        produces an error message, while
+        produces an "Access Denied" error message (in a strange format, but read the text), while
         [https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png)
         or
         [https://lumidata.eu/462000265:2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png](https://lumidata.eu/462000265:2day-20241210/img/LUMI-2day-20241210-10-ObjectStorage/Title.png)
@@ -889,7 +894,7 @@ Each solution has its own limitations though:
         the bucket "bucket" of project "46XXXXXXX" can be done with:
 
         ```
-        s3cmd ls s3://46XXXXXXX:bucket/
+        s3cmd ls --recursive s3://46XXXXXXX:bucket/
         ```
 
         so you need to specify - as one could expect as the bucket namespace is per project - the bucket 
@@ -897,12 +902,12 @@ Each solution has its own limitations though:
 
     -   The `rclone` configuration file can contain multiple endpoints for multiple projects, so here
         we will also need to specify the endpoint from which the credentials should be used. Assume
-        that a user in project 46AAAAAAA has been given read rights to the bucket "bucket" in project
-        "46XXXXXXX" and has an endpoint `lumi-46AAAAAAA-private` configured, then that user can list
+        that a user in project 46BAAAAAA has been given read rights to the bucket "bucket" in project
+        "46YXXXXXX" and has an endpoint `lumi-46BAAAAAA-private` configured, then that user can list
         the objects in that bucket with:
 
         ```
-        rclone ls lumi-46AAAAAAA-private:"46XXXXXXX:bucket"
+        rclone ls lumi-46BAAAAAA-private:"46YXXXXXX:bucket"
         ```
 
 3.  The third technique is using presigned URLs. These are URLs created specifically for access to
@@ -912,7 +917,8 @@ Each solution has its own limitations though:
 
     Presigned URLs depend on the authentication key that was used to create them. If the authentication key
     expires or is revoked, the link will no longer be valid, even if this happens within the validity period
-    of the link. And it is also possible to revoke the link.
+    of the link. It is not possible to create links with a validity period of
+    more than 7 days on LUMI. Also, it is also possible to revoke the link.
 
     Presigned URLs can be created and managed through the `rclone link` command. E.g.,
 
@@ -933,7 +939,7 @@ Each solution has its own limitations though:
         465 cannot always be invited to a CSC project (projects starting with 462). They would first need to get
         a CSC userid to have access to myCSC and may end up with a second userID on LUMI.
 
-    -   Users who entered LUMI though Puhuri, i.e., a 462 project, need to 
+    -   Users who entered LUMI though myCSC, i.e., a 462 project, need to 
         [link their account first to MyAccessID](https://docs.csc.fi/accounts/how-to-manage-user-information/)
         or they would get a second userID on LUMI when invited by a Puhuri-managed project. 
 
