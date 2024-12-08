@@ -81,7 +81,7 @@ materials are uploaded.
 | [Exercises 4](ME07-Exercises-4.md) | / | / | / | / |
 | **Theme: Data on LUMI** @span |  |  |  |  |
 | [Using Lustre](M09-Lustre.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-09-Lustre.pdf) | [N](09-Lustre.md) | / | [V](M09-Lustre.md) |
-| [Object Storage](M10-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-10-ObjectStorage.pdf) | [N](10-ObjectStorage.md) | [E](E10-ObjectStorage) | [V](M10-ObjectStorage.md) |
+| [Object Storage](M10-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-10-ObjectStorage.pdf) | [N](10-ObjectStorage.md) | [E](E10-ObjectStorage) | [V](M10-ObjectStorage.md) |
 | [Exercises 5](ME10-Exercises-5.md) | / | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M11-Containers.md) | [S](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-11-Containers.pdf) | [N](11-Containers.md) | / | [V](M11-Containers.md) |

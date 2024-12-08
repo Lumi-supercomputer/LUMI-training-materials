@@ -118,16 +118,16 @@ Just some examples of using the wrong tools or infrastructure:
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.
 
-<!-- General version -->
+<!-- GENERAL version -->
 -   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
     of their architecture.**  
     Supercomputers are optimised to run very scalable applications cost-efficiently, but that
     requires well parallelised software and data storage in a proper way so that data can be 
     streamed in and out of the machine efficiently from big shared filesystems that are also 
     optimised more for bandwidth than small individual operations. 
-<!-- End general version -->
+<!-- END GENERAL version -->
 
-<!-- Belgian version due to CERN censorship. 
+<!-- BELGIUM Belgian version due to CERN censorship. 
 -   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
     of their architecture.**  
     Supercomputers are optimised to run very scalable applications cost-efficiently, but that
@@ -139,7 +139,7 @@ Just some examples of using the wrong tools or infrastructure:
     [case study: Bringing CERN LHC computations to an HPC infrastructure](https://klust.github.io/SupercomputersForStarters/C05_Summary1/C05_S06_Software_not_hardware/#case-study-bringing-cern-lhc-computations-to-an-hpc-infrastructure)
     in the course notes of the [UAntwerpen "Supercomputers for Starters" course](https://klust.github.io/SupercomputersForStarters/)
     which is part of the VSC introductory courses offered in Antwerp.
-End Belgian version -->
+END BELGIUM -->
 
 True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
