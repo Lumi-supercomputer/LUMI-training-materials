@@ -79,7 +79,7 @@ DAY 1
             <br/><em>12:20 EET</em>
         </td>
         <td><b><a href="../M03-Access/">Getting Access to LUMI</a></b>
-        <br/><em>Presenter: Gregor Decristoforo</em>
+        <br/><em>Presenter: Kurt Lust</em>
         <br/>We discuss the options to log on to LUMI and to transfer data.
         </td>
     </tr>
