@@ -17,11 +17,16 @@
     -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
     -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
 
-<!--
 ## Setting up for the exercises
 
-If you have an active project on LUMI, you should be able to make the exercises in that project.
-You will only need an very minimum of CPU and GPU billing units for this.
+During the course, you can use the training project `project_465001603` for the exercises.
+After the course, it is still possible to make almost all exercises in your own project.
+They need only very little resources. The ["Object Storage" exercises](E10-ObjectStorage.md)
+in [Exercise session 5](ME10-Exercises-5.md) do require data in the training project, so
+these exercises should really be made while the training project is still active. For the
+exercises from [Exercise session 4](ME08-Exercises-4.md) you can no longer use the reservation
+if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
+day).
 
 -   Create a directory in the scratch of your project, or if you want to
     keep the exercises around for a while, in a subdirectory of your project directory 
@@ -47,24 +52,12 @@ You will only need an very minimum of CPU and GPU billing units for this.
     [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20241210/files/exercises-20241210.tar.gz)
 
 -   You're all set to go!
--->
 
 
 ## Course materials
 
 **Note:** Some links in the table below may remain invalid until after the course when all
 materials are uploaded.
-
-<!-- Note: spantable fails if there are spaces after the trailing |! -->
-::spantable::
-
-| Presentation | Slides | Notes | Exercises | Recording |
-|:-------------|:-------|:------|:----------|:----------|
-| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / |
-
-::end-spantable::
-
-Work copy during preparations:
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
 ::spantable::
@@ -101,6 +94,7 @@ Work copy during preparations:
 
 ::end-spantable::
 
+<!--
 Copy from previous notes, still including links to notes that are no longer valid:
 
 | Presentation | Slides | Notes | Exercises | Recording |
@@ -129,7 +123,7 @@ Copy from previous notes, still including links to notes that are no longer vali
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | / | [V](Demo2.md#video-of-the-demo) |
 | [What Else?](MI04-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I04-WhatElse.pdf) | / | / | [V](MI04-WhatElse.md) |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / | / | 
-
+-->
 
 
 ## Web links
