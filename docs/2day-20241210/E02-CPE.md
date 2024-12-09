@@ -1,11 +1,13 @@
 # Exercises: HPE Cray Programming Environment
 
 See [the instructions](index.md#setting-up-for-the-exercises)
-to set up for the exercises.
+to set up for the exercises. For these exercises, you'll need the files in
+the `CPE` subdirectory.
 
 *These exercises are optional during the session, but useful if you expect 
 to be compiling software yourself. The source files mentioned can be found in
 the subdirectory CPE of the download.*
+
 
 ## Compilation of a program 1: A simple "Hello, world" program
 
@@ -28,6 +30,8 @@ Try to compile these programs using the programming environment of your choice.
     module load cpe/23.12
     module load cpe/23.12
     ```
+
+    (but don't try this now or undo again by loading `cpe/25.03` twice or logging in again).
 
     So note that we do twice the same command as the first iteration does not always succeed to reload
     all modules in the correct version. Do not combine both lines into a single `module load` statement
@@ -102,6 +106,9 @@ on the system is extreme). In fact, if you've done things well the time reported
 -->
 If you're doing things right, the time reported for the
 `ijk`-variant should be well under 3 seconds for both the C and Fortran versions...
+It is not a shame at all if you can't find the solution without looking into the solution.
+Only people with experience with compilers will likely be able to make this exercise only
+relying on the course materials and the compiler documentation, so don't search too long.
 
 ??? Solution "Click to see the solution."
     Just as in the previous exercise, this is a pure CPU program so we can chose between the
