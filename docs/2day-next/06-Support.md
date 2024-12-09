@@ -74,6 +74,9 @@ EuroHPC has also granted the EPICURE project that started in February 2024 to se
 advanced L2 and L3 support across EuroHPC centres. Belgium also participates in that project as a partner
 in the LUMI consortium. However, this project is also so small that it will have to select the problems
 they tackle.
+Moreover, access is only for EuroHPC extreme scale, regular or development projects,
+though development projects are relatively easy to get without too much administration.
+Yet, this only makes sense for a sufficiently large project with a long enough duration.
 -->
 
 <!-- GENERAL More general version -->
@@ -81,6 +84,9 @@ EuroHPC has also granted the EPICURE project that started in February 2024 to se
 advanced L2 and L3 support across EuroHPC centres. At the time of the course, the project is still in
 its startup phase. Moreover, this project is also so small that it will have to select the problems
 they tackle.
+Moreover, access is only for EuroHPC extreme scale, regular or development projects,
+though development projects are relatively easy to get without too much administration.
+Yet, this only makes sense for a sufficiently large project with a long enough duration.
 
 In principle the EuroHPC Centres of Excellence should also play a role in porting some applications in their
 field of expertise and offer some support and training, but so far especially the support and training are
@@ -120,14 +126,16 @@ with a high enough frequency to deal with the continuous inflow of new users.
 The LUMI User Support Team organises 2 system-specific trainings:
 
 <!-- BELGIUM
-1.  There is a 1- or 2-day introductory course entirely given by members of the LUST.
+1.  There is a 2-day introductory course entirely given by members of the LUST.
     The training does assume familiarity with HPC systems, e.g., obtained from the introductory
     courses taught by [VSC](https://www.vscentrum.be/vsctraining) and
     [CÉCI](https://www.ceci-hpc.be/training.html).
+
+    The course is basically equivalent to this training.
 -->
 
 <!-- GENERAL More general version -->
-1.  There is a 1- or 2-day introductory course entirely given by members of the LUST.
+1.  There is a 2-day introductory course entirely given by members of the LUST.
     The training does assume familiarity with HPC systems, and each local organisation
     should offer such courses for their local systems already.
 
@@ -143,6 +151,11 @@ links to the situation specifically in Belgium.
 
 Application-specific trainings should come from other instances though that have the necessary domain
 knowledge: Groups that develop the applications, user groups, the EuroHPC Centres of Excellence, ...
+
+What users really want is of course a training for a specific application on a specific system,
+but as most applications have a too small usergroup and within that usergroup often still a large variety of workflows, and teaching such a course also requires an instructor with a lot of domain knowledge in the science field of the application.
+EuroHPC is also setting up some support initiatives specifically for AI, including the AI
+factories, more oriented towards industry startups, and the MINERVA project.
 
 Currently the training landscape in Europe is not too well organised. EuroHPC is starting some new
 training initiatives to succeed the excellent PRACE trainings.
@@ -700,7 +713,7 @@ As a result,
     EPICURE, ...
 
 -   The LUST can help with analysing the source of crashes or poor performance, with the emphasis on 
-    help as they rarely have all the application knowledge required to dig deep.
+    "help" as they rarely have all the application knowledge required to dig deep.
     And it will still require a significant effort from your side also.
 
 -   However, LUST is not a debugging service (though of course we do
