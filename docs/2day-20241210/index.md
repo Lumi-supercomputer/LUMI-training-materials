@@ -4,9 +4,7 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-amsterdam-may24?both)
--->
+-   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-dec24?both)
 
 -   Project for the course: `project_465001603`.
 
