@@ -1,7 +1,9 @@
 # Exercises: LUMI Software Stacks
 
 See [the instructions](index.md#setting-up-for-the-exercises)
-to set up for the exercises.
+to set up for the exercises. For these exercises, you'll need the
+files in the `EasyBuild` subdirectory.
+
 
 ## Information in the LUMI Software Library  
 
@@ -34,36 +36,37 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
         will first show some license information, then the actual user information which in this case also contains
         a link to training materials used by a course at CSC.
 
-        Newer versions of GROMACS for CPU are only compiled with the GNU compilers. Though it may be worthwhile to
-        investigate if the Cray or AMD compilers offer better performance, it is outside the scope of what the 
-        main LUMI User Support Team can do given its small size and the amount of domain expertise needed to 
+        Some versions are available for multiple compilers to let you experiment
+        which one works best, but this is not the case for all versions as that
+        is outside the scope of what the main LUMI User Support Team can do given
+        its small size and the amount of domain expertise that is needed to
         select a set of relevant benchmarks for GROMACS.
 
 
 ## Using modules in the LUMI software stack
 
-2.  Search for the `bzip2` tool (and not just the `bunzip2` command as we also need the `bzip2` command) and make 
+1.  Search for the `brotli` tool and make 
     sure that you can use software compiled with the Cray compilers in the LUMI stacks in the same session.
 
     ??? Solution "Click to see the solution."
 
         ```
-        module spider bzip2
+        module spider brotli
         ```
 
-        shows that there are versions of `bzip2` for several of the `cpe*` toolchains and in several versions
+        shows that there are versions of `brotli` for several of the `cpe*` toolchains and in several versions
         of the LUMI software stack.
 
         Of course we prefer to use a recent software stack, the `23.12` or `24.03` (and preferably the `24.03` as 
         that is the best supported on at this time, early December 2024). 
         Since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
-        different toolchains. So the module we want to load is `bzip2/1.0.8-cpeCray-24.03`.
+        different toolchains. So the module we want to load is `Brotli/1.1.0-cpeCray-24.03`.
 
         To figure out how to load it, use
 
         ```
-        module spider bzip2/1.0.8-cpeCray-24.03
+        module spider Brotli/1.1.0-cpeCray-24.03
         ```
 
         and see that (as expected from the name) we need to load `LUMI/24.03` and can then use it in any of the
@@ -102,6 +105,7 @@ in `/scratch/project_465001603/$USER/eb-course` if you make the exercises during
 
 The LUMI Software Library contains the package `eb-tutorial`. Install the version of
 the package for the `cpeCray` toolchain in the 24.03 version of the software stack.
+Install the software for the LUMI-C compute nodes.
 
 ??? Solution "Click to see the solution."
     -   We can check the 
@@ -145,8 +149,6 @@ the package for the `cpeCray` toolchain in the 24.03 version of the software sta
 
         ```
         module av eb-tutorial/1.0.1-cpeCray-24.03
-        ```
-
         ```
  
     -   Now that we have the module, we can check what it actually does:
