@@ -14,7 +14,8 @@
 		```
 		
 		Note that you need to replace `<project_id>` with the actual project account ID of the 
-		form  `project_` plus a 9 digits number.
+		form  `project_` plus a 9 digits number (and this argument can be omitted
+		if you use the `exercises/small` module during the course).
 		
 		The command runs a single process (`bash` shell with the native Linux `taskset` tool showing 
 		process's CPU affinity) on a compute node. 
@@ -37,8 +38,8 @@
 	#SBATCH --time=5                    # Run time (minutes)
 	#SBATCH --account=<project_id>      # Project for billing
 
-	module load LUMI/23.09
-	module load lumi-CPEtools/1.1-cpeGNU-23.09
+	module load LUMI/24.03
+	module load lumi-CPEtools/1.1-cpeGNU-24.03
 
 	srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 	``` 
@@ -49,7 +50,7 @@
 	??? Solution "Click to see the solution."
 		
 		Save the script contents into the file  `job.sh` (you can use the `nano` console text editor for instance). 
-		Remember to use valid project account name.
+		Remember to use valid project account name (or omit the line if you are using the `exercises/small` module).
 		
 		Submit the job script using the `sbatch` command:
 		
@@ -67,14 +68,30 @@
 ## Advanced exercises
 
 These exercises combine material from several chapters of the tutorial.
+This particular exercise makes most sense if you will be building software
+on LUMI (but remember that this will be more of you than you may expect)!
 
 1.  Build the `hello_jobstep` program tool using interactive shell on a GPU node. 
     You can pull the source code for the program from git repository 
 	[`https://code.ornl.gov/olcf/hello_jobstep.git`](https://code.ornl.gov/olcf/hello_jobstep). 
-	It uses a `Makefile` for building and requires Clang and HIP. 
+	It uses a `Makefile` for building and requires Clang and HIP. The code also
+	contains a `README.md` file with instructions, but they will need some changes.
 	The `hello_jobstep` program is actually the main source of inspiration for the 
 	`gpu_check` program in the `lumi-CPEtools` modules for `partition/G`.
 	Try to run the program interactively. 
+
+	The `Makefile` contains a conditional section to set proper arguments for the
+	compiler. LUMI is very similar to Frontier, so when calling the `make` program
+	to build the code from the Makefile, don't use simply `make` as suggested in the
+	`README.md`, but use
+
+	```
+	make LMOD_SYSTEM_NAME="frontier"
+	```
+
+	*Note:* Given that the reservation is on `standard-g` where you can only get
+	whole nodes, which is rather stupid for this example, it is better to try to
+	get a single GPU with 7 cores and 60GB of memory on the `small-g` partition.
 
 	??? Solution "Click to see the solution."
 		
@@ -89,7 +106,7 @@ These exercises combine material from several chapters of the tutorial.
 		Allocate resources for a single task with a single GPU with `salloc`:
 		
 		```
-		salloc --partition=small-g --nodes=1 --tasks=1 --cpus-per-task=1 --gpus-per-node=1 --time=10 --account=<project_id>
+		salloc --partition=small-g --tasks=1 --cpus-per-task=7 --gpus=1 --mem=60G --time=10 --account=<project_id>
 		```
 		
 		Note that, after allocation is granted, you receive new shell but are still on the compute node. 
@@ -103,17 +120,21 @@ These exercises combine material from several chapters of the tutorial.
 		
 		Note now you are on the compute node. `--pty` option for `srun` is required to interact with the remote shell.
 		
-		Enter the `hello_jobstep` directory and issue `make` command. 
+		Enter the `hello_jobstep` directory. There is a Makefile to build the
+		code using the `make` command, but first we need to make sure that there
+		is a proper programming environment loaded. 
 		
 		As an example we will built with the system default programming environment, `PrgEnv-cray` in `CrayEnv`. 
 		Just to be sure we'll load even the programming environment module explicitly.
 
-		The build will fail if the `rocm` module is not loaded when using `PrgEnv-cray`.
+		The build will fail if the `rocm/6.0.3` module is not loaded when using `PrgEnv-cray`. Whereas the instructions suggest to simply use the `rocm` 
+		module, we're specifying a version as at the time of the course, there 
+		was a newer but not fully supported `rocm` module on the system.
 		
 		```
 		module load CrayEnv
 		module load PrgEnv-cray
-		module load rocm
+		module load rocm/6.0.3
 		```
 		
 		To build the code, use
@@ -141,6 +162,7 @@ These exercises combine material from several chapters of the tutorial.
 		```
 		exit
 		``` 
+
 		and then do the same for the shell created by `salloc` also.
 
 
