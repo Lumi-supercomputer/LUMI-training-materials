@@ -203,7 +203,7 @@ started with subsequent `srun` commands.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeGNU-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeGNU-24.03
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -526,6 +526,9 @@ will use in an application. We will call this the *job-local numbering*.
 Inside task of a regular job step, Slurm can further restrict the GPUs that are visible through control
 groups at the task level, leading to yet another numbering that starts from 0 which we will call the 
 *task-local numbering*. 
+That kind of control group should be avoided though at any price as it stops direct 
+communication between GPUs with MPI or RCCL (a ROCm communication library popular in 
+AI applications).
 
 Note also that Slurm does take care of setting the `ROCR_VISIBLE_DEVICES` environment variable. It will be set
 at the start of a batch job step giving access to all GPUs that are available in the allocation, and will also
@@ -555,7 +558,7 @@ the HIP runtime will number the GPUs that are available from 0 on.
     #SBATCH --hint=nomultithread
     #SBATCH --time=15:00
     
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -779,7 +782,7 @@ task level.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
     
     cat << EOF > select_1gpu_$SLURM_JOB_ID
     #!/bin/bash
@@ -1006,7 +1009,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeGNU-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeGNU-24.03
     srun --ntasks=8 --cpu-bind=map_cpu:49,57,17,25,1,9,33,41 mpi_check -r
     ```
 
@@ -1029,7 +1032,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeGNU-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeGNU-24.03
     srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000 hybrid_check -r
     ```
 
@@ -1037,7 +1040,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     25-30, fifth on 1-6, sixth on 9-14, seventh on 33-38 and eight on 41-46.
 
 The `--cpu-bind=map_cpu` and `--cpu-bind=mask_gpu` options also do not go together with `-c` / `--cpus-per-task`.
-Both commands define a binding (the latter in combination with the default `--gpu-bind=threads`) 
+Both commands define a binding (the latter in combination with the default `--cpu-bind=threads`) 
 and these will usually conflict.
 
 There are more options, but these are currently most relevant ones on LUMI. That may change in the future as
@@ -1123,7 +1126,7 @@ of reordering MPI ranks than the Slurm `--distribution` option as one
 can define fully custom orderings.
 
 Rank reordering is an advanced topic that is discussed in more detail in the
-4-day LUMI comprehensive courses organised by the LUMI User Support Team.
+4/5-day Advanced LUMI courses organised by the LUMI User Support Team.
 The [material of the latest one can be found via the course archive web page](https://lumi-supercomputer.github.io/LUMI-training-materials/comprehensive-latest)
 and is discussed in the  "MPI Topics on the HPE Cray EX Supercomputer"
 which is often given on day 3.
@@ -1176,7 +1179,7 @@ the same problem size (and hence same number of nodes and tasks).
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeGNU-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeGNU-24.03
     
     set -x
     echo -e "\nSMP-style distribution on top of block."
@@ -1448,7 +1451,7 @@ can also be used to check the OpenMP thread binding.
     #SBATCH --hint=multithread
     #SBATCH --time=5:00
     
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
     
     set -x
     export OMP_NUM_THREADS=4
@@ -1872,7 +1875,7 @@ One possible job script to accomplish this is:
 #SBATCH --nodes=1
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 cat << EOF > select_gpu_$SLURM_JOB_ID
 #!/bin/bash
@@ -2054,7 +2057,7 @@ in the two scripts above:
 #SBATCH --nodes=1
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 # Mapping:
 # | Task | GCD | CCD | Available cores |
@@ -2152,7 +2155,7 @@ is is also easy to check that each task is also mapped on the optimal CCD for th
     #SBATCH --nodes=1
     #SBATCH --time=5:00
     
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
     
     #
     # Define the order of the GPUs and the core mask for CCD0
@@ -2312,7 +2315,7 @@ resources allocated via the `sbatch` arguments (usually `#SBATCH` lines), and re
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
 
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
     cat << EOF > select_gpu_$SLURM_JOB_ID
     #!/bin/bash
@@ -2486,7 +2489,7 @@ resources allocated via the `sbatch` arguments (usually `#SBATCH` lines), and re
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
     
     cat << EOF > select_gpu_$SLURM_JOB_ID
     #!/bin/bash
