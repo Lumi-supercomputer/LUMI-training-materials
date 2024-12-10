@@ -3267,24 +3267,86 @@
 Lmod user can learn from this presentation how we use modules on LUMI and how
 modules can be found.</p>
 <h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<p>Materials will be made available during and after the lecture</p>
 <!--
-<video src="https://462000265.lumidata.eu/2day-20241210/recordings/04-Modules.mp4" controls="controls">
-</video>
+Materials will be made available during and after the lecture
 -->
+
+<video src="https://462000265.lumidata.eu/2day-20241210/recordings/04-Modules.mp4" controls="controls"></video>
 
 <!--
 -   A video recording will follow.
-
--   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-04-Modules.pdf)
-
--   [Course notes](04-Modules.md)
-
--   [Exercises](E04-Modules.md)
 -->
 
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-04-Modules.pdf">Slides</a></p>
+</li>
+<li>
+<p><a href="../04-Modules/">Course notes</a></p>
+</li>
+<li>
+<p><a href="../E04-Modules/">Exercises</a></p>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>What is the difference between amd and rocm modules?</p>
+<ul>
+<li>The <code>rocm</code> module allows you to use ROCm only with any other environment while <code>amd</code> module is to use AMD compilers with the Cray Programming Environment, including proper versions of LibSci and other libraries. </li>
+</ul>
+</li>
+<li>
+<p>What is the best way to clean cache after installing a new module?</p>
+<ul>
+<li><code>rm -rf ~/.cache/lmod</code> and the cache will be rebuilt automatically at the next module command that needs it</li>
+</ul>
+</li>
+<li>
+<p>I am a bit confused about how the "Cray Compiling Environment" and the "Cray Programming Environment" are related to one another. Furthermore, the different compilers, like amd, GNU and so on. I assume that <code>PrgEnv-GNU</code> is essentially kind of a wrapper that loads several module in the right way and tells the "system" (whatever that is) to use a certain set of compilers.</p>
+<ul>
+<li>
+<p>Cray Programming Environment is the name that is used for the whole software stack that Cray provides for programming. This consists of software they have wholly or partially written themselves, and some software that is really just a repackaging of third party software. Cray Compiling Environment or Cray Compilation Environment (I see both depending on the sources), abbreviated CCE, is the name they use for their C/C++ and Fortran compilers that they provide themselves, with the C/C++ compiler being regular clang/LLVM with some extra plugins, and the Fortran compiler their own on top of LLVM for the actual code generation.</p>
+</li>
+<li>
+<p><code>PrgEnv-gnu</code> may look a bit complex if you check the coded, but it only loads some other modules and sets an environment variable that is probably used by the wrappers. The magic is more in the other modules, that set several modules that are picked up by the wrappers. The wrappers themselves are provided by the <code>craype</code> module which is one of the modules load by <code>PrgEnv-gnu</code>. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>How to check which version is available when I tried <code>module spider bison</code>. It gives different version of buildtools? Which one to choose?</p>
+<ul>
+<li>
+<p>It is showing the buildtools that are associated to the different available stacks, from 24.03 (the latest one), to 22.08. which version of the buildtools you want to use is related to which stack you are using. In this way you can load the buildtools module compiled with the correct stack when you are using that stack to work. </p>
+</li>
+<li>
+<p>There is basically only one other version available, Bison 3.8.2, as Bison doesn't change quickly anymore. You see that at the top of the output of <code>module spider Bison</code>, but it is in a lot of versions of the <code>buildtools</code> module. Of course, if you load one of these module combinations, you could then also try <code>bison --version</code> if you don't believe that the version we used in the module extension Bison is actually the version of the <code>bison</code> program.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Which version of modules is loaded by default, the latest? Can I just say 'module load systools' instead of 'module load systools/24.03'?</p>
+<ul>
+<li>
+<p>After first loading <code>CrayEnv</code>, you'll have several <code>systools</code> modules but if you would do a <code>module av</code> after loading <code>CrayEnv</code>, you'd see that the 24.03 version has a <code>(D)</code> behind its name. Lmod always tries to take the highest version number and is rather good at figuring out which version this is, even with some rather strange version numbering. In <code>LUMI/24.03</code> it ven doesn't matter at the moment as there is only one <code>systools</code> module.</p>
+</li>
+<li>
+<p>But loading without a version is dangerous when a new version is installed, or when the default changes. We can also define a different version as the default, and that is something that we often do when a new programming environment is installed on the system. The corresponding <code>LUMI</code> module is often still too incomplete so we keep an older one as the default.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>A silly question, but when I do <code>module show PrgEnv-gnu</code> then I see the line <code>load("gcc-native")</code>. On the other hand when I run <code>module show gcc-native</code> I see the line <code>load("PrgEnv-gnu")</code>, which looks like an infinite loop, but it works, how is that? I know this is a super specific question, but it just very interesting.</p>
+<ul>
+<li>
+<p>To be honest, i don't think is an infinite loop. it just mean that one needs the other so the moment you load one of them, you automatically need to load the other one. is not like when you load the other you unload the first.</p>
+</li>
+<li>
+<p>For me the idea beyond this logic is to prevent using <code>gcc-native</code> module with other programming environmnents than <code>PrgEnv-gnu</code>; if you really want to do such a mixture load <code>gcc-native-mixed</code> module instead. Although actual module script avoids circular loading.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
