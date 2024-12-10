@@ -25,6 +25,9 @@ In this section, we will
 
 -   and pay some attention to the use of some of our pre-built AI containers.
 
+    If you are interested in doing AI on LUMI, we highly recommend that you have a look at our
+    [AI course materials](https://lumi-supercomputer.github.io/AI-latest/).
+
 Remember though that the compute nodes of LUMI are an HPC infrastructure and not a container cloud!
 
 
@@ -76,6 +79,23 @@ to mind is the interconnect. And they use the kernel of the host and the kernel 
 kernel. Those can be a problem. A container that is not build to support the SlingShot interconnect, may fall back to
 TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
 intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.
+
+So the "bring your own userland and run it on a system-optimised kernel" idea that proponents of containers promote,
+has two major flaws
+
+1.  Every set of userland libraries comes with certain expectations for kernel versions, kernel drivers and their 
+    versions, etc. If these expectations are not met, the container may not work at all or may work inefficiently.
+
+2.  Support for specific hardware is not done in the kernel alone. Most of the support for hardware, is actually 
+    in userland. E.g., part of the support for the SlingShot network, is in the libfabric library and its CXI
+    provider, which are userland elements. Container promoters will tell you that is not a problem and that you
+    can inject those libraries in the container, but the reality is that that strategy not always works, as the
+    library you have on the system may not be the right version for the container, or may need other libraries 
+    that conflict with the versions in the container.
+    
+    And obviously support for a specific instruction set, is also 
+    in userland. If a binary is not compiled to benefit from the additional speed of new instructions in a 
+    newer architecture, no container runtime can inject that support.
 
 
 ## But what can they then do on LUMI?
@@ -523,13 +543,17 @@ mounting the SquashFS file on the right directory in the container.
 
 Note that the wrapper scripts may seem transparent, but running a script that contains
 the wrapper commands outside the container may have different results from running the
-same script inside the container. The reason is that each of the wrapper commands 
+same script inside the container. After all, the script that runs outside the 
+container sees a different environment than the same script running inside the container.
+<!-- Likely wrong
+The reason is that each of the wrapper commands 
 internally still call singularity to run the command in the container, and singularity
 does not pass the whole environment to the container, but only environment variables
 that are explicitly defined to be passed to the container by prepending their name with
 `SINGULARITYENV_`. E.g., when running AI application such as PyTorch, several environment
 variables need to be set in advance and doing so with the regular names would not work
 with the wrapper scripts.
+-->
 
 We do strongly recommend to use cotainr or the container wrapper tool for larger conda and Python installation.
 We will not raise your file quota if it is to house such installation in your `/project` directory.
@@ -623,7 +647,7 @@ built specifically for LUMI for near-optimal performance. Depending on the softw
 also contain a RCCL library with the appropriate plugin to work well on the Slingshot 11
 interconnect, or a horovod compiled to use Cray MPICH. 
 
-The containers can be provided through a module that is user-installable with EasyBuild.
+Some of the containers can be provided through a module that is user-installable with EasyBuild.
 That module sets the `SINGULARITY_BIND` environment variable
 to ensure proper bindings (as they need, e.g., the libfabric library from the system and the proper
 "CXI provider" for libfabric to connect to the Slingshot interconnect). The module will also provide
@@ -631,8 +655,7 @@ an environment variable to refer to the container (name with full path) to make 
 the container in job scripts. Some of the modules also provide some scripts that may make using the containers easier in some standard scenarios. Alternatively, the user support team is also working
 on some modules for users who want to run the containers as manually as possible yet want an 
 easy way to deal with the necessary bindings of user file systems and HPE Cray PE components needed
-from the system (see also course notes for the AI training/workshop, still "future" at the time
-of this course so we cannot link to them).
+from the system (see also [course materials for the AI training/workshop](https://lumi-supercomputer.github.io/AI-latest/)).
 
 These containers can be found through the
 [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) and are marked
@@ -667,11 +690,15 @@ Yet to be able to properly use the containers, users do need to take care of som
 
     The first one is needed to work together with Slurm. The second one contains the MPI and libfabric library.
     The third one is the actual component that binds libfabric to the Slingshot network adapter and is called 
-    the CXI provider, and the last one is a library that is needed by some LUMI system libraries but not in the
+    the CXI provider, and the last one is a library that is needed by some LUMI system libraries but not (yet) in the
     container.
     
 -   By default your home directory will be available in the container, but as your home directory is not your
-    main workspace, you may want to bind your subdirectory in `/project`, `/scratch` and/or `/flash` also.
+    main workspace, you may want to bind your subdirectory in `/project`, `/scratch` and/or `/flash` also, using, e.g.,
+
+    ```
+    -B /pfs,/scratch,/projappl,/project,/flash
+    ```
 
 There are also a number of components that may need further initialisation:
 
@@ -708,6 +735,9 @@ Doing all those initialisations, is a burden. Therefore we provide EasyBuild rec
 and to provide a module that helps setting environment variables in the initialisation.
 
 For packages for which we know generic usage patterns, we provide some scripts that do most settings.
+We may have to drop that though, as sometimes there are simply too many scenarios and promoting a particular
+one too much may mislead users and encourage them to try to map their problem on an approach which
+may be less efficient than theirs.
 When using the module, those scripts will be available in the `/runscripts` directory in the container,
 but are also in a subdirectory on the Lustre file system. So in principle you can even edit them or
 add your own scripts, though they would be erased if you reinstall the module with EasyBuild.
@@ -717,7 +747,7 @@ environment variable is already set to bind the necessary files and directories 
 make sure that your project, scratch and flash spaces are available at the same location as on LUMI so
 that even symbolic links in those directories should still work.
 
-We recently started adding a pre-configured virtual environment to the containers to add your own packages.
+Some container modules also set up a pre-configured virtual environment to add your own packages.
 The virtual environment can be found in the container in a subdirectory of `/user-software/venv`. To install
 packages from within the container, this directory needs to be writeable which is done by binding `/user-software` to the
 `$CONTAINERROOT/user-software` subdirectory outside the container.
@@ -728,6 +758,9 @@ the container is reloaded. And in case you prefer to fully delete the `user-soft
 from `$CONTAINERROOT`, it can be re-created using `unmake-squashfs` so that you can add further packages.
 You can also use `/user-software` to install software in other ways from within the container and can
 basically create whatever subdirectory you want into it. 
+This is basically automating the procedure described
+in the ["Extending containers with virtual environments for faster testing" lecture](../ai-20241126/extra_07_VirtualEnvironments.md)
+or our AI training.
 
 These containers with pre-configured virtual environment offer another advantage also: The module injects a number
 of environment variables into the container so that it is no longer needed to activate the conda environment and
@@ -782,7 +815,18 @@ are not explained in this text. You can find more information on the
   ![Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 1](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-11-Containers/RunningAIExampleNoEasyBuild_1.png){ loading=lazy }
 </figure>
 
-We'll need to create a number of scripts before we can even run the container.
+We'll need to create a number of scripts before we can even run the container. The job script
+alone is not enough as there are also per-task initialisations needed that cannot be done
+directly in the job script. In this example, we run the script that does the per-task
+initialisations in the container, but it is also possible to do this outside the container
+which would give access to the Slurm commands and may even simplify a bit. 
+
+If you want to know more about running AI loads on LUMI, we strongly recommend to take a look
+at the [course materials of the AI course](http://lumi-supercomputer.github.io/AI-latest/).
+Basically, running AI on AMD GPUs is not that different from NIVIDA GPUs, but there are some
+initialisations that are different. The main difference may be the difference between cloud
+environments, clusters with easy access to the compute nodes and clusters like LUMI that require
+you to always go through the resource manager if you want access to a compute node.
 
 The first script is a Python program to extract the name of the master node from a Slurm environment
 variable. Store it in `get-master.py`:
@@ -851,6 +895,7 @@ export NCCL_DEBUG_SUBSYS=INIT,COLL
 # This is needed as otherwise RCCL tries to use a network interface it has
 # no access to on LUMI.
 export NCCL_SOCKET_IFNAME=hsn0,hsn1,hsn2,hsn3
+# Next line not needed anymore in ROCm 6.2. You may see PHB also instead of 3, which is equivalent 
 export NCCL_NET_GDR_LEVEL=3
 
 # Set ROCR_VISIBLE_DEVICES so that each task uses the proper GPU
@@ -985,7 +1030,7 @@ The important parts here are:
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 
     `run-pytorch.sh` script). 
     We use the
-    ["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-20241210/07-Binding/#linear-assignment-of-gcd-then-match-the-cores).
+    ["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-20241210/08-Binding/#linear-assignment-of-gcd-then-match-the-cores).
 
 
 
@@ -1038,7 +1083,7 @@ srun --cpu-bind=mask_cpu:$MYMASKS \
 ```
 
 So basically you only need to take care of the proper CPU bindings where we again use the
-["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-20241210/07-Binding/#linear-assignment-of-gcd-then-match-the-cores).
+["Linear assignment of GCD, then match the cores" strategy](http://localhost:8000/LUMI-training-materials/2day-20241210/08-Binding/#linear-assignment-of-gcd-then-match-the-cores).
 
 
 ## Extending the containers
@@ -1074,28 +1119,67 @@ The container images that we provide can be found in the following directories o
     They tend to be available for a longer time than in the other two subdirectories.
 
 First you need to create a yaml file to tell Conda which is called by `cotainr` which packages need to be installed.
-An example is given in the 
+This is also discussed in 
 ["Using the images as base image for cotainr" section of the LUMI Software Library rocm page](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/#using-the-images-as-base-image-for-cotainr).
+
+For example, to create a PyTorch installation for ROCm 6.0.3, one can first create the 
+YAML file `py312_rocm603_pytorch.yml` with content
+
+``` yaml
+name: py312_rocm603_pytorch.yml
+channels:
+- conda-forge
+dependencies:
+- filelock=3.15.4
+- fsspec=2024.9.0
+- jinja2=3.1.4
+- markupsafe=2.1.5
+- mpmath=1.3.0
+- networkx=3.3
+- numpy=2.1.1
+- pillow=10.4.0
+- pip=24.0
+- python=3.12.3
+- sympy=1.13.2
+- typing-extensions=4.12.2
+- pip:
+    - --extra-index-url https://download.pytorch.org/whl/rocm6.0/
+    - pytorch-triton-rocm==3.0.0
+    - torch==2.4.1+rocm6.0
+    - torchaudio==2.4.1+rocm6.0
+    - torchvision==0.19.1+rocm6.0
+```
+
 Next we need to run `cotainr` with the right base image to generate the container:
 
 ``` bash
-module load LUMI/22.12 cotainr
+module load LUMI/24.03 cotainr
 cotainr build my-new-image.sif \
-    --base-image=/appl/local/containers/sif-images/lumi-rocm-rocm-5.4.6.sif \
-    --conda-env=py311_rocm542_pytorch.yml
+    --base-image=/appl/local/containers/sif-images/lumi-rocm-rocm-6.0.3.sif \
+    --conda-env=py312_rocm603_pytorch.yml
+```
+
+or, as for the current version of `cotainr` in `LUMI/24.03` this image is actually the base image for the `lumi-g` preset:
+
+``` bash
+module load LUMI/24.03 cotainr
+cotainr build my-new-image.sif \
+    --system=lumi-g \
+    --conda-env=py312_rocm603_pytorch.yml
 ```
 
 The `cotainr` command takes three arguments in this example:
 
 -   `my-new-image.sif` is the name of the container image that it will generate.
 
--   `--base-image=/appl/local/containers/sif-images/lumi-rocm-rocm-5.4.6.sif` points to the base image that we will use,
-    in this case the latest version of the ROCm 5.4.6 container provided on LUMI.
+-   `--base-image=/appl/local/containers/sif-images/lumi-rocm-rocm-6.0.3.sif` points to the base image that we will use,
+    in this case the latest version of the ROCm 6.0.3 container provided on LUMI.
 
-    This version was chosen for this case as ROCm 5.4 is the most recent version for which the driver
-    on LUMI at the time of writing (early May 2024) offers guaranteed support.
+    This version was chosen for this case as ROCm 6.0.3 version corresponding to the driver
+    on LUMI at the time of writing (early December 2024), but with that driver we could also have
+    chosen PyTorch versions that require ROCm 6.1 or 6.2.
 
--   `--conda-env=py311_rocm542_pytorch.yml`
+-   `--conda-env=py312_rocm603_pytorch.yml`: The YAML file with the environment definition.
 
 The result is a container for which you will still need to provide the proper bindings to some libraries on the system (to interface
 properly with Slurm and so that RCCL with the OFI plugin can work) and to your spaces in the file system that you want to use.
@@ -1133,23 +1217,23 @@ to one of the LUMI PyTorch containers to provide support for software OpenGL ren
 OpenGL acceleration) and the `hostname` command.
 
 To use the `singularity build` command, we first need to make the `proot` command available. This is currently
-not installed in the LUMI system image, but is provided by the `systools/23.09` and later modules that can be
+not installed in the LUMI system image, but is provided by the `systools/24.03` and later modules that can be
 found in the corresponding LUMI stack and in the CrayEnv environment.
 
 To update the container, run:
 
 ``` bash
-module load LUMI/23.09 systools
+module load LUMI/24.03 systools
 singularity build my-new-container.sif my-container-definition.def
 ```
 
 Note:
 
--   In this example, as we use the `LUMI/23.09` module, there is no need to specify the version of `systools` as there
+-   In this example, as we use the `LUMI/24.03` module, there is no need to specify the version of `systools` as there
     is only one in this stack. An alternative would have been to use
 
     ``` bash
-    module load CrayEnv systools/23.09
+    module load CrayEnv systools/24.03
     ```
 
 -   The `singularity build` command takes two options: The first one is the name of the new container image that it

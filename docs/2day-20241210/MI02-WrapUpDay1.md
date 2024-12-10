@@ -5,15 +5,14 @@
 
 ## Materials
 
-Materials will be made available during and after the lecture
-
 <!--
-<video src="https://462000265.lumidata.eu/2day-20241210/recordings/06-WrapUpDay1.mp4" controls="controls">
-</video>
+Materials will be made available during and after the lecture
 -->
+
+<video src="https://462000265.lumidata.eu/2day-20241210/recordings/I02-WrapUpDay1.mp4" controls="controls"></video>
 
 <!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I02-WrapUpDay1.pdf)
--->
