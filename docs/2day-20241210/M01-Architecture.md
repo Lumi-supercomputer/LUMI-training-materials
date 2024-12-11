@@ -21,9 +21,7 @@ Materials will be made available during and after the lecture
 
 -   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf)
 
-<!--
--   [Course notes](01-Architecture.md)
--->
+-   [Course notes](01-Architecture.md) (based on an earlier version of the presentation from a different presenter)
 
 
 ## Q&A

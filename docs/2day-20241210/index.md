@@ -65,7 +65,7 @@ materials are uploaded.
 | [Welcome and Introduction](MI01-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I01-IntroductionCourse.pdf) | / | / | [V](MI01-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](00-Introduction.md) | / |  / |
 | **Theme: Exploring LUMI from the login nodes** @span |  |  |  |  |
-| [LUMI Architecture](M01-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf) | / | / | [V](M01-Architecture.md) |
+| [LUMI Architecture](M01-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-01-Architecture.pdf) | [N](01-Architecture.md) | / | [V](M01-Architecture.md) |
 | [HPE Cray Programming Environment](M02-CPE.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-02-CPE.pdf) | [N](02-CPE.md) | [E](E02-CPE.md) | [V](M02-CPE.md) |
 | [Getting Access to LUMI](M03-Access.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-03-Access.pdf) | [N](03-Access.md) | [E](E03-Access.md) | [V](M03-Access.md) |
 | [Exercises 1](ME03-Exercises-1.md) | / | / | /  | / |
@@ -77,11 +77,11 @@ materials are uploaded.
 | [Wrap-Up Day 1](MI02-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I02-WrapUpDay1.pdf) | / | / | [V](MI02-WrapUpDay1.md) |
 | **Theme: Running jobs efficiently** @span |  |  |  |  |
 | [Introduction Day 2](MI03-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-I03-IntroductionDay2.pdf) | / | / | [V](MI03-IntroductionDay2.md) |
-| [Slurm on LUMI](M07-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-07-Slurm.pdf) | / | [E](E07-Slurm.md) | [V](M07-Slurm.md) |
-| [Process and Thread Distribution and Binding](M08-Binding.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Binding.pdf) | / | [E](E08-Binding.md) | [V](M08-Binding.md) |
+| [Slurm on LUMI](M07-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-07-Slurm.pdf) | [N](07-Slurm.md) | [E](E07-Slurm.md) | [V](M07-Slurm.md) |
+| [Process and Thread Distribution and Binding](M08-Binding.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Binding.pdf) | [N](08-Binding.md) | [E](E08-Binding.md) | [V](M08-Binding.md) |
 | [Exercises 4](ME08-Exercises-4.md) | / | / | / | / |
 | **Theme: Data on LUMI** @span |  |  |  |  |
-| [Using Lustre](M09-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-09-Lustre.pdf) | / | / | [V](M09-Lustre.md) |
+| [Using Lustre](M09-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-09-Lustre.pdf) | [N](09-Lustre.md) | / | [V](M09-Lustre.md) |
 | [Object Storage](M10-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-10-ObjectStorage.pdf) | [N](10-ObjectStorage.md) | [E](E10-ObjectStorage) | [V](M10-ObjectStorage.md) |
 | [Exercises 5](ME10-Exercises-5.md) | / | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |  |

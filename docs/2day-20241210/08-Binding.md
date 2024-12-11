@@ -1,5 +1,7 @@
 # Process and Thread Distribution and Binding
 
+*These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.*
 
 ## What are we talking about in this session?
 

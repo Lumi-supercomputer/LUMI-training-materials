@@ -1,5 +1,9 @@
 # The LUMI Architecture
 
+*These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.*
+
+
 In this presentation, we will build up LUMI part by part, stressing those
 aspects that are important to know to run on LUMI efficiently and define
 jobs that can scale.
@@ -499,7 +503,7 @@ But so far for the sales presentation, let's get back to reality...
   ![Slide Real LUMI-G node](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-01-Architecture/GPUnodeReal.png){ loading=lazy }
 </figure>
 
-Or the full picture with the bandwidths added to it:
+Or the cleaner picture:
 
 <figure>
   <img 
@@ -626,7 +630,8 @@ bottom as they produce less heat). Furthermore each package features 6 GPU dies
 providing a total of 128 GB of RAM. The MI300X,  which is the regular version 
 without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
 but presumably those were not yet available when the design of MI300A was tested
-for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan). 
+for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan)
+which became the number 1 in the [TOP500 list of November 2024](https://top500.org/lists/top500/2024/11/).
 [HLRS is building the Hunter cluster based on AMD MI300A](https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart) 
 as a transitional system
 to their first exascale-class system Herder that will become operational by 2027.
