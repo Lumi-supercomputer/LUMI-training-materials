@@ -3610,6 +3610,8 @@
 
 
 <h1 id="slurm-on-lumi">Slurm on LUMI<a class="headerlink" href="#slurm-on-lumi" title="Permanent link">&para;</a></h1>
+<p><em>These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.</em></p>
 <!-- BELGIUM 
 !!! Audience "Who is this for?"
     We assume some familiarity with job scheduling in this section. The notes will cover
@@ -3655,7 +3657,7 @@ a lot and that not all features available on one computer are also available on 
 So do not expect that Slurm will behave the same on LUMI as on that other computer you're
 familiar with, even if that other computer may have hardware that is very similar to LUMI.</p>
 <p>Slurm is starting to show its age and has trouble dealing in an elegant and proper way with
-the deep hierarcy of resources in modern supercomputers. So Slurm will not always be as
+the deep hierarchy of resources in modern supercomputers. So Slurm will not always be as
 straightforward to use as we would like it, and some tricks will be needed on LUMI. Yet there
 is no better option at this moment that is sufficiently mature.</p>
 <!-- BELGIUM 
@@ -4553,7 +4555,7 @@ it has access to all hardware threads and all GPUs in a node at that moment:</p>
 <span class="c1">#SBATCH --output=%x-%j.txt</span>
 <span class="c1">#SBATCH --account=project_46YXXXXXX</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-24.03
 
 gpu_check
 
@@ -4570,7 +4572,7 @@ sleep<span class="w"> </span><span class="m">2</span>
 <span class="c1">#SBATCH --output=%x-%j.txt</span>
 <span class="c1">#SBATCH --account=project_46YXXXXXX</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-24.03
 
 omp_check
 
@@ -4650,7 +4652,7 @@ On LUMI, you could in principle use <code>--gpus-per-node=mi250:8</code>.</p>
 <details class="example">
 <summary>Example of an unexpected allocation</summary>
 <p>Assuming <code>SLURM_ACCOUNT</code> is set to a valid project with access to the partition used: </p>
-<div class="highlight"><pre><span></span><code>module load LUMI/23.09 partition/G lumi-CPEtools
+<div class="highlight"><pre><span></span><code>module load LUMI/24.03 partition/G lumi-CPEtools
 srun --partition standard-g --time 5:00 --nodes 2 --tasks-per-node 1 --gpus 8 gpu_check
 </code></pre></div>
 <p>returns</p>
@@ -4763,7 +4765,7 @@ to do so. Otherwise the developers of Slurm wouldn't have changed that behaviour
 #SBATCH --time=2:00
 #SBATCH --output=%x-%j.txt
 
-module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
 
 echo &quot;Submitted from $SLURM_SUBMIT_HOST&quot;
 echo &quot;Running on $SLURM_JOB_NODELIST&quot;
@@ -4841,7 +4843,7 @@ core. This is illustrated with the example below.</p>
 <span class="c1">#SBATCH --output=%x-%j.txt</span>
 <span class="c1">#SBATCH --account=project_46YXXXXXX</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeGNU-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeGNU-24.03
 
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Job script:\n</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">\n&quot;</span>
 
@@ -6039,7 +6041,7 @@ multiple jobs, one for each job step that you would run simultaneously.</p>
 <span class="c1">#SBATCH --time=2:00</span>
 <span class="c1">#SBATCH --output %x-%j.txt</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-24.03
 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Submitted from </span><span class="nv">$SLURM_SUBMIT_HOST</span><span class="s2">&quot;</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running on </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="s2">&quot;</span>

@@ -3271,9 +3271,7 @@
 Materials will be made available during and after the lecture
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/2day-20241210/recordings/08-Binding.mp4" controls="controls"></video>
--->
 
 <ul>
 <li>
@@ -3283,21 +3281,27 @@ Materials will be made available during and after the lecture
 <p><a href="../E08-Binding/">Exercises</a></p>
 </li>
 <li>
-<p>A video recording will follow.</p>
+<p><a href="../08-Binding/">Course notes</a> (based on an earlier version of the presentation and not thoroughly tested again)</p>
 </li>
 </ul>
 <!--
 -    A video recording will follow.
-
--   [Course notes](08-Binding.md)
 -->
 
-<p>Note: The presenter referred to notes. For a previous version of the course,
-there were notes but as the lecture now has a new presenter, they are not 
-online yet. We may decide to post a minimal update of the previous notes here
-even if they do not 100% correspond to the current version of the talk.</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>So I should always use these magic numbers from the slides for cpu binding? I there is a way to derive them somehow from the system? </p>
+<ul>
+<li>
+<p>The easiest way to find these numbers is indeed from the examples in the documentation. You can derive them also from the <a href="https://docs.lumi-supercomputer.eu/hardware/lumig/">diagrams that we use for the LUMI architecture</a>. If you want to get these numbers on the system, it is possible but hard. In that case you can have a look at <a href="../08-Binding/">notes that were made by Kurt (who gave this presentation before)</a>. The "more technical examples" show how to use <code>lstopo</code> to understand what SLURM is doing and how it maps the hardware on the nodes.</p>
+</li>
+<li>
+<p><code>lstopo</code> on an exclusive node in the batch job step will show you the whole structure of the node without interference of Slurm. That is also what I used when writing the <code>gpu_check</code> command (based also on some code from ORNL/Frontier)</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

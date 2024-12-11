@@ -3271,9 +3271,7 @@ talk to understand the particular configuration on LUMI.</p>
 Materials will be made available during and after the lecture
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/2day-20241210/recordings/07-Slurm.mp4" controls="controls"></video>
--->
 
 <ul>
 <li>
@@ -3283,17 +3281,113 @@ Materials will be made available during and after the lecture
 <p><a href="../E07-Slurm/">Exercises</a></p>
 </li>
 <li>
-<p>A video recording will follow.</p>
+<p><a href="../07-Slurm/">Course notes</a>  (based on an earlier version of the presentation and not thoroughly tested again)</p>
 </li>
 </ul>
 <!--
 -   A video recording will follow.
-
--   [Course notes](07-Slurm.md)
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>In my <code>bashrc</code> I load a lot of module, is there a nice way (beside defining an environment variable) to supres the processing of the <code>bashrc</code>?</p>
+<ul>
+<li>as far as i know, <code>!#/bin/bash</code> is not processing the bashrc. to launch a new shell that will process the bashrc you need to use <code>!#/bin/bash -l</code> . Note that the new shell that you start, even with <code>!#/bin/bash</code>, will inherit the environment from the parent (that is why it seems that you run the bashrc there). My personal suggestion is to keep <code>bashrc</code> clean, and have a different bash function to load all the modules or by creating an environment file that you can source after login. (Kurt) This also what I use as I have different environments and each even has some aliases defined to quickly go to the directories of the corresponding project.</li>
+</ul>
+</li>
+<li>
+<p>Why is it possible to submit only 2 dev jobs? And why limit amount of submitted jobs at the first place, can they all just sit in the queue?</p>
+<ul>
+<li>
+<p>2 is already a lot. The dev partition is meant for actively debugging and profiling. I can't see how a single user can be actively debugging more than one application at a time. It is really for interactive work and if we allow users to use it as any other partition, it doesn't make sense to have a <code>dev-g</code>  partition. If we note abuse for running things which are really autonomous "production" runs to bypass queues, it is considerd breaking the conditions of use of LUMI. </p>
+</li>
+<li>
+<p>And a limit on the number of jobs submitted: There is a limit to the number of jobs that Slurm can handle. Even if they are just in the queue, because Slurm is continuously re-evaluating permissions. Too many jobs in the queue and (a) it becomes for admins impossible to get an overview of the queue and (b) Slurm would slow down a lot. So the more users a system has, the lower the number of jobs that will be allowed per user. This is just another example of what was said yesterday: Use the right size of system for your work.</p>
+</li>
+<li>
+<p>Moreover, Slurm is meant to schedule significant fractions of a cluster. If you need very fine-grained scheduler, you really need to use a "scheduler-within-the-scheduler": A subscheduler in your job to manage your small work. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>I have been granted with resources only on standard and standard-g, can I use dev-g for interactive profiling?</p>
+<ul>
+<li>Yes. You receive CPU hours or GPU hours, and you can spend them on all different partitions (standard, small, dev)</li>
+</ul>
+</li>
+<li>
+<p>Is this slide the most recent or the website: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/ (the dev-g numbers are different)?</p>
+<ul>
+<li>
+<p>Looks like the slide was not adapted. The number in the docs is currently the correct one. But these numbers do change over time. </p>
+</li>
+<li>
+<p>You can control the actual values using <code>scontrol show part dev-g</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Does this mean that if you run lots of jobs, your next job will be "lower priority"? (Or did I misunderstand this? :)</p>
+<ul>
+<li>Ideally, yes. slurm tends to share resources between projects and users. And this is one of the reasons why your job in the queue may be overtaken by one that is more recently submitted.</li>
+</ul>
+</li>
+<li>
+<p>How can I find the tasks in LUMI that have been finished/calculated and ran in the past two days/24h? Can you give me some tips and guidance?</p>
+<ul>
+<li>The <code>sacct</code> command is your friend and was discussed at the end of the presentation.</li>
+</ul>
+</li>
+<li>
+<p>Where can I find more about scheduling policy of SLURM that prioritize the job? Is it covered in the documentation somewhere?</p>
+<ul>
+<li>No, and it is also not important. It may change without notice to keep the ocupation of the system optimal. Moreover, the conditions of use of LUMI forbid trying to exploit weaknesses in the system for your own advantage, and specifically overengineering jobs for that purpose is one example of this. If you want a job to start quickly, basically be reasonable. Don't ask for more nodes than you need because big jobs tend to increase the waiting time for everybody. Don't ask for more walltime than needed as then your job so that it becomes a better candidate for backfill. </li>
+</ul>
+</li>
+<li>
+<p>For my understanding of <code>salloc</code> and <code>srun</code>; If I run <code>salloc</code> I will end up on a node, where I have a potentially access on the full node (if I am on a shared node), for the sake of argument assume the node has 10 cores and I requested 5, so when i run an MPI program with 10 ranks, then it would associate each rank with one core. However, if I would go through <code>srun</code> then two ranks would go to one core. Is this correct or do I miss something?</p>
+<ul>
+<li>No, <code>salloc</code> does not run any job. it just creates the allocation. you will still be on the login node after that. You need to combine <code>salloc</code> and <code>srun</code> to run on the compute node. <code>salloc</code> -&gt; create allocation <code>srun</code> -&gt; start the mpi job on the created allocation.</li>
+</ul>
+<p>Q: So when I run <code>salloc</code> on the login node, then I will be send back to the login node, but not a shell on the compute node. When I then run <code>srun</code> on the login node, it would run the command - remotely - on the compute node, where I got my allocation?</p>
+<ul>
+<li>You are not really sent to compute node with salloc. so technically no going back. salloc command sends a request to scheduler "hey, i need this resources, please do reserve them". when the scheduler makes those resources available, the command ends. And you are still in the same place where you executed that command. To login interactively there are different techniques. Note that is possible to go on those allocated node, but via a srun command (e.g. launching a shell script on one of the allocated nodes). </li>
+</ul>
+</li>
+<li>
+<p>How I can debug my batch job if slurm refuses to start it due to some mess in parameters? It just says smth like "resources cannot be allocated" but does not explain if I asked for too much memory or too many jobs or what's the problem.</p>
+<ul>
+<li>Too many jobs is a different error message. And if Slurm complains about the number of resources you asked, there is no other way than to check your script by hand and look into the documentation. For memory there is a rule that is valid on all of LUMI: The amount of physical RAM - 32GB is available to users. Slurm error messages are not very precise, but that is also due to the many different ways in which resources can be requested, and parameters can also conflict with one another.</li>
+</ul>
+</li>
+<li>
+<p>Is it possible in lumi to <code>ssh</code> to a running node to monitor resources ? like running <code>htop</code>?</p>
+<ul>
+<li>
+<p>Not with <code>ssh</code>, but yes. </p>
+</li>
+<li>
+<p>The reason for not allowing <code>ssh</code> is that everything you start this way, is not under the control of the resource manager. Even though there is an extension to Slurm to ensure that you can only log on to nodes on which you have jobs and that will take care of (trying to) kill all processes you start that way when your last job on a node ends, this is still not safe when multiple users are allowed on the node. The work you start in that <code>ssh</code> session is not subject to all your resource limits for your jobs, so you can eat into the resources that were meant for another user and cause trouble for that user. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Maybe a bit offtopic, but can I monitor GPUs load when I run the job? Like you have shown us running htop on CPU example. I mean some analog of <code>nvtop</code> but for AMD and for 8 GPUs.</p>
+<ul>
+<li>
+<p>For simple metrics on your GPU usage you can use rocm-smi. For more information you can use profiling tools like rocprof. In the LUMI training materials archive you can find more information. For example, in the AI course we have a session on understanding GPU usage: https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/extra_04_CheckingGPU/. An extensive introduction to rocprof can be found here: https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20241028/extra_3_09_Introduction_to_Rocprof_Profiling_Tool/. If you look at the sessions of the rest of the 4 day course, you can also find OmniTrace and Omniperf to get even more information on your application performance and GPU usage.</p>
+</li>
+<li>
+<p>When using <code>rocm-smi</code>, check not only that the load is high (close to 100%) but also that the power consumption is around 300W (if only one GCD of a MI250X is used) or around 500W if using both GCDs per GPU. This is important as a GPU can be busy but in reality it just waits for a data or synchronization without actually doing anything.</p>
+</li>
+<li>
+<p>And there is actually a port of <code>nvtop</code> for AMD GPUs and we 
+     <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/n/nvtop/">do have a user-installable EasyConfig for it</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

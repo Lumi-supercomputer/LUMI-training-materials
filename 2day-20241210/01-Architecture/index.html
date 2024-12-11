@@ -3373,6 +3373,8 @@
 
 
 <h1 id="the-lumi-architecture">The LUMI Architecture<a class="headerlink" href="#the-lumi-architecture" title="Permanent link">&para;</a></h1>
+<p><em>These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.</em></p>
 <p>In this presentation, we will build up LUMI part by part, stressing those
 aspects that are important to know to run on LUMI efficiently and define
 jobs that can scale.</p>
@@ -3815,7 +3817,7 @@ see specialised accelerators for inference.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Real LUMI-G node" loading="lazy" src="https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-01-Architecture/GPUnodeReal.png" /></p>
 </figure>
-<p>Or the full picture with the bandwidths added to it:</p>
+<p>Or the cleaner picture:</p>
 <figure>
   <img 
     src="https://462000265.lumidata.eu/2day-20241210/img/lumig-node-architecture-rings.svg" 
@@ -3979,7 +3981,8 @@ bottom as they produce less heat). Furthermore each package features 6 GPU dies
 providing a total of 128 GB of RAM. The MI300X,  which is the regular version 
 without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
 but presumably those were not yet available when the design of MI300A was tested
-for the launch customer, the <a href="https://asc.llnl.gov/exascale/el-capitan">El Capitan supercomputer</a>. 
+for the launch customer, the <a href="https://asc.llnl.gov/exascale/el-capitan">El Capitan supercomputer</a>
+which became the number 1 in the <a href="https://top500.org/lists/top500/2024/11/">TOP500 list of November 2024</a>.
 <a href="https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart">HLRS is building the Hunter cluster based on AMD MI300A</a> 
 as a transitional system
 to their first exascale-class system Herder that will become operational by 2027.
