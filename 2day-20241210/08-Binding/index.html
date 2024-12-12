@@ -4512,7 +4512,7 @@ srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000
 </li>
 </ul>
 <p>The <code>--cpu-bind=map_cpu</code> and <code>--cpu-bind=mask_gpu</code> options also do not go together with <code>-c</code> / <code>--cpus-per-task</code>.
-Both commands define a binding (the latter in combination with the default <code>--gpu-bind=threads</code>) 
+Both commands define a binding (the latter in combination with the default <code>--cpu-bind=threads</code>) 
 and these will usually conflict.</p>
 <p>There are more options, but these are currently most relevant ones on LUMI. That may change in the future as
 LUMI User Support is investigating whether it isn't better to change the concept of "socket" in Slurm given how important it
