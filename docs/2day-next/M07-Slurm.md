@@ -14,8 +14,7 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/07-Slurm.mp4" controls="controls">
-</video>
+<video src="https://462000265.lumidata.eu/2day-next/recordings/07-Slurm.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
 
