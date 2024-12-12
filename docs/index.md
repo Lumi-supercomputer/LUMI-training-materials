@@ -6,12 +6,12 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [Intro course: Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
+-   No upcoming training with early materials at the moment.
 
 Most recently completed main training events:
 
 -   Introductory LUMI training aimed at regular users:
-    [LUMI 2-day training (May 2-3, 2023)](2day-20240502/index.md)
+    [Intro to Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
