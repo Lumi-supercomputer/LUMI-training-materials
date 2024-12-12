@@ -17,9 +17,9 @@ Materials will be made available during and after the lecture
 
 -   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-07-Slurm.pdf)
 
--   [Exercises](E07-Slurm.md)
-
 -   [Course notes](07-Slurm.md)  (based on an earlier version of the presentation and not thoroughly tested again)
+
+-   [Exercises](E07-Slurm.md)
 
 <!--
 -   A video recording will follow.

@@ -16,10 +16,9 @@ Materials will be made available during and after the lecture
 
 -   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-08-Binding.pdf)
 
--   [Exercises](E08-Binding.md)
-
-
 -   [Course notes](08-Binding.md) (based on an earlier version of the presentation and not thoroughly tested again)
+
+-   [Exercises](E08-Binding.md)
 
 <!--
 -    A video recording will follow.
