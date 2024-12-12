@@ -3675,7 +3675,7 @@ and how task affinity is used to manage the CPUs for a task. Consider the job sc
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=5:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeGNU-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeGNU-24.03
 
 cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; task_lstopo_$SLURM_JOB_ID</span>
 <span class="s">#!/bin/bash</span>
@@ -4031,7 +4031,7 @@ Consider the job script:</p>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=15:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-24.03
 
 cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; task_lstopo_$SLURM_JOB_ID</span>
 <span class="s">#!/bin/bash</span>
@@ -4276,7 +4276,7 @@ task level. </p>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=5:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.1-cpeCray-24.03
 
 cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_1gpu_$SLURM_JOB_ID</span>
 <span class="s">#!/bin/bash</span>
@@ -4487,7 +4487,7 @@ we refer to the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.ht
     <code>--distribution</code> option above and replaces level 2 and level 3 of that option. </p>
 <p>E.g.,</p>
 <div class="highlight"><pre><span></span><code>salloc --nodes=1 --partition=standard-g
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeGNU-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeGNU-24.03
 srun --ntasks=8 --cpu-bind=map_cpu:49,57,17,25,1,9,33,41 mpi_check -r
 </code></pre></div>
 <p>will run the first task on hardware threads 49, the second task on 57, third on 17, fourth on 
@@ -4504,7 +4504,7 @@ this chapter.</p>
 option. </p>
 <p>E.g.,</p>
 <div class="highlight"><pre><span></span><code>salloc --nodes=1 --partition=standard-g
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeGNU-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeGNU-24.03
 srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000 hybrid_check -r
 </code></pre></div>
 <p>will run the first task on hardware threads 49-54, the second task on 57-62, third on 17-22, fourth on 
@@ -4671,7 +4671,7 @@ the same problem size (and hence same number of nodes and tasks).</p>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=5:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/23.09<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeGNU-23.09
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.1-cpeGNU-24.03
 
 <span class="nb">set</span><span class="w"> </span>-x
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nSMP-style distribution on top of block.&quot;</span>
@@ -4928,7 +4928,7 @@ can also be used to check the OpenMP thread binding.</p>
 #SBATCH --hint=multithread
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
 
 set -x
 export OMP_NUM_THREADS=4
@@ -5402,7 +5402,7 @@ the order of the CCDs nor the order of the GCDs is trivial.</p>
 #SBATCH --nodes=1
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
 #!/bin/bash
@@ -5611,7 +5611,7 @@ in the two scripts above:</p>
 #SBATCH --nodes=1
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 # Mapping:
 # | Task | GCD | CCD | Available cores |
@@ -5698,7 +5698,7 @@ is is also easy to check that each task is also mapped on the optimal CCD for th
 #SBATCH --nodes=1
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 #
 # Define the order of the GPUs and the core mask for CCD0
@@ -5855,7 +5855,7 @@ resources allocated via the <code>sbatch</code> arguments (usually <code>#SBATCH
 #SBATCH --hint=nomultithread
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
 #!/bin/bash
@@ -6010,7 +6010,7 @@ MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - B
 #SBATCH --hint=nomultithread
 #SBATCH --time=5:00
 
-module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
 cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
 #!/bin/bash
