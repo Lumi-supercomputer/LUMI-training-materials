@@ -1039,7 +1039,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     25-30, fifth on 1-6, sixth on 9-14, seventh on 33-38 and eight on 41-46.
 
 The `--cpu-bind=map_cpu` and `--cpu-bind=mask_gpu` options also do not go together with `-c` / `--cpus-per-task`.
-Both commands define a binding (the latter in combination with the default `--gpu-bind=threads`) 
+Both commands define a binding (the latter in combination with the default `--cpu-bind=threads`) 
 and these will usually conflict.
 
 There are more options, but these are currently most relevant ones on LUMI. That may change in the future as
