@@ -26,7 +26,7 @@ Let's create an installation directory for the demo. Set the environment variabl
 `installdir` to a proper value for the directories on LUMI that you have access to.
 
 ``` bash
-installdir=/project/project_465001102/kurtlust/DEMO2
+installdir=/project/project_465001603/kurtlust/DEMO2
 mkdir -p "$installdir" ; cd "$installdir"
 ```
 
@@ -250,7 +250,7 @@ export NCCL_NET_GDR_LEVEL=3
 
 Fourth, we need to ensure that each task uses the proper GPU. This is one point where we 
 assume that one GPU (GCD) per task is used. The script also assumes that the
-["Linear assignment of GCD, then match the cores" idea](07-Binding.md#linear-assignment-of-gcd-then-match-the-cores)
+["Linear assignment of GCD, then match the cores" idea](08-Binding.md#linear-assignment-of-gcd-then-match-the-cores)
 is used, so we will need some more complicated CPU mapping in the job script.
 
 PyTorch also needs some initialisation that are basically the same on NVIDIA and
@@ -293,7 +293,7 @@ srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=mask_cpu:$MYMASKS \
 Launch the script by setting some environment variables to use the course account and reservation:
 
 ``` bash
-export SBATCH_ACCOUNT=project_465001102
+export SBATCH_ACCOUNT=project_465001603
 export SBATCH_RESERVATION=TODO
 ```
 

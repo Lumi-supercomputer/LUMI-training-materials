@@ -57,6 +57,8 @@ nav:
     - User-Coffee-Breaks/index.md
   - Supercomputing with LUMI December 2024:
     - 2day-20241210/index.md
+    - Schedule: 2day-20241210/schedule.md
+    - Course materials: 2day-20241210/index.html#course-materials
   - AI workshop November 2024:
     - ai-20241126/index.md
     - Schedule: ai-20241126/schedule.md
@@ -73,15 +75,15 @@ nav:
     - paow-20240611/index.md
     - Schedule: paow-20240611/schedule.md
     - Course materials: paow-20240611/index.html#course-materials
-  - Supercomputing with LUMI May 2024:
-    - 2day-20240502/index.md
-    - Schedule: 2day-20240502/schedule.md
-    - Course materials: 2day-20240502/index.html#course-materials
   #- "Comprehensive LUMI NEXT": 
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - Supercomputing with LUMI May 2024:
+      - 2day-20240502/index.md
+      - Schedule: 2day-20240502/schedule.md
+      - Course materials: 2day-20240502/index.html#course-materials
     - AI workshop May 2024:
       - ai-20240529/index.md
       - Schedule: ai-20240529/schedule.md
@@ -206,9 +208,14 @@ markdown_extensions:
   # Table of contents on the side
   - toc:
       permalink: true
+  # More sophisticated tables: @span command.
+  # Needs stylesheets from https://github.com/Neoteroi/mkdocs-plugins/releases/
+  - neoteroi.spantable
 
 extra_css:
   - stylesheets/extra.css
+  # From https://github.com/Neoteroi/mkdocs-plugins/releases/tag/v0.0.6:
+  - stylesheets/neoteroi-mkdocs.css
  
 extra:
   # add links in bottom right

@@ -4,6 +4,7 @@ pymdown-extensions==10.8.1
 mkdocs-git-revision-date-localized-plugin==1.2.6
 mkdocs-redirects==1.2.1
 mkdocs-minify-plugin==0.8.0
+neoteroi_mkdocs==1.1.0
 
 # These come in as extensions
 Babel==2.15.0
@@ -16,6 +17,8 @@ ghp-import==2.1.0
 gitdb==4.0.11
 GitPython==3.1.43
 htmlmin2==0.1.13
+httpcore==1.0.7
+httpx==0.27.2
 idna==3.7
 Jinja2==3.1.4
 jsmin==3.0.1
@@ -36,6 +39,7 @@ PyYAML==6.0.1
 pyyaml_env_tag==0.1
 regex==2024.5.15
 requests==2.32.3
+rich==13.9.4
 setuptools==71.0.1
 six==1.16.0
 smmap==5.0.1

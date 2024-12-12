@@ -1,5 +1,8 @@
 # Slurm on LUMI
 
+*These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.*
+
 <!-- BELGIUM 
 !!! Audience "Who is this for?"
     We assume some familiarity with job scheduling in this section. The notes will cover
@@ -51,7 +54,7 @@ So do not expect that Slurm will behave the same on LUMI as on that other comput
 familiar with, even if that other computer may have hardware that is very similar to LUMI.
 
 Slurm is starting to show its age and has trouble dealing in an elegant and proper way with
-the deep hierarcy of resources in modern supercomputers. So Slurm will not always be as
+the deep hierarchy of resources in modern supercomputers. So Slurm will not always be as
 straightforward to use as we would like it, and some tricks will be needed on LUMI. Yet there
 is no better option at this moment that is sufficiently mature.
 
@@ -706,7 +709,7 @@ command line and lead to unexpected behaviour.
 ??? Example "Example: Conflict between `--ntasks` and `--ntasks-per-node`"
 
     We'll meet this example later on in these notes,when we discuss
-    [starting a job step in per-node allocations](07-Slurm.md##resources-for-per-node-allocations).
+    [starting a job step in per-node allocations](07-Slurm.md#per-node-allocations-starting-a-job-step).
     You'll need some Slurm experience to understand this example at this point, but keep it
     in mind when you read further in these notes.
 
@@ -911,7 +914,7 @@ pros and cons. We'll call them "per-node allocations" and "per-core allocations"
     but they may produce a warning or may not run at all if the job step cannot be mapped on the resources allocated to 
     the job.
 
-    More importantly, most options to do binding (see the [next chapter](07-Binding.md))
+    More importantly, most options to do binding (see the [next chapter](08-Binding.md))
     cannot be used or don't make sense anyway as there
     is no guarantee your cores will be allocated in a dense configuration.
 
@@ -1006,7 +1009,7 @@ partition, but note that running on these nodes is expensive!)
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/23.09 partition/G lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
 
     gpu_check
 
@@ -1027,7 +1030,7 @@ partition, but note that running on these nodes is expensive!)
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
 
     omp_check
 
@@ -1117,7 +1120,7 @@ If you insist, slurm has several options to specify the number of GPUs for this 
         Assuming `SLURM_ACCOUNT` is set to a valid project with access to the partition used: 
 
         ```
-        module load LUMI/23.09 partition/G lumi-CPEtools
+        module load LUMI/24.03 partition/G lumi-CPEtools
         srun --partition standard-g --time 5:00 --nodes 2 --tasks-per-node 1 --gpus 8 gpu_check
         ```
 
@@ -1233,7 +1236,7 @@ to do so. Otherwise the developers of Slurm wouldn't have changed that behaviour
     #SBATCH --time=2:00
     #SBATCH --output=%x-%j.txt
 
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
 
     echo "Submitted from $SLURM_SUBMIT_HOST"
     echo "Running on $SLURM_JOB_NODELIST"
@@ -1280,7 +1283,7 @@ like affinity masks for CPUs. It can be tricky to do though as many options for 
 mapping under the hood.
 
 As we need a mechanisms that are not yet discussed yet in this chapter, we refer to the
-[chapter "Process and thread distribution and binding"](07-Binding.md) for a more ellaborate
+[chapter "Process and thread distribution and binding"](08-Binding.md) for a more ellaborate
 discussion and a solution.
 
 Unfortunately using AMD GPUs in Slurm is more complicated then it should be (and we will see even
@@ -1326,7 +1329,7 @@ core. This is illustrated with the example below.
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeGNU-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeGNU-24.03
 
     echo -e "Job script:\n$(cat $0)\n"
 
@@ -1702,7 +1705,7 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
     is even more tricky to solve.
 
     We will again discuss a solution in the 
-    [Chapter "Process and thread distribution and binding"](07-Binding.md)
+    [Chapter "Process and thread distribution and binding"](08-Binding.md)
 
 4.  CPU memory. By default you get less than the memory per core on the node type. To change:
 
@@ -2695,7 +2698,7 @@ multiple jobs, one for each job step that you would run simultaneously.
     #SBATCH --time=2:00
     #SBATCH --output %x-%j.txt
 
-    module load LUMI/23.09 partition/C lumi-CPEtools/1.1-cpeCray-23.09
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
 
     echo "Submitted from $SLURM_SUBMIT_HOST"
     echo "Running on $SLURM_JOB_NODELIST"

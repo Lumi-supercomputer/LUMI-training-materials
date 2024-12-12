@@ -1,5 +1,7 @@
 # Process and Thread Distribution and Binding
 
+*These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.*
 
 ## What are we talking about in this session?
 
@@ -89,7 +91,7 @@ In this section we will consider process and thread distribution and binding at 
     are available to the process through the use of the `ROCR_VISIBLE_DEVICES` environment variable.
 
 Binding almost only makes sense on job-exclusive nodes as only then you have full control over all available 
-resources. On ["allocatable by resources"](06-Slurm.md#partitions) partitions 
+resources. On ["allocatable by resources"](07-Slurm.md#partitions) partitions 
 you usually do not know which resources are available. 
 The advanced Slurm binding options that we will discuss do not work in those cases, and the options offered
 by the MPICH, OpenMP and ROCm runtimes may work very unpredictable, though OpenMP thread binding may still 

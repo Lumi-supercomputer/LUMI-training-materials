@@ -150,37 +150,51 @@ community**.
 
 !!! Note "Some restrictions coming from software licenses"
 
-    -   Anaconda cannot be used legally on LUMI, neither can you use Miniconda to pull
-        packages from the Anaconda Public Repository. You have to use alternatives such as
-        [conda-forge](https://conda-forge.org/).
+    -   Anaconda is currently in a very grey area on LUMI. Point 2.1 of the 
+        ["Anaconda Terms of Service"](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service) as published on March 31 2024
+        suggest that hardly anybody on
+        LUMI can use Anaconda legally. However, in September 2024 an
+        [Update on Anaconda Terms of Service](https://www.anaconda.com/blog/update-on-anacondas-terms-of-service-for-academia-and-research)
+        was posted that may exclude users from universities on LUMI. What is 
+        unclear though, is if ownership of the computer matters, or the legal employer
+        of the user. And in any case, even the clarification of September 2024
+        does not allow CSC, the operator of LUMI, to assist users to install Anaconda. 
+        Just to remain
+        on the safe side, even Miniconda, that can still be used even by companies
+        as long as they don't download from the Anaconda repositories, will
+        be removed from tools offered by CSC and replaced by miniforge.
 
-        See point 2.1 of the 
-        ["Anaconda Terms of Service"](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service).
+        Downloading from [conda-forge](https://conda-forge.org/) is perfectly OK
+        though.
 
     -   The LUMI support team cannot really help much with VASP as most people in the support 
         team are not covered by a valid VASP license. VASP licenses typically even contain a list
         of people who are allowed to touch the source code, and one person per license who can
-        download the source code.
+        download the source code. We're trying to get better access with a support license
+        but it takes time.
 
 <!-- BELGIUM
 The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
 correction in software is not their task**. In Flanders some help is possible by the VSC Tier-0 support team
 but do not expect that they will port your whole application.
+For very complicated installations the 
+[EPICURE project](https://epicure-hpc.eu) may sometimes be able to help.
 As a user, you have to realise that **not all Linux or even
 supercomputer software will work on LUMI**. This holds even more for software that comes only as
 a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
 high performance from the interconnect. For example,
--->
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
 correction in software is not their task**. Some consortium countries may also have a local support
-team that can help.
+team that can help, and for very complicated installations the 
+[EPICURE project](https://epicure-hpc.eu) may sometimes be able to help.
 As a user, you have to realise that **not all Linux or even
 supercomputer software will work on LUMI**. This holds even more for software that comes only as
 a binary. The **biggest problems are the GPU and anything that uses distributed memory** and requires
 high performance from the interconnect. For example,
-<!-- -->
+<!-- END GENERAL -->
 
 -   software that use NVIDIA proprietary programming models and
     libraries needs to be ported. 
@@ -266,7 +280,7 @@ from the Cray PE. This stack is offered as-is for users who know how to use Spac
 no bug-fixing in Spack is done.
 
 Some partner organisations in the LUMI consortium also provide pre-installed software on LUMI.
-This software is not manages by the LUMI User Support Team and as a consequence of this, support
+This software is not managed by the LUMI User Support Team and as a consequence of this, support
 is only provided through those organisations that manage the software. Though they did promise
 to offer some basic support for everybody, the level of support may be different depending on
 how your project ended up on LUMI as they receive no EuroHPC funding for this. 
@@ -825,9 +839,16 @@ module avail
   ![Installing: Install the software](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-05-SoftwareStacks/EasyBuildInstallingStep3Note.png){ loading=lazy }
 </figure>
 
-Installing software this way is **100% equivalent to an installation in the central software
-tree**. The application is compiled in exactly the same way as we would do and served from the
-same file systems. But it helps **keep the output of `module avail` reasonably short** and **focused
+Installing software this way is **99% equivalent to an installation in the central software
+tree**. The application is compiled in exactly the same way as we would do and served from Lustre file systems in both cases. The one difference is that the central software stack is on all 4 hard disk based Lustre 
+filesystem for availability reasons if one of the file systems is taken down for maintanence 
+(and a bit for performance reasons as executable and shared library loading for a big
+multi-node job will likely be spread across 4 filesystems),
+but on the other hand, as long as the retention policy is not active, you could even
+use `/flash` for a software installation if you have enough storage billing units
+and get better startup performance for some packages, or even better runtime performance
+for those packages that keep opening files in the software installation.
+Furthermore, it helps **keep the output of `module avail` reasonably short** and **focused
 on your projects**, and it **puts you in control of installing updates**. For instance, we may find out
 that something in a module does not work for some users and that it needs to be re-installed. 
 Do this in the central stack and either you have to chose a different name or risk breaking running
@@ -928,13 +949,13 @@ you could manually put the downloaded installation files for licensed software.
 
 Moreover, EasyBuild also keeps **copies of all installed easyconfig files in two locations**.
 
-1.  There is a **copy in `$EBU_USER_PREFIX/ebrepo_files`**. And in fact, EasyBuild will use this version
+1.  There is a **copy in `$EBU_USER_PREFIX/ebfiles_repo`**. And in fact, EasyBuild will use this version
     first if you try to re-install and did not delete this version first. This is a policy
     we set on LUMI which has **both its advantages and disadvantages**. The **advantage** is that it ensures
     that the **information that EasyBuild has about the installed application is compatible with what is
     in the module files**. But the **disadvantage** of course is that if you install an EasyConfig file
     without being in the subdirectory that contains that file, **it is easily overlooked that it
-    is installing based on the EasyConfig in the `ebrepo_files` subdirectory** and not based on the
+    is installing based on the EasyConfig in the `ebfiles_repo` subdirectory** and not based on the
     version of the recipe that you likely changed and is in your user repository or one of the 
     other repositories that EasyBuild uses.
 2.  The second copy is with the installed software in `$EBU_USER_PREFIX/SW` in a subdirectory

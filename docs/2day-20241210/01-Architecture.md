@@ -1,5 +1,9 @@
 # The LUMI Architecture
 
+*These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.*
+
+
 In this presentation, we will build up LUMI part by part, stressing those
 aspects that are important to know to run on LUMI efficiently and define
 jobs that can scale.
@@ -118,12 +122,28 @@ Just some examples of using the wrong tools or infrastructure:
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.
 
+<!-- GENERAL version -->
 -   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
     of their architecture.**  
     Supercomputers are optimised to run very scalable applications cost-efficiently, but that
     requires well parallelised software and data storage in a proper way so that data can be 
     streamed in and out of the machine efficiently from big shared filesystems that are also 
     optimised more for bandwidth than small individual operations. 
+<!-- END GENERAL version -->
+
+<!-- BELGIUM Belgian version due to CERN censorship. 
+-   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
+    of their architecture.**  
+    Supercomputers are optimised to run very scalable applications cost-efficiently, but that
+    requires well parallelised software and data storage in a proper way so that data can be 
+    streamed in and out of the machine efficiently from big shared filesystems that are also 
+    optimised more for bandwidth than small individual operations. 
+
+    A nice illustration of this is the 
+    [case study: Bringing CERN LHC computations to an HPC infrastructure](https://klust.github.io/SupercomputersForStarters/C05_Summary1/C05_S06_Software_not_hardware/#case-study-bringing-cern-lhc-computations-to-an-hpc-infrastructure)
+    in the course notes of the [UAntwerpen "Supercomputers for Starters" course](https://klust.github.io/SupercomputersForStarters/)
+    which is part of the VSC introductory courses offered in Antwerp.
+END BELGIUM -->
 
 True supercomputers, and LUMI in particular, are built for scalable parallel applications and features that
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
@@ -483,7 +503,7 @@ But so far for the sales presentation, let's get back to reality...
   ![Slide Real LUMI-G node](https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-01-Architecture/GPUnodeReal.png){ loading=lazy }
 </figure>
 
-Or the full picture with the bandwidths added to it:
+Or the cleaner picture:
 
 <figure>
   <img 
@@ -610,7 +630,8 @@ bottom as they produce less heat). Furthermore each package features 6 GPU dies
 providing a total of 128 GB of RAM. The MI300X,  which is the regular version 
 without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
 but presumably those were not yet available when the design of MI300A was tested
-for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan). 
+for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan)
+which became the number 1 in the [TOP500 list of November 2024](https://top500.org/lists/top500/2024/11/).
 [HLRS is building the Hunter cluster based on AMD MI300A](https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart) 
 as a transitional system
 to their first exascale-class system Herder that will become operational by 2027.
