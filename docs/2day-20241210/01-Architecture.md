@@ -114,14 +114,6 @@ Just some examples of using the wrong tools or infrastructure:
     cloud environment with virtual machines individually protected by personal firewalls and was 
     not only hard to get working on a supercomputer but also insecure.
 
--   **The environment is different also. It is not that because it runs some Linux it handles are your
-    Linux software.**
-    A user complained that they did not succeed in getting their nice remote development environment to
-    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
-    It was a very nice environment but really made for local development and remote development in a 
-    cloud environment with virtual machines individually protected by personal firewalls and was 
-    not only hard to get working on a supercomputer but also insecure.
-
 <!-- GENERAL version -->
 -   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
     of their architecture.**  
