@@ -57,7 +57,7 @@ solution than to build the software from sources.
     to the environment on UNIX workstations and supercomputers in the '90s, so is
     in fact the more traditional one. It's just that we have forgotten those 
     traditions...)
--->
+END BELGIUM -->
 
 
 ## The operating system on LUMI
@@ -66,7 +66,8 @@ solution than to build the software from sources.
   ![Slide The OS on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/OperatingSystem.png){ loading=lazy }
 </figure>
 
-The **login nodes** of LUMI run a **regular SUSE Linux Enterprise Server 15 SP4** distribution.
+The **login nodes** of LUMI run a **regular SUSE Linux Enterprise Server 15 SP5** distribution.
+That alone already causes subtle differences with the Red Hat clones and Debian Linux derivatives (like Ubuntu) that are popular on many clusters.
 The **compute nodes** however run **Cray OS, a restricted version of the SUSE Linux** that runs
 on the login nodes. Some daemons are inactive or configured differently and Cray also 
 does not support all regular file systems. The goal of this is to **minimize OS jitter**,
@@ -112,20 +113,19 @@ compute nodes, was already called low-noise mode while some Cray systems provide
 in which those daemons were activated. Depending on the cluster this was then called "emulation mode"
 or "Cluster Compatibility Mode". The latter is not implemented on LUMI, and even if it would, compatibility
 would still be limited by the special requirements to use the Slingshot interconnect and to have
-GPU-aware communication over Slingshot.
+GPU-aware communication over Slingshot. The mode we use on the LUMI CPU-nodes used to be
+called "Extreme Scalability Mode" (ESM) in the Cray documentation.
 
 However, it turned out that even the noise reduction described above was not yet sufficient to
 pass some large-scale scalability tests, and therefore another form of "low-noise" mode is implemented
 on the GPU nodes of LUMI where OS processes are restricted to a reserved core, actually core 0.
+Cray calls this "core specialization" and this idea already goes back to around 2010 when we got the first compute nodes with more than 20 cores (with the AMD "Magny Cours" Opteron).
 This leaves us with an asymmetric structure of the node, where the first CCD has 7 available cores
 while the other ones have 8, but as that created a headache for users to get a proper
 distribution of tasks and threads over the CPU 
 (see the ["Process and thread distribution and binding" chapter](08-Binding.md)),
 the choice was made to also disable the first core on each of the other CCDs so that
 users now effectively see a 56-core node with 8 CCDs with 7 cores each.
-
-This is actually an idea Cray has been experimenting with in the past already, ever since
-we've had nodes with 20 or more cores with the AMD Magny-Cours processors in 2010.
 
 
 ## Programming models
@@ -165,10 +165,9 @@ Python is of course pre-installed on the system but we do ask to use big Python 
 as Python puts a tremendous load on the file system. More about that later in this course.
 
 Some users also report some success in running [Julia](https://julialang.org/). We don't have full support though and have to
-depend on binaries as provided by [julialang.org](https://julialang.org/downloads/). The AMD GPUs are
-not yet fully supported by Julia.
+depend on binaries as provided by [julialang.org](https://julialang.org/downloads/).
 
-It is important to realise that there is no CUDA on AMD GPUs and there will never be as this is a 
+It is important to realise that there is **no CUDA on AMD GPUs** and there will never be as this is a 
 proprietary technology that other vendors cannot implement. The visualisation nodes in LUMI have
 NVIDIA rendering GPUs but these nodes are meant for visualisation and not for compute.
 
@@ -217,7 +216,7 @@ Cray Scientific Libraries.
 
 Besides the tools provided by HPE Cray, several of the development tools from the
 ROCm stack are also available on the system while some others can be user-installed
-(and one of those, Omniperf, is not available due to security concerns).
+(and one of those, the Grafana-based GUI for Omniperf, is not available due to security concerns).
 Furthermore there are some third party tools available on LUMI,
 including [Linaro Forge](https://www.linaroforge.com/) (previously ARM Forge) and
 [Vampir](https://vampir.eu/) and some open source profiling tools.
@@ -270,7 +269,7 @@ information about the OpenMP support is found by checking a manual page:
 man intro_openmp
 ```
 which does require that the `cce` module is loaded,
-or the [web version of that page](https://cpe.ext.hpe.com/docs/cce/man7/intro_openmp.7.html)
+or the [web version of that page](https://cpe.ext.hpe.com/docs/24.03/cce/man7/intro_openmp.7.html)
 which may be for a more recent version of the programming environment than available on LUMI.
 The Fortran compiler also supports OpenACC for AMD and NVIDIA GPUs. That implementation
 claims to be fully OpenACC 2.0 compliant, and offers partial support for OpenACC 2.x/3.x. 
@@ -279,7 +278,7 @@ Information is available via
 man intro_openacc
 ```
 or the corresponding
-[web version of that page](https://cpe.ext.hpe.com/docs/cce/man7/intro_openacc.7.html)
+[web version of that page](https://cpe.ext.hpe.com/docs/24.03/cce/man7/intro_openacc.7.html)
 which again may be for a more recent version of the programming environment than available on LUMI.
 AMD and HPE Cray still recommend moving to OpenMP which is a much broader supported standard.
 There are no plans to also support OpenACC in the Cray C/C++ compiler, nor are there any 
@@ -299,7 +298,7 @@ Lastly, there are also bindings for MPI.
   ![Slide Scientific and math libraries](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/ScientificLibraries.png){ loading=lazy }
 </figure>
 
-[Cray Scientific and Math Libraries overview web page](https://cpe.ext.hpe.com/docs/csml/index.html)
+[Cray Scientific and Math Libraries overview web page](https://cpe.ext.hpe.com/docs/24.03/csml/index.html)
 
 Some mathematical libraries have become so popular that they basically define an API for which
 several implementations exist, and CPU manufacturers and some open source groups spend a significant
@@ -310,7 +309,7 @@ for vector-vector, matrix-vector and matrix-matrix implementations. It is the ba
 other libraries that need those linear algebra operations, including Lapack, a library with
 solvers for linear systems and eigenvalue problems.
 
-The [HPE Cray LibSci](https://cpe.ext.hpe.com/docs/csml/cray_libsci.html) library 
+The [HPE Cray LibSci](https://cpe.ext.hpe.com/docs/24.03/csml/cray_libsci.html) library 
 contains BLAS and its C-interface CBLAS, and LAPACK and its
 C interface LAPACKE. It also adds ScaLAPACK, a distributed memory version of LAPACK, and BLACS, the 
 Basic Linear Algebra Communication Subprograms, which is the communication layer used by ScaLAPACK.
@@ -324,13 +323,13 @@ iterative refinement. If you are familiar with numerical analysis, you probably 
 not be too ill-conditioned for that.
 
 There is also a GPU-optimized version of LibSci, called 
-[LibSci_ACC](https://cpe.ext.hpe.com/docs/csml/cray_libsci_acc.html), which contains a subset of the
-routines of LibSci. We or the LUMI USer Support Team don't have much experience with this library though.
+[LibSci_ACC](https://cpe.ext.hpe.com/docs/24.03/csml/cray_libsci_acc.html), which contains a subset of the
+routines of LibSci. We or the LUMI User Support Team don't have much experience with this library though.
 It can be compared with what Intel is doing with oneAPI MKL which also offers GPU versions of some of
 the traditional MKL routines.
 
 Another separate component of the scientific and mathematical libraries is 
-[FFTW3, Fastest Fourier Transforms in the West](https://cpe.ext.hpe.com/docs/csml/cray_fftw.html), 
+[FFTW3, Fastest Fourier Transforms in the West](https://cpe.ext.hpe.com/docs/24.03/csml/cray_fftw.html), 
 which comes with
 optimized versions for all CPU architectures supported by recent HPE Cray machines.
 
@@ -352,11 +351,11 @@ was that they compiled the binaries. Instead they now offer
 
 HPE Cray build their own MPI library with optimisations for their own interconnects.
 The Cray MPI library is derived from the ANL MPICH 3.4 code base and fully supports the 
-ABI (Application Binary Interface) of that application which implies that in principle
+ABI (Application Binary Interface) of that implementation which implies that in principle
 it should be possible to swap the MPI library of applications build with that ABI with
 the Cray MPICH library. Or in other words, if you can only get a binary distribution of
 an application and that application was build against an MPI library compatible with 
-the MPICH 3.4 ABI (which includes Intel MPI) it should be possible to exchange that
+the MPICH 3.4 ABI (which includes Intel MPI), it should be possible to exchange that
 library for the Cray one to have optimised communication on the Cray Slingshot interconnect.
 
 Cray MPI contains many tweaks specifically for Cray systems.
@@ -437,7 +436,7 @@ be found in the manual page
 man intro_mpi
 ```
 
-or its [web-based version](https://cpe.ext.hpe.com/docs/mpt/mpich/intro_mpi.html)
+or its [web-based version](https://cpe.ext.hpe.com/docs/24.03/mpt/mpich/intro_mpi.html)
 which may be for a newer version than available on LUMI.
 
 
@@ -492,7 +491,7 @@ the same name and version yet make different binaries available depending on the
     enabled. Automatically unloading a module if another module with the same name is 
     loaded, is also enabled. Both features make with a hierarchical scheme much more powerful
     and using the HPE Cray PE with these features disabled would be very difficult.
--->
+END BELGIUM -->
 
 
 ## Compiler wrappers
@@ -506,7 +505,8 @@ The wrapper for C is `cc`, the one for C++ is `CC` and the one for Fortran is `f
 The wrapper then calls the selected compiler. Which compiler will be called is determined
 by which compiler module is loaded. As shown on the slide 
 ["Development environment on LUMI"](#the-development-environment-on-lumi), on LUMI
-the Cray Compiling Environment (module `cce`), GNU Compiler Collection (module `gcc`), 
+the Cray Compiling Environment (module `cce`), GNU Compiler Collection (module `gcc-native` 
+or `gcc` depending on the version of the Cray Programming Environment), 
 the AMD Optimizing Compiler for CPUs (module `aocc`) and the ROCm LLVM-based compilers
 (module `amd`) are available. On the visualisation nodes, the NVIDIA HPC compiler is currently
 also installed (module `nvhpc`). On other HPE Cray systems, you may also find the Intel
@@ -545,23 +545,24 @@ The compiler wrappers are provided by the `craype` module (but you don't have to
   ![Slide Selecting the version of the CPE](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/SelectingCPEVersion.png){ loading=lazy }
 </figure>
 
-The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `23.09` for the version
-released in September 2023. There are several releases each year (at least 4), but not all
-of them are offered on LUMI. 
+The version numbers of the HPE Cray PE are of the form `yy.dd`, e.g., `24.03` for the version
+released in March 2024. There are several releases each year, but not all
+of them are offered on LUMI as installing them may require downtime and as changes in
+the system every few months are not appreciated by all users. 
 
 There is always a default version assigned by the sysadmins when installing the programming
 environment. It is possible to change the default version for loading further modules
-by loading one of the versions of the `cpe` module. E.g., assuming the 23.09 version would be
+by loading one of the versions of the `cpe` module. E.g., assuming the 24.03 version would be
 present on the system, it can be loaded through
 ```
-module load cpe/23.09
+module load cpe/24.03
 ```
 Loading this module will also try to switch the already loaded PE modules to the versions from
 that release. This does not always work correctly, due to some bugs in most versions of this
 module and a limitation of Lmod. Executing the `module load` twice will fix this:
 ```
-module load cpe/23.09
-module load cpe/23.09
+module load cpe/24.03
+module load cpe/24.03
 ```
 The module will also produce a warning when it is unloaded (which is also the case when you
 do a `module load` of `cpe` when one is already loaded, as it then first unloads the already
@@ -595,9 +596,9 @@ On LUMI there are three CPU target modules that are relevant:
 
 Two GPU target modules are relevant for LUMI:
 
+-   `craype-accel-gfx90a`: Compile offload code for the MI200 series GPUs that are used on LUMI-G.
 -   `craype-accel-host`: Will tell some compilers to compile offload code for the host
     instead.
--   `craype-accel-gfx90a`: Compile offload code for the MI200 series GPUs that are used on LUMI-G.
 
 Two network target modules are relevant for LUMI:
 
@@ -625,28 +626,30 @@ activate:
 | PrgEnv      | Description                               | Compiler module | Compilers                            |
 |-------------|-------------------------------------------|-----------------|--------------------------------------|
 | PrgEnv-cray | Cray Compiling Environment                | `cce`           | `craycc`, `crayCC`, `crayftn`        |
-| PrgEnv-gnu  | GNU Compiler Collection                   | `gcc`<br/>`gcc-native`<sup>(*)</sup> | `gcc`, `g++`, `gfortran`<br/>`gcc-12`, `g++-12`, `gfortran-12` |
+| PrgEnv-gnu  | GNU Compiler Collection                   | `gcc-native`<br/>`gcc`<sup>(*)</sup> | `gcc-13`, `g++-13`, `gfortran-13`<br/>`gcc`, `g++`, `gfortran` |
 | PrgEnv-aocc | AMD Optimizing Compilers<br>(CPU only)    | `aocc`          | `clang`, `clang++`, `flang`          |
 | PrgEnv-amd  | AMD ROCm LLVM compilers <br>(GPU support) | `amd`           | `amdclang`, `amdclang++`, `amdflang` |
 
-<sup>(*)</sup> See the note "Changes to the GNU compilers in 23.12".
+<sup>(*)</sup> In the 23.12 programming environment, HPE Cray switched from own-built gcc binaries to
+those from SUSE, and the module name was changed to `gcc-native` to reflect this change.
 
 There is also a second module that offers the AMD ROCm environment, `rocm`. That module
-has to be used with `PrgEnv-cray` and `PrgEnv-gnu` to enable MPI-aware GPU,
-hipcc with the GNU compilers or GPU support with the Cray compilers.
+has to be used with `PrgEnv-cray`, `PrgEnv-gnu` and recently also with `PrgEnv-amd` to 
+enable MPI-aware GPU, hipcc with the GNU compilers or GPU support with the Cray compilers.
 
-??? Note "Changes to the GNU compilers in 23.12"
-    The HPE Cray PE will change the way it offers the GNU compilers in releases starting from 23.12.
-    Rather than packaging the GNU compilers, HPE Cray will use the default development compiler version
-    of SUSE Linux, which for SP4 is currently GCC 12.3 (not to be confused with the system default which
+??? Note "Changes to the GNU compilers since 23.12"
+    The HPE Cray PE has changed the way it offers the GNU compilers in releases starting from 23.12.
+    Rather than packaging the GNU compilers, HPE Cray now uses the development compiler packages
+    of SUSE Linux (not to be confused with the system default which
     is still 7.5, the compiler that was offered with the initial release of SUSE Enterprise Linux 15).
 
-    In releases up to the 23.09 which we currently have on Linux, the GNU compilers are offered through the
+    In releases up to the 23.09, the GNU compilers are offered through the
     `gcc` compiler module. When loaded, it adds newer versions of the `gcc`, `g++` and `gfortran` compilers
     to the path, calling the version indicated by the version of the `gcc` module.
 
     In releases from 23.12 on, that compiler module is now called `gcc-native`, and the compilers
-    are - at least in the version for SUSE 15 SP4 - called `gcc-12`, `g++-12` and `gfortran-12`, while
+    now have the major version attached to the name of binary, e.g.,
+    `gcc-13`, `g++-13` and `gfortran-13`, while
     `gcc`, `g++` and `gfortran` will compile with version 7.5, the default version for SUSE 15.
   
 
@@ -661,17 +664,15 @@ and compiler flags. Online help is limited and difficult to locate.
 
 For the compilers, the following man pages are relevant:
 
-| PrgEnv                 | C            | C++          | Fortran        |
-|------------------------|--------------|--------------|----------------|
-| PrgEnv-cray            | `man craycc` | `man crayCC` | `man crayftn`  |
-| PrgEnv-gnu             | `man gcc`    | `man g++`    | `man gfortran` |
-| PrgEnv-aocc/PrgEnv-amd | -            | -            | -              |
-
-There used to be manual pages for the wrappers also but they are currently hijacked
-by the GNU manual pages.
+| PrgEnv                 | C            | C++          | Fortran           |
+|------------------------|--------------|--------------|-------------------|
+| PrgEnv-cray            | `man craycc` | `man crayCC` | `man crayftn`     |
+| PrgEnv-gnu             | `man gcc-13` | `man g++-13` | `man gfortran-13` |
+| PrgEnv-aocc/PrgEnv-amd | -            | -            | -                 |
+| Wrappers               | `man 1 cc`   | `man 1 CC`   | `man 1 ftn`       |
 
 Recently, HPE Cray have also created 
-[a web version of some of the CPE documentation](https://cpe.ext.hpe.com/docs/).
+[a web version of some of the CPE documentation](https://cpe.ext.hpe.com/docs/24.03/).
 
 Some compilers also support the `--help` flag, e.g., `amdclang --help`. For the wrappers,
 the switch `-help` should be used instead as the double dash version is passed to the 
@@ -777,7 +778,7 @@ The PE does not use the versions of many libraries determined by the loaded modu
 but instead uses default versions of libraries (which are actually in `/opt/cray/pe/lib64` on the system)
 which correspond to the version of the programming environment that is set as the system default when installed.
 This is very much the behaviour of Linux applications also that pick standard libraries in a few standard
-directories and it enables many programs build with the HPE Cray PE to run without reconstructing the
+directories and it enables many programs built with the HPE Cray PE to run without reconstructing the
 environment and in some cases to mix programs compiled with different compilers with ease (with the
 emphasis on some as there may still be library conflicts between other libraries when not using the 
 so-called rpath linking). This does have an annoying side effect though: If the default PE on the system 
@@ -801,24 +802,24 @@ export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 ??? Note "Small demo of adapting `LD_LIBRARY_PATH`:"
     An example that can only be fully understood after the section on the LUMI software stacks:
     ```
-    $ module load LUMI/22.08
-    $ module load lumi-CPEtools/1.0-cpeGNU-22.08
+    $ module load LUMI/23.09
+    $ module load lumi-CPEtools/1.1-cpeGNU-239.09
     $ ldd $EBROOTLUMIMINCPETOOLS/bin/mpi_check
-          linux-vdso.so.1 (0x00007f420cd55000)
-          libdl.so.2 => /lib64/libdl.so.2 (0x00007f420c929000)
-          libmpi_gnu_91.so.12 => /opt/cray/pe/lib64/libmpi_gnu_91.so.12 (0x00007f4209da4000)
+	        linux-vdso.so.1 (0x00007fff399fe000)
+	        libdl.so.2 => /lib64/libdl.so.2 (0x00007feccb848000)
+	        libmpi_gnu_91.so.12 => /opt/cray/pe/lib64/libmpi_gnu_91.so.12 (0x00007fecc8a00000)
           ...
     $ export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
     $ ldd $EBROOTLUMIMINCPETOOLS/bin/mpi_check
-    	    linux-vdso.so.1 (0x00007fb38c1e0000)
-          libdl.so.2 => /lib64/libdl.so.2 (0x00007fb38bdb4000)
-          libmpi_gnu_91.so.12 => /opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1/lib/libmpi_gnu_91.so.12 (0x00007fb389198000)
+	        linux-vdso.so.1 (0x00007ffea02a5000)
+        	libdl.so.2 => /lib64/libdl.so.2 (0x00007f9945496000)
+	        libmpi_gnu_91.so.12 => /opt/cray/pe/mpich/8.1.27/ofi/gnu/9.1/lib/libmpi_gnu_91.so.12 (0x00007f9942600000)
           ...
     ```
     The `ldd` command shows which libraries are used by an executable. Only a part of the very long
     output is shown in the above example. But we can already see that in the first case, the library
     `libmpi_gnu_91.so.12` is taken from `opt/cray/pe/lib64` which is the directory with the default
-    versions, while in the second case it is taken from `/opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1/lib/`
+    versions, while in the second case it is taken from `/opt/cray/pe/mpich/8.1.27/ofi/gnu/9.1/lib/`
     which clearly is for a specific version of `cray-mpich`.
 
 We do provide the module `lumi-CrayPath` 
@@ -838,7 +839,7 @@ operating system or network software stack may break older versions of the MPI l
 the applications use the default libraries and updating the defaults to a newer version, most
 applications will still run while they would fail if any of the two tricks to force the use
 of the intended library version are used. This has actually happened after a big LUMI update in
-March 2023, when all software that used rpath-linking had to be rebuild as the MPICH library
+March 2023, when all software that used rpath-linking had to be rebuilt as the MPICH library
 that was present before the update did not longer work.
 
 
@@ -882,7 +883,7 @@ by the following table:
 | Description                               | Compiler module       | Compilers                            |
 |-------------------------------------------|-----------------------|--------------------------------------|
 | Cray Compiling Environment                | `cce`                 | `craycc`, `crayCC`, `crayftn`        |
-| GNU Compiler Collection                   | `gcc`<br>`gcc-native` | `gcc`, `g++`, `gfortran`<br>`gcc-12`, `g++-12`, `gfortran-12` |
+| PrgEnv-gnu  | `gcc-native`<br/>`gcc`<sup>(*)</sup> | `gcc-13`, `g++-13`, `gfortran-13`<br/>`gcc`, `g++`, `gfortran` |
 | AMD Optimizing Compilers<br>(CPU only)    | `aocc`                | `clang`, `clang++`, `flang`          |
 | AMD ROCm LLVM compilers <br>(GPU support) | `amd`                 | `amdclang`, `amdclang++`, `amdflang` |
 
@@ -893,11 +894,10 @@ The `cray-mpich` module also defines the environment variable `MPICH_DIR` that p
 MPI installation for the selected compiler.
 
 To manually use the BLAS and LAPACK libraries, you'll still have to load the `cray-libsci` module.
-This module defines the `CRAY_LIBSCI_PREFIX_DIR` environment variable that points to the directory
+This module defines the `CRAY_PE_LIBSCI_PREFIX_DIR` environment variable that points to the directory
 with the library and include file subdirectories for the selected compiler.
-(This environment variable will be renamed to `CRAY_PE_LIBSCI_PREFIX_DIR` in release 23.12 of the programming
-environment.) 
-See [the `intro_libsci` manual page](https://cpe.ext.hpe.com/docs/csml/cray_libsci.html)
+(Or `CRAY_LIBSCI_PREFIX_DIR` before release 23.12 of the programming environment.) 
+See [the `intro_libsci` manual page](https://cpe.ext.hpe.com/docs/24.03/csml/cray_libsci.html)
 for information about the different libraries.
 
 To be able to use the `cray-fftw` FFTW libraries, you still need to load the right CPU target module,
