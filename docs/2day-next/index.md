@@ -13,6 +13,12 @@
 -->
 
 <!--
+-   Project for the course: `project_465001603`.
+
+    This project provides resources for the exercises. The project should not be used for your own work!
+-->
+
+<!--
 -   There are two Slurm reservations for the course:
 
     -   CPU nodes: `LUMI_Intro_SURF_small` (on the `small` Slurm partition)
@@ -22,8 +28,14 @@
 
 ## Setting up for the exercises
 
-If you have an active project on LUMI, you should be able to make the exercises in that project.
-You will only need an very minimum of CPU and GPU billing units for this.
+During the course, you can use the training project `project_465001603` for the exercises.
+After the course, it is still possible to make almost all exercises in your own project.
+They need only very little resources. The ["Object Storage" exercises](E10-ObjectStorage.md)
+in [Exercise session 5](ME10-Exercises-5.md) do require data in the training project, so
+these exercises should really be made while the training project is still active. For the
+exercises from [Exercise session 4](ME08-Exercises-4.md) you can no longer use the reservation
+if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
+day).
 
 -   Create a directory in the scratch of your project, or if you want to
     keep the exercises around for a while, in a subdirectory of your project directory 
@@ -42,11 +54,11 @@ You will only need an very minimum of CPU and GPU billing units for this.
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-next/files/exercises-20240502.tar.gz
-    tar -xf exercises-20240502.tar.gz
+    wget https://462000265.lumidata.eu/2day-20241210/files/exercises-20241210.tar.gz
+    tar -xf exercises-20241210.tar.gz
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-next/files/exercises-20240502.tar.gz)
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20241210/files/exercises-20241210.tar.gz)
 
 -   You're all set to go!
 
