@@ -163,7 +163,7 @@ plugins:
       redirect_maps:
           comprehensive-latest.md: 4day-20241028/index.md
           advanced-latest.md: 4day-20241028/index.md
-          intro-latest.md: 2day-20240502/index.md
+          intro-latest.md: 2day-20241210/index.md
           AI-latest.md: ai-20241126/index.md
           ai-latest.md: ai-20241126/index.md
           update-202308.md: User-Updates/Update-202308/index.md
