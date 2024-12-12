@@ -14,8 +14,7 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/05-SoftwareStacks.mp4" controls="controls">
-</video>
+<video src="https://462000265.lumidata.eu/2day-next/recordings/05-SoftwareStacks.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
 
