@@ -338,7 +338,7 @@ tools configuration files that are used in the following exercises.
 
             ```
             rclone copy lumi-465001603-private:training.private/private-in-private.txt .
-        ```
+            ```
 
 7.  What would be the web-URL to access the public object `public-in-public.txt` in the `training.public` bucket?
     Next try the same strategy to access `private-in-public.txt` in the  `training.public` bucket and both
