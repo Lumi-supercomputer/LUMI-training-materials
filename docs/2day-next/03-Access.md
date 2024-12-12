@@ -1,13 +1,13 @@
 # Getting Access to LUMI
 
-## Who pays the bills?
+## LUMI is part of the EuroHPC ecosystem
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Who pays the bills](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/WhoPays.png){ loading=lazy }
+  ![Slide EuroHPC Supercomputers](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/EuroHPCSupercomputers.png){ loading=lazy }
 </figure>
 
-LUMI is one of the larger EuroHPC supercomputers. EuroHPC currently funds 
-[supercomputers in three different classes](https://eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en):
+EuroHPC currently funds 
+[supercomputers in four different classes](https://eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en):
 
 1.  There are a number of so-called petascale supercomputers. The first ones of those are
     [Meluxina](https://docs.lxp.lu/) (in Luxembourg), 
@@ -20,13 +20,32 @@ LUMI is one of the larger EuroHPC supercomputers. EuroHPC currently funds
     [Leonardo](https://wiki.u-gov.it/confluence/display/SCAIUS/UG3.2%3A+LEONARDO+UserGuide) (in Italy)
     and [MareNostrum 5](https://www.bsc.es/supportkc/docs/MareNostrum5/intro/) (in Spain)
 
-4.  A decision has already been taken on two exascale supercomputers: 
+3.  A decision has already been taken on two exascale supercomputers: 
     [Jupiter](https://www.fz-juelich.de/en/ias/jsc/jupiter) (in Germany) and
-    [Jules Verne (consortium name)](https://eurohpc-ju.europa.eu/jules-verne-consortium-will-host-new-eurohpc-exascale-supercomputer-france-2023-06-20_en) (in France).
+    [Alice Recoque](https://eurohpc-ju.europa.eu/new-call-procure-european-exascale-supercomputer-alice-recoque-2024-09-09_en), 
+    hosted by the [Jules Verne consortium](https://eurohpc-ju.europa.eu/jules-verne-consortium-will-host-new-eurohpc-exascale-supercomputer-france-2023-06-20_en) (in France).
+    Jupiter is currently being built.
+
+    The construction of Jupiter has already started and will continue in the first half of 2025.
+
+4.  Another 4 mid-range systems are currently under procurement or under construction,
+    including [Daedalus](https://eurohpc-ju.europa.eu/daedalus-call-acquire-new-european-world-class-supercomputer-greece-2024-06-25_en) (in Greece) and
+    [Arrhenius](https://eurohpc-ju.europa.eu/sweden-will-host-new-eurohpc-supercomputer-2023-06-19_en) (in Sweden).
+
+5.  There will soon be a programme for "AI-optimised" supercomputers, whatever that will mean,
+    as these will be very large systems serving lots of users so there will still be lots of
+    technological compromises.
 
 Depending on the machine, EuroHPC pays one third up to half of the bill, while the remainder of the budget
 comes from the hosting country, usually with the help of a consortium of countries.
 For LUMI, EuroHPC paid half of the bill and is the actual owner of the machine.
+
+
+## Who pays the bills for LUMI?
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Who pays the bills](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/WhoPays.png){ loading=lazy }
+</figure>
 
 <!-- BELGIUM
 LUMI is hosted in Finland but operated by a consortium of 11 countries, with Belgium being the third largest
@@ -34,8 +53,8 @@ contributor to LUMI and the second largest in the consortium of countries. The B
 brought together by 4 entities:
 
 1.  BELSPO, the science agency of the Federal government, invested 5M EURO in the project.
-2.  The SPW Économie, Empoli, Recherche from Wallonia also invested 5M EURO in the project.
-3.  The Depertment of Economy, Science and Innovation (EWI) of the Flemish government invested 3.5M EURO in the project.
+2.  The SPW Économie, Emploi, Recherche from Wallonia also invested 5M EURO in the project.
+3.  The Department of Economy, Science and Innovation (EWI) of the Flemish government invested 3.5M EURO in the project.
 4.  Innoviris (Brussels) invested 2M EURO.
 
 The resources of LUMI are allocated proportional to the investments. As a result EuroHPC can allocate half
@@ -46,29 +65,33 @@ what the supercomputer can technically sustain. In Belgium, the 4 entities that 
 via a competition (3 calls a year for regular projects).
 The access conditions for projects in the Belgian share are advertised via the 
 [EuroCC Belgium National Competence Centre](https://www.enccb.be/GettingAccess).
--->
+As Belgium is fully responsible for the allocation of its share, the central
+LUMI User Support Team (LUST) cannot manage allocations. It makes no sense to send
+them requests for a larger allocation or project extension.
 
-<!-- GENERAL More general text -->
-LUMI is hosted in Finland but operated by a consortium of 11 countries.
-Each LUMI consortium country can set its own policies for a national access program, within the limits of
-what the supercomputer can technically sustain. There is a 
-["Get Started" page on the main LUMI website](https://www.lumi-supercomputer.eu/get-started/)
-with links to the various access programs.
-
-<!-- BELGIUM
 Web links:
 
 -   [EuroHPC JU supercomputers](https://eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en)
 -   [EuroCC Belgium National Competence Centre](https://www.enccb.be/)
     with the [specifics of LUMI access via the Belgian share](https://www.enccb.be/GettingAccess).
--->
+END BELGIUM -->
 
 <!-- GENERAL More general text -->
+LUMI is hosted in Finland but operated by a consortium of 11 countries.
+The resources of LUMI are allocated by each investor proportional to their contribution in the project.
+Each LUMI consortium country can set its own policies for a national access program, within the limits of
+what the supercomputer can technically sustain. There is a 
+["Get Started" page on the main LUMI website](https://www.lumi-supercomputer.eu/get-started/)
+with links to the various access programs.
+So note that the LUMI User Support Team (LUST) does not manage allocations, so it makes no sense
+to send us mail for a larger allocation or a project extension.
+
 Web links:
 
 -   [EuroHPC JU supercomputers](https://eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en)
 -   [LUMI website "Get Started" page](https://www.lumi-supercomputer.eu/get-started/)
     with links to relevant web pages for EuroHPC access and access via consortium countries.   
+<!-- END GENERAL -->
 
 
 ## Users and projects
@@ -93,6 +116,7 @@ of a group of people. It typically corresponds to a research project, though the
 e.g., to give people access in the context of a course, or for organisational issues, e.g., a project for a local support organisation.
 Most projects are short-lived, with a typical duration of 4 to 6 months for benchmarking projects or one year for a 
 regular project (which is the maximum duration agreed upon in the consortium).
+<!-- END GENERAL -->
 
 Projects are also the basis for most research allocations on LUMI. In LUMI there are three types of resource allocations,
 and each project needs at least two of them:
@@ -111,11 +135,11 @@ and each project needs at least two of them:
 <!-- BELGIUM
 These budgets are assigned and managed by the resource allocators, not by the LUMI User Support Team.
 For Belgium the VSC and CÉCI both have the role of resource allocator, but both use a common help desk.
--->
+END BELGIUM -->
 
-<!-- GENERAL More general version -->
+<!-- GENERAL -->
 These budgets are assigned and managed by the resource allocators, not by the LUMI User Support Team.
-The LUMI User Support Team also cannot add additional billing units to your project.
+<!-- END GENERAL -->
 
 LUMI projects will typically have multiple project numbers which may be a bit confusing:
 
@@ -144,7 +168,7 @@ has on LUMI is a small personal disk space which is simply a Linux requirement.
 To do anything useful on LUMI users need to be member of a project.
 There are also "robot accounts" for special purposes 
 that would not correspond to a physical person but have a specific goal 
-(like organising data ingestion from an external source) and few projects are granted
+(like organising data ingestion from an external source) but few projects are granted
 such an account.
 
 There ia a many-to-many mapping between projects and user accounts.
@@ -182,9 +206,7 @@ create a workflow involving Tier-2, Tier-1 and Tier-0 resources).
 <!-- BELGIUM 
 In Belgium two entities manage projects for the Belgian LUMI organisation: VSC and CÉCI.
 These entities are called the resource allocators.
--->
 
-<!-- BELGIUM 
 All projects allocated by Belgium ara managed through the Puhuri system, and VSC and CÉCI 
 both have their own zone in that system. For Belgium it is only used to manage access to LUMI,
 not to any of the VSC, CÉCI or Cenaero systems or other infrastructure.
@@ -194,9 +216,7 @@ MyAccessID then in turn connects to your institute identity provider and a numbe
 It is important that you always use the same credentials to log in via MyAccessID, otherwise
 you create another user in MyAccessID that is unknown to Puhuri and get all kinds of strange
 error messages.
--->
 
-<!-- BELGIUM 
 The URL to the Puhuri portal is: [puhuri-portal.neic.no](https://puhuri-portal.neic.no/).
 -->
 
@@ -214,6 +234,7 @@ It is important that you always use the same credentials to log in via MyAccessI
 you create another user in MyAccessID that is unknown to Puhuri and get all kinds of strange
 error messages. MyAccessID is also used for ssh key management, so that in the future, when
 MyAccessID might serve more machines, you'd have a single set of ssh keys for all infrastructures.
+<!-- END GENERAL -->
 
 Puhuri can be used to check your remaining project resources, but once your user account 
 on LUMI is created, it is very easy to do this on the command line with the
@@ -293,11 +314,12 @@ storage budget of the project.
 The slide above also shows the quota on each volume.
 This information is also [available in the LUMI docs](https://docs.lumi-supercomputer.eu/storage/).
 
-<!-- BELGIUM 
+<!-- BELGIUM
 The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course or as you may have seen in other HPC courses already
+As we shall see later in this course (in the [section on Lustre](09-Lustre.md))
+or as you may have seen in other HPC courses already
 (e.g., the VSC [Supercomputers for Starters](https://klust.github.io/SupercomputersForStarters/) 
 course organised by UAntwerpen),
 parallel file systems are not built to deal with hundreds of thousands of small files and are
@@ -307,7 +329,7 @@ Software installations that require tens of thousands of small files should be d
 containers (e.g., conda installations or any big Python installation) while data should also
 be organised in proper file formats rather than being dumped on the file system abusing the file
 system as a database.
--->
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 The use of space in each file space is limited by block and file quota. Block quota limit the
@@ -322,6 +344,7 @@ Software installations that require tens of thousands of small files should be d
 containers (e.g., conda installations or any big Python installation) while data should also
 be organised in proper file formats rather than being dumped on the file system abusing the file
 system as a database.
+<!-- END GENERAL -->
 
 In the above slide, the "Capacity" column shows the block quota
 and the "Files" column show the total number of so-called inodes available in the file space.
@@ -353,18 +376,19 @@ So storage use on LUMI is limited in two independent ways:
     links to preserve the structure of the caching subdirectories in your home directory while
     storing data elsewhere.
 
-<!-- BELGIUM 
+<!-- BELGIUM
 **Quota extensions are currently handled by the central LUMI User Support Team. 
 But storage billing units, just as any billing unit, comes from your resource allocator
 (so LUMI-BE for projects assigned through the Belgian channel and EuroHPC themselves for
 their projects),
 and the LUMI User Support Team cannot give you any storage billing units.**
--->
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 **Quota extensions are currently handled by the central LUMI User Support Team. 
 But storage billing units, just as any billing unit, comes from your resource allocator,
 and the LUMI User Support Team cannot give you any storage billing units.**
+<!-- END GENERAL -->
 
 
 ### Some additional information
@@ -410,7 +434,7 @@ so right after a run, or as a job may not launch immediately, that you need to p
 data on the system long before a run starts. 
 So data needed for or resulting from a run has to stay on the system for a few days or weeks,
 and you need to budget for that in your project request.
--->
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 If you run out of storage billing units, access to the job queues or even to the storage 
@@ -421,6 +445,7 @@ so right after a run, or as a job may not launch immediately, that you need to p
 data on the system long before a run starts. 
 So data needed for or resulting from a run has to stay on the system for a few days or weeks,
 and you need to budget for that in your project request.
+<!-- END GENERAL -->
 
 Web links:
 
@@ -453,7 +478,7 @@ your account in My CSC to MyAccessID so that you do not get a second account on 
 Puhuri-managed project, and in this case your keys are still managed through the My CSC service.
 But this procedure is only important for those LUMI-BE users who may have gotten their first access 
 to LUMI via a project managed by CSC.
--->
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 Key management is for most users done via MyAccessID: [mms.myaccessid.org](https://mms.myaccessid.org/).
@@ -462,46 +487,40 @@ User accounts that were created via the My CSC service have to use
 the [my.csc.fi](https://my.csc.fi/) portal to manage their keys. It recently became possible to link
 your account in My CSC to MyAccessID so that you do not get a second account on LUMI ones you join a 
 Puhuri-managed project, and in this case your keys are still managed through the My CSC service.
+<!-- END GENERAL -->
 
-LUMI now also provides a web interface via Open OnDemand. The URL is
+LUMI also provides a web interface via Open OnDemand. The URL is
 [`https://www.lumi.csc.fi/`](https://www.lumi.csc.fi/). It also offers a number
-of tools that can be useful for visualisation via a web browser, but it is still 
-work-in-progress.
+of tools that can be useful for visualisation via a web browser via the "Desktop" app,
+which will give you a VNC session with the
+rather lightweight [Xfce desktop environment](https://www.xfce.org/).
+Note that the supercomputer is not your primary graphics workstation and is a shared resource,
+so a more lightweight solution is chosen to be able to serve more users on the available hardware.
+It makes no sense to request much richer environments such as Gnome or KDE; they are simply too
+heavyweight and would require to dedicate too much of the budget to hardware for something that
+is not the core task of a supercomputer.
 
 <!-- BELGIUM
-There is currently moderate support for technologies for GUI applications on LUMI. 
-Running X11 over ssh (via `ssh -X`) is unbearably slow for users located in Belgium 
-as X11 is not meant
-to be used over long-distance networks and is very latency-sensitive. 
-The alternative is VNC, which we currently offer in two different ways:
+There is currently not much support for other technologies for GUI applications on LUMI. 
+Running X11 over ssh (via `ssh -X`) is unbearably slow for users located in Belgium. 
+The X11 protocol is really made for local area network connections, not
+for wide area network connections.
+The alternative is some support for VNC outside Open OnDemand, though the window manager and fonts used by
+that server do look a little dated. Access is possible via a browser or VNC client. 
+On the system, check for the 
+[`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/).
+END BELGIUM -->
 
--  Via the "Desktop" app in Open OnDemand, which will give you a VNC session with the
-   rather lightweight [Xfce desktop environment](https://www.xfce.org/),
--  and through the [`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/)
-   which was our primary method when Open OnDemand for LUMI was not ready yet.
-
-You can connect through a web browser or a VNC client.
-Don't expect more advanced desktop environments: LUMI is not meant to be your remote
-graphics workstation and we cannot afford to spend tens of compute nodes on offering 
-this service.
--->
-
-<!-- GENERAL More general version -->
-There is currently moderate support for technologies for GUI applications on LUMI. 
-Running X11 over ssh (via `ssh -X`) is unbearably slow for most users as X11 is not meant
-to be used over long-distance networks and is very latency-sensitive. 
-The alternative is VNC, which we currently offer in two different ways:
-
--  Via the "Desktop" app in Open OnDemand, which will give you a VNC session with the
-   rather lightweight [Xfce desktop environment](https://www.xfce.org/),
--  and through the [`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/)
-   which was our primary method when Open OnDemand for LUMI was not ready yet.
-
-You can connect through a web browser or a VNC client.
-Don't expect more advanced desktop environments: LUMI is not meant to be your remote
-graphics workstation and we cannot afford to spend tens of compute nodes on offering 
-this service.
-
+<!-- GENERAL -->
+There is currently not much support for other technologies for GUI applications on LUMI. 
+Running X11 over ssh (via `ssh -X`) is unbearably slow for users further away from LUMI, with a higher
+latency network connection. The X11 protocol is really made for local area network connections, not
+for wide area network connections. 
+The alternative is some support for VNC outside Open OnDemand, though the window manager and fonts used by
+that server do look a little dated. Access is possible via a browser or VNC client. 
+On the system, check for the 
+[`lumi-vnc` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/).
+<!-- END GENERAL -->
 
 Web links:
 
@@ -578,17 +597,25 @@ Web links:
 
     Finally, let's have a look at the "Desktop" app.
 
+    The "Desktop" app will present you with a simple GUI desktop based on the
+    [xfce desktop environment](https://www.xfce.org/). After opening this app, one gets:
+    
     <figure markdown style="border: 1px solid #000">
       ![Open OnDemand slide 8](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_08.png){ loading=lazy }
     </figure>
 
-    The "Desktop" app will present you with a simple GUI desktop based on the
-    [Xfce desktop environment](https://www.xfce.org/). This app needs to run in the context of a job
+    This app needs to run in the context of a job
     and although it can run on several partitions on LUMI, its main use is to be able to use some
-    visualisation applications, so your best choice is likely to use the partition with visualisation
-    GPUs (see the [session on Slurm](07-Slurm.md)). As we have not discussed jobs yet, we will skip
-    how to fill in the form that is presented to you.
+    visualisation applications, so your best choice is likely to use the partition `lumid` with visualisation
+    GPUs (see the [session on Slurm](07-Slurm.md)). As we have not discussed jobs yet, we will not give more details
+    now on how to fill in the form that is presented to you.
 
+    Now click "Launch" to launch the job, and after a while, you'll see a screen similar to
+
+    <figure markdown style="border: 1px solid #000">
+      ![Open OnDemand slide 9](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_09.png){ loading=lazy }
+    </figure>
+    
     The desktop is basically run in a [VNC session](https://en.wikipedia.org/wiki/Virtual_Network_Computing),
     a popular protocol for remote desktop support in Linux. It can be used through a web browser, which is what
     you get if you click the "Launch Desktop" button, but there are other choices also.
@@ -596,12 +623,15 @@ Web links:
     After launching/connecting to the desktop you get:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 9](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_09.png){ loading=lazy }
+      ![Open OnDemand slide 10](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_10.png){ loading=lazy }
     </figure>
 
-    There is a small settings menu hidden at the left (expanded in the picture) to do some settings of the web
+    There is a small settings menu hidden at the left to do some settings of the web
     interface that we are using here. Right-clicking with the mouse on the desktop gives you a menu with a number
     of applications.
+
+    Note that using "Logout" in this menu is not enough to kill the job. You can do so though with the 
+    `Cancel` button in the tab where we clicked the "Launch Desktop" button.
 
     This is in no means meant to be a replacement of your own workstation, so the software choice is limited
     and will remain limited. It should never be your main environment for all your work. LUMI is not meant to
@@ -618,7 +648,8 @@ Web links:
 
 There are currently two main options to transfer data to and from LUMI.
 
-The first one is to use **sftp** to the login nodes, authenticating via your ssh key. 
+The first one is to use **sftp** to the login nodes (or any other protocol that goes over the
+ssh daemon, like `rsync` over an ssh connection), authenticating via your ssh key. 
 There is a lot of software available for all major operating systems, both command line
 based and GUI based. The sftp protocol can be **very slow over high latency connections**.
 This is because it is a protocol that opens only a single stream for communication
@@ -646,7 +677,7 @@ the LUMI User Support Team nor the local support in Belgium can give you instruc
 for every possible tool. 
 Those tools for accessing object storage tend to set up multiple data streams and hence
 will offer a much higher effective bandwidth, even on high latency connections.
--->
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 The second important option is to **transfer data via the object storage system LUMI-O**.
@@ -661,243 +692,47 @@ Even though in principle any tool that can connect via the S3 protocol can work,
 the LUMI User Support Team cannot give you instructions for every possible tool. 
 Those tools for accessing object storage tend to set up multiple data streams and hence
 will offer a much higher effective bandwidth, even on high latency connections.
+<!-- END GENERAL -->
+
+<!-- BELGIUM 
+Alternatively, you can also chose to access external servers from LUMI if you have client
+software that runs on LUMI (or if that software is already installed on LUMI, e.g., `rclone`
+and `S3cmd`), but neither the LUMI User Support Team not the Belgian local support teams
+can tell you how to configure tools to use an external service that they don't have access
+to. But, e.g., the VSC Tier-0 support team might be able to help you to configure a tool
+to access the data services that VSC offers.
+END BELGIUM -->
 
 <!-- GENERAL More general version -->
 Alternatively, you can also chose to access external servers from LUMI if you have client
 software that runs on LUMI (or if that software is already installed on LUMI, e.g., `rclone` 
 and `S3cmd`), but the LUMI User Support Team cannot tell you how to configure tools
 to use an external service that we have no access to.
+<!-- END GENERAL -->
 
+Using the LUMI-O object storage will be further discussed in the 
+["LUMI-O Object Storage" session of this course](10-ObjectStorage.md).
+
+<!-- BELGIUM
 Unfortunately there is no support yet for Globus or other forms of gridFTP. 
+LUST offers a [recipe to install the UNICORE UFTP client](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/)
+if you have access to a UFTP server (still popular in Germany), but neither LUST nor local 
+Belgian support teams can offer true support for that either as
+they have no access to such server. How to work with these recipes, is discussed in the
+["LUMI Software Stacks" session of this course](05-SoftwareStacks.md).
+END BELGIUM -->
 
+<!-- GENERAL -->
+Unfortunately there is no support yet for Globus or other forms of gridFTP. 
+We do have a [recipe to install the UNICORE UFTP client](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/)
+if you have access to a UFTP server, but cannot offer true support for that either as
+LUST has no access to such server. How to work with these recipes, is discussed in the
+["LUMI Software Stacks" session of this course](05-SoftwareStacks.md).
+<!-- END GENERAL -->
 
-## What is LUMI-O?
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_1.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOWhatIs_2.png){ loading=lazy }
-</figure>
-
-<!-- BELGIUM 
-LUMI-O is an object storage system (based on Ceph). 
-It is similar to a system that CSC, the company operating LUMI, built for users of Finland
-and is known there as Allas, though LUMI doesn't provide all the functionality of Allas.
--->
-
-<!-- GENERAL More general version -->
-LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
-Allas, which is similar to the LUMI object storage system, though LUMI doesn't provide all
-the functionality of Allas.
-
-Object file systems need specific tools to access data. They are usually not mounted as a regular
-filesystem (though some tools can make them appear as a regular file system) and accessing them
-needs authentication via temporary keys that are different from your ssh keys and are not only
-bound to you, but also to the project for which you want to access LUMI-O. So if you want to use
-LUMI-O for multiple projects simultaneously, you'll need keys for each project.
-
-Object storage is not organised in files and directories. A much flatter structure is used with buckets
-that contain objects:
-
--   **Buckets**: Containers used to store one or more objects. Object storage uses a flat structure with 
-   only one level which means that buckets cannot contain other buckets.
-
--   **Objects**: Any type of data. An object is stored in a bucket.
-
--   **Metadata**: Both buckets and objects have metadata specific to them. The metadata of a bucket specifies, 
-    e.g., the access rights to the bucket. While traditional file systems have fixed metadata (filename, 
-    creation date, type, etc.), an object storage allows you to add custom metadata.
-
-Objects can be served on the web also. This is in fact how recordings of some of the LUST
-courses are served currently. However, LUMI-O is not meant to be used as a data publishing
-service and is not an alternative to services provided by, e.g., EUDAT or several local
-academic service providers.
-
-The object storage can be easily reached from outside LUMI also. In fact, during
-downtimes, LUMI-O is often still operational as its software stack is managed completely
-independently from LUMI. It is therefore also very well suited as a mechanism for data
-transfer to and from LUMI. Moreover, tools for object storage often perform much better
-on high latency long-distance connections than tools as `sftp`.
-
-LUMI-O is based on the [Ceph object file system](https://ceph.io/en/). 
-It has a total capacity of 30 PB. 
-Storage is persistent for the duration of a project.
-Projects get a quota of 150 TB and can create up to 1K buckets and 500K objects per
-bucket. These quota are currently fixed and cannot be modified.
-Storage on LUMI-O is billed at 0.5 TB·hour per TB per hour, half that of
-/scratch or /project. It can be a good alternative to store data from your project
-that still needs to be transferred but is not immediately needed by jobs, or to
-maintain backups on LUMI yourself.
-
-
-## Accessing LUMI-O
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide Accessing LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOAccessing.png){ loading=lazy }
-</figure>
-
-Access to LUMI-O is based on temporary keys that need to be generated via a web interface
-(though there may be alternatives in the future).
-
-There are currently three command-line tools pre-installed on LUMI: 
-[rclone](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone)
-(which is the easiest tool if you want public and private data), 
-[s3cmd](https://docs.lumi-supercomputer.eu/storage/lumio/#s3cmd) 
-and [restic](https://docs.lumi-supercomputer.eu/storage/lumio/#restic).
-
-But you can also access LUMI-O with similar tools from outside LUMI. Configuring them
-may be a bit tricky and the LUMI User Support Team cannot help you with each and every client
-tool on your personal machine. However, the web interface that is used to generate the keys,
-can also generate code snippets or configuration file snippets for various tools, and
-that will make configuring them a lot easier.
-
-In the future access via Open OnDemand should also become possible.
-
-
-
-### Key generation
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide Accessing LUMI-O: Key generation](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOAccessingKeyGeneration.png){ loading=lazy }
-</figure>
-
-Keys are generated via a web interface that can be found at
-[auth.lumidata.eu](https://auth.lumidata.eu).
-In the future it should become possible to do so directly in the Open OnDemand interface,
-and may even from the command line.
-
-Let's walk through the interface:
-
-!!! Demo "A walk through the credentials management web interface of LUMI-O"
-    After entering the URL [auth.lumidata.eu](https://auth.lumidata.eu), you're presented
-    with a welcome screen on which you have to click the "Go to login" button.
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_01.png){ loading=lazy }
-    </figure>
-
-    This will present you with the already familiar (from Open OnDemand) screen to select
-    your authentication provider:
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_02.png){ loading=lazy }
-    </figure>
-
-    Proceed with login in through your relevant authentication provider (not shown here)
-    and you will be presented with a screen that show your active projects:
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_03.png){ loading=lazy }
-    </figure>
-
-    Click the project for which you want to generate a key, and the column to the right will appear.
-    Chose how long the key should be valid (1 week or 168 hours is the maximum currently, but the
-    life can be extended) and a description for the key. The latter is useful if you generate multiple
-    keys for different use. E.g., for security reasons you may want to use different keys from different
-    machines so that one machine can be disabled quickly if the machine would be compromised or stolen.
-
-    Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_04.png){ loading=lazy }
-    </figure>
-
-    Now click on the key to get more information about the key: 
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (5)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_05.png){ loading=lazy }
-    </figure>
-
-    At the top of the screen you see three elements that will be important if you use the LUMI command line tool
-    `lumio-conf` to generate configuration files for `rclone` and `s3cmd`: the project number (but you knew that one),
-    the "Access key" and "Secret key".
-
-    Scrolling down a bit more:
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (6)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_06.png){ loading=lazy }
-    </figure>
-
-    The "Extend key" field can be used to extend the life of the key, to a maximum of 168 hours past the current time.
-
-    The "Configuration templates" is the way to generate code snippets or configuration file snippets for various tools
-    (see the list on the slide). After selecting "rclone" and clicking the "Generate" button, a new screen opens:
-
-    <figure markdown style="border: 1px solid #000">
-      ![Slide Accessing LUMI-O: Credentials management web interface (7)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOCredentialsWeb_07.png){ loading=lazy }
-    </figure>
-
-    This screen shows us the snippet for the rclone configuration file (on Linux it is
-    `~/.config/rclone/rclone.conf`). Notice that it creates to so-called endpoints. In the slide
-    this is `lumi-465001102-private` and `lumi-465001102-public`, for storing buckets and objects which are private
-    or public (i.e., also web-accessible).
-
-
-## Configuring LUMI-O tools
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide Configuring LUMI-O tools](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIOConfiguringTools.png){ loading=lazy }
-</figure>
-
-On LUMI, you can use the `lumnio-conf` tool to configure `rclone` and `s3cmd`. 
-To access the tool, you need to load the `lumio` module first, which is always available.
-The same module will also load a module that makes `rclone`, `s3cmd` and `restic` available.
-
-Whe starting `lumio-conf`, it will present with a couple of questions: The project number
-associated with the key, the access key and the secret key. We have shown above where in the web
-interface that information can be found. A future version may or may not be more automatic.
-As we shall see in the next slide, currently the `rclone` configuration generated by this tool
-is (unfortunately) different from the one generated by the web interface.
-
-Another way to configure tools for object storage access is simply via the code snippets
-and configuration files snippets as has already been discussed before. The same snippets 
-should also work when you run the tools on a different computer.
-
-
-## rclone on LUMI-O
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/LUMIORclone.png){ loading=lazy }
-</figure>
-
-The `rclone` configuration file for LUMI-O contains two end points, and unfortunately at the moment
-both ways discussed on the previous slide, produce different end points.
-
--   When using `lumio-conf`, you'll get:
-    -   `lumi-o` as the end point for buckets and object that should be private, i.e., not publicly
-        accessible via the web interface, and
-    -   `lumi-pub` for buckets and objects that should be publicly accessible. It does appear to be
-        possible to have both types in a single bucket though.
--   When using the web generator you get specific end points for each project, so it is possible
-    to access data from multiple projects simultaneously from a single configuration file:
-    - `lumi-46YXXXXXX-private` is the end point to be used for buckets and objects that should be private, and
-    - `lumi-46YXXXXXX-public` is the end point for data that should be publicly accessible.
-
-A description of the main `rclone` commands is outside the scope of this tutorial, but some options
-are discussed in [the LUMI documentation](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone),
-and the same page also contains some documentation for `s3cmd` and `restic`. See the links below
-for even more documentation.
-
-
-## Further LUMI-O documentation
-
--   [Documentation for the LUMI-O object storage service](https://docs.lumi-supercomputer.eu/storage/)
--   Software for LUMI-O on LUMI is provided through the
-    [`lumio` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumio/) which
-    provides the configuration tool on top of the software and the
-    [`lumio-ext-tools` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumio-ext-tools/)
-    providing rclone, S3cmd and restic and links to the documentation of those tools.
-
-    -   [rclone documentation](https://rclone.org/docs/)
-    -   [S3cmd tools usage](https://s3tools.org/usage)
-    -   [restic documentation](https://restic.readthedocs.io/en/latest/)
-
-
-<!-- BELGIUM 
+<!-- BELGIUM, no general equivalent
 ## Local trainings in Belgium
 
 Any HPC introductory training in Belgium covers logging in via ssh and transferring files.
 Such a course is a prerequisite for this course.
--->
+END BELGIUM -->
