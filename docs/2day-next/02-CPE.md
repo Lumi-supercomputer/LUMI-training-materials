@@ -188,17 +188,33 @@ They also have a long tradition in developing performance measurement and analys
 and debugging tools that work in the context of HPC.
 
 The first important component of the HPE Cray Programming Environment is the compilers.
-Cray still builds its own compilers for C/C++ and Fortran, called the Cray Compiling
-Environment (CCE). Furthermore, the GNU compilers are also supported on every Cray system,
-though at the moment AMD GPU support is not enabled. Depending on the hardware of the 
-system other compilers will also be provided and integrated in the environment. On LUMI
-two other compilers are available: the AMD AOCC compiler for CPU-only code and the 
-AMD ROCm compilers for GPU programming. Both contain a C/C++ compiler based on Clang and
-LLVM and a Fortran compiler which is currently based on the former PGI frontend with
-LLVM backend. The ROCm compilers also contain the support for HIP, AMD's CUDA clone.
+
+-   Cray still builds its own compilers for C/C++ and Fortran, called the Cray Compiling
+    Environment (CCE). 
+
+-   The GNU compilers are also supported on every Cray system,
+    though at the moment AMD GPU support is not enabled. 
+    In recent versions of the HPE Cray PE, HPE uses the GNU compilers as packaged in 
+    the SUSE Enterprise distribution. As a result of this, the GNU compiler executables
+    now also have their version in the name as modules are not a standard element of every
+    SUSE system.
+
+Depending on the hardware of the system, other compilers will also be provided and 
+integrated in the environment. On LUMI two other compilers are available: 
+
+-   The AMD AOCC compiler for CPU-only code with a C/C++ compiler and Fortran compiler
+    currently based on the former PGI frontend (classic flang)
+
+-   AMD ROCm(tm) compilers for GPU programming. C/C++ compiler with advanced OpenMP
+    support, also for offload, and a Fortran compiler still based on the former 
+    PGI frontend (without OpenMP offload support) but that is expected to change
+    towards the end of 2025.
+
+    The ROCm compilers also contain the support for HIP, AMD's CUDA clone.
 
 The second component is the Cray Scientific and Math libraries, containing the usual
-suspects as BLAS, LAPACK and ScaLAPACK, and FFTW, but also some data libraries and
+suspects as BLAS, LAPACK and ScaLAPACK, and FFTW, but also some data libraries 
+such as some configurations of netCDF and HDF5, and
 Cray-only libraries.
 
 The third component is the Cray Message Passing Toolkit. It provides an MPI implementation
@@ -224,7 +240,7 @@ including [Linaro Forge](https://www.linaroforge.com/) (previously ARM Forge) an
 Specifically **not** on LUMI is the Intel programming environment, nor is the
 regular Intel oneAPI HPC Toolkit. The classic Intel compilers pose problems on AMD CPUs
 as `-xHost` cannot be relied on, but it appears that the new compilers that are based on
-Clang and an LLVM backend behave better. Various MKL versions are also troublesome, with
+Clang and an LLVM backend behave better. However, various MKL versions are also troublesome, with
 different workarounds for different versions, though here also it seems that Intel now has 
 code that works well on AMD for many MKL routines. We have experienced problems with Intel 
 MPI when testing it on LUMI though in principle it should be possible to use Cray MPICH as
@@ -234,13 +250,34 @@ but it could be useful for some visualisation software on the
 visualisation nodes so it is currently installed on those nodes.
 
 We will now discuss some of these components in a little bit more detail, but refer
-to the 4-day trainings that we organise several times a year with HPE for more material.
+to the 4 or 5-day trainings that we organise several times a year with HPE for more material.
+
+
+##  AMD tools and technologies on LUMI
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Development environment](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/AMDTools.png){ loading=lazy }
+</figure>
+
+### GPU tools
+
+The AMD software stack for GPU compute is ROCm(tm). It is fully open-source, so 
+no proprietary components as in the NVIDIA software stack. It does borrow from 
+the CUDA stack though wherever legally possibly, but keep in mind that the AMD and
+NVIDIA hardware is very different, so code that runs well on one may not run as well
+on the other after a very simple port.
+
+
+
+
+### CPU tools
+
 
 
 ## The Cray Compiling Environment
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Cray Compiling Environment](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/CrayComplingEnv.png){ loading=lazy }
+  ![Slide Cray Compiling Environment](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/CrayCompilingEnv.png){ loading=lazy }
 </figure>
 
 The Cray Compiling Environment are the default compilers on many Cray systems and on LUMI.
