@@ -3464,7 +3464,7 @@ on many clusters, or <code>srun</code> on LUMI - will <em>distribute</em>  the p
 nodes. Within a node, it is possible to pin or attach processes or even individual threads
 in processes to one or more cores (actually hardware threads) and other resources, 
 which is called process binding.</p>
-<p>The system software (Linux, ROCm<sup>TM</sup> and Slurm) 
+<p>The system software (Linux, ROCm&trade; and Slurm) 
 has several mechanisms for that. Slurm uses Linux cgroups or control groups to limit the 
 resources that a job can use within a node and thus to isolate jobs from one another on a
 node so that one job cannot deplete the resources of another job, and sometimes even
@@ -3474,7 +3474,7 @@ The second mechanism is processor affinity which works at the process and thread
 used by Slurm at the task level and 
 can be used by the OpenMP runtime to further limit thread migration. It works through affinity masks
 which indicate the hardware threads that a thread or process can use. There is also a third
-mechanism provided by the ROCm<sup>TM</sup> runtime to control which GPUs can be used.</p>
+mechanism provided by the ROCm&trade; runtime to control which GPUs can be used.</p>
 <p>Some of the tools in the <code>lumi-CPEtools</code> module can show the affinity mask for each thread
 (or effectively the process for single-threaded processes) so you can use these tools to
 study the affinity masks and check the distribution and binding of processes and threads.
@@ -3619,7 +3619,7 @@ cores does not change. </p>
 This is done to help reduce OS jitter which can kill scalability of large parallel applications. However, it also creates an assymetry
 that is hard to deal with. (For this reason they chose to disable the first core of every CCD on Frontier, so core 0, 8, 16, ... and 
 corresponding hardware threads 64, 72, ..., but on LUMI this is not yet the case).
-Don't be surprised if when running a GPU code you see a lot of activity on core 0. It is caused by the ROCm<sup>TM</sup> driver
+Don't be surprised if when running a GPU code you see a lot of activity on core 0. It is caused by the ROCm&trade; driver
 and is precisely the reason why that core is reserved, as that activity would break scalability of applications that expect
 to have the same amount of available compute power on each core.</p>
 <p>Note that even with <code>--hint=nomultithread</code> the hardware threads will still be turned on at the hardware level and be visible in the 
@@ -4517,6 +4517,283 @@ and these will usually conflict.</p>
 <p>There are more options, but these are currently most relevant ones on LUMI. That may change in the future as
 LUMI User Support is investigating whether it isn't better to change the concept of "socket" in Slurm given how important it
 sometimes is to carefully map onto L3 cache domains for performance.</p>
+<details class="note">
+<summary>How to understand masks?</summary>
+<p>Masks indicate which (virtual) cores can be used. A mask is really a series of bits with 
+each bit corresponding to a virtual core. The least significant bit corresponds to core 0,
+the next one to core 1, etc. A 1-bit indicates that the corresponding virtual core can be used
+while a 0-bit indicates that it cannot be used. </p>
+<p>Consider the mask <code>1111000001011010</code>. For readability, we split it up in groups of 4 from right to left: </p>
+<p><table style="border-collapse: collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Core</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; line-height: 0.85; padding:0px 0px 0px 0px; border: none;">
+             1111 1100 0000 0000
+        </br>5432 1098 7654 3210</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Mask</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      1111 0000 0101 1010</td>
+    </tr>
+  </tbody>
+</table></p>
+<p>Hence this masks indicates that cores 1, 3, 4, 6, 12, 13, 14 and 15 can be used.</p>
+<p>Now using such long bit strings is awkward. There is a long tradition among computer
+scientists to represent such bit strings instead as hexadecimal numbers: numbers base 16,
+instead of as bit strings, numbers base 2. Each hexadecimal digit then corresponds with 
+4 bits, and we start assigning those again from the 4 least significant bits to the 
+most significant bits, adding 0s at the front to get a multiple of 4 bits. The conversion
+is given by the following table.</p>
+<p><table>
+<thead>
+  <tr>
+    <td style="font-weight: bold;">decimal</tc>
+    <td style="font-weight: bold;">binary</td>
+    <td style="font-weight: bold;">hexadecimal</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0000</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0001</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">2</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0010</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">2</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">3</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0011</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">3</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">4</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0100</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">4</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">5</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0101</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">5</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">6</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0110</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">6</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">7</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">0111</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">7</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">8</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1000</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">8</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">9</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1001</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">9</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">10</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1010</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">a</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">11</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1011</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">b</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">12</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1100</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">c</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">13</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1101</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">d</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">14</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1110</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">e</td>
+  </tr>
+  <tr>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">15</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">1111</td>
+    <td style="text-align: right; font-family: SFMono-Regular, Consolas, Menlo, monospace;">f</td>
+  </tr>
+</tbody>
+</table></p>
+<p>So our mask <code>1111000001011010</code> is more conveniently written as <code>f05a</code> of <code>F05A</code>:</p>
+<p><table style="border-collapse: collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Core</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; line-height: 0.85; padding:0px 0px 0px 0px; border: none;">
+             1111 1100 0000 0000
+        </br>5432 1098 7654 3210</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Mask</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      1111 0000 0101 1010</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Hexadecimal</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp;f&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;5&nbsp; &nbsp;&nbsp;a </td>
+    </tr>
+  </tbody>
+</table></p>
+<p>To indicate that a number is a hexadecimal number, there are several conventions, but the
+one which is usually used, is preceding the number with <code>0x</code>, so our mask then becomes 
+<code>0xf05a</code>.  This convention is used by bash and can also be used in Slurm masks.</p>
+<p>Since CCDs on the zen3-based LUMI CPUs have 8 cores, they correspond to exactly 2 hexadecimal
+digits. This also implies that if we want to use the same cores on each CCD, building the mask
+becomes simple as we only need to look at CCD 0 and then shift the pattern two positions for each
+subsequent CCD. </p>
+<p>The primary use case for all this will be core mapping on the GPU nodes to get an optimal binding
+between the cores and GCDs used by a Slurm task / MPI rank. On each CCD of a LUMI-G processor,
+core 0 cannot be used by the user. So building a mask that includes the first hardware thread of
+all available cores (cores 1-7) of a CCD is done as follows:</p>
+<p><table style="border-collapse: collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Core</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">7654 3210</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Mask</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      1111 1110</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Hexadecimal</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp;f&nbsp; &nbsp;&nbsp;e</td>
+    </tr>
+  </tbody>
+</table></p>
+<p>so the mask is <code>0xfe</code>. Suppose that we want to use all 7 available cores on CCD 1, i.e., cores 9 till 15,
+we get</p>
+<p><table style="border-collapse: collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Core</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; line-height: 0.85; padding:0px 0px 0px 0px; border: none;">
+             1111 1100 0000 0000
+        </br>5432 1098 7654 3210</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Mask</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      1111 1110 0000 0000</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Hexadecimal</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp;f&nbsp; &nbsp;&nbsp;e&nbsp; &nbsp;&nbsp;0&nbsp; &nbsp;&nbsp;0 </td>
+    </tr>
+  </tbody>
+</table></p>
+<p>of <code>0xfe00</code>, so really just our pattern for CCD 0 shifted by two positions by adding two 
+zeros at the end. </p>
+<p>For the example above, with 
+<code>--cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000</code>,
+the basic building block is <code>0x7e</code>, so</p>
+<p><table style="border-collapse: collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Hexadecimal</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp;7&nbsp; &nbsp;&nbsp;e</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Mask</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      0111 1110</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Core</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">7654 3210</td>
+    </tr>
+  </tbody>
+</table></p>
+<p>or cores 1 till 6. For the whole mask, we get: </p>
+<p><table style="border-collapse: collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>CCD</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;7 &nbsp;6 &nbsp;5 &nbsp;4 &nbsp;3 &nbsp;2 &nbsp;1 &nbsp;0</td>
+      <td style="padding:0px 0px 0px 10px; border: none;"><b>using</b></td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 1</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; 7e 00 00 00 00 00 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 6, cores 49-54</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 2</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      7e 00 00 00 00 00 00 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 7, cores 57-62</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 3</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 7e 00 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 2, cores 17-22</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 4</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 7e 00 00 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 3, cores 25-30</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 5</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 7e</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 0, cores 1-6</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 6</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 7e 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 1, cores 9-14</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 7</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 7e 00 00 00 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 4, cores 33-38</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding:0px 10px 0px 0px; border: none;"><b>Element 1</b></td>
+      <td style="font-family: SFMono-Regular, Consolas, Menlo, monospace; padding:0px 0px 0px 0px; border: none;">
+      &nbsp;&nbsp; &nbsp;&nbsp; 7e 00 00 00 00 00</td>
+      <td style="padding:0px 0px 0px 10px; border: none;">CCD 5, cores 41-46</td>
+    </tr>
+  </tbody>
+</table></p>
+<p>So basically this mask means that we are creating slots for 8 tasks that each use 6 cores on a single 
+CCD (cores 1 till 6), in the order CCD 6, CCD 7, CCD 2, CCD 3, CCD 0, CCD 1, CCD 4 and CCD 5.</p>
+</details>
 <h2 id="task-to-gpu-binding-with-slurm">Task-to-GPU binding with Slurm<a class="headerlink" href="#task-to-gpu-binding-with-slurm" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Task-to-GPU binding with Slurm" loading="lazy" src="https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-08-Binding/SlurmTaskGPU.png" /></p>
@@ -5183,7 +5460,7 @@ many respects.</p>
 <ol>
 <li>
 <p>Affinity masks are part of the Linux kernel and fully OS-controlled, while 
-    <code>ROCR_VISIBLE_DEVICES</code> is interpreted in the ROCm<sup>TM</sup> stack.</p>
+    <code>ROCR_VISIBLE_DEVICES</code> is interpreted in the ROCm&trade; stack.</p>
 </li>
 <li>
 <p>Affinity masks are set through an OS call and that call can enforce that the new
@@ -5367,7 +5644,7 @@ for that, than it may be advantageous to map the MPI ranks on one of those rings
 the order of the CCDs nor the order of the GCDs is trivial.</p>
 <p>Some other topologies can also be mapped on these connections (but unfortunately not a 3D cube).</p>
 <p>Note: The red ring and green ring correspond to the red and green rings on page 6 of the
-<a href="https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf">"Introducing AMD CDNA<sup>TM</sup> 2 Architecture" whitepaper</a>.</p>
+<a href="https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf">"Introducing AMD CDNA&trade; 2 Architecture" whitepaper</a>.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide GPU binding: Implementation" loading="lazy" src="https://462000265.lumidata.eu/2day-20241210/img/LUMI-2day-20241210-08-Binding/ROCRMechanism.png" /></p>
 </figure>
