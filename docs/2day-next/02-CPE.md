@@ -202,15 +202,13 @@ The first important component of the HPE Cray Programming Environment is the com
 Depending on the hardware of the system, other compilers will also be provided and 
 integrated in the environment. On LUMI two other compilers are available: 
 
--   The AMD AOCC compiler for CPU-only code with a C/C++ compiler and Fortran compiler
-    currently based on the former PGI frontend (classic flang)
+-   The AMD AOCC compiler for CPU-only code with a C/C++ compiler and Fortran compiler.
 
--   AMD ROCm(tm) compilers for GPU programming. C/C++ compiler with advanced OpenMP
-    support, also for offload, and a Fortran compiler still based on the former 
-    PGI frontend (without OpenMP offload support) but that is expected to change
-    towards the end of 2025.
+-   AMD ROCm(tm) compilers for GPU programming with a C/C++ compiler and Fortran compiler.
 
     The ROCm compilers also contain the support for HIP, AMD's CUDA clone.
+
+Both AMD compilers are discussed in the next section.
 
 The second component is the Cray Scientific and Math libraries, containing the usual
 suspects as BLAS, LAPACK and ScaLAPACK, and FFTW, but also some data libraries 
@@ -267,11 +265,113 @@ the CUDA stack though wherever legally possibly, but keep in mind that the AMD a
 NVIDIA hardware is very different, so code that runs well on one may not run as well
 on the other after a very simple port.
 
+The key element of the ROCm(tm) stack is [HIP](https://rocm.docs.amd.com/projects/HIP/en/latest/what_is_hip.html), 
+which stands for **H**eterogeneous-computing
+**I**nterface for **P**ortability. It is a C++ runtime API and kernel language 
+that lets you create portable applications for AMD and NVIDIA GPUs from a single source code.
+It basically supports a subset of CUDA, though all functions names are different
+(but in a straightforward way) as NVIDIA does not allow copying the API. 
+However, with some AMD tools installed, HIP code can be compiled for NVIDIA 
+hardware with virtually no performance loss compared to native CUDA. 
+This comes with a catch though: NVIDIA and AMD hardware are very different,
+so the tricks needed to optimise code may also be different and HIP code optimised
+for AMD hardware may not be optimal for NVIDIA hardware and vice-versa. In fact,
+on AMD hardware, there are also significant differences between the Instinct compute
+GPUs that are based on the CDNA architecture, and recent consumer rendering GPUs
+based on the RDNA architecture.
 
+Many libraries are also very close to their CUDA counterpart, and those libraries
+often come in two variants, one with the name starting with roc and the other with 
+the name starting with hip. The rocX variant is then the actual library for the
+ROCm(tm) stack and AMD hardware, while the hipX variant is a thin interface library
+that will link to rocX when building for AMD GPUs and to the corresponding CUDA
+library when building for NVIDIA hardware. So if you want the most performance,
+you'd directly call the rocX library, but if you're more concerned about also
+recompiling the same code for NVIDIA hardware, you'd use the hipX variant.
+
+The ROCm(tm) stack also contains two tools to assist with converting CUDA code into 
+HIP code. The [`hipify-perl`](https://rocm.docs.amd.com/projects/HIPIFY/en/latest/hipify-perl.html) 
+tool is a Perl script that is very easy to use and makes
+heavy use of regular expressions. It can however not really interpret the CUDA
+code so some more complex conversions are not possible.
+The [`hipify-clang`](https://rocm.docs.amd.com/projects/HIPIFY/en/latest/hipify-clang.html)
+tool on the other hand is based on clang and can deal with more complex conversions,
+but it requires 100% correct CUDA code to start with and a partial installation of
+CUDA.
+
+Another important component are the AMD ROCm(tm) compilers for GPU programming.
+There is a C/C++ compiler with advanced OpenMP offload support, based on clang
+and LLVM. The unified memory architecture of MI250X (and MI300A) is fully supported.
+The Fortran compiler is currently still based on the former PGI
+Fortran frontend (also known as classic flang) and misses OpenMP offload support.
+That is expected to change towards the end of 2025, when AMD expects to switch to
+the new Flang frontend. In fact, with ROCm 6.3 users can have early access, but
+unfortunately that version of ROCm cannot be supported on LUMI with the current
+driver version and will only be supportable after the update planned for the summer
+of 2025. The other issue is that switching to a different Fortran frontend may break
+the Fortran MPI bindings that come with Cray MPICH, as they include precompiled
+module files. So even if you can get an early beta that works with a ROCm version that 
+we can support, we cannot guarantee that it will also work with MPI, or other
+libraries from HPE Cray.
+
+The ROCm(tm) stack also has its own command line interface debugging tool, 
+[rocgdb](https://rocm.docs.amd.com/projects/ROCgdb/en/latest/). It builds on
+the GNU debugger gdb and can be used directly by users, but is also used internally
+by other debugging tools from third parties.
+
+The ROCm(tm) stack also includes three tools for performance measurement and analysis.
+
+-   [ROC-profiler](https://rocm.docs.amd.com/projects/rocprofiler/en/latest/) 
+    with the `rocprof` executable is the basic tool to extract information
+    from the performance counters and to collect that information while running programs.
+
+    It is a command-line only tool so interpreting the output is hard. It does however
+    serve as the information collecting tool for other profiling tools.
+
+-   [OmniTrace](https://rocm.github.io/omnitrace/) is a more comprehensive 
+    profiling and tracing tool, supporting C, C++, Fortran and Python on CPU
+    and CP+GPU. It also supports interactive visualisation of trace data in a 
+    web-based GUI (that can be installed as an app on your laptop).
+
+-   [Omniperf](https://rocm.docs.amd.com/projects/omniperf/en/docs-6.2.0/) is 
+    a performance profiler for HPC and machine learning applications. It uses 
+    ROC-profiler under the hood to collect data, but offers several high level
+    performance analysis tools (like roofline analyses, ...) to better understand
+    application behaviour at a high level.
+
+    The tool now also has a standalone GUI which is much safer than the Grafana-based
+    GUI used before.
+
+The AMD profiling tools are currently going through a very quick evolution. 
+ROCm(tm) 6.2 saw a great improvement of these tools. The 6.2 versions can be used on 
+LUMI already, even though we cannot fully support them as only ROCm 6.0 is fully supported
+in the current programming environment.
+
+The debugger and profiling tools, and the structure of HIP programs, are discussed
+in several sessions of the advanced LUMI courses (the 4 or 5-day courses) given by 
+LUST in collaboration with HPE and AMD.
 
 
 ### CPU tools
 
+On the CPU side, the [AMD AOCC compiler](https://www.amd.com/en/developer/aocc.html) 
+is fully integrated in the HPE Cray PE.
+These are C/C++ and Fortran compilers based on clang, classic flang and LLVM technology
+but with some AMD extensions to the optimisations. 
+
+The version installed on the system is determined by the version officially supported
+by the HPE Cray PE, as MPI and the math libraries come from the HPE Cray PE. 
+As these compilers are open source, users are free to experiment with newer versions,
+but we cannot guarantee that they will work with the MPI and mathematics libraries
+on the system. 
+
+The AMD Optimizing CPU libraries (AOCL) are not part of the HPE Cray PE though, as the
+environment uses its own math libraries that would conflict with some of the AOCL libraries.
+For some of those libraries, LUST does provide installation scripts so that users can
+experiment, but be aware that they do conflict with Cray-provided libraries and hence
+many of the pre-installed libraries will conflict. LUST does not build software using AOCL
+instead of the Cray scientific libraries and does not have enough resources to support this,
+but if you feel confident, you can use them.
 
 
 ## The Cray Compiling Environment
