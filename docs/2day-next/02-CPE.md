@@ -1005,7 +1005,7 @@ why we didn't demonstrate it here.
 ## Note: Compiling without the HPE Cray PE wrappers
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Note: Working without the wrappers](https://462000265.lumidata.eu/1day-20240208/img/LUMI-1day-20240208-02-CPE/NoteWrappers.png){ loading=lazy }
+  ![Slide Note: Working without the wrappers](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-02-CPE/NoteWrappers.png){ loading=lazy }
 </figure>
 
 It is now possible to work without the HPE Cray PE compiler wrappers 
@@ -1024,11 +1024,30 @@ by the following table:
 | AMD Optimizing Compilers<br>(CPU only)    | `aocc`                | `clang`, `clang++`, `flang`          |
 | AMD ROCm LLVM compilers <br>(GPU support) | `amd`                 | `amdclang`, `amdclang++`, `amdflang` |
 
+<sup>(*)</sup>: The `gcc` modules are from older versions of the HPE Cray PE and will over time
+disappear from LUMI. They contain a set of GCC compilers packaged by HPE Cray, while the
+`gcc-native` modules provide GCC compilers packages by SUSE.
+
 Recent versions of the `cray-mpich` module now also provide the traditional MPI compiler wrappers
 such as `mpicc`, `mpicxx` or `mpifort`. Note that you will still need to ensure that the network
-target module `craype-network-ofi` is loaded to be able to load the `cray-mpich` module!
+target module `craype-network-ofi` is loaded to be able to load the `cray-mpich` module, which is
+needed to get access to the regular MPI compiler wrappers.
+
+There is an issue when using these wrappers with the compilers from the `gcc-native` modules. 
+The wrappers are the regular MPICH wrappers, and these were not made to integrate with the HPE Cray PE,
+hence are not able to detect the right names for the C, C++ and Fortran compiler. You'll have to set
+`MPICH_CC`, `MPICH_CXX` and `MPICH_FC` to point to the right compilers as otherwise the `mpi*`
+MPI wrappers will use the system GCC installation:
+
+``` bash
+export MPICH_CC="gcc-13"
+export MPICH_CXX="g++-13"
+export MPICH_CXX="gfortran-13"
+```
+
 The `cray-mpich` module also defines the environment variable `MPICH_DIR` that points to the
-MPI installation for the selected compiler.
+MPI installation for the selected compiler. This environment variable is useful if you don't
+want to use the `mpi*` wrappers.
 
 To manually use the BLAS and LAPACK libraries, you'll still have to load the `cray-libsci` module.
 This module defines the `CRAY_PE_LIBSCI_PREFIX_DIR` environment variable that points to the directory
