@@ -13,10 +13,13 @@
 -->
 
 <!-- 
+
 -   There are two Slurm reservations for the course. One for each day:
 
     -   First day: `AI_workshop` (on the `small-g` Slurm partition)
     -   Second day: `AI_workshop_2` (on the `standard-g` Slurm partition)
+
+    Project with the compute resources: `project_465001707`.
 -->
 
 
