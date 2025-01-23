@@ -4,6 +4,9 @@
 <ul>
     <li><a href="#Day1">Day 1 - Intro day: Exploring LUMI</a>
     <li><a href="#Day2">Day 2 - Intro day: Running on LUMI, data on LUMI, containers on LUMI</a>
+    <li><a href="#Day3">Day 3 - Advanced day 1</a>
+    <li><a href="#Day4">Day 4 - Advanced day 2</a>
+    <li><a href="#Day5">Day 5 - Advanced day 3</a>
 </ul>
 
 <table style="text-align: left;">
@@ -82,7 +85,7 @@ DAY 1
             12:30 CET
             <br/><em>13:30 EET</em>
         </td>
-        <td><b><em>Lunch break (60 minutes)</em></b>
+        <td><b><em>Lunch break (60 minutesinutes)</em></b>
         </td>
     </tr>
     <tr>
@@ -231,7 +234,7 @@ DAY 2
             12:30 CET
             <br/><em>13:30 EET</em>
         </td>
-        <td><b><em>Lunch break (60 m)</em></b>
+        <td><b><em>Lunch break (60 minutes)</em></b>
         </td>
     </tr>
     <tr>
@@ -313,6 +316,456 @@ DAY 2
             <br/><em>18:30 EET</em>
         </td>
         <td><b>End of day 2</a></b> 
+        </td>
+    </tr>
+<!--
+DAY 3
+-->
+    <tr>
+        <td colspan="2" align="center">
+            <a name="Day3"><b>DAY 3 - Wednesday March 5, 2025</b></a>
+        </td>
+    </tr>
+    <tr>
+        <td style="width:8em">
+            09:00 CET
+            <br/><em>10:00 EET</em>
+        </td>
+        <td><b><a href="../MI301-IntroductionCourse/">Welcome and Introduction course part 2</a></b>
+        <br/><em>Presenters: Harvey Richardson (HPE) and Jørn Dietze (LUST)</em>
+        </td>
+    </tr>
+    <tr>
+        <td style="width:8em">
+            09:10 CET
+            <br/><em>10:10 EET</em>
+        </td>
+        <td><b><a href="../M301-HPE_Cray_EX_Architecture/">LUMI Architecture, Programming and Runtime Environment</a></b>
+        <br/><em>Presenters: Harvey Richardson (HPE)</em>
+        <br/>Recap from the first two days of this and other LUMI intro courses: Stressing the elements from
+        the LUMI architecture and programming environment that are important for the advanced part of the course.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:50 CET
+            <br/><em>10:50 EET</em>
+        </td>
+        <td><b><a href="../M302-Compilers_and_Parallel_Programming_Models/">Overview of Compilers and Parallel Programming Models</a></b>
+        <br/><em>Presenters: Harvey Richardson and Alfio Lazzaro (HPE)</em>
+        <ul>
+            <li>An introduction to the compiler suites available, including examples of how to get additional information about the compilation process.</li>
+            <li>Cray Compilation Environment (CCE) and options relevant to porting and performance.</li>
+            <li>Description of the Parallel Programming models.</li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:50 CET
+            <br/><em>11:50 EET</em>
+        </td>
+        <td><b><a href="../ME302-Exercises-6/">Exercises (session #6)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            11:20 CET
+            <br/><em>12:20 EET</em>
+        </td>
+        <td><b><em>Break</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            11:40 CET
+            <br/><em>12:40 EET</em>
+        </td>
+        <td><b><a href="../M303-Cray_Scientific_Libraries/">Cray Scientific Libraries</a></b>
+        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <ul>
+            <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            12:10 CET
+            <br/><em>13:10 EET</em>
+        </td>
+        <td><b><a href="../ME303-Exercises-7/">Exercises (session #7)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            12:30 CET
+            <br/><em>13:30 EET</em>
+        </td>
+        <td><b><em>Lunch break (60 minutes)</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            13:30 CET
+            <br/><em>14:30 EET</em>
+        </td>
+        <td><b><a href="../M304-Offload_CCE/">OpenACC and OpenMP offload with Cray Compilation Environment</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        <ul>
+            <li>Directive-based approach for GPU offloading execution with the Cray Compilation Environment.
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:15 CET
+            <br/><em>15:15 EET</em>
+        </td>
+        <td><b><a href="../M305-Introduction_to_AMD_ROCm_Ecosystem/">Introduction to the AMD ROCm ecosystem and HIP</a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <ul>
+            <li/> The AMD ROCm<sup>TM</sup> ecosystem
+            <li/> HIP programming
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            15:00 CET
+            <br/><em>16:00 EET</em>
+        </td>
+        <td><b><a href="../ME305-Exercises-8/">Exercises (session #8)</a></b></td>
+    </tr>
+    <tr>
+        <td>
+            15:30 CET
+            <br/><em>16:30 EET</em>
+        </td>
+        <td><b><em>Break</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            15:45 CET
+            <br/><em>16:45 EET</em>
+        </td>
+        <td><b><a href="../M306-Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
+        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            16:30 CET
+            <br/><em>17:30 EET</em>
+        </td>
+        <td><b><a href="../ME306-Exercises-9/">Exercises (session #9)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            17:00 CET
+            <br/><em>18:00 EET</em>
+        </td>
+        <td><b>Open Questions & Answers</b>
+        <br/>Participants are encouraged to continue with exercises in case there should be no questions.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            17:30 CET
+            <br/><em>18:30 EET</em>
+        </td>
+        <td><b><em>End of the course day</em></b>
+        </td>
+    </tr>
+<!--
+DAY 4
+-->
+    <tr>
+        <td colspan="2" align="center">
+            <a name="Day4"><b>DAY 4 - Thursday March 6, 2025</b></a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:00 CET
+            <br/><em>10:00 EET</em>
+        </td>
+        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        <td><b><a href="../M401-Introduction_to_Perftools/">Introduction to Perftools</a></b>
+        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        <ul>
+            <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
+            <li>Demo: Visualization of performance data with Apprentice2</kli>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:40 CET
+            <br/><em>10:40 EET</em>  
+        </td>
+        <td><b><a href="../ME401-Exercises-10/">Exercises (session #7)</a></b>
+       </td>
+    </tr>
+    <tr>
+        <td>
+            10:10 CET
+            <br/><em>11:10 EET</em>
+        </td>
+        <td><b><em>Break (20 minutes)</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:30 CET
+            <br/><em>11:30 EET</em>
+        </td>
+        <td><b><a href="../M402-Advanced_Performance_Analysis/">Advanced Performance Analysis</a></b>
+        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        <ul>
+            <li>Automatic performance analysis and loop work estimated with perftools</li>
+            <li>Communication Imbalance, Hardware Counters, Perftools API, OpenMP</li>
+            <li>Compiler feedback and variable scoping with Reveal</li>
+        </ul>
+       </td>
+    </tr>
+    <tr>
+        <td>
+            11:30 CET
+            <br/><em>12:30 EET</em>
+        </td>
+        <td><b><a href="../M403-Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            12:00 CET
+            <br/><em>13:00 EET</em>
+        </td>
+        <td><b><a href="../ME403-Exercises-11/">Exercises (session #8)</a></b>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            12:30 CET
+            <br/><em>13:30 EET</em>
+        </td>
+        <td><b><em>Lunch break</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            13:30 CET
+            <br/><em>14:30 EET</em>
+        </td>
+        <td><b><a href="../M404-Cray_MPI_on_Slingshot/">MPI Topics on the HPE Cray EX Supercomputer</a></b>
+        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <ul>
+            <li>High level overview of Cray MPI on Slingshot</li>
+            <li>Useful environment variable controls</li>
+            <li>Rank reordering and MPMD application launch</li>
+        </ul>
+    </td>
+    </tr>
+    <tr>
+        <td>
+            14:15 CET
+            <br/><em>15:15 EET</em>
+        </td>
+        <td><b><a href="../ME404-Exercises-12/">Exercises (session #12)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:45 CET
+            <br/><em>15:45 EET</em>
+        </td>
+        <td><b><em>Break</em></b>
+        </td>
+    <tr>
+        <td>
+            15:00 CET
+            <br/><em>16:00 EET</em>
+        </td>
+        <td><b><a href="../M405-AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            15:30 CET
+            <br/><em>16:30 EET</em>
+        </td>
+        <td><b><a href="../ME405-Exercises-13/">Exercises (session #13)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            16:00 CET
+            <br/><em>17:00 EET</em>
+        </td>
+        <td><b><a href="../M406-Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            16:30 CET
+            <br/><em>17:30 EET</em>
+        </td>
+        <td><b><a href="../ME406-Exercises-14/">Exercises (session #14)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            17:00 CET
+            <br/><em>18:00 EET</em>
+        </td>
+        <td><b>Open Questions & Answers</b>
+        <br/>Participants are encouraged to continue with exercises in case there should be no questions.</b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            17:30 CET
+            <br/><em>18:30 EET</em>
+        </td>
+        <td><b><em>End of the course day</em></b>
+        </td>
+    </tr>
+<!--
+DAY 5
+-->
+    <tr>
+        <td colspan="2" align="center">
+            <a name="Day5"><b>DAY 5 - Friday March 7, 2025</b></a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:00 CET
+            <br/><em>10:00 EET</em>
+        </td>
+        <td><b><a href="../M501-Introduction_to_Python_on_Cray_EX/">Introduction to Python on Cray EX</a></b>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        <ul>
+            <li/>Cray Python for the Cray EX
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:10 CET
+            <br/><em>10:10 EET</em>
+        </td>
+        <td><b><a href="../M502-Porting_to_GPU/">Porting Applications to GPU</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            09:20 CET
+            <br/><em>10:20 EET</em>
+        </td>
+        <td><b><a href="../M503-IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
+        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <ul>
+            <li>Introduction into the structure of the Lustre Parallel file system. </li>
+            <li>Tips for optimising parallel bandwidth for a variety of parallel I/O schemes. </li>
+            <li>Examples of using MPI-IO to improve overall application performance.</li>
+            <li>Advanced Parallel I/O considerations</li>
+            <li>Further considerations of parallel I/O and other APIs.</li>
+            <li>Being nice to Lustre</li>
+            <li>Consideration of how to avoid certain situations in I/O usage that don’t specifically relate to data movement.</li>
+        </ul>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            10:00 CET
+            <br/><em>11:00 EET</em>
+        </td>
+        <td><b><a href="../ME503-Exercises-15/">Exercises (session #15)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:15 CET
+            <br/><em>11:15 EET</em>
+        </td>
+        <td><b><em>Break</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            10:30 CET
+            <br/><em>11:30 EET</em>
+        </td>
+        <td><b><a href="../M504-AMD_Omnitrace/">Introduction to OmniTrace</a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
+      </td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            11:00 CET
+            <br/><em>12:00 EET</em>
+        </td>
+        <td><b><a href="../ME504-Exercises-16/">Exercises (session #16)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            11:30 CET
+            <br/><em>12:30 EET</em> 
+        </td>
+        <td><b><a href="../M505-AMD_Omniperf/">Introduction to Omniperf</a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            12:00 CET
+            <br/><em>13:00 EET</em> 
+        </td>
+        <td><b><a href="../ME505-Exercises-17/">Exercises (session #17)</a></b>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            12:30 CET
+            <br/><em>13:30 EET</em>
+        </td>
+        <td><b><em>Lunch break (60 minutes)</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            13:30 CET
+            <br/><em>14:30 EET</em> 
+        </td>
+        <td><b><a href="../M506-Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
+        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        </td>
+    </tr>
+    </tr>
+     <tr>
+        <td>
+            15:00 CET
+            <br/><em>16:00 EET</em> 
+        </td>
+        <td><b>Open Questions & Answers</b>
+        <br/>Participants are encouraged to continue with exercises in case there should be no questions.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            15:30 CET
+            <br/><em>16:30 EET</em> 
+        </td>
+        <td><b><em>End of the course</em></b>
         </td>
     </tr>
 </tbody>

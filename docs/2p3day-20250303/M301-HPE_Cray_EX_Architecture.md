@@ -1,0 +1,26 @@
+# LUMI Architecture, Programming and Runtime Environment
+
+*Presenter: Harvey Richardson (HPE)*
+
+## Materials
+
+<!--
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides: `/project/project_465001154/Slides/HPE/01_Architecture_PE_modules_slurm.pdf`
+-->
+
+<!--
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-1_01_Architecture_PE_modules_slurm.pdf`
+
+-   Recording: `/appl/local/training/paow-20240611/recordings/1_01_HPE_PE.mp4`
+
+These materials can only be distributed to actual users of LUMI (active user account).
+-->
+
+
+## Q&A
+
+/
