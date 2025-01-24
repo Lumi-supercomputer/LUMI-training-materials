@@ -1,5 +1,6 @@
 # Draft schedule (subject to change)
 
+Presenters, exact time and order of the talks may still change.
 
 <ul>
     <li><a href="#Day1">Day 1 - Intro day: Exploring LUMI</a>
@@ -95,7 +96,7 @@ DAY 1
         </td>
         <td><b><a href="../M104-Modules/">Modules on LUMI</a></b>
         <br/><em>Presenter: Kurt Lust (LUST)</em>
-        LUMI uses Lmod, but as Lmod can be configured in different ways, even an experienced
+        <br/>LUMI uses Lmod, but as Lmod can be configured in different ways, even an experienced
         Lmod user can learn from this presentation how we use modules on LUMI and how
         modules can be found.
         </td>
@@ -341,7 +342,7 @@ DAY 3
             <br/><em>10:10 EET</em>
         </td>
         <td><b><a href="../M301-HPE_Cray_EX_Architecture/">LUMI Architecture, Programming and Runtime Environment</a></b>
-        <br/><em>Presenters: Harvey Richardson (HPE)</em>
+        <br/><em>Presenter: Harvey Richardson (HPE)</em>
         <br/>Recap from the first two days of this and other LUMI intro courses: Stressing the elements from
         the LUMI architecture and programming environment that are important for the advanced part of the course.
         </td>
@@ -422,7 +423,7 @@ DAY 3
             <br/><em>15:15 EET</em>
         </td>
         <td><b><a href="../M305-Introduction_to_AMD_ROCm_Ecosystem/">Introduction to the AMD ROCm ecosystem and HIP</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         <ul>
             <li/> The AMD ROCm<sup>TM</sup> ecosystem
             <li/> HIP programming
@@ -491,7 +492,6 @@ DAY 4
             09:00 CET
             <br/><em>10:00 EET</em>
         </td>
-        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         <td><b><a href="../M401-Introduction_to_Perftools/">Introduction to Perftools</a></b>
         <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         <ul>
@@ -590,7 +590,7 @@ DAY 4
             <br/><em>16:00 EET</em>
         </td>
         <td><b><a href="../M405-AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -607,7 +607,7 @@ DAY 4
             <br/><em>17:00 EET</em>
         </td>
         <td><b><a href="../M406-Introduction_to_Rocprof_Profiling_Tool/">Introduction to ROC-Profiler (rocprof)</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -704,7 +704,7 @@ DAY 5
             <br/><em>11:30 EET</em>
         </td>
         <td><b><a href="../M504-AMD_Omnitrace/">Introduction to OmniTrace</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
       </td>
         </td>
     </tr>
@@ -722,7 +722,7 @@ DAY 5
             <br/><em>12:30 EET</em> 
         </td>
         <td><b><a href="../M505-AMD_Omniperf/">Introduction to Omniperf</a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -747,7 +747,7 @@ DAY 5
             <br/><em>14:30 EET</em> 
         </td>
         <td><b><a href="../M506-Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
-        <br/><em>Presenter: Samuel Antao (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     </tr>

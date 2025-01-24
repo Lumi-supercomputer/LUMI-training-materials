@@ -1,4 +1,4 @@
-# Advanced LUMI Training, March 3-7, 2025
+# Comprehensive LUMI Training, March 3-7, 2025
 
 ## Target audience
 
