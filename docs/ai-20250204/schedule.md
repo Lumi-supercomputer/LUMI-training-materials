@@ -85,8 +85,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            12:50 EET
-            <br/><em>11:50 CET</em>
+            13:05 EET
+            <br/><em>12:05 CET</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
@@ -94,16 +94,16 @@ DAY 1
     </tr>
     <tr>
         <td>
-            13:10 EET
-            <br/><em>12:10 CET</em>
+            13:25 EET
+            <br/><em>12:25 CET</em>
         </td>
         <td><b><a href="../E04_CheckingGPU/">Hands-on: Checking GPU usage interactively using rocm-smi</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:30 EET
-            <br/><em>12:30 CET</em>
+            13:45 EET
+            <br/><em>12:45 CET</em>
         </td>
         <td><b><a href="../extra_05_RunningContainers/">Running containers on LUMI</a></b>
         </br><em>Presenter: Gregor Decristoforo (LUST)</em>
@@ -111,18 +111,10 @@ DAY 1
     </tr>
     <tr>
         <td>
-            13:50 EET
-            <br/><em>12:50 CET</em>
+            14:05 EET
+            <br/><em>13:05 CET</em>
         </td>
         <td><b><a href="../E05_RunningContainers/">Hands-on: Pull and run a container</a></b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            14:10 EET
-            <br/><em>13:10 CET</em>
-        </td>
-        <td><b><em>Break (15 minutes)</em></b>
         </td>
     </tr>
     <tr>
@@ -130,22 +122,30 @@ DAY 1
             14:25 EET
             <br/><em>13:25 CET</em>
         </td>
+        <td><b><em>Break (15 minutes)</em></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:40 EET
+            <br/><em>13:40 CET</em>
+        </td>
         <td><b><a href="../extra_06_BuildingContainers/">Building containers from conda/pip environments</a></b>
         </br><em>Presenter: Jørn Dietze (LUST)</em>
         </td>
     </tr>
     <tr>
         <td>
-            14:45 EET
-            <br/><em>13:45 CET</em>
+            15:00 EET
+            <br/><em>14:00 CET</em>
         </td>
         <td><b><a href="../E06_BuildingContainers">Hands-on: Creating a conda environment file and building a container using cotainr</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            15:05 EET
-            <br/><em>14:05 CET</em>
+            15:20 EET
+            <br/><em>14:20 CET</em>
         </td>
         <td><b><a href="../extra_07_VirtualEnvironments/">Extending containers with virtual environments for faster testing</a></b>
         </br><em>Presenter: Gregor Decristoforo (LUST)</em>
@@ -153,8 +153,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            15:25 EET
-            <br/><em>14:25 CET</em>
+            15:40 EET
+            <br/><em>14:40 CET</em>
         </td>
         <td><b>Hands-on: Getting started with your own project</b>
         <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
@@ -162,8 +162,8 @@ DAY 1
     </tr>
     <tr>
         <td>
-            16:10 EET
-            <br/><em>15:10 CET</em>
+            17:00 EET
+            <br/><em>16:00 CET</em>
         </td>
         <td><b>End of the course day</b> 
         </td>
@@ -212,16 +212,16 @@ DAY 2
     </tr>
     <tr>
         <td>
-            11:15 EET
-            <br/><em>10:15 CET</em>
+            11:20 EET
+            <br/><em>10:20 CET</em>
         </td>
         <td><b><a href="../E09_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            11:30 EET
-            <br/><em>10:30 CET</em>
+            11:35 EET
+            <br/><em>10:35 CET</em>
         </td>
         <td><b><a href="../extra_10_TrainingData/">Loading training data on LUMI</a></b>
         <br/><em>Presenter: Harvey Richardson (AMD)</em>
@@ -237,8 +237,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            12:45 EET
-            <br/><em>11:45 CET</em>
+            13:00 EET
+            <br/><em>12:00 CET</em>
         </td>
         <td><b><a href="../extra_11_Coupling/">Coupling machine learning with HPC simulation</a></b>
         </br><em>Presenter: Harvey Richardson (HPE)</em>
@@ -246,8 +246,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            13:15 EET
-            <br/><em>12:15 CET</em>
+            13:30 EET
+            <br/><em>12:30 CET</em>
         </td>
         <td><b><a href="../E12_Project_and_QA">Hands-on: Advancing your own project and Q&A</a></b>
         <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
@@ -255,8 +255,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            16:00 EET
-            <br/><em>15:00 CET</em>
+            16:30 EET
+            <br/><em>15:30 CET</em>
         </td>
         <td><b>End of the course day</b> 
         </td>
