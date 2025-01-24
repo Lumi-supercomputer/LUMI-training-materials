@@ -1,4 +1,4 @@
-# Schedule
+# Tentative schedule
 
 <ul>
     <li><a href="#Day1">Day 1</a>
@@ -232,13 +232,13 @@ DAY 2
             12:00 EET
             <br/><em>11:00 CET</em>
         </td>
-        <td><b><em>Lunch break (60 minutes)</em></b>
+        <td><b><em>Lunch break (45 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td>
-            13:00 EET
-            <br/><em>12:00 CET</em>
+            12:45 EET
+            <br/><em>11:45 CET</em>
         </td>
         <td><b><a href="../extra_11_Coupling/">Coupling machine learning with HPC simulation</a></b>
         </br><em>Presenter: Harvey Richardson (HPE)</em>
@@ -246,8 +246,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            13:30 EET
-            <br/><em>12:30 CET</em>
+            13:15 EET
+            <br/><em>12:15 CET</em>
         </td>
         <td><b><a href="../E12_Project_and_QA">Hands-on: Advancing your own project and Q&A</a></b>
         <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
@@ -255,8 +255,8 @@ DAY 2
     </tr>
     <tr>
         <td>
-            15:45 EET
-            <br/><em>15:45 CET</em>
+            16:00 EET
+            <br/><em>15:00 CET</em>
         </td>
         <td><b>End of the course day</b> 
         </td>
