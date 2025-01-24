@@ -8,7 +8,9 @@ Upcoming or currently running events with materials already partly available:
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
 
-<!-- -   No upcoming training with early materials at the moment.-->
+-   [Comprehensive LUMI course (March 3-7, 2025)](2p3day-20250303/index.md)
+
+<!-- -   No upcoming training with early materials at the moment. -->
 
 Most recently completed main training events:
 
