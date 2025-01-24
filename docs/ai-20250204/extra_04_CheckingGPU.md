@@ -1,6 +1,6 @@
 # Understanding GPU activity & checking jobs
 
-*Presenter:* Samuel Ant~ao (AMD)
+*Presenter:* Luca Stanisic (AMD)
 
 Content:
 

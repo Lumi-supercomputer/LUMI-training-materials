@@ -1,4 +1,4 @@
-# Tentative schedule
+# Schedule
 
 <ul>
     <li><a href="#Day1">Day 1</a>
@@ -89,7 +89,7 @@ DAY 1
             <br/><em>12:05 CET</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Luca Stanisic (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ DAY 2
             <br/><em>09:35 CET</em>
         </td>
         <td><b><a href="../extra_09_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Paul Bauer (AMD)</em>
         </td>
     </tr>
     <tr>

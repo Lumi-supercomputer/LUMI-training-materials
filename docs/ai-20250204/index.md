@@ -4,7 +4,7 @@
 
 -   Location: [CSC, Keilaranta 14, 02150 Espoo, Finland](https://maps.app.goo.gl/m8kX7Tu9jdMVW8QJ6)
 
--   [Tentative schedule](schedule.md)
+-   [Schedule](schedule.md)
 
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-feb25?both)
