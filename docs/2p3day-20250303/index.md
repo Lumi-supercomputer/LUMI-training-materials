@@ -1,5 +1,42 @@
 # Advanced LUMI Training, March 3-7, 2025
 
+## Target audience
+
+The course is an "on-site first course": We will broadcast the talks via Zoom, but there is direct
+interaction only between the lecturers and the people in the physical meeting room. Several members of LUST
+will be present for the whole week, and specialists from HPE and AMD will join on day 3 till 5, so 
+being on-site gives you excellent opportunities to work with these people in a way that is impossible
+via Zoom or email. Users taking the course on-line will be able to submit written questions. However, 
+not all types of questions can be answered that way as some questions require direct interaction.
+
+-   Day 1 and 2 of the course are at a more introductory level. It covers all the essentials of LUMI:
+    the system architecture, programming environments, software setup, running jobs efficiently,
+    various types of data storage, and using containers which are essential for Python etc.
+
+    This part of the course is largely equivalent to the previous 2-day intro courses in
+    [May 2024](../2day-20240502/index.md) and [December 2024](../2day-20241210/index.md).
+
+-   Days 3-5 of the course are at a more advanced level and focus on the needs of developers of
+    software for LUMI and users who want to better understand the behaviour of applications they
+    are running on LUMI. There is some attention to AI also but users only interested in 
+    training models and not in gaining a deeper insight of performance analysis etc., may be
+    better of with the [AI trainings offered by LUST](https://lumi-supercomputer.github.io/AI-latest).
+
+    The materials from day 1 and 2 are an absolute prerequisite to be able to benefit from this 
+    part of the course.
+
+    It is possible though to register only for the 3 advanced days if you have the required knowledge.
+
+Together both parts essentially cover the materials from previous 4-day advanced courses
+(e.g., the [course in Amsterdam in October 2024](../4day-20241028/index.md)), but spending a bit
+more time on more elementary materials and with some new material on object storage and containers
+on LUMI.
+
+See the [draft schedule](schedule.md) to get a better idea of topics that will be covered.
+
+People registering for the whole event have priority for on-site seating on day 1 and 2.
+
+
 ## Course organisation
 
 -   Location: KTH, Stockholm, Sweden
@@ -175,7 +212,7 @@ from the training project. You can do so in the same directory where you install
 
 ## Links to documentation
 
-[The links to all documentation mentioned during the talks is on a separate page](A01_Documentation.md).
+[The links to all documentation mentioned during the talks is on a separate page](A01-Documentation.md).
 
 <!--
 ## External material for exercises
