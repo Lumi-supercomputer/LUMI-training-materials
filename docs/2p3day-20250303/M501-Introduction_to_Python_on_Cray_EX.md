@@ -7,7 +7,7 @@ Course materials will be provided during and after the course.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001362/Slides/HPE/12_1_Python_Frameworks.pdf`
+-   Slides: `/project/project_465001726/Slides/HPE/12_1_Python_Frameworks.pdf`
 -->
 
 <!--

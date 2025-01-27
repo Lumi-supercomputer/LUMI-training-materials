@@ -7,7 +7,7 @@ Course materials will be provided during and after the course.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001362/Slides/HPE/04_Compilers_and_Programming_Models.pdf`
+-   Slides: `/project/project_465001726/Slides/HPE/04_Compilers_and_Programming_Models.pdf`
 -->
 
 <!--

@@ -12,7 +12,7 @@ Course materials will be provided during and after the course.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001362/Slides/AMD/session 01a - HIP and ROCm.pdf`
+-   Slides: `/project/project_465001726/Slides/AMD/session 01a - HIP and ROCm.pdf`
 -->
 
 <!--

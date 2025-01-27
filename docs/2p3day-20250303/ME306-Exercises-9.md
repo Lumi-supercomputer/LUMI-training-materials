@@ -15,9 +15,9 @@ No materials available at the moment.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   See `/project/project_465001362/Slides/HPE/Exercises.pdf`
+-   See `/project/project_465001726/Slides/HPE/Exercises.pdf`
 
--   Exercise files in `/project/project_465001362/Exercises/HPE/day2/debugging`
+-   Exercise files in `/project/project_465001726/Exercises/HPE/day2/debugging`
 -->
 
 <!--

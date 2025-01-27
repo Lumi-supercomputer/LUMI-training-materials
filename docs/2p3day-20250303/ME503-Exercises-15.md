@@ -19,9 +19,9 @@ No materials available at the moment.
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
-    `/project/project_465001362/Slides/HPE/Exercises.pdf`.
+    `/project/project_465001726/Slides/HPE/Exercises.pdf`.
 
--   Exercise files in `/project/project_465001362/Exercises/HPE/day4`
+-   Exercise files in `/project/project_465001726/Exercises/HPE/day4`
 -->
 
 <!--

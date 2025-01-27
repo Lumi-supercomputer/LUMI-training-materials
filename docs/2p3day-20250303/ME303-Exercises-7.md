@@ -14,14 +14,14 @@ No materials available at the moment.
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   See `/project/project_465001362/Slides/HPE/Exercises.pdf` or
-    `/project/project_465001362/Slides/HPE/Exercises_day1.pdf` (whichever is present).
+-   See `/project/project_465001726/Slides/HPE/Exercises.pdf` or
+    `/project/project_465001726/Slides/HPE/Exercises_day1.pdf` (whichever is present).
 
 -   The files for the exercises are in
-    `/project/project_465001362/Exercises/HPE/day1/libsci_acc` (for the lifetime of the project).
+    `/project/project_465001726/Exercises/HPE/day1/libsci_acc` (for the lifetime of the project).
 
 -   See the exercise notes in
-    `/project/project_465001362/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
+    `/project/project_465001726/Slides/HPE/Exercises.pdf` (for the lifetime of the project)
     for more information.
 -->
 
