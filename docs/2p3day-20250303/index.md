@@ -1,4 +1,4 @@
-# Comprehensive LUMI Training, March 3-7, 2025
+# LUMI Intensive: Comprehensive Intro and Advanced Workshop, March 3-7, 2025
 
 ## Target audience
 
@@ -51,7 +51,7 @@ People registering for the whole event have priority for on-site seating on day 
     -   CPU nodes: `lumic_ams`
     -   GPU nodes: `lumig_ams`
 
-    They can be used in conjunction with the training project `project_465001362`.
+    They can be used in conjunction with the training project `project_465001726`.
 
     Note that the reservations and course project should only be used for making the exercises 
     during the course and not for running your own jobs. 
