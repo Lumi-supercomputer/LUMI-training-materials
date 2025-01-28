@@ -8,7 +8,9 @@ Upcoming or currently running events with materials already partly available:
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
 
-<!-- -   No upcoming training with early materials at the moment.-->
+-   [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
+
+<!-- -   No upcoming training with early materials at the moment. -->
 
 Most recently completed main training events:
 
@@ -70,12 +72,14 @@ relevant:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
+    -   First two days of [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
     -   [Supercomputing with LUMI (May, 2024 in Amsterdam)](2day-20240502/index.md)
     -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 -   Comprehensive general LUMI trainings aimed at at developers and advanced users, mostly focusing on traditional HPC users
+    -   [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
     -   [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
     -   [Comprehensive general LUMI course (October 3-6, 2023)](4day-20231003/index.md)

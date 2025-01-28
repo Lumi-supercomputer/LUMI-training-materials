@@ -126,7 +126,7 @@ DAY 1
     <tr>
         <td>
             15:45 CEST
-            <br/><em>14:45 EEST</em>
+            <br/><em>16:45 EEST</em>
         </td>
         <td><b><a href="../extra_1_08_Exercises_3/">Exercises (session #3)</a></b>
         </td>
@@ -134,7 +134,7 @@ DAY 1
     <tr>
         <td>
             16:15 CEST
-            <br/><em>15:15 EEST</em>
+            <br/><em>17:15 EEST</em>
         </td>
         <td><b><a href="../extra_1_09_Offload_CCE/">OpenACC and OpenMP offload with Cray Compilation Environment</a></b>
         <ul>
@@ -236,7 +236,7 @@ DAY 2
     <tr>
         <td>
             14:20 CEST
-            <br/><em>13:20 EEST</em>
+            <br/><em>15:20 EEST</em>
         </td>
         <td><b><a href="../extra_2_06_Exercises_6/">Exercises (session #6)</a></b></td>
     </tr>
@@ -379,7 +379,7 @@ DAY 3
     <tr>
         <td>
             15:00 CEST
-            <br/><em>15:00 EEST</em>
+            <br/><em>16:00 EEST</em>
         </td>
         <td><b><a href="../extra_3_07_AMD_ROCgdb_Debugger/">AMD Debugger: ROCgdb</a></b>
         <br/><em>Presenter: Samuel Antao (AMD)</em>
@@ -438,7 +438,7 @@ DAY 4
     <tr>
         <td>
             09:00 CEST
-            <br/><em>08:00 EEST</em>
+            <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_4_01_Introduction_to_Python_on_Cray_EX/">Introduction to Python on Cray EX</a></b>
         <ul>
@@ -517,7 +517,7 @@ DAY 4
     <tr>
         <td>
             13:00 CEST
-            <br/><em>12:00 EEST</em>
+            <br/><em>14:00 EEST</em>
         </td>
         <td><b><a href="../extra_4_07_AMD_Omnitrace/">Introduction to OmniTrace</a></b>
         <br/><em>Presenter: Samuel Antao (AMD)</em>
@@ -535,7 +535,7 @@ DAY 4
     <tr>
         <td>
             13:45 CEST
-            <br/><em>12:45 EEST</em> 
+            <br/><em>14:45 EEST</em> 
         </td>
         <td><b><a href="../extra_4_09_AMD_Omniperf/">Introduction to Omniperf</a></b>
         <br/><em>Presenter: Samuel Antao (AMD)</em>
