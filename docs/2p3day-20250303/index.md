@@ -8,6 +8,9 @@ will be present for the whole week, and specialists from HPE and AMD will join o
 being on-site gives you excellent opportunities to work with these people in a way that is impossible
 via Zoom or email. Users taking the course on-line will be able to submit written questions. However, 
 not all types of questions can be answered that way as some questions require direct interaction.
+Also, experience has shown that discussions that often unwind especially in the advanced part,
+are hard to follow on-line. They are not strictly moderated the way a discussion in a TV studio is,
+but are natural discussions.
 
 -   Day 1 and 2 of the course are at a more introductory level. It covers all the essentials of LUMI:
     the system architecture, programming environments, software setup, running jobs efficiently,
@@ -21,6 +24,10 @@ not all types of questions can be answered that way as some questions require di
     are running on LUMI. There is some attention to AI also but users only interested in 
     training models and not in gaining a deeper insight of performance analysis etc., may be
     better of with the [AI trainings offered by LUST](https://lumi-supercomputer.github.io/AI-latest).
+
+    Part of the lectures are about tools that HPE and AMD offer to analyse program behaviour, and 
+    other lectures focus on a specific performance bottleneck, how to detect if it is present and how
+    to deal with it.
 
     The materials from day 1 and 2 are an absolute prerequisite to be able to benefit from this 
     part of the course.
@@ -39,7 +46,10 @@ People registering for the whole event have priority for on-site seating on day 
 
 ## Course organisation
 
--   Location: KTH, Stockholm, Sweden
+-   Location: [KTH, Lindstedtsvägen 24, 114 28Stockholm, Sweden](https://maps.app.goo.gl/NPLtyuRe97euBSnL6)
+
+    The building is just a 5 minute walk from a metro station with excellent connections to the 
+    central station.
 
 -   [Draft schedule](schedule.md)
 
