@@ -44,9 +44,9 @@ and then you can load either the module `exercises/small` or `exercises/standard
 Exercises will be made available during the course
 
 <!--
--   Start with the [exercises on "Slurm on LUMI"](E07-Slurm.md)
+-   Start with the [exercises on "Slurm on LUMI"](E201-Slurm.md)
 
--   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E08-Binding.md)
+-   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E202-Binding.md)
 -->
 
 

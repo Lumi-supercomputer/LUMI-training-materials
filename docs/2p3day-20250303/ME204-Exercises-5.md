@@ -3,7 +3,7 @@
 Exercises will be made available during the course
 
 <!--
-- [Exercises on "LUMI-O object storage"](E10-ObjectStorage.md)
+- [Exercises on "LUMI-O object storage"](E204-ObjectStorage.md)
 -->
 
 ## Q&A

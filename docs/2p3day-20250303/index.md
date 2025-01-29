@@ -122,30 +122,30 @@ downloaded from LUMI.
 |:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
-| Introduction to the course notes | / | [N](00-Introduction.md) |  / |
+| Introduction to the course notes | / | [N](000-Introduction.md) |  / |
 | ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
-| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-101-Architecture.pdf) | [N](01-Architecture.md) | [V](M101-Architecture.md) |
-| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf) | [N](02-CPE.md) | [V](M102-CPE.md) |
-| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-03-Access.pdf) | [N](03-Access.md) | [V](M103-Access.md) |
+| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-101-Architecture.pdf) | [N](101-Architecture.md) | [V](M101-Architecture.md) |
+| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
+| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
 | [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
-| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-104-Modules.pdf) | [N](04-Modules.md) | [V](M104-Modules.md) |
+| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
 | [Exercises 2](ME104-Exercises-2.md) | / | / | / |
-| [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-105-SoftwareStacks.pdf) | [N](05-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
+| [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
 | [Exercises 3](ME05-Exercises-3.md) | / | / | / |
 | [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-106-Support.pdf) | / | [V](M106-Support.md) |
 | [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
 | **Day 2** @span |  |  |  |
 | [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
 | ***Theme: Running jobs efficiently*** @span |  |  |  |
-| [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf) | [N](07-Slurm.md) || [V](M201-Slurm.md) |
-| [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-202-Binding.pdf) | [N](08-Binding.md) | [V](M202-Binding.md) |
+| [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf) | [N](201-Slurm.md) || [V](M201-Slurm.md) |
+| [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-202-Binding.pdf) | [N](202-Binding.md) | [V](M202-Binding.md) |
 | [Exercises 4](ME202-Exercises-4.md) | / | / | / |
 | **Theme: Data on LUMI** @span |  |  |  |
-| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf) | [N](09-Lustre.md) | [V](M203-Lustre.md) |
-| [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf) | [N](10-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
+| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf) | [N](203-Lustre.md) | [V](M203-Lustre.md) |
+| [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
-| [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-205-Containers.pdf) | [N](11-Containers.md) | [V](M205-Containers.md) |
+| [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
 | **Day 3** @span |  |  |  |
 | [Introduction](MI301-IntroductionCourse.md) | / | / | [web](MI301-IntroductionCourse.md) |

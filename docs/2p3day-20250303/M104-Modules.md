@@ -12,16 +12,16 @@ modules can be found.
 Materials will be made available after the lecture
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/04-Modules.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/104-Modules.mp4" controls="controls"></video>
 -->
 <!--
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-04-Modules.pdf)
+-   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-104-Modules.pdf)
 
--   [Course notes](04-Modules.md)
+-   [Course notes](104-Modules.md)
 
--   [Exercises](E04-Modules.md)
+-   [Exercises](E104-Modules.md)
 -->
 
 

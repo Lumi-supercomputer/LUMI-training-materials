@@ -13,12 +13,12 @@ work of other users.
 Materials will be made available after the lecture
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/09-Lustre.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/203-Lustre.mp4" controls="controls"></video>
 -->
 <!--
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-09-Lustre.pdf)
+-   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf)
 
--   [Course notes](09-Lustre.md)
+-   [Course notes](203-Lustre.md)
 -->
