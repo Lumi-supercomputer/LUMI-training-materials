@@ -33,6 +33,7 @@ theme:
       bug: fontawesome/solid/robot
       audience: fontawesome/solid/people-group
       solution: fontawesome/solid/wand-magic-sparkles
+      seealso: fontawesome/solid/link
       technical: fontawesome/solid/book-open-reader
       intermediate: fontawesome/solid/graduation-cap
       advanced: fontawesome/solid/user-graduate
