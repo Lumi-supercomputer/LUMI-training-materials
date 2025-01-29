@@ -16,7 +16,9 @@ system when confronted with a talk about development tools is
 *"I only want to run some programs, why do I need to know about programming
 environments?"*
 
-The answer is that development environments are **an intrinsic part of an HPC system**. 
+The answer is that Linux itself is not a proper supercomputer operating system.
+As we shall see, it is both too much and too litle, and
+development environments are therefore **an intrinsic part of an HPC system**. 
 No HPC system is as polished as a personal computer and the software users want to use
 is typically very unpolished. And some of the **essential middleware** that turns the hardware
 with some variant of Linux into a parallel supercomputers **is part of the programming 
@@ -92,13 +94,17 @@ reason to keep it small.
     is missing. And D-Bus may sometimes show up in places where you don't expect it...
     It may come from freedesktop.org but is is not only used for desktop software.
 
-    Compute nodes on a Cray system have Lustre as the main file system. They do not import
-    any networked file system like NFS, GPFS or CernVM-FS (the latter used by, e.g., Cern for 
+    Compute nodes on a Cray system have Lustre as the main remote file system. 
+    They do not directly mount any other networked file system like NFS, GPFS 
+    or CernVM-FS (the latter used by, e.g., Cern for 
     distributing software for the Large Haedron Collider and the
     [EESSI](https://www.eessi-hpc.org/eessi-architecture/) project). Instead these file
     systems are mounted on external servers in the admin section of the cluster and
     the Cray Data Virtualisation Service (DVS) is then used to access those file systems
-    from the compute nodes over the high-speed interconnect.
+    from the compute nodes over the high-speed interconnect. This does require additional
+    server capacity in the admin nodes of the cluster, but the benefit of this approach is 
+    that all background jitter from the daemons of those remote file systems, cannot
+    negatively affect the scalability of programs running on the compute nodes.
 
 
 ## Low-noise mode
@@ -618,6 +624,9 @@ while all configurations can have the same name and version. This is not fully e
 is used a lot in the HPE Cray PE. E.g., the MPI libraries for the various compilers on the system all have
 the same name and version yet make different binaries available depending on the compiler that is being used.
 
+Understanding how Lmod is used on LUMI, is important. There is a separate chapter,
+["Modules on LUMI"](04-Modules.md) devoted to them in these notes.
+
 <!-- BELGIUM
 !!! lumi-be "Different configurations on some Belgian clusters"
     Depending on the configuration Lmod can behave rather differently on different
@@ -859,19 +868,23 @@ The same holds for ChatGPT. In fact, much of the training of the current version
 with data of two or so years ago and there is not that much suitable training data available on
 the internet either.
 
-The HPE Cray environment has a command line alternative to search engines though: the `man -K` command
-that searches for a term in the manual pages. It is often useful to better understand some error messages.
+There is now proper [online documentation](https://cpe.ext.hpe.com/docs/latest/index.html) and it makes sense
+trying the search box on that page.
+It is often useful to better understand some error messages.
 E.g., sometimes Cray MPICH will suggest you to set some environment variable to work around some problem.
 You may remember that `man intro_mpi` gives a lot of information about Cray MPICH, but if you don't and,
-e.g., the error message suggests you to set `FI_CXI_RX_MATCH_MODE` to either `software` or `hybrid`, one way
-to find out where you can get more information about this environment variable is
+e.g., the error message suggests you to set `FI_CXI_RX_MATCH_MODE` to either `software` or `hybrid`,
+you could just search for `FI_CXI_RX_MATCH_MODE` and it would take you to the page where this environment
+variable is discussed (though you'd still have to search in the page also, but all browsers have good
+features for that).
+
+The HPE Cray environment also has a command line alternative to search engines though: the `man -K` command
+that searches for a term in the manual pages. So another way
+to find out where you can get more information about the environment variable `FI_CXI_RX_MATCH_MODE`, is
 
 ```
 man -K FI_CXI_RX_MATCH_MODE
 ```
-
-The [online documentation](https://cpe.ext.hpe.com/docs/) is now also complete enough that it makes
-sense trying the search box on that page instead.
 
 
 ## Other modules
