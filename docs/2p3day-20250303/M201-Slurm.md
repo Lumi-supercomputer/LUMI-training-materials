@@ -12,16 +12,16 @@ talk to understand the particular configuration on LUMI.
 Materials will be made available after the lecture
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/07-Slurm.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/201-Slurm.mp4" controls="controls"></video>
 -->
 <!--
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-07-Slurm.pdf)
+-   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf)
 
--   [Course notes](07-Slurm.md)
+-   [Course notes](201-Slurm.md)
 
--   [Exercises](E07-Slurm.md)
+-   [Exercises](E201-Slurm.md)
 -->
 
 

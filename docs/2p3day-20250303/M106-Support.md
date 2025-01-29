@@ -19,7 +19,7 @@ Materials will be made available after the lecture
 
 -   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-106-Support.pdf)
 
--   [Course notes](06-Support.md)
+-   [Course notes](106-Support.md)
 -->
 
 
