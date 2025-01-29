@@ -2,6 +2,8 @@
 
 In reverse chronological order:
 
+-   [Application Fingerprinting (January 29, 2025)](20250129-user-coffee-break-Application-Fingerprinting.md)
+
 -   [LUMI User Survey (December 4, 2024)](20241204-user-coffee-break-User-Survey.md)
 
 -   [LUMI Update Webinar (October 2, 2024)](20241002-user-coffee-break-LUMI-update.md)
