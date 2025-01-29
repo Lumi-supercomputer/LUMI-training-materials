@@ -40,6 +40,9 @@ Colour coding and boxes in the material:
 !!! solution
     The solution to the exercise. You will have to click on the box to see the solution.
 
+!!! seealso
+    Connect to other chapters in the notes or pages for course sessions.
+
 !!! bug
     This is a discussion about a bug.
 
