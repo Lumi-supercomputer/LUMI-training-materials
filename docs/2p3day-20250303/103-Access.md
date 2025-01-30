@@ -3,7 +3,7 @@
 ## LUMI is part of the EuroHPC ecosystem
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide EuroHPC Supercomputers](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/EuroHPCSupercomputers.png){ loading=lazy }
+  ![Slide EuroHPC Supercomputers](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/EuroHPCSupercomputers.png){ loading=lazy }
 </figure>
 
 EuroHPC currently funds 
@@ -17,7 +17,7 @@ EuroHPC currently funds
     [Deucalion](https://macc.fccn.pt/resources#deucalion) (in Portugal).
 
 2.  A number of pre-exascale supercomputers, LUMI being one of them. The other two are 
-    [Leonardo](https://wiki.u-gov.it/confluence/display/SCAIUS/UG3.2%3A+LEONARDO+UserGuide) (in Italy)
+    [Leonardo](https://wiki.u-gov.it/confluence/display/SCAIUS/LEONARDO+User+Guide) (in Italy)
     and [MareNostrum 5](https://www.bsc.es/supportkc/docs/MareNostrum5/intro/) (in Spain)
 
 3.  A decision has already been taken on two exascale supercomputers: 
@@ -44,7 +44,7 @@ For LUMI, EuroHPC paid half of the bill and is the actual owner of the machine.
 ## Who pays the bills for LUMI?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Who pays the bills](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/WhoPays.png){ loading=lazy }
+  ![Slide Who pays the bills](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/WhoPays.png){ loading=lazy }
 </figure>
 
 <!-- BELGIUM
@@ -97,7 +97,7 @@ Web links:
 ## Users and projects
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Projects and users 1](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/ProjectsUsers_1.png){ loading=lazy }
+  ![Slide Projects and users 1](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/ProjectsUsers_1.png){ loading=lazy }
 </figure>
 
 LUMI works like most European large supercomputers: Users are members of projects.
@@ -156,7 +156,7 @@ LUMI projects will typically have multiple project numbers which may be a bit co
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Projects and users 2](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/ProjectsUsers_2.png){ loading=lazy }
+  ![Slide Projects and users 2](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/ProjectsUsers_2.png){ loading=lazy }
 </figure>
 
 Besides projects there are also user accounts. 
@@ -190,7 +190,7 @@ directory.)
 ## Project management
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Project Management](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/ProjectManagement.png){ loading=lazy }
+  ![Slide Project Management](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/ProjectManagement.png){ loading=lazy }
 </figure>
 
 A large system like LUMI with many entities giving independent access to the system to users 
@@ -256,7 +256,7 @@ LUMI has file spaces that are linked to a user account and file spaces that are 
 ### Per-user file spaces
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces User](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/FileSpacesUser.png){ loading=lazy }
+  ![Slide File Spaces User](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesUser.png){ loading=lazy }
 </figure>
 
 The only permanent file space linked to a user account is the home directory which is of the form
@@ -269,7 +269,7 @@ an active project but therefore is also very limited in size.
 ### Per-project file spaces
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Project](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/FileSpacesProject.png){ loading=lazy }
+  ![Slide File Spaces Project](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesProject.png){ loading=lazy }
 </figure>
 
 Each project also has 4 permanent or semi-permanent file spaces that are all billed against the
@@ -308,7 +308,7 @@ storage budget of the project.
 ### Quota
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Quota](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/FileSpacesQuota.png){ loading=lazy }
+  ![Slide File Spaces Quota](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesQuota.png){ loading=lazy }
 </figure>
 
 The slide above also shows the quota on each volume.
@@ -390,11 +390,25 @@ But storage billing units, just as any billing unit, comes from your resource al
 and the LUMI User Support Team cannot give you any storage billing units.**
 <!-- END GENERAL -->
 
+!!! SeeAlso "File storage on large supercomputers"
+    Proper use of filesystems on large supercomputers is a real issue. It is cheap to scale
+    capacity, a bit more expensive to scale bandwidth, and it can only be done for software
+    with proper file access patterns, but it is near impossible to scale IOPS. 
+    Hence large parallel file systems don't like work with lots-of-small-files, and data
+    needs to be organised differently.
+
+    Proper data management on supercomputers is so important that several sessions in this course
+    are devoted to it:
+
+    -   ["Using Lustre"](M203-Lustre.md) on day 2
+    -   ["LUMI-O Object Storage](M204-ObjectStorage.md) on day 2
+    -   ["Optimizing Large-Scale I/O](M503-IO_Optimization_Parallel_IO.md) on day 5
+
 
 ### Some additional information
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Further Information](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/FileSpacesFurtherInfo.png){ loading=lazy }
+  ![Slide File Spaces Further Information](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesFurtherInfo.png){ loading=lazy }
 </figure>
 
 LUMI has four disk based Lustre file systems that house `/users`, `/project` and `/scratch`.
@@ -455,7 +469,7 @@ Web links:
 ## Access
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Access](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/Access.png){ loading=lazy }
+  ![Slide Access](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/Access.png){ loading=lazy }
 </figure>
 
 LUMI currently has 4 login nodes through which users can enter the system via key-based ssh.
@@ -468,6 +482,11 @@ they may start a remote server and try to create multiple connections to that se
 In that case you have to use a specific login node, which you can do through the names
 `lumi-uan01.csc.fi` up to `lumi-uan04.csc.fi`. 
 (UAN is the abbreviation for User Access Node, the term Cray uses for login nodes.)
+
+It is entirely normal that one of the login nodes is down and not functioning. It will then be
+taken out of the `lumi.csc.fi` list. But don't send support tickets about it. Sometimes a node may even
+be unavailable for several weeks as it may be in use by the sysadmins for other purposes. If you're
+connecting to a specific login node and it doesn't work anymore, simply try a different one.
 
 <!-- BELGIUM
 Key management is for most users done via MyAccessID: [mms.myaccessid.org](https://mms.myaccessid.org/).
@@ -533,14 +552,14 @@ Web links:
     [www.lumi.csc.fi](https://www.lumi.csc.fi). You will get the screen:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 1](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_01.png){ loading=lazy }
+      ![Open OnDemand slide 1](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_01.png){ loading=lazy }
     </figure>
 
     Most likely you just want to log on, so click on "Go to login" and the "Select authentication provider"
     screen should appear, with a link to give you more information about which authentication method to use:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 2](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_02.png){ loading=lazy }
+      ![Open OnDemand slide 2](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_02.png){ loading=lazy }
     </figure>
 
     Basically, if you are a CSC user (and definitely when you're on a CSC 462* project) you'll want to use the "CSC"
@@ -550,7 +569,7 @@ Web links:
     go back to by clicking the LUMI-logo in the upper left corner):
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 3](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_03.png){ loading=lazy }
+      ![Open OnDemand slide 3](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_03.png){ loading=lazy }
     </figure>
 
     The list of pinned apps may change over time, and more apps are available via the menu at the top.
@@ -562,7 +581,7 @@ Web links:
     have a look at those.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 4](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_04.png){ loading=lazy }
+      ![Open OnDemand slide 4](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_04.png){ loading=lazy }
     </figure>
 
     The "Login node shell" does just what you expect from it": It opens a tab in the browser with a shell
@@ -572,13 +591,13 @@ Web links:
     used for small work or not too heavy compilations.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 5](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_05.png){ loading=lazy }
+      ![Open OnDemand slide 5](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_05.png){ loading=lazy }
     </figure>
 
     Let's now select the "Home Directory" app. We get:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 6](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_06.png){ loading=lazy }
+      ![Open OnDemand slide 6](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_06.png){ loading=lazy }
     </figure>
 
     The "Home Directory" app presents you with an interface through which you cannot only browse
@@ -592,7 +611,7 @@ Web links:
     For transferring lots of data, transfer via LUMI-O is certainly the better option at the moment.
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 7](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_07.png){ loading=lazy }
+      ![Open OnDemand slide 7](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_07.png){ loading=lazy }
     </figure>
 
     Finally, let's have a look at the "Desktop" app.
@@ -601,7 +620,7 @@ Web links:
     [xfce desktop environment](https://www.xfce.org/). After opening this app, one gets:
     
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 8](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_08.png){ loading=lazy }
+      ![Open OnDemand slide 8](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_08.png){ loading=lazy }
     </figure>
 
     This app needs to run in the context of a job
@@ -613,7 +632,7 @@ Web links:
     Now click "Launch" to launch the job, and after a while, you'll see a screen similar to
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 9](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_09.png){ loading=lazy }
+      ![Open OnDemand slide 9](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_09.png){ loading=lazy }
     </figure>
     
     The desktop is basically run in a [VNC session](https://en.wikipedia.org/wiki/Virtual_Network_Computing),
@@ -623,7 +642,7 @@ Web links:
     After launching/connecting to the desktop you get:
 
     <figure markdown style="border: 1px solid #000">
-      ![Open OnDemand slide 10](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/OpenOnDemand_10.png){ loading=lazy }
+      ![Open OnDemand slide 10](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/OpenOnDemand_10.png){ loading=lazy }
     </figure>
 
     There is a small settings menu hidden at the left to do some settings of the web
@@ -643,7 +662,7 @@ Web links:
 ## Data transfer
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Data Transfer](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-03-Access/DataTransfer.png){ loading=lazy }
+  ![Slide Data Transfer](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/DataTransfer.png){ loading=lazy }
 </figure>
 
 There are currently two main options to transfer data to and from LUMI.

@@ -23,6 +23,13 @@ Materials will be made available after the lecture
 -->
 
 
+## Related lectures in this course
+
+-   ["Using Lustre"](M203-Lustre.md) on day 2
+-   ["LUMI-O Object Storage](M204-ObjectStorage.md) on day 2
+-   ["Optimizing Large-Scale I/O](M503-IO_Optimization_Parallel_IO.md) on day 5
+
+
 ## Q&A
 
 /
