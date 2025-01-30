@@ -153,9 +153,10 @@ community**.
     -   Anaconda is currently in a very grey area on LUMI. Point 2.1 of the 
         ["Anaconda Terms of Service"](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service) as published on March 31 2024
         suggest that hardly anybody on
-        LUMI can use Anaconda legally. However, in September 2024 an
+        LUMI can use Anaconda legally without paying for one of the commercial
+        offerings. However, in September 2024 an
         [Update on Anaconda Terms of Service](https://www.anaconda.com/blog/update-on-anacondas-terms-of-service-for-academia-and-research)
-        was posted that may exclude users from universities on LUMI. What is 
+        was posted that may exempt users from universities on LUMI. What is 
         unclear though, is if ownership of the computer matters, or the legal employer
         of the user. And in any case, even the clarification of September 2024
         does not allow CSC, the operator of LUMI, to assist users to install Anaconda. 
@@ -200,6 +201,9 @@ high performance from the interconnect. For example,
     libraries needs to be ported. 
 -   Binaries that do only contain NVIDIA code paths, even if the programming
     model is supported on AMD GPUs, will not run on LUMI. 
+-   Binaries for AMD GPUs must work with the ROCm versions that can be supported on the system.
+    There can be only one driver version and each driver version supports only a limited range
+    of ROCm versions.
 -   The LUMI interconnect requires **libfabric**, the Open Fabrics Interface (OFI) library,
     using a specific provider for the NIC used on LUMI, the so-called Cassini provider (CXI), 
     so any software compiled with an MPI library that
@@ -272,7 +276,7 @@ and mostly EasyBuild. **The Cray Programming Environment modules are still used,
 a replacement for the PrgEnv modules that is managed by EasyBuild**. There are **tuned versions for the 3 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
 LUMI-C compute nodes and zen3 + MI250X for
-the LUMI-G partition. If the need would arrise, a fourth partition could be created for the visualisation nodes
+the LUMI-G partition. If the need would arise, a fourth partition could be created for the visualisation nodes
 with zen2 CPUs and NVIDIA GPUs.
 
 LUMI also offers an extensible software stack based on **Spack** which has been pre-configured to use the compilers
@@ -765,6 +769,10 @@ when installing this package.
     <figure markdown style="border: 1px solid #000">
       ![eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-05-SoftwareStacks/EasyBuildGROMACSDep_02.png){ loading=lazy }
     </figure>
+
+    Most lines start with `[x]` which means that the dependency is already installed. At the end of the list, we notice that 
+    non only the GROMACS module is missing, but the `eb` command also failed to find a module for `PLUMED`, a dependency of
+    this GROMACS configuration. So that module needs to be installed first, but EasyBuild can take care of that for us...
 
 
 To install GROMACS and also automatically install missing dependencies (only PLUMED
