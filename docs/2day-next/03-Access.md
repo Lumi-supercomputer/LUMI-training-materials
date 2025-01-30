@@ -17,7 +17,7 @@ EuroHPC currently funds
     [Deucalion](https://macc.fccn.pt/resources#deucalion) (in Portugal).
 
 2.  A number of pre-exascale supercomputers, LUMI being one of them. The other two are 
-    [Leonardo](https://wiki.u-gov.it/confluence/display/SCAIUS/UG3.2%3A+LEONARDO+UserGuide) (in Italy)
+    [Leonardo](https://wiki.u-gov.it/confluence/display/SCAIUS/LEONARDO+User+Guide) (in Italy)
     and [MareNostrum 5](https://www.bsc.es/supportkc/docs/MareNostrum5/intro/) (in Spain)
 
 3.  A decision has already been taken on two exascale supercomputers: 
@@ -468,6 +468,11 @@ they may start a remote server and try to create multiple connections to that se
 In that case you have to use a specific login node, which you can do through the names
 `lumi-uan01.csc.fi` up to `lumi-uan04.csc.fi`. 
 (UAN is the abbreviation for User Access Node, the term Cray uses for login nodes.)
+
+It is entirely normal that one of the login nodes is down and not functioning. It will then be
+taken out of the `lumi.csc.fi` list. But don't send support tickets about it. Sometimes a node may even
+be unavailable for several weeks as it may be in use by the sysadmins for other purposes. If you're
+connecting to a specific login node and it doesn't work anymore, simply try a different one.
 
 <!-- BELGIUM
 Key management is for most users done via MyAccessID: [mms.myaccessid.org](https://mms.myaccessid.org/).
