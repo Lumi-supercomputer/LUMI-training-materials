@@ -3,12 +3,12 @@
 ## Distributed nature of LUMI support
 
 <figure markdown style="border: 1px solid #000">
-  ![Distributed nature of support (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/DistributedNature1.png){ loading=lazy }
+  ![Distributed nature of support (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/DistributedNature1.png){ loading=lazy }
 </figure>
 
 <!-- BELGIUM
 <figure markdown style="border: 1px solid #000">
-  ![Distributed nature of support (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/DistributedNature2.png){ loading=lazy }
+  ![Distributed nature of support (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/DistributedNature2.png){ loading=lazy }
 </figure>
 -->
 
@@ -70,7 +70,7 @@ all his tasks. Here also the lumi-be-support@enccb.be mail address can be used.
 -->
 
 <!-- BELGIUM
-EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
+EuroHPC has also granted the [EPICURE project](https://epicure-hpc.eu/) that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. Belgium also participates in that project as a partner
 in the LUMI consortium. However, this project is also so small that it will have to select the problems
 they tackle.
@@ -80,7 +80,7 @@ Yet, this only makes sense for a sufficiently large project with a long enough d
 -->
 
 <!-- GENERAL More general version -->
-EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
+EuroHPC has also granted the [EPICURE project](https://epicure-hpc.eu/) that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. At the time of the course, the project is still in
 its startup phase. Moreover, this project is also so small that it will have to select the problems
 they tackle.
@@ -112,11 +112,11 @@ team in which you collaborate on a project!
 ### Take a training!
 
 <figure markdown style="border: 1px solid #000">
-  ![L0 support: Take a training!](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0Training.png){ loading=lazy }
+  ![L0 support: Take a training!](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0Training.png){ loading=lazy }
 </figure>
 
 There exist system-specific and application-specific trainings. 
-Ideally of course a user would want a one-step solution, having a specific training for a specific application on
+Ideally of course a user would want a one-step solution, having a training for a specific application on
 a specific system (and preferably with the workflow tools they will be using, if any), but that is simply
 not possible. The group that would be interested in such a training is for most packages too small, and
 it is nearly impossible to find suitable teachers for such course given the amount of expertise that is needed
@@ -139,13 +139,15 @@ The LUMI User Support Team organises 2 system-specific trainings:
     The training does assume familiarity with HPC systems, and each local organisation
     should offer such courses for their local systems already.
 
-2.  And there is a 4-day comprehensive training with more attention on how to run efficiently, and on the
+2.  And there is a 4-day advanced training or 5-day training that includes the introductory one (**this training!**)
+    with more attention on how to run efficiently, and on the
     development and profiling tools. Even if you are not a developer, you may benefit from more knowledge
     about these tools as especially a profiler can give you insight in why your application does not run
     as expected.
 
 <!-- BELGIUM
-This training builds upon the 1-day LUMI training offered by the LUST, but has been enriched with 
+This particular training is similar to the 2-day LUMI training offered by the LUST
+(in fact, the LUST training borrowed a lot of materials from this one), but has been enriched with 
 links to the situation specifically in Belgium.
 -->
 
@@ -174,7 +176,7 @@ The LUST has developed extensive documentation for LUMI. That documentation is s
     how to install software, etc.
 
     <figure markdown style="border: 1px solid #000">
-      ![L0 support: Check the docs! (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0ReadTheDocs1.png){ loading=lazy }
+      ![L0 support: Check the docs! (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0ReadTheDocs1.png){ loading=lazy }
     </figure>
 
 2.  The [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) contains
@@ -183,7 +185,7 @@ The LUST has developed extensive documentation for LUMI. That documentation is s
     on LUMI.
 
     <figure markdown style="border: 1px solid #000">
-      ![L0 support: Check the docs! (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0ReadTheDocs3.png){ loading=lazy }
+      ![L0 support: Check the docs! (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0ReadTheDocs3.png){ loading=lazy }
     </figure>
 
     That part of the documentation is generated automatically from information in the various repositories
@@ -203,7 +205,7 @@ Some examples:
     explain how much quota you have in what partition.
 
     <figure markdown style="border: 1px solid #000">
-      ![L0 support: Check the docs! (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0ReadTheDocs2.png){ loading=lazy }
+      ![L0 support: Check the docs! (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0ReadTheDocs2.png){ loading=lazy }
     </figure>
 
 2.  Users of the Finnish national systems have been told to use a tool called "Tykky"
@@ -212,7 +214,7 @@ Some examples:
     [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/):
 
     <figure markdown style="border: 1px solid #000">
-      ![L0 support: Check the docs! (4)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0ReadTheDocs4.png){ loading=lazy }
+      ![L0 support: Check the docs! (4)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0ReadTheDocs4.png){ loading=lazy }
     </figure>
 
     It is, but with a different name as foreigners can't pronounce those Finnish names
@@ -222,7 +224,7 @@ Some examples:
     [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
     
     <figure markdown style="border: 1px solid #000">
-      ![L0 support: Check the docs! (5)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0ReadTheDocs5.png){ loading=lazy }
+      ![L0 support: Check the docs! (5)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0ReadTheDocs5.png){ loading=lazy }
     </figure>
 
     So yes, `htop` is on LUMI, but if you read the page you'll see it is in a module
@@ -232,7 +234,7 @@ Some examples:
 ### Talk to your colleagues
 
 <figure markdown style="border: 1px solid #000">
-  ![L0 support: Talk to your colleagues](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/L0Colleagues.png){ loading=lazy }
+  ![L0 support: Talk to your colleagues](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/L0Colleagues.png){ loading=lazy }
 </figure>
 
 A LUMI project is meant to correspond to a coherent research project in which usually multiple
@@ -266,19 +268,19 @@ at a course or event.
 ## L1 and basic L2 support: LUST
 
 <figure markdown style="border: 1px solid #000">
-  ![L1 and basic L2: LUST (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/LUST1.png){ loading=lazy }
+  ![L1 and basic L2: LUST (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/LUST1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![L1 and basic L2: LUST (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/LUST2.png){ loading=lazy }
+  ![L1 and basic L2: LUST (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/LUST2.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![L1 and basic L2: LUST (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/LUST3.png){ loading=lazy }
+  ![L1 and basic L2: LUST (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/LUST3.png){ loading=lazy }
 </figure>
 
 The LUMI User Support Team is responsible for providing L1 and basic L2 support to users of the system.
-Their work starts from the moment that you have userid on LUMI (the local RA is responsible for ensuring
+Their work starts from the moment that you have userid on LUMI (the local Resource Allocator is responsible for ensuring
 that you get a userid when a project has been assigned).
 
 <!-- BELGIUM
@@ -301,7 +303,7 @@ There are some problems that we need to pass on to HPE or AMD, particularly if i
 bugs in system software, but also because they have more experts with in-depth knowledge of very specific
 tools. 
 
-The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Amsterdam time (CE(S)T) except on public holidays
+The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Stockholm/Luxembourg time (CE(S)T) except on public holidays
 in Finland. You can expect a same day first response if your support query is well formulated and submitted long
 enough before closing time, but a full solution of your problem may of course take longer, depending on how busy
 the help desk is and the complexity of the problem.
@@ -329,7 +331,7 @@ request may remain unnoticed for a long time.
 ### How not to write a ticket
 
 <figure markdown style="border: 1px solid #000">
-  ![How not to write a ticket](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/TicketsHowNot.png){ loading=lazy }
+  ![How not to write a ticket](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/TicketsHowNot.png){ loading=lazy }
 </figure>
 
 -   Use a meaningful subject line. All we see in the ticket overview is a number and the subject
@@ -362,7 +364,7 @@ request may remain unnoticed for a long time.
 The improved version could be something like this:
 
 <figure markdown style="border: 1px solid #000">
-  ![Improved version login ticket](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/TicketsImprovedLogin.png){ loading=lazy }
+  ![Improved version login ticket](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/TicketsImprovedLogin.png){ loading=lazy }
 </figure>
 
 -   The subject line makes it stand out as the person doing login tickets can quickly find back
@@ -389,7 +391,7 @@ The improved version could be something like this:
 ### 1 ticket = 1 issue = 1 ticket
 
 <figure markdown style="border: 1px solid #000">
-  ![1 ticket = 1 issue = 1 ticket](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/Tickets1issue1ticket.png){ loading=lazy }
+  ![1 ticket = 1 issue = 1 ticket](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/Tickets1issue1ticket.png){ loading=lazy }
 </figure>
 
 -   If you have multiple unrelated issues, submit them as multiple tickets. In a support team, each member
@@ -428,7 +430,7 @@ The improved version could be something like this:
 ### The subject line is important!
 
 <figure markdown style="border: 1px solid #000">
-  ![Subject line is important](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/TicketsSubject.png){ loading=lazy }
+  ![Subject line is important](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/TicketsSubject.png){ loading=lazy }
 </figure>
 
 -   The support team has two identifiers in your ticket: Your mail address and the subject that you 
@@ -467,11 +469,11 @@ Some proper examples are
 ### Think with us
 
 <figure markdown style="border: 1px solid #000">
-  ![Think with us (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/TicketsThinkWithUs1.png){ loading=lazy }
+  ![Think with us (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/TicketsThinkWithUs1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Think with us (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/TicketsThinkWithUs2.png){ loading=lazy }
+  ![Think with us (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/TicketsThinkWithUs2.png){ loading=lazy }
 </figure>
 
 <!-- This is the general version only, there are too many layout problems trying to combine multiple versions. -->
@@ -572,7 +574,7 @@ Some proper examples are
 ### Beware of the XY-problem!
 
 <figure markdown style="border: 1px solid #000">
-  ![Beware of the XY-problem](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/TicketsXY.png){ loading=lazy }
+  ![Beware of the XY-problem](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/TicketsXY.png){ loading=lazy }
 </figure>
 
 Partly quoting from [xyproblem.info](https://xyproblem.info): 
@@ -615,7 +617,7 @@ After all, if your analysis of your problem was fully correct, you wouldn't need
 ### Restrictions
 
 <figure markdown style="border: 1px solid #000">
-  ![help desk restrictions](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/HelpdeskRestrictions.png){ loading=lazy }
+  ![help desk restrictions](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/HelpdeskRestrictions.png){ loading=lazy }
 </figure>
 
 Contrary to what you may be familiar with from your local Tier-2 system and support staff,
@@ -657,19 +659,19 @@ As a result,
 ### What support can and cannot do
 
 <figure markdown style="border: 1px solid #000">
-  ![What support can and cannot do (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/HelpdeskCanCannot1.png){ loading=lazy }
+  ![What support can and cannot do (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/HelpdeskCanCannot1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![What support can and cannot do (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/HelpdeskCanCannot2.png){ loading=lazy }
+  ![What support can and cannot do (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/HelpdeskCanCannot2.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![What support can and cannot do (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/HelpdeskCanCannot3.png){ loading=lazy }
+  ![What support can and cannot do (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/HelpdeskCanCannot3.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![What support can and cannot do (4)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-06-Support/HelpdeskCanCannot4.png){ loading=lazy }
+  ![What support can and cannot do (4)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-106-Support/HelpdeskCanCannot4.png){ loading=lazy }
 </figure>
 
 <!-- GENERAL Only the general version as maintaining 2 versions together causes too much layout problems. -->
