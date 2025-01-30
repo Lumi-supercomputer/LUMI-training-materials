@@ -70,7 +70,7 @@ all his tasks. Here also the lumi-be-support@enccb.be mail address can be used.
 -->
 
 <!-- BELGIUM
-EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
+EuroHPC has also granted the [EPICURE project](https://epicure-hpc.eu/) that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. Belgium also participates in that project as a partner
 in the LUMI consortium. However, this project is also so small that it will have to select the problems
 they tackle.
@@ -80,7 +80,7 @@ Yet, this only makes sense for a sufficiently large project with a long enough d
 -->
 
 <!-- GENERAL More general version -->
-EuroHPC has also granted the EPICURE project that started in February 2024 to set up a network for
+EuroHPC has also granted the [EPICURE project](https://epicure-hpc.eu/) that started in February 2024 to set up a network for
 advanced L2 and L3 support across EuroHPC centres. At the time of the course, the project is still in
 its startup phase. Moreover, this project is also so small that it will have to select the problems
 they tackle.
@@ -116,7 +116,7 @@ team in which you collaborate on a project!
 </figure>
 
 There exist system-specific and application-specific trainings. 
-Ideally of course a user would want a one-step solution, having a specific training for a specific application on
+Ideally of course a user would want a one-step solution, having a training for a specific application on
 a specific system (and preferably with the workflow tools they will be using, if any), but that is simply
 not possible. The group that would be interested in such a training is for most packages too small, and
 it is nearly impossible to find suitable teachers for such course given the amount of expertise that is needed
@@ -139,13 +139,15 @@ The LUMI User Support Team organises 2 system-specific trainings:
     The training does assume familiarity with HPC systems, and each local organisation
     should offer such courses for their local systems already.
 
-2.  And there is a 4-day comprehensive training with more attention on how to run efficiently, and on the
+2.  And there is a 4-day advanced training or 5-day training that includes the introductory one
+    with more attention on how to run efficiently, and on the
     development and profiling tools. Even if you are not a developer, you may benefit from more knowledge
     about these tools as especially a profiler can give you insight in why your application does not run
     as expected.
 
 <!-- BELGIUM
-This training builds upon the 1-day LUMI training offered by the LUST, but has been enriched with 
+This particular training is similar to the 2-day LUMI training offered by the LUST
+(in fact, the LUST training borrowed a lot of materials from this one), but has been enriched with 
 links to the situation specifically in Belgium.
 -->
 
@@ -278,7 +280,7 @@ at a course or event.
 </figure>
 
 The LUMI User Support Team is responsible for providing L1 and basic L2 support to users of the system.
-Their work starts from the moment that you have userid on LUMI (the local RA is responsible for ensuring
+Their work starts from the moment that you have userid on LUMI (the local Resource Allocator is responsible for ensuring
 that you get a userid when a project has been assigned).
 
 <!-- BELGIUM
@@ -301,7 +303,7 @@ There are some problems that we need to pass on to HPE or AMD, particularly if i
 bugs in system software, but also because they have more experts with in-depth knowledge of very specific
 tools. 
 
-The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Amsterdam time (CE(S)T) except on public holidays
+The LUMI help desk is staffed from Monday till Friday between 8am and 6pm Luxembourg time (CE(S)T) except on public holidays
 in Finland. You can expect a same day first response if your support query is well formulated and submitted long
 enough before closing time, but a full solution of your problem may of course take longer, depending on how busy
 the help desk is and the complexity of the problem.
