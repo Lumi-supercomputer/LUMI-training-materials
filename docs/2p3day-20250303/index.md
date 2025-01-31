@@ -49,7 +49,15 @@ People registering for the whole event have priority for on-site seating on day 
 -   Location: [KTH, Lindstedtsvägen 24, 114 28Stockholm, Sweden](https://maps.app.goo.gl/NPLtyuRe97euBSnL6)
 
     The building is just a 5 minute walk from a metro station with excellent connections to the 
-    central station.
+    central station (red metro line). See also the [SL web site](https://sl.se/en/in-english)
+    for more information on public transportation in Stockholm.
+
+    The various hotels near the central station would be a good choice for travellers.
+    The [Odenplan area](https://maps.app.goo.gl/pEFzcpTd3tmQjKkf8) 
+    could be an alternative as there is a frequent bus service to the KTH campus.
+    [Elite Hotel Arcadia](https://www.elite.se/hotell/stockholm/elite-hotel-arcadia-stockholm/) is
+    [right on the edge of the KTH campus](https://maps.app.goo.gl/wvq4D4pMg2b6fH6n6)
+    and hence also a possible choice.
 
 -   [Draft schedule](schedule.md)
 
