@@ -644,10 +644,14 @@ Intel at some point has shown only very conceptual drawings of its Falcon Shores
 which it calls an XPU, but those drawings suggest that that chip will also support some low-bandwidth
 but higher capacity external memory, similar to the approach taken in some Sapphire 
 Rapids Xeon processors that combine HBM memory on-package with DDR5 memory outside 
-the package. Falcon Shores will be the next generation of Intel GPUs for HPC, after 
-Ponte Vecchio which will be used in the Aurora supercomputer. It is currently very likely
-though that Intel will revert to a traditional design for Falcon Shores and push
-out the integrated CPU+GPU model to a later generation.
+the package. Falcon Shores was meant to be the next generation of Intel GPUs for HPC, after 
+Ponte Vecchio which is used in the Aurora supercomputer. However, it then first reverted
+to a more traditional design and ultimately got canceled except for some internal use, with 
+Jaguar Shores now being the successor for the Ponte Vecchio GPU in Aurora and no architecture
+known yet. The NVIDIA Grace-Hopper and Grace-Blackwell chips also do not completely follow
+the design philosophy of MI300A as that chip also still has separate memory for the CPU die and
+GPU dies, but the connection between both is so fast that at least the CPU should be able to 
+work with data in GPU-attached memory without the need for copying.
 
 
 ## Building LUMI: The Slingshot interconnect
@@ -751,7 +755,6 @@ for everybody.
 
 (We're a bit pessimistic here though. On smaller slingshot configurations, there could be multiple 
 links between two switches in a group or multiple links between two groups.)
-
 
 <figure markdown style="border: 1px solid #000">
   ![Slide Dragonfly Topology on LUMI](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/DragonflyLUMI.png){ loading=lazy }
@@ -929,12 +932,12 @@ and in one case even more details.
 
 -   VSC:
 
-    -   VSC@UAntwerpen: [Supercompters for Starters course](https://www.uantwerpen.be/en/research-facilities/calcua/training/),
+    -   VSC@UAntwerpen: [Supercomputers for Starters course](https://www.uantwerpen.be/en/research-facilities/calcua/training/),
         organised twice each year.
 
-        [Almost complete course notes are available](https://klust.github.io/SupercomputersForStarters/)
+        [Course notes are available](https://klust.github.io/SupercomputersForStarters/)
 
-        This course given in 2 4 hour sessions goes into more detail about CPU architecutre, memory, storage, accelerators,
+        This course given in 2 4 hour sessions goes into more detail about CPU architecture, memory, storage, accelerators,
         and the software that binds all hardware together to build a cluster.
 
     -   The other introductory courses have a high-level overview of a cluster
