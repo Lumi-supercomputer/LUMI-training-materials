@@ -299,7 +299,10 @@ shared between different CCDs**, so it also implies that the processor has
 and some have CCDs with only 6 or fewer cores enabled but the same 32 MB of L3
 cache per CCD).
 
-Each CCD connects to the memory/IO die through an Infinity Fabric link. 
+Each CCD connects to the memory/IO die through an Infinity Fabric link
+(also called GMI link which stands for Global Memory Interface). The connection
+is asymetric on Milan with 51.2 GB/s bandwidth to and 25.6 GB/s bandwidth from the CCD
+(32 bytes and 16 byte wide connections running at the memory clock with is 1.6 GHz for DDR4 3200).
 The memory/IO die contains the memory controllers,
 connections to connect two CPU packages together, PCIe lanes to connect to external
 hardware, and some additional hardware, e.g., for managing the processor. 
@@ -649,6 +652,8 @@ out the integrated CPU+GPU model to a later generation.
 
 ## Building LUMI: The Slingshot interconnect
 
+### Principles
+
 <figure markdown style="border: 1px solid #000">
   ![Slide Slingshot interconnect](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/Slingshot.png){ loading=lazy }
 </figure>
@@ -669,6 +674,7 @@ ran at 100 Gb/s per direction and did not yet have all features. It was used on 
 deployment of LUMI-C compute nodes but has since been upgraded to the full version.
 The full version with all features is called Slingshot 11. It supports a bandwidth of 200 Gb/s
 per direction, comparable to HDR InfiniBand with 4x links. 
+The network also has some features for MPI acceleration.
 
 Slingshot is a different interconnect from your typical Mellanox/NVIDIA InfiniBand implementation
 and hence also has a different software stack. This implies that there are no UCX libraries on
@@ -676,30 +682,155 @@ the system as the Slingshot 11 adapters do not support that. Instead, the softwa
 based on libfabric (as is the stack for many other Ethernet-derived solutions and even Omni-Path
 has switched to libfabric under its new owner).
 
-LUMI uses the dragonfly topology. This topology is designed to scale to a very large number of 
+LUMI uses the dragonfly topology. This network topology has been used by Cray for a long time
+already. To function well, it does require a number of features from the switches though.
+
+
+### Dragonfly topology
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Dragonfly Topology 1](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/DragonflyConcept1.png){ loading=lazy }
+</figure>
+
+The dragonfly topology is designed to scale to a very large number of 
 connections while still minimizing the amount of long cables that have to be used. However, with
 its complicated set of connections it does rely heavily on adaptive routing and congestion control for
 optimal performance more than the fat tree topology used in many smaller clusters.
 It also needs so-called high-radix switches. The Slingshot switch, code-named Rosetta, has 64 ports.
-16 of those ports connect directly to compute nodes (and the next slide will show you how).
-Switches are then combined in groups. Within a group there is an all-to-all connection between 
-switches: Each switch is connected to each other switch. So traffic between two nodes of a 
-group passes only via two switches if it takes the shortest route. However, as there is typically
-only one 200 Gb/s direct connection between two switches in a group, if all 16 nodes on two 
-switches in a group
-would be communicating heavily with each other, it is clear that some traffic will have to take a
-different route. In fact, it may be statistically better if the 32 involved nodes would be spread 
-more evenly over the group, so topology based scheduling of jobs and getting the processes of a job
-on as few switches as possible may not be that important on a dragonfly Slingshot network. 
-The groups in a slingshot network are then also connected in an all-to-all fashion, but the number
-of direct links between two groups is again limited so traffic again may not always want to take 
-the shortest path. The shortest path between two nodes in a dragonfly topology never involves 
+16 of those ports connect directly to compute nodes (and the in a few slides, we will show you how),
+while the other ports are used to connect the switches.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Dragonfly Topology 2](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/DragonflyConcept2.png){ loading=lazy }
+</figure>
+<!-- Figure in the slide: https://commons.wikimedia.org/wiki/File:Dragonfly-topology.svg -->
+
+The figure in the slide above gives an idea how a dragonfly network is organised. It is shown
+with far fewer nodes and ports per switch as is used on LUMI, but that makes it easier to grasp
+the concept.
+
+Contrary to a fat tree network used in a lot of clusters, where some switches connect to nodes
+and other switches only connect to switches, in a dragonfly topology, each switch connects to
+a number of nodes and to other switches. The figure shows two colours for the connections between
+switches, and on modern clusters, they will correspond to a different type of cabling being used.
+
+Switches are organised in groups. All switches in a group have all-to-all connections to one another.
+A group usually corresponds with a single rack. Within the rack, distances are short enough that at
+current network speeds, copper cables can still be used to make the connections.
+
+Groups are then also connected in an all-to-all way. These connections go over longer distances
+(LUMI is the size of a tennis court if you also count storage etc. that is also in the high
+performance interconnect) and are made with optical cables. Within a group, each switch is
+used to make connections to some other groups, but no switch is connected to all groups.
+So if two nodes in different groups communicate to each other, the path is typically:
+
+1.  Node talks to the switch it is connected to.
+2.  Switch talks to the switch in the group that connects to the receiving group.
+3.  That switch then talks to its counterpart in the receiving group.
+4.  From there the message is sent to the switch connecting to the node
+5.  and finally to the node.
+
+So the shortest path between two nodes in a dragonfly topology never involves 
 more than 3 hops between switches (so 4 switches): One from the switch the node is connected to 
 the switch in its group that connects to the other group, a second hop to the other group, and then
 a third hop in the destination group to the switch the destination node is attached to.
 
+We can see the problem here though: Assume that our code would be running on 32 nodes, 16 each
+connected to the same switch, but both switches in different groups. The nodes connected to
+the same switch would likely each be able to communicate with one another at the full network
+speed. However, if all that traffic would go over the single connection which we just outlined
+to reach the other 16 nodes, all that traffic would go over a single network connection, so 
+essentially at the speed that a single node can talk to the network. The Slingshot network will
+then intervene and send some of that traffic over a longer path to avoid saturation.
+Whereas you may have been told on your local cluster that you should try to get your compute
+nodes on as few switches as possible, on LUMI that does not make sense unless they would all be on 
+a single switch (which by the way is non-trivial to request on LUMI as we shall see later),
+and you're often best off if the nodes are distributed across the cluster. Which fortunately is
+also a strategy that is less demanding for the scheduler, enabling better throughput of jobs
+for everybody.
+
+(We're a bit pessimistic here though. On smaller slingshot configurations, there could be multiple 
+links between two switches in a group or multiple links between two groups.)
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Dragonfly Topology on LUMI](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/DragonflyLUMI.png){ loading=lazy }
+</figure>
+
+On LUMI,
+
+-   Each switch has 16 node-facing ports. Depending on the node type, these will connect to 8 or 16
+    different nodes.
+
+    There are another 48 ports to connect to other switches.
+
+-   Groups can contain 16 or 32 switches, all in a single rack, and those switches
+    are then connected in an all-to-all way via copper cables.
+
+-   The groups are then connected with optical cables.
+
 
 ## Assembling LUMI
+
+### Compute blades
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide LUMI compute blades](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/LUMIComputeBlades.png){ loading=lazy }
+</figure>
+
+LUMI has two types of compute blades: CPU node blades that each contain 4 CPU nodes, and
+GPU node blades that each contain 2 nodes.
+
+The left picture is from a typical Cray EX CPU node, but it is not the LUMI node. The LUMI
+blades have only two network cards per blade, as each network card is capable of connecting
+to PCIe slots on two nodes.
+
+The right picture is a GPU node blade, again very similar to those on LUMI with one difference 
+(an additional board covering the CPU). The blade as a whole now has 4 network boards, again
+with each offering two network connections. 
+
+Both types of blades are fully water cooled.
+
+
+### Switch blades
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide LUMI switch blades](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/LUMISwitchBlades.png){ loading=lazy }
+</figure>
+
+The upper right of the above slide shows the switch side facing the compute blades. The picture in the upper right
+shows how the side where the inter-switch connections are made. You may think that the switch has only 32 connections 
+(8 on one side and 24 on the other), but all these connections are actually double.
+
+The bottom left picture shows how a compute blade would connect to the switches, including a 
+separate network for management. The picture does contain an error though as NMC0 should connect
+to the switch 3 slot. Note also that the node layout is 2x2, with each network card connecting
+to two connectors on the motherboard that come from different nodes.
+
+From this picture we can already derive that consecutively numbered nodes on LUMI are not on the same switch.
+Node 0 and 1 are on "Switch 3", node 2 and 3 on "Switch 7", then on the next node blade the first two nodes
+would again be on "Switch 3" and so on. So asking for consecutive nodes on LUMI does not give you nodes on a single
+switch and as we have discussed, this shouldn't really bother you at all. In fact, users should never make such requests
+due to the way the Slurm scheduler works, as such request can block launching other jobs if the highest
+priority job is waiting to gather a set of consecutively numbered nodes...
+
+The picture on the bottom right is for a CPU node with two network connections per node. In this case, each
+node would actually be on two different switches as both NMC0 and NMC2 serve node 0 and 1.
+However, if we think of node 0 and 1 as one node, and node 2 and 3 the other node, this picture would also
+work for a GPU node (but again with the remark that NMC0 which is shown to be connected to HSS is actually
+connected to "Switch 3"). 
+
+Each GPU node has 4 network connections, one per GPU, but these are made through two boards with two network
+interfaces each. So GPU node 0 on the board would be connected to "Switch 1" and "Switch 3" through two network
+cards, and similarly GPU node 1 is connected to "Switch 5" and "Switch 7". So note that two consecutively numbered
+GPU nodes are actually connected to a different pair of switches!
+
+These figures actually also already explain why we have only 8 connectors on the compute node-facing side of the 
+switches: Each connection goes to a single network card, but that card takes care of two independent connections
+through a single set of wires.
+
+
+### Putting it all in racks
 
 <figure markdown style="border: 1px solid #000">
   ![Slide HPE Cray EX System](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-101-Architecture/AssemblyEX.png){ loading=lazy }
@@ -725,7 +856,10 @@ that are mounted vertically. Each compute blade can contain multiple nodes, depe
 the type of compute blades. HPE Cray have multiple types of compute nodes, also with 
 different types of GPUs. In fact, the Aurora supercomputer which uses Intel CPUs and GPUs and
 El Capitan, which uses the MI300A APUs (integrated CPU and GPU) will use the same
-design with a different compute blade. Each LUMI-C compute blade contains 4 compute nodes
+design with a different compute blade. Aurora uses compute blades that each contain only
+a single node, with two Intel Xeon CPUs and 6 Intel Data Centre GPU Max's (code named 
+Ponte Vecchio). The El Capitan compute blades contain two nodes, each with 4 NMI300A APUs.
+Each LUMI-C compute blade contains 4 compute nodes
 and two network interface cards, with each network interface card implementing two Slingshot
 interfaces and connecting to two nodes. A LUMI-G compute blade contains two nodes and
 4 network interface cards, where each interface card now connects to two GPUs in the same 
@@ -755,6 +889,10 @@ This does not mean that the extra positions cannot be useful in the future. If n
 one could, e.g., export PCIe ports to the back and attach, e.g., PCIe-based storage via blades as the 
 switch blade environment is certainly less hostile to such storage than the very dense and very hot
 compute blades.
+
+This architecture is very popular for very large supercomputers. In fact, in the 
+[November 2024 Top-500 list](https://top500.org/lists/top500/2024/11/), 7 of the top-10 systems
+use this system architecture, but with different types of compute blades.
 
 
 ## LUMI assembled
