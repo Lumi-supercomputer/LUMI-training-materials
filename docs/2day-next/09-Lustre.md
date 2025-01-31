@@ -6,10 +6,10 @@
   ![File systems on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-09-Lustre/FileSystemLumi.png){ loading=lazy }
 </figure>
 
-Supercomputing since the second half of the 1980s has almost always been about 
+Supercomputing since the second half of the 1980s, has almost always been about 
 trying to build a very fast system from relatively cheap volume components
 or technologies (as low as you
-can go without loosing too much reliability) and very cleverly written software
+can go without loosing too much reliability), and very cleverly written software
 both at the system level (to make the system look like a true single system as
 much as possible) and at the application level (to deal with the restrictions that
 inevitably come with such a setup).
@@ -26,8 +26,10 @@ usage restrictions on large clusters that may a lot more severe than you are use
 to from small systems. And yes, it is completely normal that some file operations are
 slower than on the SSD of a good PC.
 
-HPE Cray EX systems go even one step further. 
-Lustre is the only network file system directly served to the compute nodes.
+Lustre is the main filesystem on many large supercomputers and on all Cray EX systems.
+
+HPE Cray EX systems go even one step further than many other systems. 
+On HPE Cray EX systems, Lustre is the only network file system directly served to the compute nodes.
 Other network file system come via a piece of software called Data
 Virtualisation Service (abbreviated DVS) that basically forwards I/O requests
 to servers in the management section of the cluster where the actual file
@@ -53,7 +55,7 @@ metadata and the actual file data, as the way both are accessed and used is very
 
 A Lustre system consists of the following blocks:
 
-1.  Metadata servers (MDSes) with one or more metadata targets (MDTs) each store
+1.  **Metadata servers (MDSes)** with one or more **metadata targets (MDTs)** each store
     namespace metadata such as filenames, directories and access permissions, and the
     file layout.
 
@@ -67,7 +69,7 @@ A Lustre system consists of the following blocks:
     storage possible even if that storage is very expensive per terabyte. On LUMI all
     metadata servers use SSDs.
 
-2.  Object storage servers (OSSes) with one or more object storage targets (OSTs) each
+2.  **Object storage servers (OSSes)** with one or more **object storage targets (OSTs)** each
     store the actual data. Data from a single file can be distributed across multiple
     OSTs and even multiple OSSes. As we shall see, this is also the key to getting very
     high bandwidth access to the data.
@@ -83,14 +85,14 @@ A Lustre system consists of the following blocks:
     and SSDs, but SSDs of data centre quality are still up to 10 times as expensive as 
     hard drives of data centre quality. Building a file system of several tens of petabytes
     out of SSDs is still extremely expensive and rarely done, certainly in an environment 
-    with a high write pressure on the file system as that requires the highest quality SSDs.
+    with a high write pressure on the file system, as that requires the highest quality SSDs.
     Hence it is not uncommon that supercomputers will use mostly hard drives for their large
     storage systems.
 
     On LUMI there is roughly 80 PB spread across 4 large hard disk based Lustre file systems, and
     8.5 PB in an SSD-based Lustre file system. However, all MDSes use SSD storage.
 
-3.  Lustre clients access and use the data. They make the whole Lustre file system look like
+3.  **Lustre clients** access and use the data. They make the whole Lustre file system look like
     a single file system.
 
     Lustre is **transparent in functionality**. You can use a Lustre file system just as any 
@@ -106,12 +108,12 @@ A Lustre system consists of the following blocks:
     performance. On LUMI we do advise Python users or users who install software through Conda
     to do so. 
 
-4.  All these components are linked together through a high performance interconnect. On HPE Cray EX
+4.  All these components are linked together through a **high performance interconnect**. On HPE Cray EX
     systems - but on more an more other systems also - there is no separate network anymore for 
     storage access and the same high performance interconnect that is also used for internode
     communication by applications (through, e.g., MPI) is used for that purpose.
 
-5.  There is also a management server which is not mentioned on the slides, but that component
+5.  There is also a **management server** which is not mentioned on the slides, but that component
     is not essential to understand the behaviour of Lustre for the purpose of this lecture.
 
 !!! Note "Links"
@@ -132,8 +134,8 @@ A Lustre system consists of the following blocks:
 </figure>
 -->
 
-On Lustre, large files are typically broken into blocks called *stripes* or *chunks* that are then
-cyclically spread across a number of chunk files called *objects* in LUSTRE, each on
+On Lustre, large files are typically broken into blocks called **stripes** or **chunks** that are then
+cyclically spread across a number of chunk files called **objects** in LUSTRE, each on
 a separate OST. 
 In the figure in the slide above, the file is spread across the OSTs 0, 2, 4 and 6.
 
@@ -142,14 +144,14 @@ takes care of the process and presents a traditional file to the application pro
 It is however not transparent with respect to performance. The performance of reading and
 writing a file depends a lot on how the file is spread across the OSTs of a file system.
 
-Basically, there are two parameters that have to be chosen: The size of the stripes (all stripes have
-the same size in this example, except for the last one which may be smaller) and the number of OSTs 
+Basically, there are two parameters that have to be chosen: The **size of the stripes** (all stripes have
+the same size in this example, except for the last one which may be smaller) and the **number of OSTs** 
 that should be used for a file. Lustre itself takes care of choosing the OSTs in general.
 
 There are variants of Lustre where one has multiple layouts per file which can come in handy if one 
 doesn't know the size of the file in advance. The first part of the file will then typically be written
 with fewer OSTs and/or smaller chunks, but this is outside the scope of this course.
-The feature is known as Progressive File Layout.
+The feature is known as *Progressive File Layout*.
 
 The stripe size and number of OSTs used can be chosen on a file-by-file basis. The default on LUMI
 is to use only one OST for a file. This is done because that is the most reasonable choice for the many
