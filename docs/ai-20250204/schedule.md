@@ -80,7 +80,7 @@ DAY 1
             12:05 EET
             <br/><em>11:05 CET</em>
         </td>
-        <td><b><em>Lunch break (45 minutes)</em></b>
+        <td><b><em>Lunch break (60 minutes)</em></b>
         </td>
     </tr>
     <tr>
@@ -232,7 +232,7 @@ DAY 2
             12:00 EET
             <br/><em>11:00 CET</em>
         </td>
-        <td><b><em>Lunch break (45 minutes)</em></b>
+        <td><b><em>Lunch break (60 minutes)</em></b>
         </td>
     </tr>
     <tr>
