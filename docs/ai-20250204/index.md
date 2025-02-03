@@ -6,13 +6,12 @@
 
 -   [Schedule](schedule.md)
 
-<!--
+-   [Zoom link](https://cscfi.zoom.us/j/64948027353?pwd=nJ71W4e6TgT5GvewIpnfWf8uKgILp4.1) 
+    (Attention, modified February 3)
+
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-feb25?both)
    
     Questions with longer-term relevance will be incorporated into the pages linked below.
--->
-
-<!-- 
 
 -   There are two Slurm reservations for the course. One for each day:
 
@@ -22,7 +21,6 @@
     Project with the compute resources: `project_465001707`.
     These resources are limited and should only be used for the exercises during
     the course and not for your own work.
--->
 
 <!--
 ReservationName=AI_workshop_1 StartTime=2025-02-04T09:00:00 EndTime=2025-02-04T18:00:00 Duration=09:00:00
