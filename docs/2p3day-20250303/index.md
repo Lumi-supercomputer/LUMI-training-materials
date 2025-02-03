@@ -52,13 +52,6 @@ People registering for the whole event have priority for on-site seating on day 
     central station (red metro line). See also the [SL web site](https://sl.se/en/in-english)
     for more information on public transportation in Stockholm.
 
-    The various hotels near the central station would be a good choice for travellers.
-    The [Odenplan area](https://maps.app.goo.gl/pEFzcpTd3tmQjKkf8) 
-    could be an alternative as there is a frequent bus service to the KTH campus.
-    [Elite Hotel Arcadia](https://www.elite.se/hotell/stockholm/elite-hotel-arcadia-stockholm/) is
-    [right on the edge of the KTH campus](https://maps.app.goo.gl/wvq4D4pMg2b6fH6n6)
-    and hence also a possible choice.
-
 -   [Draft schedule](schedule.md)
 
 <!--
@@ -75,6 +68,32 @@ People registering for the whole event have priority for on-site seating on day 
     during the course and not for running your own jobs. 
     The resources allocated to the course are very limited.
 -->
+
+## Travel
+
+-   **Hotel options:**
+    The various hotels near the central station would be a good choice for travellers.
+    The [Odenplan area](https://maps.app.goo.gl/pEFzcpTd3tmQjKkf8) 
+    could be an alternative as there is a frequent bus service to the KTH campus.
+    [Elite Hotel Arcadia](https://www.elite.se/hotell/stockholm/elite-hotel-arcadia-stockholm/) is
+    [right on the edge of the KTH campus](https://maps.app.goo.gl/wvq4D4pMg2b6fH6n6)
+    and hence also a possible choice.
+
+-   **Travel from the airport:**
+    There are [4 ways to get to central stockholm from the airport](https://www.swedavia.com/arlanda/transport/):
+
+    -   Taxi - Expensive, go to the labeled taxi ranks in the airport. There is a fixed price to the city, which should be displayed on the taxi and will be different for different companies
+    -   [Arlanda Express](https://www.arlandaexpress.com/) - Moderately expensive, very fast direct train to stockholm central station
+    -   Commuter train - From sky city in Arlanda you can get the nomral trains. You need to pay 147 SEK (toll to use the tunnel under Arlanda) at the ticket barriers plus a normal SL ticket
+    -   Airport bus - cheapest option, but takes longest. Central bus station is right next to central station.
+
+-   **Using public transportation in Stockholm**
+
+    Probably simplest if you just get the [SL (Stockholm Localtrafik) app](https://sl.se/en/fares-and-tickets/smart-phone-ticket-app) 
+    on a smartphone, will give you a QR code that you can use at ticket barriers. 
+    Tickets can be bought using a credit card in the app. Physical cards are also available, but cost 50 SEK for the card, 
+    plus extra for the tickets you put on it.  Credit cards can also be used with contactless pay as you go to buy a single.
+
 
 
 ## Course materials
