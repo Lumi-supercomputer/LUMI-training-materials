@@ -3551,7 +3551,18 @@
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Somewhat related: if my experiment <em>generates</em> a large number of files, how can I save those in a way that is nice to the filesystem (e.g. in a SquashFS filesystem, but those were read-only if I understand correctly)</p>
+<ul>
+<li>There is no easy way here. Probably write to a RAM disk if space allows and then pack that. But the only really good way is to use or write better software that uses modern data management libraries. And yes, we have problems with some codes that were never meant to be used on a system the size of LUMI...</li>
+</ul>
+<p>pointer to said "modern data management libraries"?</p>
+<ul>
+<li>Libraries like HDF5, netCDF, ADIOS2, ... Some are not even that new anymore. In some cases, I wonder what direct access to an object file system such as LUMI-O could do.</li>
+</ul>
+</li>
+</ol>
 
 
 
