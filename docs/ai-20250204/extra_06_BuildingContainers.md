@@ -8,16 +8,18 @@ Content:
 -   Recipes for PyTorch, Tensorflow, and JAX/Flax on LUMI
 
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/06_BuildingContainers.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/06_BuildingContainers.mp4" controls="controls"></video>
 
 
 ## Extra materials
 
+<!--
 More materials will become available during and shortly after the course
+-->
 
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-06-Building_containers_from_conda_pip_environments.pdf)
 

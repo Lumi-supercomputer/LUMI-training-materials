@@ -13,11 +13,11 @@ module load singularity-AI-bindings
 ```
 
 
-A video recording of the discussion of the solution will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E05_RunningContainers.mp4" controls="controls"></video>
+A video recording of the discussion of the solution will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E05_RunningContainers.mp4" controls="controls"></video>
 
 
 ## Q&A
