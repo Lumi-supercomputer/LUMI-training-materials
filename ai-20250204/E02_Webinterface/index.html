@@ -3525,7 +3525,26 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>How to use git lfs?</p>
+<ul>
+<li>
+<p>The lfs module for git is not on LUMI by default and currently not also available as a pre-installed module 
+    (due to issues in the past). We do offer ways to install it yourself via EasyBuild recipes 
+    (see <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/git-lfs/">the git-lfs page in the LUMI Software Library</a>)
+    but that is not covered in this course but in our regular intro course. 
+    Since we don't use git lfs ourselves in our work, this particular recipe is also not well tested.</p>
+<p>The system image on LUMI is deliberately kept small as it eats from the RAM on the compute nodes 
+and as a too large image also slows down (re)booting too much. The central software stack also 
+has its management issues due to the way it is organised, so we don't put things in there 
+unless they are of broad use and we are also sure that the build is OK. Changing something in 
+the central stack why assuring that no running jobs break, is hard and a slow process so we 
+have chosen for a more flexible approach.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
