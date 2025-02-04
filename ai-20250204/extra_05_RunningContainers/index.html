@@ -3588,7 +3588,25 @@
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>What ai-modules does?</p>
+<ul>
+<li>
+<p>The singularity-AI-bindings module shown in the slides sets up the directory mounts of /scratch/, /project/, /flash/, etc from the LUMI filesystem into your container. It also binds some essential system libraries into the container. - Lukas</p>
+</li>
+<li>
+<p>To see what the module does, you can also do <code>module show singularity-AI-bindings</code> (after the <code>module use</code> on the slide)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Can the existing (pre-built) containers be used to avoid the Python venv file issues that were mentioned earlier? </p>
+<ul>
+<li>Kind of. In the last presentation today, you'll see how you can pack the virtual environment that you created on top of the container in a way that is 100% OK for the file system. Or the EasyBuild-installed modules that were mentioned, also help. For now we only have the virtual environment management support in the newer <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch containers with EasyBuild</a> but we can in principle implement the same mechanism in another container also.</li>
+</ul>
+</li>
+</ol>
 
 
 
