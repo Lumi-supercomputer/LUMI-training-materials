@@ -1,6 +1,6 @@
 # Understanding GPU activity & checking jobs
 
-*Presenter:* Luca Stanisic (AMD)
+*Presenter:* Luka Stanisic (AMD)
 
 Content:
 
@@ -20,9 +20,7 @@ A video recording will follow.
 
 More materials will become available during and shortly after the course
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-04-Understanding_GPU_activity.pdf)
--->
 
 -   [Hands-on exercises](E04_CheckingGPU.md)
 

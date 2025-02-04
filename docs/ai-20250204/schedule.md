@@ -21,7 +21,7 @@ DAY 1
             <br/><em>08:00 CET</em>
         </td>
         <td><b><a href="../extra_00_Course_Introduction/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Jørn Dietze (LUST)</em>
+        <br/><em>Presenters: Jørn Dietze and Gregor Decristoforo (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ DAY 1
             <br/><em>12:05 CET</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenter: Luca Stanisic (AMD)</em>
+        <br/><em>Presenter: Luka Stanisic (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -224,7 +224,7 @@ DAY 2
             <br/><em>10:35 CET</em>
         </td>
         <td><b><a href="../extra_10_TrainingData/">Loading training data on LUMI</a></b>
-        <br/><em>Presenter: Harvey Richardson (AMD)</em>
+        <br/><em>Presenter: Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>

@@ -19,9 +19,7 @@ A video recording will follow.
 
 More materials will become available during and shortly after the course
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-02-Using_LUMI_web_UI.pdf)
--->
 
 -   [Hands-on exercises](E02_Webinterface.md)
 
