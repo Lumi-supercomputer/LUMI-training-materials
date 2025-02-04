@@ -3525,7 +3525,49 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>It seems that the <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/03_Your_first_AI_training_job_on_LUMI#further-example"><em>Further Examples</em></a> in the GitHub is not in the git under <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/bonus_material"><em>Bonus material</em></a></p>
+<ul>
+<li>Some materials got removed at the last moment because they were outdated but it looks like some links remained in the repository. The <a href="http://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/#after-the-termination-of-the-course-project">instructions to run the exercises from the previous workshop</a> would show you the repository as it was then with those materials, but they may not work anymore.</li>
+</ul>
+</li>
+<li>
+<p>In general, (not the case for the present hands-on execise) how to improve efficiency when the GPU utilization does not reach 100% (or close). For example rather 70% or 80% (asking for a friend:-)). What are the options to improve this besides parallel data loading which is already used. Is there an equivalent of NVIDIA Nsight ? </p>
+<ul>
+<li>
+<p>There is no easy answer here. You'll first need to identify the bottlenecks through proper profiling and then see how you can deal with that particular bottleneck. We have a course that is largely set up in the way of "how to detect this problem" and then "what to do about it", but even those answers are still very generic. The issue can be I/O, or it can be the way PyTorch is used as there are many parameters that can influence performance, ... Some may be discussed in later presentations. </p>
+</li>
+<li>
+<p>There are several AMD-provided and HPE-provided profiling tools. Presenting them is more than one day of our more HPC-oriented advanced course. Materials from the last such course, in late October 2024 in Amsterdam, can be found [here]
+(https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20241028/). HPE has the perftools suite. AMD has rocprof as the basic tool and then Omnitrace and Omniperf as the more advanced tools. In the materials of the last day in the afternoon you'll find the talk <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/4day-20241028/extra_4_11_Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips &amp; tricks / demo</a> where some of those tools are used to analyse the behaviour of PyTorch. PyTorch also has its own built-in profiling tools that may help.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What is the difference between --gpus-per-node and --ntasks-per-node?</p>
+<ul>
+<li>Task here means individual process (which by default gets one cpu core allocated) so <code>--ntasks-per-node</code> says how many processes per node your job executes; <code>--gpus-per-node</code> is to allocate gpus <strong>per node</strong> to your job. If you need to allocate more cpus per task (process with multithreading), use <code>--cpus-per-task</code> in addition. Note that combining <code>--ntasks-per-node</code> and <code>--gpus-per-node</code> results in each task (process) having access to all allocated gpus.</li>
+</ul>
+</li>
+<li>
+<p>How have you built the container with torch 2.5 and rocm 6.2? I cannot find it on the docker hub of rocm/pytorch</p>
+<ul>
+<li>
+<p>Don't use docker hub for LUMI, it is a bad idea. 
+    These containers will not be built for the communication network of LUMI. There will be more discussions about containers that are built specifically for LUMI, but we have some in <code>/appl/local/containers/sif-images</code>. </p>
+<p>These are built with a special procedure that you cannot easily mimic as a user, to guarantee that they can interface correctly with the Slingshot interconnect, and in case additional packages need MPI, with the right MPI libraries. This requires access to some licensed software components while the build procedure is currently such that it cannot happen on LUMI as some privileges and OS features are needed that are not enabled on LUMI for security reasons. They are built on a system that users have no access to.</p>
+<p>There will be some discussion this afternoon about an alternative built, though without a fully optimised mpi4py (but with an OK RCCL library which is what most AI packages need).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>How can you add some missing packages in provided containers "/appl/local/containers/sif-images" </p>
+<ul>
+<li>As answered in a previous question already, see <a href="../extra_07_VirtualEnvironments/">this afternoon where the manual procedure will be explained</a>, and there is some automation for this procedure in some user-installable modules that we offer in <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">the PyTorch page in the LUMI Software Library</a>, but that may require taking the <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20241210/M05-SoftwareStacks/">Software Stack talk in the regular intro courses</a>.</li>
+</ul>
+</li>
+</ol>
 
 
 
