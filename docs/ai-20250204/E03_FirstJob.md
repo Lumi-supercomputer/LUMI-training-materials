@@ -1,9 +1,9 @@
 # Hands-on: Run a simple single-GPU PyTorch AI training job
 
-<!--
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/03_Your_first_AI_training_job_on_LUMI).
--->
+<!--
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/03_Your_first_AI_training_job_on_LUMI).
+-->
 
 <!--
 A video recording of the discussion of the solution will follow.
@@ -14,7 +14,7 @@ A video recording of the discussion of the solution will follow.
 
 ## Q&A
 
-1.  It seems that the [*Further Examples*](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/03_Your_first_AI_training_job_on_LUMI#further-example) in the GitHub is not in the git under [*Bonus material*](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/bonus_material)
+1.  It seems that the [*Further Examples*](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/03_Your_first_AI_training_job_on_LUMI#further-example) in the GitHub is not in the git under [*Bonus material*](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/bonus_material)
 
     -   Some materials got removed at the last moment because they were outdated but it looks like some links remained in the repository. The [instructions to run the exercises from the previous workshop](http://lumi-supercomputer.github.io/LUMI-training-materials/ai-20241126/#after-the-termination-of-the-course-project) would show you the repository as it was then with those materials, but they may not work anymore.
 

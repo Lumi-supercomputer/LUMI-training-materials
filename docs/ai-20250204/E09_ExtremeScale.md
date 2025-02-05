@@ -1,9 +1,9 @@
 # Demo/Hands-on: Using multiple nodes
 
-<!--
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/09_Extreme_scale_AI).
--->
+<!--
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI).
+-->
 
 <!--
 A video recording of the discussion of the solution will follow.
@@ -24,9 +24,9 @@ A video recording of the discussion of the solution will follow.
     -   I think it should work out-of-the-box usually? It doesn't work for you? 
 
 
-2.  Can you provide some information on how to call the [wrapper script](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI/reference_solution) for the LLM example ?
+2.  Can you provide some information on how to call the [wrapper script](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/09_Extreme_scale_AI/reference_solution) for the LLM example ?
 
-    -   That is exactly what is [here](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI):
+    -   That is exactly what is [here](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/09_Extreme_scale_AI):
 
     -   Yes, you simply put the script before the actual command you want to execute
         ```

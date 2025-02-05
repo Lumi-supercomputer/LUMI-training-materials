@@ -49,9 +49,10 @@ You can find all exercises on our [AI workshop GitHub page](https://github.com/L
 
 ### After the termination of the course project
 
-More information will follow after the course.
-
 <!--
+More information will follow after the course.
+-->
+
 Setting up for the exercises is a bit more elaborate now.
 
 The exercises as they were during the course are 
@@ -79,7 +80,6 @@ so it is expected that some exercises may fail over time, and modules that need 
 change as at every update we have to drop some versions of the `LUMI` module as the programming environment
 is no longer functional. Likewise it is expected that at some point the ROCm driver on the system may
 become incompatible with the ROCm versions used in the containers for the course.
--->
 
 
 ## Course materials
