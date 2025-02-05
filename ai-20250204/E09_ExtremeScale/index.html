@@ -3519,10 +3519,11 @@
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/09_Extreme_scale_AI).
 -->
 <p><a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI">Exercises on the course GitHub</a>.</p>
-<p>A video recording of the discussion of the solution will follow.</p>
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E09_ExtremeScale.mp4" controls="controls"></video>
+A video recording of the discussion of the solution will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E09_ExtremeScale.mp4" controls="controls"></video>
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
@@ -3563,6 +3564,12 @@ srun -N1 -n8 --gpus 8 \
             --num-workers 7
 </code></pre></div></p>
 </li>
+</ul>
+</li>
+<li>
+<p>About the hands-on exercise for 09 Extreme scale AI work, after running the code on 2 nodes, how can monitor the GPU utilization?</p>
+<ul>
+<li>You can add <code>-w &lt;target_node&gt;</code> to the srun call that runs <code>rocm-smi</code> to get the GPU utilization for the individual nodes.</li>
 </ul>
 </li>
 </ol>
