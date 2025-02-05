@@ -12,7 +12,6 @@ A video recording will follow.
 
 More materials will become available during and shortly after the course
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-10-Training_Data_on_LUMI.pdf)
 
 -   Links from the "More Information" slide:
@@ -29,7 +28,6 @@ More materials will become available during and shortly after the course
 
     -   Example of keeping training data in memory: 
         [“Scaling Out Deep Learning Convergence Training on LUMI”, Diana Moise & Samuel Antao](https://linklings.s3.amazonaws.com/organizations/pasc/pasc23/submissions/stype119/jvCyu-msa152s2.pdf)
--->
 
 -   [Training materials from the most recent LUMI introductory training in December 2024](../2day-20241210/index.md)
 

@@ -111,6 +111,7 @@ materials are uploaded.
 | [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | / |
 | [General Q&A day 1 and 2](extra_12_GeneralQA.md) | / | / |
 
+
 ## Web links
 
 -   LUMI documentation
