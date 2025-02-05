@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20250204/E09_ExtremeScale/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20250204/extra_12_GeneralQA/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Demo/Hands-on: Using multiple nodes - LUMI training materials</title>
+        <title>General Q&A - LUMI training materials</title>
       
     
     
@@ -116,9 +116,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Demo/Hands-on: Using multiple nodes" />
+  <meta property="og:title" content="LUMI training materials - General Q&A" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20250204/E09_ExtremeScale/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/ai-20250204/extra_12_GeneralQA/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -128,7 +128,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Demo/Hands-on: Using multiple nodes" />
+  <meta name="twitter:title" content="LUMI training materials - General Q&A" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -190,7 +190,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#demohands-on-using-multiple-nodes" class="md-skip">
+        <a href="#general-qa" class="md-skip">
           Skip to content
         </a>
       
@@ -247,7 +247,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Demo/Hands-on: Using multiple nodes
+              General Q&amp;A
             
           </span>
         </div>
@@ -3484,23 +3484,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#qa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q&amp;A
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3514,18 +3497,29 @@
                   
 
 
-<h1 id="demohands-on-using-multiple-nodes">Demo/Hands-on: Using multiple nodes<a class="headerlink" href="#demohands-on-using-multiple-nodes" title="Permanent link">&para;</a></h1>
-<!--
-[Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250204/09_Extreme_scale_AI).
--->
-<p><a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI">Exercises on the course GitHub</a>.</p>
-<p>A video recording of the discussion of the solution will follow.</p>
-<!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E09_ExtremeScale.mp4" controls="controls"></video>
--->
-
-<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<h1 id="general-qa">General Q&amp;A<a class="headerlink" href="#general-qa" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>Is there a prettier way to activate conda?
+    Right now I am using <code>lumi-pytorch-rocm-6.2.3-python-3.12-pytorch-v2.5.1.sif</code>
+    I need to activate conda to have access to the pytorch modules, so the current hack it to put this in my .sh file
+    <div class="highlight"><pre><span></span><code>srun singularity exec $CONTAINER \
+    bash -c &quot;\$WITH_CONDA; python3 $PYTHON_FILE --max-samples=256&quot;
+</code></pre></div>
+    Is there a better/prettier way to activate conda so I don't have to put all arguments inside the quotes and the bash call?</p>
+<ul>
+<li>
+<p>There is a trick and we use it in the EasyBuild modules that we provide for individual containers. The conda activate script just sets a number of environment variables so you can just set those from outside the container. The one tricky one, but one that is not really needed, is to adapt the prompt to show that you're in the virtual environment. </p>
+<p>It has been a continuous discussion in LUST whether we should expose the container as much as possible as a container, and the singularity-AI-bindings module combined with the manual <code>$WITH_CONDA</code> is a result of that, or try to hide as much of the complexity as we can, which is what we do with the individual modules for each container. In fact, what <code>$WITH_CONDA</code> does, is not the same for all containers (if only because the name of the conda environment is not always the same), so that cannot be done in a module as generic as <code>singularity-AI-bindings</code>. </p>
+<p>Those EasyBuild modules are not perfect and not all modules implement all functionality, basically because our time is also finite and we don't want to invest time in things that we don't know will be used. But we're always open to further develop them on request.</p>
+<p>With some of the newer PyTorch EasyBuild containers, your command would become </p>
+<div class="highlight"><pre><span></span><code>srun singularity exec $CONTAINER \
+    python3 $PYTHON_FILE --max-samples=256&quot;
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
