@@ -5,16 +5,16 @@
 -->
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI).
 
-A video recording of the discussion of the solution will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E09_ExtremeScale.mp4" controls="controls"></video>
+A video recording of the discussion of the solution will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E09_ExtremeScale.mp4" controls="controls"></video>
 
 
 ## Q&A
 
-55. In the PyTorch exercise, how to enable compiling pytorch during the runtime ? - Does it require MiOpen lib ?
+1.  In the PyTorch exercise, how to enable compiling pytorch during the runtime ? - Does it require MiOpen lib ?
     
     -   Can you clarify what you mean (or hope to achieve) with compiling Pytorch?
 
@@ -24,7 +24,7 @@ A video recording of the discussion of the solution will follow.
     -   I think it should work out-of-the-box usually? It doesn't work for you? 
 
 
-58. Can you provide some information on how to call the [wrapper script](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI/reference_solution) for the LLM example ?
+2.  Can you provide some information on how to call the [wrapper script](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI/reference_solution) for the LLM example ?
 
     -   That is exactly what is [here](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI):
 
@@ -43,5 +43,10 @@ A video recording of the discussion of the solution will follow.
                     --logging-path /workdir/train-logging \
                     --num-workers 7
         ```
+
+3.  About the hands-on exercise for 09 Extreme scale AI work, after running the code on 2 nodes, how can monitor the GPU utilization?
+
+    -   You can add `-w <target_node>` to the srun call that runs `rocm-smi` to get the GPU utilization for the individual nodes.
+
 
     

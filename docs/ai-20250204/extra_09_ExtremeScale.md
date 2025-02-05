@@ -8,11 +8,11 @@ Content:
 -   Scaling beyond a single node 
 
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/09_ExtremeScale.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/09_ExtremeScale.mp4" controls="controls"></video>
 
 
 ## Extra materials
@@ -26,7 +26,6 @@ More materials will become available during and shortly after the course
 -   [Demo and hands-on exercises](E09_ExtremeScale.md)
 
 
-<!--
 ## Remark: Why is binding not easier in Slurm?
 
 There are some reasons why the situation with the binding is not better:
@@ -48,7 +47,7 @@ There are some reasons why the situation with the binding is not better:
 
 -   Preset are not easy. What may be ideal for some AI workflows may not work for others, or may not work for all
     the other users on LUMI that do simulation or other types of data processing and analysis.
--->
+
 
 ## Q&A
 
@@ -93,7 +92,8 @@ There are some reasons why the situation with the binding is not better:
 
     Anyway, the core point is that a) stuff like vLLM and sglang move forward now so fast that using versions from even a month ago is both limiting and inefficient, and b) trying to reproduce their builds on top of a custom container is hard, particularly because the Dockerfile.rocms for both are starting to include all kinds of important tweaks in themselves in complex hierarchies, e.g. [https://github.com/vllm-project/vllm/blob/main/Dockerfile.rocm](https://github.com/vllm-project/vllm/blob/main/Dockerfile.rocm) -> [https://github.com/sgl-project/sglang/blob/main/docker/Dockerfile.rocm](https://github.com/sgl-project/sglang/blob/main/docker/Dockerfile.rocm) . So, an option to flip the tables and a workflow/instructions for instead injecting the LUMI special requirements on top of the base ROCM images would be extremely welcome.
    
-    -   I would assume you can also add aws-ofi-rccl on top of one of those containers (+ plus bind libcxi), although I haven't tried that myself.
+    -   I would assume you can also add aws-ofi-rccl on top of one of those containers 
+        (+ plus bind libcxi), although I haven't tried that myself.
 
     Yeah, well I tried that on top of the sglang image and got the error in the initial question :D. So, someone from LUST/CSC trying this on various images and writing instructions + observations on what needs to be taken into account for this to work would be awesome.
 
@@ -118,25 +118,30 @@ There are some reasons why the situation with the binding is not better:
     -   Nobody knows all those boundaries, not even the developers of those libraries as they have 
         only been tested on those OS versions that are relevant to them. You have to understand that Linux is not compatible with Linux due to too many different distributions. So the approach within LUST is to stick to a build as close as possible to the system, which is why we tend to start from a SUSE distribution equivalent to the one on LUMI. So at the moment, we'd use, e.g., OpenSUSE 15 SP5. Testing the things that you would like to be tested, is really a combinatorial problem as there are so many libraries involved...
 
-6.  Is `export NCCL_SOCKET_IFNAME=hsn0, hsn1, hsn2, hsn3` equivalent to `export NCCL_SOCKET_IFNAME=hsn`?
+    Completely understand. Would still appreciate even more "notes-style" writings attached to the EasyBuild scripts etc outlining the reasons for everything. Much of this is already there, but not the "non-end-user"-facing parts, which are interesting for people who'd like to not only use what is there, but to build off it.
+
+1.  Is `export NCCL_SOCKET_IFNAME=hsn0, hsn1, hsn2, hsn3` equivalent to `export NCCL_SOCKET_IFNAME=hsn`?
 
     -   Yes, I believe so. If it works according to NVIDIA docs: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-socket-ifname .
     -   Unfortunately, I cannot find a proper explanation in the ROCm documentation which only suggests the first form.
     -   The CSC PyTorch module on LUMI uses the latter form and it appears to work correctly :-)
 
-7.  If I make my own container, is there some documentation how to setup RCCL correctly? In my context, I will not PyTorch (using julia...) but I plan to use the generic rocm containers from LUMI (e.g. `/appl/local/containers/sif-images/lumi-rocm-rocm-6.2.2.sif`). 
+2.  If I make my own container, is there some documentation how to setup RCCL correctly? In my context, I will not PyTorch (using julia...) but I plan to use the generic rocm containers from LUMI (e.g. `/appl/local/containers/sif-images/lumi-rocm-rocm-6.2.2.sif`). 
 
-    -   If you have ROCm installed in your container, RCCL will be installed with it. These days, the latest pytorch wheel files also comes with RCCL. So typically, you don't need to do anything to setup RCCL as the right defaults are already used. If you install pytorhc yourself from their official drops in https://download.pytorch.org/whl/torch/, make sure you use a version that matches the ROCm version in the container. If you use other frameworks you can leverage RCCL that comes with ROCm.
+    -   If you have ROCm installed in your container, RCCL will be installed with it. 
+        These days, the latest pytorch wheel files also comes with RCCL. So typically, you don't need to do anything to setup RCCL as the right defaults are already used. If you install pytorhc yourself from their official drops in https://download.pytorch.org/whl/torch/, make sure you use a version that matches the ROCm version in the container. If you use other frameworks you can leverage RCCL that comes with ROCm.
 
-    -   For performance you have then to have the CXI plugin. This is a runtime dependency, so it only needs to be in your LD_LIBRARY_PATH or installed in a folder your container loader will look for dynamic libraries. 
+    -   For performance you have then to have the CXI plugin. 
+        This is a runtime dependency, so it only needs to be in your LD_LIBRARY_PATH or installed in a folder your container loader will look for dynamic libraries. 
 
     -   If you use the LUMI provided container, the plugin is already installed for you. No special setup that needs doing.
 
     -   `export NCCL_DEBUG=INFO` is your friend to understand the plugin is being picked up.
 
-8.  I would like to understand better what is the difference between RCCL (or NCCL) and the slingshot network. The first is related to communication between the GPUs on a node and the other between the nodes?
+3.  I would like to understand better what is the difference between RCCL (or NCCL) and the slingshot network. The first is related to communication between the GPUs on a node and the other between the nodes?
 
-    -   Slingshot is the name for a piece of hardware. As every piece of hardware, it comes with a driver and some user level software components, e.g., the CXI provider which connects the driver to the standard libfabric library. RCCL/NCCL is a communication library that works at a slightly higher level in the communication stack. As RCCL by default cannot talk to libfabric but only to UCX which is yet another library not supported on the Slingshot hardware and driver, or fall back to regular TCP/IP sockets, it needs a plug-in to let it talk to libfabric and that is where the AWS plugin comes in the story.
+    -   Slingshot is the name for a piece of hardware. As every piece of hardware, 
+        it comes with a driver and some user level software components, e.g., the CXI provider which connects the driver to the standard libfabric library. RCCL/NCCL is a communication library that works at a slightly higher level in the communication stack. As RCCL by default cannot talk to libfabric but only to UCX which is yet another library not supported on the Slingshot hardware and driver, or fall back to regular TCP/IP sockets, it needs a plug-in to let it talk to libfabric and that is where the AWS plugin comes in the story.
 
         RCCL is part of the ROCm software stack and mimics NCCL which is a library in the NVIDIA CUDA stack. We need RCCL to connect to libfabric.
         
@@ -149,20 +154,23 @@ There are some reasons why the situation with the binding is not better:
 
 9.  For large/extreme scaling of models which require model/tensor/pipeline parallelism, what is the best way to check scaling efficiency (weak vs strong?)
 
-    -   Strong usually means your local batches to decrease proportionally with the GPUs whereas weak will keep the local batches and have more data processed in a given time window. So the Weak vs strong setup has to be defined by the user according to the needs of their model. Then, to check the behaviour I recommend using the pytorch profiler infrastructure that leverages rocprof libraries under the hood - check the monitoring slides of lesson 4. With the resulting file, you can then load in https://ui.perfetto.dev. You can see things like the image below. The purple pieces with nccl in the name are communication. I can see exactly the proportion of the time spent in communication. You can also do other things like zooming in and see if there are gaps, with no activity, meaning that you might be bound by CPU or even I/O. There are also ways to show summarise of the information.
+    -   Strong usually means your local batches to decrease proportionally 
+        with the GPUs whereas weak will keep the local batches and have more data processed in a given time window. So the Weak vs strong setup has to be defined by the user according to the needs of their model. Then, to check the behaviour I recommend using the pytorch profiler infrastructure that leverages rocprof libraries under the hood - check the monitoring slides of lesson 4. With the resulting file, you can then load in https://ui.perfetto.dev. You can see things like the image below. The purple pieces with nccl in the name are communication. I can see exactly the proportion of the time spent in communication. You can also do other things like zooming in and see if there are gaps, with no activity, meaning that you might be bound by CPU or even I/O. There are also ways to show summarise of the information.
 
     ![Screenshot](https://462000265.lumidata.eu/ai-20250204/img/extra_09_ScreenshotProfiler.png){ loading=lazy }
 
 10. I did not quite understand the `-cpu-bind=mask_cpu:0xfe000000000000,...`. How does the option change when we change the number for CPUs/GPUs?
 
-    -   The idea behind the setup of a mask is to guide SLURM to use a given set of CPUs for increasing ranks. As stated in the talk, frameworks make assumptions on which GPU to use for a local rank, so typically rank 0 uses GPU 0, rank 1 uses GPU 1, etc. Extrapolating beyond the node you will get rank N using the GPU N%Number_Of_GPUs_Per_Node. So, this is the assumption we start from. Now, we need to assign CPUs properly to this assumption. For this we can use the reference image below. There we see that GPU 0 is connected to CPUs 48 to 55. We also know that LUMI reserves the first CPU of each L3 domain, so we will have 49 to 55. SLURM can take this information as a bit mask and that is what goes in the `-cpu-bind=mask_cpu:` option. In binary the mask for our 49-55 CPus would be: `11111110000...0000` (with 49 zeros). We then use the hexadecimal representation of this bit mask in the option. We repeat this for every GPU, hence we will have 8 masks. SLURM uses this mask in a round-robin fashion, so when you get to the second node (rank 8 onwards) it applies the mask list from the start. 
+    -   The idea behind the setup of a mask is to guide SLURM to use a given set of CPUs for increasing ranks. 
+        As stated in the talk, frameworks make assumptions on which GPU to use for a local rank, so typically rank 0 uses GPU 0, rank 1 uses GPU 1, etc. Extrapolating beyond the node you will get rank N using the GPU N%Number_Of_GPUs_Per_Node. So, this is the assumption we start from. Now, we need to assign CPUs properly to this assumption. For this we can use the reference image below. There we see that GPU 0 is connected to CPUs 48 to 55. We also know that LUMI reserves the first CPU of each L3 domain, so we will have 49 to 55. SLURM can take this information as a bit mask and that is what goes in the `-cpu-bind=mask_cpu:` option. In binary the mask for our 49-55 CPus would be: `11111110000...0000` (with 49 zeros). We then use the hexadecimal representation of this bit mask in the option. We repeat this for every GPU, hence we will have 8 masks. SLURM uses this mask in a round-robin fashion, so when you get to the second node (rank 8 onwards) it applies the mask list from the start. 
 
     ![LUMI-G node](https://462000265.lumidata.eu/ai-20250204/img/extra_09_LUMIGNode.png){ loading=lazy }
 
 
-57. Should we set up cpu-bind-mask if we are using less than 8 GPUs?
+11. Should we set up cpu-bind-mask if we are using less than 8 GPUs?
 
-    -   You cannot do proper binding if you are not on an exclusive node as you don't know which cores and which GPUs you will get. Unfortunately, not doing proper binding also comes with a performance penalty. Ideally you would "right-size" the computer you use with the problem you're trying to solve, and LUMI nodes are just too big for users with smaller problems to be fully efficient.
+    -   You cannot do proper binding if you are not on an exclusive node as 
+        you don't know which cores and which GPUs you will get. Unfortunately, not doing proper binding also comes with a performance penalty. Ideally you would "right-size" the computer you use with the problem you're trying to solve, and LUMI nodes are just too big for users with smaller problems to be fully efficient.
 
         This talk tries to compress materials that take a lot more time in our introductory course to explain all details... E.g., it is an important part of the ["Process and Thread Binding" talk in the introductory course](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20241210/M08-Binding/).
         

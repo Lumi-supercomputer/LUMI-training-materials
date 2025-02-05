@@ -9,11 +9,11 @@ Content:
 -   Setting the correct CPU-GPU bindings
 
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
 
 
 ## Extra materials
@@ -28,7 +28,6 @@ More materials will become available during and shortly after the course
 
 
 ## Q&A
-
 
 1.  If I ask for one complete node and use “ddp”, how many maximum num_workers should I use ? should it still be num_workers == cpus-per-task=7
 
