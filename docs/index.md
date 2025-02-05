@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
-
 -   [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
 
 <!-- -   No upcoming training with early materials at the moment. -->
@@ -27,7 +25,7 @@ Most recently completed main training events:
     [lumi-supercomputer.github.io/advanced-latest](https://lumi-supercomputer.github.io/advanced-latest)*
 
 -   Comprehensive training specifically for AI users:
-    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
+    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
 
     *Short URL to the most recently completed training for AI users:
     [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*

@@ -6,13 +6,15 @@
 
 -   [Schedule](schedule.md)
 
-<!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-feb25?both)
    
     Questions with longer-term relevance will be incorporated into the pages linked below.
--->
+    This HedgeDoc document will not be monitored anymore for further questions after the course.
+    The link will likely die over time.
 
-<!-- 
+<!--
+-   [Zoom link](https://cscfi.zoom.us/j/64948027353?pwd=nJ71W4e6TgT5GvewIpnfWf8uKgILp4.1) 
+    (Attention, modified February 3)
 
 -   There are two Slurm reservations for the course. One for each day:
 
@@ -23,7 +25,6 @@
     These resources are limited and should only be used for the exercises during
     the course and not for your own work.
 -->
-
 <!--
 ReservationName=AI_workshop_1 StartTime=2025-02-04T09:00:00 EndTime=2025-02-04T18:00:00 Duration=09:00:00
    Nodes=nid[005026-005049] NodeCnt=24 CoreCnt=1536 Features=(null) PartitionName=small-g Flags=
@@ -51,9 +52,10 @@ You can find all exercises on our [AI workshop GitHub page](https://github.com/L
 
 ### After the termination of the course project
 
-More information will follow after the course.
-
 <!--
+More information will follow after the course.
+-->
+
 Setting up for the exercises is a bit more elaborate now.
 
 The exercises as they were during the course are 
@@ -81,7 +83,6 @@ so it is expected that some exercises may fail over time, and modules that need 
 change as at every update we have to drop some versions of the `LUMI` module as the programming environment
 is no longer functional. Likewise it is expected that at some point the ROCm driver on the system may
 become incompatible with the ROCm versions used in the containers for the course.
--->
 
 
 ## Course materials
@@ -110,7 +111,7 @@ materials are uploaded.
 | [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
 | [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
 | [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
-| [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | / |
+| [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | [video](E12_Project_and_QA.md) |
 
 
 ## Web links

@@ -3,17 +3,16 @@
 *Presenter:* Harvey Richardson(HPE)
 <br/>*Co-author:*  Alessandro Rigazzi (HPE)
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/11_Coupling.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250204/recordings/11_Coupling.mp4" controls="controls"></video>
 
 ## Extra materials
 
 More materials will become available during and shortly after the course
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-11-Coupling_Simulation_and_AI.pdf)
 
 -   References from the slides:
@@ -43,7 +42,6 @@ More materials will become available during and shortly after the course
         -   [SmartSim Example Zoo on GitHub](https://github.com/CrayLabs/SmartSim-Zoo)
 
         -   [Archer2 webinar "Exploring new computations frontiers with SmartSim"](https://www.archer2.ac.uk/training/courses/241024-smartsim-vt/)
--->
 
 
 ## Q&A
