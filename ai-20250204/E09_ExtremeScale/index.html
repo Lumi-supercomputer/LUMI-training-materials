@@ -3525,7 +3525,47 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>In the PyTorch exercise, how to enable compiling pytorch during the runtime ? - Does it require MiOpen lib ?</p>
+<ul>
+<li>
+<p>Can you clarify what you mean (or hope to achieve) with compiling Pytorch?</p>
+</li>
+<li>
+<p>If you mean just-in-time compile there might happen at different levels. 
+    MIOpen uses that (and should be available for you when you install ROCm), but you can also see that through the Triton module and others.</p>
+</li>
+<li>
+<p>I think it should work out-of-the-box usually? It doesn't work for you? </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Can you provide some information on how to call the <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI/reference_solution">wrapper script</a> for the LLM example ?</p>
+<ul>
+<li>
+<p>That is exactly what is <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/09_Extreme_scale_AI">here</a>:</p>
+</li>
+<li>
+<p>Yes, you simply put the script before the actual command you want to execute
+    <div class="highlight"><pre><span></span><code>MASTER_ADDR=$(scontrol show hostname &quot;$SLURM_NODELIST&quot; | head -n1) \
+srun -N1 -n8 --gpus 8 \
+    --cpu-bind=mask_cpu=0x00fe000000000000,0xfe00000000000000,0x0000000000fe0000,0x00000000fe000000,0x00000000000000fe,0x000000000000fe00,0x000000fe00000000,0x0000fe0000000000\
+    singularity exec \
+    -B .:/workdir \
+    /appl/local/containers/sif-images/lumi-pytorch-rocm-6.1.3-python-3.12-pytorch-v2.4.1.sif  \
+    /workdir/run.sh \
+        python -u /workdir/GPT-neo-IMDB-finetuning-mp.py \
+            --model-name gpt-imdb-model \
+            --output-path /workdir/train-output \
+            --logging-path /workdir/train-logging \
+            --num-workers 7
+</code></pre></div></p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

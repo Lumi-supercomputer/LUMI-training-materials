@@ -3550,7 +3550,80 @@ More materials will become available during and shortly after the course
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>If I ask for one complete node and use “ddp”, how many maximum num_workers should I use ? should it still be num_workers == cpus-per-task=7</p>
+<ul>
+<li>I assume you mean the number of workers for the dataloaders. 
+    These are "orthogonal" to the processes for the GPU. For each GPU, you will have one "main" process on the CPU, and torchrun will take care of running these for you. Each of those will then spawn the number of dataloader worker processes that you set up. These just handle preprocessing of data to be ready to be send to the GPU. Since the throughput of data at each GPU shouldn't change (much) compare to running with a single GPU, if you needed 7 dataloader processes (num_workers), it makes sense to keep it the same when running with multiple GPUs. However, in general, if you really want to find out just how many you need, you should try different values and see how that affects performance or profile you run. - Lukas</li>
+</ul>
+</li>
+<li>
+<p>Is there a 'cpus-per-gpu' variable?</p>
+<ul>
+<li>
+<p>There is, but as I recall there was some issue with that in the SLURM setup on LUMI which results 
+    in the GPUs not being able to communicate with each other when using <code>cpus-per-gpu</code>. So you don't want to use that. - Lukas</p>
+</li>
+<li>
+<p>This communication problem is actually explained in our 
+    <a href="https://lumi-supercomputer.github.io/intro-latest">regular introductory courses</a> in - I think - the Slurm or the binding presentation. The version of Slurm that we have on LUMI, tries to bind GPUs to tasks via a mechanism known as "control groups". Unfortunately, these control groups break the more efficient ways of communication between GPUs. There are several ways around it, but the way presented in the talk may be the better choice.</p>
+</li>
+<li>
+<p>In general, Slurm has a lot of parameters that don't always work completely the way you expect. 
+    When reading the manual pages of <code>sbatch</code> and <code>srun</code>, really each word is important. Another common cause of the system refusing jobs is actually overspecifying resources and in that way, introducing conflicts. E.g., several parameters that try to bind CPUs and/or GPUs to tasks.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Which container has lightning module? lightning handle this ddp automatically I guess. Can I install this in existing containers?</p>
+<ul>
+<li>
+<p>You can check what is in a container with <code>pip list</code>, e.g., 
+    <div class="highlight"><pre><span></span><code>singularity exec lumi-pytorch-rocm-5.7.3-python-3.12-pytorch-v2.2.2.sif bash -c &#39;$WITH_CONDA; pip list&#39;
+</code></pre></div>
+    or even
+    <div class="highlight"><pre><span></span><code>singularity exec lumi-pytorch-rocm-5.7.3-python-3.12-pytorch-v2.2.2.sif bash -c &#39;$WITH_CONDA; pip list&#39; | grep lightning
+</code></pre></div>
+    And a nice one-liner:
+    <div class="highlight"><pre><span></span><code>for siffile in $(/bin/ls /appl/local/containers/sif-images/lumi-pytorch-rocm-*.sif); \
+    do echo -e &quot;\n$siffile\n&quot; ; \
+    singularity exec $siffile bash -c &#39;$WITH_CONDA; pip list&#39; | grep lightning ; \
+    done
+</code></pre></div>
+    that will show you that almost all containers have it.</p>
+</li>
+<li>
+<p>And you can use the mechanism from the <a href="../extra_07_VirtualEnvironments/">last talk of yesterday (the virtual environment)</a> 
+    to add the package if it is missing in your otherwise favourite container. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>What could cause this -&gt; using DDP and multiple GPUs, increasing batch_size slows down the process?</p>
+<ul>
+<li>
+<p>This should be expected, as the batch size represents the amount of data to process at each iteration. 
+    Increasing the batch size results into more data to process, thus more time to finish one iteration.     </p>
+</li>
+<li>
+<p>But with multiple GPUs there likely is a sweet-spot for batch size. 
+    If the batch is too small, then each GPU will spend most of the time waiting on 
+    communication with other GPUs, so then you want to increase it a bit and can process 
+    more data in the same time. But if the batch (per device) is too large, then you would 
+    indeed expect to see that each iteration will take longer.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>How to set module paths in Jupyter notebooks? e.g. to test quickly something with the installed packages in a container in Jupyter notebook.</p>
+<ul>
+<li>I guess you cannot use Jupyter in LUMI web UI with a custom container, unless you make some kind of wrapper script. 
+    If you have a virtual env or some Python packages installed on disk you can probably make them visible to Jupyter 
+    by setting the right environment variables using the Advanced -&gt; Custom init: Text option when launching Jupyter.</li>
+</ul>
+</li>
+</ol>
 
 
 
