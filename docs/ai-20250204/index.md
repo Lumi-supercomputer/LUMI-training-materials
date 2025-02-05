@@ -109,7 +109,7 @@ materials are uploaded.
 | [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
 | [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
 | [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | / |
-
+| [General Q&A day 1 and 2](extra_12_GeneralQA.md) | / | / |
 
 ## Web links
 
