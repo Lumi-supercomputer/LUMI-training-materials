@@ -33,4 +33,22 @@ you have learned during the workshop - with on-site support from LUST/AMD.
             python3 $PYTHON_FILE --max-samples=256"
         ```
 
+2.  For my machine learning model, I need to use the mpi4py library. 
+    What is the best way to install mpi4py on LUMI? 
+    I tried following the instructions from the slides, but it does not seem to be working for me.
+    
+    -   Installing `mpi4py` requires a compilation step of C compilation, which appears to fail because it doesn't find the proper compilers in the containers. There is a base container available that already includes `mpi4py` in `/appl/local/containers/sif-images/lumi-mpi4py-rocm-6.2.0-python-3.12-mpi4py-3.1.6.sif` . Could you try extended that for your needs? If you use `cotainr build` you can replace the `--system=lumi-g` flag with `--base-image=/appl/local/containers/sif-images/lumi-mpi4py-rocm-6.2.0-python-3.12-mpi4py-3.1.6.sif`. - Lukas
+    
+    -   Nevermind, the mpi4py container doesn't actually work with cotainr :( - Lukas
+
+4.  Can you provide an example command please to monitor the GPU utilization for multi-node runs?
+
+    -   You can do the following: Check from `squeue --me` which nodes the job is running on 
+        (the node ids are listed in the last column). The you can use the command 
+        `srun --overlap --jobid <jobid> -w <nodeid> rocm-smi` to run `rocm-smi` on 
+        any of the nodes to check utilisation. Note that this will give you only an instantaneous 
+        snapshot of the `rocm-smi` output. You can use 
+        `srun --overlap --jobid <jobid> -w <nodeid> --pty bash` to open a terminal on the node and use 
+        `watch rocm-smi` to continuously monitor the GPU usage. Unfortunately there is no handy tool to monitor GPU utilization across all nodes at once. See also 
+        [this page in the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/#using-srun-to-check-running-jobs). - Lukas
 

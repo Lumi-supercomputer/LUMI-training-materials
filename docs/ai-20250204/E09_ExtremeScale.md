@@ -48,5 +48,8 @@ A video recording of the discussion of the solution will follow.
 
     -   You can add `-w <target_node>` to the srun call that runs `rocm-smi` to get the GPU utilization for the individual nodes.
 
+4.  About the hands-on exercise for 09 Extreme scale AI work, after running the code on 2 nodes, how can monitor the GPU utilization?
 
+    -   You can add -w <target_node> to the srun call that runs rocm-smi to get the GPU utilization for the individual nodes.
+  
     
