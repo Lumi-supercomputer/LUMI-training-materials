@@ -1,6 +1,7 @@
 # Process and Thread Distribution and Binding
 
 
+
 ## What are we talking about in this session?
 
 <figure markdown style="border: 1px solid #000">
@@ -69,7 +70,7 @@ if the binding is OK.
 
 ??? Bug "`hpcat` on multiple nodes (click to expand)"
     As of the time of the last update of this paragraph, `hpcat` runs fine when started from an
-    interactive session created with `sallc`, using `srun` to launch the application on the compute
+    interactive session created with `salloc`, using `srun` to launch the application on the compute
     node(s), but it crashes when this is done in a batch script that uses more than one node. 
     So we do not really use it yet in the slides and notes. When fully stable, it would be a better
     replacement for the `gpu_check -l` command used in several of the examples.
@@ -84,12 +85,12 @@ In this section we will consider process and thread distribution and binding at 
 -   When creating an allocation, Slurm will already reserve resources at the node level, but this
     has been discussed already in the Slurm session of the course.
 
-    It will also already employ control groups to restrict the access to those reaources on a
+    It will also already employ control groups to restrict the access to those resources on a
     per-node per-job basis.
 
 -   When creating a job step, Slurm will distribute the tasks over the available resources,
-    bind them to CPUs and depending on how the job step was started, bind them to a subset of the
-    GPUs available to the task on the node it is running on.
+    bind each task to CPUs allocated to that task, and depending on how the job step was started, bind each task to the GPUs allocated to the task or to the subset of the
+    GPUs available to the job step on the node the task is running on.
 
 -   With Cray MPICH, you can change the binding between MPI ranks and Slurm tasks. Normally MPI rank *i*
     would be assigned to task *i* in the job step, but sometimes there are reasons to change this.
@@ -101,8 +102,8 @@ In this section we will consider process and thread distribution and binding at 
     use different OpenMP runtimes so the default behaviour will not be the same for all compilers,
     and on LUMI is different for the Cray compiler compared to the GNU and AMD compilers.
 
--   Finally, the ROCm(tm) runtime also can limit the use of GPUs by a process to a subset of the ones that
-    are available to the process through the use of the `ROCR_VISIBLE_DEVICES` environment variable.
+-   Finally, the ROCm(tm) runtime also can limit the use of GPUs by a process to a subset of the ones that Slurm allocated 
+    to the task through the use of the `ROCR_VISIBLE_DEVICES` environment variable.
 
 Binding almost only makes sense on job-exclusive nodes as only then you have full control over all available 
 resources. On ["allocatable by resources"](07-Slurm.md#partitions) partitions 
@@ -170,7 +171,8 @@ scalability on supercomputers.
     would rely on cache-coherent access to GPU memory from the CPU.
 
 -   With careful mapping of MPI ranks on nodes you can often reduce the amount of inter-node data transfer in favour of the
-    faster intra-node transfers. This requires some understanding of the communication pattern of your MPI application.
+    faster intra-node transfers. This requires some understanding of the communication pattern of your MPI application,
+    but there are profiling tools for that that are discussed in the advanced courses.
 
 -   For GPU-aware MPI: Check if the intra-node communication pattern can map onto the links between the GCDs.
 
@@ -222,7 +224,7 @@ started with subsequent `srun` commands.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -576,7 +578,7 @@ the HIP runtime will number the GPUs that are available from 0 on.
     #SBATCH --hint=nomultithread
     #SBATCH --time=15:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -800,7 +802,7 @@ task level.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
     
     cat << EOF > select_1gpu_$SLURM_JOB_ID
     #!/bin/bash
@@ -890,7 +892,7 @@ task level.
     
     ```
     MPI 000 - OMP 000 - HWT 002 (CCD0) - Node nid005350 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c9(GCD2/CCD2)
-    MPI 001 - OMP 000 - HWT 003 (CCD0) - Node nid005350 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID cc(GCD3/CCD3)
+    MPI 001 - OMP 000 - HWT 003 (CCD0) - Node nid005350 - RT_GPU_ID 0 - GPU_ID 1 - Bus_ID ce(GCD3/CCD3)
     MPI 002 - OMP 000 - HWT 004 (CCD0) - Node nid005350 - RT_GPU_ID 0 - GPU_ID 2 - Bus_ID d1(GCD4/CCD0)
     MPI 003 - OMP 000 - HWT 005 (CCD0) - Node nid005350 - RT_GPU_ID 0 - GPU_ID 3 - Bus_ID d6(GCD5/CCD1)
     ```
