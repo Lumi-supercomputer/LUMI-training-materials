@@ -243,7 +243,7 @@ of a single node might become the limiting factor.
 
 Not all codes are using Lustre optimally though, even with the best care of their users.
 
--   Some codes use files in scientific data formats like HDF5 and netCDF, and when written
+-   😀 Some codes use files in scientific data formats like HDF5 and netCDF, and when written
     properly they can have very scalable performance.
 
     A good code will write data to large files, from multiple nodes simultaneously, but 
@@ -259,7 +259,7 @@ Not all codes are using Lustre optimally though, even with the best care of thei
     noisy floppy drives (do you still know what that is) and slow hard drives so learned
     how to program efficiently.
 
--   But some codes open one or more files per MPI rank. Those codes may have difficulties
+-   😭 But some codes open one or more files per MPI rank. Those codes may have difficulties
     scaling to a large number of ranks, as they will put a heavy burden on the MDS when those
     files are created, but also may bombard each OSS/OST with too many I/O requests.
 
@@ -267,7 +267,7 @@ Not all codes are using Lustre optimally though, even with the best care of thei
     of MPI ranks. However, nowadays some users are trying to solve such big problems that 
     the computations do scale reasonably well. But the I/O of those codes becomes a problem...
 
--   But some users simply abuse the file system as an unstructured database and simply drop
+-   😭😭 But some users simply abuse the file system as an unstructured database and simply drop
     their data as tens of thousands or even millions of small files with each one data element,
     rather than structuring that data in suitable file formats. This is especially common in
     science fields that became popular relatively recently - bio-informatics and AI - as those
@@ -298,7 +298,7 @@ deal better with small files are being made, but they may come at a high hardwar
 </figure>
 
 If you only access relatively small files (up to a few hundreds of kilobytes) and access them 
-sequentially, then you are out of luck. There is not much you can do. Engaging multiple OSTs 
+sequentially, then you are out of luck. 😭😭😭 There is not much you can do. Engaging multiple OSTs 
 for a single file is not useful at all in this case, and you will also have no parallelism from
 accessing multiple files that may be stored on different OSTs. The metadata operations may also
 be rather expensive compared to the cost of reading the file once opened.
@@ -433,7 +433,7 @@ for a file or directory.
 Let us first look at setting a striping policy at the directory level:
 
 ```
-$ module use /appl/local/training/modules/2day-20240502
+$ module use /appl/local/training/modules/2p3day-20250303
 $ module load lumi-training-tools
 $ mkdir testdir
 $ lfs setstripe -S 2m -c 4 testdir
