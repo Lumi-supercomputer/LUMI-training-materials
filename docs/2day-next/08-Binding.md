@@ -921,6 +921,10 @@ to run MPI applications with optimal efficiency.**
   ![Slide Task distribution with Slurm (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/SlurmTaskDistribution_2.png){ loading=lazy }
 </figure>
 
+<figure markdown style="border: 1px solid #000">
+  ![Slide Task distribution with Slurm (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/SlurmTaskDistribution_3.png){ loading=lazy }
+</figure>
+
 The Slurm `srun` command offers the `--distribution` option to influence the distribution of 
 tasks across nodes (level 1), sockets or NUMA domains (level 2 and sockets or NUMA) or 
 even across cores in the socket or NUMA domain (third level). The first level is the most useful level,
@@ -944,16 +948,36 @@ The [general form of the `--distribution` option](https://slurm.schedmd.com/arch
         -   With `pack` the first node in the allocation is first filled up as much as possible, then the
             second node, etc.
 
+            E.g., with 10 quarter node sized tasks (32 cores on LUMI-C) spread across 3 nodes,
+            this option would put tasks 0, 1, 2 and 3 on the first node, tasks 4, 5, 6 and 7 on 
+            the second node, and tasks 8 and 9 on the third (tasks are numbered from 0).
+
         -   With `nopack` a more balanced approach is taken filling up all nodes as equally as possible.
             In fact, the number of tasks on each node will correspond to that of the `cyclic` distribution,
             but the task numbers will be different.
 
+            E.g., with 10 quarter node tasks (32 cores on LUMI-C) spread across 3 nodes,
+            this option would put tasks 0, 1, 2 and 3 on the first node, 4, 5 and 6 on the second and 
+            7, 8 and 9 on the third.
+
     -   `cyclic` assigns the tasks in a round-robin fashion to the nodes of the allocation. The first task
         is allocated to the first node, then the second one to the second node, and so on, and when all nodes
-        of the allocation have received one task, the next one will be allocated again on the first node. 
+        of the allocation have received one task, the next one will be allocated again on the first node.
+
+        E.g., with 10 quarter node tasks (32 cores on LUMI-C) spread across 3 nodes,
+        task 0 would be put on the first node, task 1 on the second, task 2 on the third, 
+        task 3 again on the first node, etc., resulting in
+        tasks 0, 3, 6 and 9 on the first node, tasks 1, 4 and 7 on the second node and
+        tasks 2, 5 and 8 on the third node.
 
     -   `plane=<size>` is a combination of both of the former methods: Blocks of `<size>` consecutive tasks
         are allocated in a cyclic way. 
+
+        E.g., with 10 quarter node tasks (32 cores on LUMI-C) spread across 3 nodes,
+        task 0 and 1 would be put on the first node, then tasks 2 and 3 on the second, tasks 4 and 5
+        on the third, tasks 6 and 7 again on the first and finally tasks 8 and 9 on the second node,
+        resulting in tasks 0, 1, 6 and 7 on the first node, tasks 2, 3, 8 and 9 on the second node
+        and tasks 4 and 5 on the third node.
 
 -   Level 2: Here we are distributing and pinning the tasks assigned to a node at level 1 across the sockets
     and cores of that node.
@@ -989,7 +1013,43 @@ while `--distribution=block` has the same effect as `--distribution=block:block`
 ## Task-to-CPU binding with Slurm
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Task-to-CPU binding with Slurm](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/SlurmTaskCPU.png){ loading=lazy }
+  ![Slide Task-to-CPU binding with Slurm: Why?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/SlurmTaskCPUWhy.png){ loading=lazy }
+</figure>
+
+In the [Session on the LUMI architecture](01-Architecture.md),
+we've seen that a LUMI compute node has a very hierarchical structure with 8 L3 cache domains
+per socket (the CCDs), each socket basically subdivided in 4 NUMA domains, and 2 sockets in the
+CPU nodes. The GPU nodes added further complexity: Each GPU is really two GCDs that should be
+treated as independent GPUs for most practical issues, except that, e.g., power cap is per
+package and not per GCD. Moreover, each GCD has its favoured CCD to which it is connected,
+and these connections can be important to get good performance of CPU-to-GPU communication.
+And each LUMI-G node also has 4 network interface cards, each connected to a separate GPU,
+so each CCD and each GCD also has a "best network interface" to maximise inter-node 
+communication.
+
+For these reasons, it is often important to distribute tasks and threads correctly over
+the system. And unfortunately, there is no way that works best for every application and
+every scenario. 
+
+For example, for memory performance reasons, you may want to bundle all threads of
+a task in a single L3 cache domain, a single NUMA domain or a single socket. In a hybrid
+MPI/OpenMP application it may be interesting to size each task to an L3 cache domain or
+a NUMA node for optimal performance. And for very memory bandwidth intensive applications,
+underpopulating cores may actually give you better performance for the same number of nodes,
+but then you need to carefully select the cores that will remain unpopulated to benefit most
+from cache and memory bandwidth.
+
+In some cases, you may have a shared memory code that is very NUMA-aware but cannot use
+all cores efficiently because of memory bandwidth requirements or memory capacity requirements
+(simply needing more GB per core than LUMI can provide). In this case, you may 
+want to spread out the threads as much as possible to have a maximal memory bandwidth.
+
+On LUMI-G, proper mapping of CCDs, GCDs and network interfaces can be very important for
+good performance. The easiest way here is often to reorder the tasks across the CCDs 
+in a non-trivial way to have an easy way to select the GPU for each task.
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Task-to-CPU binding with Slurm: How?](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/SlurmTaskCPUHow.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
@@ -1018,7 +1078,8 @@ Task-to-CPU binding is controlled through the Slurm option
 We'll describe a few of the possibilities for the `<type>` parameter but for a more concrete overview
 we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_cpu-bind)
 
--   `--cpu-bind=threads` is the default behaviour on LUMI.
+-   `--cpu-bind=threads` is the default behaviour on LUMI. Tasks will be allocated a number
+    of hardware threads and be bound to them.
 
 -   `--cpu-bind=map_cpu:<cpu_id_for_task_0>,<cpu_id_for_task_1>, ...` is used when tasks are bound to single
     cores. The first number is the number of the hardware thread for the task with local task ID 0, etc. 
@@ -1029,7 +1090,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeGNU-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeGNU-24.03
     srun --ntasks=8 --cpu-bind=map_cpu:49,57,17,25,1,9,33,41 mpi_check -r
     ```
 
@@ -1052,7 +1113,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.1-cpeGNU-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeGNU-24.03
     srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000 hybrid_check -r
     ```
 
@@ -1074,7 +1135,8 @@ sometimes is to carefully map onto L3 cache domains for performance.
     the next one to core 1, etc. A 1-bit indicates that the corresponding virtual core can be used
     while a 0-bit indicates that it cannot be used. 
 
-    Consider the mask `1111000001011010`. For readability, we split it up in groups of 4 from right to left: 
+    Consider the mask `1111000001011010`. For readability, we split it up in groups of 4
+    from right to left (and read vertically for the core numbers): 
 
     <table style="border-collapse: collapse; border: none;">
       <tbody style="border: none;">
@@ -1193,7 +1255,7 @@ sometimes is to carefully map onto L3 cache domains for performance.
     </tbody>
     </table>
 
-    So our mask `1111000001011010` is more conveniently written as `f05a` of `F05A`:
+    So our mask `1111000001011010` is more conveniently written as `f05a` or `F05A`:
 
     <table style="border-collapse: collapse; border: none;">
       <tbody style="border: none;">
@@ -1363,7 +1425,6 @@ sometimes is to carefully map onto L3 cache domains for performance.
     So basically this mask means that we are creating slots for 8 tasks that each use 6 cores on a single 
     CCD (cores 1 till 6), in the order CCD 6, CCD 7, CCD 2, CCD 3, CCD 0, CCD 1, CCD 4 and CCD 5.
 
-    
 
 ## Task-to-GPU binding with Slurm
 
@@ -1433,7 +1494,11 @@ IPC used by Cray MPICH for intro-node MPI transfers if GPU aware MPI support is 
 ## MPI rank redistribution with Cray MPICH
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide MPI rank redistribution with Cray MPICH](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/MPICHRankRedistribution.png){ loading=lazy }
+  ![Slide MPI rank redistribution with Cray MPICH (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/MPICHRankRedistribution1.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide MPI rank redistribution with Cray MPICH (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-08-Binding/MPICHRankRedistribution2.png){ loading=lazy }
 </figure>
 
 By default MPI rank *i* will use Slurm task *i* in a parallel job step. 
@@ -1496,7 +1561,7 @@ the same problem size (and hence same number of nodes and tasks).
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
     
     set -x
     echo -e "\nSMP-style distribution on top of block."
@@ -1819,7 +1884,7 @@ can also be used to check the OpenMP thread binding.
     #SBATCH --hint=multithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.1-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
     
     set -x
     export OMP_NUM_THREADS=4
@@ -2977,17 +3042,16 @@ resources allocated via the `sbatch` arguments (usually `#SBATCH` lines), and re
 
 ## Further material
 
--   Distribution and binding is discussed in more detail in our
-    [4-day comprehensive LUMI courses](https://lumi-supercomputer.github.io/LUMI-training-materials/comprehensive-latest).
-    Check for the lecture on "Advanced Placement" which is usually
-    given on day 2 of the course.
+-   Another presentation on distribution and binding can be found in the pre-2025
+    4-day comprehensive courses, e.g., the 
+    ["Advanced Placement" talk in the course in Amsterdam in October 2024](../4day-20241028/extra_2_01_Advanced_Application_Placement.md)
 
     Material of this presentation is available to all LUMI users on the system. Check the course
     website for the names of the files.
 
 -   Rank reordering in Cray MPICH is discussed is also discussed in more detail in our
-    [4-day comprehensive LUMI courses](https://lumi-supercomputer.github.io/LUMI-training-materials/comprehensive-latest),
-    but in the lecture on "MPI Topics on the HPE Cray EX Supercomputer" (often on day 3 of the course)
+    [comprehensive LUMI courses](https://lumi-supercomputer.github.io/LUMI-training-materials/comprehensive-latest),
+    but in the lecture on "MPI Topics on the HPE Cray EX Supercomputer"
     that discusses more advanced MPI on LUMI, including loads of environment variables that can be used to
     improve the performance.
 
