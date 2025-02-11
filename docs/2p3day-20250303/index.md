@@ -17,7 +17,7 @@ but are natural discussions.
     various types of data storage, and using containers which are essential for Python etc.
 
     This part of the course is largely equivalent to the previous 2-day intro courses in
-    [May 2024](../2day-20240502/index.md) and [December 2024](../2day-20241210/index.md).
+    [May 2024](../2day-20240502/index.md) and [December 2024](../2p3day-20250303/index.md).
 
 -   Days 3-5 of the course are at a more advanced level and focus on the needs of developers of
     software for LUMI and users who want to better understand the behaviour of applications they
@@ -94,6 +94,52 @@ People registering for the whole event have priority for on-site seating on day 
     Tickets can be bought using a credit card in the app. Physical cards are also available, but cost 50 SEK for the card, 
     plus extra for the tickets you put on it.  Credit cards can also be used with contactless pay as you go to buy a single.
 
+
+## Setting up for the exercises
+
+During the course, you can use the training project `project_465001726` for the exercises.
+After the course, it is still possible to make almost all exercises in your own project.
+They need only very little resources. The ["Object Storage" exercises](E204-ObjectStorage.md)
+in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project, so
+these exercises should really be made while the training project is still active. For the
+exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
+if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
+day).
+
+-   Create a directory in the scratch of your project, or if you want to
+    keep the exercises around for a while, in a subdirectory of your project directory 
+    or in your home directory (though we don't recommend the latter).
+    Then go into that directory.
+
+    E.g., in the scratch directory of your project:
+
+    ```
+    mkdir -p /scratch/project_465001726/course-20250303-$USER/exercises
+    cd /scratch/project_465001726/course-20250303-$USER/exercises
+    ```
+
+    where you have to replace `project_465001726` using the number of your own project.
+
+    If you have no other project on LUMI, you can also use the scratch of the
+    course project `project_465001726`. Do use a personal subdirectory as in the
+    following commands:
+
+    ```
+    mkdir -p /scratch/project_465001726/$USER/exercises
+    cd /scratch/project_465001726/$USER/exercises
+    ```
+
+
+-   Now download the exercises and un-tar:
+
+    ```
+    wget https://462000265.lumidata.eu/2p3day-20250303/files/exercises-20250303.tar.gz
+    tar -xf exercises-20250303.tar.gz
+    ```
+
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2p3day-20250303/files/exercises-20250303.tar.gz)
+
+-   You're all set to go!
 
 
 ## Course materials
