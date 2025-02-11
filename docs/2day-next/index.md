@@ -45,20 +45,30 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465001603/$USER/exercises
-    cd /scratch/project_465001603/$USER/exercises
+    mkdir -p /scratch/project_465001726/course-20250303/exercises
+    cd /scratch/project_465001726/course-20250303/exercises
     ```
 
-    where you have to replace `project_465001603` using the number of your own project.
+    where you have to replace `project_465001726` using the number of your own project.
+
+    If you have no other project on LUMI, you can also use the scratch of the
+    course project `project_465001726`. Do use a personal subdirectory as in the
+    following commands:
+
+    ```
+    mkdir -p /scratch/project_465001726/course-20250303-$USER/exercises
+    cd /scratch/project_465001726/course-20250303-$USER/exercises
+    ```
+
 
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20241210/files/exercises-20241210.tar.gz
-    tar -xf exercises-20241210.tar.gz
+    wget https://462000265.lumidata.eu/2p3day-20250303/files/exercises-20250303.tar.gz
+    tar -xf exercises-20250303.tar.gz
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20241210/files/exercises-20241210.tar.gz)
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2p3day-20250303/files/exercises-20250303.tar.gz)
 
 -   You're all set to go!
 
