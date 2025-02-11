@@ -33,7 +33,7 @@ to set up for the exercises.
         repeatedly to LUMI and then tries to find, e.g., a running server that it 
         created before.
 
-3.  Create a shell on a login node using the Open OnDemand web interface?
+3.  Create a shell on a login node using the Open OnDemand web interface.
   
     ??? Solution "Click to see the solution."
         -   Point your web browser to 
