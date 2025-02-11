@@ -1,6 +1,8 @@
 # LUMI-O object storage
 
 
+
+
 ## Why do I kneed to know this?
 
 <figure markdown style="border: 1px solid #000">
@@ -16,7 +18,7 @@ a single sftp connection can reach.
 
 Object storage is also a good technology if you want a backup of some of your data and
 want to make that backup on LUMI itself. The object storage is completely separate from 
-the regular storage of LUMI and hence offers additional security, though not as secure 
+the regular storage of LUMI and hence offers additional data safety, though not as safe 
 as if you would make a backup at a different compute centre.
 
 In some research communities where cloud computing is more common, some datasets
@@ -94,7 +96,8 @@ Storage is persistent for the duration of a project.
 Projects get a quota of 150 TB and can create up to 1K buckets and 500K objects per
 bucket. These quota are currently fixed and cannot be modified.
 Storage on LUMI-O is billed at 0.5 TB·hour per TB per hour, half that of
-/scratch or /project. It can be a good alternative to store data from your project
+/scratch or /project and soon this will be lowered to 0.25 TB·hour per TB per hour
+to encourage a broader uptake. It can be a good alternative to store data from your project
 that still needs to be transferred but is not immediately needed by jobs, or to
 maintain backups on LUMI yourself.
 
@@ -169,7 +172,7 @@ storage, get its content, copy an object or delete an object. But contrary to a 
 in Lustre, the object cannot be modified: One cannot simply change a part of the content,
 but the object needs to be replaced with a new object.
 
-Some tools can do multipart uploads: An large object is uploaded in multiple parts (which
+Some tools (e.g., `s3cmd`) can do multipart uploads: An large object is uploaded in multiple parts (which
 can create more parallelism and hence have a higher combined bandwidth), but these parts
 are actually objects by themselves that are combined in a single object at the end.
 If the upload would get interrupted, the parts would actually continue to live as 
@@ -257,9 +260,11 @@ based Lustre filesystem is still not cheap and if you want a performant flash ba
 endure a high write load also and not only a high read load, it is very expensive. The LUMI-O hardware 
 is a lot cheaper, though this is also partly because it has a lower bandwidth.
 
-The billing units accounted for storage on LUMI reflect the purchase cost per petabyte for LUMI-O and 
+The billing units accounted for storage on LUMI originally reflect the purchase cost per petabyte for LUMI-O and 
 the Lustre filesystems, with the object storage billed at half the price of the hard disk based Lustre
 filesystems and the flash based Lustre filesystem at 10 times the cost of the hard disk based one.
+(These costs will be modified slightly in 2025 trying to better balance the load over the various
+storage options.)
 
 
 <figure markdown style="border: 1px solid #000">
@@ -402,7 +407,7 @@ Let's walk through the interface:
         LUMI-O requires path-style (https://projectnum.lumidata.eu/bucket) addressing to buckets. 
         The so-called virtual-hosted style (https://bucket.projectnum.lumidata.eu) is not supported.
         From a technical point of view, this is because the 
-        `*.lumidata.eu` wildcard TLS certificate can only represent one layer of subdomains
+        `*.lumidata.eu` wildcard TLS certificate can only represent one layer of subdomains,
         which is used for the project numbers.
 
         Many clients default to path-style addressing, but some will require a configuration option or an environment variable.
@@ -422,7 +427,7 @@ Let's walk through the interface:
     You can extend the life of an access key as often as you can, but it is not possible to create an access key that 
     remains valid for more than 168 hours. This is done for security reasons as now a compromised key can only be
     used for a limited amount of time, even if you haven't noticed that the access key has been compromised and hence
-    fail to invalidate the access key in the interface.
+    fail to revoke the access key in the interface.
 
     The credential management interface can also be used to generate snippets for configuration files for
     various tools:
@@ -442,6 +447,7 @@ Let's walk through the interface:
     `~/.config/rclone/rclone.conf`). Notice that it creates two so-called endpoints. In the slide
     this is `lumi-465001102-private` and `lumi-465001102-public`, for storing buckets and objects which are private
     or public (i.e., also web-accessible).
+    We'll come back to what this means later, when we discuss access rights.
 
 
 ### Credential management and access through Open OnDemand
