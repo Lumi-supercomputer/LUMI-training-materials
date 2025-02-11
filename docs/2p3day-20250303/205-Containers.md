@@ -38,14 +38,15 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 </figure>
 
 What is being discussed in this subsection may be a bit surprising.
-Containers are often marketed as a way to provide reproducible science and as an easy way to transfer
-software from one machine to another machine. However, containers are neither of those and this becomes 
+Containers are often **marketed as a way to provide reproducible science and as an easy way to transfer
+software** from one machine to another machine. However, **containers are neither of those** and this becomes 
 very clear when using containers build on your typical Mellanox/NVIDIA InfiniBand based clusters with
 Intel processors and NVIDIA GPUs on LUMI. This is only true if you transport software between 
 sufficiently similar machines (which is why they do work very well in, e.g., the management nodes
 of a cluster, or a server farm).
 
-First, computational results are almost never 100% reproducible because of the very nature of how computers
+First, **exact reproducibility is a myth.**
+Computational results are almost never 100% reproducible because of the very nature of how computers
 work. If you use any floating point computation, you can only expect reproducibility of sequential codes 
 between equal hardware. As soon as you change the
 CPU type, some floating point computations may produce slightly different results, and as soon as you go parallel
@@ -57,7 +58,7 @@ and reproduce results that fall within expected error margins for the computatio
 reproducing a lab experiment where, e.g., each measurement instrument introduces errors.
 The only thing that containers do reproduce very well, is your software stack. But not without problems:
 
-Containers are certainly not performance portable unless they have been designed to run optimally on a range of hardware
+Containers are certainly **not performance portable** unless they have been specifically designed to run optimally on a range of hardware
 and your hardware falls into that range. E.g., without proper support for the
 interconnect it may still run but in a much slower mode. But one should also realise that speed gains in the x86
 family over the years come to a large extent from adding new instructions to the CPU set, and that two processors
@@ -69,8 +70,8 @@ Many HPC sites try to build software as much as possible from sources to exploit
 possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
 investment represents 32 million EURO and a lot of science can be done for that money...
 
-But even full portability is a myth, even if you wouldn't care much about performance (which is already a bad
-idea on an infrastructure as expensive as LUMI). Containers are really only guaranteed to be portable between similar systems.
+But even **basic portability is a myth**, even if you wouldn't care much about performance (which is already a bad
+idea on an infrastructure as expensive as LUMI). Containers are really **only guaranteed to be portable between similar systems.**
 When well built, they are more portable than just a binary as you may be able to deal with missing or different libraries
 in the container, but that is where it ends. Containers are usually built for a particular CPU architecture and GPU
 architecture, two elements where everybody can easily see that if you change this, the container will not run. But 
@@ -80,8 +81,8 @@ kernel. Those can be a problem. A container that is not build to support the Sli
 TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
 intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.
 
-So the "bring your own userland and run it on a system-optimised kernel" idea that proponents of containers promote,
-has two major flaws
+So the **"bring your own userland and run it on a system-optimised kernel"** idea that proponents of containers promote,
+has **two major flaws**
 
 1.  Every set of userland libraries comes with certain expectations for kernel versions, kernel drivers and their 
     versions, etc. If these expectations are not met, the container may not work at all or may work inefficiently.
@@ -413,6 +414,8 @@ that are either based on containers or help you run software with containers.
 
 ### Bindings for singularity
 
+#### `singularity-bindings/system`
+
 The **`singularity-bindings/system`** module which can be installed via EasyBuild
 helps to set `SINGULARITY_BIND` and `SINGULARITY_LD_LIBRARY_PATH` to use 
 Cray MPICH. Figuring out those settings is tricky, and sometimes changes to the
@@ -441,31 +444,26 @@ the `singularity-bindings` module
 (or by just manually setting the proper environment variables).
 
 
-### VNC container
+#### `singularity-AI-bindings`
 
-The second tool is a container that we provide with some bash functions
-to start a VNC server as one way to run GUI programs and as an alternative to 
-the (currently more sophisticated) VNC-based GUI desktop setup offered in Open OnDemand
-(see the ["Getting Access to LUMI notes"](103-Access.md#access)).
-It can be used in `CrayEnv` or in the LUMI stacks through the
-[**`lumi-vnc`** module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/). 
-The container also
-contains a poor men's window manager (and yes, we know that there are sometimes
-some problems with fonts). It is possible to connect to the VNC server either
-through a regular VNC client on your PC or a web browser, but in both cases you'll
-have to create an ssh tunnel to access the server. Try
+A second module helping with bindings, is the 
+[**`singularity-AI-bindings`**](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-AI-bindings/) module.
+It is available as an EasyConfig if you want to install it where it works best for you,
+or you can access it after 
 
 ```
-module help lumi-vnc
+module use /appl/local/containers/ai-modules
 ```
 
-for more information on how to use `lumi-vnc`.
+This module provides bindings to some system libraries and to the regular file systems
+for some of the AI containers that are provided on LUMI. The module is in no way a
+generic module that will also work properly for containers that you pull, e.g., from
+Docker!
 
-For most users, the Open OnDemand web interface and tools offered in that interface will
-be a better alternative.
 
+### Build tools for Conda and Python
 
-### cotainr: Build Conda containers on LUMI
+#### cotainr: Build Conda containers on LUMI
 
 <figure markdown style="border: 1px solid #000">
   ![Environment enhancements (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-205-Containers/ContainersEnvironmentEnhancement_2.png){ loading=lazy }
@@ -499,7 +497,7 @@ before.
     [ROCm<sup>TM</sup> containers that we provide](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/). 
 
 
-### Container wrapper for Python packages and conda
+#### Container wrapper for Python packages and conda
 
 The fourth tool is a container wrapper tool that users from Finland may also know
 as [Tykky](https://docs.csc.fi/computing/containers/tykky/) (the name on their national systems). 
@@ -634,6 +632,34 @@ We will not raise your file quota if it is to house such installation in your `/
     -   [Tykky page in the CSC documentation](https://docs.csc.fi/computing/containers/tykky/) 
 
 
+### Pre-build containers: VNC
+
+<figure markdown style="border: 1px solid #000">
+  ![Environment enhancements (3)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-205-Containers/ContainersEnvironmentEnhancement_3.png){ loading=lazy }
+</figure>
+
+The fifth tool is a container that we provide with some bash functions
+to start a VNC server as one way to run GUI programs and as an alternative to 
+the (currently more sophisticated) VNC-based GUI desktop setup offered in Open OnDemand
+(see the ["Getting Access to LUMI notes"](103-Access.md#access)).
+It can be used in `CrayEnv` or in the LUMI stacks through the
+[**`lumi-vnc`** module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-vnc/). 
+The container also
+contains a poor men's window manager (and yes, we know that there are sometimes
+some problems with fonts). It is possible to connect to the VNC server either
+through a regular VNC client on your PC or a web browser, but in both cases you'll
+have to create an ssh tunnel to access the server. Try
+
+```
+module help lumi-vnc
+```
+
+for more information on how to use `lumi-vnc`.
+
+For most users, the Open OnDemand web interface and tools offered in that interface will
+be a better alternative.
+
+
 ### Pre-built AI containers
 
 <figure markdown style="border: 1px solid #000">
@@ -652,8 +678,9 @@ That module sets the `SINGULARITY_BIND` environment variable
 to ensure proper bindings (as they need, e.g., the libfabric library from the system and the proper
 "CXI provider" for libfabric to connect to the Slingshot interconnect). The module will also provide
 an environment variable to refer to the container (name with full path) to make it easy to refer to
-the container in job scripts. Some of the modules also provide some scripts that may make using the containers easier in some standard scenarios. Alternatively, the user support team is also working
-on some modules for users who want to run the containers as manually as possible yet want an 
+the container in job scripts. Some of the modules also provide some scripts that may make using the containers easier in some standard scenarios. 
+Alternatively, the user support team also provides the `singularity-AI-bindings` module discussed above, 
+for users who want to run the containers as manually as possible yet want an 
 easy way to deal with the necessary bindings of user file systems and HPE Cray PE components needed
 from the system (see also [course materials for the AI training/workshop](https://lumi-supercomputer.github.io/AI-latest/)).
 
@@ -685,13 +712,12 @@ Yet to be able to properly use the containers, users do need to take care of som
 -   Some system directories and libraries have to be bound to the container:
 
     ```
-    -B /var/spool/slurmd,/opt/cray,/usr/lib64/libcxi.so.1,/usr/lib64/libjansson.so.4
+    -B /var/spool/slurmd,/opt/cray,/usr/lib64/libcxi.so.1
     ```
 
     The first one is needed to work together with Slurm. The second one contains the MPI and libfabric library.
     The third one is the actual component that binds libfabric to the Slingshot network adapter and is called 
-    the CXI provider, and the last one is a library that is needed by some LUMI system libraries but not (yet) in the
-    container.
+    the CXI provider.
     
 -   By default your home directory will be available in the container, but as your home directory is not your
     main workspace, you may want to bind your subdirectory in `/project`, `/scratch` and/or `/flash` also, using, e.g.,
@@ -703,7 +729,7 @@ Yet to be able to properly use the containers, users do need to take care of som
 There are also a number of components that may need further initialisation:
 
 -   The MIOpen library has problems with file/record locking on Lustre so some environment variables
-    are needed to move some work directories.
+    are needed to move some work directories to `/tmp`.
 
 -   RCCL needs to be told the right network interfaces to use as otherwise it tends to take the interface
     to the management network of the cluster instead and gets stuck.
@@ -759,7 +785,7 @@ from `$CONTAINERROOT`, it can be re-created using `unmake-squashfs` so that you 
 You can also use `/user-software` to install software in other ways from within the container and can
 basically create whatever subdirectory you want into it. 
 This is basically automating the procedure described
-in the ["Extending containers with virtual environments for faster testing" lecture](../ai-20241126/extra_07_VirtualEnvironments.md)
+in the ["Extending containers with virtual environments for faster testing" lecture](../ai-20250204/extra_07_VirtualEnvironments.md)
 or our AI training.
 
 These containers with pre-configured virtual environment offer another advantage also: The module injects a number
@@ -784,7 +810,7 @@ Installation is as simple as, e.g.,
 
 ``` bash
 module load LUMI partition/container EasyBuild-user
-eb PyTorch-2.2.0-rocm-5.6.1-python-3.10-singularity-20240315.eb
+eb PyTorch-2.3.1-rocm-6.0.3-python-3.12-singularity-20240923.eb
 ```
 
 Before running it is best to clean up (`module purge`) or take a new shell to avoid conflicts with 
@@ -798,6 +824,14 @@ module, the environment variable `SIF` contains the name with full path of the c
 After removing the container file from your personal software directory, you need to reload the container
 module and from then on, `SIF` will point to the corresponding container in 
 `/appl/local/containers/easybuild-sif-images`.
+So:
+
+```
+module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
+rm –f $SIF
+module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
+```
+
 We don't really recommend removing the container image though and certainly not if you are interested
 in reproducibility. We may remove the image in `/appl/local/containers/easybuild-sif-images`
 without prior notice if we notice that the container has too many problems, e.g., after a system
@@ -1014,17 +1048,14 @@ singularity exec \
     -B /var/spool/slurmd \
     -B /opt/cray \
     -B /usr/lib64/libcxi.so.1 \
-    -B /usr/lib64/libjansson.so.4 \
     -B $PWD:/workdir \
     $CONTAINER /workdir/run-pytorch.sh
 ```
 
 The important parts here are:
 
--   We start PyTorch via `srun` and this is recommended. The `torchrun` command is not supported 
-    on LUMI, as is any other process starter that can be found in AI software that uses ssh
-    to start processes on other nodes rather than going via the resource manager (with, e.g., 
-    `srun`).
+-   We start PyTorch via `srun` and this is recommended. The `torchrun` command has to be used with care
+    as not all its start mechanisms are compatible with LUMI.
 
 -   We also use a 
     particular CPU mapping so that each rank can use the corresponding GPU number (which is taken care of in the 
@@ -1071,7 +1102,7 @@ As the module also takes care of bindings, the job script is simplified to
 #SBATCH --account=project_<your_project_id>
 
 module load LUMI  # Which version doesn't matter, it is only to get the container.
-module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
 
 c=fe
 MYMASKS="0x${c}000000000000,0x${c}00000000000000,0x${c}0000,0x${c}000000,0x${c},0x${c}00,0x${c}00000000,0x${c}0000000000"
@@ -1098,7 +1129,7 @@ extend the containers that we provide:
   ![Extending containers with cotainr](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-205-Containers/ExtendingCotainr.png){ loading=lazy }
 </figure>
 
-The LUMI Software Library offers some [container images for ROCm<sup>TM</sup>](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/).
+The LUMI Software Library offers some [container images for ROCm(tm))](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/).
 Though these images can be used simply to experiment with different versions of ROCm, an important use of those images is as base images
 for the [cotainr tool](https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool)
 that supports Conda to install software in the container.
@@ -1176,17 +1207,20 @@ The `cotainr` command takes three arguments in this example:
     in this case the latest version of the ROCm 6.0.3 container provided on LUMI.
 
     This version was chosen for this case as ROCm 6.0.3 version corresponding to the driver
-    on LUMI at the time of writing (early December 2024), but with that driver we could also have
+    on LUMI at the time of writing (early February 2025), but with that driver we could also have
     chosen PyTorch versions that require ROCm 6.1 or 6.2.
 
 -   `--conda-env=py312_rocm603_pytorch.yml`: The YAML file with the environment definition.
 
 The result is a container for which you will still need to provide the proper bindings to some libraries on the system (to interface
-properly with Slurm and so that RCCL with the OFI plugin can work) and to your spaces in the file system that you want to use.
+properly with Slurm and so that RCCL with the OFI plugin can work) and to your spaces in the file system that you want to use. Use, e.g., `singularity-AI-bindings` which should work for many cases.
 Or you can adapt an EasyBuild-generated module for the ROCm container that you used to use your container instead (which will require
 the EasyBuild `eb` command flag `--sourcepath` to specify where it can find the container that you generated, and you cannot delete
-it from the installation afterwards). In the future, we may provide some other installable module(s) with generic bindings to use
-instead.
+it from the installation afterwards). 
+
+**Note that `cotainr` can build upon the ROCm(tm) containers that are provided on LUMI, but not
+upon containers that already contain a Conda installation. It cannot extend an existing Conda
+installation in a container.**
 
 
 ### Extending the container with the singularity unprivileged `proot` build 
@@ -1205,7 +1239,7 @@ To use this feature, you first need to write a singularity-compatible container 
 ```
 Bootstrap: localimage
 
-From: /appl/local/containers/easybuild-sif-images/lumi-pytorch-rocm-5.6.1-python-3.10-pytorch-v2.2.0-dockerhash-f72ddd8ef883.sif
+From: /appl/local/containers/easybuild-sif-images/lumi-pytorch-rocm-6.0.3-python-3.12-pytorch-v2.3.1-dockerhash-2c1c14cafd28.sif
 
 %post
 
@@ -1271,7 +1305,7 @@ environment variable to point to its name:
 
 ``` bash
 module load LUMI
-module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
 singularity shell $SIF
 ```
 
