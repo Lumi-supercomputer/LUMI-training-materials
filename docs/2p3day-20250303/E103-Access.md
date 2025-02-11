@@ -33,7 +33,7 @@ to set up for the exercises.
         repeatedly to LUMI and then tries to find, e.g., a running server that it 
         created before.
 
-3.  Create a shell on a login node using the Open OnDemand web interface?
+3.  Create a shell on a login node using the Open OnDemand web interface.
   
     ??? Solution "Click to see the solution."
         -   Point your web browser to 
@@ -57,7 +57,7 @@ to set up for the exercises.
             The "Desktop" app gives you a richer environment, but will also require
             billing units. Depending on the type of node that you use for this,
             this will require either CPU or GPU billing units, but more about 
-            that in the [session on Slurm](M07-Slurm.md) on day 2 of this course.
+            that in the [session on Slurm](M201-Slurm.md) on day 2 of this course.
 
 4.  Try to transfer a file from your desktop/laptop to your home directory via the Open OnDemand web interface.
 
