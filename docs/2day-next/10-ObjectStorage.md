@@ -95,9 +95,10 @@ It has a total capacity of 30 PB.
 Storage is persistent for the duration of a project.
 Projects get a quota of 150 TB and can create up to 1K buckets and 500K objects per
 bucket. These quota are currently fixed and cannot be modified.
-Storage on LUMI-O is billed at 0.5 TB·hour per TB per hour, half that of
-/scratch or /project and soon this will be lowered to 0.25 TB·hour per TB per hour
-to encourage a broader uptake. It can be a good alternative to store data from your project
+Storage on LUMI-O is billed at 0.25 TB·hour per TB per hour, reduced from the
+rate of 0.5 TB·hour per TB per hour used before 2025 (which better reflected the
+true cost) to encourage a broader uptake.
+It can be a good alternative to store data from your project
 that still needs to be transferred but is not immediately needed by jobs, or to
 maintain backups on LUMI yourself.
 
