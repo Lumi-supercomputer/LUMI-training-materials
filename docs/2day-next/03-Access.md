@@ -296,13 +296,17 @@ storage budget of the project.
     automatically after 30 days. This is not happening yet on LUMI, but will be activated if
     the scratch storage space starts to fill up.
 
-    Storing one TB for one hour on the flash based Lustre file system costs 10 TB-hour, also reflecting
-    the purchase cost difference of the systems.
+    Storing one TB for one hour on the flash based Lustre file system costs 3 TB-hour.
+    Before 2025 this was even 10 TB-hour to reflect the cost difference for this type of 
+    storage, but the rate has been reduced a bit to make the flash storage more attractive.
 
 4.  Permanent (for the duration of the project) storage on the hard disk based
     object filesystem.
 
-    Storing one TB for one hour on the object based file system costs 0.5 TB-hour.
+    Storing one TB for one hour on the object based file system costs 0.25 TB-hour.
+    Before 2025 this was 0.5 TB-hour as that reflected the cost difference with 
+    Lustre hard-disk based software, but the billing rate has been reduced to encourage
+    better use of this storage type.
 
 
 ### Quota
