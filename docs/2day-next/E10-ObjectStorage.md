@@ -664,7 +664,7 @@ course project.
 You do need a project on LUMI to make these exercises. Wherever we use
 `46YXXXXXX`, replace with the number of your project.
 
-1.  This exercise replaces the first two exercises made during the course.
+1.  This exercise replaces the first exercise made during the course.
     It is the first step in preparing the environment needed for exercise 3
     and later.
 
