@@ -31,7 +31,7 @@ Try to compile these programs using the programming environment of your choice.
     module load cpe/23.12
     ```
 
-    (but don't try this now or undo again by loading `cpe/25.03` twice or logging in again).
+    (but don't try this now or undo again by loading `cpe/24.03` twice or logging in again).
 
     So note that we do twice the same command as the first iteration does not always succeed to reload
     all modules in the correct version. Do not combine both lines into a single `module load` statement
@@ -260,4 +260,41 @@ on the login nodes and it will then contain just a single MPI rank.
     even needed to have the respective `PrgEnv-*` module loaded since the binaries
     will use a copy of the libraries stored in a default directory, though there have
     been bugs in the past preventing this to work with `PrgEnv-aocc`.
+
+??? Note "What about the `mpicc`, etc., compiler wrappers?"
+    The usual MPI compiler wrappers like `mpicc`, `mpicxx` or `mpifort`
+    are provided also. Though they will take care of linking with the MPI
+    libraries properly, they do not take care of linking with the BLAS libraries
+    and some other HPE CPE libraries that are linked in automatically when using
+    the CPE wrappers.
+
+    Moreover, when using the wrappers in the `PrgEnv-gnu` version of Cray MPICH, 
+    they don't understand the right names for the GCC compiler executables based on
+    which GCC module is loaded. As a result, when loading one of the `gcc-native` modules
+    which are now the standard GCC modules in the HPE Cray PE, they will run the system 
+    compiler instead, and you may get errors when trying to link or run with other libraries
+    that are properly compiled with the much newer GCC versions in the `gcc-native` modules.
+
+    Just try:
+
+    ```
+    module load PrgEnv-gnu
+    mpicc --version
+    ```
+
+    to see this issue when using a recent version of the programming environment (such as 
+    the 24.03 default version).
+
+    A workaround is to point the environment variable `MPICH_CC` to the correct GCC C compiler
+    executable. If you're making this exercise in the 24.03 version of the CPE (the default 
+    version when this exercise was last revised), you can use:
+
+    ```
+    module load PrgEnv-gnu
+    export MPICH_CC=gcc-13
+    mpicc --version
+    ```
+
+    Similarly, for C++ and Fortran, you'd have to point `MPICH_CXX` and `MPICH_FC` to the
+    correct versions of `g++` and `gfortran`.
 
