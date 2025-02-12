@@ -161,6 +161,6 @@ to set up for the exercises.
         shows a long help test telling you how to use this module (though it does assume some familiarity with how
         X11 graphics work on Linux).
 
-        Note that if there is only a single version on the system, as is the case for the course in May 2023,
+        Note that if there is only a single version on the system, as has been the case recently,
         the `module spider VNC` command without specific version or correct module name will already display the
         help information.
