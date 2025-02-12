@@ -133,11 +133,12 @@ day).
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2p3day-20250303/files/exercises-20250303.tar.gz
-    tar -xf exercises-20250303.tar.gz
+    wget https://462000265.lumidata.eu/2p3day-20250303/files/exercises-LUST-20250303.tar.bz2
+    tar -xf exercises-LUST-20250303.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2p3day-20250303/files/exercises-20250303.tar.gz)
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2p3day-20250303/files/exercises-LUST-20250303.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2p3day-20250303/files/exercises-LUST-20250303.tar.bz2).
 
 -   You're all set to go!
 
