@@ -22,7 +22,7 @@
 		You can use the `man taskset` command to see how the tool works.
 
 2.  Next we'll try a hybrid MPI/OpenMP program.
-    For this we will use the `hybrid_check` tool from the `lumi-CPEtools` module of the LUMI Software Stack. 
+    For this we will use the `hybrid_check` tool from the `lumi-CPEtools` module of the LUMI Software Library. 
 	This module is preinstalled on the system and has versions for all versions of the `LUMI` software stack
 	and all toolchains and partitions in those stacks.
 
@@ -39,7 +39,7 @@
 	#SBATCH --account=<project_id>      # Project for billing
 
 	module load LUMI/24.03
-	module load lumi-CPEtools/1.1-cpeGNU-24.03
+	module load lumi-CPEtools/1.2-cpeGNU-24.03
 
 	srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 	``` 
@@ -136,7 +136,17 @@ on LUMI (but remember that this will be more of you than you may expect)!
 		module load PrgEnv-cray
 		module load rocm/6.0.3
 		```
-		
+
+		Alternatively, you can build in the `LUMI/24.03` stack using the EasyBuild toolchain instead
+		of `PrgEnv-cray`:
+
+		```
+		module load LUMI/24.03 partition/G cpeCray
+		```
+
+		In this case, you do not need to load the ROCm module as it is loaded automatically by
+		`cpeCray/24.03` when working in `partition/G`.
+				
 		To build the code, use
 
 		```

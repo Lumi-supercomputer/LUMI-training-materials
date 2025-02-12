@@ -72,6 +72,14 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
         and see that (as expected from the name) we need to load `LUMI/24.03` and can then use it in any of the
         partitions.
 
+        Instead of using the `module spider` command, you could also have searched for `brotli` in the 
+        LUMI Software Guide and you would end up on the [Brotli page](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/b/Brotli/)
+        which shows that the package is pre-installed. 
+        In the ["Pre-installed modules (and EasyConfigs)" section of that page](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/b/Brotli/#pre-installed-modules-and-easyconfigs),
+        you can also see which modules are available. That list is slightly less reliable than using 
+        `module spider` as there may still be references to versions that used to be on the system
+        but are no longer as the programming environment cannot be properly supported.
+
 
 ## Installing software with EasyBuild
 
@@ -144,8 +152,10 @@ Install the software for the LUMI-C compute nodes.
         eb eb-tutorial-1.0.1-cpeCray-24.03.eb 
         ```
 
-    -   After this you should have a module `eb-tutorial/1.0.1-cpeCray-24.03` but it may not show up 
-        yet due to the caching of Lmod. Try
+        This may take a while as EasyBuild has erased the Lmod cache to ensure that the
+        new module can be found.
+
+    -   After this you should have a module `eb-tutorial/1.0.1-cpeCray-24.03`. Try
 
         ```
         module av eb-tutorial/1.0.1-cpeCray-24.03
@@ -180,7 +190,7 @@ Install the software for the LUMI-C compute nodes.
 Sometimes we have no solution ready in the LUMI Software Library, but we prepare one or more
 custom EasyBuild recipes for you. Let's mimic this case. In practice we would likely send 
 those as attachments to a mail from the ticketing system and you would be asked to put
-them in a separate directory (basically since putting them at the top of your home
+them in a separate directory (basically since putting them at the root of your home
 directory would in some cases let EasyBuild search your whole home directory for dependencies
 which would be a very slow process).
 
