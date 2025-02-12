@@ -121,3 +121,7 @@ materials are uploaded.
     -   [Main documentation](https://docs.lumi-supercomputer.eu/)
 
     -   [Shortcut to the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+
+    -   [LUMI AI guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) (Work-in-progress at the 
+        time of the course but already very useful.)
+

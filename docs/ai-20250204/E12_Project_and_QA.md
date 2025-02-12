@@ -9,6 +9,11 @@ you have learned during the workshop - with on-site support from LUST/AMD.
 <video src="https://462000265.lumidata.eu/ai-20250204/recordings/E12_Conclusions.mp4" controls="controls"></video>
 
 
+## Extra materials
+
+-   [LUMI AI guide pronmoted in the closing words](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
+
+
 ## General Q&A
 
 1.  Is there a prettier way to activate conda?
