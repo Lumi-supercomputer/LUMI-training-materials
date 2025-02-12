@@ -45,6 +45,8 @@ Exercises will be made available during the course
 
 -   Start with the [exercises on "Slurm on LUMI"](E07-Slurm.md)
 
+    You may want to postpone the advanced exercise a bit as that one takes a lot of time.
+
 -   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E08-Binding.md)
 
 
