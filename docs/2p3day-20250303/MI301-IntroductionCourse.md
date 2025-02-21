@@ -1,6 +1,6 @@
 # Introduction to the second part of the course
 
-*Presenter: Harvey Richardson (HPE) and Jørn Dietze (LUST)*
+*Presenter: Harvey Richardson (HPE) and Kurt Lust (LUST)*
 
 ## Materials
 

@@ -154,7 +154,7 @@ DAY 1
             16:55 CET
             <br/><em>17:55 EET</em>
         </td>
-        <td><b><a href="../MI102_WrapUpDay1">Wrap-up of the day</a></b> 
+        <td><b><a href="../MI102-WrapUpDay1">Wrap-up of the day</a></b> 
         </td>
     </tr>
     <tr>
@@ -333,7 +333,7 @@ DAY 3
             <br/><em>10:00 EET</em>
         </td>
         <td><b><a href="../MI301-IntroductionCourse/">Welcome and Introduction course part 2</a></b>
-        <br/><em>Presenters: Harvey Richardson (HPE) and Jørn Dietze (LUST)</em>
+        <br/><em>Presenters: Harvey Richardson (HPE) and Kurt Lust (LUST)</em>
         </td>
     </tr>
     <tr>
