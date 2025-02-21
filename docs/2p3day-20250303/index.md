@@ -52,22 +52,27 @@ People registering for the whole event have priority for on-site seating on day 
     central station (red metro line). See also the [SL web site](https://sl.se/en/in-english)
     for more information on public transportation in Stockholm.
 
--   [Draft schedule](schedule.md)
+-   [Schedule](schedule.md) (some speakers will change)
 
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-general-course-mar25?both)
+-->
 
--   During the course, there are two Slurm reservations available:
+-   During the course, there are several Slurm reservations available:
 
-    -   CPU nodes: `lumic_ams`
-    -   GPU nodes: `lumig_ams`
+    -   Day 2, for the Slurm exercises:
+        -   CPU nodes: `LUMI_intro_cpu` on the `small` partition
+        -   GPU nodes: `LUMI_intro_gpu ` on the `standard-g` partition
+    -   Day 3-5:
+        -   CPU nodes: `LUMI_advanced_cpu` on the `standard` partition
+        -   GPU nodes: `LUMI_advanced_gpu` on the `standard-g` partition
 
     They can be used in conjunction with the training project `project_465001726`.
 
     Note that the reservations and course project should only be used for making the exercises 
     during the course and not for running your own jobs. 
     The resources allocated to the course are very limited.
--->
+
 
 ## Travel
 
@@ -99,9 +104,18 @@ People registering for the whole event have priority for on-site seating on day 
 
 During the course, you can use the training project `project_465001726` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
-They need only very little resources. The ["Object Storage" exercises](E204-ObjectStorage.md)
+They need only very little resources, but you will need both CPU and GPU resources. 
+
+
+### Exercises on day 1 and day 2
+
+The ["Object Storage" exercises](E204-ObjectStorage.md)
 in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project, so
-these exercises should really be made while the training project is still active. For the
+these exercises should really be made while the training project is still active. 
+There is an [alternative set of exercises](E204-ObjectStorage.md#exercises-that-can-be-made-in-your-own-project) 
+missing only one element from the during-the-course 
+version that can be made in your own project.
+For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
 if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
 day).
@@ -114,8 +128,8 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465001726/course-20250303-$USER/exercises
-    cd /scratch/project_465001726/course-20250303-$USER/exercises
+    mkdir -p /scratch/project_465001726/course-20250303-$USER/Exercises/Intro
+    cd /scratch/project_465001726/course-20250303-$USER/Exercises/Intro
     ```
 
     where you have to replace `project_465001726` using the number of your own project.
@@ -125,8 +139,8 @@ day).
     following commands:
 
     ```
-    mkdir -p /scratch/project_465001726/$USER/exercises
-    cd /scratch/project_465001726/$USER/exercises
+    mkdir -p /scratch/project_465001726/$USER/Exercises/Intro
+    cd /scratch/project_465001726/$USER/Exercises/Intro
     ```
 
 
@@ -141,6 +155,78 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2p3day-20250303/files/exercises-LUST-20250303.tar.bz2).
 
 -   You're all set to go!
+
+
+### Exercises HPE presentations
+
+During the course, the exercises and instructions are available on LUMI in 
+`/project/project_465001726/Exercises/HPE`.
+
+-   Copy them to the directory where you make the exercises, e.g.,
+ 
+    ```
+    cd /scratch/project_465001726/course-20250303-$USER/Exercises
+    cp -r /project/project_465001726/Exercises/HPE HPE
+    ```
+
+-   Some exercises are themselves in tar files that you can unpack with `tar xf <file>.tar`
+    or `tar xf <file>.tar.gz`.
+
+-   Reservations are setup for use during the training (on LUMI-C and LUMI-G)
+
+    Use the following flags in the SLURM commands:
+
+    -   `-A project_465001726 --reservation=LUMI_advanced_cpu` 
+    -   `-A project_465001726 --reservation=LUMI_advanced_gpu` 
+
+-   To run the examples either use above options with sbatch/srun/salloc or you can also set SLURM
+    environment variables, e.g.
+    ```
+    export SLURM_ACCOUNT=project_465001726
+    export SLURM_RESERVATION=LUMI_advanced_gpu
+    ```
+    (to be repeated for variables with prefix `SLURM_`, `SBATCH_`, `SALLOC_`)
+
+-   For convenience, we provide a script to setup your environment (copy from /project/project_465001726/Exercises/HPE):
+
+    -   `source lumi_c.sh` for exercises on LUMI-C
+    -   `source lumi_g.sh` for exercises on LUMI-G
+
+    It will change the prompt accordingly, remember to run `exit` before you switch environment
+
+-   And yet another alternative is to use modules that we provide that do the same as the 
+    scripts, but don't change the prompt and don't put you in a new shell, so instead of 
+    using `exit`, you'd unload the module.
+
+    -   First add the modules to the module search path:
+        ```
+        module use /appl/local/training/modules/2p3day-20250303
+        ```
+
+    -   Then load the appropriate module:
+  
+         -   `module load exercises/advanced-C` for exercises on LUMI-C
+         -   `module load exercises/advanced-G` for exercises on LUMI-G
+  
+    -   And if you're finished or want to run outside the reservation, simply use
+        ```
+        module unload exercises
+        ```
+
+### Exercises AMD presentations
+
+During the course, the files needed for the exercises are available on LUMI in 
+`/project/project_465001726/Exercises/HPE`.
+The exercises themselves are in an online document linked to from the 
+exercise pages in the course materials.
+
+-   To copy the exercises to where you make the exercises, e.g.,
+ 
+    ```
+    cd /scratch/project_465001726/course-20250303-$USER/Exercises
+    cp -r /project/project_465001726/Exercises/AMD AMD
+    ```
+
 
 
 ## Course materials
@@ -241,6 +327,39 @@ downloaded from LUMI.
 <!--
 ## Making the exercises after the course
 
+### Intro
+
+The ["Object Storage" exercises](E204-ObjectStorage.md)
+in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project but there is an 
+[alternative set of exercises](E204-ObjectStorage.md#exercises-that-can-be-made-in-your-own-project) 
+missing only one element from the during-the-course 
+version that can be made in your own project.
+For the
+exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation.
+
+-   Create a directory in the scratch of your project, or if you want to
+    keep the exercises around for a while, in a subdirectory of your project directory 
+    or in your home directory (though we don't recommend the latter).
+    Then go into that directory.
+
+    E.g., in the scratch directory of your project:
+
+    ```
+    mkdir -p /scratch/project_46YXXXXXX/course-20250303-$USER/Exercises/Intro
+    cd /scratch/project_46YXXXXXX/course-20250303-$USER/Exercises/Intro
+    ```
+
+    where you have to replace `project_46YXXXXXX` using the number of your own project.
+
+-   Now install the exercise files:
+
+    ```
+    tar -xf /appl/local/training/2p3day-20250303/files/exercises-LUST-20250303.tar.bz2
+    ```
+
+-   You're all set to go!
+
+
 ### HPE
 
 The exercise material remains available in the course archive on LUMI:
@@ -251,19 +370,26 @@ The exercise material remains available in the course archive on LUMI:
     bzip2-compressed tar file `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar.bz2` or
     an uncompressed tar file `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar`.
 
-To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
+To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is 
+to go into the directory where you want to work on the exercises, e.g.,
+
+```
+cd /scratch/project_46YXXXXXX/course-20250303-$USER/
+```
+
+and then run:
 
 ```
 tar -xf /appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar.bz2
 ```
 
-in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
-from the training project. 
+This will create the `Exercises/HPE` subdirectory from the training project. 
 
 However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
 they set the course project as the active project for Slurm and also set a reservation, use the
-`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
+`lumi_c_after.sh` and `lumi_g_after.sh` scripts, but first edit them to use one of your
 projects.
+
 
 ### AMD 
 
@@ -279,19 +405,27 @@ an uncompressed tar file `/appl/local/training/2p3day-20250303/files/LUMI-2p3day
 ( [bzip2-compressed tar download](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2) or 
 [uncompressed tar download](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar))
 
-To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
+To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is 
+to go into the directory where you want to work on the exercises, e.g.,
+
+```
+cd /scratch/project_46YXXXXXX/course-20250303-$USER/
+```
+
+and then run:
 
 ```
 tar -xf /appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2
 ```
 
-in the directory where you want to work on the exercises. This will create the `exercises/AMD` subdirectory
-from the training project. You can do so in the same directory where you installed the HPE exercises.
+This will create the `Exercises/AMD` subdirectory from the training project. 
+You can do so in the same directory where you installed the HPE exercises.
 
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
 -->
+
 
 ## Links to documentation
 
