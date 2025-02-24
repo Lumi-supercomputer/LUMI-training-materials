@@ -269,7 +269,11 @@ an active project but therefore is also very limited in size.
 ### Per-project file spaces
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide File Spaces Project](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesProject.png){ loading=lazy }
+  ![Slide File Spaces Project (1)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesProject1.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide File Spaces Project (2)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-103-Access/FileSpacesProject2.png){ loading=lazy }
 </figure>
 
 Each project also has 4 permanent or semi-permanent file spaces that are all billed against the
@@ -280,6 +284,14 @@ storage budget of the project.
     for the project (as it is assumed that a project is a coherent amount of work it is only 
     natural to assume that everybody in the project needs the same software), or to store input data
     etc. that will be needed for the duration of the project.
+
+    In some cases (like in the Open OnDemand "Home Directory" app, see later in this session),
+    you will see the name `/projappl/project_46YXXXXXX` instead. This is for historical
+    reasons. The directory was first called `/projappl`, but that gave too much the 
+    impression that it should only be used for applications, and it was later changed
+    into `/project` which is more common on other systems. To avoid having to
+    rework too many management scripts, both now exist next to one another on 
+    LUMI, but it is the same file space.
 
     Storing one TB for one hour on the disk based Lustre file systems costs 1 TB-hour.
     As would storing 10 GB for 100 hours.
@@ -326,8 +338,10 @@ As we shall see later in this course (in the [section on Lustre](203-Lustre.md))
 or as you may have seen in other HPC courses already
 (e.g., the VSC [Supercomputers for Starters](https://klust.github.io/SupercomputersForStarters/) 
 course organised by UAntwerpen),
-parallel file systems are not built to deal with hundreds of thousands of small files and are
-very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
+most parallel file systems are not built to deal with hundreds of thousands of small files and are
+very inefficient at that.  
+This is certainly true for Lustre, the system that we have on LUMI.
+Therefore block quota on LUMI tend to be rather flexible (except for
 the home directory) but file quota are rather strict and will not easily get extended.
 Software installations that require tens of thousands of small files should be done in 
 containers (e.g., conda installations or any big Python installation) while data should also
@@ -341,8 +355,10 @@ capacity you can use, while file quota limit the number of so-called inodes you 
 each subdirectory and each link use an inode.
 As we shall see later in this course (in the [section on Lustre](203-Lustre.md))
 or as you may have seen in other HPC courses already,
-parallel file systems are not built to deal with hundreds of thousands of small files and are
-very inefficient at that. Therefore block quota on LUMI tend to be rather flexible (except for
+most parallel file systems are not built to deal with hundreds of thousands of small files and are
+very inefficient at that. 
+This is certainly true for Lustre, the system that we have on LUMI.
+Therefore block quota on LUMI tend to be rather flexible (except for
 the home directory) but file quota are rather strict and will not easily get extended.
 Software installations that require tens of thousands of small files should be done in 
 containers (e.g., conda installations or any big Python installation) while data should also
@@ -354,8 +370,7 @@ In the above slide, the "Capacity" column shows the block quota
 and the "Files" column show the total number of so-called inodes available in the file space.
 
 The project file spaces can be expanded in capacity within the limits specified.
-However, as big parallel file systems are very bad at handling lots of small files
-(see also the [session on Lustre](203-Lustre.md)), the files quota (or more accurately
+However, due to the many small files problem on Lustre, the files quota (or more accurately
 inode quota) are rather strict and not easily raised (and if raised, not by an order
 of magnitude).
 
@@ -469,6 +484,10 @@ Web links:
 
 -   [Overview of storage systems on LUMI](https://docs.lumi-supercomputer.eu/storage/)
 -   [Billing policies (includes those for storage)](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#storage-billing)
+-   Example for data archiving services: In the Netherlands, SURF provides the
+    [SURF Data Archive](https://www.surf.nl/en/services/data-archive) and 
+    [SURF Data Repository](https://www.surf.nl/en/services/surf-data-repository) services.
+
 
 ## Access
 
@@ -685,6 +704,10 @@ bandwidth that can be reached over the connection. LUMI is not to blame for that
 the whole path from the system from which you initiate the connection to LUMI
 is responsible and every step adds to the latency. We've seen many cases where the
 biggest contributor to the latency was actually the campus network of the user.
+And it is the very nature of a TCP connection that the effective bandwidth over
+a link becomes lower the higher the latency is. So the solution is to go to
+data transfer methods that use multiple TCP connections to get the full bandwidth
+of the connection.
 
 <!-- BELGIUM
 The second important option is to **transfer data via the object storage system LUMI-O**.
@@ -698,7 +721,7 @@ There also exist many GUI clients to access object storage.
 Even though in principle any tool that can connect via the S3 protocol can work,
 the LUMI User Support Team nor the local support in Belgium can give you instructions
 for every possible tool. 
-Those tools for accessing object storage tend to set up multiple data streams and hence
+Those tools for accessing object storage **tend to set up multiple data streams** and hence
 will offer a much higher effective bandwidth, even on high latency connections.
 END BELGIUM -->
 
@@ -713,7 +736,7 @@ and [S3cmd](https://s3tools.org/s3cmd).
 There also exist many GUI clients to access object storage. 
 Even though in principle any tool that can connect via the S3 protocol can work,
 the LUMI User Support Team cannot give you instructions for every possible tool. 
-Those tools for accessing object storage tend to set up multiple data streams and hence
+Those tools for accessing object storage **tend to set up multiple data streams** and hence
 will offer a much higher effective bandwidth, even on high latency connections.
 <!-- END GENERAL -->
 
@@ -737,7 +760,8 @@ Using the LUMI-O object storage will be further discussed in the
 ["LUMI-O Object Storage" session of this course](204-ObjectStorage.md).
 
 <!-- BELGIUM
-Unfortunately there is no support yet for Globus or other forms of gridFTP. 
+Unfortunately there is no support yet for Globus or other forms of gridFTP,
+another technology that sets up multiple connections to improve the effective bandwidth. 
 LUST offers a [recipe to install the UNICORE UFTP client](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/)
 if you have access to a UFTP server (still popular in Germany), but neither LUST nor local 
 Belgian support teams can offer true support for that either as
@@ -746,7 +770,8 @@ they have no access to such server. How to work with these recipes, is discussed
 END BELGIUM -->
 
 <!-- GENERAL -->
-Unfortunately there is no support yet for Globus or other forms of gridFTP. 
+Unfortunately there is no support yet for Globus or other forms of gridFTP,
+another technology that sets up multiple connections to improve the effective bandwidth. 
 We do have a [recipe to install the UNICORE UFTP client](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/)
 if you have access to a UFTP server, but cannot offer true support for that either as
 LUST has no access to such server. How to work with these recipes, is discussed in the
