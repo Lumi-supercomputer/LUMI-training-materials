@@ -816,7 +816,7 @@ always detect changes to the installed software,
 Sometimes you may have to clear the cache also if you get very strange answers from 
 `module spider`. It looks like the non-standard way in which the HPE Cray Programming
 Environment does certain things in Lmod can cause inconsistencies in the cache.
-This is also one of the reasons whey we do not yet have a central cache for that 
+This is also one of the reasons why we do not yet have a central cache for that 
 software that is installed in the central stacks as we are not sure when that cache is
 in good shape.
 
