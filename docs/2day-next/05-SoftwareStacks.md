@@ -516,7 +516,8 @@ the extension `.eb`.
 
 The typical steps in an installation process are:
 
-1.  Downloading sources and patches. For licensed software you may have to provide the sources as
+1.  Downloading and unpacking sources and applying patches. 
+    For licensed software you may have to provide the sources as
     often they cannot be downloaded automatically.
 2.  A typical configure - build - test - install process, where the test process is optional and
     depends on the package providing useable pre-installation tests.
@@ -909,9 +910,9 @@ eb --search VASP
 will tell you for which versions of VASP LUMI provides EasyBuild recipes, but you will still have
 to download the source file that the EasyBuild recipe expects. 
 Put it somewhere in a directory, and then from that
-directory run EasyBuild, for instance for VASP 6.4.2 with the GNU compilers:
+directory run EasyBuild, for instance for VASP 6.5.0 with the GNU compilers:
 ```bash
-eb VASP-6.4.2-cpeGNU-23.09-build02.eb –r . 
+eb VASP-6.5.0-cpeGNU-24.03-build02.eb –r . 
 ```
 
 ### More advanced work (2): Repositories
