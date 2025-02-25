@@ -231,8 +231,8 @@ high performance from the interconnect. For example,
 Also, the LUMI user support team is **too small to do all software installations** which is why LUMI currently
 states in its policy that a LUMI user should be capable of installing their software themselves or have
 another support channel. The LUST cannot install every single piece of often badly documented research-quality
-code that was never meant to be used by people who don't understand the code. Again some help is possible 
-at the Belgian level but our resources are also limited.
+code that was never meant to be used by people who don't understand the code. 
+Your national organisation may also be able to provide some help, but not all countries offer such service on LUMI.
 
 Another soft compatibility problem that I did not yet mention is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
@@ -516,7 +516,8 @@ the extension `.eb`.
 
 The typical steps in an installation process are:
 
-1.  Downloading sources and patches. For licensed software you may have to provide the sources as
+1.  Downloading and unpacking sources and applying patches. 
+    For licensed software you may have to provide the sources as
     often they cannot be downloaded automatically.
 2.  A typical configure - build - test - install process, where the test process is optional and
     depends on the package providing useable pre-installation tests.
@@ -909,9 +910,9 @@ eb --search VASP
 will tell you for which versions of VASP LUMI provides EasyBuild recipes, but you will still have
 to download the source file that the EasyBuild recipe expects. 
 Put it somewhere in a directory, and then from that
-directory run EasyBuild, for instance for VASP 6.4.2 with the GNU compilers:
+directory run EasyBuild, for instance for VASP 6.5.0 with the GNU compilers:
 ```bash
-eb VASP-6.4.2-cpeGNU-23.09-build02.eb –r . 
+eb VASP-6.5.0-cpeGNU-24.03-build02.eb –r . 
 ```
 
 ### More advanced work (2): Repositories
