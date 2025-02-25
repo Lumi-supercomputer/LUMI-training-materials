@@ -141,7 +141,7 @@ noticeable downtime. Client and server also communicate through a web-based API.
 ***Organisation of data***
 
 The organisation of data is also very different on Lustre and LUMI-O. 
-Lustre, although very different of the local filesystem(s) on your laptop or smartphone
+Lustre, although very different from the local filesystem(s) on your laptop or smartphone
 or more traditional networked filesystems common for networks of PCs or workstations,
 uses the same organisation of data as those filesystems. Data is organised in files
 stored in a hierarchical directory structure. In fact, Lustre behaves as much as possible
@@ -186,7 +186,7 @@ big objects.
 
 ***Optimised for?***
 
-Lustre is optimised first and for most for bandwidth to the compute nodes when doing
+Lustre is optimised first and formost for bandwidth to the compute nodes when doing
 large file I/O operations from multiple nodes to a file. This optimisation for performance
 also implies that simpler schemes for redundancy have to be used. Data is protected from
 a single disk failure and on most systems even from dual disk failure, but performance
@@ -261,11 +261,11 @@ based Lustre filesystem is still not cheap and if you want a performant flash ba
 endure a high write load also and not only a high read load, it is very expensive. The LUMI-O hardware 
 is a lot cheaper, though this is also partly because it has a lower bandwidth.
 
-The billing units accounted for storage on LUMI originally reflect the purchase cost per petabyte for LUMI-O and 
+The billing units accounted for storage on LUMI originally reflected the purchase cost per petabyte for LUMI-O and 
 the Lustre filesystems, with the object storage billed at half the price of the hard disk based Lustre
 filesystems and the flash based Lustre filesystem at 10 times the cost of the hard disk based one.
-(These costs will be modified slightly in 2025 trying to better balance the load over the various
-storage options.)
+These costs were modified slightly in early 2025 trying to better balance the load over the various
+storage options.
 
 
 <figure markdown style="border: 1px solid #000">
@@ -583,7 +583,7 @@ Let us now again walk through the interface.
       ![Slide Browsing through Open OnDemand (4)](https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODBrowse_04.png){ loading=lazy }
     </figure>
 
-    The top bar now shows `lumi-465000095-public:/training-materials-web/intro-evolving.files/` while we also get a list
+    The top bar now shows `lumi-465000095-public:/training-materials-web/intro-evolving/files/` while we also get a list
     of elements that look like files. These are the objects, but don't be mistaken: The name of the first object in the 
     list is not `exercises-evolving.tar`, but it is the object named 
     `intro-evolving/files/exercises-evolving.tar` in the bucket `training-materials-web` in the project `46500095`.
