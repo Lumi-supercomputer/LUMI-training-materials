@@ -1160,21 +1160,21 @@ YAML file `py312_rocm603_pytorch.yml` with content
 ``` yaml
 name: py312_rocm603_pytorch.yml
 channels:
-- conda-forge
+  - conda-forge
 dependencies:
-- filelock=3.15.4
-- fsspec=2024.9.0
-- jinja2=3.1.4
-- markupsafe=2.1.5
-- mpmath=1.3.0
-- networkx=3.3
-- numpy=2.1.1
-- pillow=10.4.0
-- pip=24.0
-- python=3.12.3
-- sympy=1.13.2
-- typing-extensions=4.12.2
-- pip:
+  - filelock=3.15.4
+  - fsspec=2024.9.0
+  - jinja2=3.1.4
+  - markupsafe=2.1.5
+  - mpmath=1.3.0
+  - networkx=3.3
+  - numpy=2.1.1
+  - pillow=10.4.0
+  - pip=24.0
+  - python=3.12.3
+  - sympy=1.13.2
+  - typing-extensions=4.12.2
+  - pip:
     - --extra-index-url https://download.pytorch.org/whl/rocm6.0/
     - pytorch-triton-rocm==3.0.0
     - torch==2.4.1+rocm6.0
