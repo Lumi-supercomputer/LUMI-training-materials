@@ -1,0 +1,4562 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/204-ObjectStorage/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>LUMI-O object storage - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 192h176V0h-16C71.6 0 0 71.6 0 160zm0 32v128c0 88.4 71.6 160 160 160h64c88.4 0 160-71.6 160-160V224H0m384-32v-32C384 71.6 312.4 0 224 0h-16v192z"/></svg>');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M78.6 5c-9.5-7.4-23-6.5-31.6 2L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4H158l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192 158v-54.1c0-7.5-3.5-14.5-9.4-19zM19.9 396.1C7.2 408.8 0 426.1 0 444.1 0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7zM512 144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7L352 176c-8.8 0-16-7.2-16-16v-57.4c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0c-79.5 0-144 64.5-144 144v.8l85.3 85.3c36-9.1 75.8.5 104 28.7l15.7 15.7c49-23 83-72.8 83-130.5M56 432a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32 0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9-1.9 24.5-11.4 46.3-21.4 62.9-5.5 9.2-11.1 16.6-15.2 21.6-2.1 2.5-3.7 4.4-4.9 5.7-.6.6-1 1.1-1.3 1.4l-.3.3c-4.6 4.6-5.9 11.4-3.4 17.4s8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3 22.9-10 42.4-21.9 54.3-30.6 31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64m128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64m96 32a32 32 0 1 1 64 0 32 32 0 1 1-64 0"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M320 0c17.7 0 32 14.3 32 32v64h120c39.8 0 72 32.2 72 72v272c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72h120V32c0-17.7 14.3-32 32-32M208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16zM264 256a40 40 0 1 0-80 0 40 40 0 1 0 80 0m152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80M48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48m544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224z"/></svg>');--md-admonition-icon--audience:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M72 88a56 56 0 1 1 112 0 56 56 0 1 1-112 0m-8 157.7c-10 11.2-16 26.1-16 42.3s6 31.1 16 42.3v-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5V416c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112h32c24 0 46.2 7.5 64.4 20.3zM448 416v-21.5c20-24.7 32-56.2 32-90.5 0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176h32c61.9 0 112 50.1 112 112 0 44.7-26.2 83.2-64 101.2V416c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32m8-328a56 56 0 1 1 112 0 56 56 0 1 1-112 0m120 157.7v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128m-80 272c0 16.2 6 31 16 42.3v-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zm64 42.3c0 44.7-26.2 83.2-64 101.2V448c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32v-42.8c-37.8-18-64-56.5-64-101.2 0-61.9 50.1-112 112-112h32c61.9 0 112 50.1 112 112"/></svg>');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M234.7 42.7 197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1 14.1 37.7c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0l381.3-381.4c18.7-18.7 18.7-49.1 0-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9 0zM484.6 82.6l-105 105-23.3-23.3 105-105zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L64 96zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352z"/></svg>');--md-admonition-icon--seealso:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6 31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5 50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5l112.2-112.3c31.5-31.5 82.5-31.5 114 0 27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0z"/></svg>');--md-admonition-icon--technical:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M160 96a96 96 0 1 1 192 0 96 96 0 1 1-192 0m80 152v264l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32h30.3c63.6 0 125.6 19.6 177.7 56m32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32v203c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3z"/></svg>');--md-admonition-icon--intermediate:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9V320c0 28.4-10.8 57.7-22.3 80.8-6.5 13-13.9 25.8-22.5 37.6-3.2 4.3-4.1 9.9-2.3 15s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7.3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7-3.2-14.2-7.5-28.7-13.5-42v-24.6c0-30.2 10.2-58.7 27.9-81.5 12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5.8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1l280.6-101c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1c-7.6-2.7-15.6-4.1-23.7-4.1M128 408c0 35.3 86 72 192 72s192-36.7 192-72l-15.3-145.4L354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6l-142.2-51.4z"/></svg>');--md-admonition-icon--advanced:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M219.3.5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9V160c0 70.7-57.3 128-128 128S96 230.7 96 160v-57.1l-48-9.6v65.1l15.7 78.4c.9 4.7-.3 9.6-3.3 13.3S52.8 256 48 256H16c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4V86.6C6.5 83.3 0 74.3 0 64c0-11.4 8.1-21.3 19.3-23.5zM111.9 327.7c10.5-3.4 21.8.4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5 65 20.9 112 81.7 112 153.6 0 17-13.8 30.7-30.7 30.7H30.7C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6"/></svg>');--md-admonition-icon--lumi-be:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M48 0C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h96v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v80h96c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm16 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16M448 0c-17.7 0-32 14.3-32 32v480h64V192h144c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16H480c0-17.7-14.3-32-32-32"/></svg>');--md-admonition-icon--nice-to-know:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M297.2 248.9c14.4-20.6 22.8-45.7 22.8-72.9 0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9 3.7 5.3 8.1 11.3 12.8 17.7 12.9 17.7 28.3 38.9 39.8 59.8 10.4 19 15.7 38.8 18.3 57.5l-48.7.1c-2.2-12-5.9-23.7-11.8-34.5-9.9-18-22.2-34.9-34.5-51.8-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176 16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3-5 7.2-10.2 14.3-15.4 21.4-12.3 16.8-24.6 33.7-34.5 51.8-5.9 10.8-9.6 22.5-11.8 34.5h-48.6c2.6-18.7 7.9-38.6 18.3-57.5 11.5-20.9 26.9-42.1 39.8-59.8 4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48 0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80 8.8 0 16 7.2 16 16s-7.2 16-16 16m0 384c-44.2 0-80-35.8-80-80v-16h160v16c0 44.2-35.8 80-80 80"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/neoteroi-mkdocs.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+  
+      
+
+    
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", function(ev) {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
+    
+    
+
+  
+  
+  
+    
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMI training materials - LUMI-O object storage" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/204-ObjectStorage/" />
+  <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@LUMIhpc" />
+  <meta name="twitter:creator" content="@LUMIhpc" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI-O object storage" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+
+  <style>
+    [data-md-color-primary="lumi"] {
+      --md-primary-fg-color: hsla(0, 0%, 100%, 1);
+      --md-primary-fg-color--light: hsla(0, 0%, 100%, 0.7);
+      --md-primary-fg-color--dark: hsla(0, 0%, 0%, 0.07);
+      --md-primary-bg-color: hsla(0, 0%, 0%, 0.87);
+      --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+      --md-button-bg-color: hsla(207,100%,28%, 1);
+      --md-button-bg-color--light: hsla(207,100%,38%, 1);
+      --md-typeset-a-color: hsla(207,100%,28%, 1);
+    }
+    
+    [data-md-color-accent="lumi"] {
+      --md-accent-fg-color: hsla(0,0%,0%, 1);
+      --md-accent-fg-color--transparent: hsla(0,0%,0%, 0.1);
+      --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+      --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    }
+  </style>
+
+  
+
+
+  
+  
+
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/extra-50959fdd9a.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
+    />
+    <link
+      rel="stylesheet"
+      id="typekit-fonts-css"
+      href="https://use.typekit.net/nlo5lta.css?ver=5.5.3"
+      type="text/css" media="all"
+    />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lumi" data-md-color-accent="lumi">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lumi-o-object-storage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LUMI-O object storage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    User Updates
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Updates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202409/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    August-September 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            August-September 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202409/202409_FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202409/202409_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    October-November 2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    August 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            August 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Low-noise mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dev-g and eap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Responsible use
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    User Coffee Breaks
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Coffee Breaks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI intensive March 2025
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI intensive March 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20250204/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI workshop February 2025
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop February 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250204/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250204/index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20241210/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI December 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI December 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20241210/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20241210/index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20241028/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced LUMI October 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced LUMI October 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20241028/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20241028/index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20241014/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hackathon October 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon October 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20241009/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling October 2024
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling October 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../paow-20240611/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Performance Analysis & Optimization June 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Performance Analysis & Optimization June 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20240611/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20240611/index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Partner courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Partner courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20241126/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI workshop November 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop November 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20241126/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20241126/index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20240502/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI May 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI May 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20240502/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20240502/index.html#course-materials" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20240529/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI workshop May 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_3" id="__nav_12_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop May 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20240529/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20240423/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI April 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_4" id="__nav_12_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_4">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI April 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20240423/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20240208/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day February 2024
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_5" id="__nav_12_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_5">
+            <span class="md-nav__icon md-icon"></span>
+            1-day February 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/A01_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling November 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_6">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling November 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20231003/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI October 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_7">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI October 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230921/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day September 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_8" id="__nav_12_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_8">
+            <span class="md-nav__icon md-icon"></span>
+            1-day September 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230530/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI May-June 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_9">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI May-June 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230509/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1-day May 2023
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_10" id="__nav_12_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_10">
+            <span class="md-nav__icon md-icon"></span>
+            1-day May 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercises 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hackathon April 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_11">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon April 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Profiling April 2013
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_12">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling April 2013
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230214/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI February 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_13">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI February 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_14" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI-G January 2023
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_14">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G January 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_15" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PEAP-Q November 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_15" id="__nav_12_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_15">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q November 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schedule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_16" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    LUMI-G August 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_16" id="__nav_12_16_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_16">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G August 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hackmd notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_17" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    EasyBuild May 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_17" id="__nav_12_17_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_17">
+            <span class="md-nav__icon md-icon"></span>
+            EasyBuild May 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_18" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PEAP-Q April 2022
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_18" id="__nav_12_18_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_18">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q April 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hackmd notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LUMI Software Stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-kneed-to-know-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do I kneed to know this?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-short-what-is-lumi-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      In short: What is LUMI-O?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-comparison-between-lustre-and-lumi-o" class="md-nav__link">
+    <span class="md-ellipsis">
+      A comparison between Lustre and LUMI-O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-lumi-o-general-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing LUMI-O: General principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing LUMI-O: General principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-credential-management-web-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      The credential management web interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credential-management-and-access-through-open-ondemand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential management and access through Open OnDemand
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-lumi-o-tools-through-a-command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring LUMI-O tools through a command line interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-and-object-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bucket and object names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policies-and-acls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policies and ACLs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policies and ACLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sharing data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips &amp; tricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-lumi-o-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further LUMI-O documentation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lumi-o-object-storage">LUMI-O object storage<a class="headerlink" href="#lumi-o-object-storage" title="Permanent link">&para;</a></h1>
+<h2 id="why-do-i-kneed-to-know-this">Why do I kneed to know this?<a class="headerlink" href="#why-do-i-kneed-to-know-this" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Why know..." loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/WhyKnow.png" /></p>
+</figure>
+<p>Most LUMI users will be unfamiliar with object storage. 
+It is a popular storage technology in the cloud, with Amazon AWS S3 as the best known example.</p>
+<p>On LUMI, the LUMI-O object storage system is probably the best option to transfer data to and
+from LUMI. Tools for object storage access often reach a much higher bandwidth than
+a single sftp connection can reach.</p>
+<p>Object storage is also a good technology if you want a backup of some of your data and
+want to make that backup on LUMI itself. The object storage is completely separate from 
+the regular storage of LUMI and hence offers additional data safety, though not as safe 
+as if you would make a backup at a different compute centre.</p>
+<p>In some research communities where cloud computing is more common, some datasets
+may come in cloud-optimised formats, i.e., formats optimised for object storage.
+Putting such data on the parallel file system without completely changing the 
+data format is usually not a good idea.</p>
+<p>In this section of the notes, we will discuss the properties of object storage
+and show you how to get started. It is by no means meant as a reference manual
+for all tools that one can use.</p>
+<h2 id="in-short-what-is-lumi-o">In short: What is LUMI-O?<a class="headerlink" href="#in-short-what-is-lumi-o" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide What is LUMI-O (1)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOWhatIs_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide What is LUMI-O (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOWhatIs_2.png" /></p>
+</figure>
+<!-- BELGIUM 
+LUMI-O is an object storage system (based on Ceph). 
+It is similar to a system that CSC, the company operating LUMI, built for users of Finland
+and is known there as Allas, though LUMI doesn't provide all the functionality of Allas.
+-->
+
+<!-- GENERAL More general version -->
+<p>LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
+Allas, which is similar to the LUMI object storage system, though LUMI doesn't provide all
+the functionality of Allas.</p>
+<!-- END more general version. -->
+
+<p>Object file systems need specific tools to access data. They are usually not mounted as a regular
+filesystem (though some tools can make them appear as a regular file system) and accessing them
+needs authentication via temporary authentication keys that are different from your ssh keys and are not only
+bound to you, but also to the project for which you want to access LUMI-O. So if you want to use
+LUMI-O for multiple projects simultaneously, you'll need authentication keys for each project.</p>
+<p>Object storage is not organised in files and directories. A much flatter structure is used with buckets
+that contain objects:</p>
+<ul>
+<li>
+<p><strong>Projects</strong>: LUMI-O works with "single user tenants/accounts", where the LUMI project number
+    is both the tenant/account and LUMI-O project. So the individual users in a LUMI project
+    are not know on LUMI-O and all users in a LUMI project have the same access to LUMI-O.</p>
+</li>
+<li>
+<p><strong>Buckets</strong>: Containers used to store one or more objects. Object storage uses a flat structure with 
+   only one level which means that buckets cannot contain other buckets.</p>
+</li>
+<li>
+<p><strong>Objects</strong>: Any type of data. An object is stored in a bucket.</p>
+</li>
+<li>
+<p><strong>Metadata</strong>: Both buckets and objects have metadata specific to them. 
+    One element of the metadata is the name of the bucket or object. But metadata
+    can also contains the access rights to the bucket or object.
+    While traditional file systems have fixed metadata (filename, 
+    creation date, type, etc.), an object storage allows you to add custom metadata
+    in the form of (key, value) pairs.</p>
+</li>
+</ul>
+<p>Objects can be served on the web also. This is in fact how recordings of some of the LUST
+courses are served currently. However, LUMI-O is not meant to be used as a data publishing
+service and is not an alternative to services provided by, e.g., EUDAT or several local
+academic service providers.</p>
+<p>The object storage can be easily reached from outside LUMI also with full access 
+control (and without webbrowsers). In fact, during
+downtimes, LUMI-O is often still operational as its software stack is managed completely
+independently from LUMI. It is therefore also very well suited as a mechanism for data
+transfer to and from LUMI. Moreover, tools for object storage often perform much better
+on high latency long-distance connections than tools as <code>sftp</code>.</p>
+<p>LUMI-O is based on the <a href="https://ceph.io/en/">Ceph object file system</a>. 
+It has a total capacity of 30 PB. 
+Storage is persistent for the duration of a project.
+Projects get a quota of 150 TB and can create up to 1K buckets and 500K objects per
+bucket. These quota are currently fixed and cannot be modified.
+Storage on LUMI-O is billed at 0.25 TB·hour per TB per hour, reduced from the
+rate of 0.5 TB·hour per TB per hour used before 2025 (which better reflected the
+true cost) to encourage a broader uptake.
+It can be a good alternative to store data from your project
+that still needs to be transferred but is not immediately needed by jobs, or to
+maintain backups on LUMI yourself.</p>
+<h2 id="a-comparison-between-lustre-and-lumi-o">A comparison between Lustre and LUMI-O<a class="headerlink" href="#a-comparison-between-lustre-and-lumi-o" title="Permanent link">&para;</a></h2>
+<p>Or: What are the differences between a parallel filesystem and object storage?</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Lustre vs LUMI-O (1)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LustreVsLUMIO_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Lustre vs LUMI-O (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LustreVsLUMIO_2.png" /></p>
+</figure>
+<p><strong><em>Integration with the system</em></strong></p>
+<p>The Lustre parallel filesystem is very closely integrated in LUMI. In fact, it is the only
+non-local filesystem that is served directly to the compute nodes. Other remote filesystems
+on the Cray architecture are served via DVS, Data Virtualisation Service, a service that 
+forwards requests to the actual filesystem services running on management nodes. HPE Cray
+does this to minimise the number of OS daemons running in the background. Client software
+on the compute and login nodes must also fairly closely match the server software on 
+the actual Lustre servers. As a result of all this, the Lustre software has to be updated
+with all other system software on LUMI and, e.g., the Lustre filesystems are not available
+when LUMI is down for maintenance. </p>
+<p>The LUMI-O object storage system on the other hand, 
+is a separate system, though located physically fairly close to LUMI. Its software setup
+is completely independent from the software on the LUMI supercomputer itself. It has 
+a regular TCP/IP connection to LUMI, but all other software to access data on LUMI-O from
+LUMI runs entirely in user space. Client software also hardly depends on the version of the
+Ceph server software as the protocol between both is fairly stable. As a result, upgrades
+of LUMI do not affect LUMI-O and vice-versa, so LUMI-O is almost always available even when
+LUMI is down. Moreover, the server software of LUMI-O can often be upgraded on-the-fly, without
+noticeable downtime. Client and server also communicate through a web-based API.</p>
+<p><strong><em>Organisation of data</em></strong></p>
+<p>The organisation of data is also very different on Lustre and LUMI-O. 
+Lustre, although very different from the local filesystem(s) on your laptop or smartphone
+or more traditional networked filesystems common for networks of PCs or workstations,
+uses the same organisation of data as those filesystems. Data is organised in files
+stored in a hierarchical directory structure. In fact, Lustre behaves as much as possible
+as other classical shared filesystems: Data written on one compute node is almost immediately
+noticed on other compute nodes also. (In fact, this is also the main cause of performance
+problems for some operations on Lustre.)</p>
+<p>These files can be read, written, modified and/or appended, and deleted. So one can change 
+only a fraction of the data in the file without working on the other data, and different
+compute nodes can write to different parts of a file simultaneously.</p>
+<p>The object storage system puts data as objects in buckets, and buckets are on a 
+per-project basis. So there is basically a 3-level hierarchy: project, buckets and
+objects, with each level just a flat space. Bucket names have to be unique within a project,
+and object names have to be unique within a bucket.</p>
+<p>Buckets cannot contain other buckets (contrary to directories which can contain other
+directories). Objects are not really arranged in a hierarchy, even though some tools
+make it appear as if this is the case by showing them in a directory tree-like 
+structure based on slashes used un the name of the objects, 
+but this structure is really just created based on those names
+and you will notice that structuring 
+the objects like this in a view is actually a rather expensive operation in client software
+as the software always needs to go through all objects in the bucket and select the appropriate
+ones.</p>
+<p>Objects are managed through simple atomic operations. One can put an object in the object
+storage, get its content, copy an object or delete an object. But contrary to a file 
+in Lustre, the object cannot be modified: One cannot simply change a part of the content,
+but the object needs to be replaced with a new object.</p>
+<p>Some tools (e.g., <code>s3cmd</code>) can do multipart uploads: An large object is uploaded in multiple parts (which
+can create more parallelism and hence have a higher combined bandwidth), but these parts
+are actually objects by themselves that are combined in a single object at the end.
+If the upload would get interrupted, the parts would actually continue to live as 
+separate objects unless a suitable bucket policy is set
+(and we have run into issues already with a user depleting their quota on LUMI-O with
+stale objects from failed multipart uploads).
+The configuration that the LUMI-O tools generate for <code>s3cmd</code> enables multipart uploads of 
+big objects.</p>
+<p><strong><em>Optimised for?</em></strong></p>
+<p>Lustre is optimised first and formost for bandwidth to the compute nodes when doing
+large file I/O operations from multiple nodes to a file. This optimisation for performance
+also implies that simpler schemes for redundancy have to be used. Data is protected from
+a single disk failure and on most systems even from dual disk failure, but performance
+will be reduced during a disk repair action and even though the server functions are usually
+done in high availability pairs, we have seen more than one case where a server pair fails
+making part of the data inaccessible.</p>
+<p>The LUMI-O object storage is much more optimised for reliability and resilience. It uses a very
+complicated internal redundancy scheme. On LUMI-O each object is spread over 11 so-called
+storage nodes, spread over at least 6 racks, with never more than 2 storage nodes in a single
+rack. As only 8 storage nodes of an object are needed to recover the data of an object, one 
+can even lose an entire rack of hardware while keeping the object available.</p>
+<p><strong><em>Access</em></strong></p>
+<p>Lustre, as it is fully integrated in LUMI (or any other supercomputer that uses it),
+has no separate authentication. You log on to LUMI and you have access to files on the
+Lustre file system based on permissions: your userid and the linux group(s) that you belong to.
+You will see your files as on any other POSIX file system. No external access is possible
+and it depends completely on the authentication system of LUMI running and working properly.</p>
+<p>The LUMI-O object storage works with a separate credentials-based authentication system. 
+These credentials have to be created first in one of two ways that we will discus later
+and they have a very finite lifetime after which they need to be regenerated (when expired)
+or extended (if you do so before expiration).</p>
+<p>In fact, in LUMI-O, projects are handled as so-called "single user tenants/accounts": 
+the project numerical ID (e.g., 465000001) is both the tenant/account name and project
+name. LUMI-O will not further distinguish between the users in a LUMI project. 
+Hence it is definitely not an option to make a backup from your home directory in a way
+that it would be secured from access by other users in your LUMI project.</p>
+<p>LUMI-O clients and servers talk to each other via a web based API. There is a whole range
+of tools for all popular operating systems that support this API, both command line tools
+and GUI tools. In this world, external access is natural. 
+There is really no difference in accessing LUMI-O from LUMI or from any other
+internet-connected computer. It is even possible to access LUMI-O via a web browser
+if such access is set up properly. It is documented in the bottom parts of the
+<a href="https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#sharing-data-with-other-projects">"Advanced usage of LUMI-O" page in the LUMI docs</a>.</p>
+<p><strong><em>MDS and ODS</em></strong></p>
+<p>Both Lustre and the Ceph object storage system work with metadata servers (MDS) and object data servers (ODS),
+but this is where the similarities end. The internal organisation of MDS and ODS is 
+completely different in both, but those differences are not that important at the
+level of this tutorial.</p>
+<p><strong><em>Parallelism is key to performance</em></strong></p>
+<p>Both Lustre and LUMI-O require parallel access to get the optimal performance. How that parallelism is best organised,
+is very different though.</p>
+<p>Lustre will perform best when large accesses are made to large files by multiple processes preferably on 
+multiple nodes of the supercomputer. Parallelism through accessing different files from each process will
+be far less performant and may even lead to an overload on the metadata servers.</p>
+<p>The object storage is different in that respect: As operations on objects are atomic, they should
+also be accessed from a single process. But multiple processes or threads should access multiple 
+objects simultaneously for optimal access. However, even in those cases the bandwidth will be 
+somewhat limited as the network connection between LUMI-O and LUMI is a lot less as between
+the Lustre object data servers and the LUMI compute nodes, as both are fully integrated in the
+same high performance interconnect.</p>
+<p><strong><em>Cost</em></strong></p>
+<p>The hardware required for Lustre may not be as expensive as for some other fileservers, but a hard disk
+based Lustre filesystem is still not cheap and if you want a performant flash based filesystem that can
+endure a high write load also and not only a high read load, it is very expensive. The LUMI-O hardware 
+is a lot cheaper, though this is also partly because it has a lower bandwidth.</p>
+<p>The billing units accounted for storage on LUMI originally reflected the purchase cost per petabyte for LUMI-O and 
+the Lustre filesystems, with the object storage billed at half the price of the hard disk based Lustre
+filesystems and the flash based Lustre filesystem at 10 times the cost of the hard disk based one.
+These costs were modified slightly in early 2025 trying to better balance the load over the various
+storage options.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Lustre vs LUMI-O (3)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LustreVsLUMIO_3.png" /></p>
+</figure>
+<p>The differences between a parallel file system and object storage also translate into differences
+in "file formats" between both (with "file formats" between quotes as we cannot speak about files on
+the object storage). The best way of managing life data on both systems is very different.</p>
+<p>Take as an example <a href="https://www.unidata.ucar.edu/software/netcdf/">netCDF</a> versus the 
+<a href="https://guide.cloudnativegeo.org/zarr/intro.html">zarr data format</a>. 
+Both are popular in, e.g., earth and climate science.
+NetCDF is a file format developed specifically with supercomputers with large parallel file systems
+in mind, while zarr is a cloud-optimised technology. 
+You cannot work with netCDF files from an object storage system as they would be stored as a single
+object and only atomic operations are possible.
+Zarr on the other hand is a format to store large-scale N-dimensional data on an object storage
+system by breaking it up in a structured set of objects that each can be accessed with atomic 
+operations. But if you bring that hierarchy of objects as individual files onto a parallel file system,
+you risk creating problems with the metadata server as you will be dealing with lots of small files.</p>
+<p>There is no "best" here: both are different technologies, developed with a specific purpose in mind,
+and which one you should use is hence dictated by the technology that you want to use to store your
+data. </p>
+<h2 id="accessing-lumi-o-general-principles">Accessing LUMI-O: General principles<a class="headerlink" href="#accessing-lumi-o-general-principles" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Accessing LUMI-O" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOAccessing.png" /></p>
+</figure>
+<p>Access to LUMI-O is based on temporary credentials that need to be generated via 
+one of two web interfaces: Either a dedicated credential management portal,
+or the Open OnDemand interface to LUMI that we discussed in the 
+<a href="../103-Access/">"Getting access" session</a>. 
+We will discuss both options in this chapter of the notes.</p>
+<p>There are currently three command-line tools pre-installed on LUMI
+to transfer data back and forth between LUMI and LUMI-O: 
+<a href="https://docs.lumi-supercomputer.eu/storage/lumio/#rclone">rclone</a>
+(which is the easiest tool if you want both public web-accessible and private data), 
+<a href="https://docs.lumi-supercomputer.eu/storage/lumio/#s3cmd">s3cmd</a> 
+and <a href="https://docs.lumi-supercomputer.eu/storage/lumio/#restic">restic</a>.
+All these tools are made available through the <code>lumio</code> module that can
+be loaded in any software stack.</p>
+<p>The <a href="https://pypi.org/project/boto3/"><code>boto3</code> Python package</a> 
+is a good choice if you need programmatic access to
+the object storage. Note that you need to use fairly recent versions which in turn
+require a more recent Python than the system Python on LUMI (but any of the <code>cray-python</code>
+modules would be sufficient). As it is better to containerize Python installations with
+many packages on LUMI, and as most users also prefer to work with virtual environments,
+it is not pre-installed on LUMI as it would be impossible to embed it into the Cray
+Python distributions.</p>
+<p>But you can also access LUMI-O with similar tools from outside LUMI. Configuring them
+may be a bit tricky and the LUMI User Support Team cannot help you with each and every client
+tool on your personal machine. However, the dedicated credential management web interface
+can also generate code snippets or configuration file snippets for various tools, and
+that will make configuring them a lot easier.</p>
+<p>There also exist GUI-based tools for all popular operating systems. Almost every tool
+suitable for AWS S3 storage should also work for LUMI-O when properly configured.</p>
+<p>The Open OnDemand web interface also has a tool to show buckets and objects on LUMI-O
+in a folder-like structure (created based on object "names" with slashes) and can be
+used to upload and download objects, but it is not a substitute for the specific tools
+for object storage. When you upload or download via the web browser, you don't talk directly
+to LUMI-O, but you use a web browser that talks to the web server using web APIs, with all
+performance limitations of those protocols, and the web server then talks to LUMI-O.</p>
+<h3 id="the-credential-management-web-interface">The credential management web interface<a class="headerlink" href="#the-credential-management-web-interface" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Credential management web interface" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialWebOverview.png" /></p>
+</figure>
+<p>One way to create the credentials to access LUMI-O, is via the
+the credential management web interface that can be found at
+<a href="https://auth.lumidata.eu">auth.lumidata.eu</a>.
+This system runs independently from LUMI, just as the object storage 
+itself, and usually remains available during downtimes of LUMI.
+So even though you may prefer creating credentials via Open OnDemand, it
+is good to learn to use this system as it can still give you access to your 
+data on LUMI-O while LUMI is down for maintenance.</p>
+<p>Let's walk through the interface:</p>
+<div class="admonition demo">
+<p class="admonition-title">A walk through the credentials management web interface of LUMI-O</p>
+<p>After entering the URL <a href="https://auth.lumidata.eu">auth.lumidata.eu</a>, you're presented
+with a welcome screen on which you have to click the "Go to login" button.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface (1)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebCreate_01.png" />
+</figure></p>
+<p>This will present you with the already familiar (from Open OnDemand) screen to select
+your authentication provider:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebCreate_02.png" />
+</figure></p>
+<p>Proceed with login in through your relevant authentication provider (not shown here)
+and you will be presented with a screen that show your active projects:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface (3)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebCreate_03.png" />
+</figure></p>
+<p>Click the project for which you want to generate access credentials (called "authentication keys"
+or "access keys" in the interface), and the column to the right will appear.
+Chose how long the authentication key should be valid (1 week or 168 hours is the maximum currently, but the
+life can be extended) and a description for the authentication key. The latter is useful if you generate multiple
+keys for different use. E.g., for security reasons you may want to use different authentication keys from different
+machines so that one machine can be disabled quickly if the machine would be compromised or stolen.</p>
+<p>Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface (4)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebCreate_04.png" />
+</figure></p>
+<p>Now click on the key to get more information about the key: </p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface: Check credentials" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebCheck.png" />
+</figure></p>
+<p>At the top of the screen you see three elements that will be important if you use the LUMI command line tool
+<code>lumio-conf</code> to generate configuration files for <code>rclone</code> and <code>s3cmd</code>: the project number (but you knew that one),
+the "Access key" and "Secret key". The access key and secret key will also be needed if you configure other clients,
+e.g., a GUI client on your laptop, by hand. The other bit of information that is useful if you configure tools by hand,
+is the endpoint URL, which is "https://lumidata.eu/" and is not shown in the interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note: One more configuration parameter</p>
+<p>LUMI-O requires path-style (https://projectnum.lumidata.eu/bucket) addressing to buckets. 
+The so-called virtual-hosted style (https://bucket.projectnum.lumidata.eu) is not supported.
+From a technical point of view, this is because the 
+<code>*.lumidata.eu</code> wildcard TLS certificate can only represent one layer of subdomains,
+which is used for the project numbers.</p>
+<p>Many clients default to path-style addressing, but some will require a configuration option or an environment variable.
+Commonly used parameters and environment variables are <code>use_path_style</code>, <code>force_path_style</code>
+or <code>S3_FORCE_PATH_STYLE</code>. Notably <code>aws-sdk</code> defaults to trying virtual-hosted style when reading public buckets.</p>
+<p>Note that we can only give hints on how to do things, but the LUMI User Support Team cannot support any
+possible client and certainly not commercial ones to which we cannot get access.</p>
+</div>
+<p>Scrolling down a bit more:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface: Extending the life span of a key" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebExtend.png" />
+</figure></p>
+<p>The "Extend key" field can be used to extend the life of the key, to a maximum of 168 hours past the current time.
+You can extend the life of an access key as often as you can, but it is not possible to create an access key that 
+remains valid for more than 168 hours. This is done for security reasons as now a compromised key can only be
+used for a limited amount of time, even if you haven't noticed that the access key has been compromised and hence
+fail to revoke the access key in the interface.</p>
+<p>The credential management interface can also be used to generate snippets for configuration files for
+various tools:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface: Configuring tools (1)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebToolConfig_01.png" />
+</figure></p>
+<p>The "Configuration templates" is the way to generate code snippets or configuration file snippets for various tools
+(see the list on the slide). After selecting "rclone" and clicking the "Generate" button, a new screen opens:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management web interface: Configuring tools (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsWebToolConfig_02.png" />
+</figure></p>
+<p>This screen shows us the snippet for the rclone configuration file (on Linux it is
+<code>~/.config/rclone/rclone.conf</code>). Notice that it creates two so-called endpoints. In the slide
+this is <code>lumi-465001102-private</code> and <code>lumi-465001102-public</code>, for storing buckets and objects which are private
+or public (i.e., also web-accessible).
+We'll come back to what this means later, when we discuss access rights.</p>
+</div>
+<h3 id="credential-management-and-access-through-open-ondemand">Credential management and access through Open OnDemand<a class="headerlink" href="#credential-management-and-access-through-open-ondemand" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Credentials management through Open OnDemand Overview" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODOverview.png" /></p>
+</figure>
+<p>The LUMI Open OnDemand-based web interface can also be used to generate 
+authentication keys for LUMI-O. It can create configuration files for 
+<code>rclone</code> and <code>s3cmd</code> but doesn't have all the other features of the dedicated credential
+management web interface discussed above.
+The "Home Directory" app can also be used to browse, download and upload objects and to
+create buckets. It is a tool based on <code>rclone</code> and also provides a view similar to many
+other viewers. The view is based on pseudo-folders which we will discuss below.</p>
+<p>Note however that this interface is not a replacement for proper tools for access to
+object storage. Uploading and downloading objects is not done via object storage tools, 
+but via web protocols. The web server talks to the object storage using proper tools,
+but to your browser using the regular web API upload and download features. Hence it is
+only suitable for relatively small objects and you'll quickly run into speed restrictions
+that native object storage tools will not have.</p>
+<p>Let us now again walk through the interface.</p>
+<div class="admonition demo">
+<p class="admonition-title">A walk through the Open OnDemand web interface to LUMI-O</p>
+<p><em>This demo was made with a project that course participants have no access to,
+but it gives the idea.</em></p>
+<p>After entering the URL <a href="https://www.lumi.csc.fi/">www.lumi.csc.fi</a>, you're greeted
+with the usual login procedure that we discussed already. After logging in, you 
+get the app overview screen:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management through Open OnDemand (1)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODCreate_01.png" />
+</figure></p>
+<p>To create an authentication key and to configure <code>rclone</code> and <code>s3cmd</code>, open the
+"Cloud storage configuration" app. You will be presented with the following screen:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management through Open OnDemand (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODCreate_02.png" />
+</figure></p>
+<p>At the top of the screen there is an overview of currently configured remotes. These are actually
+the endpoints for <code>rclone</code>. In this example, this section is still empty as no remotes are 
+configured for the user. Let's scroll down a bit:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management through Open OnDemand (3)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODCreate_03.png" />
+</figure></p>
+<p>Here we see the part of the screen where we can create an authentication key.
+First select the project for which you want to create an authentication key.</p>
+<p>Besides the authentication key, by default an <code>rclone</code> endpoint to create buckets and upload objects with 
+private access only will also be created and this cannot be turned off as the endpoint will also 
+be used by another app that we discuss later. However, two checkboxes enable the creation of 
+a configuration file for <code>s3cmd</code> and an <code>rclone</code> endpoint to create buckets and objects with public
+access ACL can also be created.</p>
+<p>The <code>rclone</code> endpoints are stored in the <code>rclone</code> configuration file
+<code>~/.config/rclone/rclone.cfg</code> where they will replace the same endpoints for the project
+if they are already present. Other endpoints will not be removed from the configuration file.</p>
+<p>Finally, click the "Submit" button. If no suitable key exists, one will be created, and the 
+requested endpoint and configuration file(s) will be created or updated. When a key is created,
+it is created with the maximum life span of 7 days (168 hours), but if a suitable one exists, it is
+currently not extended. (It appears that only a key with the description
+"lumi web interface" is properly recognised as the other key already existed but had its
+life span extended.)</p>
+<p>We now notice some changes at the top of that screen:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management through Open OnDemand (4)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODCreate_04.png" />
+</figure></p>
+<p>We've created both a private and a public <code>rclone</code> endpoint with the name
+<code>lumi-465000095-private</code> and <code>lumi-465000095-public</code> respectively. These endpoints can also be used
+with the command line <code>rclone</code> tool provided by the <code>lumio</code> module.</p>
+<p>The "Delete" button can used to delete the endpoint only, but the authentication key will not be revoked, i.e., the
+key remains valid. The "Revoke" button will invalidate the key and destroy the <code>rclone</code> endpoint(s) as 
+they don't make sense anymore.</p>
+<p>Let's check the previously discussed dedicated web credentials portal:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Credentials management through Open OnDemand (5)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODCreate_05.png" />
+</figure></p>
+<p>A key with the description "lumi web interface" is now visible, and this interface can still be used to 
+extend its life span or create configuration file snippets for other tools. It is just another key.</p>
+<p>(The screenshot is a bit misleading here. The other key "Laptop" actually existed but was not picked up by
+Open OnDemand, it is just that its life span was extended before making this screenshot which was probably a
+bad choice.)</p>
+<p>Let's now also have a look at another Open OnDemand app that enables us to browse buckets and objects for the project
+for which we have created credentials:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Browsing through Open OnDemand (1)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODBrowse_01.png" />
+</figure></p>
+<p>We went back to the start screen of Open OnDemand and now open the "Home Directory" app.</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Browsing through Open OnDemand (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODBrowse_02.png" />
+</figure></p>
+<p>We now see our home directory and project, scratch and flash directory for all our projects, but also the two 
+endpoints that we just created (assuming we did indeed select the check box to create a public endpoint also). The screenshot
+is taken after selecting <code>lumi-465000095</code> in the left column and shows the buckets available to that project. Note that they
+are shown in exactly the same way as directories (folders) would be shown for the regular filesystem, but in fact, they are 
+buckets with, e.g., all the naming restrictions of buckets. </p>
+<p>Let's now select the <code>training-materials-web</code> bucket to arrive at:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Browsing through Open OnDemand (3)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODBrowse_03.png" />
+</figure></p>
+<p>At the top of the right pane we now see the "path" <code>lumi-465000095-public:/training-materials-web/</code>.
+This however is a pseudo-path: The first element is actually the rclone endpoint while the second element is the name of
+the bucket. The screen also shows the folder <code>intro-evolving</code>. This is neither a bucket nor a true folder. It is an artificial
+creation and if we click a bit further we will see what's going on:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Slide Browsing through Open OnDemand (4)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCredentialsOODBrowse_04.png" />
+</figure></p>
+<p>The top bar now shows <code>lumi-465000095-public:/training-materials-web/intro-evolving/files/</code> while we also get a list
+of elements that look like files. These are the objects, but don't be mistaken: The name of the first object in the 
+list is not <code>exercises-evolving.tar</code>, but it is the object named 
+<code>intro-evolving/files/exercises-evolving.tar</code> in the bucket <code>training-materials-web</code> in the project <code>46500095</code>.
+The slashes in the name are used to create a "pseudo-folder" view to bring more structure into the flat space of
+objects, but the organisation internally in object storage is completely different from a regular filesystem.</p>
+<p>Note that we would also see the same objects had we used the <code>lumi-465000095-private</code> endpoint in the right column:
+Both are endpoints for the same project and the browser cannot distinguish between objects created via one or the
+other endpoint. Those endpoints only matter when creating an object as they determine access rights.</p>
+</div>
+<h2 id="configuring-lumi-o-tools-through-a-command-line-interface">Configuring LUMI-O tools through a command line interface<a class="headerlink" href="#configuring-lumi-o-tools-through-a-command-line-interface" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Configuring LUMI-O tools" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCLIToolConfig.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide rclone on LUMI-O" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/LUMIOCLIToolConfigRcloneS3cmd.png" /></p>
+</figure>
+<p><strong>The materials in this section are only valid for the <code>lumio/2.0.0</code> module and newer. <code>lumio/2.0.0</code> is the default at the time of the course.</strong></p>
+<p>On LUMI, you can use the <code>lumio-conf</code> tool to configure <code>rclone</code>, <code>s3cmd</code>, <code>aws</code>
+and the <code>boto3</code> Python packages. 
+To access the tool, you need to load the <code>lumio</code> module first, which is always available.
+The same module will also load a module that makes <code>rclone</code>, <code>s3cmd</code> and <code>restic</code> available.
+<code>aws</code> and <code>boto3</code> are not preinstalled though.</p>
+<p>When starting <code>lumio-conf</code>, it will present you with a couple of questions: The project number
+associated with the authentication key, the access key and the secret key. We have shown above where in the web
+interface that information can be found.</p>
+<p>For <code>rclone</code>, the tool will then add or replace the configuration for the project in the <code>rclone</code>
+configuration file <code>~/.config/rclone/rclone.conf</code>. 
+It will create two endpoints:</p>
+<ul>
+<li>
+<p><code>lumi-46YXXXXXX-private</code> is the end point to be used for buckets and objects that should be private, and</p>
+</li>
+<li>
+<p><code>lumi-46YXXXXXX-public</code> is the end point for data that should be publicly accessible.</p>
+</li>
+</ul>
+<p>It will also create an <code>s3cmd</code> configuration file. Since a <code>s3cmd</code> configuration 
+file can contain information for only one project, the following solution was chosen:</p>
+<ul>
+<li>
+<p>The tool creates the configuration file <code>~/.s3cfg-lumi-46YXXXXXX</code> specific for the project,</p>
+</li>
+<li>
+<p>and overwrites the <code>˜/.s3cfg</code> configuration file with the new configuration.</p>
+</li>
+</ul>
+<p>So if you want to use <code>s3cmd</code> for only one project, or for the last project for which you used
+<code>lumio-conf</code>, you can simply use it as in all the <code>s3cmd</code> examples, while if you want to use it
+for more projects, you can always point to the configuration file to use with the <code>-c</code> flag of
+the <code>s3cmd</code> command, e.g.,</p>
+<div class="highlight"><pre><span></span><code>s3cmd -c ~/.s3cfg-lumi-46YXXXXXX ls
+</code></pre></div>
+<p>to list the buckets in project 46YXXXXXX.</p>
+<p>Use <code>lumio-conf -h</code> to see how you can also create configuration files for <code>aws</code> and <code>boto3</code>.
+It also has a bunch of other options.</p>
+<p>Another way to configure tools for object storage access is simply via the code snippets
+and configuration files snippets as has already been discussed before. The same snippets 
+should also work when you run the tools on a different computer.
+E.g., for rclone you can add the code snippet to the configuration file 
+<code>~/.config/rclone/rclone.conf</code> (default name for Linux systems)
+or replace an earlier code snippet for the same project in that file. 
+These code snippets can also be used to configure tools on 
+your own laptop or other systems that you have access to. As we have discussed already,
+there is no difference in accessing LUMI-O from LUMI or from other systems if the same
+tools are used.</p>
+<h2 id="bucket-and-object-names">Bucket and object names<a class="headerlink" href="#bucket-and-object-names" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Bucket and object names" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/BucketObjectNames.png" /></p>
+</figure>
+<p>We have already discussed that storage on LUMI-O is organised in three levels, each with a flat namespace:</p>
+<ol>
+<li>Projects,</li>
+<li>buckets and</li>
+<li>objects.</li>
+</ol>
+<p>The project name is simply the 462 or 465 number of the LUMI project.</p>
+<p><em>Bucket names</em> have a lot of restrictions. The name should be unique within the project,
+but different projects can of course use the same bucket names. A bucket name should be
+between 3 and 63 characters long and can use only lowercase letters, numbers, hyphens and dots,
+but no uppercase letters or, e.g., underscores. It must also start with a lowercase letter
+or a number. Dots are considered as separators of labels, but the 63-character limit still
+applies to the name as a whole and not each individual label. The "label" term is a bit 
+confusing as in the Ceph documentation it is also used in a totally different context.</p>
+<p><em>Object names</em> have fewer restrictions. They have to be unique within a bucket.
+From a technical point of view, an object name can be any UTF-8 encoded string between
+1 and 1024 bytes. Note however that all but the standard ASCII characters use more 
+than one byte in UTF-8 encoding, so this does not imply that any 1024-character string
+can be used. Also, client software may add more restrictions.
+It is a common practice to implement a folder-like structure using slashes in the name.
+Keep in mind though that creating that folder view (which we have seen in the Open OnDemand
+"Home Directory" app) is expensive as the client creating the folder view has to list all
+objects in a bucket and then sort and select the right entries to create the folder view.</p>
+<h2 id="policies-and-acls">Policies and ACLs<a class="headerlink" href="#policies-and-acls" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Policies and ACLs" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/PoliciesACLs.png" /></p>
+</figure>
+<p>Access to buckets and objects is controlled through policies and access control lists (ACLs).</p>
+<p>Policies are set at the bucket level only, but it is possible to build very complex
+policies that restrict access to some objects. It is a very powerful mechanism,
+but also one that is rather hard to use. In Ceph, the object storage system on LUMI,
+policies are a relatively new addition. Ceph policies are a subset of the policies
+on Amazon AWS S3 storage. There is some information on policies in the
+<a href="https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#granular-access-management">"Advanced usage of LUMI-O" section of the LUMI docs</a>
+and the <a href="https://docs.ceph.com/en/reef/radosgw/bucketpolicy/">section on "Bucket Policies" in the Ceph Reef documentation</a>
+is also relevant.</p>
+<p>ACLs are a less sophisticated mechanism. They can be applied to both buckets and objects.
+However, they can only add rights and not take rights away. Moreover, they need to be
+applied to each object in a bucket separately (though commands will usually provide 
+an option to apply them recursively to all objects in a bucket or maybe even pseudo-folder).
+They are an easy way though to make an bucket or an individual object public.</p>
+<p>Note that a private bucket can contain public objects which you can then still see through,
+e.g., a web browser if you know the name of an object, or a bucket can be public but contain
+only private objects in which case you can only list the objects.</p>
+<p>When using <code>rclone</code> on LUMI, specific access control lists will be attached to each object 
+depending on which end point name you have used.</p>
+<h3 id="some-examples">Some examples<a class="headerlink" href="#some-examples" title="Permanent link">&para;</a></h3>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Policies and ACLs: Examples" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/PoliciesACLsExamples.png" /></p>
+</figure>
+<p>The <code>s3cmd</code> command is your friend if you want to inspect or change policies and
+ACLs on LUMI. It is available via the <code>lumio</code> module.</p>
+<ol>
+<li>
+<p>You can make a bucket and all objects in it public with</p>
+<div class="highlight"><pre><span></span><code>s3cmd setacl --recursive --acl-public s3://bucket/ 
+</code></pre></div>
+<p>(replace "bucket" with the name of the bucket) or private with</p>
+<div class="highlight"><pre><span></span><code>s3cmd setacl --recursive --acl-private s3://bucket/
+</code></pre></div>
+</li>
+<li>
+<p>You can grant or revoke read rights to a bucket with</p>
+<div class="highlight"><pre><span></span><code>s3cmd setacl --acl-grant=’read:465000000$465000000’ s3://bucket
+s3cmd setacl --acl-revoke=’read:465000000$465000000’ s3://bucket
+</code></pre></div>
+<p>Note the use of single quotes as we want to avoid that the Linux shell interpretes
+<code>$465000000</code> as a (non-existent) environment variable. And of course, replace "465000000"
+with your project number.</p>
+<p>One can also grant or revoke read rights to an object in a similar way.</p>
+</li>
+<li>
+<p>Checking the current ACLs and more of an object, can also be done with the <code>s3cmd</code> command.</p>
+<p>Some examples (but you cannot try them yourself as you'd need access credentials for the 
+462000265 project that contains those buckets and objects):</p>
+<ul>
+<li>
+<p>A bucket used to serve the images on this page:</p>
+<div class="highlight"><pre><span></span><code>s3cmd info s3://2p3day-20250303
+</code></pre></div>
+<p>produces</p>
+<div class="highlight"><pre><span></span><code>s3://2p3day-20250303/ (bucket):
+  Location:  lumi-prod
+  Payer:     BucketOwner
+  Ownership: none
+  Versioning:none
+  Expiration rule: none
+  Block Public Access: none
+  Policy:    none
+  CORS:      none
+  ACL:       *anon*: READ
+  ACL:       LUMI training material: FULL_CONTROL
+  URL:       http://lumidata.eu/2p3day-20250303/
+</code></pre></div>
+<p>Note the ACL "<code>*anon*: READ</code>" in the output, showing that this is a public bucket.</p>
+</li>
+<li>
+<p>An example of an object in that bucket:</p>
+<div class="highlight"><pre><span></span><code>s3cmd info s3://2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png
+</code></pre></div>
+<p>where the output shows again that this is a public object:</p>
+<div class="highlight"><pre><span></span><code>s3://2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png (object):
+  File size: 4384337
+  Last mod:  Thu, 21 Nov 2024 14:55:47 GMT
+  MIME type: image/png
+  Storage:   STANDARD
+  MD5 sum:   69e1f1460cff3fca79730530e7fb28d7
+  SSE:       none
+  Policy:    none
+  CORS:      none
+  ACL:       *anon*: READ
+  ACL:       LUMI training material: FULL_CONTROL
+  URL:       http://lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png
+  x-amz-meta-mtime: 1732200870.757744714
+</code></pre></div>
+</li>
+<li>
+<p>However, if you try</p>
+<div class="highlight"><pre><span></span><code>s3cmd info s3://4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf
+</code></pre></div>
+<p>you get</p>
+<div class="highlight"><pre><span></span><code>s3://4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf (object):
+  File size: 1299322
+  Last mod:  Wed, 06 Nov 2024 09:28:35 GMT
+  MIME type: application/pdf
+  Storage:   STANDARD
+  MD5 sum:   9f2ec727731feba562c401fb0cb156c1
+  SSE:       none
+  Policy:    none
+  CORS:      none
+  ACL:       LUMI training material: FULL_CONTROL
+  x-amz-meta-mtime: 1730109719.352306659
+</code></pre></div>
+<p>you see that there is no ACL "<code>*anon*: READ</code>" as this is a private object, and even though
+the bucket it is in is public: </p>
+<div class="highlight"><pre><span></span><code>s3cmd info s3://4day-20241028/
+</code></pre></div>
+<p>shows</p>
+<div class="highlight"><pre><span></span><code>s3://4day-20241028/ (bucket):
+  Location:  lumi-prod
+  Payer:     BucketOwner
+  Ownership: none
+  Versioning:none
+  Expiration rule: none
+  Block Public Access: none
+  Policy:    none
+  CORS:      none
+  ACL:       *anon*: READ
+  ACL:       LUMI training material: FULL_CONTROL
+  URL:       http://lumidata.eu/4day-20241028/
+</code></pre></div>
+<p>you'll see that, e.g., accessing
+<a href="https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf">https://462000265.lumidata.eu/4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf</a>
+or
+<a href="https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf">https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf</a>
+produces an "Access Denied" error message (in a strange format, but read the text), while
+<a href="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png">https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png</a>
+or
+<a href="https://lumidata.eu/462000265:2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png">https://lumidata.eu/462000265:2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/Title.png</a>
+are links to the object used before in this example and work.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="sharing-data">Sharing data<a class="headerlink" href="#sharing-data" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Sharing data" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/SharingData.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Sharing data: Pre-signed URLs" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/SharingDataPresignedURL.png" /></p>
+</figure>
+<p>LUMI-O is also a nice solution to share data between projects and with the outside world. 
+But note that this does not turn LUMI-O in a data publication and archiving service. There
+are specific services for that in Europe (e.g., <a href="https://www.eudat.eu/">EUDAT</a> offerings).
+Each solution has its own limitations though:</p>
+<ol>
+<li>
+<p>Public buckets and objects can be read by anyone in the world, even with a simple web browser.
+    Whether all objects can be listed or not, depends on the read rights of the bucket. But just as
+    it is possible in Linux/UNIX to make a file readable in an otherwise unreadable directory (so 
+    an <code>ls</code> on the directory would not work), this is also possible on LUMI-O by using a private
+    bucket with a public object.</p>
+<p>Using public objects is actually used to serve the slides and presentations in this course.</p>
+</li>
+<li>
+<p>It is also possible to grant specific projects access to buckets and objects of another project.
+    This is done via access control lists and has already been discussed in the previous examples.</p>
+<p>The way to access those buckets and objects then differs between <code>s3cmd</code> and <code>rclone</code>:</p>
+<ul>
+<li>
+<p>As <code>s3cmd</code> knows only one set of authentication tokens, it is not needed to indicate which
+    credentials should be used if the <code>~/.s3cfg</code> file is correct. E.g., listing all objects in 
+    the bucket "bucket" of project "46XXXXXXX" can be done with:</p>
+<div class="highlight"><pre><span></span><code>s3cmd ls --recursive s3://46XXXXXXX:bucket/
+</code></pre></div>
+<p>so you need to specify - as one could expect as the bucket namespace is per project - the bucket 
+and the project that contains the bucket.</p>
+</li>
+<li>
+<p>The <code>rclone</code> configuration file can contain multiple endpoints for multiple projects, so here
+    we will also need to specify the endpoint from which the credentials should be used. Assume
+    that a user in project 46BAAAAAA has been given read rights to the bucket "bucket" in project
+    "46YXXXXXX" and has an endpoint <code>lumi-46BAAAAAA-private</code> configured, then that user can list
+    the objects in that bucket with:</p>
+<div class="highlight"><pre><span></span><code>rclone ls lumi-46BAAAAAA-private:&quot;46YXXXXXX:bucket&quot;
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>The third technique is using presigned URLs. These are URLs created specifically for access to
+    a specific bucket or object. Everyone with the URL can access the bucket or object, without further
+    authentication. It is possible to create a link with a limited validity period (and this is actually
+    a good idea as URLs can fall in the wrong hands.)</p>
+<p>Presigned URLs depend on the authentication key that was used to create them. If the authentication key
+expires or is revoked, the link will no longer be valid, even if this happens within the validity period
+of the link. It is not possible to create links with a validity period of
+more than 7 days on LUMI. Also, it is also possible to revoke the link.</p>
+<p>Presigned URLs can be created and managed through the <code>rclone link</code> command. E.g.,</p>
+<div class="highlight"><pre><span></span><code>rclone link --expire 2d lumi-46YXXXXXX-private:bucket/object
+</code></pre></div>
+<p>will print a URL that can be used to access the object "object" in the bucket "bucket" of project
+46YXXXXXX, and that link will expire automatically 48 hours after creation.</p>
+</li>
+<li>
+<p>The most rudimentary method for data sharing with another user is of course to simply invite that user
+    to the project. Then data can even be shared in the <code>/project</code>, <code>/scratch</code> and <code>/flash</code> directory of
+    the project and not only on LUMI-O. </p>
+<p>This is however not always possible.</p>
+<ul>
+<li>
+<p>Users that entered the system through Puhuri, i.e., a project with a project number starting with
+    465 cannot always be invited to a CSC project (projects starting with 462). They would first need to get
+    a CSC userid to have access to myCSC and may end up with a second userID on LUMI.</p>
+</li>
+<li>
+<p>Users who entered LUMI though myCSC, i.e., a 462 project, need to 
+    <a href="https://docs.csc.fi/accounts/how-to-manage-user-information/">link their account first to MyAccessID</a>
+    or they would get a second userID on LUMI when invited by a Puhuri-managed project. </p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="tips-tricks">Tips &amp; tricks<a class="headerlink" href="#tips-tricks" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Slide Tips &amp; tricks" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-204-ObjectStorage/TipsAndTricks_01.png" /></p>
+</figure>
+<p>A description of the main <code>rclone</code> commands is outside the scope of this tutorial, but some options
+are discussed in <a href="https://docs.lumi-supercomputer.eu/storage/lumio/#rclone">the LUMI documentation</a>,
+and the same page also contains some documentation for <code>s3cmd</code> and <code>restic</code>. See the links below
+for even more documentation.</p>
+<p>Note also that sharing data from project A with project B does not protect the data from being 
+deleted when project A ends. If the data on LUMI-O is in the space of project A, then that data
+will be deleted after the 90-day grace period after the end of the project, even if project B is
+still a valid project. On LUMI-O, data is not deleted while a project is valid, is made read-only
+after the end of a project for a 90-day grace period, and is then queued for deletion, so
+just as for the Lustre filesystems, you need to move out the data in time.</p>
+<h2 id="further-lumi-o-documentation">Further LUMI-O documentation<a class="headerlink" href="#further-lumi-o-documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.lumi-supercomputer.eu/storage/">Documentation for the LUMI-O object storage service</a></li>
+<li>
+<p>Software for LUMI-O on LUMI is provided through the
+    <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumio/"><code>lumio</code> module</a> which
+    provides the configuration tool on top of the software and the
+    <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumio-ext-tools/"><code>lumio-ext-tools</code> module</a>
+    providing rclone, S3cmd and restic and links to the documentation of those tools.</p>
+<ul>
+<li><a href="https://rclone.org/docs/">rclone documentation</a></li>
+<li><a href="https://s3tools.org/usage">S3cmd tools usage</a></li>
+<li><a href="https://restic.readthedocs.io/en/latest/">restic documentation</a></li>
+</ul>
+</li>
+</ul>
+<!--
+-   Other tools that we've successfully used:
+
+    -   [rclone browser](https://kapitainsky.github.io/RcloneBrowser/).
+        It uses the regular rclone configuration file on macOS (`~/.config/rclone/rclone.conf`
+        as mentioned above). TODO: Windows?
+
+        It hasn't seen any new release since 2020 though so is mostly abandonware.
+
+    -   We've had some success with [CommanderOne](https://ftp-mac.com/)
+        on macOS, but this is a commercial package.
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+
+
+
+
+<footer class="md-footer">
+
+  
+
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      
+    <div class="md-footer-copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" 
+             style="border-width:0" 
+             src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+        />
+      </a>
+      This work is licensed under a&nbsp;
+      <a rel="license" 
+         href="http://creativecommons.org/licenses/by/4.0/"
+      >
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </div>
+
+      
+      <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
