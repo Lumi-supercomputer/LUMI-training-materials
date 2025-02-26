@@ -6,7 +6,7 @@
 Course materials will be provided during and after the course.
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/506-Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/505-Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
 -->
 
 <!--
@@ -20,23 +20,23 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Materials on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-506-Best_Practices_GPU_Optimization.pdf)
+-   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-Best_Practices_GPU_Optimization.pdf)
 
 -   Downloadable scripts as
-    [bzip2-compressed tar archive](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-506-scripts.tar.bz2) and 
-    [uncompressed tar archive](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-506-scripts.tar)
+    [bzip2-compressed tar archive](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar.bz2) and 
+    [uncompressed tar archive](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar)
 -->
 
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-506-Best_Practices_GPU_Optimization.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-Best_Practices_GPU_Optimization.pdf`
 
 -   Scripts as
-    bzip2-compressed tar archive in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-506-scripts.tar.bz2` and
-    uncompressed tar archive in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-506-scripts.tar`.
+    bzip2-compressed tar archive in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar.bz2` and
+    uncompressed tar archive in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar`.
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/506-Best_Practices_GPU_Optimization.mp4`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/505-Best_Practices_GPU_Optimization.mp4`
 
 
 !!! Note "PyTorch in the LUMI Software Library" 

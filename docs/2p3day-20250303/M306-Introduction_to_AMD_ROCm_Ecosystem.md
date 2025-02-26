@@ -6,7 +6,7 @@
 Course materials will be provided during and after the course.
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/305-Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/306-Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls"></video>
 -->
 
 <!--
@@ -18,19 +18,19 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Materials available on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-2_05_Introduction_to_AMD_ROCm_Ecosystem.pdf)
+-   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf)
 
--    [Extra slides on HIP optimisation not discussed in the talk](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-2_05_Extra_HIP_Optimization.pdf)
+-    [Extra slides on HIP optimisation not discussed in the talk](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-2_06_Extra_HIP_Optimization.pdf)
 -->
 
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-2_05_Introduction_to_AMD_ROCm_Ecosystem.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-2_06_Introduction_to_AMD_ROCm_Ecosystem.pdf`
 
--   Extra slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-2_05_Extra_HIP_Optimization.pdf`
+-   Extra slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-2_06_Extra_HIP_Optimization.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/2_05_Introduction_to_AMD_ROCm_Ecosystem.mp4`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/2_06_Introduction_to_AMD_ROCm_Ecosystem.mp4`
 -->
 
 

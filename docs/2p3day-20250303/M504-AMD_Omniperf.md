@@ -6,7 +6,7 @@
 Course materials will be provided during and after the course.
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/505-AMD_Omniperf.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/504-AMD_Omniperf.mp4" controls="controls"></video>
 -->
 
 <!--
@@ -18,15 +18,15 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Materials on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-AMD_Omniperf.pdf)
+-   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-504-AMD_Omniperf.pdf)
 -->
 
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-AMD_Omniperf.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-504-AMD_Omniperf.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/505-AMD_Omniperf.mp4`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/504-AMD_Omniperf.mp4`
 -->
 
 
