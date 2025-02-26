@@ -419,10 +419,19 @@ DAY 3
     </tr>
     <tr>
         <td>
+            14:00 CET
+            <br/><em>15:00 EET</em>
+        </td>
+        <td><b><a href="../M305-Porting_to_GPU/">Porting Applications to GPU</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
             14:15 CET
             <br/><em>15:15 EET</em>
         </td>
-        <td><b><a href="../M305-Introduction_to_AMD_ROCm_Ecosystem/">Introduction to the AMD ROCm ecosystem and HIP</a></b>
+        <td><b><a href="../M306-Introduction_to_AMD_ROCm_Ecosystem/">Introduction to the AMD ROCm ecosystem and HIP</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         <ul>
             <li/> The AMD ROCm<sup>TM</sup> ecosystem
@@ -435,7 +444,7 @@ DAY 3
             15:00 CET
             <br/><em>16:00 EET</em>
         </td>
-        <td><b><a href="../ME305-Exercises-8/">Exercises (session #8)</a></b></td>
+        <td><b><a href="../ME306-Exercises-8/">Exercises (session #8)</a></b></td>
     </tr>
     <tr>
         <td>
@@ -450,7 +459,7 @@ DAY 3
             15:45 CET
             <br/><em>16:45 EET</em>
         </td>
-        <td><b><a href="../M306-Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
+        <td><b><a href="../M307-Debugging_at_Scale/">Debugging at Scale – gdb4hpc, valgrind4hpc, ATP, stat</a></b>
         <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         </td>
     </tr>
@@ -459,7 +468,7 @@ DAY 3
             16:30 CET
             <br/><em>17:30 EET</em>
         </td>
-        <td><b><a href="../ME306-Exercises-9/">Exercises (session #9)</a></b>
+        <td><b><a href="../ME307-Exercises-9/">Exercises (session #9)</a></b>
         </td>
     </tr>
     <tr>
@@ -521,7 +530,16 @@ DAY 4
             10:30 CET
             <br/><em>11:30 EET</em>
         </td>
-        <td><b><a href="../M402-Advanced_Performance_Analysis/">Advanced Performance Analysis</a></b>
+        <td><b><a href="../M402-Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            11:00 CET
+            <br/><em>12:00 EET</em>
+        </td>
+        <td><b><a href="../M403-Advanced_Performance_Analysis/">Advanced Performance Analysis</a></b>
         <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         <ul>
             <li>Automatic performance analysis and loop work estimated with perftools</li>
@@ -529,15 +547,6 @@ DAY 4
             <li>Compiler feedback and variable scoping with Reveal</li>
         </ul>
        </td>
-    </tr>
-    <tr>
-        <td>
-            11:30 CET
-            <br/><em>12:30 EET</em>
-        </td>
-        <td><b><a href="../M403-Performance_Optimization_Improving_Single_Core/">Performance Optimization: Improving Single-core Efficiency</a></b>
-        <br/><em>Presenter: Jean Pourroy (HPE)</em>
-        </td>
     </tr>
     <tr>
         <td>
@@ -657,19 +666,10 @@ DAY 5
     </tr>
     <tr>
         <td>
-            09:10 CET
-            <br/><em>10:10 EET</em>
-        </td>
-        <td><b><a href="../M502-Porting_to_GPU/">Porting Applications to GPU</a></b>
-        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
-        </td>
-    </tr>
-    <tr>
-        <td>
             09:20 CET
             <br/><em>10:20 EET</em>
         </td>
-        <td><b><a href="../M503-IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
+        <td><b><a href="../M502-IO_Optimization_Parallel_IO/">Optimizing Large Scale I/O</a></b>
         <br/><em>Presenter: Harvey Richardson (HPE)</em>
         <ul>
             <li>Introduction into the structure of the Lustre Parallel file system. </li>
@@ -687,7 +687,7 @@ DAY 5
             10:00 CET
             <br/><em>11:00 EET</em>
         </td>
-        <td><b><a href="../ME503-Exercises-15/">Exercises (session #15)</a></b>
+        <td><b><a href="../ME502-Exercises-15/">Exercises (session #15)</a></b>
         </td>
     </tr>
     <tr>
@@ -703,7 +703,7 @@ DAY 5
             10:30 CET
             <br/><em>11:30 EET</em>
         </td>
-        <td><b><a href="../M504-AMD_Omnitrace/">Introduction to OmniTrace</a></b>
+        <td><b><a href="../M503-AMD_Omnitrace/">Introduction to OmniTrace</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
       </td>
         </td>
@@ -713,7 +713,7 @@ DAY 5
             11:00 CET
             <br/><em>12:00 EET</em>
         </td>
-        <td><b><a href="../ME504-Exercises-16/">Exercises (session #16)</a></b>
+        <td><b><a href="../ME503-Exercises-16/">Exercises (session #16)</a></b>
         </td>
     </tr>
     <tr>
@@ -721,7 +721,7 @@ DAY 5
             11:30 CET
             <br/><em>12:30 EET</em> 
         </td>
-        <td><b><a href="../M505-AMD_Omniperf/">Introduction to Omniperf</a></b>
+        <td><b><a href="../M504-AMD_Omniperf/">Introduction to Omniperf</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
@@ -730,7 +730,7 @@ DAY 5
             12:00 CET
             <br/><em>13:00 EET</em> 
         </td>
-        <td><b><a href="../ME505-Exercises-17/">Exercises (session #17)</a></b>
+        <td><b><a href="../ME504-Exercises-17/">Exercises (session #17)</a></b>
         </td>
     </tr>
      <tr>
@@ -746,7 +746,7 @@ DAY 5
             13:30 CET
             <br/><em>14:30 EET</em> 
         </td>
-        <td><b><a href="../M506-Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
+        <td><b><a href="../M505-Best_Practices_GPU_Optimization/">Best practices: GPU Optimization, tips & tricks / demo </a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
