@@ -1,5 +1,8 @@
 # Slurm on LUMI
 
+***These notes are a quick revision of the notes of a course in May, given by another presenter.
+They have not been thoroughly retested.***
+
 <!-- BELGIUM 
 !!! Audience "Who is this for?"
     We assume some familiarity with job scheduling in this section. The notes will cover
