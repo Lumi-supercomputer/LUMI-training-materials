@@ -4064,11 +4064,38 @@ powers of <code>module spider</code> and try</p>
 </code></pre></div>
 <p>which produces</p>
 <figure style="border: 1px solid #000">
-<p><img alt="module spider cmake" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-104-Modules/ModuleSpiderCMake.png" /></p>
+<p><img alt="module spider CMake" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-104-Modules/ModuleSpiderCMake1.png" /></p>
 </figure>
-<p>The output above shows us that there are actually 3 other versions of CMake on the system, but their
-version is followed by <code>(E)</code> which says that they are extensions of other modules.
-There is no module called <code>CMake</code> on the system. 
+<p>the output above shows us that there are actually 4 other versions of CMake on the system, but their
+version is followed by <code>(E)</code> which says that they are extensions of other modules.</p>
+<p>Most users would have gotten the same output from</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>cmake
+</code></pre></div>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider cmake" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-104-Modules/ModuleSpiderCMake2.png" /></p>
+</figure>
+<p>However, if you've recently used one of the <code>spack</code> modules and the Lmod cache was last created with one of those
+modules loaded, </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>CMake
+</code></pre></div>
+<p>may show you something like</p>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider CMake with Spack" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-104-Modules/ModuleSpiderCMake3.png" /></p>
+</figure>
+<p>This shows a number of alternative modules also called <code>cmake</code>, but with sometimes strange looking strings at the end
+of the version. These are modules that were installed on the system using Spack, a tool for HPC software management that
+we provide as our secondary tool for users familiar with that tool. More about it also in the presentation on
+<a href="../105-SoftwareStacks/">software stack</a>.</p>
+<p>With a <code>spack</code> module loaded, </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>cmake
+</code></pre></div>
+<p>would give you something similar to </p>
+<figure style="border: 1px solid #000">
+<p><img alt="module spider cmake with Spack" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-104-Modules/ModuleSpiderCMake4.png" /></p>
+</figure>
+<p>and we no longer see the CMake versions provided as extensions (and our main CMake instances).</p>
+<p>So there is no module called <code>CMake</code> on the system (well, there may be one for Spack users but then
+with lowercase name).
 But Lmod already tells us
 how to find out which module actually provides the CMake tools. So let's try</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>CMake/3.29.3
@@ -4111,7 +4138,9 @@ One could try</p>
 <figure style="border: 1px solid #000">
 <p><img alt="module keyword https screen 2" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-104-Modules/ModuleKeywordHTTPS_2.png" /></p>
 </figure>
-<p><code>cURL</code> and <code>wget</code> are indeed 
+<p>The first option is misleading and is shown because it contains a URL in the module
+information that is used by <code>module keyword</code>. 
+But <code>cURL</code> and <code>wget</code> are indeed 
 two tools that can be used to fetch files from the internet.</p>
 <div class="admonition note">
 <p class="admonition-title">LUMI Software Library</p>

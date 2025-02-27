@@ -4347,7 +4347,7 @@ mandatory, but EasyBuild will fail to automatically locate easyconfigs for depen
 of a package that are not yet installed if the easyconfigs don't follow the naming
 convention. Each part of the name also corresponds to a parameter in the easyconfig 
 file.</p>
-<p>Consider, e.g., the easyconfig file <code>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb</code>.</p>
+<p>Consider, e.g., the easyconfig file <code>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb</code>.</p>
 <ol>
 <li>The first part of the name, <code>GROMACS</code>, is the name of the package, specified by the
     <code>name</code> parameter in the easyconfig, and is after installation also the name of the
@@ -4362,7 +4362,7 @@ file.</p>
 <p>This part is not present for the SYSTEM toolchain</p>
 </li>
 <li>
-<p>The final part, <code>-PLUMED-2.9.2-noPython-CPU</code>, is the version suffix and used to provide
+<p>The final part, <code>-PLUMED-2.9.3-noPython-CPU</code>, is the version suffix and used to provide
     additional information and distinguish different builds with different options
     of the same package. It is specified in the <code>versionsuffix</code> parameter of the
     easyconfig.</p>
@@ -4372,7 +4372,7 @@ file.</p>
 <p>The version, toolchain + toolchain version and versionsuffix together also combine
 to the version of the module that will be generated during the installation process.
 Hence this easyconfig file will generate the module 
-<code>GROMACS/2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU</code>.</p>
+<code>GROMACS/2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU</code>.</p>
 <h3 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">&para;</a></h3>
 <h4 id="step-1-where-to-install">Step 1: Where to install<a class="headerlink" href="#step-1-where-to-install" title="Permanent link">&para;</a></h4>
 <figure style="border: 1px solid #000">
@@ -4460,24 +4460,24 @@ section:</p>
 <p>The information provided by both variants of the search command is the same, but <code>-S</code> presents the information in a more
 compact form.</p>
 </div>
-<p>Now let's take the variant <code>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb</code>. 
-This is GROMACS 2024.3 with the PLUMED 2.9.2 plugin, built with the GNU compilers
+<p>Now let's take the variant <code>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb</code>. 
+This is GROMACS 2024.3 with the PLUMED 2.9.3 plugin, built with the GNU compilers
 from <code>LUMI/24.03</code>, and a build meant for CPU-only systems. The <code>-CPU</code> extension is not
 always added for CPU-only system, but in case of GROMACS there already is a GPU version
 for AMD GPUs in active development so even before LUMI-G was active we chose to ensure
 that we could distinguish between GPU and CPU-only versions.
 To install it, we first run </p>
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb<span class="w"> </span>–D
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb<span class="w"> </span>–D
 </code></pre></div>
 <p>The <code>-D</code> flag tells EasyBuild to just perform a check for the dependencies that are needed
 when installing this package.</p>
 <div class="admonition demo">
 <p class="admonition-title">The output of this command looks like:</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSDep_01.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb –D" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSDep_01.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb –D (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSDep_02.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb –D (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSDep_02.png" />
 </figure></p>
 <p>Most lines start with <code>[x]</code> which means that the dependency is already installed. At the end of the list, we notice that 
 non only the GROMACS module is missing, but the <code>eb</code> command also failed to find a module for <code>PLUMED</code>, a dependency of
@@ -4485,7 +4485,7 @@ this GROMACS configuration. So that module needs to be installed first, but Easy
 </div>
 <p>To install GROMACS and also automatically install missing dependencies (only PLUMED
 in this case), we run</p>
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb<span class="w"> </span>-r
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb<span class="w"> </span>-r
 </code></pre></div>
 <p>The <code>-r</code> argument tells EasyBuild to also look for dependencies in a preset search path
 and to install them. The installation of dependencies is not automatic
@@ -4494,16 +4494,16 @@ it can be turned on.</p>
 <div class="admonition demo">
 <p class="admonition-title">Running EasyBuild to install GROMACS and dependency</p>
 <p>The command</p>
-<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb<span class="w"> </span>-r
+<div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb<span class="w"> </span>-r
 </code></pre></div>
 <p>results in:</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_01.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb -r" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_01.png" />
 </figure></p>
 <p>EasyBuild detects PLUMED is a dependency and because of the <code>-r</code> option, it first installs the
 required version of PLUMED.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_02.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb -r (2)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_02.png" />
 </figure></p>
 <p>When the installation of PLUMED finishes, EasyBuild starts the installation of GROMACS.
 It mentions something we haven't seen when installing PLUMED:</p>
@@ -4513,16 +4513,16 @@ It mentions something we haven't seen when installing PLUMED:</p>
 Our EasyConfig combines 4 popular installations in one: Single and double precision and with and without
 MPI, so it will do 4 iterations. As EasyBuild is developed by geeks, counting starts from 0.</p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (3)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_03.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb -r (3)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_03.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (4)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_04.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb -r (4)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_04.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (5)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_05.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb -r (5)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_05.png" />
 </figure></p>
 <p><figure markdown style="border: 1px solid #000">
-  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb -r (6)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_06.png" />
+  <img alt="eb GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.3-noPython-CPU.eb -r (6)" loading="lazy" src="https://462000265.lumidata.eu/2p3day-20250303/img/LUMI-2p3day-20250303-105-SoftwareStacks/EasyBuildGROMACSInst_06.png" />
 </figure></p>
 </div>
 <p>This takes too long to wait for, but once it finished the software should be available
