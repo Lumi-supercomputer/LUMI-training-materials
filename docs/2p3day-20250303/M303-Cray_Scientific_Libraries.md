@@ -1,6 +1,6 @@
 # Cray Scientific Libraries
 
-*Presenter: Harvey Richardson (HPE)*
+*Presenter: Jean Pourroy (HPE)*
 
 Course materials will be provided during and after the course.
 

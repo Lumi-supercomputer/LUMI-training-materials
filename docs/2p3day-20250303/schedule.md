@@ -383,7 +383,7 @@ DAY 3
             <br/><em>12:40 EET</em>
         </td>
         <td><b><a href="../M303-Cray_Scientific_Libraries/">Cray Scientific Libraries</a></b>
-        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <br/><em>Presenter: Jean Pourroy (HPE)</em>
         <ul>
             <li>The Cray Scientific Libraries for CPU and GPU execution.</li>
         </ul>
