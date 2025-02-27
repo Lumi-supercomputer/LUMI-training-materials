@@ -26,7 +26,7 @@ DAY 1
             <br/><em>10:00 EET</em>
         </td>
         <td><b><a href="../MI101-IntroductionCourse/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Kurt Lust (LUST) and Jørn Dietze (LUST)</em>
+        <br/><em>Presenters: Kurt Lust (LUST)</em>
         </td>
     </tr>
     <tr>
