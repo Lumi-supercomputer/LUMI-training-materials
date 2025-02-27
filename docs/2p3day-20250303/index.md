@@ -149,6 +149,8 @@ downloaded from LUMI.
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
+| Container demo 1 | / | [notes and video](Demo1.md) | / |
+| Container demo 2 | / | [notes and video](Demo2.md) | / |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
 | **Day 3** @span |  |  |  |
 | [Introduction](MI301-IntroductionCourse.md) | / | / | [web](MI301-IntroductionCourse.md) |
@@ -188,7 +190,6 @@ downloaded from LUMI.
 | [Additional documentation](A01-Documentation.md) | / | [web](A01-Documentation.md) | / |
 
 ::end-spantable::
-
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
