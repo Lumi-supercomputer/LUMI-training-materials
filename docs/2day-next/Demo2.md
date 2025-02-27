@@ -1,4 +1,4 @@
-# Demo option 2: A short walk-through for distributed learning
+# Container demo 2: A short walk-through for distributed learning
 
 In this demo, we will install one of the PyTorch containers provided on LUMI
 and run a simple distributed learning example that the LUMI User Support Team also uses
@@ -16,7 +16,9 @@ This demo shows:
 
 ## Video of the demo
 
-<video src="https://462000265.lumidata.eu/2day-20240502/recordings/Demo2-Distributed_learning.mp4" controls="controls">
+This is a video for a previous version of the demo though.
+
+<video src="https://465000095.lumidata.eu/training-materials-web/intro-evolving/recordings/Demo2-Distributed_learning.mp4" controls="controls">
 </video>
 
 
@@ -26,7 +28,7 @@ Let's create an installation directory for the demo. Set the environment variabl
 `installdir` to a proper value for the directories on LUMI that you have access to.
 
 ``` bash
-installdir=/project/project_465001603/kurtlust/DEMO2
+installdir=/scratch/project_465001726/$USER/DEMO2
 mkdir -p "$installdir" ; cd "$installdir"
 ```
 
@@ -34,9 +36,11 @@ We are now in the installation directory of which we also ensured its existence 
 Let's now download some files that we will use:
 
 ``` bash
-wget https://raw.githubusercontent.com/Lumi-supercomputer/lumi-reframe-tests/main/checks/containers/ML_containers/src/pytorch/mnist/mnist_DDP.py
+mkdir mnist ; pushd mnist
+wget https://raw.githubusercontent.com/Lumi-supercomputer/lumi-reframe-tests/98327968ff300ed0181d5d14b5dd49cdf1d7b743/checks/containers/ML_containers/src/pytorch/mnist/mnist_DDP.py
+sed -i -e 's|download=True|download=False|' mnist_DDP.py
 mkdir -p model ; cd model
-wget https://github.com/Lumi-supercomputer/lumi-reframe-tests/raw/main/checks/containers/ML_containers/src/pytorch/mnist/model/model_gpu.dat
+wget https://github.com/Lumi-supercomputer/lumi-reframe-tests/raw/98327968ff300ed0181d5d14b5dd49cdf1d7b743/checks/containers/ML_containers/src/pytorch/mnist/model/model_gpu.dat
 cd ..
 ```
 
@@ -53,9 +57,13 @@ instead in the `$installdir` subdirectory:
 
 ```bash
 mkdir -p data/MNIST/raw
-wget --recursive --level=1 --cut-dirs=3 --no-host-directories \
-    --directory-prefix=data/MNIST/raw --accept '*.gz' http://yann.lecun.com/exdb/mnist/
-gunzip data/MNIST/raw/*.gz
+pushd data/MNIST/raw
+wget https://github.com/golbin/TensorFlow-MNIST/raw/refs/heads/master/mnist/data/train-images-idx3-ubyte.gz
+wget https://github.com/golbin/TensorFlow-MNIST/raw/refs/heads/master/mnist/data/train-labels-idx1-ubyte.gz
+wget https://github.com/golbin/TensorFlow-MNIST/raw/refs/heads/master/mnist/data/t10k-images-idx3-ubyte.gz
+wget https://github.com/golbin/TensorFlow-MNIST/raw/refs/heads/master/mnist/data/t10k-labels-idx1-ubyte.gz    
+gunzip -k *.gz
+popd
 for i in $(seq 0 31); do ln -s data "data$i"; done
 ```
 
@@ -72,7 +80,7 @@ environment:
 
 ``` bash
 module purge
-module load LUMI/23.09 partition/container EasyBuild-user
+module load LUMI/24.03 partition/container EasyBuild-user
 ```
 
 The `partition/container` is a "special" partition whose main purpose is to tell EasyBuild-user (and other modules
@@ -84,7 +92,7 @@ is loaded.
 After loading `EasyBuild-user`, installing the container from the EasyBuild recipe is very easy:
 
 ``` bash
-eb PyTorch-2.2.0-rocm-5.6.1-python-3.10-singularity-20240315.eb
+eb PyTorch-2.3.1-rocm-6.0.3-python-3.12-singularity-20240923.eb
 ```
 
 We're now finished with EasyBuild so don't need the modules related to EasyBuild anymore. So lets's clean
@@ -92,8 +100,8 @@ the environment an load the PyTorch container module that we just built with Eas
 
 ``` bash
 module purge
-module load LUMI/23.09
-module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+module load LUMI/24.03
+module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
 ```
 
 Note that the module defines two environment variables that point to the `.sif` file of the container:
@@ -113,7 +121,7 @@ to quickly switch between them.
 
     ``` bash
     rm -f $SIF
-    module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+    module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
     ```
 
     Now check again the `SIF` and `SIFPYTORCH` environment variables and note that they now point to
@@ -248,6 +256,14 @@ export NCCL_SOCKET_IFNAME=hsn0,hsn1,hsn2,hsn3
 export NCCL_NET_GDR_LEVEL=3
 ```
 
+Note that in the future, from ROCm 6.2 on, the second environment variable isn't strictly needed
+anymore as this value will be the default. And it turns out that in current versions or ROCm,
+the first line can also be simplified to 
+
+``` bash
+export NCCL_SOCKET_IFNAME=hsn
+```
+
 Fourth, we need to ensure that each task uses the proper GPU. This is one point where we 
 assume that one GPU (GCD) per task is used. The script also assumes that the
 ["Linear assignment of GCD, then match the cores" idea](08-Binding.md#linear-assignment-of-gcd-then-match-the-cores)
@@ -277,14 +293,14 @@ the demo directory `$installdir` by copying the code below:
 #SBATCH --partition=standard-g
 #SBATCH --mem=480G
 #SBATCH --time=5:00
-#SBATCH --account=project_<your_project_id>
 
-module load LUMI/23.09
-module load PyTorch/2.2.0-rocm-5.6.1-python-3.10-singularity-20240315
+module load LUMI/24.03
+module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
 
 c=fe
 MYMASKS="0x${c}000000000000,0x${c}00000000000000,0x${c}0000,0x${c}000000,0x${c},0x${c}00,0x${c}00000000,0x${c}0000000000"
 
+cd mnist
 srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=mask_cpu:$MYMASKS \
   singularity exec $SIFPYTORCH \
     conda-python-distributed -u mnist_DDP.py --gpu --modelpath model
@@ -293,18 +309,18 @@ srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=mask_cpu:$MYMASKS \
 Launch the script by setting some environment variables to use the course account and reservation:
 
 ``` bash
-export SBATCH_ACCOUNT=project_465001603
+export SBATCH_ACCOUNT=project_465001726
 export SBATCH_RESERVATION=TODO
 ```
 
-and then launching the job script:
+Modify the `SBATCH_ACCOUNT` if the account project is no longer available, and omit `SBATCH_RESERVATION` outside the
+course days, when there is no reservation.
+
+Next launch the job script:
 
 ``` bash
 sbatch mnist.slurm
 ```
-
-(After the course, use any valid project with GPU billing units and omit the `SBATCH_RESERVATION` environment
-variable)
 
 When the job script ends (which is usually fast once it gets the resources to run),
 the output can be found in `output_mnist.slurm_1234567.txt` where you need to
