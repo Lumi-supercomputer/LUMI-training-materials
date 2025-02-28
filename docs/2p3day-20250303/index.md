@@ -128,16 +128,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| /            | /      | /     | /         |
-
-::end-spantable::
-
-<!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
-::spantable::
-
-| Presentation | slides | notes | recording |
-|:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
@@ -167,6 +157,15 @@ downloaded from LUMI.
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
+
+::end-spantable::
+
+<!-- Note: spantable fails if there are spaces after the trailing |! -->
+<!--
+::spantable::
+
+| Presentation | slides | notes | recording |
+|:-------------|:-------|:------|:----------|
 | **Day 3** @span |  |  |  |
 | [Introduction](MI301-IntroductionCourse.md) | / | / | [web](MI301-IntroductionCourse.md) |
 | [HPE Cray EX Architecture](M301-HPE_Cray_EX_Architecture.md) | [lumi](M301-HPE_Cray_EX_Architecture.md) | / | [lumi](M301-HPE_Cray_EX_Architecture.md) |

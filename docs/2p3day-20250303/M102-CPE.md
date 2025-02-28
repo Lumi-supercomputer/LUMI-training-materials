@@ -12,12 +12,13 @@ run a program.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
-
+-->
 <!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/102-CPE.mp4" controls="controls"></video>
 -->
-<!--
+
 -   A video recording will follow.
 
 -   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf)
@@ -25,7 +26,6 @@ Materials will be made available after the lecture
 -   [Course notes](102-CPE.md)
 
 -   [Exercises](E102-CPE.md)
--->
 
 
 ## Q&A

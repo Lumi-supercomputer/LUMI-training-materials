@@ -12,13 +12,12 @@ LuMI-O can be accessed.
 
 ## Materials
 
+<!--
 Materials will be made available during and after the lecture
-
+-->
 <!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/204-ObjectStorage.mp4" controls="controls"></video>
 -->
-
-<!--
 -   A video recording will follow.
 
 -   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf)
@@ -26,7 +25,6 @@ Materials will be made available during and after the lecture
 -   [Course notes](204-ObjectStorage.md)
 
 -   [Exercises](E204-ObjectStorage.md)
--->
 
 
 ## Q&A
