@@ -128,7 +128,14 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| /            | /      | /     | /         |
+| **Day 1** @span |  |  |  |
+| [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
+| Introduction to the course notes | / | [N](000-Introduction.md) |  / |
+| ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
+| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
+| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
+| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
+| [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
 
 ::end-spantable::
 
