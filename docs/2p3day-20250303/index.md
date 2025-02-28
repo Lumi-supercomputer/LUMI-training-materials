@@ -1,5 +1,6 @@
 # LUMI Intensive: Comprehensive Intro and Advanced Workshop, March 3-7, 2025
 
+<!--
 ## Target audience
 
 The course is an "on-site first course": We will broadcast the talks via Zoom, but there is direct
@@ -42,11 +43,12 @@ on LUMI.
 See the [draft schedule](schedule.md) to get a better idea of topics that will be covered.
 
 People registering for the whole event have priority for on-site seating on day 1 and 2.
+-->
 
 
 ## Course organisation
 
--   Location: [KTH, Lindstedtsvägen 24, 114 28Stockholm, Sweden](https://maps.app.goo.gl/NPLtyuRe97euBSnL6)
+-   Location: [KTH, Lindstedtsvägen 24, 114 28 Stockholm, Sweden](https://maps.app.goo.gl/NPLtyuRe97euBSnL6)
 
     The building is just a 5 minute walk from a metro station with excellent connections to the 
     central station (red metro line). See also the [SL web site](https://sl.se/en/in-english)
@@ -95,8 +97,20 @@ People registering for the whole event have priority for on-site seating on day 
     Probably simplest if you just get the [SL (Stockholm Localtrafik) app](https://sl.se/en/fares-and-tickets/smart-phone-ticket-app) 
     on a smartphone, will give you a QR code that you can use at ticket barriers. 
     Tickets can be bought using a credit card in the app. Physical cards are also available, but cost 50 SEK for the card, 
-    plus extra for the tickets you put on it.  Credit cards can also be used with contactless pay as you go to buy a single.
+    plus extra for the tickets you put on it.  
+    [Credit cards can also be used with contactless pay as you go to buy a single](https://sl.se/en/fares-and-tickets/contactless-pay-as-you-go/how-to-pay-as-you-go).
 
+    Single tickets are fairly expensive. If you plan to use public transportation not only to come and go to the venue,
+    but also at night to travel in Stockholm, a [travelcard](https://sl.se/en/fares-and-tickets/visitor-tickets/travelcards),
+    which you can get in the app, may be a better option.
+
+    Be careful when using the route planner in the app to travel to the course venue.
+    If you search for KTH, several options will be offered to you, some of those in
+    entirely different parts of the city. Search for 
+    ["Tekniska högskolan"](https://maps.app.goo.gl/xoaz6KgaTKF3enL76), the metro station, or 
+    "Lindstedtsvägen (Stockholm)". But **do NOT take 
+    ["KTH - Royal Intitute of Technology (Södertälje)"](https://maps.app.goo.gl/NJJMRYPxdW3YgZ5E6)**
+    as this will take you to a different place, even outside Stockholm
 
 
 ## Course materials
