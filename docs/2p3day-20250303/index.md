@@ -128,16 +128,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| /            | /      | /     | /         |
-
-::end-spantable::
-
-<!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
-::spantable::
-
-| Presentation | slides | notes | recording |
-|:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
@@ -162,6 +152,15 @@ downloaded from LUMI.
 | [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf) | [(N)](203-Lustre.md) | [V](M203-Lustre.md) |
 | [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
+
+::end-spantable::
+
+<!-- Note: spantable fails if there are spaces after the trailing |! -->
+<!--
+::spantable::
+
+| Presentation | slides | notes | recording |
+|:-------------|:-------|:------|:----------|
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
