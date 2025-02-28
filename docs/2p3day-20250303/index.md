@@ -133,6 +133,7 @@ downloaded from LUMI.
 ::end-spantable::
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
+<!--
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -204,6 +205,7 @@ downloaded from LUMI.
 | [Additional documentation](A01-Documentation.md) | / | [web](A01-Documentation.md) | / |
 
 ::end-spantable::
+-->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
