@@ -13,9 +13,9 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-503-IO_Optimization_Parallel_IO.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-502-IO_Optimization_Parallel_IO.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/503-IO_Optimization_Parallel_IO.mp4`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/502-IO_Optimization_Parallel_IO.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
 -->

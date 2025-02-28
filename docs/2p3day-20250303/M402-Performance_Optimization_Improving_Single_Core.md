@@ -13,9 +13,9 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-403-Performance_Optimization_Improving_Single_Core.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-402-Performance_Optimization_Improving_Single_Core.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/403-Performance_Optimization_Improving_Single_Core.mp4`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/402-Performance_Optimization_Improving_Single_Core.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
 -->

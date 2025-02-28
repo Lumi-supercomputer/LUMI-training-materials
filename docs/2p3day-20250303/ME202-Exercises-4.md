@@ -1,6 +1,5 @@
 # Exercises 4: Running jobs with Slurm
 
-<!--
 ## Intro
 
 For these exercises, you'll need to take care of some settings:
@@ -14,9 +13,9 @@ For these exercises, you'll need to take care of some settings:
 
 -   On March 4 we have a reservation that you can use (through `#SBATCH --reservation=...`):
   
-    -   For the `small` partition, the reservation name is `LUMI_Intro_small`
+    -   For the `small` partition, the reservation name is `LUMI_intro_cpu`
 
-    -   For the `standard-g` partition, the reservation name is `LUMI_Intro_standard-g`
+    -   For the `standard-g` partition, the reservation name is `LUMI_intro_gpu`
 
 An alternative (during the course only) for manually specifying 
 the account, the partition and the reservation, is to set
@@ -26,28 +25,27 @@ them through modules. For this, first add an additional directory to the module 
 module use /appl/local/training/modules/2p3day-20250303
 ```
 
-and then you can load either the module `exercises/small` or `exercises/standard-g`.
+and then you can load either the module `exercises/intro-C` or `exercises/intro-G`.
 
 !!! Note "Check what these modules do..."
     Try, e.g., 
 
     ```
-    module show exercises/small
+    module show exercises/intro-C
     ```
 
     to get an idea of what these modules do. Can you see which environment variables they set?
--->
 
 
 ## Exercises
 
-Exercises will be made available during the course
+<!-- Exercises will be made available during the course -->
 
-<!--
--   Start with the [exercises on "Slurm on LUMI"](E07-Slurm.md)
+-   Start with the [exercises on "Slurm on LUMI"](E201-Slurm.md)
 
--   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E08-Binding.md)
--->
+    You may want to postpone the advanced exercise a bit as that one takes a lot of time.
+
+-   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E202-Binding.md)
 
 
 ## Q&A

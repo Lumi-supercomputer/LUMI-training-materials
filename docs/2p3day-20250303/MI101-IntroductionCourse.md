@@ -1,6 +1,6 @@
 # Introduction
 
-*Presenter: Kurt Lust and Jørn Dietze (LUST)*
+*Presenter: Kurt Lust (LUST)*
 
 ## Materials
 

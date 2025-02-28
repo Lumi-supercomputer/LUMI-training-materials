@@ -13,9 +13,9 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-502-Porting_to_GPU.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-305-Porting_to_GPU.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/502-Porting_to_GPU.mp4`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/305-Porting_to_GPU.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
 -->

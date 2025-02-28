@@ -73,6 +73,21 @@
     -webkit-mask-image: var(--md-admonition-icon--solution);
             mask-image: var(--md-admonition-icon--solution);
 }
+/* admonition seealso */
+.md-typeset .admonition.seealso,
+.md-typeset details.seealso {
+    border-color: rgb(6, 160, 78);
+}
+.md-typeset .seealso > .admonition-title,
+.md-typeset .seealso > summary {
+    background-color: rgba(6, 160, 78, 0.1);
+}
+.md-typeset .seealso > .admonition-title::before,
+.md-typeset .seealso > summary::before {
+    background-color: rgb(6, 160, 78);
+    -webkit-mask-image: var(--md-admonition-icon--seealso);
+            mask-image: var(--md-admonition-icon--seealso);
+}
 /* admonition technical */
 .md-typeset .admonition.technical,
 .md-typeset details.technical {
