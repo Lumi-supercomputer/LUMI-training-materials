@@ -128,16 +128,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| /            | /      | /     | /         |
-
-::end-spantable::
-
-<!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
-::spantable::
-
-| Presentation | slides | notes | recording |
-|:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
@@ -158,6 +148,15 @@ downloaded from LUMI.
 | [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
 | [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
 | [Exercises 4](ME202-Exercises-4.md) | / | / | / |
+
+::end-spantable::
+
+<!-- Note: spantable fails if there are spaces after the trailing |! -->
+<!--
+::spantable::
+
+| Presentation | slides | notes | recording |
+|:-------------|:-------|:------|:----------|
 | **Theme: Data on LUMI** @span |  |  |  |
 | [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf) | [(N)](203-Lustre.md) | [V](M203-Lustre.md) |
 | [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
