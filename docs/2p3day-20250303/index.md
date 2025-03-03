@@ -137,6 +137,8 @@ downloaded from LUMI.
 | [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
 | [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
 | [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
+| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
+| [Exercises 2](ME104-Exercises-2.md) | / | / | / |
 
 ::end-spantable::
 
@@ -146,16 +148,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| **Day 1** @span |  |  |  |
-| [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
-| Introduction to the course notes | / | [N](000-Introduction.md) |  / |
-| ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
-| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
-| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
-| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
-| [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
-| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
-| [Exercises 2](ME104-Exercises-2.md) | / | / | / |
 | [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
 | [Exercises 3](ME105-Exercises-3.md) | / | / | / |
 | [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-106-Support.pdf) | / | [V](M106-Support.md) |
