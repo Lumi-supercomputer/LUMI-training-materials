@@ -48,7 +48,8 @@ People registering for the whole event have priority for on-site seating on day 
 
 ## Course organisation
 
--   Location: [KTH, Lindstedtsvägen 24, 114 28 Stockholm, Sweden](https://maps.app.goo.gl/NPLtyuRe97euBSnL6)
+-   Location: [KTH, Lindstedtsvägen 24, 114 28 Stockholm, Sweden](https://maps.app.goo.gl/NPLtyuRe97euBSnL6),
+    [room 522 "Fantum"](https://www.kth.se/places/room/id/c9ec01ab-b536-4be6-b82a-0d52ddadb2e6?l=en).
 
     The building is just a 5 minute walk from a metro station with excellent connections to the 
     central station (red metro line). See also the [SL web site](https://sl.se/en/in-english)
