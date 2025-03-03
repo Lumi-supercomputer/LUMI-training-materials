@@ -25,4 +25,5 @@ Materials will be made available after the lecture
 
 ## Q&A
 
-/
+1.  Is there an output that informs you about the efficiency of your mapping? 
+    * Tommorow we will have a talk that covers binding of resources in your jobs. This will also show some examples that can be used to inspect your mapping. To find out if you have an efficient mapping, benchmarking and profiling your code is usually the best method. On Thursday morning, HPE will provide three talks on performance analysis tools.
