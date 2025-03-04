@@ -143,6 +143,12 @@ downloaded from LUMI.
 | [Exercises 3](ME105-Exercises-3.md) | / | / | / |
 | [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-106-Support.pdf) | / | [V](M106-Support.md) |
 | [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
+| **Day 2** @span |  |  |  |
+| [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
+| ***Theme: Running jobs efficiently*** @span |  |  |  |
+| [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
+| [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
+| [Exercises 4](ME202-Exercises-4.md) | / | / | / |
 
 ::end-spantable::
 
@@ -152,12 +158,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| **Day 2** @span |  |  |  |
-| [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
-| ***Theme: Running jobs efficiently*** @span |  |  |  |
-| [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
-| [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
-| [Exercises 4](ME202-Exercises-4.md) | / | / | / |
 | **Theme: Data on LUMI** @span |  |  |  |
 | [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf) | [(N)](203-Lustre.md) | [V](M203-Lustre.md) |
 | [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
