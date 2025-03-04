@@ -65,7 +65,7 @@ Materials will be made available after the lecture
 
 6.  On a more general note: How interested is the LUMI Support to help users optimise resource use, as opposed to just having less optimal scripts running?
 
-    -   We can offer you the training to do such work so that you learn what you need to know about the system to do this work and to that you learn about tools that could be helpful, but we cannot do this for every individual user as (a) it does not only require knowledge about LUMI, but also about each individual application and the specific task that you want to do with that application, and (b) 10 FTE for 3000 users is just too few people to offer that kind of support or to have a proper understanding about a large enough range of applications.
+    -   We can offer you the training to do such work so that you learn what you need to know about the system to do this work and so that you learn about tools that could be helpful, but we cannot do this for every individual user as (a) it does not only require knowledge about LUMI, but also about each individual application and the specific task that you want to do with that application, and (b) 10 FTE for 3000 users is just too few people to offer that kind of support or to have a proper understanding about a large enough range of applications.
 
 
 
