@@ -29,11 +29,11 @@ Temporary web-available materials:
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-302-ProgrammingModelExamples_SLURM.pdf).
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.pdf`
 
+<!--
 -   Exercises as bizp2-compressed tar file in
     `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar.bz2`
 
