@@ -165,6 +165,7 @@ downloaded from LUMI.
 | [Exercises #6](ME302-Exercises-6.md) | / | / | / |
 | [Cray Scientific Libraries](M303-Cray_Scientific_Libraries.md) | [lumi](M303-Cray_Scientific_Libraries.md) | / | [lumi](M303-Cray_Scientific_Libraries.md) |
 | [Exercises #7](ME303-Exercises-7.md) | / | / | / |
+| [CCE Offloading Models](M304-Offload_CCE.md) | [lumi](M304-Offload_CCE.md) | / | [lumi](M304-Offload_CCE.md) |
 
 ::end-spantable::
 
@@ -174,7 +175,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [CCE Offloading Models](M304-Offload_CCE.md) | [lumi](M304-Offload_CCE.md) | / | [lumi](M304-Offload_CCE.md) |
 | [Frameworks for porting applications to GPUs](M305-Porting_to_GPU.md) | [lumi](M305-Porting_to_GPU.md) | / |[lumi](M305-Porting_to_GPU.md) |
 | [Introduction to the AMD ROCm Ecosystem](M306-Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-306-Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](M306-Introduction_to_AMD_ROCm_Ecosystem.md) |
 | [Exercises #8](ME306-Exercises-8.md) | / | / | / |
