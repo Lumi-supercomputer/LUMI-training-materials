@@ -31,6 +31,20 @@ Archived materials on LUMI:
 -   Recording: `/appl/local/training/2p3day-20250303/recordings/305-Introduction_to_AMD_ROCm_Ecosystem.mp4`
 -->
 
+## Some links from the slides
+
+-   [HIP porting guide](https://github.com/ROCm/HIP/blob/amd-staging/docs/how-to/hip_porting_guide.md)
+
+-   [rocBLAS](https://github.com/ROCm/rocBLAS) and
+    [hipBLAS](https://github.com/ROCm/hipBLAS) source code and
+    [rocBLAS](https://rocm.docs.amd.com/projects/rocBLAS/en/latest/index.html) and
+    [hipBLAS](https://rocm.docs.amd.com/projects/hipBLAS/en/latest/) documentation.
+
+-   [rocminfo command](https://github.com/ROCm/rocminfo)
+
+-   [rocm-smi command](https://github.com/ROCm/rocm_smi_lib/tree/master/python_smi_tools)
+
+-   [Events for stream synchronisation](https://rocm.docs.amd.com/projects/HIP/en/latest/.doxygen/docBin/html/group___event.html)
 
 ## Q&A
 

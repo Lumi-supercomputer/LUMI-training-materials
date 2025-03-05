@@ -1,28 +1,25 @@
 # Exercise session 8: HIP tools
 
-<!--
-Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@sfantao/lumi-training-ams-2024),
-sections on [HIP Exercises](https://hackmd.io/@sfantao/lumi-training-ams-2024#HIP-Exercises) and
-[Hipify](https://hackmd.io/@sfantao/lumi-training-ams-2024#Hipify).
+Exercise assignments can be found in the [AMD exercise notes](https://hackmd.io/@sfantao/lumi-training-sto-2025),
+sections on [HIP Exercises](https://hackmd.io/@sfantao/lumi-training-sto-2025#HIP-Exercises) and
+[Hipify](https://hackmd.io/@sfantao/lumi-training-sto-2025#Hipify).
 
 Exercise files can be copied from `Exercises/AMD/HPCTrainingExamples`.
--->
+
 
 ## Materials
 
 No materials available at the moment.
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Exercises can be copied from `/project/project_465001726/exercises/AMD/HPCTrainingExamples`
--->
 
-<!--
 Materials on the web:
 
 -   [AMD exercise assignments and notes](https://hackmd.io/@sfantao/lumi-training-ams-2024)
 
+<!--
     [PDF backup](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.pdf)
     and [local web backup](exercises_AMD_hackmd.md).
 
