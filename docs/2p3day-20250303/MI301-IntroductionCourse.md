@@ -11,6 +11,6 @@ Materials will be made available after the lecture
 -->
 <!--
 -   A video recording will follow.
-
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I101-IntroductionCourse.pdf)
 -->
+
+-   [Slides LUST introduction](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I301-IntroductionCoursePart2.pdf)
