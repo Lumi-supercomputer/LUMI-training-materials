@@ -48,5 +48,8 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+1.  Roughly how much of nvidia API is supported?
+
+    -   Somewhere between CUDA 7 and 8. 
+
 
