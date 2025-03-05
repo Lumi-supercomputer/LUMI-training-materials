@@ -4,6 +4,8 @@
 
 ## Materials
 
+Course materials will be provided during and after the course.
+
 <!--
 Temporary location of materials (for the lifetime of the training project):
 

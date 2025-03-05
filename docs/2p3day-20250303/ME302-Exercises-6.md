@@ -11,7 +11,6 @@ programming models and optimisation options.
 
 No materials available at the moment.
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -21,17 +20,14 @@ Temporary location of materials (for the lifetime of the training project):
     `/project/project_465001726/Exercises/HPE/day1/ProgrammingModels`.
 
     See `/project/project_465001726/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
--->
 
-<!--
 Temporary web-available materials:
 
 -    Overview exercise assignments day 1 temporarily available on
      [this link](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-1_Exercises_day1.pdf)
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
-     [this link](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-1_04a-ProgrammingModelExamples_SLURM.pdf).
--->
+     [this link](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-302-ProgrammingModelExamples_SLURM.pdf).
 
 <!--
 Archived materials on LUMI:

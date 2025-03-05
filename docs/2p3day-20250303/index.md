@@ -160,6 +160,9 @@ downloaded from LUMI.
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
 | **Day 3** @span |  |  |  |
 | [Introduction](MI301-IntroductionCourse.md) | / | / | [web](MI301-IntroductionCourse.md) |
+| [HPE Cray EX Architecture](M301-HPE_Cray_EX_Architecture.md) | [lumi](M301-HPE_Cray_EX_Architecture.md) | / | [lumi](M301-HPE_Cray_EX_Architecture.md) |
+| [Compilers and Parallel Programming Models](M302-Compilers_and_Parallel_Programming_Models.md) | [lumi](M302-Compilers_and_Parallel_Programming_Models.md) | / | [lumi](M302-Compilers_and_Parallel_Programming_Models.md) |
+| [Exercises #6](ME302-Exercises-6.md) | / | / | / |
 
 ::end-spantable::
 
@@ -169,9 +172,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [HPE Cray EX Architecture](M301-HPE_Cray_EX_Architecture.md) | [lumi](M301-HPE_Cray_EX_Architecture.md) | / | [lumi](M301-HPE_Cray_EX_Architecture.md) |
-| [Compilers and Parallel Programming Models](M302-Compilers_and_Parallel_Programming_Models.md) | [lumi](M302-Compilers_and_Parallel_Programming_Models.md) | / | [lumi](M302-Compilers_and_Parallel_Programming_Models.md) |
-| [Exercises #6](ME302-Exercises-6.md) | / | / | / |
 | [Cray Scientific Libraries](M303-Cray_Scientific_Libraries.md) | [lumi](M303-Cray_Scientific_Libraries.md) | / | [lumi](M303-Cray_Scientific_Libraries.md) |
 | [Exercises #7](ME303-Exercises-7.md) | / | / | / |
 | [CCE Offloading Models](M304-Offload_CCE.md) | [lumi](M304-Offload_CCE.md) | / | [lumi](M304-Offload_CCE.md) |
