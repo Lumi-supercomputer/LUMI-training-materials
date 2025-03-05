@@ -166,7 +166,8 @@ downloaded from LUMI.
 | [Cray Scientific Libraries](M303-Cray_Scientific_Libraries.md) | [lumi](M303-Cray_Scientific_Libraries.md) | / | [lumi](M303-Cray_Scientific_Libraries.md) |
 | [Exercises #7](ME303-Exercises-7.md) | / | / | / |
 | [CCE Offloading Models](M304-Offload_CCE.md) | [lumi](M304-Offload_CCE.md) | / | [lumi](M304-Offload_CCE.md) |
-
+| [Introduction to the AMD ROCm Ecosystem](M305-Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-305-Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](M305-Introduction_to_AMD_ROCm_Ecosystem.md) |
+|
 ::end-spantable::
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
@@ -175,11 +176,9 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Frameworks for porting applications to GPUs](M305-Porting_to_GPU.md) | [lumi](M305-Porting_to_GPU.md) | / |[lumi](M305-Porting_to_GPU.md) |
-| [Introduction to the AMD ROCm Ecosystem](M306-Introduction_to_AMD_ROCm_Ecosystem.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-306-Introduction_to_AMD_ROCm_Ecosystem.pdf) | / | [web](M306-Introduction_to_AMD_ROCm_Ecosystem.md) |
-| [Exercises #8](ME306-Exercises-8.md) | / | / | / |
-| [Debugging at Scale](M307-Debugging_at_Scale.md) | [lumi](M307-Debugging_at_Scale.md) | / |  [lumi](M307-Debugging_at_Scale.md) |
-| [Exercises #9](ME307-Exercises-9.md) | / | / | / |
+ [Exercises #8](ME305-Exercises-8.md) | / | / | / |
+| [Debugging at Scale](M3076Debugging_at_Scale.md) | [lumi](M306-Debugging_at_Scale.md) | / |  [lumi](M306-Debugging_at_Scale.md) |
+| [Exercises #9](ME306-Exercises-9.md) | / | / | / |
 | **Day 4** @span |  |  |  |
 | [Introduction to Perftools](M401-Introduction_to_Perftools.md) | [lumi](M401-Introduction_to_Perftools.md) | / |  [lumi](M401-Introduction_to_Perftools.md) |
 | [Exercises #10](ME401-Exercises-10.md) | / | / | / |

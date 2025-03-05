@@ -1,4 +1,4 @@
-# CCE Offloading Models
+# CCE Offloading Models and Porting Applications to GPUs
 
 *Presenter: Alfio Lazzaro (HPE)*
 
