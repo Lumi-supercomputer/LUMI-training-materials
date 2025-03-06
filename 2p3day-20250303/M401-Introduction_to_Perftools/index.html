@@ -3497,6 +3497,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -3542,8 +3551,41 @@
 <code>$CRAYPAT_ROOT/share/desktop_installers/</code>. This only works when the
 <code>perftools-base</code> module is loaded, but this is the case at login.</p>
 </div>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://cpe.ext.hpe.com/docs/24.03/performance-tools/index.html">Overview of the tools in the CPE documentation</a></li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Can these tools analyse both CPU and GPU code in an application?</p>
+<ul>
+<li>Yes, but for GPU code we have sessions this afternoon and tomorrow in which we also cover AMD specific profiling tools (rocprof, OmniTrace, Omniperf).</li>
+</ul>
+<p>Follow-up question/clarification. I have fortran code on CPU and call GPU fucntions via is_c_binding. I am mostrly interested in doing traces that have both CPU and GPU calls.</p>
+<ul>
+<li>Yes, you can use <code>perftools-lite-gpu</code>. For more specific analysis you can use the perftools (see the next talk).</li>
+</ul>
+</li>
+<li>
+<p>Do these perftools work with all PE (gnu, cray, amd, ...)?</p>
+<ul>
+<li>In general, yes. The one thing that is specific is the -loops functionality as it needs the compiler to generate trace points for loops, something CCE does. Even if you can't do that you can still do sampling and see which source lines are getting sample hits.</li>
+</ul>
+</li>
+<li>
+<p>Are perftools similar to NVIDIA Nsight Systems?</p>
+<ul>
+<li>We cannot really answer as we are not an NVIDIA site and don't have the NVIDIA tools. I'd expect the AMD tools that will be discussed tomorrow to be closer to NVIDIA tools as they focus more on GPU.</li>
+</ul>
+</li>
+<li>
+<p>In addition to MPI timing, will perf tool details about MPI bandwidth and data transfer details?? I have pure F90 and F90+HIP-C code (both MPI) that i need to profile.</p>
+<ul>
+<li>Yes, I suggest to use <code>perftools</code> instead of <code>perftools-lite</code> and then you can ask <code>-g mpi</code> that will give you more info on MPI (see presentation after the break or <a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00114942en_us&amp;page=Use_Predefined_Trace_Groups.html">"Use Predefined Trace Groups" in the HPE documentation</a> and <a href="https://docs.lumi-supercomputer.eu/development/profiling/perftools/">this page in the LUMI docs</a>.</li>
+</ul>
+</li>
+</ol>
 
 
 
