@@ -4,17 +4,19 @@
 
 Tools discussed:
 
--   [STAT: Stack Trace Analysis Tool](https://cpe.ext.hpe.com/docs/latest/debugging-tools/stat/index.html) (module `cray-stat`)
+-   [STAT: Stack Trace Analysis Tool](https://cpe.ext.hpe.com/docs/24.03/debugging-tools/index.html#stat-stack-trace-analysis-tool) (module `cray-stat`)
 
--   [ATP: Abnormal Termination Processing](https://cpe.ext.hpe.com/docs/latest/debugging-tools/atp/index.html) (module `atp`)
+-   [ATP: Abnormal Termination Processing](https://cpe.ext.hpe.com/docs/24.03/debugging-tools/index.html#atp-abnormal-termination-processing) (module `atp`)
 
--   [GDB for HPC](https://cpe.ext.hpe.com/docs/latest/debugging-tools/gdb4hpc/index.html) (module `gdb4hpc`).
+-   [GDB for HPC](https://cpe.ext.hpe.com/docs/24.03/debugging-tools/index.html#gdb4hpc) (module `gdb4hpc`).
     Works for CPU and GPU.
 
--   [Valgrind for HPC](https://cpe.ext.hpe.com/docs/latest/debugging-tools/valgrind4hpc/guides/user_guide.html)
+-   [CCDB - Cray comparative Debugger](https://cpe.ext.hpe.com/docs/24.03/debugging-tools/index.html#ccdb-cray-comparative-debugger)
+
+-   [Valgrind for HPC](https://cpe.ext.hpe.com/docs/24.03/debugging-tools/index.html#valgrind4hpc)
     (module `valgrid4hpc`)
 
--   [Sanitizers for HPC](https://cpe.ext.hpe.com/docs/latest/debugging-tools/sanitizers4hpc/guides/user_guide.html)
+-   [Sanitizers for HPC](https://cpe.ext.hpe.com/docs/24.03/debugging-tools/index.html#sanitizers4hpc)
     (module `sanitizers4hpc`)
 
 -   `CRAY_ACC_DEBUG` environment variable for CCE OpenaCC/OpenMP offload
