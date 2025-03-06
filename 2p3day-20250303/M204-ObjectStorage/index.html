@@ -3538,23 +3538,35 @@ We highlight the differences
 between a parallel filesystem such as Lustre and object storage, and discuss how
 LuMI-O can be accessed.</p>
 <h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<p>Materials will be made available during and after the lecture</p>
+<!--
+Materials will be made available during and after the lecture
+-->
 <!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/204-ObjectStorage.mp4" controls="controls"></video>
 -->
-
-<!--
--   A video recording will follow.
-
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf)
-
--   [Course notes](204-ObjectStorage.md)
-
--   [Exercises](E204-ObjectStorage.md)
--->
-
+<ul>
+<li>
+<p>A video recording will follow.</p>
+</li>
+<li>
+<p><a href="https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf">Slides</a></p>
+</li>
+<li>
+<p><a href="../204-ObjectStorage/">Course notes</a></p>
+</li>
+<li>
+<p><a href="../E204-ObjectStorage/">Exercises</a></p>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>I might have missed this, but my normal workflow generates some data on (e.g.) the scratch which I then scp to my local cluster and then delete on LUMI. Does using LUMI-O offer any advantage with respect to this procedure?</p>
+<ul>
+<li>Only if you have performance constraints: scp does not offer multiple stream, but only one. if you have very large files, it may speedup your process.</li>
+</ul>
+</li>
+</ol>
 
 
 

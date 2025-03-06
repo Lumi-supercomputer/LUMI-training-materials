@@ -3535,22 +3535,47 @@
 users of LUMI. For users of smaller Tier-2 clusters with large support teams compared
 to the user base of the machine, the approach taken on LUMI may be a bit unusual...</p>
 <h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<p>Materials will be made available after the lecture</p>
+<!--
+Materials will be made available after the lecture
+-->
 <!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/105-SoftwareStacks.mp4" controls="controls"></video>
 -->
-<!--
--   A video recording will follow.
-
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-105-SoftwareStacks.pdf)
-
--   [Course notes](105-SoftwareStacks.md)
-
--   [Exercises](E105-SoftwareStacks.md)
--->
-
+<ul>
+<li>
+<p>A video recording will follow.</p>
+</li>
+<li>
+<p><a href="https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-105-SoftwareStacks.pdf">Slides</a></p>
+</li>
+<li>
+<p><a href="../105-SoftwareStacks/">Course notes</a></p>
+</li>
+<li>
+<p><a href="../E105-SoftwareStacks/">Exercises</a></p>
+</li>
+</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Loading LUMI/24.03 loads PrgEnv-cray module.  Would it be ok to switch to cpeCray?</p>
+<ul>
+<li>PrgEnv-cray is already loaded by default when you load LUMI/24.03. You can switch to a different PrgEnv using the <code>module load</code> command if you want.</li>
+</ul>
+</li>
+<li>
+<p>Any measurement about the toolchain providing the best BLAS ?</p>
+<ul>
+<li>Should be the same libsci, so same codebase. It should have similar performances but depends on compilers</li>
+</ul>
+</li>
+<li>
+<p>There is an easyconfig for OpenFOAM 10 provided by you, is it straightforward to change and reuse this for other versions?</p>
+<ul>
+<li>Sometimes yes, other times no. They change the building procedures and in those cases is not easy at all.</li>
+</ul>
+</li>
+</ol>
 
 
 

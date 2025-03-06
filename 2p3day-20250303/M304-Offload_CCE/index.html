@@ -20,7 +20,7 @@
     
     
       
-        <title>CCE Offloading Models - LUMI training materials</title>
+        <title>CCE Offloading Models and Porting Applications to GPUs - LUMI training materials</title>
       
     
     
@@ -119,7 +119,7 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - CCE Offloading Models" />
+  <meta property="og:title" content="LUMI training materials - CCE Offloading Models and Porting Applications to GPUs" />
   <meta property="og:description" content="None" />
   <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M304-Offload_CCE/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
@@ -131,7 +131,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - CCE Offloading Models" />
+  <meta name="twitter:title" content="LUMI training materials - CCE Offloading Models and Porting Applications to GPUs" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -193,7 +193,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cce-offloading-models" class="md-skip">
+        <a href="#cce-offloading-models-and-porting-applications-to-gpus" class="md-skip">
           Skip to content
         </a>
       
@@ -250,7 +250,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CCE Offloading Models
+              CCE Offloading Models and Porting Applications to GPUs
             
           </span>
         </div>
@@ -3520,27 +3520,62 @@
                   
 
 
-<h1 id="cce-offloading-models">CCE Offloading Models<a class="headerlink" href="#cce-offloading-models" title="Permanent link">&para;</a></h1>
+<h1 id="cce-offloading-models-and-porting-applications-to-gpus">CCE Offloading Models and Porting Applications to GPUs<a class="headerlink" href="#cce-offloading-models-and-porting-applications-to-gpus" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
-<p>Course materials will be provided during and after the course.</p>
 <!--
-Temporary location of materials (for the lifetime of the training project):
-
--   Slides: `/project/project_465001726/Slides/HPE/06_Directives_Programming.pdf`
+Course materials will be provided during and after the course.
 -->
 
+<p>Temporary location of materials (for the lifetime of the training project):</p>
+<ul>
+<li>Slides: <code>/project/project_465001726/Slides/HPE/04_Directives_Programming.pdf</code></li>
+</ul>
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-304-Offload_CCE.pdf</code></li>
+</ul>
 <!--
-Archived materials on LUMI:
-
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-1_09_Offload_CCE.pdf`
-
--   Recording: `/appl/local/training/2p3day-20250303/recordings/1_09_Offload_CCE.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/304-Offload_CCE.mp4`
 -->
 
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>In case I have a complex Struct in C++ how can I map that with OpenMP on GPU?
+    <div class="highlight"><pre><span></span><code>struct Data{
+  subStruct Vc; 
+  double **array_of_array;
+  double max_mach;
+  double ... 
+  double ...
+}
+</code></pre></div>
+    How can I map Data? </p>
+<ul>
+<li><em>(Alfio) In OpenMP you can use <a href="https://www.openmp.org/spec-html/5.2/openmpsu61.html">Mapper Identiﬁers and mapper Modiﬁers</a>. <a href="https://passlab.github.io/Examples/contents/Chap_devices/9_declare_mapper_Directive.html">See this example</a></em></li>
+</ul>
+<p>Managed can help in this case (without deep copy)? </p>
+<ul>
+<li><em>Yes, indeed (note that managed is what C++ parellel frameworks do, e.g. SYCL)</em></li>
+</ul>
+<p>If he can show some example it would be helpful. </p>
+<ul>
+<li>
+<p><em><a href="https://passlab.github.io/Examples/contents/Chap_devices/9_declare_mapper_Directive.html">See this example</a></em></p>
+</li>
+<li>
+<p><em>This is an example that might need unified memory to work. And it will likely only be truly efficient on something like an MI300A.</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sorry for the repetition, can you clarify better the differences between managed and unified memory</p>
+<ul>
+<li><em>(Alfio) Unified memory is related to OpenMP (aka Unified Shared Memory, USM), which uses managed memory in HIP (see <a href="https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory_m.html#gaadf4780d920bb6f5cc755880740ef7dc">HipMallocManaged in "HIP Runtime API Reference: Managed Memory"</a>)</em></li>
+</ul>
+</li>
+</ol>
 
 
 

@@ -3532,24 +3532,34 @@
 <h1 id="lumi-architecture-programming-and-runtime-environment">LUMI Architecture, Programming and Runtime Environment<a class="headerlink" href="#lumi-architecture-programming-and-runtime-environment" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Harvey Richardson (HPE)</em></p>
 <h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<!--
-Temporary location of materials (for the lifetime of the training project):
+<!-- Course materials will be provided during and after the course. -->
 
--   Slides: `/project/project_465001726/Slides/HPE/01_Architecture_PE_modules_slurm.pdf`
+<p>Temporary location of materials (for the lifetime of the training project):</p>
+<ul>
+<li>Slides: <code>/project/project_465001726/Slides/HPE/01_Architecture_PE_modules_slurm.pdf</code></li>
+</ul>
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-301-HPE_Cray_EX_Architecture.pdf</code></li>
+</ul>
+<!--
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/301-HPE_Cray_EX_Architecture.mp4`
 -->
 
-<!--
-Archived materials on LUMI:
-
--   Slides: `/appl/local/training/paow-20250303/files/LUMI-paow-20250303-1_01_Architecture_PE_modules_slurm.pdf`
-
--   Recording: `/appl/local/training/paow-20250303/recordings/1_01_HPE_PE.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
--->
-
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>What versions of ROCm are currently supported on LUMI?</p>
+<ul>
+<li><em>Driver is from 6.0, so 5.6 to 6.2. One but though: Each version of the programming environment is developed with a specific version of ROCm in mind, so, e.g., for GPU-aware MPI the only version we are 100% sure of, is 6.0.3. But it seems to work wel with 6.2 also. Newer or older versions of ROCm may or may not work with that driver.E.g., we know that ROCm 5.4 does not work well with the current driver. On the other hand, when we had the 5.2 driver on the system which guaranteed support for 5.0 to 5.4, but it runed out that 5.5 also worked well. We have no experience though with ROCm 6.3 at the moment. Next update of the ROCm driver is expected only during the summer, and will go to 6.3 or newer.</em></li>
+</ul>
+<p>I see rocm/6.2.2 module is available; do you plan to add rocm/6.2.4  (I think it is the most up-to-date  one in 6.2.x line)?</p>
+<ul>
+<li><em>No, but feel free to adapt the Easy/build recipe yourself. We cannot follow every single small update, and the person who made the module for us has also left the team. We also have containers from which you can experiment with newer ROCm versions, but there too we don't have the personpower to do each and every version.</em></li>
+</ul>
+</li>
+</ol>
 
 
 

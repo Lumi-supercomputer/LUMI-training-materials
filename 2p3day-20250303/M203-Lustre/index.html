@@ -3505,6 +3505,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3527,17 +3536,38 @@ It is important to realise what the strengths and weaknesses of Lustre at the
 scale of a machine as LUMI are and how to use it properly and not disturb the
 work of other users.</p>
 <h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<p>Materials will be made available after the lecture</p>
+<!--
+Materials will be made available after the lecture
+-->
 <!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/203-Lustre.mp4" controls="controls"></video>
 -->
-<!--
--   A video recording will follow.
-
--   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf)
-
--   [Course notes](203-Lustre.md)
--->
+<ul>
+<li>
+<p>A video recording will follow.</p>
+</li>
+<li>
+<p><a href="https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf">Slides</a></p>
+</li>
+<li>
+<p><a href="../203-Lustre/">Course notes</a></p>
+</li>
+</ul>
+<h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Is there some strategy to be able to figure out the ideal striping for a specific application?</p>
+<ul>
+<li>See later this talk and the <a href="../M502-IO_Optimization_Parallel_IO/">advanced part of the course</a>. But as always, you also must know your application, and it will only deliver if you talk about files that are 10s of megabytes.</li>
+</ul>
+</li>
+<li>
+<p>Are there some recommended options to use when doing parallel IO using parallel IO libraries?</p>
+<ul>
+<li>That is the topic of a <a href="../M502-IO_Optimization_Parallel_IO/">presentation on Friday morning</a>... Slides will be made available shortly after that presentation, a recording early next week. But one thing you may have to do is set proper striping parameters which is also dicussed more towards the end of this talk. The defaults on LUMI are set to values that minimize the damage that an unexperienced user can do who doesn't care about setting these values.</li>
+</ul>
+</li>
+</ol>
 
 
 
