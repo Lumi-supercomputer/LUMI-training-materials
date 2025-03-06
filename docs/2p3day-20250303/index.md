@@ -173,6 +173,9 @@ downloaded from LUMI.
 | **Day 4** @span |  |  |  |
 | [Introduction to Perftools](M401-Introduction_to_Perftools.md) | [lumi](M401-Introduction_to_Perftools.md) | / |  [lumi](M401-Introduction_to_Perftools.md) |
 | [Exercises #10](ME401-Exercises-10.md) | / | / | / |
+| [Performance Optimization: Improving single-core Efficiency](M402-Performance_Optimization_Improving_Single_Core.md) | [lumi](M402-Performance_Optimization_Improving_Single_Core.md) | / | [lumi](M402-Performance_Optimization_Improving_Single_Core.md) |
+| [Advanced Performance Analysis](M403-Advanced_Performance_Analysis.md) | [lumi](M403-Advanced_Performance_Analysis.md) | / |  [lumi](M403-Advanced_Performance_Analysis.md) |
+| [Exercises #11](ME403-Exercises-11.md) | / | / | / |
 
 ::end-spantable::
 
@@ -182,9 +185,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Performance Optimization: Improving single-core Efficiency](M402-Performance_Optimization_Improving_Single_Core.md) | [lumi](M402-Performance_Optimization_Improving_Single_Core.md) | / | [lumi](M402-Performance_Optimization_Improving_Single_Core.md) |
-| [Advanced Performance Analysis](M403-Advanced_Performance_Analysis.md) | [lumi](M403-Advanced_Performance_Analysis.md) | / |  [lumi](M403-Advanced_Performance_Analysis.md) |
-| [Exercises #11](ME403-Exercises-11.md) | / | / | / |
 | [MPI Topics on the HPE Cray EX Supercomputer](M404-Cray_MPI_on_Slingshot.md) | [lumi](M404-Cray_MPI_on_Slingshot.md) | / | [lumi](M404-Cray_MPI_on_Slingshot.md) |
 | [Exercises #12](ME404-Exercises-12.md) | / | / | / |
 | [AMD Debugger: ROCgdb](M405-AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf) | / | [web](M405-AMD_ROCgdb_Debugger.md) |

@@ -493,7 +493,7 @@ DAY 4
             <br/><em>10:00 EET</em>
         </td>
         <td><b><a href="../M401-Introduction_to_Perftools/">Introduction to Perftools</a></b>
-        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        <br/><em>Presenters: Thierry Braconnier and Alfio Lazarro (HPE)</em>
         <ul>
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
             <li>Demo: Visualization of performance data with Apprentice2</kli>
@@ -531,7 +531,7 @@ DAY 4
             <br/><em>12:00 EET</em>
         </td>
         <td><b><a href="../M403-Advanced_Performance_Analysis/">Advanced Performance Analysis</a></b>
-        <br/><em>Presenter: Thierry Braconnier (HPE)</em>
+        <br/><em>Presenters: Thierry Braconnier and Alfo Lazarro (HPE)</em>
         <ul>
             <li>Automatic performance analysis and loop work estimated with perftools</li>
             <li>Communication Imbalance, Hardware Counters, Perftools API, OpenMP</li>
