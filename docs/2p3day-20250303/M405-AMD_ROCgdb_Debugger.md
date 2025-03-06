@@ -6,27 +6,23 @@
 Course materials will be provided during and after the course.
 
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/406-AMD_ROCgdb_Debugger.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/405-AMD_ROCgdb_Debugger.mp4" controls="controls"></video>
 -->
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001726/Slides/AMD/session-2-rocgdb-tutorial.pdf`
--->
+-   Slides: `'/project/project_465001726/Slides/AMD/session 02 - Debugging with rocgdb.pdf'`
 
-<!--
 Materials on the web:
 
--   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-406-AMD_ROCgdb_Debugger.pdf)
--->
+-   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf)
 
-<!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-406-AMD_ROCgdb_Debugger.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/406-AMD_ROCgdb_Debugger.mp4`
+<!--
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/405-AMD_ROCgdb_Debugger.mp4`
 -->
 
 
