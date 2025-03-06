@@ -172,6 +172,7 @@ downloaded from LUMI.
 | [Exercises #9](ME306-Exercises-9.md) | / | / | / |
 | **Day 4** @span |  |  |  |
 | [Introduction to Perftools](M401-Introduction_to_Perftools.md) | [lumi](M401-Introduction_to_Perftools.md) | / |  [lumi](M401-Introduction_to_Perftools.md) |
+| [Exercises #10](ME401-Exercises-10.md) | / | / | / |
 
 ::end-spantable::
 
@@ -181,7 +182,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Exercises #10](ME401-Exercises-10.md) | / | / | / |
 | [Performance Optimization: Improving single-core Efficiency](M402-Performance_Optimization_Improving_Single_Core.md) | [lumi](M402-Performance_Optimization_Improving_Single_Core.md) | / | [lumi](M402-Performance_Optimization_Improving_Single_Core.md) |
 | [Advanced Performance Analysis](M403-Advanced_Performance_Analysis.md) | [lumi](M403-Advanced_Performance_Analysis.md) | / |  [lumi](M403-Advanced_Performance_Analysis.md) |
 | [Exercises #11](ME403-Exercises-11.md) | / | / | / |
