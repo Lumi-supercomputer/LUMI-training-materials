@@ -180,6 +180,8 @@ downloaded from LUMI.
 | [Exercises #12](ME404-Exercises-12.md) | / | / | / |
 | [AMD Debugger: ROCgdb](M405-AMD_ROCgdb_Debugger.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf) | / | [web](M405-AMD_ROCgdb_Debugger.md) |
 | [Exercises #13](ME405-Exercises-13.md) | / | / | / |
+| [Introduction to ROC-Profiler (rocprof)](M406-Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-406-Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](M406-Introduction_to_Rocprof_Profiling_Tool.md) |
+| [Exercises #14](ME406-Exercises-14.md) | / | / | / |
 
 ::end-spantable::
 
@@ -189,8 +191,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Introduction to ROC-Profiler (rocprof)](M406-Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-406-Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](M406-Introduction_to_Rocprof_Profiling_Tool.md) |
-| [Exercises #14](ME406-Exercises-14.md) | / | / | / |
 | **Day 5** @span |  |  |  |
 | [Introduction to Python on Cray EX](M501-Introduction_to_Python_on_Cray_EX.md) | [lumi](M501-Introduction_to_Python_on_Cray_EX.md) | / |[lumi](M501-Introduction_to_Python_on_Cray_EX.md) |
 | [Optimizing Large Scale I/O](M502-IO_Optimization_Parallel_IO.md) | [lumi](M502-IO_Optimization_Parallel_IO.md) | / | [lumi](M502-IO_Optimization_Parallel_IO.md) |
