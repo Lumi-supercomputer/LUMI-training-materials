@@ -3537,7 +3537,18 @@
 
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Based on the slide  (28 maybe) should we expect very similar perfomrance having 1 GPU per MPI vs 2 GPUs per MPI comunicating with each other when the GPUS are in the same ? Since both cases use P2P</p>
+<ul>
+<li>Could you make an example? </li>
+</ul>
+<p>Sorry. For later. Assuming GPU-GPU communication. There are two cases 1 GPU per MPI, using MPI for excahnging data or 1MPI process with 2 GPUs using direct peer to peer access</p>
+<ul>
+<li>OK, so MPI uses P2P for that case (IPC) but there are corner cases (small message size for instance), so performance can be different. There is a range of env variables that you can use to tune P2P (check <code>man mpi</code> and grep for IPC). (sorry for the initial confusion, I thought P2P to be Point-to-Point MPI communications...)</li>
+</ul>
+</li>
+</ol>
 
 
 
