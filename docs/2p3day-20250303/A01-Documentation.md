@@ -152,7 +152,7 @@ A selection of man pages explicitly mentioned during the course:
 
     -   libfabric: `man fabric`
 
-    -   CXI: `man fi_cxi'
+    -   CXI: `man fi_cxi`
 
 -   LibSci
 
@@ -173,6 +173,9 @@ A selection of man pages explicitly mentioned during the course:
 
 -   DSMML - Distributed Symmetric Memory Management Library 
     -   `man intro_dsmml`
+
+-   Hugepages
+    -   [`man intro_hugepages`](https://cpe.ext.hpe.com/docs/24.03/craype/intro_hugepages.html)
 
 -   Slurm manual pages are also all [on the web](https://slurm.schedmd.com/archive/slurm-23.02.7/man_index.html) 
     and are easily found by Google, but are usually those for the latest version.

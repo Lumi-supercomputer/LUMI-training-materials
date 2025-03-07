@@ -186,6 +186,14 @@ downloaded from LUMI.
 | [GPU Application Porting Strategies](M501-Porting_to_GPU.md) | [lumi](M501-Porting_to_GPU.md) | / | [lumi](M501-Porting_to_GPU.md) |
 | [Introduction to Python on Cray EX](M502-Introduction_to_Python_on_Cray_EX.md) | [lumi](M502-Introduction_to_Python_on_Cray_EX.md) | / |[lumi](M502-Introduction_to_Python_on_Cray_EX.md) |
 | [Optimizing Large Scale I/O](M503-IO_Optimization_Parallel_IO.md) | [lumi](M503-IO_Optimization_Parallel_IO.md) | / | [lumi](M503-IO_Optimization_Parallel_IO.md) |
+| [Exercises #15](ME503-Exercises-15.md) | / | / | / |
+| [Introduction to OmniTrace](M504-AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-504-AMD_Omnitrace.pdf) | / |  [web](M504-AMD_Omnitrace.md) |
+| [Exercises #16](ME504-Exercises-16.md) | / | / | / |
+| [Introduction to Omniperf](M505-AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-AMD_Omniperf.pdf) | / |  [web](M505-AMD_Omniperf.md) |
+| [Exercises #17](ME505-Exercises-17.md) | / | / | / |
+| [Tools in Action - An Example with Pytorch](M506-Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-506-Best_Practices_GPU_Optimization.pdf) | / | [web](M506-Best_Practices_GPU_Optimization.md) |
+| **Appendices** @span |  |  |  |
+| [Additional documentation](A01-Documentation.md) | / | [web](A01-Documentation.md) | / |
 
 ::end-spantable::
 
@@ -195,14 +203,6 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| [Exercises #15](ME503-Exercises-15.md) | / | / | / |
-| [Introduction to OmniTrace](M503-AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-503-AMD_Omnitrace.pdf) | / |  [web](M503-AMD_Omnitrace.md) |
-| [Exercises #16](ME503-Exercises-16.md) | / | / | / |
-| [Introduction to Omniperf](M504-AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-504-AMD_Omniperf.pdf) | / |  [web](M504-AMD_Omniperf.md) |
-| [Exercises #17](ME504-Exercises-17.md) | / | / | / |
-| [Tools in Action - An Example with Pytorch](M505-Best_Practices_GPU_Optimization.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-Best_Practices_GPU_Optimization.pdf) | / | [web](M505-Best_Practices_GPU_Optimization.md) |
-| **Appendices** @span |  |  |  |
-| [Additional documentation](A01-Documentation.md) | / | [web](A01-Documentation.md) | / |
 
 ::end-spantable::
 -->
