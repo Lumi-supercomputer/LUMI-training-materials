@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/ME504-Exercises-17/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M506-Best_Practices_GPU_Optimization/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Exercise session 17: Omniperf - LUMI training materials</title>
+        <title>Best practices: GPU Optimization, tips & tricks / demo - LUMI training materials</title>
       
     
     
@@ -119,9 +119,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Exercise session 17: Omniperf" />
+  <meta property="og:title" content="LUMI training materials - Best practices: GPU Optimization, tips & tricks / demo" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/ME504-Exercises-17/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M506-Best_Practices_GPU_Optimization/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -131,7 +131,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Exercise session 17: Omniperf" />
+  <meta name="twitter:title" content="LUMI training materials - Best practices: GPU Optimization, tips & tricks / demo" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -193,7 +193,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exercise-session-17-omniperf" class="md-skip">
+        <a href="#best-practices-gpu-optimization-tips-tricks-demo" class="md-skip">
           Skip to content
         </a>
       
@@ -250,7 +250,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercise session 17: Omniperf
+              Best practices: GPU Optimization, tips &amp; tricks / demo
             
           </span>
         </div>
@@ -3497,15 +3497,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#materials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Materials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -3529,38 +3520,47 @@
                   
 
 
-<h1 id="exercise-session-17-omniperf">Exercise session 17: Omniperf<a class="headerlink" href="#exercise-session-17-omniperf" title="Permanent link">&para;</a></h1>
-<p>Exercise assignments can be found in the <a href="https://hackmd.io/@sfantao/lumi-training-sto-2025">AMD exercise notes</a>,
-section on <a href="https://hackmd.io/@sfantao/lumi-training-sto-2025#Omniperf">Omniperf</a>.</p>
-<p>Exercise files can be copied from <code>Exercises/AMD/HPCTrainingExamples</code>.</p>
-<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<!-- No materials available at the moment. -->
-
-<p>Temporary location of materials (for the lifetime of the training project):</p>
-<ul>
-<li>Exercises can be copied from <code>/project/project_465001726/exercises/AMD/HPCTrainingExamples</code></li>
-</ul>
-<p>Materials on the web:</p>
-<ul>
-<li><a href="https://hackmd.io/@sfantao/lumi-training-sto-2025#Omniperf">AMD exercise assignments and notes</a></li>
-</ul>
+<h1 id="best-practices-gpu-optimization-tips-tricks-demo">Best practices: GPU Optimization, tips &amp; tricks / demo<a class="headerlink" href="#best-practices-gpu-optimization-tips-tricks-demo" title="Permanent link">&para;</a></h1>
+<!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
+<p><em>Presenter:</em> Samuel Antao (AMD)</p>
+<p>Course materials will be provided during and after the course.</p>
 <!--
-    [PDF backup](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.pdf)
-    and [local web backup](exercises_AMD_hackmd.md#omniperf).
-
--   Exercise files: 
-    [Download as .tar.bz2](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2)
-    or [download as .tar](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar)
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/505-Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
 -->
 
-<p>Archived materials on LUMI:</p>
-<ul>
-<li>Exercise assignments PDF: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.pdf</code></li>
-</ul>
 <!--
--   Exercise files:
-    `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2`
-    or `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar`
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides: `/project/project_465001726/Slides/AMD/session-6-ToolsInActionPytorchExample-LUMI-2024.pdf`
+
+-   Scripts: `/project/project_465001726/Exercises/AMD/Pytorch`
+-->
+
+<!--
+Materials on the web:
+
+-   [Slides on the web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-Best_Practices_GPU_Optimization.pdf)
+
+-   Downloadable scripts as
+    [bzip2-compressed tar archive](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar.bz2) and 
+    [uncompressed tar archive](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar)
+-->
+
+<!--
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-Best_Practices_GPU_Optimization.pdf`
+
+-   Scripts as
+    bzip2-compressed tar archive in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar.bz2` and
+    uncompressed tar archive in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-505-scripts.tar`.
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/505-Best_Practices_GPU_Optimization.mp4`
+
+
+!!! Note "PyTorch in the LUMI Software Library" 
+    The example in this demo is also used as the example in our
+    [Pytorch page in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/).
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>

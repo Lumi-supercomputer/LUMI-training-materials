@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M502-IO_Optimization_Parallel_IO/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/ME503-Exercises-15/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>I/O Optimization - Parallel I/O - LUMI training materials</title>
+        <title>Exercise session 15: Lustre I/O - LUMI training materials</title>
       
     
     
@@ -119,9 +119,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - I/O Optimization - Parallel I/O" />
+  <meta property="og:title" content="LUMI training materials - Exercise session 15: Lustre I/O" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M502-IO_Optimization_Parallel_IO/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/ME503-Exercises-15/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -131,7 +131,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - I/O Optimization - Parallel I/O" />
+  <meta name="twitter:title" content="LUMI training materials - Exercise session 15: Lustre I/O" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -193,7 +193,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#io-optimization-parallel-io" class="md-skip">
+        <a href="#exercise-session-15-lustre-io" class="md-skip">
           Skip to content
         </a>
       
@@ -250,7 +250,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              I/O Optimization - Parallel I/O
+              Exercise session 15: Lustre I/O
             
           </span>
         </div>
@@ -3497,9 +3497,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
+  <a href="#materials" class="md-nav__link">
     <span class="md-ellipsis">
-      Links
+      Materials
     </span>
   </a>
   
@@ -3529,30 +3529,42 @@
                   
 
 
-<h1 id="io-optimization-parallel-io">I/O Optimization - Parallel I/O<a class="headerlink" href="#io-optimization-parallel-io" title="Permanent link">&para;</a></h1>
-<p><em>Presenter: Harvey Richardson (HPE)</em></p>
-<p>Course materials will be provided during and after the course.</p>
-<!--
-Temporary location of materials (for the lifetime of the training project):
-
--   Slides: `/project/project_465001726/Slides/HPE/14_IO_medium_LUMI.pdf`
--->
-
-<!--
-Archived materials on LUMI:
-
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-502-IO_Optimization_Parallel_IO.pdf`
-
--   Recording: `/appl/local/training/2p3day-20250303/recordings/502-IO_Optimization_Parallel_IO.mp4`
-
-These materials can only be distributed to actual users of LUMI (active user account).
--->
-
-<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<h1 id="exercise-session-15-lustre-io">Exercise session 15: Lustre I/O<a class="headerlink" href="#exercise-session-15-lustre-io" title="Permanent link">&para;</a></h1>
+<p>The files for the exercises can be found in <code>Exercises/HPE/day3/VH1-io</code>.
+Untar the file and you'll find a full I/O experiment with striping.</p>
+<p>Alternatively, look again at the MPI exercises with Apprentice
+If you did not do this before, set PAT_RT_SUMMARY=0. You get trace data per rank when you do this (huge file).
+Set only 2 cycles in the input file (indat).
+Use app2 on the .ap2 file to see new displays (see help).</p>
+<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
+<p>No materials available at the moment.</p>
+<p>Temporary location of materials (for the lifetime of the training project):</p>
 <ul>
-<li>The <a href="https://www.exascaleproject.org/research-project/exaio/">ExaIO project</a> paper
-    <a href="https://doi.org/10.1109/TPDS.2021.3090322">"Transparent Asynchronous Parallel I/O Using Background Threads"</a>.</li>
+<li>
+<p>See the exercise assignments in
+    <code>/project/project_465001726/Slides/HPE/Exercises.pdf</code>.</p>
+</li>
+<li>
+<p>Exercise files in <code>/project/project_465001726/Exercises/HPE/day3</code></p>
+</li>
 </ul>
+<p>Temporary web-available materials:</p>
+<ul>
+<li>Overview exercise assignments temporarily available on
+     <a href="https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-3_Exercises_day3.pdf">this link</a></li>
+</ul>
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>Exercise assignments in <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.pdf</code></li>
+</ul>
+<!--
+-   Exercises as bizp2-compressed tar file in
+    `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar.bz2`
+
+-   Exercises as uncompressed tar file in
+    `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar`
+-->
+
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <p>/</p>
 

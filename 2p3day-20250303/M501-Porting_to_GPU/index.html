@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/ME503-Exercises-16/">
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M501-Porting_to_GPU/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Exercise session 16: Omnitrace - LUMI training materials</title>
+        <title>GPU application porting strategies - LUMI training materials</title>
       
     
     
@@ -119,9 +119,9 @@
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LUMI training materials - Exercise session 16: Omnitrace" />
+  <meta property="og:title" content="LUMI training materials - GPU application porting strategies" />
   <meta property="og:description" content="None" />
-  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/ME503-Exercises-16/" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/M501-Porting_to_GPU/" />
   <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1080" />
@@ -131,7 +131,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@LUMIhpc" />
   <meta name="twitter:creator" content="@LUMIhpc" />
-  <meta name="twitter:title" content="LUMI training materials - Exercise session 16: Omnitrace" />
+  <meta name="twitter:title" content="LUMI training materials - GPU application porting strategies" />
   <meta name="twitter:description" content="None" />
   <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
 
@@ -193,7 +193,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exercise-session-16-omnitrace" class="md-skip">
+        <a href="#gpu-application-porting-strategies" class="md-skip">
           Skip to content
         </a>
       
@@ -250,7 +250,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercise session 16: Omnitrace
+              GPU application porting strategies
             
           </span>
         </div>
@@ -3497,15 +3497,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#materials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Materials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       Q&amp;A
@@ -3529,42 +3520,45 @@
                   
 
 
-<h1 id="exercise-session-16-omnitrace">Exercise session 16: Omnitrace<a class="headerlink" href="#exercise-session-16-omnitrace" title="Permanent link">&para;</a></h1>
-<p>Exercise assignments can be found in the <a href="https://hackmd.io/@sfantao/lumi-training-sto-2025">AMD exercise notes</a>,
-section on <a href="https://hackmd.io/@sfantao/lumi-training-sto-2025#Omnitrace">Omnitrace</a>.</p>
-<p>Exercise files can be copied from <code>Exercises/AMD/HPCTrainingExamples</code>.</p>
-<h2 id="materials">Materials<a class="headerlink" href="#materials" title="Permanent link">&para;</a></h2>
-<!-- No materials available at the moment. -->
-
+<h1 id="gpu-application-porting-strategies">GPU application porting strategies<a class="headerlink" href="#gpu-application-porting-strategies" title="Permanent link">&para;</a></h1>
+<p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
+<p>Course materials will be provided during and after the course.</p>
 <p>Temporary location of materials (for the lifetime of the training project):</p>
 <ul>
-<li>Exercises can be copied from <code>/project/project_465001726/exercises/AMD/HPCTrainingExamples</code></li>
+<li>Slides: <code>/project/project_465001726/Slides/HPE/05_GPU_porting.pdf</code></li>
 </ul>
-<p>Materials on the web:</p>
-<ul>
-<li><a href="https://hackmd.io/@sfantao/lumi-training-sto-2025#Omnitrace">AMD exercise assignments and notes</a></li>
-</ul>
-<!--
-    [PDF backup](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.pdf)
-    and [local web backup](exercises_AMD_hackmd.md#omnitrace).
-
--   Exercise files: 
-    [Download as .tar.bz2](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2)
-    or [download as .tar](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar)
--->
-
 <p>Archived materials on LUMI:</p>
 <ul>
-<li>Exercise assignments PDF: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.pdf</code></li>
+<li>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-501-Porting_to_GPU.pdf</code></li>
 </ul>
 <!--
--   Exercise files:
-    `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2`
-    or `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar`
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/501-Porting_to_GPU.mp4`
 -->
 
+<p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Our software is written in c++ using OpenACC and MPI. We want implement something to run on LUMI (AMD GPUs). What do you suggest (we think about OpenMP)?  (for Alfio)</p>
+<ul>
+<li>Yes, it is a starting point. You can use the Intel tool for the translation, but some people are reporting it doesn't work in all cases. I did some investigation of using <a href="https://www.exascaleproject.org/highlight/clacc-an-open-source-openacc-compiler-and-source-code-translation-project/">clacc</a>, but it needs a full installation. I have not tried OpenACC-GNU...</li>
+</ul>
+<p>We also report that the Intel tool does not work properly</p>
+<p>Does CLACC works on LUMI?</p>
+<ul>
+<li>CLACC is still under heavy development and not at all a finished product and we also have no upstream support organisation, so it is not supported. We don't have the personpower to support things for which we cannot get upstream support. Moreover, supporting a compiler is more than just offering the compiler, as it needs to be compatible with an MPI library and with mathematical libraries. As long as HPE or AMD do not officially support clacc, we won't either.</li>
+</ul>
+</li>
+<li>
+<p>If I understand correctly you say about  GNU compiler on LUMI? Is it possible using GNU compiler + OpenMP to target GPUs on LUMI? </p>
+<ul>
+<li>
+<p>No. As said before in the course, the GCC we have on LUMI at the moment is the SUSE distribution without OpenMP offload. And there are no plans in the support team to compile our own GCC with that support given that performance on AMD GPUs is poor anyway. LLVM-based compilers is the way forwards for GPU compute as all GPU manufacturers build on top of those compilers anyway.</p>
+<p>The official message from both HPE and ?AMD since the start of LUMI has been HIP or OpenMP.... </p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
