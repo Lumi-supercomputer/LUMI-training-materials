@@ -182,6 +182,10 @@ downloaded from LUMI.
 | [Exercises #13](ME405-Exercises-13.md) | / | / | / |
 | [Introduction to ROC-Profiler (rocprof)](M406-Introduction_to_Rocprof_Profiling_Tool.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-406-Introduction_to_Rocprof_Profiling_Tool.pdf) | / | [web](M406-Introduction_to_Rocprof_Profiling_Tool.md) |
 | [Exercises #14](ME406-Exercises-14.md) | / | / | / |
+| **Day 5** @span |  |  |  |
+| [GPU Application Porting Strategies](M501-Porting_to_GPU.md) | [lumi](M501-Porting_to_GPU.md) | / | [lumi](M501-Porting_to_GPU.md) |
+| [Introduction to Python on Cray EX](M502-Introduction_to_Python_on_Cray_EX.md) | [lumi](M502-Introduction_to_Python_on_Cray_EX.md) | / |[lumi](M502-Introduction_to_Python_on_Cray_EX.md) |
+| [Optimizing Large Scale I/O](M503-IO_Optimization_Parallel_IO.md) | [lumi](M503-IO_Optimization_Parallel_IO.md) | / | [lumi](M503-IO_Optimization_Parallel_IO.md) |
 
 ::end-spantable::
 
@@ -191,10 +195,7 @@ downloaded from LUMI.
 
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
-| **Day 5** @span |  |  |  |
-| [Introduction to Python on Cray EX](M501-Introduction_to_Python_on_Cray_EX.md) | [lumi](M501-Introduction_to_Python_on_Cray_EX.md) | / |[lumi](M501-Introduction_to_Python_on_Cray_EX.md) |
-| [Optimizing Large Scale I/O](M502-IO_Optimization_Parallel_IO.md) | [lumi](M502-IO_Optimization_Parallel_IO.md) | / | [lumi](M502-IO_Optimization_Parallel_IO.md) |
-| [Exercises #15](ME502-Exercises-15.md) | / | / | / |
+| [Exercises #15](ME503-Exercises-15.md) | / | / | / |
 | [Introduction to OmniTrace](M503-AMD_Omnitrace.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-503-AMD_Omnitrace.pdf) | / |  [web](M503-AMD_Omnitrace.md) |
 | [Exercises #16](ME503-Exercises-16.md) | / | / | / |
 | [Introduction to Omniperf](M504-AMD_Omniperf.md) | [web](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-504-AMD_Omniperf.pdf) | / |  [web](M504-AMD_Omniperf.md) |

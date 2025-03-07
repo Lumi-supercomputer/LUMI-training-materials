@@ -4,21 +4,19 @@
 
 Course materials will be provided during and after the course.
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001726/Slides/HPE/14_IO_medium_LUMI.pdf`
--->
+-   Slides: `/project/project_465001726/Slides/HPE/12_IO_short_LUMI.pdf`
 
-<!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-502-IO_Optimization_Parallel_IO.pdf`
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-503-IO_Optimization_Parallel_IO.pdf`
 
--   Recording: `/appl/local/training/2p3day-20250303/recordings/502-IO_Optimization_Parallel_IO.mp4`
+<!--
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/503-IO_Optimization_Parallel_IO.mp4`
+-->
 
 These materials can only be distributed to actual users of LUMI (active user account).
--->
 
 
 ## Links
