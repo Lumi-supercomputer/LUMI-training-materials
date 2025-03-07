@@ -28,4 +28,12 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+
+1.  Is there way to get the point values plotted on roofline if want to plot that with some different tools such as matplot lib
+
+    -   You can get the numbers from the csv that is generated. See also the extra information here: https://rocm.docs.amd.com/projects/rocprofiler-compute/en/latest/how-to/profile/mode.html#roofline-only.
+
+    I am interested in getting x and y co-ordinate for each kernel that is plotted. The roofline.csv file doesn't have that I? think? Which file contain that information which is used to plot roofline in PDF file generated?
+
+    -   roofline.csv only have information about the roof lines not the kernel points. I don't know how to get that directly from the CSV files other than the PDF plots. I'll investigate and update the answer according to what I can find out.
+
