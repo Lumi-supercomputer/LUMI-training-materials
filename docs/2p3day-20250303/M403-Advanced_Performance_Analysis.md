@@ -1,6 +1,6 @@
 # Advanced Performance Analysis
 
-*Presenters: Thierry Braconnier and Alfio Lazarro (HPE)*
+*Presenters: Thierry Braconnier and Alfio Lazzaro (HPE)*
 
 Course materials will be provided during and after the course.
 

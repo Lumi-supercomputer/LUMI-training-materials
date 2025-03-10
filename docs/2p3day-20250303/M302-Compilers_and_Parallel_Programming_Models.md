@@ -1,6 +1,6 @@
 # Compilers and Parallel Programming Models
 
-*Presenters: Harvey Richardson and Alfio Lazarro (HPE)*
+*Presenters: Harvey Richardson and Alfio Lazzaro (HPE)*
 
 <!-- Course materials will be provided during and after the course. -->
 
