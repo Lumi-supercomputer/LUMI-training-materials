@@ -245,7 +245,8 @@ information.
     192-node early access system for Frontier. One important difference is the configuration of
     the scheduler which has 1 core reserved in each CCD to have a more regular structure than LUMI.
 
--   [KTH Dardel documentation](https://www.pdc.kth.se/support). Dardel is the Swedish "baby-LUMI" system.
+-   [KTH Dardel documentation](https://support.pdc.kth.se/doc/support/?sub=site_map). 
+    [Dardel](https://www.pdc.kth.se/hpc-services/computing-systems/dardel-hpc-system) is the Swedish "baby-LUMI" system.
     Its CPU nodes use the AMD Rome CPU instead of AMD Milan, but its GPU nodes are the same as in LUMI.
 
 -   [Setonix User Guide](https://support.pawsey.org.au/documentation/display/US/Setonix+User+Guide).

@@ -64,14 +64,6 @@ nav:
     - ai-20250204/index.md
     - Schedule: ai-20250204/schedule.md
     - Course materials: ai-20250204/index.html#course-materials
-  - Supercomputing with LUMI December 2024:
-    - 2day-20241210/index.md
-    - Schedule: 2day-20241210/schedule.md
-    - Course materials: 2day-20241210/index.html#course-materials
-  - Advanced LUMI October 2024:
-    - 4day-20241028/index.md
-    - Schedule: 4day-20241028/schedule.md
-    - Course materials: 4day-20241028/index.html#course-materials
   - Hackathon October 2024:
     - Hackathon-20241014/index.md
   - Profiling October 2024:
@@ -85,10 +77,18 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - Supercomputing with LUMI December 2024:
+      - 2day-20241210/index.md
+      - Schedule: 2day-20241210/schedule.md
+      - Course materials: 2day-20241210/index.html#course-materials
     - AI workshop November 2024:
       - ai-20241126/index.md
       - Schedule: ai-20241126/schedule.md
       - Course materials: ai-20241126/index.html#course-materials
+    - Advanced LUMI October 2024:
+      - 4day-20241028/index.md
+      - Schedule: 4day-20241028/schedule.md
+      - Course materials: 4day-20241028/index.html#course-materials
     - Supercomputing with LUMI May 2024:
       - 2day-20240502/index.md
       - Schedule: 2day-20240502/schedule.md
@@ -170,9 +170,9 @@ plugins:
   # redirects to avoid broken URLs in original version of the tutorial (June 2020)
   - redirects:
       redirect_maps:
-          comprehensive-latest.md: 4day-20241028/index.md
-          advanced-latest.md: 4day-20241028/index.md
-          intro-latest.md: 2day-20241210/index.md
+          comprehensive-latest.md: 2p3day-20250303/index.md
+          advanced-latest.md: 2p3day-20250303/index.md
+          intro-latest.md: 2p3day-20250303/index.md
           AI-latest.md: ai-20250204/index.md
           ai-latest.md: ai-20250204/index.md
           update-202308.md: User-Updates/Update-202308/index.md

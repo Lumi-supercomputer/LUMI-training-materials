@@ -5,13 +5,16 @@
 
 Course materials will be provided during and after the course.
 
-<!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/305-Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls"></video>
--->
+There were some sound issues at the start of the talk that could not be corrected in the
+video.
 
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/305-Introduction_to_AMD_ROCm_Ecosystem.mp4" controls="controls"></video>
+
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465001726/Slides/AMD/session 01a - HIP and ROCm.pdf`
+-->
 
 Materials available on the web:
 
@@ -25,11 +28,12 @@ Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-305-Introduction_to_AMD_ROCm_Ecosystem.pdf`
 
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/305-Introduction_to_AMD_ROCm_Ecosystem.mp4`
+
 <!--
 -   Extra slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-305_Extra_HIP_Optimization.pdf`
-
--   Recording: `/appl/local/training/2p3day-20250303/recordings/305-Introduction_to_AMD_ROCm_Ecosystem.mp4`
 -->
+
 
 ## Some links from the slides
 
@@ -50,6 +54,6 @@ Archived materials on LUMI:
 
 1.  Roughly how much of nvidia API is supported?
 
-    -   Somewhere between CUDA 7 and 8. 
+    -   *Somewhere between CUDA 7 and 8.*
 
 
