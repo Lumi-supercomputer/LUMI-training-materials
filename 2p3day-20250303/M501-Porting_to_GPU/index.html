@@ -3522,39 +3522,45 @@
 
 <h1 id="gpu-application-porting-strategies">GPU application porting strategies<a class="headerlink" href="#gpu-application-porting-strategies" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Alfio Lazzaro (HPE)</em></p>
-<p>Course materials will be provided during and after the course.</p>
-<p>Temporary location of materials (for the lifetime of the training project):</p>
-<ul>
-<li>Slides: <code>/project/project_465001726/Slides/HPE/05_GPU_porting.pdf</code></li>
-</ul>
-<p>Archived materials on LUMI:</p>
-<ul>
-<li>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-501-Porting_to_GPU.pdf</code></li>
-</ul>
 <!--
--   Recording: `/appl/local/training/2p3day-20250303/recordings/501-Porting_to_GPU.mp4`
+Course materials will be provided during and after the course.
 -->
 
+<!--
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides: `/project/project_465001726/Slides/HPE/05_GPU_porting.pdf`
+-->
+
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>
+<p>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-501-Porting_to_GPU.pdf</code></p>
+</li>
+<li>
+<p>Recording: <code>/appl/local/training/2p3day-20250303/recordings/501-Porting_to_GPU.mp4</code></p>
+</li>
+</ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Our software is written in c++ using OpenACC and MPI. We want implement something to run on LUMI (AMD GPUs). What do you suggest (we think about OpenMP)?  (for Alfio)</p>
 <ul>
-<li>Yes, it is a starting point. You can use the Intel tool for the translation, but some people are reporting it doesn't work in all cases. I did some investigation of using <a href="https://www.exascaleproject.org/highlight/clacc-an-open-source-openacc-compiler-and-source-code-translation-project/">clacc</a>, but it needs a full installation. I have not tried OpenACC-GNU...</li>
+<li><em>Yes, it is a starting point. You can use the Intel tool for the translation, but some people are reporting it doesn't work in all cases. I did some investigation of using <a href="https://www.exascaleproject.org/highlight/clacc-an-open-source-openacc-compiler-and-source-code-translation-project/">clacc</a>, but it needs a full installation. I have not tried OpenACC-GNU...</em></li>
 </ul>
 <p>We also report that the Intel tool does not work properly</p>
 <p>Does CLACC works on LUMI?</p>
 <ul>
-<li>CLACC is still under heavy development and not at all a finished product and we also have no upstream support organisation, so it is not supported. We don't have the personpower to support things for which we cannot get upstream support. Moreover, supporting a compiler is more than just offering the compiler, as it needs to be compatible with an MPI library and with mathematical libraries. As long as HPE or AMD do not officially support clacc, we won't either.</li>
+<li><em>CLACC is still under heavy development and not at all a finished product and we also have no upstream support organisation, so it is not supported. We don't have the personpower to support things for which we cannot get upstream support. Moreover, supporting a compiler is more than just offering the compiler, as it needs to be compatible with an MPI library and with mathematical libraries. As long as HPE or AMD do not officially support clacc, we won't either.</em></li>
 </ul>
 </li>
 <li>
 <p>If I understand correctly you say about  GNU compiler on LUMI? Is it possible using GNU compiler + OpenMP to target GPUs on LUMI? </p>
 <ul>
 <li>
-<p>No. As said before in the course, the GCC we have on LUMI at the moment is the SUSE distribution without OpenMP offload. And there are no plans in the support team to compile our own GCC with that support given that performance on AMD GPUs is poor anyway. LLVM-based compilers is the way forwards for GPU compute as all GPU manufacturers build on top of those compilers anyway.</p>
-<p>The official message from both HPE and ?AMD since the start of LUMI has been HIP or OpenMP.... </p>
+<p><em>No. As said before in the course, the GCC we have on LUMI at the moment is the SUSE distribution without OpenMP offload. And there are no plans in the support team to compile our own GCC with that support given that performance on AMD GPUs is poor anyway. LLVM-based compilers is the way forwards for GPU compute as all GPU manufacturers build on top of those compilers anyway.</em></p>
+<p><em>The official message from both HPE and ?AMD since the start of LUMI has been HIP or OpenMP...</em></p>
 </li>
 </ul>
 </li>

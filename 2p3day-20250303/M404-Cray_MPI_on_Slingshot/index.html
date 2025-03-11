@@ -3522,30 +3522,36 @@
 
 <h1 id="mpi-topics-on-the-hpe-cray-ex-supercomputer">MPI Topics on the HPE Cray EX Supercomputer<a class="headerlink" href="#mpi-topics-on-the-hpe-cray-ex-supercomputer" title="Permanent link">&para;</a></h1>
 <p><em>Presenter: Harvey Richardson (HPE)</em></p>
-<p>Course materials will be provided during and after the course.</p>
-<p>Temporary location of materials (for the lifetime of the training project):</p>
-<ul>
-<li>Slides: <code>/project/project_465001726/Slides/HPE/10_cray_mpi_short.pdf</code></li>
-</ul>
-<p>Archived materials on LUMI:</p>
-<ul>
-<li>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-404-Cray_MPI_on_Slingshot.pdf</code></li>
-</ul>
 <!--
--   Recording: `/appl/local/training/2p3day-20250303/recordings/404-Cray_MPI_on_Slingshot.mp4`
+Course materials will be provided during and after the course.
 -->
 
+<!--
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides: `/project/project_465001726/Slides/HPE/10_cray_mpi_short.pdf`
+-->
+
+<p>Archived materials on LUMI:</p>
+<ul>
+<li>
+<p>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-404-Cray_MPI_on_Slingshot.pdf</code></p>
+</li>
+<li>
+<p>Recording: <code>/appl/local/training/2p3day-20250303/recordings/404-Cray_MPI_on_Slingshot.mp4</code></p>
+</li>
+</ul>
 <p>These materials can only be distributed to actual users of LUMI (active user account).</p>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Based on the slide  (28 maybe) should we expect very similar perfomrance having 1 GPU per MPI vs 2 GPUs per MPI comunicating with each other when the GPUS are in the same ? Since both cases use P2P</p>
 <ul>
-<li>Could you make an example? </li>
+<li><em>Could you make an example?</em></li>
 </ul>
 <p>Sorry. For later. Assuming GPU-GPU communication. There are two cases 1 GPU per MPI, using MPI for excahnging data or 1MPI process with 2 GPUs using direct peer to peer access</p>
 <ul>
-<li>OK, so MPI uses P2P for that case (IPC) but there are corner cases (small message size for instance), so performance can be different. There is a range of env variables that you can use to tune P2P (check <code>man mpi</code> and grep for IPC). (sorry for the initial confusion, I thought P2P to be Point-to-Point MPI communications...)</li>
+<li><em>OK, so MPI uses P2P for that case (IPC) but there are corner cases (small message size for instance), so performance can be different. There is a range of env variables that you can use to tune P2P (check <code>man mpi</code> and grep for IPC). (sorry for the initial confusion, I thought P2P to be Point-to-Point MPI communications...)</em></li>
 </ul>
 </li>
 </ol>

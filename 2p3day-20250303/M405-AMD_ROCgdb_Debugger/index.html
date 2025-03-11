@@ -3523,51 +3523,55 @@
 <h1 id="amd-debugger-rocgdb">AMD debugger: ROCgdb<a class="headerlink" href="#amd-debugger-rocgdb" title="Permanent link">&para;</a></h1>
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 <p><em>Presenter: Samuel Antao (AMD)</em></p>
-<p>Course materials will be provided during and after the course.</p>
 <!--
-<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/405-AMD_ROCgdb_Debugger.mp4" controls="controls"></video>
+Course materials will be provided during and after the course.
 -->
 
-<p>Temporary location of materials (for the lifetime of the training project):</p>
-<ul>
-<li>Slides: <code>'/project/project_465001726/Slides/AMD/session 02 - Debugging with rocgdb.pdf'</code></li>
-</ul>
+<video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/405-AMD_ROCgdb_Debugger.mp4" controls="controls"></video>
+
+<!--
+Temporary location of materials (for the lifetime of the training project):
+
+-   Slides: `'/project/project_465001726/Slides/AMD/session 02 - Debugging with rocgdb.pdf'`
+-->
+
 <p>Materials on the web:</p>
 <ul>
 <li><a href="https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf">Slides on the web</a></li>
 </ul>
 <p>Archived materials on LUMI:</p>
 <ul>
-<li>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf</code></li>
+<li>
+<p>Slides: <code>/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-405-AMD_ROCgdb_Debugger.pdf</code></p>
+</li>
+<li>
+<p>Recording: <code>/appl/local/training/2p3day-20250303/recordings/405-AMD_ROCgdb_Debugger.mp4</code></p>
+</li>
 </ul>
-<!--
--   Recording: `/appl/local/training/2p3day-20250303/recordings/405-AMD_ROCgdb_Debugger.mp4`
--->
-
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>How much information can be obtained in case of out of bounds access? Is it possible to see which variable and the index when it happens?</p>
 <ul>
-<li>RocGDB won't tell you the problem is a out-of-bounds access. You still need to breakpoint before the problematic code and inspect addresses and indexes to see if that matches your expectation.</li>
+<li><em>RocGDB won't tell you the problem is a out-of-bounds access. You still need to breakpoint before the problematic code and inspect addresses and indexes to see if that matches your expectation.</em></li>
 </ul>
 </li>
 <li>
 <p>Can the debuggger detect errors in the work-group like not all threads calling <code>__syncthreads()</code>?</p>
 <ul>
-<li>It won't tell you directly a hang comes from this. You can check while the hang is happening where the different waves are. Each thread is a wave in GDB, so you can swithch threads and inspect where you are to detect the hang cause.</li>
+<li><em>It won't tell you directly a hang comes from this. You can check while the hang is happening where the different waves are. Each thread is a wave in GDB, so you can swithch threads and inspect where you are to detect the hang cause.</em></li>
 </ul>
 </li>
 <li>
 <p>Does the integration with Emacs work as usual (like with GDB = gud mode)?</p>
 <ul>
-<li>RocGDB should integrate with Emacs or other editors as GDB does. I didn't try Emacs myself but my expectation is that ot should just work.</li>
+<li><em>RocGDB should integrate with Emacs or other editors as GDB does. I didn't try Emacs myself but my expectation is that ot should just work.</em></li>
 </ul>
 </li>
 <li>
 <p>Is it possible to use vscode integration for rocgdb on LUMI?</p>
 <ul>
-<li>Yes, vscode should integrate well with RocGDB. The challenge is how to have an instance of vscode-server in a login node connect to a compute node. You might have to explore gdbserver to allow remote debugging from the login nodes. I guess one might be creative and have a vscode instance run on a compute node but that would be a bit clumsy and difficult to maintain.</li>
+<li><em>Yes, vscode should integrate well with RocGDB. The challenge is how to have an instance of vscode-server in a login node connect to a compute node. You might have to explore gdbserver to allow remote debugging from the login nodes. I guess one might be creative and have a vscode instance run on a compute node but that would be a bit clumsy and difficult to maintain.</em></li>
 </ul>
 </li>
 </ol>
