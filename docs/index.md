@@ -6,20 +6,18 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
-
-<!-- -   No upcoming training with early materials at the moment. -->
+-   No upcoming training with early materials at the moment.
 
 Most recently completed main training events:
 
--   Introductory LUMI training aimed at regular users:
-    [Intro to Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
+-   Introductory LUMI training aimed at regular users: First two days of the
+    [LUMI Intensive Training (March 3-7, 2025)](2p3day-20250303/index.md)
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
 
--   4-day advanced LUMI training aimed at developers and advanced users, mostly focusing on traditional HPC users:
-    [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
+-   Advanced LUMI training aimed at developers and advanced users, mostly focusing on traditional HPC users:
+    [LUMI Intensive Training (March 3-7, 2025)](2p3day-20250303/index.md)
 
     *Short URL to the most recently completed comprehensive LUMI training aimed at developers and advanced users:
     [lumi-supercomputer.github.io/advanced-latest](https://lumi-supercomputer.github.io/advanced-latest)*
