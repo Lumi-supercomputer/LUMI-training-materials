@@ -27,6 +27,12 @@ Materials will be made available after the lecture
 
 -   [Exercises](E102-CPE.md)
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-102-CPE.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/102-CPE.mp4`
+
 
 ## Q&A
 

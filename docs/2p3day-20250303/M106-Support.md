@@ -23,6 +23,13 @@ Materials will be made available after the lecture
 -   [Course notes](106-Support.md)
 -->
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-106-Support.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/106-Support.mp4`
+
+
 
 ## Q&A
 

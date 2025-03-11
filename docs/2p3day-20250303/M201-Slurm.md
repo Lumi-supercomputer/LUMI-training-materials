@@ -23,6 +23,12 @@ Materials will be made available after the lecture
 
 -   [Exercises](E201-Slurm.md)
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-201-Slurm.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/201-Slurm.mp4`
+
 
 ## Q&A
 

@@ -20,7 +20,13 @@ Materials will be made available after the lecture
 
 -   [Slides](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf)
 
--   [Course notes](203-Lustre.md)
+-   [Course notes](203-Lustre.md) (based on a previous version of the talk.)
+
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-203-Lustre.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/203-Lustre.mp4`
 
 
 ## Q&A

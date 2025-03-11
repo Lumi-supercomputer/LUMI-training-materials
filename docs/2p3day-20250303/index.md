@@ -209,6 +209,7 @@ downloaded from LUMI.
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
+<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465001726` for the exercises.
@@ -335,9 +336,9 @@ exercise pages in the course materials.
     cd /scratch/project_465001726/course-20250303-$USER/Exercises
     cp -r /project/project_465001726/Exercises/AMD AMD
     ```
+-->
 
 
-<!--
 ## Making the exercises after the course
 
 ### Intro
@@ -413,7 +414,7 @@ A [web backup](exercises_AMD_hackmd.md) is also available, but corrections to th
 are not included.
 
 The other files for the exercises are available in 
-either a bzip2-compressed tar file `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD_.tar.bz2` or
+either a bzip2-compressed tar file `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2` or
 an uncompressed tar file `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar` and can also be downloaded. 
 ( [bzip2-compressed tar download](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar.bz2) or 
 [uncompressed tar download](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_AMD.tar))
@@ -437,7 +438,6 @@ You can do so in the same directory where you installed the HPE exercises.
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
 
 
 ## Links to documentation

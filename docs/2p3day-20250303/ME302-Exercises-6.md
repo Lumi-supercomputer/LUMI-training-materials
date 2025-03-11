@@ -9,9 +9,12 @@ programming models and optimisation options.
 
 ## Materials
 
+<!--
 No materials available at the moment.
+-->
 
-Temporary location of materials (for the lifetime of the training project):
+<!--
+NTemporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
     `/project/project_465001726/Slides/HPE/Exercises.pdf`
@@ -20,26 +23,27 @@ Temporary location of materials (for the lifetime of the training project):
     `/project/project_465001726/Exercises/HPE/day1/ProgrammingModels`.
 
     See `/project/project_465001726/Exercises/HPE/day1/ProgrammingModels/ProgrammingModelExamples_SLURM.pdf`
+-->
 
-Temporary web-available materials:
+<!--
+NTemporary web-available materials:
 
 -    Overview exercise assignments day 1 temporarily available on
      [this link](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-1_Exercises_day1.pdf)
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/2p3day-20250303/files/LUMI-2p3day-20250303-302-ProgrammingModelExamples_SLURM.pdf).
+-->
 
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.pdf`
 
-<!--
 -   Exercises as bizp2-compressed tar file in
     `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar.bz2`
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-Exercises_HPE.tar`
--->
 
 
 ## Q&A

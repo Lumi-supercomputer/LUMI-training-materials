@@ -26,6 +26,12 @@ Materials will be made available during and after the lecture
 
 -   [Exercises](E204-ObjectStorage.md)
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-204-ObjectStorage.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/204-ObjectStorage.mp4`
+
 
 ## Q&A
 

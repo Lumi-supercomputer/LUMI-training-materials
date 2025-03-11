@@ -23,6 +23,12 @@ Materials will be made available after the lecture
 
 -   [Exercises](E104-Modules.md)
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-104-Modules.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/104-Modules.mp4`
+
 
 ## Q&A
 

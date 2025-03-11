@@ -21,6 +21,12 @@ Materials will be made available after the lecture
 
 -   [Exercises](E103-Access.md)
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-103-Access.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/103-Access.mp4`
+
 
 ## Related lectures in this course
 
@@ -28,7 +34,7 @@ Materials will be made available after the lecture
 
 -   ["LUMI-O Object Storage](M204-ObjectStorage.md) on day 2
 
--   ["Optimizing Large-Scale I/O](M502-IO_Optimization_Parallel_IO.md) on day 5
+-   ["Optimizing Large-Scale I/O](M503-IO_Optimization_Parallel_IO.md) on day 5
 
 
 ## Q&A

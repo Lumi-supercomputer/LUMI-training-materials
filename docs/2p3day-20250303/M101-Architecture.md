@@ -22,6 +22,12 @@ Materials will be made available after the lecture
 
 -   [Course notes](101-Architecture.md) (based on an older version of this presentation)
 
+Archived materials on LUMI:
+
+-   Slides: `/appl/local/training/2p3day-20250303/files/LUMI-2p3day-20250303-101-Architecture.pdf`
+
+-   Recording: `/appl/local/training/2p3day-20250303/recordings/101-Architecture.mp4`
+
 
 ## Q&A
 
