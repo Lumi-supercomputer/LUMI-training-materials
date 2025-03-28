@@ -1,6 +1,6 @@
 # Application Fingerprinting (January 29, 2025)
 
-*Presenters:* Thomas Jakobsche (Uni Basel)
+*Presenter:* Thomas Jakobsche (Uni Basel)
 
 <video src="https://462000265.lumidata.eu/user-coffee-breaks/recordings/20250129-user-coffee-break-Application-Fingerprinting.mp4" controls="controls"></video>
 

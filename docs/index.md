@@ -40,6 +40,8 @@ relevant:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
+-   [LUMI AI Guide (March 26, 2025)](20250326-user-coffee-break-LUMI-AI-Guide.md)
+
 -   [Application Fingerprinting (January 29, 2025)](User-Coffee-Breaks/20250129-user-coffee-break-Application-Fingerprinting.md)
 
 -   [LUMI User Survey (December 4, 2024)](User-Coffee-Breaks/20241204-user-coffee-break-User-Survey.md)
@@ -60,6 +62,7 @@ relevant:
 ## Recent courses made available by LUMI consortium partners and CoEs
 
 -   [Workshop: How to run GROMACS efficiently on LUMI (January 24-25, 2024, BioExcel/CSC Finland/KTH Sweden)](https://zenodo.org/records/10610643)
+
 -   [Interactive Slurm tutorial developed by DeiC (Denmark)](http://slurmlearning.deic.dk/)
 
 
