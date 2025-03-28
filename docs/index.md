@@ -40,7 +40,7 @@ relevant:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
--   [LUMI AI Guide (March 26, 2025)](20250326-user-coffee-break-LUMI-AI-Guide.md)
+-   [LUMI AI Guide (March 26, 2025)](User-Coffee-Breaks/20250326-user-coffee-break-LUMI-AI-Guide.md)
 
 -   [Application Fingerprinting (January 29, 2025)](User-Coffee-Breaks/20250129-user-coffee-break-Application-Fingerprinting.md)
 
