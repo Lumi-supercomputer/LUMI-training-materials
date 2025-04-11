@@ -1,6 +1,6 @@
 # Welcome and course introduction
 
-*Presenter:* Jørn Dietze (LUST)
+*Presenter:* Jørn Dietze and Gregor Decristoforo (LUST)
 
 <!--
 A video recording will follow.

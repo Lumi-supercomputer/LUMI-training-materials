@@ -11,7 +11,9 @@ A video recording will follow.
 
 ## Extra materials
 
+<!--
 More materials will become available during and shortly after the course
+-->
 
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-11-Coupling_Simulation_and_AI.pdf)
 
