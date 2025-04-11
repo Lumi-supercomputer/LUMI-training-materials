@@ -90,7 +90,7 @@ DAY 1
     <tr>
         <td>
             13:30 CET
-            <br/><em>14:300 EET</em>
+            <br/><em>14:30 EET</em>
         </td>
         <td><b><a href="../M104-Modules/">Modules on LUMI</a></b>
         <br/><em>Presenter: Kurt Lust (LUST)</em>
