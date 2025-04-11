@@ -1,6 +1,6 @@
 # Introduction to LUMI
 
-*Presenter:* Jørn Dietze and Gregor Decristoforo (LUST)
+*Presenter:* Jørn Dietze (LUST)
 
 Content:
 

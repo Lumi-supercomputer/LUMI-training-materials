@@ -6,7 +6,12 @@
 
 Upcoming or currently running events with materials already partly available:
 
+<!--
 -   No upcoming training with early materials at the moment.
+-->   
+-   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md),
+    CWI, Amsterdam, The Netherlands.
+
 
 Most recently completed main training events:
 
@@ -91,6 +96,7 @@ By theme in reverse chronological order:
     -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 -   Comprehensive AI trainings for LUMI:
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)

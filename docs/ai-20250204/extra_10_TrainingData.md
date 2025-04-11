@@ -10,7 +10,9 @@ A video recording will follow.
 
 ## Extra materials
 
+<!--
 More materials will become available during and shortly after the course
+-->\
 
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-10-Training_Data_on_LUMI.pdf)
 
@@ -47,7 +49,7 @@ Two nice things to know about LUMI-O
 
 But it is not meant for long-time data archiving. Storage on LUMI-O also disappears 90 days after your project ends. For long-term archiving and data publishing you need to use specialised services.
 
-## Auto-cleanup of /scratch and /flash
+### Auto-cleanup of /scratch and /flash
 
 Clean-up is not yet implemented on LUMI because until now there hasn't been a need to do so as the storage is empty enough.
 
