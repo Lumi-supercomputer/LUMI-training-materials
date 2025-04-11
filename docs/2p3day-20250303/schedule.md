@@ -1,6 +1,4 @@
-# Draft schedule (subject to change)
-
-Presenters, exact time and order of the talks may still change.
+# Schedule
 
 <ul>
     <li><a href="#Day1">Day 1 - Intro day: Exploring LUMI</a>
