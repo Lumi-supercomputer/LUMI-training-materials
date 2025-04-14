@@ -23,7 +23,7 @@
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-june25?both)
 
--   Project for the course: `project_465001603`.
+-   Project for the course: `project_465001965`.
 
     This project provides resources for the exercises. The project should not be used for your own work!
 
