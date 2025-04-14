@@ -1,6 +1,4 @@
-# Draft schedule (subject to change)
-
-Presenters, exact time and order of the talks may still change.
+# Schedule
 
 <ul>
     <li><a href="#Day1">Day 1 - Intro day: Exploring LUMI</a>
@@ -92,7 +90,7 @@ DAY 1
     <tr>
         <td>
             13:30 CET
-            <br/><em>14:300 EET</em>
+            <br/><em>14:30 EET</em>
         </td>
         <td><b><a href="../M104-Modules/">Modules on LUMI</a></b>
         <br/><em>Presenter: Kurt Lust (LUST)</em>
