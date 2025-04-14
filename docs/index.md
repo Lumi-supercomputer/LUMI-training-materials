@@ -13,7 +13,7 @@ Upcoming or currently running events with materials already partly available:
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md),
     CWI, Amsterdam, The Netherlands.
 
--   [Supercomputing with LUMI (June 2-3, 2025)](2day-20241210/index.md) on-site in Espoo and online.
+-   [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md) on-site in Espoo and online.
 
 
 Most recently completed main training events:
