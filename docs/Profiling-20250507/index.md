@@ -6,20 +6,20 @@
 For each session, the schedule also contains a link to the page with downloadable materials and
 the recordings.
 
-<!-- [Original schedule (PDF)](https://462000265.lumidata.eu/profiling-20241009/files/2024-10_Pre-Hackathon-Profiling-Agenda.pdf) -->
+- [Original schedule (PDF)](https://462000265.lumidata.eu/profiling-20250507/files/2025-05_Pre-Hackathon-Profiling-Agenda.pdf)
 
 <table style="text-align: left;">
 <tbody>
     <tr>
         <td>10:15 CEST<br/><em>11:15 EEST</em></td>
         <td><b><A href="00_Introduction/">Welcome and introduction</a></b>
-        <br><em>Presenter: Jørn Dietze (LUST) and Harvey Richardson (HPE)</em>
+        <br><em>Presenter: Gregor Decristoforo (LUST) and Jean Pourroy (HPE)</em>
         </td>
     </tr>
     <tr>
         <td>10:30 CEST<br/><em>11:30 EEST</em></td>
         <td><b><a href="01_HPE_Cray_PE_tools/">HPE Cray PE tools introduction</a></b>
-        <br/><em>Presenter: Harvey Richardson and Alfio Lazzaro (HPE)</em>
+        <br/><em>Presenter: Jean Pourroy and Thierry Braconnier (HPE)</em>
        </td>
     </tr>
     <tr>
@@ -54,7 +54,7 @@ the recordings.
 
 ## Course organisation
 
--   [HedgeDoc for the hackathon](https://md.sigma2.no/lumi-hackathon-spring2025?both)
+-   [HedgeDoc for the bootstrapping day](https://md.sigma2.no/lumi-hackathon-profiling-spring2025?both#)
 -   Project for the course: `project_465001957`
 -   [Zoom link](https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09)
 

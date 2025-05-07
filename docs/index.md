@@ -9,6 +9,7 @@ Upcoming or currently running events with materials already partly available:
 <!--
 -   No upcoming training with early materials at the moment.
 -->   
+
 -   [HPE and AMD profiling tools (May 7, 2025)](Profiling-20250507/index.md)
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md),
