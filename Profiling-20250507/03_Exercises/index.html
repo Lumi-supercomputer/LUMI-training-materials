@@ -3808,6 +3808,22 @@ may not open directly in your browser, also
     When not given, the default is 30000.</li>
 </ul>
 </li>
+<li>
+<p>In the "content for rocprof_counters.txt" section of the example - what does the "pmc" mean?</p>
+<ul>
+<li>
+<p>It means that that line in the input file specifies a number of counters that you want to see. If you'd have time to go through the rocprof documentation: There is more that goes into this file, like you can give specific kernels or gpus you want to monitor. It is an abbreviation for Performance Monitoring Counters.</p>
+<p>In the newest version it is actually recommended to use one of the different more powerful input formats (in JSON or YAML, both not really widespread in the HPC community) which offer even more options.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If I want to use rocprofv2 with --plugin perfetto, is there any module I should load? I tried to profile julia code using guide in https://amdgpu.juliagpu.org/stable/profiling/#rocprof. Everything worked, but the results can not be analysed by https://ui.perfetto.dev/</p>
+<ul>
+<li>Samuel is busy in one of the rooms. I wonder if it makes sense to try with rocprofv3 from the rocm/6.2.2 module? I'm not sure which versions of rocprof need a special version of Perfetto.</li>
+</ul>
+<p>It works with rocm/6.2.2. I didn't see the results because the example run time is too short. I found it by zoom-in finally. Thanks!</p>
+</li>
 </ol>
 
 
