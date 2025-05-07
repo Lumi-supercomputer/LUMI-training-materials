@@ -3834,7 +3834,46 @@ The recordings are also available on LUMI in
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Do we need specific modules for rocprof?</p>
+<ul>
+<li>
+<p>The regular rocprofv1 is just part of the ROCm module. </p>
+<p>For rocprofv3 you can use the rocm/6.2.2 module in some of our stacks. There are also some additional modules available after using <code>module use /appl/local/containers/test-modules</code>. We also have containers with ROCm preinstalled in various versions and soon we'll announce containers with newer versions of the Cray PE that also contain the matching ROCm versions. If needed, you can use those at the hackathon. The "realistic" one is one with the 24.11 version of the Cray PE which is based on Clang 18 for the Cray compilers and ROCm 6.2. There is now also one for 25.03 which is based on the Cray compilers versions 19 (based on clang 19) and ROCm 6.3, but there we expect issues as the drivers are to old.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>srun rocprof --stats nbody-orig 65536, what is number 65536 in here? 
+   -</p>
+</li>
+<li>
+<p>Following the slide I run rocprof --hip-trace  --output-format pftrace ./pluto</p>
+<div class="highlight"><pre><span></span><code>RPL: on &#39;250507_143448&#39; from &#39;/opt/rocm-6.0.3&#39; in &#39;/users/...&#39;
+/opt/rocm-6.0.3/bin/rocprof: **Error: Wrong option &#39;--output-format&#39;**
+</code></pre></div>
+<ul>
+<li>You need to go to ROCm 6.2 for that. Try <code>module spider rocm/6.2</code></li>
+</ul>
+<p>I load rocm/6.2.2 but i obtain the same error rocprof --hip-trace  --output-format pftrace ./pluto -maxsteps 5</p>
+<div class="highlight"><pre><span></span><code>RPL: on &#39;250507_150325&#39; from &#39;/pfs/lustrep2/appl/lumi/SW/LUMI-24.03/G/EB/rocm/6.2.2&#39; in &#39;/users/...&#39;
+/appl/lumi/SW/LUMI-24.03/G/EB/rocm/6.2.2/bin/rocprof: **Error: Wrong option &#39;--output-format&#39;**
+</code></pre></div>
+<ul>
+<li>You need to use <code>rocprofv3</code> instead of <code>rocprof</code> to get the newest rocprof. The <code>rocprof</code> command is still rocprof version 1.</li>
+</ul>
+</li>
+<li>
+<p>Does perfetto work "out-of-box" already, or we still used a specific branch of it as in the AMD profiling workshop in October 2024?</p>
+<ul>
+<li>
+<p>There is information in the exercises. For ROCm 6.2 you should be able to use perfetto UI out-of-the-box.</p>
+<p>Information is on <a href="https://perfetto.dev">perfetto.dev</a>, the app is on <a href="https://ui.perfetto.dev">ui.perfetto.dev</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

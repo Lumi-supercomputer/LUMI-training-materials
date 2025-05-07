@@ -3798,17 +3798,17 @@ may not open directly in your browser, also
 `/appl/local/training/profiling-20250507/files/03_AMD_Excercise_notes.mht`)
 -->
 
-<!--
--   Downloadable AMD exercise files: as 
-    [tar file (5.1M)](https://462000265.lumidata.eu/profiling-20250507/files/03_Exercises_AMD.tar) or
-    [gzip-compressed tar file (3.6M)](https://462000265.lumidata.eu/profiling-20250507/files/03_Exercises_AMD.tar.gz).
-
-    These files are also available on LUMI in
-    `/appl/local/training/profiling-20250507/files`.
--->
-
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p><code>srun rocprof --stats nbody-orig 65536</code>, what is number 65536 in here? </p>
+<ul>
+<li>A command line argument for the <code>nbody-orig</code> command: The number of bodies to use in the simulation, 
+    so determining the size of the problem. See the "main" function in the code. 
+    When not given, the default is 30000.</li>
+</ul>
+</li>
+</ol>
 
 
 
