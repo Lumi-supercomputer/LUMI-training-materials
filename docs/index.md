@@ -9,6 +9,7 @@ Upcoming or currently running events with materials already partly available:
 <!--
 -   No upcoming training with early materials at the moment.
 -->   
+-   [HPE and AMD profiling tools (May 7, 2025)](Profiling-20250507/index.md)
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md),
     CWI, Amsterdam, The Netherlands.
@@ -104,6 +105,7 @@ By theme in reverse chronological order:
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools and/or program optimization
+    -   [HPE and AMD profiling tools (May 7, 2025)](Profiling-20250507/index.md)
     -   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
     -   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
     -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
