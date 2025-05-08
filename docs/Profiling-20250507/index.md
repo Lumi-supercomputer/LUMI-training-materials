@@ -1,6 +1,5 @@
 # HPE and AMD profiling tools (May 7, 2025)
 
-
 ## Schedule
 
 For each session, the schedule also contains a link to the page with downloadable materials and
@@ -51,13 +50,13 @@ the recordings.
 </tbody>
 </table>
 
-
+<!--
 ## Course organisation
 
 -   [HedgeDoc for the bootstrapping day](https://md.sigma2.no/lumi-hackathon-profiling-spring2025?both#)
 -   Project for the course: `project_465001957`
 -   [Zoom link](https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09)
-
+-->
 
 ## Extras
 

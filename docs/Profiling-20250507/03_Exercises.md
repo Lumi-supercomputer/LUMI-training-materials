@@ -4,13 +4,17 @@ The main goal is to try out what you have learned in the course on your own code
 
 There are also AMD exercises available in the 
 [online document "LUMI pre-hackathon training - May 2025"](https://hackmd.io/@sfantao/lumi-prehack-may-2025).
+[A local copy is also available](03_AMD_Excercise_notes.md).
+<!-- To make the local copy: Simply add `/download` to the link in hackMD. -->
 
-<!--
-Alternatively, AMD exercises are available as an [online text](https://hackmd.io/@sfantao/lumi-hackathon-krakow-nov2023)
-(or [version saved as Chrome .mht file](https://462000265.lumidata.eu/profiling-20250507/files/03_AMD_Excercise_notes.mht),
-may not open directly in your browser, also
-`/appl/local/training/profiling-20250507/files/03_AMD_Excercise_notes.mht`)
--->
+
+
+The exercises use the 
+[GitHub repository amd/HPCTrainingExamples](https://github.com/amd/HPCTrainingExamples).
+The content of the GitHub repository as it was during the course can also be found in the 
+files [exercises-AMD-20250507.tar](https://462000265.lumidata.eu/profiling-20250507/files/exercises-AMD-20250507.tar)
+and [exercises-AMD-20250507.tar.bz2](https://462000265.lumidata.eu/profiling-20250507/files/exercises-AMD-20250507.tar.bz2)
+on in `/appl/local/training/profiling-20250507/files` on LUMI.
 
 
 ## Q&A

@@ -2,9 +2,11 @@
 
 <em>Presenters: Jean Pourroy and Thierry Braconnier (HPE)</em>
 
+
+## Additional materials
+
 -   Slides on LUMI in `/appl/local/training/profiling-20250507/files/01_HPE_Cray_PE_tools.pdf`
 
-<!--
 -   Recordings: To make the presentations more accessible, the presentation has been split in
     6 parts:
 
@@ -30,7 +32,7 @@
 
 HPE training materials can only be shared with other LUMI users and therefore are not available on the
 web.
--->
+
 
 ## Q&A
 
