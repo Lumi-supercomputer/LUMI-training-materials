@@ -334,7 +334,7 @@ This information is also [available in the LUMI docs](https://docs.lumi-supercom
 The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course (in the [section on Lustre](09-Lustre.md))
+As we shall see later in this course (in the [section on Lustre](203-Lustre.md))
 or as you may have seen in other HPC courses already
 (e.g., the VSC [Supercomputers for Starters](https://klust.github.io/SupercomputersForStarters/) 
 course organised by UAntwerpen),
@@ -353,7 +353,7 @@ END BELGIUM -->
 The use of space in each file space is limited by block and file quota. Block quota limit the
 capacity you can use, while file quota limit the number of so-called inodes you can use. Each file,
 each subdirectory and each link use an inode.
-As we shall see later in this course (in the [section on Lustre](09-Lustre.md))
+As we shall see later in this course (in the [section on Lustre](203-Lustre.md))
 or as you may have seen in other HPC courses already,
 most parallel file systems are not built to deal with hundreds of thousands of small files and are
 very inefficient at that.  
@@ -584,7 +584,7 @@ Web links:
     The list of pinned apps may change over time, and more apps are available via the menu at the top.
     Most apps will run in the context of a job, so you will need billing units, and those apps will also
     present you with a form to chose the resources you want to use, but that will only be discussed in
-    [the session on Slurm](07-Slurm.md).
+    [the session on Slurm](201-Slurm.md).
 
     Two apps don't run in the context of a job: The "Login node shell" and "Home Directory" apps, and we'll first
     have a look at those.
@@ -635,7 +635,7 @@ Web links:
     This app needs to run in the context of a job
     and although it can run on several partitions on LUMI, its main use is to be able to use some
     visualisation applications, so your best choice is likely to use the partition `lumid` with visualisation
-    GPUs (see the [session on Slurm](07-Slurm.md)). As we have not discussed jobs yet, we will not give more details
+    GPUs (see the [session on Slurm](201-Slurm.md)). As we have not discussed jobs yet, we will not give more details
     now on how to fill in the form that is presented to you.
 
     Now click "Launch" to launch the job, and after a while, you'll see a screen similar to
@@ -743,7 +743,7 @@ to use an external service that we have no access to.
 <!-- END GENERAL -->
 
 Using the LUMI-O object storage will be further discussed in the 
-["LUMI-O Object Storage" session of this course](10-ObjectStorage.md).
+["LUMI-O Object Storage" session of this course](204-ObjectStorage.md).
 
 <!-- BELGIUM
 Unfortunately there is no support yet for Globus or other forms of gridFTP,
@@ -752,7 +752,7 @@ LUST offers a [recipe to install the UNICORE UFTP client](https://lumi-supercomp
 if you have access to a UFTP server (still popular in Germany), but neither LUST nor local 
 Belgian support teams can offer true support for that either as
 they have no access to such server. How to work with these recipes, is discussed in the
-["LUMI Software Stacks" session of this course](05-SoftwareStacks.md).
+["LUMI Software Stacks" session of this course](105-SoftwareStacks.md).
 END BELGIUM -->
 
 <!-- GENERAL -->
@@ -761,7 +761,7 @@ another technology that sets up multiple connections to improve the effective ba
 We do have a [recipe to install the UNICORE UFTP client](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/)
 if you have access to a UFTP server, but cannot offer true support for that either as
 LUST has no access to such server. How to work with these recipes, is discussed in the
-["LUMI Software Stacks" session of this course](05-SoftwareStacks.md).
+["LUMI Software Stacks" session of this course](105-SoftwareStacks.md).
 <!-- END GENERAL -->
 
 <!-- BELGIUM, no general equivalent

@@ -266,7 +266,7 @@ export NCCL_SOCKET_IFNAME=hsn
 
 Fourth, we need to ensure that each task uses the proper GPU. This is one point where we 
 assume that one GPU (GCD) per task is used. The script also assumes that the
-["Linear assignment of GCD, then match the cores" idea](08-Binding.md#linear-assignment-of-gcd-then-match-the-cores)
+["Linear assignment of GCD, then match the cores" idea](202-Binding.md#linear-assignment-of-gcd-then-match-the-cores)
 is used, so we will need some more complicated CPU mapping in the job script.
 
 PyTorch also needs some initialisation that are basically the same on NVIDIA and
