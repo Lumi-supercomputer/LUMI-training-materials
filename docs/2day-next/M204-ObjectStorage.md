@@ -15,17 +15,17 @@ LuMI-O can be accessed.
 Materials will be made available during and after the lecture
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-20241210/recordings/10-ObjectStorage.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2day-20241210/recordings/204-ObjectStorage.mp4" controls="controls"></video>
 -->
 
 <!--
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-10-ObjectStorage.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-20241210/files/LUMI-2day-20241210-204-ObjectStorage.pdf)
 
--   [Course notes](10-ObjectStorage.md)
+-   [Course notes](204-ObjectStorage.md)
 
--   [Exercises](E10-ObjectStorage.md)
+-   [Exercises](E204-ObjectStorage.md)
 -->
 
 

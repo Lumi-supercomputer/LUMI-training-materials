@@ -14,15 +14,15 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/04-Modules.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2day-next/recordings/104-Modules.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-04-Modules.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-104-Modules.pdf)
 
--   [Course notes](04-Modules.md)
+-   [Course notes](104-Modules.md)
 
--   [Exercises](E04-Modules.md)
+-   [Exercises](E104-Modules.md)
 
 
 ## Q&A

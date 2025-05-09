@@ -4,7 +4,7 @@
 
 
 1.  We return to the hybrid MPI/OpenMP example from the
-    [Slurm exercises](E07-Slurm.md). 
+    [Slurm exercises](E201-Slurm.md). 
    
    	```
 	#!/bin/bash -l
