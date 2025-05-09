@@ -14,13 +14,13 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/01-Architecture.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2day-next/recordings/101-Architecture.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-01-Architecture.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-101-Architecture.pdf)
 
--   [Course notes](01-Architecture.md)
+-   [Course notes](101-Architecture.md)
 
 
 ## Q&A
