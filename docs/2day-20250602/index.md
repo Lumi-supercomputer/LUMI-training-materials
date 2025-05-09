@@ -51,7 +51,6 @@ These materials will become available as the course progresses.
 ::end-spantable::
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -87,7 +86,6 @@ These materials will become available as the course progresses.
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
 
 ::end-spantable::
--->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 

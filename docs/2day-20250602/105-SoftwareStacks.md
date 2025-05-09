@@ -275,9 +275,8 @@ Programming Environment**. It is the stack in which the LUST installs software u
 and mostly EasyBuild. **The Cray Programming Environment modules are still used, but they are accessed through
 a replacement for the PrgEnv modules that is managed by EasyBuild**. There are **tuned versions for the 3 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
-LUMI-C compute nodes and zen3 + MI250X for
-the LUMI-G partition. If the need would arise, a fourth partition could be created for the visualisation nodes
-with zen2 CPUs and NVIDIA GPUs.
+LUMI-C compute nodes, zen3 + MI250X for
+the LUMI-G partition, and zen2 + the NVIDIA GPUs for visualisation. 
 
 LUMI also offers an extensible software stack based on **Spack** which has been pre-configured to use the compilers
 from the Cray PE. This stack is offered as-is for users who know how to use Spack, but support is limited and
@@ -379,10 +378,8 @@ Each of the LUMI modules loads a particular version of the LUMI stack.
 
 The **second level consists of partition modules**. 
 There is partition/L for the login and large memory nodes,
-partition/C for the regular compute nodes and 
-partition/G for the AMD GPU nodes.
-There may be a separate partition for the visualisation nodes in the future 
-but that is not clear yet.
+partition/C for the regular compute nodes,
+partition/G for the AMD GPU nodes and partition/D for the visualisation nodes.
 
 There is also a **hidden partition/common module** in which software is installed that is available everywhere, 
 but we advise you to be careful to install software in there in your own installs as it is risky to rely on
@@ -409,7 +406,9 @@ explicitly load the partition/L module.
 
     The 23.12 and 23.09 version function reasonably well, but keep in mind that 23.09 was originally
     meant to be used with ROCm 5.2 or 5.5 depending on the SUSE version while you will now get a much
-    newer version of the compilers that come with ROCm.
+    newer version of the compilers that come with ROCm. You can expect issues with compiling GPU
+    code with the Cray compilers, and the AMD module is also different from when the toolchain
+    was installed as we had to redirect to a version of ROCm supported by the driver.
 
     The even older stacks are only there for projects that were using them. We've had problems with
     them already in the past and they currently don't work properly anymore for installing software

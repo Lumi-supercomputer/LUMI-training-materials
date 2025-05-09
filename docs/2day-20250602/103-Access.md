@@ -28,13 +28,13 @@ EuroHPC currently funds
 
     The construction of Jupiter has already started and will continue in the first half of 2025.
 
-4.  Another 4 mid-range systems are currently under procurement or under construction,
-    including [Daedalus](https://eurohpc-ju.europa.eu/daedalus-call-acquire-new-european-world-class-supercomputer-greece-2024-06-25_en) (in Greece) and
+4.  Another 2 mid-range systems are currently under procurement or under construction:
+    [Daedalus](https://eurohpc-ju.europa.eu/daedalus-call-acquire-new-european-world-class-supercomputer-greece-2024-06-25_en) (in Greece) and
     [Arrhenius](https://eurohpc-ju.europa.eu/sweden-will-host-new-eurohpc-supercomputer-2023-06-19_en) (in Sweden).
 
-5.  There will soon be a programme for "AI-optimised" supercomputers, whatever that will mean,
-    as these will be very large systems serving lots of users so there will still be lots of
-    technological compromises.
+5.  Various upgrades are planned to the current systems and there is also a programme for
+    "AI-optimised" spercomputers, whatever that may mean, as these will be very large systems 
+    serving lots of users so there will still be lots of technological compromises.
 
 Depending on the machine, EuroHPC pays one third up to half of the bill, while the remainder of the budget
 comes from the hosting country, usually with the help of a consortium of countries.
