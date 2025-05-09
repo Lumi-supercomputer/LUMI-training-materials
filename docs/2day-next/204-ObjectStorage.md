@@ -6,7 +6,7 @@
 ## Why do I kneed to know this?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Why know...](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/WhyKnow.png){ loading=lazy }
+  ![Slide Why know...](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/WhyKnow.png){ loading=lazy }
 </figure>
 
 Most LUMI users will be unfamiliar with object storage. 
@@ -34,11 +34,11 @@ for all tools that one can use.
 ## In short: What is LUMI-O?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOWhatIs_1.png){ loading=lazy }
+  ![Slide What is LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOWhatIs_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOWhatIs_2.png){ loading=lazy }
+  ![Slide What is LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOWhatIs_2.png){ loading=lazy }
 </figure>
 
 <!-- BELGIUM 
@@ -108,11 +108,11 @@ maintain backups on LUMI yourself.
 Or: What are the differences between a parallel filesystem and object storage?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Lustre vs LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LustreVsLUMIO_1.png){ loading=lazy }
+  ![Slide Lustre vs LUMI-O (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LustreVsLUMIO_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Lustre vs LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LustreVsLUMIO_2.png){ loading=lazy }
+  ![Slide Lustre vs LUMI-O (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LustreVsLUMIO_2.png){ loading=lazy }
 </figure>
 
 ***Integration with the system***
@@ -269,7 +269,7 @@ storage options.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Lustre vs LUMI-O (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LustreVsLUMIO_3.png){ loading=lazy }
+  ![Slide Lustre vs LUMI-O (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LustreVsLUMIO_3.png){ loading=lazy }
 </figure>
 
 The differences between a parallel file system and object storage also translate into differences
@@ -296,13 +296,13 @@ data.
 ## Accessing LUMI-O: General principles
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Accessing LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOAccessing.png){ loading=lazy }
+  ![Slide Accessing LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOAccessing.png){ loading=lazy }
 </figure>
 
 Access to LUMI-O is based on temporary credentials that need to be generated via 
 one of two web interfaces: Either a dedicated credential management portal,
 or the Open OnDemand interface to LUMI that we discussed in the 
-["Getting access" session](03-Access.md). 
+["Getting access" session](103-Access.md). 
 We will discuss both options in this chapter of the notes.
 
 There are currently three command-line tools pre-installed on LUMI
@@ -343,7 +343,7 @@ performance limitations of those protocols, and the web server then talks to LUM
 ### The credential management web interface
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Credential management web interface](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialWebOverview.png){ loading=lazy }
+  ![Slide Credential management web interface](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialWebOverview.png){ loading=lazy }
 </figure>
 
 One way to create the credentials to access LUMI-O, is via the
@@ -362,21 +362,21 @@ Let's walk through the interface:
     with a welcome screen on which you have to click the "Go to login" button.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebCreate_01.png){ loading=lazy }
+      ![Slide Credentials management web interface (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebCreate_01.png){ loading=lazy }
     </figure>
 
     This will present you with the already familiar (from Open OnDemand) screen to select
     your authentication provider:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebCreate_02.png){ loading=lazy }
+      ![Slide Credentials management web interface (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebCreate_02.png){ loading=lazy }
     </figure>
 
     Proceed with login in through your relevant authentication provider (not shown here)
     and you will be presented with a screen that show your active projects:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebCreate_03.png){ loading=lazy }
+      ![Slide Credentials management web interface (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebCreate_03.png){ loading=lazy }
     </figure>
 
     Click the project for which you want to generate access credentials (called "authentication keys"
@@ -389,13 +389,13 @@ Let's walk through the interface:
     Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebCreate_04.png){ loading=lazy }
+      ![Slide Credentials management web interface (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebCreate_04.png){ loading=lazy }
     </figure>
 
     Now click on the key to get more information about the key: 
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface: Check credentials](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebCheck.png){ loading=lazy }
+      ![Slide Credentials management web interface: Check credentials](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebCheck.png){ loading=lazy }
     </figure>
 
     At the top of the screen you see three elements that will be important if you use the LUMI command line tool
@@ -421,7 +421,7 @@ Let's walk through the interface:
     Scrolling down a bit more:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface: Extending the life span of a key](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebExtend.png){ loading=lazy }
+      ![Slide Credentials management web interface: Extending the life span of a key](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebExtend.png){ loading=lazy }
     </figure>
 
     The "Extend key" field can be used to extend the life of the key, to a maximum of 168 hours past the current time.
@@ -434,14 +434,14 @@ Let's walk through the interface:
     various tools:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface: Configuring tools (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebToolConfig_01.png){ loading=lazy }
+      ![Slide Credentials management web interface: Configuring tools (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebToolConfig_01.png){ loading=lazy }
     </figure>
 
     The "Configuration templates" is the way to generate code snippets or configuration file snippets for various tools
     (see the list on the slide). After selecting "rclone" and clicking the "Generate" button, a new screen opens:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management web interface: Configuring tools (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsWebToolConfig_02.png){ loading=lazy }
+      ![Slide Credentials management web interface: Configuring tools (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebToolConfig_02.png){ loading=lazy }
     </figure>
 
     This screen shows us the snippet for the rclone configuration file (on Linux it is
@@ -454,7 +454,7 @@ Let's walk through the interface:
 ### Credential management and access through Open OnDemand
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Credentials management through Open OnDemand Overview](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODOverview.png){ loading=lazy }
+  ![Slide Credentials management through Open OnDemand Overview](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODOverview.png){ loading=lazy }
 </figure>
 
 The LUMI Open OnDemand-based web interface can also be used to generate 
@@ -484,14 +484,14 @@ Let us now again walk through the interface.
     get the app overview screen:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management through Open OnDemand (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODCreate_01.png){ loading=lazy }
+      ![Slide Credentials management through Open OnDemand (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODCreate_01.png){ loading=lazy }
     </figure>
 
     To create an authentication key and to configure `rclone` and `s3cmd`, open the
     "Cloud storage configuration" app. You will be presented with the following screen:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management through Open OnDemand (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODCreate_02.png){ loading=lazy }
+      ![Slide Credentials management through Open OnDemand (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODCreate_02.png){ loading=lazy }
     </figure>
 
     At the top of the screen there is an overview of currently configured remotes. These are actually
@@ -499,7 +499,7 @@ Let us now again walk through the interface.
     configured for the user. Let's scroll down a bit:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management through Open OnDemand (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODCreate_03.png){ loading=lazy }
+      ![Slide Credentials management through Open OnDemand (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODCreate_03.png){ loading=lazy }
     </figure>
 
     Here we see the part of the screen where we can create an authentication key.
@@ -525,7 +525,7 @@ Let us now again walk through the interface.
     We now notice some changes at the top of that screen:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management through Open OnDemand (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODCreate_04.png){ loading=lazy }
+      ![Slide Credentials management through Open OnDemand (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODCreate_04.png){ loading=lazy }
     </figure>
 
     We've created both a private and a public `rclone` endpoint with the name
@@ -539,7 +539,7 @@ Let us now again walk through the interface.
     Let's check the previously discussed dedicated web credentials portal:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Credentials management through Open OnDemand (5)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODCreate_05.png){ loading=lazy }
+      ![Slide Credentials management through Open OnDemand (5)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODCreate_05.png){ loading=lazy }
     </figure>
 
     A key with the description "lumi web interface" is now visible, and this interface can still be used to 
@@ -553,13 +553,13 @@ Let us now again walk through the interface.
     for which we have created credentials:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Browsing through Open OnDemand (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODBrowse_01.png){ loading=lazy }
+      ![Slide Browsing through Open OnDemand (1)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODBrowse_01.png){ loading=lazy }
     </figure>
 
     We went back to the start screen of Open OnDemand and now open the "Home Directory" app.
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Browsing through Open OnDemand (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODBrowse_02.png){ loading=lazy }
+      ![Slide Browsing through Open OnDemand (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODBrowse_02.png){ loading=lazy }
     </figure>
 
     We now see our home directory and project, scratch and flash directory for all our projects, but also the two 
@@ -571,7 +571,7 @@ Let us now again walk through the interface.
     Let's now select the `training-materials-web` bucket to arrive at:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Browsing through Open OnDemand (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODBrowse_03.png){ loading=lazy }
+      ![Slide Browsing through Open OnDemand (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODBrowse_03.png){ loading=lazy }
     </figure>
 
     At the top of the right pane we now see the "path" `lumi-465000095-public:/training-materials-web/`.
@@ -580,7 +580,7 @@ Let us now again walk through the interface.
     creation and if we click a bit further we will see what's going on:
 
     <figure markdown style="border: 1px solid #000">
-      ![Slide Browsing through Open OnDemand (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCredentialsOODBrowse_04.png){ loading=lazy }
+      ![Slide Browsing through Open OnDemand (4)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODBrowse_04.png){ loading=lazy }
     </figure>
 
     The top bar now shows `lumi-465000095-public:/training-materials-web/intro-evolving/files/` while we also get a list
@@ -598,11 +598,11 @@ Let us now again walk through the interface.
 ## Configuring LUMI-O tools through a command line interface
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Configuring LUMI-O tools](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCLIToolConfig.png){ loading=lazy }
+  ![Slide Configuring LUMI-O tools](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCLIToolConfig.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/LUMIOCLIToolConfigRcloneS3cmd.png){ loading=lazy }
+  ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCLIToolConfigRcloneS3cmd.png){ loading=lazy }
 </figure>
 
 **The materials in this section are only valid for the `lumio/2.0.0` module and newer. `lumio/2.0.0` is the default at the time of the course.**
@@ -661,7 +661,7 @@ tools are used.
 ## Bucket and object names
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Bucket and object names](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/BucketObjectNames.png){ loading=lazy }
+  ![Slide Bucket and object names](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/BucketObjectNames.png){ loading=lazy }
 </figure>
 
 We have already discussed that storage on LUMI-O is organised in three levels, each with a flat namespace:
@@ -694,7 +694,7 @@ objects in a bucket and then sort and select the right entries to create the fol
 ## Policies and ACLs
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Policies and ACLs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/PoliciesACLs.png){ loading=lazy }
+  ![Slide Policies and ACLs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/PoliciesACLs.png){ loading=lazy }
 </figure>
 
 Access to buckets and objects is controlled through policies and access control lists (ACLs).
@@ -725,7 +725,7 @@ depending on which end point name you have used.
 ### Some examples
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Policies and ACLs: Examples](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/PoliciesACLsExamples.png){ loading=lazy }
+  ![Slide Policies and ACLs: Examples](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/PoliciesACLsExamples.png){ loading=lazy }
 </figure>
 
 The `s3cmd` command is your friend if you want to inspect or change policies and
@@ -789,13 +789,13 @@ ACLs on LUMI. It is available via the `lumio` module.
     -   An example of an object in that bucket:
 
         ```
-        s3cmd info s3://2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png
+        s3cmd info s3://2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png
         ```
 
         where the output shows again that this is a public object:
 
         ```
-        s3://2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png (object):
+        s3://2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png (object):
           File size: 4384337
           Last mod:  Thu, 21 Nov 2024 14:55:47 GMT
           MIME type: image/png
@@ -806,7 +806,7 @@ ACLs on LUMI. It is available via the `lumio` module.
           CORS:      none
           ACL:       *anon*: READ
           ACL:       LUMI training material: FULL_CONTROL
-          URL:       http://lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png
+          URL:       http://lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png
           x-amz-meta-mtime: 1732200870.757744714
         ```
 
@@ -861,9 +861,9 @@ ACLs on LUMI. It is available via the `lumio` module.
         or
         [https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf](https://lumidata.eu/462000265:4day-20241028/files/LUMI-4day-20241028-1_01_HPE_Cray_EX_Architecture.pdf)
         produces an "Access Denied" error message (in a strange format, but read the text), while
-        [https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png)
+        [https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png)
         or
-        [https://lumidata.eu/462000265:2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png](https://lumidata.eu/462000265:2day-next/img/LUMI-2day-next-10-ObjectStorage/Title.png)
+        [https://lumidata.eu/462000265:2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png](https://lumidata.eu/462000265:2day-next/img/LUMI-2day-next-204-ObjectStorage/Title.png)
         are links to the object used before in this example and work.
 
 
@@ -871,11 +871,11 @@ ACLs on LUMI. It is available via the `lumio` module.
 ## Sharing data
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Sharing data](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/SharingData.png){ loading=lazy }
+  ![Slide Sharing data](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/SharingData.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Sharing data: Pre-signed URLs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/SharingDataPresignedURL.png){ loading=lazy }
+  ![Slide Sharing data: Pre-signed URLs](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/SharingDataPresignedURL.png){ loading=lazy }
 </figure>
 
 LUMI-O is also a nice solution to share data between projects and with the outside world. 
@@ -954,7 +954,7 @@ Each solution has its own limitations though:
 ## Tips & tricks
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide Tips & tricks](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-10-ObjectStorage/TipsAndTricks_01.png){ loading=lazy }
+  ![Slide Tips & tricks](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/TipsAndTricks_01.png){ loading=lazy }
 </figure>
 
 A description of the main `rclone` commands is outside the scope of this tutorial, but some options
