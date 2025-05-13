@@ -29,6 +29,8 @@ In this section, we will
     [AI course materials](https://lumi-supercomputer.github.io/AI-latest/).
 
 Remember though that the compute nodes of LUMI are an HPC infrastructure and not a container cloud!
+HPC has its own container runtimes specifically for an HPC environment and the typical security
+constraints of such an environment.
 
 
 ## What do containers not provide
@@ -40,7 +42,7 @@ Remember though that the compute nodes of LUMI are an HPC infrastructure and not
 What is being discussed in this subsection may be a bit surprising.
 Containers are often **marketed as a way to provide reproducible science and as an easy way to transfer
 software** from one machine to another machine. However, **containers are neither of those** and this becomes 
-very clear when using containers build on your typical Mellanox/NVIDIA InfiniBand based clusters with
+very clear when using containers built on your typical Mellanox/NVIDIA InfiniBand based clusters with
 Intel processors and NVIDIA GPUs on LUMI. This is only true if you transport software between 
 sufficiently similar machines (which is why they do work very well in, e.g., the management nodes
 of a cluster, or a server farm).
@@ -106,14 +108,16 @@ has **two major flaws**
 </figure>
 
 
-*   A very important reason to use containers on LUMI is reducing the pressure on the file system by software
+Containers are in the first place a **software management instrument**.
+
+*   A very important reason to use containers on LUMI is **reducing the pressure on the file system** by software
     that accesses many thousands of small files (Python and R users, you know who we are talking about).
     That software kills the metadata servers of almost any parallel file system when used at scale.
 
     As a container on LUMI is a single file, the metadata servers of the parallel file system have far less 
     work to do, and all the file caching mechanisms can also work much better.
 
-*   Software installations that would otherwise be impossible. 
+*   **Software installations that would otherwise be impossible.** 
     E.g., some software may not even be suited for installation in
     a multi-user HPC system as it uses fixed paths that are not compatible with installation in 
     module-controlled software stacks.
@@ -142,7 +146,7 @@ has **two major flaws**
     that you can download cannot be installed wherever you want, so a container can come to the rescue.
 
 *   Another example where containers have proven to be useful on LUMI is to experiment with newer versions
-    of ROCm than we can offer on the system. 
+    of ROCm or the Cray Programming Environment than we can offer on the system. 
 
     This often comes with limitations though, as (a) that ROCm version is still limited by the drivers on the 
     system and (b) we've seen incompatibilities between newer ROCm versions and the Cray MPICH libraries.
@@ -151,7 +155,7 @@ has **two major flaws**
     These containers use some software from Conda, a newer ROCm version installed through RPMs, and some 
     performance-critical code that is compiled specifically for LUMI.
 
-*   Isolation is often considered as an advantage of containers also. The isolation helps
+*   **Isolation** is often considered as an advantage of containers also. The isolation helps
     preventing that software picks up libraries it should not pick up. In a context with 
     multiple services running on a single server, it limits problems when the security of a container
     is compromised to that container. However, it also comes with a big disadvantage in an
@@ -173,7 +177,8 @@ neglect it it is up to you to solve the problems that occur.
   ![Managing containers](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-205-Containers/ContainersManaging_1.png){ loading=lazy }
 </figure>
 
-On LUMI, we currently support only one container runtime.
+Not all container runtimes are a good match with HPC systems and the security model on 
+such a system. On LUMI, we currently support only one container runtime.
 
 Docker is not available, and will never be on the regular compute nodes as it requires elevated privileges
 to run the container which cannot be given safely to regular users of the system.
@@ -185,6 +190,8 @@ as singularity/AppTainer simply don't really like running multiple versions next
 and currently the version that
 we offer is determined by what is offered by the OS. Currently we offer 
 [Singularity Community Edition 4.1.3](https://docs.sylabs.io/guides/4.1/user-guide/).
+The reason to chose for Singularity Community Edition rather than Apptainer is that it supports a build
+model that is compatible with the security restrictions on LUMI and is not offered in Apptainer.
 
 To work with containers on LUMI you will either need to pull the container from a container registry,
 e.g., [DockerHub](https://hub.docker.com/), bring in the container either by creating a tarball from a
@@ -250,7 +257,7 @@ and then transfer it to LUMI.
 There is some support for building on top of an existing singularity container using what the SingularityCE user guide
 calls ["unprivileged proot builds"](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
 This requires loading the `proot` command which is provided by the `systools` module
-in CrayEnv or LUMI/23.09 or later. The SingularityCE user guide
+in CrayEnv or LUMI/23.09 or later or the `PRoot` module. The SingularityCE user guide
 [mentions several restrictions of this process](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds).
 The general guideline from the manual is: "Generally, if your definition file starts from an existing SIF/OCI container image, 
 and adds software using system package managers, an unprivileged proot build is appropriate. 
@@ -258,6 +265,9 @@ If your definition file compiles and installs large complex software from source
 you may wish to investigate `--remote` or `--fakeroot` builds instead." But as we just said,
 on LUMI we cannot yet
 provide `--fakeroot` builds due to security constraints.
+We have managed to compile software from source in the container, but the installation
+process through `proot` does come with a performance penalty. This is only when building 
+the container though; there is no difference when running the container.
 
 <!-- TODO: Do not forget to correct the link above to a new version of singularity. -->
 
@@ -350,7 +360,7 @@ your project directories in `/project`, `/scratch` or `/flash`, or maybe even in
 To do this you need to tell singularity to also mount these directories in the container,
 either using the 
 `--bind src1:dest1,src2:dest2` 
-flag or via the `SINGULARITY_BIND` or `SINGULARITY_BINDPATH` environment variables.
+flag (or `-B`) or via the `SINGULARITY_BIND` or `SINGULARITY_BINDPATH` environment variables.
 E.g.,
 
 ``` bash
@@ -390,11 +400,12 @@ it can offer optimal performance on the LUMI Slingshot 11 interconnect.
 Open MPI containers are currently not well supported on LUMI and we do not recommend using them.
 We only have a partial solution for the CPU nodes that is not tested in all scenarios, 
 and on the GPU nodes Open MPI is very problematic at the moment.
-This is due to some design issues in the design of Open MPI, and also to some piece of software
+This is due to some design issues in the design of Open MPI and what it expects from a network fabric library,
+and also to some piece of software to interact with the resource manager
 that recent versions of Open MPI require but that HPE only started supporting recently on Cray EX systems
 and that we haven't been able to fully test.
 Open MPI has a slight preference for the UCX communication library over the OFI libraries, and 
-until version 5 full GPU support requires UCX. Moreover, binaries using Open MPI often use the so-called
+until version 5 full GPU support required UCX. Moreover, binaries using Open MPI often use the so-called
 rpath linking process so that it becomes a lot harder to inject an Open MPI library that is installed
 elsewhere. The good news though is that the Open MPI developers of course also want Open MPI
 to work on biggest systems in the USA, and all three currently operating or planned exascale systems
@@ -632,11 +643,13 @@ We will not raise your file quota if it is to house such installation in your `/
     -   [Tykky page in the CSC documentation](https://docs.csc.fi/computing/containers/tykky/) 
 
 
-### Pre-build containers: VNC
+### Pre-build containers: VNC and CCPE
 
 <figure markdown style="border: 1px solid #000">
   ![Environment enhancements (3)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-205-Containers/ContainersEnvironmentEnhancement_3.png){ loading=lazy }
 </figure>
+
+#### VNC
 
 The fifth tool is a container that we provide with some bash functions
 to start a VNC server as one way to run GUI programs and as an alternative to 
@@ -658,6 +671,29 @@ for more information on how to use `lumi-vnc`.
 
 For most users, the Open OnDemand web interface and tools offered in that interface will
 be a better alternative.
+
+#### CCPE
+
+We are currently also working with HPE to provide a containerised Cray Programming Environment
+to be able to test newer versions of the Cray PE than are offered on LUMI.
+
+As working in a container requires a very good understanding of the differences between the
+environment in and out of the container, using those containers is really only for more
+experienced users who understand how modules and environments work. 
+
+These containers will be offered with user-installable EasyBuild recipes 
+([ccpe](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/ccpe) in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/))
+as customisation for the particular purpose of the user will often be necessary.
+This can often be done by minor changes to the recipes provided by LUST.
+
+The functionality of this solution may still be limited though, in particular for 
+GPU applications. Each version of the Cray PE is developed with one or a few specific
+versions of ROCm(tm) in mind, so if that version of ROCm(tm) is too new for the current
+driver on the software, running GPU software may fail. Some containers may also expect
+a newer version of the OS and though they contain the necessary userland libraries, these
+may expect a newer version of the kernel or libraries that are injected from the system.
+
+General availability to users is expected by the summer of 2025.
 
 
 ### Pre-built AI containers
@@ -728,10 +764,12 @@ Yet to be able to properly use the containers, users do need to take care of som
 
 There are also a number of components that may need further initialisation:
 
--   The MIOpen library has problems with file/record locking on Lustre so some environment variables
+-   The MIOpen library (which is the equivalent of the CUDA cuDNN library)
+    has problems with file/record locking on Lustre so some environment variables
     are needed to move some work directories to `/tmp`.
 
--   RCCL needs to be told the right network interfaces to use as otherwise it tends to take the interface
+-   RCCL (the ROCm(tm) equivalent of the NVIDIA NCCL communication library)
+    needs to be told the right network interfaces to use as otherwise it tends to take the interface
     to the management network of the cluster instead and gets stuck.
 
 -   GPU-aware MPI also needs to be set up (see [earlier in the course](102-CPE.md#gpu-aware-mpi))
@@ -768,7 +806,12 @@ When using the module, those scripts will be available in the `/runscripts` dire
 but are also in a subdirectory on the Lustre file system. So in principle you can even edit them or
 add your own scripts, though they would be erased if you reinstall the module with EasyBuild.
 
-They also define a number of environment variables that make life easier. E.g., the `SINGULARITY_BINDPATH` 
+Some of the newer PyTorch containers (from PyTorch 2.6.0 on) also provide wrapper scripts similar to
+[the wrapper scripts provided by the CSC `pytorch` modules](https://docs.csc.fi/apps/pytorch/),
+so many of the examples in their documentation should also work with minimal changes (such as the
+module name).
+
+The modules also define a number of environment variables that make life easier. E.g., the `SINGULARITY_BINDPATH` 
 environment variable is already set to bind the necessary files and directories from the system and to
 make sure that your project, scratch and flash spaces are available at the same location as on LUMI so
 that even symbolic links in those directories should still work.
@@ -810,7 +853,7 @@ Installation is as simple as, e.g.,
 
 ``` bash
 module load LUMI partition/container EasyBuild-user
-eb PyTorch-2.3.1-rocm-6.0.3-python-3.12-singularity-20240923.eb
+eb PyTorch-2.6.0-rocm-6.2.4-python-3.12-singularity-20250404.eb
 ```
 
 Before running it is best to clean up (`module purge`) or take a new shell to avoid conflicts with 
@@ -827,9 +870,9 @@ module and from then on, `SIF` will point to the corresponding container in
 So:
 
 ```
-module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
+module load PyTorch/2.6.0-rocm-6.2.4-python-3.12-singularity-20250404
 rm –f $SIF
-module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
+module load PyTorch/2.6.0-rocm-6.2.4-python-3.12-singularity-20250404
 ```
 
 We don't really recommend removing the container image though and certainly not if you are interested
@@ -863,7 +906,7 @@ environments, clusters with easy access to the compute nodes and clusters like L
 you to always go through the resource manager if you want access to a compute node.
 
 The first script is a Python program to extract the name of the master node from a Slurm environment
-variable. Store it in `get-master.py`:
+variable. This will be needed to set up the communication in PyTorch. Store it in `get-master.py`:
 
 ``` python
 import argparse
@@ -1044,7 +1087,7 @@ c=fe
 MYMASKS="0x${c}000000000000,0x${c}00000000000000,0x${c}0000,0x${c}000000,0x${c},0x${c}00,0x${c}00000000,0x${c}0000000000"
 
 srun --cpu-bind=mask_cpu:$MYMASKS \
-singularity exec \
+  singularity exec \
     -B /var/spool/slurmd \
     -B /opt/cray \
     -B /usr/lib64/libcxi.so.1 \
@@ -1103,7 +1146,7 @@ As the module also takes care of bindings, the job script is simplified to
 #SBATCH --account=project_<your_project_id>
 
 module load LUMI  # Which version doesn't matter, it is only to get the container.
-module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
+module load PyTorch/2.6.0-rocm-6.2.4-python-3.12-singularity-20250404
 
 c=fe
 MYMASKS="0x${c}000000000000,0x${c}00000000000000,0x${c}0000,0x${c}000000,0x${c},0x${c}00,0x${c}00000000,0x${c}0000000000"
@@ -1253,7 +1296,8 @@ OpenGL acceleration) and the `hostname` command.
 
 To use the `singularity build` command, we first need to make the `proot` command available. This is currently
 not installed in the LUMI system image, but is provided by the `systools/24.03` and later modules that can be
-found in the corresponding LUMI stack and in the CrayEnv environment.
+found in the corresponding LUMI stack and in the CrayEnv environment or by the `PRoot` module in all
+LUMI stacks and the CrayEnv stack.
 
 To update the container, run:
 
@@ -1306,7 +1350,7 @@ environment variable to point to its name:
 
 ``` bash
 module load LUMI
-module load PyTorch/2.3.1-rocm-6.0.3-python-3.12-singularity-20240923
+module load PyTorch/2.6.0-rocm-6.2.4-python-3.12-singularity-20250404
 singularity shell $SIF
 ```
 
