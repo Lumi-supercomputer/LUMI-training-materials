@@ -17,7 +17,7 @@ has some responsibilities also and solves things differently, there is no centra
 with all questions.
 
 <!-- BELGIUM>
-Resource allocators work independently from each other and the central LUMI User Support Team. This also 
+**Resource allocators** work independently from each other and the central LUMI User Support Team. This also 
 implies that they are the only ones who can help you with questions regarding your allocation: How to apply
 for compute time on LUMI, add users to your project, running out of resources (billing units) for your project, failure
 to even get access to the portal managing the allocations given by your resource allocator (e.g., because
@@ -31,7 +31,7 @@ extension to your project.
 -->
 
 <!-- GENERAL More general version -->
-Resource allocators work independently from each other and the central LUMI User Support Team. This also 
+**Resource allocators** work independently from each other and the central LUMI User Support Team. This also 
 implies that they are the only ones who can help you with questions regarding your allocation: How to apply
 for compute time on LUMI, add users to your project, running out of resources (billing units) for your project, failure
 to even get access to the portal managing the allocations given by your resource allocator (e.g., because
@@ -40,7 +40,7 @@ For granted EuroHPC projects, support is available via lumi-customer-accounts@cs
 to contact EuroHPC directly at access@eurohpc-ju.europa.eu if, e.g., you need more resources or an 
 extension to your project.
 
-The central LUMI User Support Team (LUST) offers L1 and basic L2 support. 
+The central **LUMI User Support Team (LUST)** offers L1 and basic L2 support. 
 Given that the LUST team is very small compared to the number of project granted annually on LUMI 
 (roughly 10 FTE for on the order of 700 projects per year, and support is not their only task),
 it is clear that the amount of support they can give is limited. 
@@ -58,39 +58,64 @@ Usually you will have to look for workarounds, or if they show up in a preparato
 postpone applying for an allocation until all problems are fixed.
 
 <!-- BELGIUM
-In Flanders, the VSC has a Tier-0 support project to offer more advanced L2 and some L3 support.
+In Flanders, the **VSC** has a Tier-0 support project to offer more advanced L2 and some L3 support.
 The project unfortunately is not yet fully staffed.
 VSC Tier-0 support can be contacted via the LUMI-BE help desk at lumi-be-support@enccb.be (the same
 help desk that you need to contact for allocation problems).
 -->
 
 <!-- BELGIUM>
-In the Walloon region, there is some limited advanced support via Orian Louant. However, this is only a part of
+In the Walloon region, there is some limited advanced support via Orian Louant from **CÉCI**. However, this is only a part of
 all his tasks. Here also the lumi-be-support@enccb.be mail address can be used.
 -->
 
 <!-- BELGIUM
-EuroHPC has also granted the [EPICURE project](https://epicure-hpc.eu/) that started in February 2024 to set up a network for
-advanced L2 and L3 support across EuroHPC centres. Belgium also participates in that project as a partner
-in the LUMI consortium. However, this project is also so small that it will have to select the problems
-they tackle.
-Moreover, access is only for EuroHPC extreme scale, regular or development projects,
-though development projects are relatively easy to get without too much administration.
-Yet, this only makes sense for a sufficiently large project with a long enough duration.
+**EuroHPC** has also started various other support initiatives:
+
+-   The [EPICURE project](https://epicure-hpc.eu/) started in February 2024 to set up a network for
+    advanced L2 and L3 support across EuroHPC centres. 
+    Belgium also participates in that project as a partner in the LUMI consortium.
+    This project is also so small that it has to select the problems they tackle.
+    Moreover, access is only for EuroHPC extreme scale, regular or development projects,
+    though development projects are relatively easy to get without too much administration.
+    Yet, this only makes sense for a sufficiently large project with a long enough duration.
+    So far, for many systems, there have been enough resources available for the support requests
+    received.
+
+-   [MINERVA](https://minerva4ai.eu/) is a more recent project set up to support AI users on HPC systems specifically.
+    At the time of the course, the project was still starting up and not all services were available
+    already.
+
+-   The [AI Factories](https://digital-strategy.ec.europa.eu/en/policies/ai-factories) are an initiative
+    that is more oriented towards the use of AI in industry, and especially for generative AI models.
+
+-   In principle the [EuroHPC Centres of Excellence](https://www.hpccoe.eu/) should also play a role in porting some applications in their
+    field of expertise and offer some support and training, but so far especially the support and training are
+    not yet what one would like to have.
 -->
 
 <!-- GENERAL More general version -->
-EuroHPC has also granted the [EPICURE project](https://epicure-hpc.eu/) that started in February 2024 to set up a network for
-advanced L2 and L3 support across EuroHPC centres. At the time of the course, the project is still in
-its startup phase. Moreover, this project is also so small that it will have to select the problems
-they tackle.
-Moreover, access is only for EuroHPC extreme scale, regular or development projects,
-though development projects are relatively easy to get without too much administration.
-Yet, this only makes sense for a sufficiently large project with a long enough duration.
+**EuroHPC** has also started various other support initiatives:
 
-In principle the EuroHPC Centres of Excellence should also play a role in porting some applications in their
-field of expertise and offer some support and training, but so far especially the support and training are
-not yet what one would like to have.
+-   The [EPICURE project](https://epicure-hpc.eu/) started in February 2024 to set up a network for
+    advanced L2 and L3 support across EuroHPC centres. This project is also so small that it has 
+    to select the problems they tackle.
+    Moreover, access is only for EuroHPC extreme scale, regular or development projects,
+    though development projects are relatively easy to get without too much administration.
+    Yet, this only makes sense for a sufficiently large project with a long enough duration.
+    So far, for many systems, there have been enough resources available for the support requests
+    received.
+
+-   [MINERVA](https://minerva4ai.eu/) is a more recent project set up to support AI users on HPC systems specifically.
+    At the time of the course, the project was still starting up and not all services were available
+    already.
+
+-   The [AI Factories](https://digital-strategy.ec.europa.eu/en/policies/ai-factories) are an initiative
+    that is more oriented towards the use of AI in industry, and especially for generative AI models.
+
+-   In principle the [EuroHPC Centres of Excellence](https://www.hpccoe.eu/) should also play a role in porting some applications in their
+    field of expertise and offer some support and training, but so far especially the support and training are
+    not yet what one would like to have.
 
 Basically given the growing complexity of scientific computing and diversity in the software field, what one
 needs is the equivalent of the "lab technician" that many experimental groups have who can then work with 
@@ -99,7 +124,7 @@ various support instances, a so-called [Research Software Engineer](https://rese
 
 ## Support level 0: Help yourself!
 
-Support starts with taking responsibility yourself and use the available sources of information
+Support starts with taking responsibility yourself and using the available sources of information
 before contacting support. Support is not meant to be a search assistant for already available 
 information.
 
@@ -156,7 +181,7 @@ knowledge: Groups that develop the applications, user groups, the EuroHPC Centre
 
 What users really want is of course a training for a specific application on a specific system,
 but as most applications have a too small usergroup and within that usergroup often still a large variety of workflows, and teaching such a course also requires an instructor with a lot of domain knowledge in the science field of the application.
-EuroHPC is also setting up some support initiatives specifically for AI, including the AI
+EuroHPC has set up some support initiatives specifically for AI, including the AI
 factories, more oriented towards industry startups, and the MINERVA project.
 
 Currently the training landscape in Europe is not too well organised. EuroHPC is starting some new
@@ -193,7 +218,11 @@ The LUST has developed extensive documentation for LUMI. That documentation is s
     a more focused search in both documentation systems and partly because it is managed and updated
     very differently.
 
-Both documentation systems contain a search box which may help you find pages if you cannot find them 
+3.  The [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) is a GitHub repository
+    with code samples and further documentation on using AI packages (mainly PyTorch and packages layered
+    on top of it) on LUMI.
+
+The first two documentation systems contain a search box which may help you find pages if you cannot find them 
 easily navigating the documentation structure. E.g., you may use the search box in the LUMI Software Library
 to search for a specific package as it may be bundled with other packages in a single module with a 
 different name. 
@@ -413,14 +442,9 @@ The improved version could be something like this:
     problem?
 
 -   Avoid reopening old tickets that have been closed long ago.
-
-    If you get a message that a ticket has been closed (basically because there has been no reply for
-    several weeks so we assume the issue is not relevant anymore) and you feel it should not have been
-    closed, reply immediately.
-
-    When you reply to a closed ticket and the person who did the ticket is not around (e.g., on vacation
-    or left the help desk team), your reply may get unnoticed for weeks. Closed tickets are not passed
-    to a colleague when we go on a holiday or leave.
+  
+    But if you run into an issue that you think is the same issue again as in an old ticket, it can
+    help us if you point that out and even more if you can say which ticket it was.
 
 -   Certainly do not reopen old tickets with new issues. Apart from the fact that the person who did
     the ticket before may not be around, they may also have no time to deal with the ticket quickly
@@ -772,6 +796,9 @@ Supercomputer support services are not a free replacement of a research software
     [page with links into technical documentation](A01-Documentation.md)
     of the scheduler and the programming environments on LUMI, and links to the user documentation
     of some similar systems.
+
+    -   The [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) has a lot of code samples
+        and some documentation on doing AI on LUMI (mostly focusing on PyTorch).
 
 <!-- BELGIUM
 -   Web sites in Belgium:
