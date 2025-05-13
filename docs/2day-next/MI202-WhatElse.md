@@ -16,4 +16,4 @@ Materials will be made available after the lecture
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-I04-WhatElse.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-I202-WhatElse.pdf)
