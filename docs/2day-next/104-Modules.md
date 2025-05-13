@@ -44,8 +44,9 @@ the CÉA compute centre. The version numbering was continued from the C implemen
 starting with version 4.0.0. 
 The third system and currently probably the most popular one is Lmod, a version
 written in Lua with module files also written in Lua. Lmod also supports most
-Tcl module files. It is also supported by HPE Cray, though they tend to be a bit
-slow in following versions. The original developer of Lmod, Robert McLay, retired 
+Tcl module files. It is also supported by HPE Cray. They used to be a bit
+slow in following versions, but since 2024 they stay close to the current version. 
+The original developer of Lmod, Robert McLay, retired 
 at the end of August 2023, but TACC, the centre where he worked, is committed to at least
 maintain Lmod though it may not see much new development anymore.
 

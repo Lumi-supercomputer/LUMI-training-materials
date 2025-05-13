@@ -71,6 +71,13 @@ that contain objects:
 
 -   **Objects**: Any type of data. An object is stored in a bucket.
 
+    This is also a flat namespace. Objects cannot contain other object.
+    However, some tools create a pseudo-folder view with the use of slashes
+    in the name. This does not create some kind of "directory object"
+    that would then create a number of "data objects" though; it is just 
+    the name of an object in a flat space that contains slashes that are 
+    used to create a folder-like view on the namespace.
+
 -   **Metadata**: Both buckets and objects have metadata specific to them. 
     One element of the metadata is the name of the bucket or object. But metadata
     can also contains the access rights to the bucket or object.
@@ -385,6 +392,11 @@ Let's walk through the interface:
     life can be extended) and a description for the authentication key. The latter is useful if you generate multiple
     keys for different use. E.g., for security reasons you may want to use different authentication keys from different
     machines so that one machine can be disabled quickly if the machine would be compromised or stolen.
+
+    !!! Note "Key validity"
+        At the time of writing, the maximum lifetime for a key was 168 hours which
+        is one week. This will be extended in the future so that key renewal will
+        not be needed anymore. Keys will last for the lifetime of the project.
 
     Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
 
