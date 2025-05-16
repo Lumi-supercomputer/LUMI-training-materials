@@ -64,6 +64,8 @@ nav:
     - ai-20250527/index.md
     - Schedule: ai-20250527/schedule.md
     - Course materials: ai-20250527/index.html#course-materials
+  - Hackathon May 2025:
+    - Hackathon-20250512/index.md
   - Profiling May 2025:
     - Profiling-20250507/index.md
   - LUMI intensive March 2025:
@@ -74,8 +76,6 @@ nav:
     - ai-20250204/index.md
     - Schedule: ai-20250204/schedule.md
     - Course materials: ai-20250204/index.html#course-materials
-  - Hackathon October 2024:
-    - Hackathon-20241014/index.md
   - Profiling October 2024:
     - Profiling-20241009/index.md
   - Performance Analysis & Optimization June 2024:
@@ -99,6 +99,8 @@ nav:
       - 4day-20241028/index.md
       - Schedule: 4day-20241028/schedule.md
       - Course materials: 4day-20241028/index.html#course-materials
+    - Hackathon October 2024:
+      - Hackathon-20241014/index.md
     - Supercomputing with LUMI May 2024:
       - 2day-20240502/index.md
       - Schedule: 2day-20240502/schedule.md

@@ -2,7 +2,7 @@
 
 ## Hackathon information
 
--   [Local information: The venue](local_information.md)   
+-   [Local information: The venue](localinfo.md)   
 
 -   [Tentative schedule](schedule.md)
 
