@@ -273,7 +273,7 @@ on the next slide that are present right after login on LUMI.
 Next we have the **stacks called "LUMI"**. Each one corresponds to a **particular release of the HPE Cray
 Programming Environment**. It is the stack in which the LUST installs software using that programming environment
 and mostly EasyBuild. **The Cray Programming Environment modules are still used, but they are accessed through
-a replacement for the PrgEnv modules that is managed by EasyBuild**. There are **tuned versions for the 3 types
+a replacement for the PrgEnv modules that is managed by EasyBuild**. There are **tuned versions for the 4 types
 of hardware in the regular LUMI system**: zen2 CPUs in the login nodes and large memory nodes, zen3 for the 
 LUMI-C compute nodes, zen3 + MI250X for
 the LUMI-G partition, and zen2 + the NVIDIA GPUs for visualisation. 
@@ -311,6 +311,12 @@ In the far future the LUST will also look at **a stack based on the common EasyB
 but problems are expected with MPI
 that will make this difficult to implement, and the common toolchains also do not yet support
 the AMD GPU ecosystem, so no promises whatsoever are made about a time frame for this development.
+EuroHPC would also like the [EESSI stack](https://www.eessi.io/) but that too will take time. Their 
+distribution mechanism is a very bad fit with Cray systems as is their choice for Open MPI
+(and their desire to stay with the bleeding edge of Open MPI which requires features from the
+resource manager that are also not yet fully available on LUMI for security reasons). Apart 
+from the fact that any support for ROCm is absent at the moment in EasyBuild, the basis for
+EESSI.
 
 
 ### 3 ways to access the Cray Programming environment on LUMI.
