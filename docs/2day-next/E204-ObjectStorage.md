@@ -146,7 +146,7 @@ tools configuration files that are used in the following exercises.
             
         3.  Feel free to inspect those files.
    
-            In `~/.s3cfg-lumi-465001603`, you'll see a section similar to
+            In `~/.config/rclone/rclone.conf`, you'll see a section similar to
 
             ```
             [lumi-465001603-private]
@@ -814,7 +814,7 @@ You do need a project on LUMI to make these exercises. Wherever we use
             
         3.  Feel free to inspect those files.
    
-            In `~/.s3cfg-lumi-46YXXXXXX`, you'll see a section similar to
+            In `~/.config/rclone/rclone.conf`, you'll see a section similar to
 
             ```
             [lumi-46YXXXXXX-private]
