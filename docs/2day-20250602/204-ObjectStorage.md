@@ -43,12 +43,18 @@ for all tools that one can use.
 
 <!-- BELGIUM 
 LUMI-O is an object storage system (based on Ceph). 
+Ceph can offer object storage, block storage and file storage, but in LUMI-O, it is 
+used as an object storage system. Hence it is functioning differently from the Ceph system
+in use at CÉCI for the common storage system used since 2025.
 It is similar to a system that CSC, the company operating LUMI, built for users of Finland
 and is known there as Allas, though LUMI doesn't provide all the functionality of Allas.
--->
+END BELGIUM  -->
 
 <!-- GENERAL More general version -->
-LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
+LUMI-O is an object storage system (based on Ceph). 
+Ceph can offer object storage, block storage and file storage, but in LUMI-O, it is 
+used as an object storage system.
+Users from Finland may be familiar with 
 Allas, which is similar to the LUMI object storage system, though LUMI doesn't provide all
 the functionality of Allas.
 <!-- END more general version. -->

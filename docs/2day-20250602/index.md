@@ -92,7 +92,7 @@ These materials will become available as the course progresses.
 <!--
 ## Setting up for the exercises
 
-During the course, you can use the training project `project_46500XXXX` for the exercises.
+During the course, you can use the training project `project_465001965` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
 
@@ -115,31 +115,31 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465001726/course-20250303-$USER/Exercises/Intro
-    cd /scratch/project_465001726/course-20250303-$USER/Exercises/Intro
+    mkdir -p /scratch/project_465001965/course-20250602-$USER/Exercises
+    cd /scratch/project_465001965/course-20250602-$USER/Exercises
     ```
 
-    where you have to replace `project_465001726` using the number of your own project.
+    where you have to replace `project_465001965` using the number of your own project.
 
     If you have no other project on LUMI, you can also use the scratch of the
-    course project `project_465001726`. Do use a personal subdirectory as in the
+    course project `project_465001965`. Do use a personal subdirectory as in the
     following commands:
 
     ```
-    mkdir -p /scratch/project_465001726/$USER/Exercises/Intro
-    cd /scratch/project_465001726/$USER/Exercises/Intro
+    mkdir -p /scratch/project_465001965/$USER/Exercises
+    cd /scratch/project_465001965/$USER/Exercises
     ```
 
 
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20250602/files/exercises-LUST-20250303.tar.bz2
-    tar -xf exercises-LUST-20250303.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2
+    tar -xf exercises-20250602.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20250602/files/exercises-LUST-20250303.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-LUST-20250303.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
 
 -   You're all set to go!
 -->
@@ -163,8 +163,8 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_46YXXXXXX/course-20250303-$USER/Exercises/Intro
-    cd /scratch/project_46YXXXXXX/course-20250303-$USER/Exercises/Intro
+    mkdir -p /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
     ```
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
@@ -172,7 +172,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 -   Now install the exercise files:
 
     ```
-    tar -xf /appl/local/training/2day-20250602/files/exercises-LUST-20250303.tar.bz2
+    tar -xf /appl/local/training/2day-20250602/files/exercises-20250602.tar.bz2
     ```
 
 -   You're all set to go!

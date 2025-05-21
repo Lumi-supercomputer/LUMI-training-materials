@@ -11,7 +11,7 @@ tools configuration files that are used in the following exercises.
 ## Exercises to be made in the training project
 
 1.  We've already put some buckets and objects in the training project 
-    `project_465001726` and your fellow course followers who are further ahead in
+    `project_465001965` and your fellow course followers who are further ahead in
     the exercises, may have put a few more in. Go into Open OnDemand and browse
     the buckets.
 
@@ -26,7 +26,7 @@ tools configuration files that are used in the following exercises.
 
             1.  Open the "Cloud storage configuration" app.
             2.  Scroll towards the bottom.
-            3.  Select project 465001726
+            3.  Select project 465001965
             4.  There is no need now to create an `s3cmd` configuration also as we will do so in one of
                 the next exercises, but it will do no harm either. It is also not necessary yet to also 
                 configure a public remote but again, this does no harm.
@@ -37,13 +37,13 @@ tools configuration files that are used in the following exercises.
             1.  Leave the "Cloud storage configuration" app by navigating back in the browser or clicking
                 the "LUMI" logo at the top left of the screen.
             2.  Open the "Home Directory" app.
-            3.  Towards the bottom in the left column, you should now see "lumi-465001726-private", and if you
-                created a public access point, also "lumi-465001726-public".
+            3.  Towards the bottom in the left column, you should now see "lumi-465001965-private", and if you
+                created a public access point, also "lumi-465001965-public".
 
                 Notice once more that these are just endpoints. Uploading to them will set a different ACL
                 (Access Control List) for the objects and buckets, but when you browse in both you see both
                 private and public objects with no way to distinguish between them.\
-            4.  If you know click on "lumi-465001726-private", you should see a number of buckets in the right pane,
+            4.  If you know click on "lumi-465001965-private", you should see a number of buckets in the right pane,
                 and from there you can browse further into these buckets. There are two buckets that we created
                 for this training: `training.public` and `training.private`. Both contain 3 objects, and in both
                 one of the objects contained a slash in the name, so you get to see a directory first with one "file".
@@ -67,9 +67,9 @@ tools configuration files that are used in the following exercises.
         1.  Go into the [web credentials management system auth.lumidata.eu](https://auth.lumidata.eu/).
             You can log in in the same way you did in Open OnDemand in the previous exercise.
             After logging in, you should see a screen "Your projects" with at least a line for the 
-            project 465001726.
+            project 465001965.
 
-        2.  To find back the authentication key, simply click on the line for the project 465001726.
+        2.  To find back the authentication key, simply click on the line for the project 465001965.
             A new pane will appear at the right with first a section to generate a new authentication
             key pair and then a section "Available keys" which will list a key with the key description
             "lumi web interface".
@@ -89,7 +89,7 @@ tools configuration files that are used in the following exercises.
 
             # Default location is ${HOME}/.s3cfg
 
-            [lumi-465001726]
+            [lumi-465001965]
             access_key   = XXXXXXXXXXXXXXXXXXXX
             secret_key   = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             host_base    = https://lumidata.eu
@@ -102,7 +102,7 @@ tools configuration files that are used in the following exercises.
 
             This text can be copied to the `s3cmd` configuration file which on Linux-like systems is
             `~/.s3cfg`, and if you want to have an `s3cmd` configuration for multiple systems,
-            the suggested name is `~/.s3cfg-lumi-465001726`.
+            the suggested name is `~/.s3cfg-lumi-465001965`.
 
 4.  Use the `lumio-conf` command line tool to generate a configuration for `s3cmd` and for `rclone`.
 
@@ -123,7 +123,7 @@ tools configuration files that are used in the following exercises.
         2.  Type `lumio-conf` to start the `lumio-conf` tool in default mode, where it will create configuration
             files for `rclone` and `s3cmd`.
 
-            The first question it will ask you, is the project number. Fill in `465001726`.
+            The first question it will ask you, is the project number. Fill in `465001965`.
 
             Next it will ask you for the "Access key". We found that information in the previous exercise: It was
             at the top of the right column after selecting the project in the
@@ -140,16 +140,16 @@ tools configuration files that are used in the following exercises.
 
             `lumio-conf` will now create the configuration files. It will print information about its 
             `rclone` configuration which is stored in the file `~/.config/rclone/rclone.conf` and creates
-            two endpoints for `rclone`: `lumi-465001726-private` and `lumi-465001726-public`, and for
-            `s3cmd` it will actually create two files: A configuration file `~/.s3cfg-lumi-465001726`, and
+            two endpoints for `rclone`: `lumi-465001965-private` and `lumi-465001965-public`, and for
+            `s3cmd` it will actually create two files: A configuration file `~/.s3cfg-lumi-465001965`, and
             it will then also create or overwrite `~/.s3cfg` with that configuration. 
             
         3.  Feel free to inspect those files.
    
-            In `~/.s3cfg-lumi-465001726`, you'll see a section similar to
+            In `~/.config/rclone/rclone.conf`, you'll see a section similar to
 
             ```
-            [lumi-465001726-private]
+            [lumi-465001965-private]
             type              = s3
             acl               = private
             env_auth          = false
@@ -157,9 +157,9 @@ tools configuration files that are used in the following exercises.
             endpoint          = https://lumidata.eu
             access_key_id     = XXXXXXXXXXXXXXXXXXXX
             secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            project_id        = 465001726
+            project_id        = 465001965
 
-            [lumi-465001726-public]
+            [lumi-465001965-public]
             type              = s3
             acl               = public
             env_auth          = false
@@ -167,16 +167,16 @@ tools configuration files that are used in the following exercises.
             endpoint          = https://lumidata.eu
             access_key_id     = XXXXXXXXXXXXXXXXXXXX
             secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            project_id        = 465001726
+            project_id        = 465001965
             ```
 
-            while in `~/.s3cfg` and `~/.s3cfg-lumi-465001726`, you'll see something similar to
+            while in `~/.s3cfg` and `~/.s3cfg-lumi-465001965`, you'll see something similar to
 
             ```
             use_https            = True
             secret_key           = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             host_base            = https://lumidata.eu
-            project_id           = 465001726
+            project_id           = 465001965
             chunk_size           = 15
             human_readable_sizes = True
             enable_multipart     = True
@@ -204,7 +204,7 @@ tools configuration files that are used in the following exercises.
         itself and has a different maintenance cycle. Hence it can remain available when LUMI is down, so that
         users can still access their data on LUMI-O from their home institution or personal computer.
 
-5.  Which buckets and objects are there in the training project `project_465001726`? Check with the command line
+5.  Which buckets and objects are there in the training project `project_465001965`? Check with the command line
     tools for which you prepared the configuration file in the previous exercise
     (as we have done this already with Open OnDemand)
 
@@ -260,7 +260,7 @@ tools configuration files that are used in the following exercises.
         -   With `rclone`: Now we need to specify the endpoint as `rclone` supports multiple projects in a 
             single configuration.
 
-            The command to use is now: `rclone ls lumi-465001726-private:` which returns something similar to
+            The command to use is now: `rclone ls lumi-465001965-private:` which returns something similar to
 
             ```
                 235 training.private/HTML/private.html
@@ -271,7 +271,7 @@ tools configuration files that are used in the following exercises.
                 57 training.public/public-in-public.txt
             ```
 
-            Now if you'd try `rclone ls lumi-465001726-public:` instead, you'd see exactly the same because
+            Now if you'd try `rclone ls lumi-465001965-public:` instead, you'd see exactly the same because
             these are two endpoints for the same project. Their behaviour is different though when uploading
             objects.
 
@@ -329,7 +329,7 @@ tools configuration files that are used in the following exercises.
         The name of each object suggests the answer.
 
 7.  Use command line tools to download the file `private-in-private.txt` from the `training.private` bucket in
-    the `project_465001726` training project of this training.
+    the `project_465001965` training project of this training.
 
     ??? Solution "Click here to see the solution."
 
@@ -342,7 +342,7 @@ tools configuration files that are used in the following exercises.
         -   With `rclone`:
 
             ```
-            rclone copy lumi-465001726-private:training.private/private-in-private.txt .
+            rclone copy lumi-465001965-private:training.private/private-in-private.txt .
             ```
 
 8.  What would be the web-URL to access the public object `public-in-public.txt` in the `training.public` bucket?
@@ -352,29 +352,29 @@ tools configuration files that are used in the following exercises.
     ??? Solution "Click here to see the solution."
 
         -   `public-in-public.txt` in the `training.public` bucket:
-            [https://465001726.lumidata.eu/training.public/public-in-public.txt](https://465001726.lumidata.eu/training.public/public-in-public.txt)
+            [https://465001965.lumidata.eu/training.public/public-in-public.txt](https://465001965.lumidata.eu/training.public/public-in-public.txt)
             or
-            [https://lumidata.eu/465001726:training.public/public-in-public.txt](https://lumidata.eu/465001726:training.public/public-in-public.txt)
+            [https://lumidata.eu/465001965:training.public/public-in-public.txt](https://lumidata.eu/465001965:training.public/public-in-public.txt)
             both work. So we can access a public object in a public bucket.
 
         -   `private-in-public.txt` in the `training.public` bucket:
             Neither
-            [https://465001726.lumidata.eu/training.public/private-in-public.txt](https://465001726.lumidata.eu/training.public/private-in-public.txt)
+            [https://465001965.lumidata.eu/training.public/private-in-public.txt](https://465001965.lumidata.eu/training.public/private-in-public.txt)
             nor
-            [https://lumidata.eu/465001726:training.public/private-in-public.txt](https://lumidata.eu/465001726:training.public/private-in-public.txt)
+            [https://lumidata.eu/465001965:training.public/private-in-public.txt](https://lumidata.eu/465001965:training.public/private-in-public.txt)
             work.
 
         -   `public-in-private.txt` in the `training.private` bucket:
-            [https://465001726.lumidata.eu/training.private/public-in-private.txt](https://465001726.lumidata.eu/training.private/public-in-private.txt)
+            [https://465001965.lumidata.eu/training.private/public-in-private.txt](https://465001965.lumidata.eu/training.private/public-in-private.txt)
             or
-            [https://lumidata.eu/465001726:training.private/public-in-private.txt](https://lumidata.eu/465001726:training.private/public-in-private.txt)
+            [https://lumidata.eu/465001965:training.private/public-in-private.txt](https://lumidata.eu/465001965:training.private/public-in-private.txt)
             both work. So we can access a public object in a public bucket.
 
         -   `private-in-private.txt` in the `training.private` bucket:
             Neither
-            [https://465001726.lumidata.eu/training.private/private-in-private.txt](https://465001726.lumidata.eu/training.private/private-in-private.txt)
+            [https://465001965.lumidata.eu/training.private/private-in-private.txt](https://465001965.lumidata.eu/training.private/private-in-private.txt)
             nor
-            [https://lumidata.eu/465001726:training.private/private-in-private.txt](https://lumidata.eu/465001726:training.private/private-in-private.txt)
+            [https://lumidata.eu/465001965:training.private/private-in-private.txt](https://lumidata.eu/465001965:training.private/private-in-private.txt)
             work.
 
 
@@ -383,13 +383,13 @@ tools configuration files that are used in the following exercises.
         Well, in a public bucket you can list the objects without using credentials while you cannot in a private bucket.
 
         Try either 
-        [https://465001726.lumidata.eu/training.private](https://465001726.lumidata.eu/training.private) or
-        [https://lumidata.eu/465001726:training.private](https://lumidata.eu/465001726:training.private)
+        [https://465001965.lumidata.eu/training.private](https://465001965.lumidata.eu/training.private) or
+        [https://lumidata.eu/465001965:training.private](https://lumidata.eu/465001965:training.private)
         and notice that you get a cryptic error message.
 
         However, try either
-        [https://465001726.lumidata.eu/training.public](https://465001726.lumidata.eu/training.public) or
-        [https://lumidata.eu/465001726:training.public](https://lumidata.eu/465001726:training.public)
+        [https://465001965.lumidata.eu/training.public](https://465001965.lumidata.eu/training.public) or
+        [https://lumidata.eu/465001965:training.public](https://lumidata.eu/465001965:training.public)
         and you get a much longer answer though again rather cryptic for ordinary people. It is an XML file
         and if you read through it, you'll find the names of the objects that we know are in the bucket.
 
@@ -402,7 +402,7 @@ tools configuration files that are used in the following exercises.
         For this, we can use the `rclone link` tool: 
 
         ```
-        rclone link lumi-465001726-private:training.private/HTML/private.html
+        rclone link lumi-465001965-private:training.private/HTML/private.html
         ```
 
         will produce output that will look like this:
@@ -418,7 +418,7 @@ tools configuration files that are used in the following exercises.
         One can also set a shorter link lifetime, e.g.,
 
         ```
-        rclone link --expire 2d lumi-465001726-private:training.private/HTML/private.html
+        rclone link --expire 2d lumi-465001965-private:training.private/HTML/private.html
         ```
 
         which will produce output that will look like this:
@@ -437,7 +437,7 @@ tools configuration files that are used in the following exercises.
     available on the web. However, you are not part of that project so cannot request an authentication key for that
     project. But, as some files are public, you are able to access some buckets and objects in this project with
     some tools. We've created two buckets, `intro-training.public` and `intro-training.private` with the same contents
-    and ACLs as the `training.public` and `training.private` buckets in the `project_465001726` training project.
+    and ACLs as the `training.public` and `training.private` buckets in the `project_465001965` training project.
     Let's see if we can access them with command line tools.
 
     List the objects in both buckets.
@@ -473,14 +473,14 @@ tools configuration files that are used in the following exercises.
             ```
 
             This should not surprise you, as you are not a member of the `462000265` project and are not using
-            access credentials for that project in this exercise, but for `465001726` training project.
+            access credentials for that project in this exercise, but for `465001965` training project.
 
             Note that in the first command we did list an object whose name suggests that it is a private object.
 
         -   With `rclone`: 
 
             ```
-            rclone ls lumi-465001726-private:"462000265:intro-training.public"
+            rclone ls lumi-465001965-private:"462000265:intro-training.public"
             ``` 
 
             returns something along the lines of
@@ -495,7 +495,7 @@ tools configuration files that are used in the following exercises.
             while
 
             ```
-            rclone ls lumi-465001726-private:"462000265:intro-training.private"
+            rclone ls lumi-465001965-private:"462000265:intro-training.private"
             ``` 
 
             returns something similar to
@@ -556,7 +556,7 @@ tools configuration files that are used in the following exercises.
         -   With `rclone`:
 
             ```
-            rclone copy lumi-465001726-private:"462000265:intro-training.public/HTML/public.html" .
+            rclone copy lumi-465001965-private:"462000265:intro-training.public/HTML/public.html" .
             ```
 
         -   With a web browser: both the URL
@@ -606,7 +606,7 @@ tools configuration files that are used in the following exercises.
     training project using
 
     ```
-    s3cmd setacl --acl-grant='read:465001726$465001726' s3://intro-training.private/HTML/shared.html
+    s3cmd setacl --acl-grant='read:465001965$465001965' s3://intro-training.private/HTML/shared.html
     ```
     
     ??? Solution "Click here to see the solution."
@@ -623,7 +623,7 @@ tools configuration files that are used in the following exercises.
         -   With `rclone`:
 
             ```
-            rclone copy lumi-465001726-private:"462000265:intro-training.private/HTML/shared.html" .
+            rclone copy lumi-465001965-private:"462000265:intro-training.private/HTML/shared.html" .
             ```
 
             and this also works.
@@ -814,7 +814,7 @@ You do need a project on LUMI to make these exercises. Wherever we use
             
         3.  Feel free to inspect those files.
    
-            In `~/.s3cfg-lumi-46YXXXXXX`, you'll see a section similar to
+            In `~/.config/rclone/rclone.conf`, you'll see a section similar to
 
             ```
             [lumi-46YXXXXXX-private]
