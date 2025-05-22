@@ -83,23 +83,6 @@ kernel. Those can be a problem. A container that is not build to support the Sli
 TCP sockets in MPI, completely killing scalability. Containers that expect the knem kernel extension for good 
 intra-node MPI performance may not run as efficiently as LUMI uses xpmem instead.
 
-So the **"bring your own userland and run it on a system-optimised kernel"** idea that proponents of containers promote,
-has **two major flaws**
-
-1.  Every set of userland libraries comes with certain expectations for kernel versions, kernel drivers and their 
-    versions, etc. If these expectations are not met, the container may not work at all or may work inefficiently.
-
-2.  Support for specific hardware is not done in the kernel alone. Most of the support for hardware, is actually 
-    in userland. E.g., part of the support for the SlingShot network, is in the libfabric library and its CXI
-    provider, which are userland elements. Container promoters will tell you that is not a problem and that you
-    can inject those libraries in the container, but the reality is that that strategy not always works, as the
-    library you have on the system may not be the right version for the container, or may need other libraries 
-    that conflict with the versions in the container.
-    
-    And obviously support for a specific instruction set, is also 
-    in userland. If a binary is not compiled to benefit from the additional speed of new instructions in a 
-    newer architecture, no container runtime can inject that support.
-
 
 ## But what can they then do on LUMI?
 
@@ -1391,37 +1374,37 @@ performance.
   ![Container limitations on LUMI](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-205-Containers/ContainersLimitations.png){ loading=lazy }
 </figure>
 
-To conclude the information on using singularity containers on LUMI,
-we want to repeat the limitations:
+The idea of **"bring your own userland and run it on a system-optimised kernel"** idea that proponents of containers promote,
+has **two major flaws**
 
-*   Containers use the host's operating system kernel which is likely different and
-    may have different drivers and kernel extensions than your regular system.
-    This may cause the container to fail or run with poor performance.
-    Also, containers do not abstract the hardware unlike some virtual machine solutions.
+1.  Every set of userland libraries comes with certain expectations for kernel versions, kernel drivers and their 
+    versions, hardware, etc. If these expectations are not met, the container may not work at all or may work inefficiently.
 
-*   The LUMI hardware is almost certainly different from that of the systems on which
-    you may have used the container before and that may also cause problems.
+    This is particulary true for ROCm(TM) support as each version of the ROCm(tm) libraries only
+    works with a limited range of GPU driver versions. If the ROCm(tm) libraries in the container
+    are too old or too new for the driver on the system, the container will not work. As the ROCm(tm)
+    ecosystem is maturing, the range of driver versions that are compatible with each ROC(tm) version
+    is growing, but this issue will likely never be completely solved.
 
-    In particular a generic container may not offer sufficiently good support for the 
-    Slingshot 11 interconnect on LUMI which requires OFI (libfabric) with the right 
-    network provider (the so-called Cassini provider) for optimal performance.
-    The software in the container may fall back to TCP sockets resulting in poor 
-    performance and scalability for communication-heavy programs.
+2.  Support for specific hardware is not done in the kernel alone. Most of the optimisations for hardware
+    on an HPC system are actually in userland. 
+    
+    -   As most of the time of an application is spent in userland, this is where you need to
+        optimise for a specific CPU and GPU. If a binary is not compiled to benefit from the 
+        additional speed of new instructions in a newer architecture, no container runtime 
+        can inject that support.
+    
+    -   Support for the SlingShot network, is in the libfabric library and its CXI
+        provider, which are userland elements (and the same holds for other network technologies). 
 
-    For containers with an MPI implementation that follows the MPICH ABI the solution
-    is often to tell it to use the Cray MPICH libraries from the system instead.
+        Container promoters will tell you that is not a problem and that you
+        can inject those libraries in the container, but the reality is that that strategy does not 
+        always work, as the library you have on the system may not be the right version for the 
+        container, or may need other libraries that conflict with the versions in the container.
+    
+        Likewise, for containers for distributed AI, one may need to inject an appropriate
+        RCCL plugin to fully use the Slingshot 11 interconnect.
 
-    Likewise, for containers for distributed AI, one may need to inject an appropriate
-    RCCL plugin to fully use the Slingshot 11 interconnect.
-
-*   As containers rely on drivers in the kernel of the host OS, the AMD driver may also
-    cause problems. AMD only guarantees compatibility of the driver with two minor versions
-    before and after the ROCm release for which the driver was meant. Hence containers 
-    using a very old version of ROCm or a very new version compared to what is available
-    on LUMI, may not always work as expected.
-
-*   The support for building containers on LUMI is currently limited due to security
-    concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
-    will not work.
-
-
+The support for building containers on LUMI is currently limited due to security
+concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
+will not work.
