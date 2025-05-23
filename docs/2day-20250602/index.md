@@ -52,6 +52,8 @@ These materials will become available as the course progresses.
 | [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
 | [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
 | [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
+| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
+| [Exercises 2](ME104-Exercises-2.md) | / | / | / |
 
 ::end-spantable::
 
