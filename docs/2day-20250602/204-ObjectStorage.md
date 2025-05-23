@@ -43,12 +43,18 @@ for all tools that one can use.
 
 <!-- BELGIUM 
 LUMI-O is an object storage system (based on Ceph). 
+Ceph can offer object storage, block storage and file storage, but in LUMI-O, it is 
+used as an object storage system. Hence it is functioning differently from the Ceph system
+in use at CÉCI for the common storage system used since 2025.
 It is similar to a system that CSC, the company operating LUMI, built for users of Finland
 and is known there as Allas, though LUMI doesn't provide all the functionality of Allas.
--->
+END BELGIUM  -->
 
 <!-- GENERAL More general version -->
-LUMI-O is an object storage system (based on Ceph). Users from Finland may be familiar with 
+LUMI-O is an object storage system (based on Ceph). 
+Ceph can offer object storage, block storage and file storage, but in LUMI-O, it is 
+used as an object storage system.
+Users from Finland may be familiar with 
 Allas, which is similar to the LUMI object storage system, though LUMI doesn't provide all
 the functionality of Allas.
 <!-- END more general version. -->
@@ -70,6 +76,13 @@ that contain objects:
    only one level which means that buckets cannot contain other buckets.
 
 -   **Objects**: Any type of data. An object is stored in a bucket.
+
+    This is also a flat namespace. Objects cannot contain other object.
+    However, some tools create a pseudo-folder view with the use of slashes
+    in the name. This does not create some kind of "directory object"
+    that would then create a number of "data objects" though; it is just 
+    the name of an object in a flat space that contains slashes that are 
+    used to create a folder-like view on the namespace.
 
 -   **Metadata**: Both buckets and objects have metadata specific to them. 
     One element of the metadata is the name of the bucket or object. But metadata
@@ -385,6 +398,11 @@ Let's walk through the interface:
     life can be extended) and a description for the authentication key. The latter is useful if you generate multiple
     keys for different use. E.g., for security reasons you may want to use different authentication keys from different
     machines so that one machine can be disabled quickly if the machine would be compromised or stolen.
+
+    !!! Note "Key validity"
+        At the time of writing, the maximum lifetime for a key was 168 hours which
+        is one week. This will be extended in the future so that key renewal will
+        not be needed anymore. Keys will last for the lifetime of the project.
 
     Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
 

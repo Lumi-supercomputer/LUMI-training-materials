@@ -20,18 +20,16 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-june25?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course?both#General-Information)
 
 -   Project for the course: `project_465001965`.
 
-    This project provides resources for the exercises. The project should not be used for your own work!
+    This project provides resources for the exercises. **The project should not be used for your own work!**
 
--   There are two Slurm reservations for the course for the exercises on he second day:
+-   There are two Slurm reservations for the course for the exercises on the second day:
 
-    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
--->
+    -   CPU nodes: `LUMI_Intro_1` (on the `small` Slurm partition)
+    -   GPU nodes: `LUMI_Intro_2` (on the `standard-g` Slurm partition)
 
 
 ## Course materials
@@ -68,7 +66,7 @@ These materials will become available as the course progresses.
 | [Exercises 2](ME104-Exercises-2.md) | / | / | / |
 | [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
 | [Exercises 3](ME105-Exercises-3.md) | / | / | / |
-| [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-106-Support.pdf) | / | [V](M106-Support.md) |
+| [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-106-Support.pdf) | [N](106-Support.md) | [V](M106-Support.md) |
 | [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
 | **Day 2** @span |  |  |  |
 | [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
@@ -94,9 +92,10 @@ These materials will become available as the course progresses.
 <!--
 ## Setting up for the exercises
 
-During the course, you can use the training project `project_46500XXXX` for the exercises.
+During the course, you can use the training project `project_465001965` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
+**This project should only be used for exercises and not for your own work!**
 
 The ["Object Storage" exercises](E204-ObjectStorage.md)
 in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project, so
@@ -117,31 +116,31 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465001726/course-20250303-$USER/Exercises/Intro
-    cd /scratch/project_465001726/course-20250303-$USER/Exercises/Intro
+    mkdir -p /scratch/project_465001965/course-20250602-$USER/Exercises
+    cd /scratch/project_465001965/course-20250602-$USER/Exercises
     ```
 
-    where you have to replace `project_465001726` using the number of your own project.
+    where you have to replace `project_465001965` using the number of your own project.
 
     If you have no other project on LUMI, you can also use the scratch of the
-    course project `project_465001726`. Do use a personal subdirectory as in the
+    course project `project_465001965`. Do use a personal subdirectory as in the
     following commands:
 
     ```
-    mkdir -p /scratch/project_465001726/$USER/Exercises/Intro
-    cd /scratch/project_465001726/$USER/Exercises/Intro
+    mkdir -p /scratch/project_465001965/$USER/Exercises
+    cd /scratch/project_465001965/$USER/Exercises
     ```
 
 
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20250602/files/exercises-LUST-20250303.tar.bz2
-    tar -xf exercises-LUST-20250303.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2
+    tar -xf exercises-20250602.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20250602/files/exercises-LUST-20250303.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-LUST-20250303.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
 
 -   You're all set to go!
 -->
@@ -165,8 +164,8 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_46YXXXXXX/course-20250303-$USER/Exercises/Intro
-    cd /scratch/project_46YXXXXXX/course-20250303-$USER/Exercises/Intro
+    mkdir -p /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
     ```
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
@@ -174,7 +173,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 -   Now install the exercise files:
 
     ```
-    tar -xf /appl/local/training/2day-20250602/files/exercises-LUST-20250303.tar.bz2
+    tar -xf /appl/local/training/2day-20250602/files/exercises-20250602.tar.bz2
     ```
 
 -   You're all set to go!
