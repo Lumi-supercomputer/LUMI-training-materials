@@ -45,7 +45,18 @@ These materials will become available as the course progresses.
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
-
+| [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
+| Introduction to the course notes | / | [N](000-Introduction.md) |  / |
+| ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
+| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
+| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
+| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
+| [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
+| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
+| [Exercises 2](ME104-Exercises-2.md) | / | / | / |
+| [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
+| [Exercises 3](ME105-Exercises-3.md) | / | / | / |
+|
 ::end-spantable::
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
@@ -89,7 +100,6 @@ These materials will become available as the course progresses.
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
-<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465001965` for the exercises.
@@ -143,7 +153,6 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
 
 -   You're all set to go!
--->
 
 <!--
 ## Making the exercises after the course
