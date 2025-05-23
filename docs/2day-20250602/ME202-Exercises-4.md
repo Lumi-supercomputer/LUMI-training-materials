@@ -1,6 +1,5 @@
 # Exercises 4: Running jobs with Slurm
 
-<!--
 ## Intro
 
 For these exercises, you'll need to take care of some settings:
@@ -12,11 +11,11 @@ For these exercises, you'll need to take care of some settings:
     for these exercises. A few days after the course you will need to use a different project
     on LUMI. 
 
--   On March 4 we have a reservation that you can use (through `#SBATCH --reservation=...`):
+-   On June 3 we have a reservation that you can use (through `#SBATCH --reservation=...`):
   
-    -   For the `small` partition, the reservation name is `LUMI_intro_cpu`
+    -   For the `small` partition, the reservation name is `LUMI_Intro_1`
 
-    -   For the `standard-g` partition, the reservation name is `LUMI_intro_gpu`
+    -   For the `standard-g` partition, the reservation name is `LUMI_Intro_2`
 
 An alternative (during the course only) for manually specifying 
 the account, the partition and the reservation, is to set
@@ -36,7 +35,6 @@ and then you can load either the module `exercises/intro-C` or `exercises/intro-
     ```
 
     to get an idea of what these modules do. Can you see which environment variables they set?
--->
 
 
 ## Exercises
