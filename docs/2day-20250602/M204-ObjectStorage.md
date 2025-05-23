@@ -17,18 +17,17 @@ Materials will be made available during and after the lecture
 <!--
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/204-ObjectStorage.mp4" controls="controls"></video>
 -->
-<!--
--   A video recording will follow.
--->
 
-<!--
+-   A video recording will follow.
+
 -   [Slides](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-204-ObjectStorage.pdf)
 
 -   [Course notes](204-ObjectStorage.md)
 
 -   [Exercises](E204-ObjectStorage.md)
 
-Archived materials on LUMI:
+<!--
+-Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20250602/files/LUMI-2day-20250602-204-ObjectStorage.pdf`
 
