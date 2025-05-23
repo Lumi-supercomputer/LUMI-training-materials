@@ -49,6 +49,9 @@ These materials will become available as the course progresses.
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
 | ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
 | [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
+| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
+| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
+| [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
 
 ::end-spantable::
 
@@ -93,7 +96,6 @@ These materials will become available as the course progresses.
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
-<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465001965` for the exercises.
@@ -147,7 +149,6 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
 
 -   You're all set to go!
--->
 
 <!--
 ## Making the exercises after the course

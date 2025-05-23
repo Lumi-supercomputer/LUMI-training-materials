@@ -18,17 +18,15 @@ Materials will be made available after the lecture
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/102-CPE.mp4" controls="controls"></video>
 -->
 
-<!--
 -   A video recording will follow.
--->
 
-<!--
 -   [Slides](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-102-CPE.pdf)
 
 -   [Course notes](102-CPE.md)
 
 -   [Exercises](E102-CPE.md)
 
+<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20250602/files/LUMI-2day-20250602-102-CPE.pdf`
