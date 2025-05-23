@@ -106,7 +106,7 @@ DAY 1
             <br/><em>14:45 EEST</em>
         </td>
         <td><b><a href="../extra_05_RunningContainers/">Running containers on LUMI</a></b>
-        </br><em>Presenter: Gregor Decristoforo (LUST)</em>
+        </br><em>Presenter: Julius Roeder (DeIC)</em>
         </td>
     </tr>
     <tr>
@@ -131,7 +131,7 @@ DAY 1
             <br/><em>15:40 EEST</em>
         </td>
         <td><b><a href="../extra_06_BuildingContainers/">Building containers from conda/pip environments</a></b>
-        </br><em>Presenter: Jørn Dietze (LUST)</em>
+        </br><em>Presenter: Julius Roeder (DeIC)</em>
         </td>
     </tr>
     <tr>

@@ -1,6 +1,6 @@
 # Running containers on LUMI
 
-*Presenter*: Gregor Decristoforo (LUST)
+*Presenter*: Julius Roeder (DeIC)
 
 Content:
 
