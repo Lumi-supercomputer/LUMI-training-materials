@@ -7,7 +7,7 @@
 #
 
 # Where to install
-installdir=/scratch/project_465001726/$USER/DEMO1
+installdir=/scratch/project_465001965/$USER/DEMO1
 mkdir -p "$installdir" ; cd "$installdir"
 
 # Some cleanup for EasyBuild
