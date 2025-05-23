@@ -45,6 +45,10 @@ These materials will become available as the course progresses.
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
+| [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
+| Introduction to the course notes | / | [N](000-Introduction.md) |  / |
+| ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
+| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
 
 ::end-spantable::
 
