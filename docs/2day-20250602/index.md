@@ -20,18 +20,16 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-june25?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course?both#General-Information)
 
 -   Project for the course: `project_465001965`.
 
-    This project provides resources for the exercises. The project should not be used for your own work!
+    This project provides resources for the exercises. **The project should not be used for your own work!**
 
--   There are two Slurm reservations for the course for the exercises on he second day:
+-   There are two Slurm reservations for the course for the exercises on the second day:
 
-    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
--->
+    -   CPU nodes: `LUMI_Intro_1` (on the `small` Slurm partition)
+    -   GPU nodes: `LUMI_Intro_2` (on the `standard-g` Slurm partition)
 
 
 ## Course materials
@@ -51,6 +49,7 @@ These materials will become available as the course progresses.
 ::end-spantable::
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
+<!--
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -86,6 +85,7 @@ These materials will become available as the course progresses.
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
 
 ::end-spantable::
+-->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
@@ -95,6 +95,7 @@ These materials will become available as the course progresses.
 During the course, you can use the training project `project_465001965` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
+**This project should only be used for exercises and not for your own work!**
 
 The ["Object Storage" exercises](E204-ObjectStorage.md)
 in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project, so
