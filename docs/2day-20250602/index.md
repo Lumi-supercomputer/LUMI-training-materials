@@ -45,16 +45,6 @@ These materials will become available as the course progresses.
 | Presentation | slides | notes | recording |
 |:-------------|:-------|:------|:----------|
 | **Day 1** @span |  |  |  |
-
-::end-spantable::
-
-<!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
-::spantable::
-
-| Presentation | slides | notes | recording |
-|:-------------|:-------|:------|:----------|
-| **Day 1** @span |  |  |  |
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
 | ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
@@ -83,13 +73,14 @@ These materials will become available as the course progresses.
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
+| **Appendices** @span |  |  |  |
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
--->
+
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
-<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465001965` for the exercises.
@@ -143,7 +134,6 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
 
 -   You're all set to go!
--->
 
 <!--
 ## Making the exercises after the course
