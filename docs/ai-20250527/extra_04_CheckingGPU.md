@@ -18,11 +18,11 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-04-Understanding_GPU_activity.pdf)
+More materials will become available during and shortly after the course
 -->
+
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-04-Understanding_GPU_activity.pdf)
 
 -   [Hands-on exercises](E04_CheckingGPU.md)
 
