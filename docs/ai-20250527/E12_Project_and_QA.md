@@ -6,7 +6,7 @@ you have learned during the workshop - with on-site support from LUST/AMD.
 <!--
 ## Closing remarks
 
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/E12_Conclusions.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/E12_Conclusions.mp4" controls="controls"></video>
 
 
 ## Extra materials

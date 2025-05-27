@@ -12,7 +12,7 @@ Content:
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/08_MultipleGPUs.mp4" controls="controls"></video>
 -->
 
 
@@ -21,7 +21,7 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-08-Scaling_multiple_GPUs.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-08-Scaling_multiple_GPUs.pdf)
 
 -   [Hands-on exercises](E08_MultipleGPUs.md)
 -->

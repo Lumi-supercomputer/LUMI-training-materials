@@ -10,7 +10,7 @@ Content:
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/03_FirstJob.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/03_FirstJob.mp4" controls="controls"></video>
 -->
 
 
@@ -21,7 +21,7 @@ More materials will become available during and shortly after the course
 -->
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-03-First_AI_job.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-03-First_AI_job.pdf)
 
 -   [Hands-on exercises](E03_FirstJob.md)
 

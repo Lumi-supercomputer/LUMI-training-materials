@@ -6,7 +6,7 @@
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/11_Coupling.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/11_Coupling.mp4" controls="controls"></video>
 -->
 
 
@@ -15,7 +15,7 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-11-Coupling_Simulation_and_AI.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-11-Coupling_Simulation_and_AI.pdf)
 
 -   References from the slides:
 
