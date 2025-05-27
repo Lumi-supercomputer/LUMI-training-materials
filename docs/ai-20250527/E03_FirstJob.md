@@ -10,9 +10,7 @@
 A video recording of the discussion of the solution will follow.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20250527/recordings/E03_FirstJob.mp4" controls="controls"></video>
--->
 
 
 ## Q&A

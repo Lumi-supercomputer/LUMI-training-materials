@@ -8,11 +8,11 @@ Content:
 -   Using PyTorch in JupyterLab on LUMI
 -   Limitations of the web-based interactive interface and the CLI interface
   
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250527/recordings/02_Webinterface.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/02_Webinterface.mp4" controls="controls"></video>
 
 
 ## Extra materials

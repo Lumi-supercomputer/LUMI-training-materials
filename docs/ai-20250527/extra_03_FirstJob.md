@@ -7,11 +7,11 @@ Content:
 -   Using LUMI via the command line
 -   Submitting and running AI training jobs using the batch system
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250527/recordings/03_FirstJob.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/03_FirstJob.mp4" controls="controls"></video>
 
 
 ## Extra materials
