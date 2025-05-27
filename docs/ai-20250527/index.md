@@ -134,9 +134,9 @@ materials are uploaded.
 | [Hands-on: Pull and run a container](E05_RunningContainers.md) | / | [video](E05_RunningContainers.md) |
 | [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
 | [Hands-on: Creating a conda environment file and building a container using cotainr](E06_BuildingContainers.md) | / | [video](E06_BuildingContainers.md) |
+| [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
 
 <!--
-| [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
 | [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
 | [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
 | [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
