@@ -126,10 +126,10 @@ materials are uploaded.
 | [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
 | [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
 | [Hands-on: Run a simple PyTorch example notebook](E02_Webinterface.md) | / | [video](E02_Webinterface.md) |
-
-<!--
 | [Your first AI training job on LUMI](extra_03_FirstJob.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-03-First_AI_job.pdf) | [video](extra_03_FirstJob.md) |
 | [Hands-on: Run a simple single-GPU PyTorch AI training job](E03_FirstJob.md) | / | [video](E03_FirstJob.md) |
+
+<!--
 | [Understanding GPU activity & checking jobs](extra_04_CheckingGPU.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-04-Understanding_GPU_activity.pdf) | [video](extra_04_CheckingGPU.md) |
 | [Hands-on: Checking GPU usage interactively using rocm-smi](E04_CheckingGPU.md) | / | [video](E04_CheckingGPU.md) |
 | [Running containers on LUMI](extra_05_RunningContainers.md) | [slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-05-Running_containers_on_LUMI.pdf) | [video](extra_05_RunningContainers.md) |

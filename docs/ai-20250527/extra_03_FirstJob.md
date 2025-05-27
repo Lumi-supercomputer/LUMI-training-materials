@@ -20,7 +20,6 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 -->
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-03-First_AI_job.pdf)
 
 -   [Hands-on exercises](E03_FirstJob.md)
@@ -36,7 +35,6 @@ More materials will become available during and shortly after the course
         is more oriented towards traditional HPC codes, but the discussion on a proper mapping
         of GPU dies onto CPU chiplets is also relevant for AI applications. But that is a discussion
         for the second day of this course/workshop.
--->
 
 
 ## Q&A
