@@ -60,6 +60,9 @@ More materials will become available during and shortly after the course
     -   We have an [extensive 4-day or 5-day training](https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/) 
         covering profiling and debugging tools for AMD GPUs as an important part of the course:. It even includes a demo of over one hour where those tools are used to analyse performance of PyTorch. Part of the materials are available online, another part just on LUMI. Not sure if Samuel will mention those tools in his talks in this course.
 
+        There is also more information in the presentation ["Understanding GPU activity & checking jobs"](extra_04_CheckingGPU.md)
+        of this course.
+
 3.  Seems like the there's no difference between /GPT-neo-IMDB-finetuning.py and /reference-solution/GPT-neo-IMDB-finetuning.py. I'm not sure how to add the continuation from checkpoint.
 
     - The differences are not in the python file but in the slurm job script `run.sh`
