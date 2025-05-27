@@ -23,7 +23,6 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 -->
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-05-Running_containers_on_LUMI.pdf)
 
 -   [Hands-on exercises](E05_RunningContainers.md)
@@ -52,7 +51,6 @@ More materials will become available during and shortly after the course
     -   ["Demo 2: A short walk-through for distributed learning"](../2p3day-20250303/Demo2.md)
         demonstrates a procedure also covered in the documentation to do distributed learning using the
         container with the module installed by EasyBuild.
--->
 
 
 ## Q&A

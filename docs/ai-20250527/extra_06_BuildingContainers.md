@@ -19,12 +19,11 @@ A video recording will follow.
 
 More materials will become available during and shortly after the course.
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
 
--   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202505271/bonus_material)
+-   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/bonus_material)
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
 
@@ -44,7 +43,6 @@ More materials will become available during and shortly after the course.
 
 -   The [additional training materials mentioned in the "Running containers" page](extra_05_RunningContainers.md#extra-materials)
     are relevant for this presentation also.
--->
 
 
 <!--
