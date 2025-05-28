@@ -3998,7 +3998,28 @@ A video recording of the discussion of the solution will follow.
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>With this command:</p>
+<p><div class="highlight"><pre><span></span><code>srun -N 1 -n 1 \
+--pty \
+--jobid &lt;jobid&gt; \
+-w &lt;target_node&gt; \
+--overlap \
+/usr/bin/bash
+</code></pre></div>
+How do I find the <code>&lt;target_node&gt;</code></p>
+<ul>
+<li>
+<p><code>squeue --me</code> shows your jobs and the nodes they run on.</p>
+</li>
+<li>
+<p>If you want to check "just a node", you can also omit the <code>-w</code> and only use the <code>--jobid</code>. 
+    In that case you will run on the first node of the allocation.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
