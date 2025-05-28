@@ -17,16 +17,15 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
+More materials will become available during and shortly after the course
+-->
+
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-09-Extreme_scale_AI.pdf)
 
 -   [Demo and hands-on exercises](E09_ExtremeScale.md)
--->
 
 
-<!--
 ## Remark: Why is binding not easier in Slurm?
 
 There are some reasons why the situation with the binding is not better:
@@ -48,7 +47,6 @@ There are some reasons why the situation with the binding is not better:
 
 -   Preset are not easy. What may be ideal for some AI workflows may not work for others, or may not work for all
     the other users on LUMI that do simulation or other types of data processing and analysis.
--->
 
 
 ## Q&A
