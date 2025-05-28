@@ -8,23 +8,22 @@ Content:
 -   Recipes for PyTorch, Tensorflow, and JAX/Flax on LUMI
 
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/06_BuildingContainers.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/06_BuildingContainers.mp4" controls="controls"></video>
 
 
 ## Extra materials
 
 More materials will become available during and shortly after the course.
 
-<!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-06-Building_containers_from_conda_pip_environments.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
 
--   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-202502041/bonus_material)
+-   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250527/bonus_material)
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
 
@@ -44,7 +43,6 @@ More materials will become available during and shortly after the course.
 
 -   The [additional training materials mentioned in the "Running containers" page](extra_05_RunningContainers.md#extra-materials)
     are relevant for this presentation also.
--->
 
 
 <!--

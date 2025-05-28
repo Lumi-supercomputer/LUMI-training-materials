@@ -2,18 +2,19 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20250204/recordings/10_TrainingData.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20250527/recordings/10_TrainingData.mp4" controls="controls"></video>
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20250204/files/LUMI-ai-20250204-10-Training_Data_on_LUMI.pdf)
+More materials will become available during and shortly after the course
+-->
+
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-10-Training_Data_on_LUMI.pdf)
 
 -   Links from the "More Information" slide:
 
@@ -30,14 +31,20 @@ More materials will become available during and shortly after the course
     -   Example of keeping training data in memory: 
         [“Scaling Out Deep Learning Convergence Training on LUMI”, Diana Moise & Samuel Antao](https://linklings.s3.amazonaws.com/organizations/pasc/pasc23/submissions/stype119/jvCyu-msa152s2.pdf)
 
--   [Training materials from the most recent LUMI introductory training in December 2024](../2day-20241210/index.md)
+-   Other links in the presentation:
 
-    -   The ["LUMI-O Object Storage" talk](../2day-20241210/M10-ObjectStorage.md)
+    -   ["Solving Bottlenecks on the Data Input Pipeline with PyTorch Profiler and TensorBoard" in "Towards Data Science](https://towardsdatascience.com/solving-bottlenecks-on-the-data-input-pipeline-with-pytorch-profiler-and-tensorboard-5dced134dbe9/)
+
+    -   [Will Price blog: "Diagnosing and Debugging PyTorch Data Starvation"](https://www.willprice.dev/2021/03/27/debugging-pytorch-performance-bottlenecks.html)
+
+    -   [PyTorch profiler in the PyTorch documentation](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
+
+-   [Training materials from the most recent LUMI introductory training in March 2025](../2p3day-20250303/index.md)
+
+    -   The ["LUMI-O Object Storage" talk](../2p3day-20250303/M204-ObjectStorage.md)
         discusses using LUMI-O and the differences with a parallel file system such as Lustre..
--->
 
 
-<!--
 ## Nice-to-knows
 
 ### LUMI-O
@@ -49,6 +56,7 @@ Two nice things to know about LUMI-O
 -   As the LUMI-O software is done by a different team at CSC and not by HPE, it is often still up when LUMI is down. We cannot give a guarantee, but when a long downtime is announced, in the past LUMI-O was still available almost the whole downtime. So you may still be able to access data on LUMI-O, but not on the Lustre file systems when LUMI is down for maintenance.
 
 But it is not meant for long-time data archiving. Storage on LUMI-O also disappears 90 days after your project ends. For long-term archiving and data publishing you need to use specialised services.
+
 
 ### Auto-cleanup of /scratch and /flash
 
@@ -62,7 +70,6 @@ Note that asking for more quota doesn't make sense if your project doesn't have 
 Storing 20TB for one year on /scratch or /project would cost you 175,200 TB hours, so make sure you have enough storage
 billing units. There is enough storage on LUMI that resource allocators can grant decent amounts of storage, but it is
 not infinite. LUST cannot grant you storage billing units, that is something you need to negotiate with the instance that granted you your project on LUMI.
--->
 
 
 ## Q&A
