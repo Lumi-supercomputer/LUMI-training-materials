@@ -49,5 +49,16 @@ More materials will become available during and shortly after the course
 
 ## Q&A
 
-/
+1.  Is SmartSim designed for inference only, or it also support end-to-end training, 
+    meaning gradient flows backwards from hybrid simulation result to the ML model? 
+    Google rewrite the entire global weather model with differentiable framework (neuralGCM) 
+    to have end-to-end training, is there other way to do that?
+
+    -   (Harvey) I asked about this.
+
+    -   What Google did was to use JAX to code the entire simulation and since all JAX operations are automatically differentiated, 
+        then you can use the gradients to update whatever model you embed into it. That's not a typical SmartSim workflow, 
+        as we don't want people to rewrite their code. In SmartSim, training cannot happen in the DB. 
+        So you need to set up a training application which gets data from the DB, updates the model, 
+        and finally uploads the new model to the DB, where it can be used for inference.
 
