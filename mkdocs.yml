@@ -183,15 +183,16 @@ plugins:
           comprehensive-latest.md: 2p3day-20250303/index.md
           advanced-latest.md: 2p3day-20250303/index.md
           intro-latest.md: 2p3day-20250303/index.md
-          AI-latest.md: ai-20250204/index.md
-          ai-latest.md: ai-20250204/index.md
+          AI-latest.md: ai-20250527/index.md
+          ai-latest.md: ai-20250527/index.md
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
           update-202409.md: User-Updates/Update-202409/index.md
-          #Amsterdam-1.md: 2day-20240502/E03_Exercises_1.md
-          #Amsterdam-2.md: 2day-20240502/E04_Exercises_2.md
-          #Amsterdam-3.md: 2day-20240502/E05_Exercises_3.md
-          #Amsterdam-4.md: 2day-20240502/E07_Exercises_4.md
+          Espoo-1.md: 2day-20250602/ME103_Exercises_1.md
+          Espoo-2.md: 2day-20250602/ME104_Exercises_2.md
+          Espoo-3.md: 2day-20250602/ME105_Exercises_3.md
+          Espoo-4.md: 2day-20250602/ME107_Exercises_4.md
+          Espoo-5.md: 2day-20250602/ME204_Exercises_5.md
 
 markdown_extensions:
   # Attributes (e.g., for lazy loading)
