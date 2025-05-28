@@ -39,7 +39,7 @@
     The link will likely die over time.
 -->
 <!--
--   [Zoom link](https://cscfi.zoom.us/j/64948027353?pwd=nJ71W4e6TgT5GvewIpnfWf8uKgILp4.1) 
+-   [Zoom link](https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09) 
 
 -   There are two Slurm reservations for the course. One for each day:
 
