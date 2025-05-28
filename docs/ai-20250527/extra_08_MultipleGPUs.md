@@ -107,5 +107,6 @@ More materials will become available during and shortly after the course
         See, e.g., [the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/#using-srun-to-check-running-jobs) but even then it is tricky to get access to the GPUs.
 
         This was also discussed a bit in the 
-        [presentation "Understanding GPU activity and checking jobs"](extra_04_CheckingGPU.md).
+        [presentation "Understanding GPU activity and checking jobs"](extra_04_CheckingGPU.md) and in the 
+        next presentation, ["Extreme scale AI"](extra_09_ExtremeScale.md) (slide 14 in the latter).
 
