@@ -18,13 +18,13 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
+More materials will become available during and shortly after the course
+-->
+
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-08-Scaling_multiple_GPUs.pdf)
 
 -   [Hands-on exercises](E08_MultipleGPUs.md)
--->
 
 
 ## Q&A
