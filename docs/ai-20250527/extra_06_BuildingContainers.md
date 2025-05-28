@@ -23,7 +23,7 @@ More materials will become available during and shortly after the course.
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
 
--   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/bonus_material)
+-   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20250527/bonus_material)
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
 

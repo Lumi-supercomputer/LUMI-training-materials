@@ -3,7 +3,6 @@
 Bring your own AI code, you want to run on LUMI, and spent some time applying what 
 you have learned during the workshop - with on-site support from LUST/AMD.
 
-<!--
 ## Closing remarks
 
 <video src="https://462000265.lumidata.eu/ai-20250527/recordings/E12_Conclusions.mp4" controls="controls"></video>
@@ -12,7 +11,6 @@ you have learned during the workshop - with on-site support from LUST/AMD.
 ## Extra materials
 
 -   [LUMI AI guide promoted in the closing words](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
--->
 
 ## General Q&A
 
@@ -31,3 +29,10 @@ you have learned during the workshop - with on-site support from LUST/AMD.
     -   See the same remarks as I made for the previous question: You'll have to use software-based OpenGL (MESA) and that is exactly what is done in the demo I refer to in that section. It's not a Python package but a system library, so indeed not possible via `pip`. Conda may or may not deliver it if you build a container from scratch, but you may get a version that does not work on LUMI.
 
     HEY, I think I got this working by installing **pip install opencv-python-headless**. Thank you for the answer.
+
+3.  Do we have Alphafold on LUMI (container ?) 
+
+    -   We had but it hasn't been updated for a while due to lack of demand. With all the small files that it tends to use, LUMI may not be the best performing solution for it. The last one we had was based on ROCm 5.5 so will likely not work anymore.
+
+    -   If you would need, please open a ticket and we can see whether we can create a newer version.
+    -   
