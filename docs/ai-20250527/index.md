@@ -69,22 +69,23 @@ ReservationName=AI_workshop_2 StartTime=2025-05-28T10:00:00 EndTime=2025-05-28T1
 
 ### During the course
 
-More information will follow at the start of the course.
-
-
 <!--
+More information will follow at the start of the course.
+-->
+
+
 If you have an active project on LUMI, you should be able to make the exercises in that project.
 To reduce the waiting time during the workshop, use the SLURM reservations we provide (see above).
 
 You can find all exercises on our [AI workshop GitHub page](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop)
--->
 
 
 ### After the termination of the course project
 
-More information will follow after the course.
-
 <!--
+More information will follow after the course.
+-->
+
 Setting up for the exercises is a bit more elaborate now.
 
 The exercises as they were during the course are 
@@ -105,6 +106,9 @@ be cloned during the course, now you have to either:
     git checkout ai-20250527
     ```
 
+-   Or you can download them as a [.tar.gz file](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-Exercises.tar.gz) 
+    or [ZIP-file](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-Exercises.zip).
+
 Note also that any reference to a reservation in Slurm has to be removed.
 
 The exercises were thoroughly tested at the time of the course. LUMI is an evolving supercomputer though,
@@ -112,7 +116,6 @@ so it is expected that some exercises may fail over time, and modules that need 
 change as at every update we have to drop some versions of the `LUMI` module as the programming environment
 is no longer functional. Likewise it is expected that at some point the ROCm driver on the system may
 become incompatible with the ROCm versions used in the containers for the course.
--->
 
 
 ## Course materials
