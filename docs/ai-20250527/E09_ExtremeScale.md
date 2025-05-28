@@ -17,4 +17,19 @@ A video recording of the discussion of the solution will follow.
 
 ## Q&A
 
-/
+8.  With this command:
+  
+    ```
+    srun -N 1 -n 1 \
+    --pty \
+    --jobid <jobid> \
+    -w <target_node> \
+    --overlap \
+    /usr/bin/bash
+    ```
+    How do I find the `<target_node>`
+    
+    -   `squeue --me` shows your jobs and the nodes they run on.
+
+    -   If you want to check "just a node", you can also omit the `-w` and only use the `--jobid`. 
+        In that case you will run on the first node of the allocation.
