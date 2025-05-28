@@ -12,9 +12,10 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
+More materials will become available during and shortly after the course
+-->
+
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20250527/files/LUMI-ai-20250527-11-Coupling_Simulation_and_AI.pdf)
 
 -   References from the slides:
@@ -44,7 +45,6 @@ More materials will become available during and shortly after the course
         -   [SmartSim Example Zoo on GitHub](https://github.com/CrayLabs/SmartSim-Zoo)
 
         -   [Archer2 webinar "Exploring new computations frontiers with SmartSim"](https://www.archer2.ac.uk/training/courses/241024-smartsim-vt/)
--->
 
 
 ## Q&A

@@ -31,6 +31,14 @@ More materials will become available during and shortly after the course
     -   Example of keeping training data in memory: 
         [“Scaling Out Deep Learning Convergence Training on LUMI”, Diana Moise & Samuel Antao](https://linklings.s3.amazonaws.com/organizations/pasc/pasc23/submissions/stype119/jvCyu-msa152s2.pdf)
 
+-   Other links in the presentation:
+
+    -   ["Solving Bottlenecks on the Data Input Pipeline with PyTorch Profiler and TensorBoard" in "Towards Data Science](https://towardsdatascience.com/solving-bottlenecks-on-the-data-input-pipeline-with-pytorch-profiler-and-tensorboard-5dced134dbe9/)
+
+    -   [Will Price blog: "Diagnosing and Debugging PyTorch Data Starvation"](https://www.willprice.dev/2021/03/27/debugging-pytorch-performance-bottlenecks.html)
+
+    -   [PyTorch profiler in the PyTorch documentation](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
+
 -   [Training materials from the most recent LUMI introductory training in March 2025](../2p3day-20250303/index.md)
 
     -   The ["LUMI-O Object Storage" talk](../2p3day-20250303/M204-ObjectStorage.md)
