@@ -12,7 +12,6 @@ the various mechanisms available on LUMI for this.
 <!--
 Materials will be made available after the lecture
 -->
-<!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/202-Binding.mp4" controls="controls"></video>
 <!--
 -    A video recording will follow.
