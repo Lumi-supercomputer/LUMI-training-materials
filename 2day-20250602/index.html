@@ -4041,6 +4041,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setting-up-for-the-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up for the exercises
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links-to-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Links to documentation
@@ -4144,6 +4153,36 @@ These materials will become available as the course progresses.</p>
 <td><a href="101-Architecture/">(N)</a></td>
 <td><a href="M101-Architecture/">V</a></td>
 </tr>
+<tr>
+<td><a href="M102-CPE/">HPE Cray Programming Environment</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-102-CPE.pdf">S</a></td>
+<td><a href="102-CPE/">N</a></td>
+<td><a href="M102-CPE/">V</a></td>
+</tr>
+<tr>
+<td><a href="M103-Access/">Getting Access to LUMI</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-103-Access.pdf">S</a></td>
+<td><a href="103-Access/">N</a></td>
+<td><a href="M103-Access/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME103-Exercises-1/">Exercises 1</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td><a href="M104-Modules/">Modules on LUMI</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-104-Modules.pdf">S</a></td>
+<td><a href="104-Modules/">N</a></td>
+<td><a href="M104-Modules/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME104-Exercises-2/">Exercises 2</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
 </table>
 </div>
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
@@ -4186,59 +4225,51 @@ These materials will become available as the course progresses.</p>
 -->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
-<!--
-## Setting up for the exercises
-
-During the course, you can use the training project `project_465001965` for the exercises.
+<h2 id="setting-up-for-the-exercises">Setting up for the exercises<a class="headerlink" href="#setting-up-for-the-exercises" title="Permanent link">&para;</a></h2>
+<p>During the course, you can use the training project <code>project_465001965</code> for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
-**This project should only be used for exercises and not for your own work!**
-
-The ["Object Storage" exercises](E204-ObjectStorage.md)
-in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project, so
+<strong>This project should only be used for exercises and not for your own work!</strong></p>
+<p>The <a href="E204-ObjectStorage/">"Object Storage" exercises</a>
+in <a href="ME204-Exercises-5/">Exercise session 5</a> do require data in the training project, so
 these exercises should really be made while the training project is still active. 
-There is an [alternative set of exercises](E204-ObjectStorage.md#exercises-that-can-be-made-in-your-own-project) 
+There is an <a href="E204-ObjectStorage/#exercises-that-can-be-made-in-your-own-project">alternative set of exercises</a> 
 missing only one element from the during-the-course 
 version that can be made in your own project.
 For the
-exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
+exercises from <a href="ME202-Exercises-4/">Exercise session 4</a> you can no longer use the reservation
 if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
-day).
-
--   Create a directory in the scratch of your project, or if you want to
+day).</p>
+<ul>
+<li>
+<p>Create a directory in the scratch of your project, or if you want to
     keep the exercises around for a while, in a subdirectory of your project directory 
     or in your home directory (though we don't recommend the latter).
-    Then go into that directory.
-
-    E.g., in the scratch directory of your project:
-
-    <div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465001965/course-20250602-$USER/Exercises
+    Then go into that directory.</p>
+<p>E.g., in the scratch directory of your project:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465001965/course-20250602-$USER/Exercises
 cd /scratch/project_465001965/course-20250602-$USER/Exercises
 </code></pre></div>
-
-    where you have to replace `project_465001965` using the number of your own project.
-
-    If you have no other project on LUMI, you can also use the scratch of the
-    course project `project_465001965`. Do use a personal subdirectory as in the
-    following commands:
-
-    <div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465001965/$USER/Exercises
+<p>where you have to replace <code>project_465001965</code> using the number of your own project.</p>
+<p>If you have no other project on LUMI, you can also use the scratch of the
+course project <code>project_465001965</code>. Do use a personal subdirectory as in the
+following commands:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465001965/$USER/Exercises
 cd /scratch/project_465001965/$USER/Exercises
 </code></pre></div>
-
-
--   Now download the exercises and un-tar:
-
-    <div class="highlight"><pre><span></span><code>wget https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2
+</li>
+<li>
+<p>Now download the exercises and un-tar:</p>
+<div class="highlight"><pre><span></span><code>wget https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2
 tar -xf exercises-20250602.tar.bz2
 </code></pre></div>
-
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
-
--   You're all set to go!
--->
-
+<p><a href="https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar">Link to the tar-file with the exercises</a> and the
+<a href="https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2">bzip2-compressed version</a>.</p>
+</li>
+<li>
+<p>You're all set to go!</p>
+</li>
+</ul>
 <!--
 ## Making the exercises after the course
 
