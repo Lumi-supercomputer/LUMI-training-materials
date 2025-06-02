@@ -54,7 +54,9 @@ These materials will become available as the course progresses.
 | [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
 | [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
 | [Exercises 2](ME104-Exercises-2.md) | / | / | / |
-
+| [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
+| [Exercises 3](ME105-Exercises-3.md) | / | / | / |
+|
 ::end-spantable::
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
