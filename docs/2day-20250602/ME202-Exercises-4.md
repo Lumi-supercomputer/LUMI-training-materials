@@ -41,13 +41,11 @@ and then you can load either the module `exercises/intro-C` or `exercises/intro-
 
 Exercises will be made available during the course 
 
-<!-- 
 -   Start with the [exercises on "Slurm on LUMI"](E201-Slurm.md)
 
     You may want to postpone the advanced exercise a bit as that one takes a lot of time.
 
 -   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E202-Binding.md)
--->
 
 
 ## Q&A
