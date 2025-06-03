@@ -62,6 +62,8 @@ These materials will become available as the course progresses.
 | [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
 | ***Theme: Running jobs efficiently*** @span |  |  |  |
 | [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
+| [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
+| [Exercises 4](ME202-Exercises-4.md) | / | / | / |
 
 ::end-spantable::
 
