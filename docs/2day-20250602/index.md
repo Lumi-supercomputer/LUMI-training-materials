@@ -20,7 +20,9 @@
 
 -   [Schedule](schedule.md)
 
+<!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course?both#General-Information)
+-->
 
 -   Project for the course: `project_465001965`.
 
@@ -69,8 +71,8 @@ These materials will become available as the course progresses.
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
-| **Appendices** @span |  |  |  |  |
-| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / |
+| **Appendices** @span |  |  |  |
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
 
@@ -109,6 +111,8 @@ These materials will become available as the course progresses.
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
 | [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
+| **Appendices** @span |  |  |  |
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
 -->
@@ -169,7 +173,6 @@ day).
 
 -   You're all set to go!
 
-<!--
 ## Making the exercises after the course
 
 The ["Object Storage" exercises](E204-ObjectStorage.md)
@@ -205,7 +208,6 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
 
 
 ## Links to documentation

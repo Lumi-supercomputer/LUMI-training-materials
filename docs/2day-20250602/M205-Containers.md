@@ -44,4 +44,8 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+1.  For a software that has pytorch and mpi4py as dependencies, the best option then is to use the optimized pytorch container, correct? (one of the older versions with MPI?)
+
+    -   Yes. But you can get relatively new containers. For example: `EasyConfig PyTorch-2.6.0-rocm-6.2.4-python-3.12-singularity-20250326.eb, will provide PyTorch/2.6.0-rocm-6.2.4-python-3.12-singularity-20250326` You can search for `mpi4py` on [the PyTorch page in the LUMI Software Librare](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/).
+
+    -   (KL) The issue with the new containers is that they use a new libfabric which doesn't work well with Cray MPICH so `mpi4py` is no longer included.

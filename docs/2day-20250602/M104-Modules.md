@@ -32,4 +32,10 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+1.  Is AMD Oniperf installed? I can not find it. I've loaded the rocm module  
+
+    -   Omniperf is not part of the default module (as installed by HPE), as it used not to be part of ROCm
+        You can find it in the `rocm/6.2.2` module (but that is a custom installation of ROCm, so there may be other issues), 
+        and it should be part of newer ROCm. 
+        This is because Omniperf was basically a research project before and has only been officially released as an officially supported part of ROCm with ROCm 6.2. 
+

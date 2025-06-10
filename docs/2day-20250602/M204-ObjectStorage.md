@@ -34,4 +34,11 @@ Archived materials on LUMI:
 
 ## Q&A
 
-/
+3.  Is there a REST API for accessing LUMI-O?
+
+    -   Yes, you can use [RAW HTTP calls](https://docs.lumi-supercomputer.eu/storage/lumio/#raw-http-request). 
+        But this is not recommended, why do you want to do this? 
+
+    We want to automate data transfer and make it available for proccesing
+
+    -   In that case we would recommend using libraries that support object storage. For example, Python has great support for object storage for example.
