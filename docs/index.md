@@ -14,8 +14,8 @@ Upcoming or currently running events with materials already partly available:
 
 Most recently completed main training events:
 
--   Introductory LUMI training aimed at regular users: First two days of the
-    [LUMI Intensive Training (March 3-7, 2025)](2p3day-20250303/index.md)
+-   Introductory LUMI training aimed at regular users:
+    [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md)
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
