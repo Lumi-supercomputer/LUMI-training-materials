@@ -9,11 +9,11 @@ We discuss the options to log on to LUMI and to transfer data.
 
 Materials will be made available after the lecture
 
-<!--
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/103-Access.mp4" controls="controls"></video>
--->
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-103-Access.pdf)
 
@@ -21,13 +21,11 @@ Materials will be made available after the lecture
 
 -   [Exercises](E103-Access.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20250602/files/LUMI-2day-20250602-103-Access.pdf`
 
 -   Recording: `/appl/local/training/2day-20250602/recordings/103-Access.mp4`
--->
 
 
 ## Related lectures in this course

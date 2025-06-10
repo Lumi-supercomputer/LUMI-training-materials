@@ -6,20 +6,18 @@
 
 Materials will be made available after the lecture
 
-<!--
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/I101-Introduction.mp4" controls="controls"></video>
--->
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I101-IntroductionCourse.pdf)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20250602/files/LUMI-2day-20250602-I101-IntroductionCourse.pdf`
 
 -   Recording: `/appl/local/training/2day-20250602/recordings/I101-Introduction.mp4`
--->
 
 

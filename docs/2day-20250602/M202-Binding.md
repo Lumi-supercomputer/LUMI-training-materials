@@ -11,11 +11,11 @@ the various mechanisms available on LUMI for this.
 
 Materials will be made available after the lecture
 
-<!--
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/202-Binding.mp4" controls="controls"></video>
--->
 
+<!--
 -    A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-202-Binding.pdf)
 
@@ -23,13 +23,11 @@ Materials will be made available after the lecture
 
 -   [Exercises](E202-Binding.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20250602/files/LUMI-2day-20250602-202-Binding.pdf`
 
 -   Recording: `/appl/local/training/2day-20250602/recordings/202-Binding.mp4`
--->
 
 
 ## Q&A

@@ -12,14 +12,12 @@ available or because there are simply too many dependencies.
 
 Materials will be made available after the lecture
 
-<!--
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/205-Containers.mp4" controls="controls"></video>
--->
+
 <!--
 -   A video recording will follow.
 -->
 
-<!--
 -   [Slides](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-205-Containers.pdf)
 
 -   [Course notes](205-Containers.md)
@@ -42,7 +40,6 @@ Archived materials on LUMI:
 -   Slides: `/appl/local/training/2day-20250602/files/LUMI-2day-20250602-205-Containers.pdf`
 
 -   Recording: `/appl/local/training/2day-20250602/recordings/205-Containers.mp4`
--->
 
 
 ## Q&A

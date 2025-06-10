@@ -64,6 +64,13 @@ These materials will become available as the course progresses.
 | [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
 | [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
 | [Exercises 4](ME202-Exercises-4.md) | / | / | / |
+| **Theme: Containers on LUMI** @span |  |  |  |
+| [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
+| [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
+| [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
+| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
+| **Appendices** @span |  |  |  |  |
+| A1 Additional documentation | / | [N](A01-Documentation.md) | / | / |
 
 ::end-spantable::
 
