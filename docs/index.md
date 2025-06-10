@@ -10,7 +10,6 @@ Upcoming or currently running events with materials already partly available:
 -   No upcoming training with early materials at the moment.
 -->   
 
--   [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md) on-site in Espoo and online.
 
 
 Most recently completed main training events:
@@ -78,6 +77,7 @@ relevant:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
+    -   [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md) on-site in Espoo and online.
     -   First two days of [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
     -   [Supercomputing with LUMI (May, 2024 in Amsterdam)](2day-20240502/index.md)
@@ -111,6 +111,7 @@ By theme in reverse chronological order:
     -   [LUMI-G hackathon (October 14-18, 2024)](Hackathon-20241014/index.md)
     -   [LUMI-G hackathon (April 17-21, 2023)](Hackathon-20230417/index.md)
 -   EasyBuild on LUMI
+    -   [EasyBuild course for LUST and CSC (4 June 2025)](EasyBuild-LUST-20250604/index.md)
     -   [EasyBuild course for CSC and local organisations (May 9/11, 2022)](EasyBuild-CSC-20220509/index.md)
 
 

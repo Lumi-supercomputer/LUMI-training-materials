@@ -87,6 +87,9 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - EasyBuild June 2025:
+      - EasyBuild-LUST-20250604/index.md
+      - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
     - Supercomputing with LUMI December 2024:
       - 2day-20241210/index.md
       - Schedule: 2day-20241210/schedule.md
