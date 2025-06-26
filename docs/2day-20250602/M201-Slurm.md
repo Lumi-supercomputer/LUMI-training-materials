@@ -9,7 +9,9 @@ talk to understand the particular configuration on LUMI.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/201-Slurm.mp4" controls="controls"></video>
 

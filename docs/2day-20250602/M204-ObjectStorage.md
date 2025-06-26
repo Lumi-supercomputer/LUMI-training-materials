@@ -12,7 +12,9 @@ LuMI-O can be accessed.
 
 ## Materials
 
-Materials will be made available during and after the lecture
+<!--
+Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/204-ObjectStorage.mp4" controls="controls"></video>
 <!--

@@ -6,7 +6,9 @@ A brief recap of the material of day 2, and an outlook on the advanced part of t
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/I202-WhatElse.mp4" controls="controls"></video>
 

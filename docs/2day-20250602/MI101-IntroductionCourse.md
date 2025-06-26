@@ -4,7 +4,9 @@
 
 ## Materials
 
+<!-- 
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/I101-Introduction.mp4" controls="controls"></video>
 

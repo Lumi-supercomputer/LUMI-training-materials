@@ -10,7 +10,9 @@ available or because there are simply too many dependencies.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/205-Containers.mp4" controls="controls"></video>
 

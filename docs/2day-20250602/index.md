@@ -22,7 +22,6 @@
 
 <!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course?both#General-Information)
--->
 
 -   Project for the course: `project_465001965`.
 
@@ -32,6 +31,7 @@
 
     -   CPU nodes: `LUMI_Intro_1` (on the `small` Slurm partition)
     -   GPU nodes: `LUMI_Intro_2` (on the `standard-g` Slurm partition)
+-->
 
 
 ## Course materials
@@ -66,6 +66,10 @@ These materials will become available as the course progresses.
 | [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
 | [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
 | [Exercises 4](ME202-Exercises-4.md) | / | / | / |
+| **Theme: Data on LUMI** @span |  |  |  |
+| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-203-Lustre.pdf) | [(N)](203-Lustre.md) | [V](M203-Lustre.md) |
+| [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
+| [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20250602/files/LUMI-2day-20250602-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
 | [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
@@ -119,6 +123,7 @@ These materials will become available as the course progresses.
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
+<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465001965` for the exercises.
@@ -172,6 +177,8 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20250602/files/exercises-20250602.tar.bz2).
 
 -   You're all set to go!
+-->
+
 
 ## Making the exercises after the course
 

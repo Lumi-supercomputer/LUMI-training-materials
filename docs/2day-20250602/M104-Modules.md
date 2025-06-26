@@ -9,7 +9,9 @@ modules can be found.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/104-Modules.mp4" controls="controls"></video>
 

@@ -9,7 +9,9 @@ the various mechanisms available on LUMI for this.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/202-Binding.mp4" controls="controls"></video>
 

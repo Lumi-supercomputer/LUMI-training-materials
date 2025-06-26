@@ -9,7 +9,9 @@ to the user base of the machine, the approach taken on LUMI may be a bit unusual
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/105-SoftwareStacks.mp4" controls="controls"></video>
 

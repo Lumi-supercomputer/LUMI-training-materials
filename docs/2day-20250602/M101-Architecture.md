@@ -9,7 +9,9 @@ be mapped upon the machine for optimal performance.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <video src="https://462000265.lumidata.eu/2day-20250602/recordings/101-Architecture.mp4" controls="controls"></video>
 
