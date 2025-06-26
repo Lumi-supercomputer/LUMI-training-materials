@@ -56,6 +56,9 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - EasyBuild June 2025:
+    - EasyBuild-LUST-20250604/index.md
+    - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
   - Supercomputing with LUMI June 2025:
     - 2day-20250602/index.md
     - Schedule: 2day-20250602/schedule.md
@@ -87,9 +90,6 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
-    - EasyBuild June 2025:
-      - EasyBuild-LUST-20250604/index.md
-      - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
     - Supercomputing with LUMI December 2024:
       - 2day-20241210/index.md
       - Schedule: 2day-20241210/schedule.md
