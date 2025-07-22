@@ -1,4 +1,4 @@
-# Intro to Supercomputing with LUMI - Hybrid course, June 2-3, 2025, on-site in Espoo and online
+# Intro to Supercomputing with LUMI - Hybrid course, October 20-21, 2025, on-site in Tallinn and online
 
 
 ## Course organisation

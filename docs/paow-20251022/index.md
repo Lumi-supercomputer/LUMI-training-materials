@@ -1,4 +1,4 @@
-# Performance Analysis and Optimization Workshop, Oslo, 11-2 June 2024
+# Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
 
 ## Course organisation
 
