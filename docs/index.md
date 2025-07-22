@@ -12,6 +12,7 @@ Upcoming or currently running events with materials already partly available:
 
 -   [Intro to Supercomputing with LUMI (October 20-21, 2025). Hybrid course at Talltech, Tallinn, Estonia](2day-20251020/index.md)
 
+-   [Performance Analysis and Optimization Workshop, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
 
 
 Most recently completed main training events:
