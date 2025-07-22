@@ -48,7 +48,7 @@ downloaded from LUMI.
 | [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
 
 
-## Making the exercises afer the course
+## Making the exercises after the course
 
 ### HPE
 
