@@ -10,6 +10,8 @@ Upcoming or currently running events with materials already partly available:
 -   No upcoming training with early materials at the moment.
 -->   
 
+-   [Intro to Supercomputing with LUMI (October 20-21, 2025). Hybrid course at Talltech, Tallinn, Estonia](2day-20251020/index.md)
+
 
 
 Most recently completed main training events:
