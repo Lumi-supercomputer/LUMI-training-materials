@@ -3,11 +3,13 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antao (AMD)
 
-Course materials will be provided during and after the course.
-
 <!--
 <video src="https://462000265.lumidata.eu/2p3day-20250303/recordings/50-Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
 -->
+
+## Materials
+
+Course materials will be provided during and after the course.
 
 <!--
 Temporary location of materials (for the lifetime of the training project):

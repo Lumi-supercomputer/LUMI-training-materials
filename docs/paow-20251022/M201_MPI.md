@@ -16,9 +16,9 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_03_cray_mpi.pdf`
+-   Slides: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_03_cray_mpi.pdf`
 
--   Recording: `/appl/local/training/paow-20240611/recordings/2_03_MPI.mp4`
+-   Recording: `/appl/local/training/paow-20251022/recordings/2_03_MPI.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
 -->

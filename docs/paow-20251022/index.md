@@ -35,25 +35,36 @@ downloaded from LUMI.
 -->
 
 <!--
+::spantable::
+
 | Presentation | slides | recording |
 |:-------------|:-------|:----------|
-| [Introduction](M_1_00_Course_Introduction.md) | / | [recording](M_1_00_Course_Introduction.md) |
-| [Architecture, Programming and Runtime Environment](M_1_01_HPE_PE.md) | [slides](M_1_01_HPE_PE.md#materials) | [recording](M_1_01_HPE_PE.md) |
-| [Exercises #1](ME_1_01_HPE_PE.md) | / | / |
-| [Performance Analysis with Perftools](M_1_02_Perftools.md) | [slides](M_1_02_Perftools.md#materials) | [recording](M_1_02_Perftools.md) |
-| [Improving Single-Core Efficiency](M_1_03_PerformanceOptimization.md) | [slides](M_1_03_PerformanceOptimization.md#materials) | [recording](M_1_03_PerformanceOptimization.md) |
-| [Application Placement](M_1_04_ApplicationPlacement.md) | [slides](M_1_04_ApplicationPlacement.md#materials) | [recording](M_1_04_ApplicationPlacement.md) |
-| [Demo and Exercises Part 1](M_1_05_PerformanceAnalysisAtWork_1.md) | [slides](M_1_05_PerformanceAnalysisAtWork_1.md#materials) | [recording](M_1_05_PerformanceAnalysisAtWork_1.md) |
-| [Demo and Exercises Part 2](M_1_06_PerformanceAnalysisAtWork_2.md) | [slides](M_1_06_PerformanceAnalysisAtWork_2.md#materials) | [recording](M_1_06_PerformanceAnalysisAtWork_2.md) |
-| [AMD Profiling Tools Overview & Omnitrace](M_2_01_AMD_tools_1.md) | [slides](M_2_01_AMD_tools_1.md#materials) | [recording](M_2_01_AMD_tools_1.md) |
-| [Exercises #2](ME_2_01_AMD_tools_1.md) | / | / |
-| [Introduction to Omniperf](M_2_02_AMD_tools_2.md) | [slides](M_2_02_AMD_tools_2.md#materials) | [recording](M_2_02_AMD_tools_2.md) |
-| [Exercises #3](ME_2_02_AMD_tools_2.md) | / | / |
-| [MPI Optimizations](M_2_03_MPI.md) | [slides](M_2_03_MPI.md) | [recording](M_2_03_MPI.md) |
-| [Exercises #4](ME_2_03_MPI.md) | / | / |
-| [I/O Optimizations](M_2_04_IO.md) | [slides](M_2_04_IO.md) | [recording](M_2_04_IO.md) |
-| [Exercises #5](ME_2_04_IO.md) | / | / |
-| [Appendix: Links to documentation](M_A01_Documentation.md) | / | / |
+| **Day 1** @span |  |  |
+| [Introduction](M100_Course_Introduction.md) | / | [recording](M100_Course_Introduction.md) |
+| [Architecture, Programming and Runtime Environment](M101_HPE_PE.md) | [slides](M101_HPE_PE.md#materials) | [recording](M101_HPE_PE.md) |
+| [Exercises #1](ME101_HPE_PE.md) | / | / |
+| [Compilers, libraries, runtime, single-core optimisations](M102_Compilers.md) | [slides](M102_Compilers.md#materials) | [recording](M102_Compilers.md) |
+| [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [recording](M103_Perftools.md) |
+| [Exercises #2](ME103_Perftools.md) | / | / |
+| [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [recording](M104_AdvancedPerformanceAnalysis.md) |
+| [Exercises #3](ME104a_AdvancedPerformanceAnalysis.md) | / | / |
+| [Exercises #4](ME104b_AdvancedPerformanceAnalysis.md) | / | / |
+| **Day 2** @span |  |  |
+| [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [recording](M201_MPI.md) |
+| [Exercises #5](ME201_MPI.md) | / | / |
+| [I/O Optimizations](M202_IO.md) | [slides](M202_IO.md) | [recording](M202_IO.md) |
+| [Exercises #6](ME202_IO.md) | / | / |
+| [AMD Profiling Tools and GPU optimisations 1](M203_AMD_tools_1.md) | [slides](M203_AMD_tools_1.md#materials) | [recording](M203_AMD_tools_1.md) |
+| [Exercises #7](ME203_AMD_tools_1.md) | / | / |
+| [AMD Profiling Tools and GPU optimisations 2](M204_AMD_tools_2.md) | [slides](M204_AMD_tools_2.md#materials) | [recording](M204_AMD_tools_2.md) |
+| [Exercises #8](ME204_AMD_tools_2.md) | / | / |
+| **Day 3** @span |  |  |
+| [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
+| [Exercises #9](ME301_Best_Practices_GPU_Optimization.md) | / | / |
+| **Extras** @span |  |  |
+| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
+
+::end-spantable::
 -->
 
 <!--
@@ -63,16 +74,16 @@ downloaded from LUMI.
 
 The exercise material remains available in the course archive on LUMI:
 
--   The PDF notes in `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.pdf`
+-   The PDF notes in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf`
 
 -   The other files for the exercises in either a
-    bzip2-compressed tar file `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar`.
+    bzip2-compressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar`.
 
 To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
 ```
-tar -xf /appl/local/training/paow-20240611/files/LUMI-paow-20240611-Exercises_HPE.tar.bz2
+tar -xf /appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2
 ```
 
 in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory

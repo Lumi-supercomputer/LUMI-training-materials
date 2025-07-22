@@ -1,9 +1,9 @@
-# AMD Profiling Tools Overview & Omnitrace
+# AMD Profiling Tools and GPU optimisations 1
 
 *Presenter: Samuel Antao (AMD)*
 
 <!--
-<video src="https://462000265.lumidata.eu/paow-20240611/recordings/2_01_AMD_tools_1.mp4" controls="controls">
+<video src="https://462000265.lumidata.eu/paow-20251022/recordings/2_01_AMD_tools_1.mp4" controls="controls">
 </video>
 -->
 
@@ -15,9 +15,9 @@ Course materials will be made available during and after the course
 <!--
 Directly available as web downloads:
 
--   [First part of the presentation: Overview of the profiling tools](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf)
+-   [First part of the presentation: Overview of the profiling tools](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_01_profiler-tools-overview.pdf)
 
--   [Second part of the presentation: Omnitrace by example](https://462000265.lumidata.eu/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf)
+-   [Second part of the presentation: Omnitrace by example](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_01_omnitrace-by-example.pdf)
 -->
 
 <!--
@@ -33,11 +33,11 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides first part of the presentation: Overview of the profiling tools: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_profiler-tools-overview.pdf`
+-   Slides first part of the presentation: Overview of the profiling tools: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_01_profiler-tools-overview.pdf`
 
--   Slides second part of the presentation: Omnitrace by example: `/appl/local/training/paow-20240611/files/LUMI-paow-20240611-2_01_omnitrace-by-example.pdf`
+-   Slides second part of the presentation: Omnitrace by example: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_01_omnitrace-by-example.pdf`
 
--   Recording: `/appl/local/training/paow-20240611/recordings/2_01_AMD_tools_1.mp4`
+-   Recording: `/appl/local/training/paow-20251022/recordings/2_01_AMD_tools_1.mp4`
 -->
 
 
