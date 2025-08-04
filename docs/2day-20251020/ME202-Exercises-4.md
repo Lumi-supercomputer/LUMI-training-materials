@@ -7,7 +7,7 @@ For these exercises, you'll need to take care of some settings:
 -   For the CPU exercises we advise to use the `small` partition and for the 
     exercises on GPU the `standard-g` partition.
 
--   During the course you can use the course training project `project_465001965`
+-   During the course you can use the course training project `project_465002174`
     for these exercises. A few days after the course you will need to use a different project
     on LUMI. 
 

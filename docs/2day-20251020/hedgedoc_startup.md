@@ -18,7 +18,7 @@ Please don't ask questions about talks that still have to be given. The first ho
 - [Schedule](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20250602/schedule/)
 - [Course archive (slides, notes and video recordings)](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20250602/index.html#course-materials)
 - Zoom link: https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09
-- Course project: `project_465001965`. __This project should only be used for the exercises from the course and not for your own work!__
+- Course project: `project_465002174`. __This project should only be used for the exercises from the course and not for your own work!__
 - ReservationName: `--ReservationName=LUMI_Intro_1` (shared CPU nodes, `small` partition) or `--ReservationName=LUMI_Intro_2` (job-exclusive GPU nodes, `standard-g` partition). These reservations are only available on day 2 of the course during course hours.
 
 
@@ -58,8 +58,8 @@ __No__:
 
 Check if you are part of the project:
 
--   Run `lumi-ldap-userinfo` on LUMI: check for `project_465001965 - LUST Training / 2025-06-2-3 LUMI Intro Course (CSC)`
--   Or run `groups` on LUMI and check for `project_465001965`
+-   Run `lumi-ldap-userinfo` on LUMI: check for `project_465002174 - LUST Training / 2025-06-2-3 LUMI Intro Course (CSC)`
+-   Or run `groups` on LUMI and check for `project_465002174`
 
 :::warning
 If you have problems with joining the project, please open a ticket at https://lumi-supercomputer.eu/user-support/need-help/generic/ .

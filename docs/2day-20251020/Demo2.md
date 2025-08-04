@@ -28,7 +28,7 @@ Let's create an installation directory for the demo. Set the environment variabl
 `installdir` to a proper value for the directories on LUMI that you have access to.
 
 ``` bash
-installdir=/scratch/project_465001965/$USER/DEMO2
+installdir=/scratch/project_465002174/$USER/DEMO2
 mkdir -p "$installdir" ; cd "$installdir"
 ```
 
@@ -309,7 +309,7 @@ srun --ntasks=$((SLURM_NNODES*8)) --cpu-bind=mask_cpu:$MYMASKS \
 Launch the script by setting some environment variables to use the course account and reservation:
 
 ``` bash
-export SBATCH_ACCOUNT=project_465001965
+export SBATCH_ACCOUNT=project_465002174
 export SBATCH_RESERVATION=TODO
 ```
 
