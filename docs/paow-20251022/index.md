@@ -17,7 +17,7 @@
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-performance-workshop-june24?both)
 
--   Course project: `project_465001154`
+-   Course project: `project_465002175`
 
 -   Reservations:
 

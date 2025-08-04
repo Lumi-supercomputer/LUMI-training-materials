@@ -16,10 +16,10 @@ No materials available at the moment.
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
-    `/project/project_465001154/Exercises/HPE/01_intro/README.md`
+    `/project/project_465002175/Exercises/HPE/01_intro/README.md`
 
 -   Exercise materials in 
-    `/project/project_465001154/Exercises/HPE/01_intro` 
+    `/project/project_465002175/Exercises/HPE/01_intro` 
     for the lifetime of the project and only for project members.
 
 Temporary web-available materials:

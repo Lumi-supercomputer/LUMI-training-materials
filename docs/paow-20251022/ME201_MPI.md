@@ -16,10 +16,10 @@ No materials available at the moment.
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
-    `/project/project_465001154/Exercises/HPE/03_mpi/ProgrammingModelExamples_SLURM.pdf`
+    `/project/project_465002175/Exercises/HPE/03_mpi/ProgrammingModelExamples_SLURM.pdf`
 
 -   Exercise materials in 
-    `/project/project_465001154/Exercises/HPE/03_mpi` 
+    `/project/project_465002175/Exercises/HPE/03_mpi` 
     for the lifetime of the project and only for project members.
 
 Temporary web-available materials:

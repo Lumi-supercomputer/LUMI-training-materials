@@ -10,7 +10,7 @@ Course materials will be made available during and after the course
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001154/Slides/HPE/06_cray_mpi_short.pdf`
+-   Slides: `/project/project_465002175/Slides/HPE/06_cray_mpi_short.pdf`
 -->
 
 <!--

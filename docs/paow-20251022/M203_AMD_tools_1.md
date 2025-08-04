@@ -23,9 +23,9 @@ Directly available as web downloads:
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides first part of the presentation: Overview of the profiling tools: `/project/project_465001154/Slides/AMD/AMD-session-1a-profiler-tools-overview.pdf`
+-   Slides first part of the presentation: Overview of the profiling tools: `/project/project_465002175/Slides/AMD/AMD-session-1a-profiler-tools-overview.pdf`
 
--   Slides second part of the presentation: Omnitrace by example: `/project/project_465001154/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
+-   Slides second part of the presentation: Omnitrace by example: `/project/project_465002175/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
 
 -   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
 -->

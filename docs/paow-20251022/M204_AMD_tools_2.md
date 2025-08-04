@@ -23,7 +23,7 @@ Directly available as web downloads:
 <!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465001154/Slides/AMD/AMD-session-2-omiperf.pdf`
+-   Slides: `/project/project_465002175/Slides/AMD/AMD-session-2-omiperf.pdf`
 -->
 
 <!--
