@@ -1,4 +1,4 @@
-# Announcement: Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
+# Announcement: LUMI Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
 
 !!! Note
     If you are looking for course materials of this course, check the materials of the 
@@ -6,11 +6,11 @@
 
 ## Course organisation
 
--   Location: [Talltech Campus](https://maps.app.goo.gl/kjHg2t7NMV2UQr3WA), Tallinn, Estonia.
+-   Location: [TalTech Campus](https://maps.app.goo.gl/kjHg2t7NMV2UQr3WA), Tallinn, Estonia.
 
     The exact building and room is TBA.
 
-    The Talltech Campus is easy to reach with public transportation from the city centre.
+    The TalTech Campus is easy to reach with public transportation from the city centre.
 
 -   [Schedule](schedule.md)
 
