@@ -56,6 +56,14 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - "Ann. Performance Analysis & Optimization October 2025":
+    - paow-20251022/index.md
+    - Preliminary chedule: paow-20251022/schedule.md
+    - Course materials: paow-20251022/index.html#course-materials
+  - "Ann.: Supercomputing with LUMI October 2025":
+    - 2day-20251020/index.md
+    - Preliminary schedule: 2day-20251020/schedule.md
+    - Course materials: 2day-20251020/index.html#course-materials
   - EasyBuild June 2025:
     - EasyBuild-LUST-20250604/index.md
     - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
@@ -75,12 +83,6 @@ nav:
     - 2p3day-20250303/index.md
     - Schedule: 2p3day-20250303/schedule.md
     - Course materials: 2p3day-20250303/index.html#course-materials
-  - AI workshop February 2025:
-    - ai-20250204/index.md
-    - Schedule: ai-20250204/schedule.md
-    - Course materials: ai-20250204/index.html#course-materials
-  - Profiling October 2024:
-    - Profiling-20241009/index.md
   - Performance Analysis & Optimization June 2024:
     - paow-20240611/index.md
     - Schedule: paow-20240611/schedule.md
@@ -90,6 +92,10 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - AI workshop February 2025:
+      - ai-20250204/index.md
+      - Schedule: ai-20250204/schedule.md
+      - Course materials: ai-20250204/index.html#course-materials
     - Supercomputing with LUMI December 2024:
       - 2day-20241210/index.md
       - Schedule: 2day-20241210/schedule.md
@@ -104,6 +110,8 @@ nav:
       - Course materials: 4day-20241028/index.html#course-materials
     - Hackathon October 2024:
       - Hackathon-20241014/index.md
+    - Profiling October 2024:
+      - Profiling-20241009/index.md
     - Supercomputing with LUMI May 2024:
       - 2day-20240502/index.md
       - Schedule: 2day-20240502/schedule.md

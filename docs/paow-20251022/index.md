@@ -1,4 +1,8 @@
-# Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
+# Announcement: Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
+
+!!! Note
+    If you are looking for course materials of this course, check the materials of the 
+    [previous edition in June 2024](../paow-20240611/index.md).
 
 ## Course organisation
 
