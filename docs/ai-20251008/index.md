@@ -1,4 +1,8 @@
-# Moving your AI training jobs to LUMI workshop - KTH, Stockholm, October 8-9, 2025
+# Announcement: Moving your AI training jobs to LUMI workshop - KTH, Stockholm, October 8-9, 2025
+
+!!! Note
+    If you are looking for course materials, check the pages of the 
+    [previous edition in May 2025](../ai-20250527/index.md).
 
 ## Course organisation
 
