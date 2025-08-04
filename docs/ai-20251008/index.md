@@ -1,4 +1,4 @@
-# Moving your AI training jobs to LUMI workshop - CWI, Amsterdam, May 27-28, 2025
+# Moving your AI training jobs to LUMI workshop - KTH, Stockholm, October 8-9, 2025
 
 ## Course organisation
 
@@ -8,6 +8,18 @@
     The building is just a 5 minute walk from a metro station with excellent connections to the 
     central station (red metro line). See also the [SL web site](https://sl.se/en/in-english)
     for more information on public transportation in Stockholm.
+
+-   Hotel suggestions for participants from outside Stockholm:
+
+    -   [Elite Hotel Arcadia](https://maps.app.goo.gl/CQSC4S78xREbGrTE9) is close to the 
+        entrance of the KTH campus and the metro station serving KTH.
+
+    -   Hotels in the neighbourhood of the central station are also a good choice as there is 
+        a fast and high frequency metro connection to the KTH campus from there and as it is a
+        good place to find restaurants or head into old town at night.
+
+        The [Scandic Continental Hotel](https://maps.app.goo.gl/CQSC4S78xREbGrTE9) even sits
+        right on top of the main metro station where you can jump on any line.
 
 -   [Preliminary schedule](schedule.md)
 
