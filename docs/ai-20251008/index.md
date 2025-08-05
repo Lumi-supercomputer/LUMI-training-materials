@@ -42,7 +42,7 @@
     -   First day: `AI_workshop_1` (on the `small-g` Slurm partition)
     -   Second day: `AI_workshop_2` (on the `standard-g` Slurm partition)
 
-    Project with the compute resources: `project_465001958`.
+    Project with the compute resources: `project_465002178`.
     These resources are limited and should only be used for the exercises during
     the course and not for your own work.
 -->
@@ -50,13 +50,13 @@
 ReservationName=AI_workshop_1 StartTime=2025-05-27T10:00:00 EndTime=2025-05-27T18:00:00 Duration=08:00:00
    Nodes=nid[005026-005049] NodeCnt=24 CoreCnt=1536 Features=(null) PartitionName=small-g Flags=
    TRES=cpu=3072
-   Users=(null) Groups=(null) Accounts=project_465001958 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002178 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
    MaxStartDelay=(null)
 
 ReservationName=AI_workshop_2 StartTime=2025-05-28T10:00:00 EndTime=2025-05-28T18:00:00 Duration=08:00:00
    Nodes=nid[005124-005133,005136-005143,005145-005166,005168-005173,005176-005193] NodeCnt=64 CoreCnt=4096 Features=(null) PartitionName=standard-g Flags=
    TRES=cpu=8192
-   Users=(null) Groups=(null) Accounts=project_465001958 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002178 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
    MaxStartDelay=(null)
 -->
 
