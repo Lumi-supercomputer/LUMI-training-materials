@@ -9,9 +9,8 @@ Upcoming or currently running events with materials already partly available:
 <!--
 -   No upcoming training with early materials at the moment.
 -->
-<!--   
+
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025, Stockholm)](ai-20251008/index.md)
--->
 
 -   [Intro to Supercomputing with LUMI (October 20-21, 2025). Hybrid course at TalTech, Tallinn, Estonia](2day-20251020/index.md)
 
