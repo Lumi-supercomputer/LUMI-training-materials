@@ -28,7 +28,7 @@
 -   [Preliminary schedule](schedule.md)
 
 <!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-may25?both)
+-   [HedgeDoc for questions](https://md.sigma2.no/lumi-ai-workshop-oct25?both)
    
     Questions with longer-term relevance will be incorporated into the pages linked below.
     This HedgeDoc document will not be monitored anymore for further questions after the course.
