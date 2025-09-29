@@ -2,6 +2,8 @@
 
 In reverse chronological order:
 
+-   [SmartSim: Enhancing numerical workflows with AI components (September 24, 2025)](20250924-user-coffee-break-SmartSim.md)
+
 -   [Cray PE containers (August 27, 2025)](20250827-user-coffee-break-CCPE.md)
 
 -   [LUMI AI Guide (March 26, 2025)](20250326-user-coffee-break-LUMI-AI-Guide.md)

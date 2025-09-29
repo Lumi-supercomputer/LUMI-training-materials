@@ -49,6 +49,8 @@ relevant:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
+-   [SmartSim: Enhancing numerical workflows with AI components (September 24, 2025)](User-Coffee-Breaks/20250924-user-coffee-break-SmartSim.md)
+
 -   [Cray PE containers (August 27, 2025)](User-Coffee-Breaks/20250827-user-coffee-break-CCPE.md)
 
 -   [LUMI AI Guide (March 26, 2025)](User-Coffee-Breaks/20250326-user-coffee-break-LUMI-AI-Guide.md)
