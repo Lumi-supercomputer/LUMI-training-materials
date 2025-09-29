@@ -61,6 +61,52 @@ ReservationName=AI_workshop_2 StartTime=2025-05-28T10:00:00 EndTime=2025-05-28T1
 -->
 
 
+## Travel
+
+-   **Hotel options:**
+    The various hotels near the central station would be a good choice for travellers.
+    The [Odenplan area](https://maps.app.goo.gl/pEFzcpTd3tmQjKkf8) 
+    could be an alternative as there is a frequent bus service to the KTH campus.
+    [Elite Hotel Arcadia](https://www.elite.se/hotell/stockholm/elite-hotel-arcadia-stockholm/) is
+    [right on the edge of the KTH campus](https://maps.app.goo.gl/wvq4D4pMg2b6fH6n6)
+    and hence also a possible choice.
+
+-   **Travel from the airport:**
+    There are [4 ways to get to central stockholm from the airport](https://www.swedavia.com/arlanda/transport/):
+
+    -   Taxi - Expensive, go to the labeled taxi ranks in the airport. There is a fixed price to the city, which should be displayed on the taxi and will be different for different companies
+
+    -   [Arlanda Express](https://www.arlandaexpress.com/) - Moderately expensive, very fast direct train to stockholm central station.
+        There are two train stations for the Arlanda Express at the airport, one for terminal 2, 3 and 4 (Arlanda Sodra) and
+        one for terminal 5 (Arlanda Norra). 
+
+    -   Commuter train - From Sky City in Arlanda you can get the normal trains. You need to pay 147 SEK (toll to use the tunnel under Arlanda) at the ticket barriers plus a normal SL ticket. This is a different train station as those for the Arlanda Express!
+
+    -   Airport bus - cheapest option, but takes longest. Central bus station is right next to central station.
+
+-   **Using public transportation in Stockholm**
+
+    Probably simplest if you just get the [SL (Stockholm Localtrafik) app](https://sl.se/en/fares-and-tickets/smart-phone-ticket-app) 
+    on a smartphone, will give you a QR code that you can use at ticket barriers. 
+    Tickets can be bought using a credit card in the app. Physical cards are also available, but cost 50 SEK for the card, 
+    plus extra for the tickets you put on it.  
+    [Credit cards can also be used with contactless pay as you go to buy a single](https://sl.se/en/fares-and-tickets/contactless-pay-as-you-go/how-to-pay-as-you-go).
+
+    Single tickets are fairly expensive. If you plan to use public transportation not only to come and go to the venue,
+    but also at night to travel in Stockholm, a [travelcard](https://sl.se/en/fares-and-tickets/visitor-tickets/travelcards),
+    which you can get in the app, may be a better option.
+
+    Be careful when using the route planner in the app to travel to the course venue.
+    If you search for KTH, several options will be offered to you, some of those in
+    entirely different parts of the city. Search for 
+    ["Tekniska högskolan"](https://maps.app.goo.gl/xoaz6KgaTKF3enL76), the metro station, or 
+    "Lindstedtsvägen (Stockholm)". But **do NOT take 
+    ["KTH - Royal Intitute of Technology (Södertälje)"](https://maps.app.goo.gl/NJJMRYPxdW3YgZ5E6)**
+    as this will take you to a different place, even outside Stockholm
+
+-   [Something for the night](something_for_the_night.md)
+
+
 ## Setting up for the exercises
 
 ### During the course

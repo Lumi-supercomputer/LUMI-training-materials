@@ -1,6 +1,6 @@
 # Running containers on LUMI
 
-*Presenter*: TBA (LUST)
+*Presenter*: Julius Roeder (DeiC)
 
 Content:
 
