@@ -1,6 +1,6 @@
 # Introduction to LUMI
 
-*Presenter:* TBA (LUST)
+*Presenter:* Gregor Decristoforo (LUST)
 
 Content:
 
