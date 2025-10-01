@@ -1,6 +1,6 @@
 # Using Lustre
 
-***These notes are a quick revision of the notes of a course in May, given by another presenter.
+***These notes are a quick revision of the notes of a similar course given by another presenter.
 They have not been thoroughly retested.***
 
 
@@ -578,7 +578,7 @@ There are many more tips more specifically for programmers. As good use of the f
 supercomputer is important and wrong use has consequences for all other users, it is an important
 topic that many advanced courses will cover. 
 This is also discussed further in the presentation
-["Optimizing Large Scale I/O"](M503-IO_Optimization_Parallel_IO.md) on day 5 
+["Optimizing Large Scale I/O"](../2p3day-20250303/M503-IO_Optimization_Parallel_IO.md) on day 5 
 of our intensive course of March 2025.
 
 
