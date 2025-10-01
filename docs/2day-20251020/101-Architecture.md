@@ -226,7 +226,7 @@ so it is not that we will also be offering, e.g., GPU compute facilities
 on NVIDIA hardware, and that these are shared resources that should not be
 monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).
 
-LUMI also has three solution for storing data: the first two are traditional **Lustre parallel
+LUMI also has three solutions for storing data: the first two are traditional **Lustre parallel
 file systems** while the last one is an **object based file system**.
 
 The first one is a **8 PB flash based file system** running the **Lustre parallel file system**.
