@@ -1,5 +1,9 @@
 # Using Lustre
 
+***These notes are a quick revision of the notes of a similar course given by another presenter.
+They have not been thoroughly retested.***
+
+
 ## File systems on LUMI
 
 <figure markdown style="border: 1px solid #000">
