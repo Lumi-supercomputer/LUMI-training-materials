@@ -24,7 +24,11 @@ But it is also a very expensive infrastructure, with an investment of 160M EURO 
 and an estimated total cost (including operations) of 250M EURO. So it is important to use the computer
 efficiently. 
 
-And that efficiency comes not for free. Instead in most cases it is important to properly map an 
+LUMI, as other large supercomputers, is built for running large parallel applications efficiently.
+But that efficiency does not for free. Scaling from a small problem size on a small computer 
+does not come for free, not in hardware and neither in software.
+
+In fact, in most cases it is important to properly map an 
 application on the available resources to run efficiently.  The way an application is developed
 is important for this, but it is not the only factor. Every application needs some user help 
 to run in the most efficient way, and that requires an understanding of
@@ -79,7 +83,7 @@ Just some examples of using the wrong tools or infrastructure:
     performance per Watt and get their performance from using lots of cores through well-designed
     software. If you want the fastest core possible, you'll need a gaming PC.
 
-    *E.g., the AMD 5800X is a popular CPU for high end gaming PCs using the same core architecture 
+    *E.g., the AMD 5800X was a popular CPU for high end gaming PCs using the same core architecture 
     as the CPUs in LUMI. It runs at a
     base clock of 3.8 GHz and a boost clock of 4.7 GHz if only one core is used and the system has
     proper cooling. The 7763 used in the compute nodes of LUMI-C runs at a base clock of 2.45 GHz
@@ -91,7 +95,7 @@ Just some examples of using the wrong tools or infrastructure:
 -   **For some data formats the GPU performance may be slower also than on a high end gaming PC.**
     This is even more so because
     an MI250X should be treated as two GPUs for most practical purposes. The better double precision
-    floating point operations and matrix operations, also at full precision, require transistors also 
+    floating point operations and matrix operations, also at full precision, require transistors 
     that on some other GPUs are used for rendering hardware or for single precision compute units.
 
     *E.g., a single GPU die of the MI250X (half a GPU) has a peak FP32 performance at the boost clock
@@ -104,14 +108,6 @@ Just some examples of using the wrong tools or infrastructure:
 -   **Compute GPUs and rendering GPUs are different beasts these days.**
     We had a user who wanted to use the ray tracing units to do rendering. The MI250X does not
     have texture units or ray tracing units though. It is not a real graphics processor anymore.
-
--   **The environment is different also. It is not that because it runs some Linux it handles are your
-    Linux software.**
-    A user complained that they did not succeed in getting their nice remote development environment to
-    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
-    It was a very nice environment but really made for local development and remote development in a 
-    cloud environment with virtual machines individually protected by personal firewalls and was 
-    not only hard to get working on a supercomputer but also insecure.
 
 -   **The environment is different also. It is not that because it runs some Linux it handles are your
     Linux software.**
@@ -213,7 +209,9 @@ such as connecting to a Quantum computer), 128 have 512 GB and 1888 have
 LUMI also has two smaller groups of nodes for **interactive data analytics**. 
 8 of those nodes have two 
 64-core Zen2/Rome CPUs with 4 TB of RAM per node, while 8 others have dual 64-core
-Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. 
+Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. Together these are known as
+**LUMI-D**, but as we shall see in the Slurm part of the training, this name is misleading
+as these are two node types corresponding to two partitions in the scheduler.
 There is also an **Open OnDemand based service (web interface)** to make some fo those facilities
 available. Note though that these nodes are meant for a very specific use,
 so it is not that we will also be offering, e.g., GPU compute facilities
@@ -221,7 +219,7 @@ on NVIDIA hardware, and that these are shared resources that should not be
 monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).
 
 LUMI also has a **8 PB flash based file system** running the **Lustre parallel file system**.
-This system is often denoted as LUMI-F. The bandwidth of that system is over 2 TB/s. 
+This system is often denoted as **LUMI-F**. The bandwidth of that system is over 2 TB/s. 
 Note however that this is still a remote file system with a parallel file system on it,
 so do not expect that it will behave as the local SSD in your laptop. 
 But that is 
@@ -229,7 +227,7 @@ also the topic of another session in this course.
 
 The main work storage is provided by **4 20 PB hard disk based Lustre file systems**
 with a bandwidth of 240 GB/s each. That section of the machine is often denoted 
-as LUMI-P. 
+as **LUMI-P**. 
 
 Big parallel file systems need to be used in the proper way to be able to offer the
 performance that one would expect from their specifications. This is important enough that 
@@ -239,6 +237,7 @@ There is also a 30 PB **object based file system**
 similar to the Allas service of CSC that some
 of the Finnish users may be familiar with is also being worked on. At the 
 moment the interface to that system is still rather primitive.
+This part of LUMI is also known as **LUMI-O**.
 
 Currently LUMI has **4 login nodes** for ssh access, called user access nodes in the HPE Cray
 world. They each have 2 64-core AMD EPYC 7742 processors and 1 TB of RAM.
@@ -249,10 +248,9 @@ them, that code would not run on the login nodes. These instructions are basical
 used in cryptography though. However, many instructions have very different latency,
 so a compiler that optimises specifically for Zen3 may chose another ordering of
 instructions then when optimising for Zen2 so it may still make sense to compile
-specifically for the compute nodes on LUMI.
-
-There are also some additional
+specifically for the compute nodes on LUMI. There are also an additional
 login nodes for access via the web-based Open OnDemand interface.
+Together these are sometimes called **LUMI-L**.
 
 All compute nodes, login nodes and storage are linked together through a 
 **high-performance interconnect**. LUMI uses the **Slingshot 11** interconnect which
@@ -304,13 +302,14 @@ cache per CCD).
 
 Each CCD connects to the memory/IO die through an Infinity Fabric link
 (also called GMI link which stands for Global Memory Interface). The connection
-is asymetric on Milan with 51.2 GB/s bandwidth to and 25.6 GB/s bandwidth from the CCD
+is asymmetric on Milan with 51.2 GB/s bandwidth to and 25.6 GB/s bandwidth from the CCD
 (32 bytes and 16 byte wide connections running at the memory clock with is 1.6 GHz for DDR4 3200).
 The memory/IO die contains the memory controllers,
 connections to connect two CPU packages together, PCIe lanes to connect to external
 hardware, and some additional hardware, e.g., for managing the processor. 
 The memory/IO die supports 4 dual channel DDR4 memory controllers providing 
-a total of 8 64-bit wide memory channels. 
+a total of 8 64-bit wide memory channels. Each memory channel has a theoretical peak
+bandwidth of 25.6 GB/s.
 From a logical point of view the memory/IO-die is split in 4 quadrants,
 with each quadrant having a dual channel memory controller and 2 CCDs. They basically act
 as **4 NUMA domains**. For a core it is slightly faster to access memory in its own
@@ -442,7 +441,7 @@ So far nothing special. However, two elements make this compute node very
 special. First, the GPUs are not connected to the CPU though a PCIe bus. Instead
 they are connected through the same links that AMD uses to link the GPUs together,
 or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
-Infinity Fabric. This enables unified memory across CPU and GPUS and 
+Infinity Fabric. This enables unified memory across CPU and GPUs and 
 provides partial cache coherency across the system. The CPUs coherently
 cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches 
 its own local memory.
@@ -467,7 +466,7 @@ anymore, one has to look for ways to use each transistor as efficiently as possi
 
 It is also important to realise that even though we call the partition "LUMI-G", the MI250X
 is not a GPU in the true sense of the word. It is not a rendering GPU, which for AMD is 
-currently the RDNA architecture with version 3 out and version 4 coming, but a compute accelerator with
+currently the RDNA architecture which is currently at version 4, but a compute accelerator with
 an architecture that evolved from a GPU architecture, in this case the VEGA architecture
 from AMD. The architecture of the MI200 series is also known as CDNA2, with the MI100 series
 being just CDNA, the first version. Much of the hardware that does not serve compute purposes
@@ -485,7 +484,8 @@ Several of the functional blocks in the Ada Lovelace architecture are missing in
 architecture to make room for more compute power and double precision compute units. E.g.,
 Hopper does not contain the ray tracing units of Ada Lovelace.
 The Intel Data Center GPU Max code named "Ponte Vecchio" is the only current GPU for 
-HPC that still offers full hardware rendering support (and even ray tracing).
+HPC that still offers full hardware rendering support (and even ray tracing), but that line
+looks increasingly like a dead end.
 
 Graphics on one hand and HPC and AI on the other hand are becoming separate workloads for which
 manufacturers make different, specialised cards, and if you have applications that need both,
@@ -494,7 +494,7 @@ between them over the interconnect, and look for supercomputers that support bot
 And nowadays we're even starting to see a split between chips that really target AI and
 chips that target a more traditional HPC workload, with the latter threatened as there
 is currently much more money to make in the AI market. And within AI we're starting to 
-see specialised accelerators for inference.
+see specialised accelerators for inference (e.g., the NVIDIA Rubin CPX).
 
 But so far for the sales presentation, let's get back to reality...
 
@@ -861,7 +861,7 @@ columns is all the power circuitry. Each compute chassis can contain 8 compute b
 that are mounted vertically. Each compute blade can contain multiple nodes, depending on
 the type of compute blades. HPE Cray have multiple types of compute nodes, also with 
 different types of GPUs. In fact, the Aurora supercomputer which uses Intel CPUs and GPUs and
-El Capitan, which uses the MI300A APUs (integrated CPU and GPU) will use the same
+El Capitan, which uses the MI300A APUs (integrated CPU and GPU) use the same
 design with a different compute blade. Aurora uses compute blades that each contain only
 a single node, with two Intel Xeon CPUs and 6 Intel Data Centre GPU Max's (code named 
 Ponte Vecchio). The El Capitan compute blades contain two nodes, each with 4 NMI300A APUs.
@@ -897,7 +897,8 @@ switch blade environment is certainly less hostile to such storage than the very
 compute blades.
 
 This architecture is very popular for very large supercomputers. In fact, in the 
-[November 2024 Top-500 list](https://top500.org/lists/top500/2024/11/), 7 of the top-10 systems
+[June 2025 Top-500 list](https://top500.org/lists/top500/2025/06/), 6 of the top-10 systems
+and 10 of the top 20 systems
 use this system architecture, but with different types of compute blades.
 
 
