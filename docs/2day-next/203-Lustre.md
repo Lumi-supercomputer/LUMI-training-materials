@@ -570,7 +570,7 @@ practices" pages on web sites of many large supercomputer centres. Some tips for
 
 There are many more tips more specifically for programmers. As good use of the filesystems on a
 supercomputer is important and wrong use has consequences for all other users, it is an important
-topic in the [4-day comprehensive LUMI course](https://lumi-supercomputer.github.io/comprehensive-latest) 
+topic in the [4-day comprehensive LUMI course](https://lumi-supercomputer.github.io/comprehensive-latest) or "Performance Analysis and Optimisation Workshop"
 that the LUMI User Support Team organises a few times per year, and you'll find many more tips
 about proper use of Lustre in that lecture (which is only available to actual users on LUMI
 unfortunately).
