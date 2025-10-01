@@ -36,7 +36,6 @@ These materials will become available as the course progresses.
 -->
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -74,7 +73,6 @@ These materials will become available as the course progresses.
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
--->
 
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
