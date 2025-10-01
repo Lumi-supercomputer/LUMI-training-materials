@@ -68,13 +68,6 @@ if the binding is OK.
     The HPC Affinity Tracker tool is developed by HPE and made 
     [publicly available in GitHub](https://github.com/HewlettPackard/hpcat).
 
-??? Bug "`hpcat` on multiple nodes (click to expand)"
-    As of the time of the last update of this paragraph, `hpcat` runs fine when started from an
-    interactive session created with `salloc`, using `srun` to launch the application on the compute
-    node(s), but it crashes when this is done in a batch script that uses more than one node. 
-    So we do not really use it yet in the slides and notes. When fully stable, it would be a better
-    replacement for the `gpu_check -l` command used in several of the examples.
-
 
 <figure markdown style="border: 1px solid #000">
   ![Slide When/where is it done](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-202-Binding/WhenDone.png){ loading=lazy }
@@ -224,7 +217,7 @@ started with subsequent `srun` commands.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -578,7 +571,7 @@ the HIP runtime will number the GPUs that are available from 0 on.
     #SBATCH --hint=nomultithread
     #SBATCH --time=15:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -802,7 +795,7 @@ task level.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
     
     cat << EOF > select_1gpu_$SLURM_JOB_ID
     #!/bin/bash
@@ -1090,7 +1083,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeGNU-24.03
     srun --ntasks=8 --cpu-bind=map_cpu:49,57,17,25,1,9,33,41 mpi_check -r
     ```
 
@@ -1113,7 +1106,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeGNU-24.03
     srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000 hybrid_check -r
     ```
 
@@ -1508,8 +1501,9 @@ of reordering MPI ranks than the Slurm `--distribution` option as one
 can define fully custom orderings.
 
 Rank reordering is an advanced topic that is discussed in more detail in the
-4 or 5-day Advanced LUMI courses organised by the LUMI User Support Team.
-The [material of the latest one can be found via the course archive web page](https://lumi-supercomputer.github.io/LUMI-training-materials/comprehensive-latest)
+4 or 5-day Advanced LUMI course or the "Performance Analysis and Optimization" workshop
+organised by the LUMI User Support Team.
+The [material of the latest advanced course can be found via the course archive web page](https://lumi-supercomputer.github.io/LUMI-training-materials/comprehensive-latest)
 and is discussed in the  "MPI Topics on the HPE Cray EX Supercomputer"
 which is often given on day 3.
 
@@ -1561,7 +1555,7 @@ the same problem size (and hence same number of nodes and tasks).
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
     
     set -x
     echo -e "\nSMP-style distribution on top of block."
@@ -1884,7 +1878,7 @@ can also be used to check the OpenMP thread binding.
     #SBATCH --hint=multithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
     
     set -x
     export OMP_NUM_THREADS=4
@@ -2334,7 +2328,7 @@ One possible job script to implement this order is:
 #SBATCH --nodes=2
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 # Mapping:
 # | Task | GCD | CCD | HWTs           | Available HWTs | CPU mask (w/o HWTs) |
@@ -2467,7 +2461,7 @@ The job script (for option 1) now becomes:
 #SBATCH --nodes=2
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 # Mapping:
 # | Task | CCD | HWTs           | Available HWTs | CPU mask (w/o HWTs) | GCD |
@@ -2567,7 +2561,7 @@ in the two scripts above:
 #SBATCH --nodes=2
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 # Mapping:
 # | Task | GCD | CCD | Available cores | CPU mask (w/o HWTs) |
@@ -2671,7 +2665,7 @@ is is also easy to check that each task is also mapped on the optimal CCD for th
     #SBATCH --nodes=1
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
     
     #
     # Define the order of the GPUs and the core mask for CCD0
@@ -2835,7 +2829,7 @@ resources allocated via the `sbatch` arguments (usually `#SBATCH` lines), and re
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
 
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
     cat << EOF > select_gpu_$SLURM_JOB_ID
     #!/bin/bash
@@ -3009,7 +3003,7 @@ resources allocated via the `sbatch` arguments (usually `#SBATCH` lines), and re
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
     
     cat << EOF > select_gpu_$SLURM_JOB_ID
     #!/bin/bash
