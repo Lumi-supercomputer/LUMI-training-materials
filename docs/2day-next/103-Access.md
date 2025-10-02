@@ -12,28 +12,26 @@ EuroHPC currently funds
 1.  There are a number of so-called petascale supercomputers. The first ones of those are
     [Meluxina](https://docs.lxp.lu/) (in Luxembourg), 
     [VEGA](https://en-vegadocs.vega.izum.si/) (in Slovenia), 
-    [Karolina](https://docs.it4i.cz/karolina/introduction/) (in the Czech Republic), 
+    [Karolina](https://docs.it4i.cz/en/docs/clusters/karolina/introduction) (in the Czech Republic), 
     [Discoverer](https://docs.discoverer.bg/) (in Bulgaria) and 
     [Deucalion](https://macc.fccn.pt/resources#deucalion) (in Portugal).
 
 2.  A number of pre-exascale supercomputers, LUMI being one of them. The other two are 
-    [Leonardo](https://wiki.u-gov.it/confluence/display/SCAIUS/LEONARDO+User+Guide) (in Italy)
+    [Leonardo](https://docs.hpc.cineca.it/hpc/leonardo.html) (in Italy)
     and [MareNostrum 5](https://www.bsc.es/supportkc/docs/MareNostrum5/intro/) (in Spain)
 
-3.  A decision has already been taken on two exascale supercomputers: 
-    [Jupiter](https://www.fz-juelich.de/en/ias/jsc/jupiter) (in Germany) and
+3.  Already two exascale supercomputers: 
+    [Jupiter](https://www.fz-juelich.de/en/ias/jsc/jupiter) (in Germany) is already in 
+    operation and
     [Alice Recoque](https://eurohpc-ju.europa.eu/new-call-procure-european-exascale-supercomputer-alice-recoque-2024-09-09_en), 
-    hosted by the [Jules Verne consortium](https://eurohpc-ju.europa.eu/jules-verne-consortium-will-host-new-eurohpc-exascale-supercomputer-france-2023-06-20_en) (in France).
-    Jupiter is currently being built.
-
-    The construction of Jupiter has already started and will continue in the first half of 2025.
+    hosted by the [Jules Verne consortium](https://eurohpc-ju.europa.eu/jules-verne-consortium-will-host-new-eurohpc-exascale-supercomputer-france-2023-06-20_en) (in France) is under procurement.
 
 4.  Another 2 mid-range systems are currently under procurement or under construction:
     [Daedalus](https://eurohpc-ju.europa.eu/daedalus-call-acquire-new-european-world-class-supercomputer-greece-2024-06-25_en) (in Greece) and
     [Arrhenius](https://eurohpc-ju.europa.eu/sweden-will-host-new-eurohpc-supercomputer-2023-06-19_en) (in Sweden).
 
 5.  Various upgrades are planned to the current systems and there is also a programme for
-    "AI-optimised" spercomputers, whatever that may mean, as these will be very large systems 
+    "AI-optimised" supercomputers, whatever that may mean, as these will be very large systems 
     serving lots of users so there will still be lots of technological compromises.
 
 Depending on the machine, EuroHPC pays one third up to half of the bill, while the remainder of the budget
@@ -171,7 +169,7 @@ that would not correspond to a physical person but have a specific goal
 (like organising data ingestion from an external source) but few projects are granted
 such an account.
 
-There ia a many-to-many mapping between projects and user accounts.
+There is a many-to-many mapping between projects and user accounts.
 Projects can of course have multiple users who collaborate in the project, but a user account
 can also be part of multiple projects. The latter is more common than
 you may think, as. e.g., you may become member of a training project when
@@ -571,8 +569,8 @@ Web links:
       ![Open OnDemand slide 2](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-03-Access/OpenOnDemand_02.png){ loading=lazy }
     </figure>
 
-    Basically, if you are a CSC user (and definitely when you're on a CSC 462* project) you'll want to use the "CSC"
-    or "Haka" choice, while other users will need MyAccessID.
+    Basically, if you are a CSC user (and definitely when you're on a CSC 462* project) you'll want to use the "Haka"
+    or "CSC" choice, while other users will need "Puhuri".
 
     The whole login process is not shown, but after successful authentication, you end up at the main screen (that you can also
     go back to by clicking the LUMI-logo in the upper left corner):
