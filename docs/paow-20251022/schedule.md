@@ -16,7 +16,7 @@ DAY 1
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day1"><b>DAY 1 - Tuesday 11/06/2024</b></a>
+            <a name="Day1"><b>DAY 1 - Wednesday 22/10/2025</b></a>
         </td>
     </tr>
     <tr>
@@ -157,7 +157,7 @@ DAY 2
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day2"><b>DAY 2 - Wednesday 12/06/2024</b></a>
+            <a name="Day2"><b>DAY 2 - Thursday 23/10/2025</b></a>
         </td>
     </tr>
     <tr>
