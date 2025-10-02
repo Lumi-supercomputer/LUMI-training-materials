@@ -7,8 +7,8 @@
     intended for Belgian users and since all but one HPC site in Belgium currently teaches
     Slurm to their users, some elements will be covered only briefly.
 
-    Even if you have a lot of experience with Slurm, it may still be useful to have a quick
-    look at this section as Slurm is not always configured in the same way.
+    **Even if you have a lot of experience with Slurm, it is still very useful to have a quick
+    look at this section as Slurm is not always configured in the same way.**
 -->
 
 <!-- GENERAL More general version -->
@@ -18,8 +18,8 @@
     aspects of Slurm as we assume the majority of users is already rather familiar with
     Slurm.
 
-    Even if you have a lot of experience with Slurm, it may still be useful to have a quick
-    look at this section as Slurm is not always configured in the same way.
+    **Even if you have a lot of experience with Slurm, it is still very useful to have a quick
+    look at this section as Slurm is not always configured in the same way.**
 
 !!! Note "Links to Slurm material"
     Links to Slurm material on this web page are all for the version on LUMI at the time of
@@ -32,13 +32,13 @@
   ![Slide What is Slurm](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-201-Slurm/WhatIsSlurm.png){ loading=lazy }
 </figure>
 
-Slurm is both a resource manager and job scheduler for supercomputers in a single package.
+Slurm is both a **resource manager** and **job scheduler** for supercomputers in a single package.
 
-A resource manager manages all user-exposed resources on a supercomputer: cores, GPUs or other
+A **resource manager** manages all user-exposed resources on a supercomputer: cores, GPUs or other
 accelerators, nodes, ... It sets up the resources to run a job and cleans up after the job,
 and may also give additional facilities to start applications in a job. Slurm does all this.
 
-But Slurm is also a job scheduler. It will assign jobs to resources, following policies set
+But Slurm is also a **job scheduler**. It will assign jobs to resources, following policies set
 by sysadmins to ensure a good use of the machine and a fair distribution of resources among
 projects.
 
@@ -47,8 +47,8 @@ than 50% of all big supercomputers. It is an open source package with commercial
 Slurm is a very flexible and configurable tool with the help of tens or even hundreds of
 plugins. This also implies that Slurm installations on different machines can also differ
 a lot and that not all features available on one computer are also available on another.
-So do not expect that Slurm will behave the same on LUMI as on that other computer you're
-familiar with, even if that other computer may have hardware that is very similar to LUMI.
+So **do not expect that Slurm will behave the same on LUMI as on that other computer you're
+familiar with,** even if that other computer may have hardware that is very similar to LUMI.
 
 Slurm is starting to show its age and has trouble dealing in an elegant and proper way with
 the deep hierarchy of resources in modern supercomputers. So Slurm will not always be as
@@ -71,8 +71,7 @@ is no better option at this moment that is sufficiently mature.
     originally developed Slurm is now working on the 
     development of another resource and job management framework called 
     [flux](https://computing.llnl.gov/projects/flux-building-framework-resource-management).
-    It will be used on the third USA exascale supercomputer El Capitan which is currently
-    being assembled. 
+    It is used on the third USA exascale supercomputer El Capitan. 
 
 
 ## Slurm concepts: Physical resources
@@ -161,7 +160,7 @@ A **GPU** in Slurm is an accelerator and on LUMI corresponds to one GCD of an MI
   ![Slide Slurm is first and foremost a batch scheduler](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-201-Slurm/BatchScheduler.png){ loading=lazy }
 </figure>
 
-And LUMI is in the first place a batch processing supercomputer.
+**And LUMI is in the first place a batch processing supercomputer.**
 
 A supercomputer like LUMI is a very large and very expensive machine. This implies that it also has to be
 used as efficiently as possible which in turn implies that we don't want to wast time waiting for input
@@ -293,7 +292,9 @@ sacctmgr show assoc where account=project_462000008 user=kurtlust
 -->
 
 For the overview of Slurm partitions, see the [LUMI documentation, "Slurm partitions" page](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
-In the overview on the slides we did not mention partitions that are hidden to regular users.
+In the overview on the slides we did not mention partitions that are hidden to regular users,
+restricted for very specific use by some selected projects,
+or meant to be used via Open OnDemand only.
 
 The policies for partitions and the available partitions may change over time to fine tune the
 operation of LUMI and depending on needs observed by the system administrators and LUMI
@@ -423,7 +424,9 @@ Some useful commands with respect to Slurm partitions:
     
     This shows more information about the system. The `xNNNN` feature corresponds to groups in 
     the Slingshot interconnect and may be useful if you want to try to get a job running in
-    a single group (which is too advanced for this course).
+    a single group (which is too advanced for this course and may get you an angry mail
+    from the sysadmins as when not done properly, it will block the job queue and stop
+    other jobs from launching).
 
     The memory size is given in megabyte (MiB, multiples of 1024). The "+" in the second group
     of the small partition is because that partition also contains the 512 GB and 1 TB regular 
@@ -569,7 +572,8 @@ users would launch jobs that use the full two days of walltime, one can expect t
 a day to gather those nodes. However, the LUMI scheduler will schedule short jobs even though they have a lower
 priority on the nodes already collected if it expects that those jobs will be finished before it expects
 to have all nodes for the big job. This mechanism is called backfill and is the reason why
-short experiments of half an hour or so often start quickly on LUMI even though the queue is very long.
+short experiments of half an hour or so that also don't require many nodes
+often start quickly on LUMI even though the queue is very long.
 
 
 ## Managing Slurm jobs
@@ -1001,7 +1005,7 @@ partition, but note that running on these nodes is expensive!)
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
     gpu_check
 
@@ -1022,7 +1026,7 @@ partition, but note that running on these nodes is expensive!)
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     omp_check
 
@@ -1200,6 +1204,7 @@ resources are for each individual task, but this scheme is an easy scheme:
 
     2.  If however you want multiple tasks to share a GPU, then you should use 
         `--ntasks-per-gpu=<number_of_tasks>`. There are use cases where this makes sense.
+        We have also had issues in the past with tasks sharing a GPU on LUMI.
 
     **This however does not always work and you should not use this approach in job-exclusive
     node allocations...** A proper solution will be discussed in the 
@@ -1231,7 +1236,7 @@ to do so. Otherwise the developers of Slurm wouldn't have changed that behaviour
     #SBATCH --time=2:00
     #SBATCH --output=%x-%j.txt
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     echo "Submitted from $SLURM_SUBMIT_HOST"
     echo "Running on $SLURM_JOB_NODELIST"
@@ -1324,7 +1329,7 @@ core. This is illustrated with the example below.
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
 
     echo -e "Job script:\n$(cat $0)\n"
 
@@ -1445,7 +1450,7 @@ core. This is illustrated with the example below.
     #SBATCH --hint=multithread
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
 
     set -x
     srun -n 1 -c 4 --hint=nomultithread omp_check -r
@@ -1526,7 +1531,7 @@ core. This is illustrated with the example below.
     4 hyperthreads on those cores. This is also not unexpected. In the third case
     we force the use of 8 threads, and they all land on the 4 hardware threads of
     2 cores. Again, this is not unexpected. And neither is the output of the last 
-    run of `omp_cehck` which is again with multithreading disabled as requested in
+    run of `omp_check` which is again with multithreading disabled as requested in
     the `#SBATCH` lines. What is surprising though is the output of `sacct`: 
     It claims there were 8 hardware threads, so 4 cores, allocated to the second 
     (the `.1`) and third (the `.2`) job step while whatever we tried, `omp_check`
@@ -1546,7 +1551,7 @@ core. This is illustrated with the example below.
     #SBATCH --hint=multithread
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
 
     set -x
     srun -n 1 -c 4 --hint=nomultithread omp_check -r
@@ -1692,12 +1697,13 @@ mostly the same options that we have discussed on the slides "Per-node allocatio
 
     2.  If however you want multiple tasks to share a GPU, then you should use 
         `--ntasks-per-gpu=<number_of_tasks>`. There are use cases where this makes sense.
-        However, at the time of writing this does not work properly.
+        We have experienced issues with this though on LUMI, see below.
 
     While this does ensure a proper distribution of GPUs across nodes compatible with the 
     distributions of cores to run the requested tasks, we will again run into binding issues
-    when these options are propagated to `srun` to create the actual job steps, and hre this
-    is even more tricky to solve.
+    when these options are propagated to `srun` to create the actual job steps, and here this
+    is even more tricky to solve. It will stop some of the more efficient modes of MPI 
+    and RCCL communications from working properly.
 
     We will again discuss a solution in the 
     [Chapter "Process and thread distribution and binding"](202-Binding.md)
@@ -1786,7 +1792,7 @@ GPU binding does not work for you.
     #SBATCH --output %x-%j.txt
     #SBATCH --acount=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     echo "Running on $SLURM_JOB_NODELIST"
 
@@ -2276,7 +2282,7 @@ paragraph).
     salloc: job 4292946 queued and waiting for resources
     salloc: job 4292946 has been allocated resources
     salloc: Granted job allocation 4292946
-    $ module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+    $ module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
     ...
 
@@ -2504,7 +2510,7 @@ bugs are being introduced.
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=32
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     srun --het-group=0 --cpus-per-task=$SLURM_CPUS_PER_TASK_HET_GROUP_0 --export=ALL,OMP_NUM_THREADS=4  hybrid_check -l app_A : \
          --het-group=1 --cpus-per-task=$SLURM_CPUS_PER_TASK_HET_GROUP_1 --export=ALL,OMP_NUM_THREADS=32 hybrid_check -l app_B
@@ -2584,7 +2590,7 @@ bugs are being introduced.
     #SBATCH --partition=standard
     #SBATCH --nodes=3
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     srun --ntasks=32 --cpus-per-task=4  --export=ALL,OMP_NUM_THREADS=4  hybrid_check -l app_A : \
          --ntasks=8  --cpus-per-task=32 --export=ALL,OMP_NUM_THREADS=32 hybrid_check -l app_B
@@ -2613,7 +2619,7 @@ bugs are being introduced.
     We now get a single job ID but the job step for each of the `srun` commands is split 
     in two separate job steps, a `+0` and a `+1`. 
 
-!!! Warning "Erratic behaviour of `--nnodes=<X> --ntasks-per-node=<Y>` "
+!!! Warning "Erratic behaviour of `--nodes=<X> --ntasks-per-node=<Y>` "
     One can wonder if in the second case we could still specify resources on a per-node
     basis in the `srun` command:
 
@@ -2625,7 +2631,7 @@ bugs are being introduced.
     #SBATCH --partition=standard
     #SBATCH --nodes=3
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     srun --nodes=1 --ntasks-per-node=32 --cpus-per-task=4  hybrid_check -l hybrid_check -l app_A : \
          --nodes=2 --ntasks-per-node=4  --cpus-per-task=32 hybrid_check -l hybrid_check -l app_B
@@ -2694,7 +2700,7 @@ multiple jobs, one for each job step that you would run simultaneously.
     #SBATCH --time=2:00
     #SBATCH --output %x-%j.txt
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
     echo "Submitted from $SLURM_SUBMIT_HOST"
     echo "Running on $SLURM_JOB_NODELIST"
