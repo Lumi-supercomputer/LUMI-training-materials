@@ -7,7 +7,7 @@
 
 ## Links from the presentation
 
--   E-mail contact: ClayLabs@hpe.com
+-   E-mail contact: CrayLabs@hpe.com
 
 -   [SmartSim documentation](https://www.craylabs.org)
 
