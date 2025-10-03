@@ -16,7 +16,9 @@ In this section we discuss
 -   LUMI is a **very leading edge** and also an **inhomogeneous machine**. Leading edge often implies
     **teething problems** and inhomogeneous doesn't make life easier either.
 
-    1.  It uses a **novel interconnect** which is an extension of Ethernet rather than being based on InfiniBand, 
+    1.  It uses a **novel interconnect** which is an extension of Ethernet 
+        (and a precursor of the upcoming Ultra Ethernet standard)
+        rather than being based on InfiniBand, 
         and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. 
     2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with a not fully mature software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
@@ -150,23 +152,24 @@ community**.
 
 !!! Note "Some restrictions coming from software licenses"
 
-    -   Anaconda is currently in a very grey area on LUMI. Point 2.1 of the 
-        ["Anaconda Terms of Service"](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service) as published on March 31 2024
-        suggest that hardly anybody on
-        LUMI can use Anaconda legally without paying for one of the commercial
-        offerings. However, in September 2024 an
-        [Update on Anaconda Terms of Service](https://www.anaconda.com/blog/update-on-anacondas-terms-of-service-for-academia-and-research)
-        was posted that may exempt users from universities on LUMI. What is 
-        unclear though, is if ownership of the computer matters, or the legal employer
-        of the user. And in any case, even the clarification of September 2024
-        does not allow CSC, the operator of LUMI, to assist users to install Anaconda. 
-        Just to remain
-        on the safe side, even Miniconda, that can still be used even by companies
-        as long as they don't download from the Anaconda repositories, will
-        be removed from tools offered by CSC and replaced by miniforge.
+    -   Anaconda use is currently in a very grey area on LUMI, also after the
+        publication of the new 
+        [Anaconda Terms of Service](https://www.anaconda.com/legal/terms/terms-of-service)
+        effective from July 15 2025. Users may assume to quickly that they
+        fall in one of the categories of free use if they are in academia, 
+        but one should also check the 
+        [Academic Policy](https://www.anaconda.com/legal/terms/academic).
+        Read section 4 carefully and you see that the right to use is not automatic,
+        but you or the institute you work for must explicitly sign documents.
 
-        Downloading from [conda-forge](https://conda-forge.org/) is perfectly OK
-        though.
+        Moreover, as the operator of LUMI, CSC, is not such an institution, they cannot
+        assist users to install Anaconda. Just to remain
+        on the safe side, even Miniconda, that can still be used even by companies
+        as long as they don't download from the Anaconda repositories, has
+        been removed from tools offered by CSC and replaced by miniforge.
+
+        Downloading packages from [conda-forge](https://conda-forge.org/) 
+        is perfectly OK though.
 
     -   The LUMI support team cannot really help much with VASP as most people in the support 
         team are not covered by a valid VASP license. VASP licenses typically even contain a list
@@ -307,16 +310,15 @@ Currently there are two such stacks on LUMI:
     Helmi is not a EuroHPC-JU computer so being eligible for an account on LUMI does 
     not mean that you are also eligible for an account on Helmi.
 
-In the far future the LUST will also look at **a stack based on the common EasyBuild toolchains as-is**, 
-but problems are expected with MPI
-that will make this difficult to implement, and the common toolchains also do not yet support
-the AMD GPU ecosystem, so no promises whatsoever are made about a time frame for this development.
-EuroHPC would also like the [EESSI stack](https://www.eessi.io/) but that too will take time. Their 
-distribution mechanism is a very bad fit with Cray systems as is their choice for Open MPI
-(and their desire to stay with the bleeding edge of Open MPI which requires features from the
-resource manager that are also not yet fully available on LUMI for security reasons). Apart 
-from the fact that any support for ROCm is absent at the moment in EasyBuild, the basis for
-EESSI.
+EuroHPC would like to see the [EESSI stack](https://www.eessi.io/) stack on all their
+supercomputers as part of the EuroHPC Federation Platform early next year already.
+As currently AMD support is still missing, any initial offering will likely only be 
+for the CPU nodes. Moreover, there are several technical issues, including a choice of
+MPI implementation that is troublesome on LUMI and a preferred distribution mechanism
+that is not compatible with the setup of a Cray system and the currently available hardware.
+EESSI is built on one of the common toolchains of EasyBuild, so that would then be a way
+to offer that toolchain also, but with support coming from a separate help desk for 
+the Federation Platform.
 
 
 ### 3 ways to access the Cray Programming environment on LUMI.
@@ -862,7 +864,7 @@ but on the other hand, as long as the retention policy is not active, you could 
 use `/flash` for a software installation if you have enough storage billing units
 and get better startup performance for some packages, or even better runtime performance
 for those packages that keep opening files in the software installation.
-Furthermore, it helps **keep the output of `module avail` reasonably short** and **focused
+Furthermore, it helps **keeping the output of `module avail` reasonably short** and **focused
 on your projects**, and it **puts you in control of installing updates**. For instance, we may find out
 that something in a module does not work for some users and that it needs to be re-installed. 
 Do this in the central stack and either you have to chose a different name or risk breaking running
@@ -1026,5 +1028,6 @@ The site also contains a LUST-specific tutorial oriented towards Cray systems.
 
 There is also a later course developed by LUST for developers of EasyConfigs for LUMI
 that can be found on 
-[lumi-supercomputer.github.io/easybuild-tutorial](https://lumi-supercomputer.github.io/easybuild-tutorial/).
+[lumi-supercomputer.github.io/easybuild-tutorial](https://lumi-supercomputer.github.io/easybuild-tutorial/). LUMI is also considering organising an EasyBuild training
+for users sometime in 2026.
 
