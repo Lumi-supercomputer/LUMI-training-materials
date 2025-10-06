@@ -10,20 +10,20 @@ work of other users.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <!--
 <video src="https://462000265.lumidata.eu/2day-20251020/recordings/203-Lustre.mp4" controls="controls"></video>
 
-<!--
 -   A video recording will follow.
--->
 
-<!--
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-203-Lustre.pdf)
 
 -   [Course notes](203-Lustre.md) (based on a previous version of the talk.)
 
+<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-203-Lustre.pdf`

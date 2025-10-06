@@ -13,9 +13,9 @@ For these exercises, you'll need to take care of some settings:
 
 -   On June 3 we have a reservation that you can use (through `#SBATCH --reservation=...`):
   
-    -   For the `small` partition, the reservation name is `LUMI_Intro_1`
+    -   For the `small` partition, the reservation name is `LUMI_Intro_small`
 
-    -   For the `standard-g` partition, the reservation name is `LUMI_Intro_2`
+    -   For the `standard-g` partition, the reservation name is `LUMI_Intro_standard-g`
 
 An alternative (during the course only) for manually specifying 
 the account, the partition and the reservation, is to set
@@ -41,13 +41,13 @@ and then you can load either the module `exercises/intro-C` or `exercises/intro-
 
 Exercises will be made available during the course 
 
-<!--
+<!-- -->
 -   Start with the [exercises on "Slurm on LUMI"](E201-Slurm.md)
 
     You may want to postpone the advanced exercise a bit as that one takes a lot of time.
 
 -   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E202-Binding.md)
--->
+<!-- -->
 
 ## Q&A
 

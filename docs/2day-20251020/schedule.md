@@ -1,4 +1,4 @@
-# Tentative schedule
+# Schedule
 
 <ul>
     <li><a href="#Day1">Day 1 - Intro day: Exploring LUMI</a>
