@@ -10,17 +10,16 @@ available or because there are simply too many dependencies.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <!--
 <video src="https://462000265.lumidata.eu/2day-20251020/recordings/205-Containers.mp4" controls="controls"></video>
 -->
 
-<!--
 -   A video recording will follow.
--->
 
-<!--
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-205-Containers.pdf)
 
 -   [Course notes](205-Containers.md)
@@ -35,9 +34,10 @@ There are two demos illustrating material from this talk:
 -   [Demo2](Demo2.md) shows how the EasyBuild modules for containers can make life easier
     when working with the AI containers provided by LUST (with the help from AMD). 
 
-The videos of the demos are older ones, but the material in the notes was correct at the time of
-the course.
+The videos of the demos are older ones, but the material was last revised in June 2025 and is 
+hence fairly recent.
 
+<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-205-Containers.pdf`
