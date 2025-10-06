@@ -6,7 +6,7 @@
 
 ## Course organisation
 
--   Location: [room #ICO-219, Raja 4C, 12616 Tallinn, Estonia (TalTech IT College)](https://www.google.com/maps/place/IT+College,+Raja+tn+4c,+12616+Tallinn,+Estland/@59.3954164,24.6616463,17z/data=!4m6!3m5!1s0x469295a998b2ac99:0xef12431341f7f5cc!8m2!3d59.3954137!4d24.6642266!16s%2Fg%2F11q2nbk7p3?entry=ttu&g_ep=EgoyMDI1MDkyOS4wIKXMDSoASAFQAw%3D%3D)
+-   Location: [Room #SOC-423, Akadeemia tee 3, 12611 Tallinn, Estonia (TalTech School of Business and Governance)](https://www.google.com/maps/place/TalTech+School+of+Business+and+Governance/@59.3969697,24.6637115,17z/data=!4m6!3m5!1s0x469295aa094a8085:0x485c0c53f2beafc6!8m2!3d59.3966531!4d24.6700325!16s%2Fg%2F11clwfsnsy?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D)
 
     The TalTech Campus is easy to reach with public transportation from the city centre.
 
