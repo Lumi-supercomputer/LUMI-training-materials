@@ -1,4 +1,4 @@
-# Announcement: Intro to Supercomputing with LUMI - Hybrid course, October 20-21, 2025, on-site in Tallinn and online
+# Intro to Supercomputing with LUMI - Hybrid course, October 20-21, 2025, on-site in Tallinn and online
 
 !!! Note
     If you are looking for course materials, check the materials from the
@@ -12,29 +12,26 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course?both#General-Information)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-10.25#General-Information)
 
 -   Project for the course: `project_465002174`.
 
-    This project provides resources for the exercises. **The project should not be used for your own work!**
+    This project provides resources for the exercises. 
+    **The project should not be used for your own work!**
 
 -   There are two Slurm reservations for the course for the exercises on the second day:
 
-    -   CPU nodes: `LUMI_Intro_1` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_2` (on the `standard-g` Slurm partition)
--->
+    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
+    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
 
 -   [Some suggestions for the night](evening_suggestions.md)
 
-<!--
 ## Course materials
 
 Course materials include the Q&A of each session, slides when available and notes when available.
 These materials will become available as the course progresses.
 
-**Note:** Some links in the table below are dead and will remain so until after the end of the course.
--->
+**Note:** Some links in the table below may be dead and will remain so until after the end of the course.
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
 ::spantable::
@@ -78,7 +75,6 @@ These materials will become available as the course progresses.
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
-<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465002174` for the exercises.
@@ -94,7 +90,7 @@ missing only one element from the during-the-course
 version that can be made in your own project.
 For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
+if they are not made during the second course day (the reservation expires at 6pm CET/ 7pm EET that
 day).
 
 -   Create a directory in the scratch of your project, or if you want to
@@ -124,15 +120,15 @@ day).
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20251020/files/exercises-20250602.tar.bz2
-    tar -xf exercises-20250602.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20251020/files/exercises-20251020.tar.bz2
+    tar -xf exercises-20251020.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20251020/files/exercises-20250602.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20251020/files/exercises-20250602.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20251020/files/exercises-20251020.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20251020/files/exercises-20251020.tar.bz2).
 
 -   You're all set to go!
--->
+
 
 <!--
 ## Making the exercises after the course
@@ -176,7 +172,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 
 [The links to all documentation mentioned during the talks is on a separate page](A01-Documentation.md).
 
-This document will be updated after the summer '25 system update.
+<!-- This document will be updated after the summer '25 system update. -->
 
 
 ## Acknowledgement

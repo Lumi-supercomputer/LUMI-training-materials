@@ -9,23 +9,23 @@ talk to understand the particular configuration on LUMI.
 
 ## Materials
 
+<!--
 Materials will be made available after the lecture
+-->
 
 <!--
 <video src="https://462000265.lumidata.eu/2day-20251020/recordings/201-Slurm.mp4" controls="controls"></video>
 -->
 
-<!--
 -   A video recording will follow.
--->
 
-<!--
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-201-Slurm.pdf)
 
 -   [Course notes](201-Slurm.md)
 
 -   [Exercises](E201-Slurm.md)
 
+<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-201-Slurm.pdf`
