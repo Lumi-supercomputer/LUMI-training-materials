@@ -11,10 +11,12 @@
 
 Most LUMI users will be unfamiliar with object storage. 
 It is a popular storage technology in the cloud, with Amazon AWS S3 as the best known example.
+But it is also a technology designed from the ground up to make data available over long distances.
+So you can already see the role that it plays in LUMI.
 
 On LUMI, the LUMI-O object storage system is probably the best option to transfer data to and
 from LUMI. Tools for object storage access often reach a much higher bandwidth than
-a single sftp connection can reach.
+a single sftp connection can reach over long-distance high-latency connections.
 
 Object storage is also a good technology if you want a backup of some of your data and
 want to make that backup on LUMI itself. The object storage is completely separate from 
@@ -59,7 +61,7 @@ Allas, which is similar to the LUMI object storage system, though LUMI doesn't p
 the functionality of Allas.
 <!-- END more general version. -->
 
-Object file systems need specific tools to access data. They are usually not mounted as a regular
+Object file systems need specific tools to access data. They are not mounted as a regular
 filesystem (though some tools can make them appear as a regular file system) and accessing them
 needs authentication via temporary authentication keys that are different from your ssh keys and are not only
 bound to you, but also to the project for which you want to access LUMI-O. So if you want to use
@@ -70,7 +72,7 @@ that contain objects:
 
 -   **Projects**: LUMI-O works with "single user tenants/accounts", where the LUMI project number
     is both the tenant/account and LUMI-O project. So the individual users in a LUMI project
-    are not know on LUMI-O and all users in a LUMI project have the same access to LUMI-O.
+    are not known on LUMI-O and all users in a LUMI project have the same access to LUMI-O.
 
 -   **Buckets**: Containers used to store one or more objects. Object storage uses a flat structure with 
    only one level which means that buckets cannot contain other buckets.
@@ -107,7 +109,7 @@ LUMI-O is based on the [Ceph object file system](https://ceph.io/en/).
 It has a total capacity of 30 PB. 
 Storage is persistent for the duration of a project.
 Projects get a quota of 150 TB and can create up to 1K buckets and 500K objects per
-bucket. These quota are currently fixed and cannot be modified.
+bucket.
 Storage on LUMI-O is billed at 0.25 TB·hour per TB per hour, reduced from the
 rate of 0.5 TB·hour per TB per hour used before 2025 (which better reflected the
 true cost) to encourage a broader uptake.
@@ -199,19 +201,20 @@ big objects.
 
 ***Optimised for?***
 
-Lustre is optimised first and formost for bandwidth to the compute nodes when doing
+Lustre is optimised first and foremost for bandwidth to the compute nodes when doing
 large file I/O operations from multiple nodes to a file. This optimisation for performance
 also implies that simpler schemes for redundancy have to be used. Data is protected from
 a single disk failure and on most systems even from dual disk failure, but performance
 will be reduced during a disk repair action and even though the server functions are usually
 done in high availability pairs, we have seen more than one case where a server pair fails
-making part of the data inaccessible.
+making part of the data inaccessible. It is designed and optimised for local access only.
 
 The LUMI-O object storage is much more optimised for reliability and resilience. It uses a very
 complicated internal redundancy scheme. On LUMI-O each object is spread over 11 so-called
 storage nodes, spread over at least 6 racks, with never more than 2 storage nodes in a single
 rack. As only 8 storage nodes of an object are needed to recover the data of an object, one 
-can even lose an entire rack of hardware while keeping the object available.
+can even lose an entire rack of hardware while keeping the object available. It is also 
+designed and optimised for remote access.
 
 
 ***Access***
@@ -269,7 +272,7 @@ same high performance interconnect.
 
 ***Cost***
 
-The hardware required for Lustre may not be as expensive as for some other fileservers, but a hard disk
+The hardware required for Lustre may not be as expensive as for some other filesystems, but a hard disk
 based Lustre filesystem is still not cheap and if you want a performant flash based filesystem that can
 endure a high write load also and not only a high read load, it is very expensive. The LUMI-O hardware 
 is a lot cheaper, though this is also partly because it has a lower bandwidth.
@@ -320,14 +323,14 @@ We will discuss both options in this chapter of the notes.
 
 There are currently three command-line tools pre-installed on LUMI
 to transfer data back and forth between LUMI and LUMI-O: 
-[rclone](https://docs.lumi-supercomputer.eu/storage/lumio/#rclone)
+[rclone](https://docs.lumi-supercomputer.eu/storage/lumio/clients-general/#rclone)
 (which is the easiest tool if you want both public web-accessible and private data), 
-[s3cmd](https://docs.lumi-supercomputer.eu/storage/lumio/#s3cmd) 
-and [restic](https://docs.lumi-supercomputer.eu/storage/lumio/#restic).
+[s3cmd](https://docs.lumi-supercomputer.eu/storage/lumio/clients-general/#s3cmd) 
+and [restic](https://docs.lumi-supercomputer.eu/storage/lumio/clients-general/#restic).
 All these tools are made available through the `lumio` module that can
 be loaded in any software stack.
 
-The [`boto3` Python package](https://pypi.org/project/boto3/) 
+The [`boto3` Python package](https://docs.lumi-supercomputer.eu/storage/lumio/clients-general/#python-with-boto3-library) 
 is a good choice if you need programmatic access to
 the object storage. Note that you need to use fairly recent versions which in turn
 require a more recent Python than the system Python on LUMI (but any of the `cray-python`
@@ -336,7 +339,8 @@ many packages on LUMI, and as most users also prefer to work with virtual enviro
 it is not pre-installed on LUMI as it would be impossible to embed it into the Cray
 Python distributions.
 
-But you can also access LUMI-O with similar tools from outside LUMI. Configuring them
+But you can also access LUMI-O with similar tools from outside LUMI. Configuring 
+other tools than the command line tools we also offer on LUMI
 may be a bit tricky and the LUMI User Support Team cannot help you with each and every client
 tool on your personal machine. However, the dedicated credential management web interface
 can also generate code snippets or configuration file snippets for various tools, and
@@ -394,15 +398,11 @@ Let's walk through the interface:
 
     Click the project for which you want to generate access credentials (called "authentication keys"
     or "access keys" in the interface), and the column to the right will appear.
-    Chose how long the authentication key should be valid (1 week or 168 hours is the maximum currently, but the
-    life can be extended) and a description for the authentication key. The latter is useful if you generate multiple
+    Chose how long the authentication key should be valid (1 year is the maximum currently, 
+    and any choice can be extended, though keys will be revoked at the end of the 
+    grace period of your project) and a description for the authentication key. The latter is useful if you generate multiple
     keys for different use. E.g., for security reasons you may want to use different authentication keys from different
     machines so that one machine can be disabled quickly if the machine would be compromised or stolen.
-
-    !!! Note "Key validity"
-        At the time of writing, the maximum lifetime for a key was 168 hours which
-        is one week. This will be extended in the future so that key renewal will
-        not be needed anymore. Keys will last for the lifetime of the project.
 
     Next click on the "Generate key" button, and a new key will appear in the "Available keys" section:
 
@@ -442,11 +442,9 @@ Let's walk through the interface:
       ![Slide Credentials management web interface: Extending the life span of a key](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsWebExtend.png){ loading=lazy }
     </figure>
 
-    The "Extend key" field can be used to extend the life of the key, to a maximum of 168 hours past the current time.
-    You can extend the life of an access key as often as you can, but it is not possible to create an access key that 
-    remains valid for more than 168 hours. This is done for security reasons as now a compromised key can only be
-    used for a limited amount of time, even if you haven't noticed that the access key has been compromised and hence
-    fail to revoke the access key in the interface.
+    The "Extend key" field can be used to extend the life of the key, to a maximum of 1 year past the current time.
+    Note though that the key will be revoked automatically at the end of the grace period of
+    your project, so this is not a way to keep data on LUMI even a bit longer.
 
     The credential management interface can also be used to generate snippets for configuration files for
     various tools:
@@ -535,10 +533,10 @@ Let us now again walk through the interface.
 
     Finally, click the "Submit" button. If no suitable key exists, one will be created, and the 
     requested endpoint and configuration file(s) will be created or updated. When a key is created,
-    it is created with the maximum life span of 7 days (168 hours), but if a suitable one exists, it is
-    currently not extended. (It appears that only a key with the description
-    "lumi web interface" is properly recognised as the other key already existed but had its
-    life span extended.)
+    it is created with a life span of 7 days (168 hours), but if a suitable one exists, it is
+    currently not extended. The tool also only recognises a key with the description
+    "lumi web interface". And it still generated keys with the former maximum lifespan of 7 days,
+    rather than one with the current maximum life span of 1 year.
 
     We now notice some changes at the top of that screen:
 
@@ -547,7 +545,7 @@ Let us now again walk through the interface.
     </figure>
 
     We've created both a private and a public `rclone` endpoint with the name
-    `lumi-465000095-private` and `lumi-465000095-public` respectively. These endpoints can also be used
+    `lumi-46500275-private` and `lumi-46500275-public` respectively. These endpoints can also be used
     with the command line `rclone` tool provided by the `lumio` module.
 
     The "Delete" button can used to delete the endpoint only, but the authentication key will not be revoked, i.e., the
@@ -563,7 +561,7 @@ Let us now again walk through the interface.
     A key with the description "lumi web interface" is now visible, and this interface can still be used to 
     extend its life span or create configuration file snippets for other tools. It is just another key.
 
-    (The screenshot is a bit misleading here. The other key "Laptop" actually existed but was not picked up by
+    (The screenshot is a bit misleading here. The other key "Course demo" actually existed but was not picked up by
     Open OnDemand, it is just that its life span was extended before making this screenshot which was probably a
     bad choice.)
 
@@ -575,6 +573,8 @@ Let us now again walk through the interface.
     </figure>
 
     We went back to the start screen of Open OnDemand and now open the "Home Directory" app.
+
+    **Note: The screenshots are inconsistent as now we proceed with the 465000095 project.**
 
     <figure markdown style="border: 1px solid #000">
       ![Slide Browsing through Open OnDemand (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-204-ObjectStorage/LUMIOCredentialsOODBrowse_02.png){ loading=lazy }
@@ -648,7 +648,7 @@ file can contain information for only one project, the following solution was ch
 
 -   The tool creates the configuration file `~/.s3cfg-lumi-46YXXXXXX` specific for the project,
 
--    and overwrites the `˜/.s3cfg` configuration file with the new configuration.
+-    and overwrites the `~/.s3cfg` configuration file with the new configuration.
     
 So if you want to use `s3cmd` for only one project, or for the last project for which you used
 `lumio-conf`, you can simply use it as in all the `s3cmd` examples, while if you want to use it
@@ -722,7 +722,7 @@ policies that restrict access to some objects. It is a very powerful mechanism,
 but also one that is rather hard to use. In Ceph, the object storage system on LUMI,
 policies are a relatively new addition. Ceph policies are a subset of the policies
 on Amazon AWS S3 storage. There is some information on policies in the
-["Advanced usage of LUMI-O" section of the LUMI docs](https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#granular-access-management)
+["Sharing access to data" page, "Granular access management" section of the LUMI docs](https://docs.lumi-supercomputer.eu/storage/lumio/advanced/#granular-access-management)
 and the [section on "Bucket Policies" in the Ceph Reef documentation](https://docs.ceph.com/en/reef/radosgw/bucketpolicy/)
 is also relevant.
 
@@ -764,13 +764,19 @@ ACLs on LUMI. It is available via the `lumio` module.
 2.  You can grant or revoke read rights to a bucket with
 
     ```
-    s3cmd setacl --acl-grant=’read:465000000$465000000’ s3://bucket
-    s3cmd setacl --acl-revoke=’read:465000000$465000000’ s3://bucket
+    s3cmd -c ~/.s3cfg-lumi-46YXXXXXX \
+        setacl --acl-grant=’read:46BAAAAAA$46BAAAAAA’ s3://bucket
+    s3cmd -c ~/.s3cfg-lumi-46YXXXXXX \
+        setacl --acl-revoke=’read:46BAAAAAA$46BAAAAAA’ s3://bucket
     ```
 
-    Note the use of single quotes as we want to avoid that the Linux shell interpretes
-    `$465000000` as a (non-existent) environment variable. And of course, replace "465000000"
-    with your project number.
+    In the first command (split across two lines for readability with the `\`),
+    project 46YXXXXXX gives read rights to one of its buckets to project 46BAAAAAA,
+    and in the second command (again split across two lines), these rights are
+    revoked.
+
+    Note the use of single quotes as we want to avoid that the Linux shell interprets
+    `$46BAAAAAA` as a (non-existent) environment variable.
 
     One can also grant or revoke read rights to an object in a similar way.
 
@@ -916,17 +922,28 @@ Each solution has its own limitations though:
 
     -   As `s3cmd` knows only one set of authentication tokens, it is not needed to indicate which
         credentials should be used if the `~/.s3cfg` file is correct. E.g., listing all objects in 
-        the bucket "bucket" of project "46XXXXXXX" can be done with:
+        the bucket "bucket" of project "46YXXXXXX" can be done with:
 
         ```
-        s3cmd ls --recursive s3://46XXXXXXX:bucket/
+        s3cmd ls --recursive s3://46YXXXXXX:bucket/
         ```
 
         so you need to specify - as one could expect as the bucket namespace is per project - the bucket 
         and the project that contains the bucket.
 
+        If, however, the `~/.s3cfg` is not for the correct project if you have multiple projects,
+        and you have created the `s3cmd` configuration files with the `lumio-conf` tool, then
+        you can use
+
+        ```
+        s3cmd -c ~/.s3cfg-lumi-46BAAAAAA ls --recursive s3://46YXXXXXX:bucket/
+        ```
+        
+        (assuming that you are a member of `project_46BAAAAAA` and want to use the access
+        that `project_46YXXXXXX` has given to you in the previous section).
+
     -   The `rclone` configuration file can contain multiple endpoints for multiple projects, so here
-        we will also need to specify the endpoint from which the credentials should be used. Assume
+        we will always need to specify the endpoint from which the credentials should be used. Assume
         that a user in project 46BAAAAAA has been given read rights to the bucket "bucket" in project
         "46YXXXXXX" and has an endpoint `lumi-46BAAAAAA-private` configured, then that user can list
         the objects in that bucket with:
@@ -990,7 +1007,7 @@ just as for the Lustre filesystems, you need to move out the data in time.
 
 ## Further LUMI-O documentation
 
--   [Documentation for the LUMI-O object storage service](https://docs.lumi-supercomputer.eu/storage/)
+-   [Documentation for the LUMI-O object storage service](https://docs.lumi-supercomputer.eu/storage/lumio/)
 -   Software for LUMI-O on LUMI is provided through the
     [`lumio` module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumio/) which
     provides the configuration tool on top of the software and the
