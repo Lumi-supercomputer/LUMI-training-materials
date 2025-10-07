@@ -173,8 +173,8 @@ materials are uploaded.
 
 | Presentation | Slides | recording |
 |:-------------|:-------|:----------|
-<!--
 | [Welcome and course introduction](extra_00_Course_Introduction.md) | / | [video](extra_00_Course_Introduction.md) |
+<!--
 | [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
 | [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
 | [Hands-on: Run a simple PyTorch example notebook](E02_Webinterface.md) | / | [video](E02_Webinterface.md) |
