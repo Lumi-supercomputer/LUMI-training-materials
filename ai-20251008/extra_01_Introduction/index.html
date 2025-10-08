@@ -4493,7 +4493,34 @@ More materials will become available during and shortly after the course
 <li><a href="https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-01-Lumi_intro.pdf">Presentation slides</a></li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>There was a question about the use of CuPy for AMD GPUs</p>
+<ul>
+<li>
+<p><a href="https://rocm.blogs.amd.com/artificial-intelligence/cupy_hipdf_portfolio_opt/README.html">Here's a blog discussing using python libraries like cuPy on AMD GPUs.</a></p>
+<p>Examples sometimes come in containers, one has to be careful the ROCm versions are compatible with the LUMI drivers. At the moment the most recent ROCm version one can aim at is 6.2.4.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Question about AppTainer from the audience in the room:</p>
+<ul>
+<li>We use Singularity Community Edition for a reason. LUMI does not allow user name spaces or anything that requires higher privileges to run, so there are severe restrictions on building containers. Singularity Community Edition supports the so-called proot build process since version 3.11 which can be used to extend an existing container and works very well for us. AppTainer does not support this.</li>
+</ul>
+</li>
+<li>
+<p>AI workshop runs several times in a year. Which one should I follow? The latest one? What are the differences?</p>
+<ul>
+<li>
+<p>It is basically every time the same, with small updates as LUMI evolves. </p>
+</li>
+<li>
+<p>What will happen next year is still unclear because there is also the LUMI AI factory and the EuroHPC Minverva project who will also organise AI training activities.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
