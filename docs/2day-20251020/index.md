@@ -25,6 +25,7 @@
     -   GPU nodes: `LUMI_Intro_2` (on the `standard-g` Slurm partition)
 -->
 
+-   [Some suggestions for the night](evening_suggestions.md)
 
 <!--
 ## Course materials
