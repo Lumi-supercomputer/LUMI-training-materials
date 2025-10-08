@@ -4478,22 +4478,25 @@
 <li>Using LUMI via the command line</li>
 <li>Submitting and running AI training jobs using the batch system</li>
 </ul>
-<!--
-A video recording will follow.
--->
-
+<p>A video recording will follow.</p>
 <!--
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/03_FirstJob.mp4" controls="controls"></video>
 -->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
-<p>More materials will become available during and shortly after the course</p>
 <!--
+More materials will become available during and shortly after the course
+-->
 
--   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-03-First_AI_job.pdf)
-
--   [Hands-on exercises](E03_FirstJob.md)
-
+<ul>
+<li>
+<p><a href="https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-03-First_AI_job.pdf">Presentation slides</a></p>
+</li>
+<li>
+<p><a href="../E03_FirstJob/">Hands-on exercises</a></p>
+</li>
+</ul>
+<!--
 -   [More extensive training materials on Slurm from the recent introductory "Supercomputing with LUMI" course from March 2025](../2p3day-20250303/index.md)
 
     -   A more detailed introduction to Slurm but without AI-specific examples is given in the 
@@ -4508,61 +4511,7 @@ A video recording will follow.
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Is there way to analyze memory usage afterwards, instead of using rocm-smi?</p>
-<ul>
-<li>
-<p>CPU memory:</p>
-<ul>
-<li>
-<p>While running, there is the <code>top</code> command. <code>htop</code> is also available in the <code>systools</code> module. This would show CPU memory usage. It requires of course opening another shell on the node, see also the LUMI documentation. </p>
-</li>
-<li>
-<p>After the job, information on CPU-attached RAM use can also be found via the <code>sacct</code> command. It is discussed in more detail in the Slurm session in our regular intro course (where we have 90 minutes just to explain how jobs work): https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/201-Slurm/#the-sacct-command. This will only report RAM, the GPU RAM usage is not reported in SLURM.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>GPU memory</p>
-<ul>
-<li>
-<p>PyTorch also reports on GPU memory use, so you may find this in your job output</p>
-</li>
-<li>
-<p>We have an easybuild recipe to install <code>nvtop</code>, but it hasn't been updated or tested for a while. And it is for during the job.</p>
-</li>
-<li>
-<p>But there is no way to analyse GPU memory usage afterwards unless you collected that data yourself during the run and stored it somewhere. Slurm will not give that information.</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>On NVIDIA GPU, one can use NVTX or scalene-gui to profile GPU, which could be very helpful to address OOM issue. What is the best similar way to do it on AMD GPU?</p>
-<ul>
-<li>
-<p>We have an <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/">extensive 4-day or 5-day training</a> 
-    covering profiling and debugging tools for AMD GPUs as an important part of the course:. It even includes a demo of over one hour where those tools are used to analyse performance of PyTorch. Part of the materials are available online, another part just on LUMI. Not sure if Samuel will mention those tools in his talks in this course.</p>
-<p>There is also more information in the presentation <a href="../extra_04_CheckingGPU/">"Understanding GPU activity &amp; checking jobs"</a>
-of this course.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Seems like the there's no difference between /GPT-neo-IMDB-finetuning.py and /reference-solution/GPT-neo-IMDB-finetuning.py. I'm not sure how to add the continuation from checkpoint.</p>
-<ul>
-<li>The differences are not in the python file but in the slurm job script <code>run.sh</code></li>
-</ul>
-</li>
-<li>
-<p>Will you please repeat how often you should have checkpointing? and is it set up in the finetuning.py document?</p>
-<ul>
-<li>Every couple of hours, depending how long you run. Do more checkpointings if unstable.</li>
-</ul>
-</li>
-</ol>
+<p>/</p>
 
 
 
