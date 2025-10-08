@@ -4511,7 +4511,78 @@ More materials will become available during and shortly after the course
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Question from the audience about dynamic job size</p>
+<ul>
+<li>
+<p>No, this cannot be done. And it is normal also, as there is no guarantee that the resources 
+    would be immediately available, so your job would be stuck while still keeping the nodes 
+    that it already has, which is very expensive.</p>
+<p>You can write dependent jobs, where you specify that one job should only start when another 
+job has finished. So you could have a second job with more resources that can get scheduled 
+as soon as the first job with fewer resources ends. 
+See <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#OPT_dependency">this part of the sbatch manual</a></p>
+</li>
+<li>
+<p>Running an inference service on a HPC system with inelastic job scheduling is not an ideal fit, 
+    but increasingly asked for and there are "overlay" solutions that try to provide a bridge 
+    at the cost of some efficiency.</p>
+</li>
+<li>
+<p>An HPC system has advantages over cloud infrastructure (it can be cheaper), but then it also 
+    comes with restrictions that a cloud infrastructure does not have...</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What does the flag <code>--overlap</code> do in <code>srun</code>?</p>
+<ul>
+<li>It allows multiple job steps in Slurm to overlap resources such as CPU cores and GPUs. </li>
+<li>But this is a very brief introduction to Slurm. In the regular intro courses, we have </li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20250602/M201-Slurm/">a 2 hour lecture</a> </li>
+<li>and even that is not enough to explain all that in detail...</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Info</em></strong> <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20240131-user-coffee-break-HyperQueue/">Link to the HyperQueue presentation mentioned after a question in the room</a></p>
+</li>
+<li>
+<p>I'm attempting to view the training stats on TensorBoard using the path to runs but it displays empty loss curves. 
+    Is this expected at this stage of the tutorial? EDIT: (<strong>It started showing some data</strong>)</p>
+<ul>
+<li>
+<p>Tensorboard is not the fastest.</p>
+</li>
+<li>
+<p>Also: it should write the tensorboard logs to scratch, not projappl (unless you change that).</p>
+</li>
+<li>
+<p>When you launch tensorboard you need to add the path <code>/scratch/project_465002178/USERNAME/runs/</code> 
+    to the TensorBoard log directory (replace <code>USERNAME</code> with your actual username)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Got this error: 
+    <div class="highlight"><pre><span></span><code>+ srun singularity exec /appl/local/containers/sif-images/lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.6.0.sif /users/sharmavi/test.py --output-path /scratch/project_465002178/sharmavi/data/ --logging-path /scratch/project_465002178/sharmavi/runs/
+**FATAL:   permission denied **
+</code></pre></div></p>
+<ul>
+<li>
+<p>This will try to run the script <code>test.py</code>. So </p>
+<ol>
+<li>This has to be an executable script, and</li>
+<li>It has to start with the correct shebang line to tell Linux to use Python
+     (and which Python), i.e., that line that starts with <code>#!</code>.</li>
+</ol>
+</li>
+<li>
+<p>Or you just forgot the <code>python</code> after the sif-file.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
