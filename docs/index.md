@@ -10,8 +10,6 @@ Upcoming or currently running events with materials already partly available:
 -   No upcoming training with early materials at the moment.
 -->
 
--   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025, Stockholm)](ai-20251008/index.md)
-
 -   [Intro to Supercomputing with LUMI (October 20-21, 2025). Hybrid course at TalTech, Tallinn, Estonia](2day-20251020/index.md)
 
 -   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
@@ -32,7 +30,7 @@ Most recently completed main training events:
     [lumi-supercomputer.github.io/advanced-latest](https://lumi-supercomputer.github.io/advanced-latest)*
 
 -   Comprehensive training specifically for AI users:
-    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md)
+    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025)](ai-20251008/index.md)
 
     *Short URL to the most recently completed training for AI users:
     [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
