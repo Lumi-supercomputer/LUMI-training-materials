@@ -4599,6 +4599,14 @@ the power limiter for the whole node may limit the power consumption.</p>
 </li>
 </ol>
 </li>
+<li>
+<p>Is it possible to provide a dynamic name for <code>#SBATCH --output</code> and <code>--error</code> 
+    files based on variables in the script?</p>
+<ul>
+<li>No, but you can use patterns in those filenames to insert things like jobid, jobname for example. 
+    See <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E">the 'filename pattern' section of the sbatch manpage</a>.</li>
+</ul>
+</li>
 </ol>
 
 
