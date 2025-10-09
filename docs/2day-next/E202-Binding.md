@@ -16,7 +16,7 @@
 	#SBATCH --account=<project_id>      # Project for billing
 
 	module load LUMI/24.03
-	module load lumi-CPEtools/1.2-cpeGNU-24.03
+	module load lumi-CPEtools/1.2a-cpeGNU-24.03
 
 	srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 	``` 
@@ -62,7 +62,7 @@
 		#SBATCH --account=<project_id>      # Project for billing
 
 		module load LUMI/24.03
-		module load lumi-CPEtools/1.2-cpeGNU-24.03
+		module load lumi-CPEtools/1.2a-cpeGNU-24.03
 
 		export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 
@@ -117,7 +117,7 @@
 		#SBATCH --hint=nomultithread
 		
 		module load LUMI/24.03 partition/G
-		module load lumi-CPEtools/1.2-cpeGNU-24.03
+		module load lumi-CPEtools/1.2a-cpeGNU-24.03
 
 		cat << EOF > select_gpu_$SLURM_JOB_ID
 		#!/bin/bash

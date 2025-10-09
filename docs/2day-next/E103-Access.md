@@ -42,8 +42,9 @@ to set up for the exercises.
             it is sufficient to type `lumi.csc.fi` in the address bar while others
             require `www.lumi.csc.fi`.
         -   Click the "Go to login" button. What you need to do here, depends on how
-            you got your account. For the course you will have to proceed with the 
-            "MyAccessID" option "Login Puhuri" in most cases.
+            you got your account. Most users in the course will have to use the "Login Puhuri"
+            choice, but if you got your userid via a 462 project, it will be "Login Haka" or in rare
+            cases "Login CSC".
         -   Once you're in the web interface, click on "Login node shell" (likely the third
             choice on the first line). It will open a new tab in the browser with a login shell
             on LUMI. Note that Open OnDemand uses a different set of login nodes.
