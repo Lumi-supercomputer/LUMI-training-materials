@@ -13,9 +13,7 @@ Content:
 A video recording will follow.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/04_CheckingGPU.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials
@@ -64,7 +62,7 @@ More materials will become available during and shortly after the course
         rather than `/scratch`. (`/workdir` I think is a path inside the container which is read-only, 
         and thus cannot be written to)
     
-    That was what the [official instructions](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/04_Understanding_GPU_activity_and_checking_jobs#2-spin-training-work) said. 
+    That was what the [official instructions](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20251009/04_Understanding_GPU_activity_and_checking_jobs#2-spin-training-work) said. 
     Now I changed it to `HF_HOME=/flash/project_465002178/hf-cache` and it seems to go ahead. Thanks.
     
     -   Actually I was mistaken, `/workdir` should work as well, but you need to bind it to some appropriate 

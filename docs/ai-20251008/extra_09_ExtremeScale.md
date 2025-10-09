@@ -8,11 +8,11 @@ Content:
 -   Scaling beyond a single node 
 
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/09_ExtremeScale.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20251008/recordings/09_ExtremeScale.mp4" controls="controls"></video>
 
 
 ## Extra materials
@@ -24,7 +24,6 @@ More materials will become available during and shortly after the course
 -   [Demo and hands-on exercises](E09_ExtremeScale.md)
 
 
-<!--
 ## Remark: Why is binding not easier in Slurm?
 
 There are some reasons why the situation with the binding is not better:
@@ -46,7 +45,6 @@ There are some reasons why the situation with the binding is not better:
 
 -   Preset are not easy. What may be ideal for some AI workflows may not work for others, or may not work for all
     the other users on LUMI that do simulation or other types of data processing and analysis.
--->
 
 
 ## Q&A

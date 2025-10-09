@@ -127,31 +127,29 @@ You can find all exercises on our [AI workshop GitHub page](https://github.com/L
 
 ### After the termination of the course project
 
-More information will follow after the course.
-
 <!--
+More information will follow after the course.
+-->
+
 Setting up for the exercises is a bit more elaborate now.
 
 The exercises as they were during the course are 
-[available as the tag `ai-20251008` in the GitHub repository](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20251008). Whereas the repository could simply 
+[available as the tag `ai-20251009` in the GitHub repository](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20251009). Whereas the repository could simply 
 be cloned during the course, now you have to either:
 
 -   Download the content of the repository as 
     a [tar file](https://462000265.lumidata.eu/ai-20251008/files/ai-20251008-Getting_Started_with_AI_workshop.tar)
     or [bzip2-compressed tar file](https://462000265.lumidata.eu/ai-20251008/files/ai-20251008-Getting_Started_with_AI_workshop.tar.bz2)
-    or [from the GitHub release](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/releases/tag/ai-20251008)
+    or [from the GitHub release](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/releases/tag/ai-20251009)
     where you have a choice of formats,
 
--   or clone the repository and then check out the tag `ai-20251008`:
+-   or clone the repository and then check out the tag `ai-20251009`:
 
     ```
     git clone https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop.git
     cd Getting_Started_with_AI_workshop
-    git checkout ai-20251008
+    git checkout ai-20251009
     ```
-
--   Or you can download them as a [.tar.gz file](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-Exercises.tar.gz) 
-    or [ZIP-file](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-Exercises.zip).
 
 Note also that any reference to a reservation in Slurm has to be removed.
 
@@ -160,7 +158,6 @@ so it is expected that some exercises may fail over time, and modules that need 
 change as at every update we have to drop some versions of the `LUMI` module as the programming environment
 is no longer functional. Likewise it is expected that at some point the ROCm driver on the system may
 become incompatible with the ROCm versions used in the containers for the course.
--->
 
 ## Course materials
 
@@ -190,14 +187,12 @@ materials are uploaded.
 | [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
 | [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
 | [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
-<!--
 | [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
 | [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
 | [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | [video](E12_Project_and_QA.md) |
--->
-
 <!--
 -->
+
 
 ## Web links
 

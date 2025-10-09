@@ -11,9 +11,7 @@ Content:
 A video recording will follow.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/03_FirstJob.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials
