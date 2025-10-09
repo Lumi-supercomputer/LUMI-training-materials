@@ -100,7 +100,9 @@ to set up for the exercises.
 
             to look for Bison, you may not have found the version in `buildtools` which is the main 
             version of Bison on LUMI in the main supported software stack (see the next presentation),
-            but only versions that are currently on the system and installed through Spack.
+            but only versions that are currently on the system and installed through Spack,
+            at least if you recently had one of the spack modules loaded. We try to prevent
+            polluting results with "secondary" software stacks, but this does not always work.
 
 3.  The `htop` command is a nice alternative for the `top` command with a more powerful user interface.
     However, typing `htop` on the command line produces an error message. Can you find and run `htop`?

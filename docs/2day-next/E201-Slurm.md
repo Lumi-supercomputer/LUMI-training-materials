@@ -39,7 +39,7 @@
 	#SBATCH --account=<project_id>      # Project for billing
 
 	module load LUMI/24.03
-	module load lumi-CPEtools/1.2-cpeGNU-24.03
+	module load lumi-CPEtools/1.2a-cpeGNU-24.03
 
 	srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 	``` 
