@@ -4509,7 +4509,200 @@ More materials will become available during and shortly after the course
     are relevant for this presentation also.</li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>So far we have focused on working with containers. Is there any situation when it is enough to 
+    work only inside a venv or conda environment?</p>
+<ul>
+<li>
+<p>Not really as soon as you have a Python environment with thousands of files. 
+    Python is a real file system killer on HPC clusters. The only way you could do it, 
+    is by installing your Python environment in <code>/tmp</code>, then put it in a tar file or 
+    some other archive, and whenever you run a job, untar that archive again in <code>/tmp</code> of all compute nodes.</p>
+<p>But then you are, e.g., also limited to the ROCm version installed on the system 
+while with containers, you can use a slightly newer one (+2 or so with the current 
+driver, so up to 6.2, and likely +3 or +4 with the next driver). 
+Given how quickly the evolution of AI packages goes and their preference for the newest ROCm, 
+you really want the most recently supported except right after a system update.</p>
+</li>
+</ul>
+<p>Is this answer true also for other clusters with NVIDIA GPUs like COSMO, Leonardo, etc?</p>
+<ul>
+<li>
+<p>Yes. The file system issue is present in most affordable parallel filesystems: Lustre, BeeGFS and 
+    GPFS/Spectrum Scale are the ones I have used. Some vendors claim to have a solution, 
+    but it comes at a very high cost. So it is true for Leonardo also. I don't know the COSMO cluster. 
+    But I once had to install some Python packages on the predecessor of the current MareNostrum cluster 
+    at BSC. What took 15s on my laptop, took 30 minutes on Leonardo. 
+    So if all these files would be read by Python, it would be equally bad.</p>
+<p>This has nothing to see with the brand of GPUs. It is only that because of the size of LUMI, 
+it shows more than on smaller clusters, as the file system metadata access does not scale nicely 
+with the size of the cluster, and that we pay more attention to this issue in our courses than 
+some other sites, also because CSC has seen issues on various clusters they manage. 
+The one advantage that you may have on NVIDIA is that, as it has evolved a bit further already, 
+there is less pressure to use the very latest version of CUDA for your AI packages.</p>
+<p>I remember some people from HPE telling that they ran a particular Python test - I don't remember 
+if it was on LUMI or a very similar cluster - and in the container it ran twice as fast as outside 
+the container, basically because Python was busy loading and reloading Python packages from the 
+file system all the time.</p>
+</li>
+</ul>
+<p>So, even at the beginning of a project when I just want to test an idea, it is best practice to start from a container? </p>
+<ul>
+<li>If you don't run that at scale, i.e., test your idea on a lot of nodes or with multiple simultaneous jobs, 
+    you can just try from the filesystem. Probably use <code>/flash</code> for that though. That will already 
+    help a little. Note also that with our EasyBuild modules around our PyTorch containers, it is very 
+    easy to pack your virtual environment in a SquashFS file. Just a single command and reloading the 
+    module. Which still gives you all the advantages of our PyTorch installations as there went a lot
+    of effort in getting RCCL work as well as possible.</li>
+</ul>
+<p>Thanks! I didn't know that. I never went really deep into Lustre's recommendations in the 
+documentation of any of the clusters I have used. I will pay more attention. I think it is 
+something most workshops or webinars don't stress enough (and we users don't ask).</p>
+</li>
+<li>
+<p>Given this <a href="https://github.com/DAMO-NLP-SG/VideoLLaMA2/blob/main/requirements.txt">requirements.txt</a> 
+    example, I usually run <code>module load pytorch/2.2</code> and then comment out the PyTorch entries, 
+    but now that I’ve learned about container tools (e.g., Singularity, <code>cotainr</code>), what’s the best way 
+    to manage dependencies like PyTorch and other packages without manually editing the requirements file each time?</p>
+<ul>
+<li>There's no unambiguous "best way", it depends on how complicated the other packages are. 
+    If most packages you need are in the container (or pytorch module), then it's probably best 
+    to use that as a starting point like you have been doing. However, if the extra requirements a
+    re more complicated it might make sense to create your own container, e.g., with <code>cotainr</code>. 
+    Unfortunately Python package management is complicated and messy :-)</li>
+</ul>
+<p>I meant if at least they have the environment working with their provided list of packages, 
+what kind of additional issues I might face that would let it difficult to have a direct 
+<code>pip install -r requirements.txt</code> work directly?</p>
+<ul>
+<li>It depends a lot what is in the requirements.txt. For example if it specifies a different 
+    PyTorch version, in the worst case it will then automatically install a CUDA-PyTorch which 
+    doesn't work on LUMI.</li>
+</ul>
+</li>
+<li>
+<p>If I try to extend one of the base images with an environment.yml that I'm porting from a machine 
+    with NVIDIA gpus (which has cuda dependencies outof the box). What changes should I make or 
+    can I just extend it as it is from a suitable base image? I've tried to do it directly and got a value error:
+    <div class="highlight"><pre><span></span><code>ValueError: Invalid command cmd=&#39;bash conda_installer.sh -b -s -p /opt/conda&#39; passed to Singularity resulted in the FATAL error: FATAL:   container creation failed: mount /var/spool/slurmd-&gt;/var/spool/slurmd error: while mounting /var/spool/slurmd: destination /var/spool/slurmd doesn&#39;t exist in container
+</code></pre></div></p>
+<ul>
+<li>What packages are in your yml? Specifically what packages use cuda?</li>
+</ul>
+<p>Pytorch itself is listed, and some packages like : <code>cuda-crt-tools=12.9.86=ha770c72_2</code>, etc</p>
+<ul>
+<li>That error message has nothing to do with the list of packages. Mounting works differently 
+     while building a container and you cannot do that with the bindings module loaded. 
+     When building, all your mount points must first exist in the container as a directory, 
+     while this is not the case while running the container. </li>
+</ul>
+<p>Ok, I've removed the bindings load and tried again. Got a RuntimeError from multiple conda installs interfering:
+<div class="highlight"><pre><span></span><code>RuntimeError: Multiple Conda installs interfere. We risk destroying the Conda install in /opt/miniconda3. Aborting!
+</code></pre></div></p>
+<ul>
+<li>You cannot run cotainr on a base image that already contains a conda installation. Could that be the case?</li>
+</ul>
+<p>lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.7.1.sif</p>
+<ul>
+<li>That is indeed the issue. You can extend those containers using <code>pip</code> I believe, but extending 
+    them with conda is a bit more tricky as you need to use the mechanism of conda to extend an 
+    installation. I've tried it once, and though the particular package that I tried to install 
+    seemed to be installed, it did not show up in <code>conda list</code>. As it was for a ticket and as 
+    the user did not provide further information I needed to see if it worked for them, 
+    I did not continue the experiment though.
+    I used something like
+    <div class="highlight"><pre><span></span><code>Bootstrap: localimage
+
+From: {local_sif}
+
+%post
+
+conda install -c conda-forge openvdb --override-channels --freeze-installed --yes
+</code></pre></div></li>
+</ul>
+<p>Should I use another base-image to replicate my conda environment or build it from scratch from my required libraries?</p>
+<ul>
+<li>If you want to use cotainr then you need to use a different base-image. 
+     Cotainr will always try to install conda again. Alternatively, you could look at the 
+     existing packages in e.g. <code>lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.7.1.sif</code>. 
+     <code>singularity shell lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.7.1.sif</code> and then <code>conda list</code>. 
+     See what packages are available and then extend it with the missing packages using 
+     the venv approach from the last presentation.  </li>
+</ul>
+<p>I'll try both approaches, a base image without conda would be <code>lumi-rocm-rocm-6.2.4.sif</code>? In this case I guess I would need to change the pytorch versions no? Currently it is listed as <code>pytorch=2.4.1=cpu_mkl_py312hf535c18_100</code></p>
+<ul>
+<li>Yes. That image should work with pytorch 2.7.1. And you probably need to remove all of the 
+    cuda specific packages as well.</li>
+</ul>
+<p>Oh sorry didn't see the follow up. </p>
+<ul>
+<li>
+<p>So for the rocm 6.2.4 base image you would need the following in your conda.yml:</p>
+<div class="highlight"><pre><span></span><code>pip:
+    - --extra-index-url https://download.pytorch.org/whl/rocm6.2.4/
+    - torch==2.7.1+rocm6.2.4
+    - torchaudio==2.7.1+rocm6.2.4
+    - torchvision==0.22.1+rocm6.2.4
+</code></pre></div>
+</li>
+</ul>
+<p>Specific packages I would need to install which i couldn't see on the latest pytorch base-image are xarray, dask, tensorstore, netcdf4, zarr. I would prefer to keep everything under a conda environment as I haven't tried to install those with pip yet but if it works...</p>
+<ul>
+<li>
+<p>I see, so maybe the best option is to enter the shell of an existing image with pytorch, 
+    try to install the missing packages with pip and <code>conda -env export environment.yml</code>. 
+    Then build a container from this conda environment with a base-image?</p>
+<p>I don't think any of those packages require extensions that interact with the GPU directly. 
+Things like netCDF might interact with MPI. That should mean that they are relatively easily 
+installable in a venv and then squashed. That would be the first approach I would try. 
+Check that the netCDF (not the python bindings) inside the container is installed with 
+MPI support if that is indeed applicable. If there isn't a netCDF in the container, you would 
+have to build a container that has it.</p>
+</li>
+<li>
+<p>Don't use <code>zarr</code> with data on a Lustre filesystem though. Zarr is designed to use data on object file
+    systems. When putting that data on a Lustre file system, you really kill Lustre. </p>
+<p>See towards the end of <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20250602/204-ObjectStorage/#in-short-what-is-lumi-o">the section "A comparision between Lustre and LUMI-O" in the course notes of
+the object storage lecture of our more general intro course</a>.</p>
+</li>
+</ul>
+<p>I forgot to create the venv inside the container (I've copied it from a base-image to my folder) 
+before starting to install libraries with pip on the singularity shell. It successfully installed some. 
+Is there a problem with this? Can I still export the conda environment and build a new container 
+with that file?</p>
+<ul>
+<li>
+<p>If you don't create a virtual environment, and don't point <code>pip</code> to where it should install packages,
+    it will install them in your home directory, and yes, this is an issue:</p>
+<ol>
+<li>
+<p>You may run out of space or out of file quota in your home directory</p>
+</li>
+<li>
+<p>If you do that from different containers, your Python installation will become a huge 
+    mess, as all those things get mixed.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>I've got an OOM error while extending the image from the previous question, 
+    but I've also got this in the workshop exercise which was solved by setting more memory 
+    on the allocation. How do I know how much resources should be allocated to use <code>cotainr</code>?</p>
+<ul>
+<li>
+<p>I honestly unfortunately don't have a good answer for this. It depends on the base image a lot. 
+    So unfortunately you'll probably have to trial and error.</p>
+</li>
+<li>
+<p>Sometimes it's best to just take it on the safe side and if you have CPU billing units, 
+    just take a whole CPU node. Or like half a GPU node if you have no other choice.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

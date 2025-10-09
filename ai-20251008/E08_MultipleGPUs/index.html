@@ -4474,7 +4474,16 @@
 -->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Does <code>cotainr</code> set <code>SINGULARITY_CACHEDIR</code> and <code>_TMPDIR</code> internally?</p>
+<ul>
+<li>Is your question essentially where the container is build? If yes, 
+    then <code>cotainr</code> creates a singularity sandbox in the <code>/tmp</code> folder. 
+    It uses the <code>tempfile</code> module built into python to determine the folder. </li>
+</ul>
+</li>
+</ol>
 
 
 
