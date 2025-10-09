@@ -24,6 +24,8 @@
     -   Day 2: on partition `standard-g`: `LUMI_profiling_2`  
 -->
 
+-   [Some suggestions for the night](evening_suggestions.md)
+
 
 ## Course materials
 
