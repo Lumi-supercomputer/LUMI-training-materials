@@ -4479,7 +4479,10 @@
 <li>Setting environment variables for ROCm/AMD debug info</li>
 <li>Simple profiling using rocprof</li>
 </ul>
-<p>A video recording will follow.</p>
+<!--
+A video recording will follow.
+-->
+
 <!--
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/04_CheckingGPU.mp4" controls="controls"></video>
 -->
@@ -4498,7 +4501,60 @@ More materials will become available during and shortly after the course
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>There is a mistake on slide 3? I think the bandwidth per link is 50 GB/s per direction 
+    (but 25 GT/s but these transactions are 2 bytes wide), which indeed results in 400 GB/s bidirectional bandwidth.</p>
+<ul>
+<li>Yes, it should be 25 GT/s (transactions). We will fix it.</li>
+</ul>
+</li>
+<li>
+<p>Does either activating logs, or using one of these profilers add a substantial overhead?</p>
+<ul>
+<li>
+<p>Profilers and logging always add a bit of overhead. It is hard to quantify the overhead but 
+    that is connected with the amount of activity you want to capture. Also, the system and I/O load matters.</p>
+</li>
+<li>
+<p>Typically, profiling overhead should be in the order of a few percent - say 2-5% - and 
+    hopefully won't preclude drawing conclusions out of your profile. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>A tool to sample driver information - including power - is AMDSMI: https://github.com/ROCm/amdsmi</p>
+<ul>
+<li>
+<p>It does have a python interface and is typically installed with pytorch. That is part of the LUMI containers already.</p>
+</li>
+<li>
+<p>I (Mats, CSC) also made a <a href="https://docs.csc.fi/support/tutorials/gpu-ml/#gpu-energy-tool-lumi">simple program that samples the energy counters</a>
+    (via that same AMDSMI API), meant to be ran at start and end of job, 
+    as an alternative way of getting the same info...</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The sample command <code>srun singularity ...</code> don't work now, since it tries to download the model in the project folder. I get this warning and it exits:
+    <div class="highlight"><pre><span></span><code>Loading model and tokenizer
+/opt/miniconda3/envs/pytorch/lib/python3.12/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 0.80 MB. The target location /workdir/hf-cache/hub/models--EleutherAI--gpt-neo-1.3B/blobs only has 0.00 MB free disk space.
+...
+</code></pre></div></p>
+<ul>
+<li>Looks like you haven't set <code>HF_HOME</code> environment variable as it tries to write to <code>/workdir</code> 
+    rather than <code>/scratch</code>. (<code>/workdir</code> I think is a path inside the container which is read-only, 
+    and thus cannot be written to)</li>
+</ul>
+<p>That was what the <a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/04_Understanding_GPU_activity_and_checking_jobs#2-spin-training-work">official instructions</a> said. 
+Now I changed it to <code>HF_HOME=/flash/project_465002178/hf-cache</code> and it seems to go ahead. Thanks.</p>
+<ul>
+<li>Actually I was mistaken, <code>/workdir</code> should work as well, but you need to bind it to some appropriate 
+    place with <code>-B .:/workdir</code> ... but changing it to <code>/flash</code> or <code>/scratch</code> like you did works as well </li>
+</ul>
+<p>That <code>-B</code> flag makes a path on LUMI show up as being under <code>/workdir</code> <em>inside the container</em>.</p>
+</li>
+</ol>
 
 
 
