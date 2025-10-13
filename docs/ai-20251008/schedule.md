@@ -89,7 +89,7 @@ DAY 1
             <br/><em>14:05 EEST</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenter: Samuel Antão, Marius Kurz, Paul Bauer (AMD)</em>
+        <br/><em>Presenter: Marius Kurz, Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>

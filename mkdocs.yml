@@ -60,11 +60,11 @@ nav:
     - paow-20251022/index.md
     - Schedule: paow-20251022/schedule.md
     - Course materials: paow-20251022/index.html#course-materials
-  - "Ann.: Supercomputing with LUMI October 2025":
+  - "Supercomputing with LUMI October 2025":
     - 2day-20251020/index.md
     - Preliminary schedule: 2day-20251020/schedule.md
     - Course materials: 2day-20251020/index.html#course-materials
-  - "Ann.: AI workshop October 2025":
+  - "AI workshop October 2025":
     - ai-20251008/index.md
     - Schedule: ai-20251008/schedule.md
     - Course materials: ai-20251008/index.html#course-materials
@@ -200,8 +200,8 @@ plugins:
           comprehensive-latest.md: 2p3day-20250303/index.md
           advanced-latest.md: 2p3day-20250303/index.md
           intro-latest.md: 2day-20250602/index.md
-          AI-latest.md: ai-20250527/index.md
-          ai-latest.md: ai-20250527/index.md
+          AI-latest.md: ai-20251008/index.md
+          ai-latest.md: ai-20251008/index.md
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
           update-202409.md: User-Updates/Update-202409/index.md

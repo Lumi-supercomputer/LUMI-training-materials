@@ -11,21 +11,21 @@ Content:
 A video recording will follow.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/03_FirstJob.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
+More materials will become available during and shortly after the course
+-->
+
 
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-03-First_AI_job.pdf)
 
 -   [Hands-on exercises](E03_FirstJob.md)
 
+<!--
 -   [More extensive training materials on Slurm from the recent introductory "Supercomputing with LUMI" course from March 2025](../2p3day-20250303/index.md)
 
     -   A more detailed introduction to Slurm but without AI-specific examples is given in the 
@@ -42,35 +42,54 @@ More materials will become available during and shortly after the course
 
 ## Q&A
 
-1.  Is there way to analyze memory usage afterwards, instead of using rocm-smi?
+1.  Question from the audience about dynamic job size
 
-    -   CPU memory:
-    
-        -   While running, there is the `top` command. `htop` is also available in the `systools` module. This would show CPU memory usage. It requires of course opening another shell on the node, see also the LUMI documentation. 
+    -   No, this cannot be done. And it is normal also, as there is no guarantee that the resources 
+        would be immediately available, so your job would be stuck while still keeping the nodes 
+        that it already has, which is very expensive.
 
-        -   After the job, information on CPU-attached RAM use can also be found via the `sacct` command. It is discussed in more detail in the Slurm session in our regular intro course (where we have 90 minutes just to explain how jobs work): https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/201-Slurm/#the-sacct-command. This will only report RAM, the GPU RAM usage is not reported in SLURM.
+        You can write dependent jobs, where you specify that one job should only start when another 
+        job has finished. So you could have a second job with more resources that can get scheduled 
+        as soon as the first job with fewer resources ends. 
+        See [this part of the sbatch manual](https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#OPT_dependency)
 
-    -   GPU memory
-  
-        -   PyTorch also reports on GPU memory use, so you may find this in your job output
+    -   Running an inference service on a HPC system with inelastic job scheduling is not an ideal fit, 
+        but increasingly asked for and there are "overlay" solutions that try to provide a bridge 
+        at the cost of some efficiency.
 
-        -   We have an easybuild recipe to install `nvtop`, but it hasn't been updated or tested for a while. And it is for during the job.
-  
-        -   But there is no way to analyse GPU memory usage afterwards unless you collected that data yourself during the run and stored it somewhere. Slurm will not give that information.
+    -   An HPC system has advantages over cloud infrastructure (it can be cheaper), but then it also 
+        comes with restrictions that a cloud infrastructure does not have...
+     
+2.  What does the flag `--overlap` do in `srun`?
 
-2.  On NVIDIA GPU, one can use NVTX or scalene-gui to profile GPU, which could be very helpful to address OOM issue. What is the best similar way to do it on AMD GPU?
+    -   It allows multiple job steps in Slurm to overlap resources such as CPU cores and GPUs. 
+    -   But this is a very brief introduction to Slurm. In the regular intro courses, we have 
+    -   [a 2 hour lecture](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20250602/M201-Slurm/) 
+    -   and even that is not enough to explain all that in detail...
 
-    -   We have an [extensive 4-day or 5-day training](https://lumi-supercomputer.github.io/LUMI-training-materials/2p3day-20250303/) 
-        covering profiling and debugging tools for AMD GPUs as an important part of the course:. It even includes a demo of over one hour where those tools are used to analyse performance of PyTorch. Part of the materials are available online, another part just on LUMI. Not sure if Samuel will mention those tools in his talks in this course.
+3.  ***Info*** [Link to the HyperQueue presentation mentioned after a question in the room]( https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20240131-user-coffee-break-HyperQueue/)
 
-        There is also more information in the presentation ["Understanding GPU activity & checking jobs"](extra_04_CheckingGPU.md)
-        of this course.
+4.  I'm attempting to view the training stats on TensorBoard using the path to runs but it displays empty loss curves. 
+    Is this expected at this stage of the tutorial? EDIT: (**It started showing some data**)
 
-3.  Seems like the there's no difference between /GPT-neo-IMDB-finetuning.py and /reference-solution/GPT-neo-IMDB-finetuning.py. I'm not sure how to add the continuation from checkpoint.
+    -   Tensorboard is not the fastest.
 
-    - The differences are not in the python file but in the slurm job script `run.sh`
+    -   Also: it should write the tensorboard logs to scratch, not projappl (unless you change that).
 
-4.  Will you please repeat how often you should have checkpointing? and is it set up in the finetuning.py document?
- 
-    - Every couple of hours, depending how long you run. Do more checkpointings if unstable.
+    -   When you launch tensorboard you need to add the path `/scratch/project_465002178/USERNAME/runs/` 
+        to the TensorBoard log directory (replace `USERNAME` with your actual username)
+
+6.  Got this error: 
+    ```
+    + srun singularity exec /appl/local/containers/sif-images/lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.6.0.sif /users/sharmavi/test.py --output-path /scratch/project_465002178/sharmavi/data/ --logging-path /scratch/project_465002178/sharmavi/runs/
+    **FATAL:   permission denied **
+    ```
+
+    -   This will try to run the script `test.py`. So 
+       
+         1.  This has to be an executable script, and
+         2.  It has to start with the correct shebang line to tell Linux to use Python
+             (and which Python), i.e., that line that starts with `#!`.
+
+    -   Or you just forgot the `python` after the sif-file.
 
