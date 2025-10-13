@@ -1,8 +1,5 @@
 # Intro to Supercomputing with LUMI - Hybrid course, October 20-21, 2025, on-site in Tallinn and online
 
-!!! Note
-    If you are looking for course materials, check the materials from the
-    [June 2025 course](../2day-20250602/index.md).
 
 ## Course organisation
 
@@ -42,7 +39,7 @@ These materials will become available as the course progresses.
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
 | ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
-| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
+| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-101-Architecture.pdf) | [N](101-Architecture.md) | [V](M101-Architecture.md) |
 | [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
 | [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
 | [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
@@ -59,7 +56,7 @@ These materials will become available as the course progresses.
 | [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
 | [Exercises 4](ME202-Exercises-4.md) | / | / | / |
 | **Theme: Data on LUMI** @span |  |  |  |
-| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-203-Lustre.pdf) | [(N)](203-Lustre.md) | [V](M203-Lustre.md) |
+| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-203-Lustre.pdf) | [N](203-Lustre.md) | [V](M203-Lustre.md) |
 | [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
