@@ -1,8 +1,5 @@
-# Announcement: LUMI Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
+# LUMI Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
 
-!!! Note
-    If you are looking for course materials of this course, check the materials of the 
-    [previous edition in June 2024](../paow-20240611/index.md).
 
 ## Course organisation
 
@@ -15,13 +12,36 @@
 <!--
 -   [HedgeDoc for questions](https://md.sigma2.no/lumi-performance-workshop-june24?both)
 
--   Course project: `project_465002175`
+-   Course project: `project_465002175`.
+    This project should only be used during the course and be used for the course exercise 
+    sessions only.
 
 -   Reservations:
 
-    -   Day 1: on partition `standard`: `LUMI_profiling_1`
+    -   Day 1: on partition `standard`: `Workshop_Day1`
 
-    -   Day 2: on partition `standard-g`: `LUMI_profiling_2`  
+    -   Day 2: on partition `standard`: `Workshop_Day2`  
+
+    -   Day 3: on partition `standard-g`: `Workshop_Day3`
+-->
+<!--
+ReservationName=Workshop_Day1 StartTime=2025-10-22T09:00:00 EndTime=2025-10-22T18:00:00 Duration=09:00:00
+   Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
+   TRES=cpu=4096
+   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   MaxStartDelay=(null)
+
+ReservationName=Workshop_Day2 StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
+   Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
+   TRES=cpu=4096
+   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   MaxStartDelay=(null)
+
+ReservationName=Workshop_Day3 StartTime=2025-10-24T09:00:00 EndTime=2025-10-24T18:00:00 Duration=09:00:00
+   Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
+   TRES=cpu=2048
+   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   MaxStartDelay=(null)
 -->
 
 -   [Some suggestions for the night](evening_suggestions.md)
@@ -31,18 +51,20 @@
 
 Materials will follow as the course progresses
 
-<!--
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
 
 **Note:** Some links in the table below are dead and will remain so until after the end of the course.
--->
 
-<!--
 ::spantable::
 
 | Presentation | slides | recording |
 |:-------------|:-------|:----------|
+| **Extras** @span |  |  |
+| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
+
+::end-spantable::
+<!--
 | **Day 1** @span |  |  |
 | [Introduction](M100_Course_Introduction.md) | / | [recording](M100_Course_Introduction.md) |
 | [Architecture, Programming and Runtime Environment](M101_HPE_PE.md) | [slides](M101_HPE_PE.md#materials) | [recording](M101_HPE_PE.md) |
@@ -65,10 +87,6 @@ downloaded from LUMI.
 | **Day 3** @span |  |  |
 | [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
 | [Exercises #9](ME301_Best_Practices_GPU_Optimization.md) | / | / |
-| **Extras** @span |  |  |
-| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
-
-::end-spantable::
 -->
 
 <!--
