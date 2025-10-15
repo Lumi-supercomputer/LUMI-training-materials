@@ -42,7 +42,7 @@ and to reduce the memory footprint of the OS on the compute nodes.
 ## Lustre building blocks
 
 <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-203-Lustre/LustreBuildingBlocks1.png){ loading=lazy }
+  ![Lustre building blocks](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-203-Lustre/LustreBuildingBlocks1_0_full.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
@@ -172,7 +172,7 @@ And unfortunately there is no single set of parameters that is good for all user
 ## Accessing a file
 
 <figure markdown style="border: 1px solid #000">
-  ![Accessing a file](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-203-Lustre/LustreFileAccess.png){ loading=lazy }
+  ![Accessing a file](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-203-Lustre/LustreFileAccess_0_full.png){ loading=lazy }
 </figure>
 
 Let's now study how Lustre will access a file for reading or writing. Let's assume that the
@@ -369,7 +369,7 @@ filesystem, with the capacity.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-203-Lustre/LustreManageStriping2.png){ loading=lazy }
+  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-next/img/LUMI-2day-next-203-Lustre/LustreManageStriping2_0_full.png){ loading=lazy }
 </figure>
 
 Striping in Lustre is set at a filesystem level by the sysadmins, but users can
