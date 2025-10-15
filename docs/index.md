@@ -47,7 +47,7 @@ relevant:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
--   [Chapel (October 15, 2025)](User-Coffee-Breaks/20251015-user-coffee-break-Chapel.md)
+-   [Scalable Parallel Programming with Chapel: From Multicore CPUs to GPU-Powered Supercomputers (October 15, 2025)](User-Coffee-Breaks/20251015-user-coffee-break-Chapel.md)
 
 -   [SmartSim: Enhancing numerical workflows with AI components (September 24, 2025)](User-Coffee-Breaks/20250924-user-coffee-break-SmartSim.md)
 

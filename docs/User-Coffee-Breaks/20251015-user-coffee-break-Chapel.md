@@ -1,4 +1,4 @@
-# Chapel
+# Scalable Parallel Programming with Chapel: From Multicore CPUs to GPU-Powered Supercomputers
 
 **Presenter:** [Engin Kayraklioglu (HPE)](https://chapel-lang.org/blog/authors/engin-kayraklioglu/)
 
