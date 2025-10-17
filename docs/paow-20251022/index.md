@@ -9,13 +9,17 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-performance-workshop-june24?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/Profiling-October25?both)
+
+    This document is for questions during the course by course participants only.
+    It will not be checked before the course. If you have issues joining the project,
+    please contact the LUMI helpdesk instead.
 
 -   Course project: `project_465002175`.
     This project should only be used during the course and be used for the course exercise 
     sessions only.
 
+<!--
 -   Reservations:
 
     -   Day 1: on partition `standard`: `Workshop_Day1`
@@ -24,6 +28,9 @@
 
     -   Day 3: on partition `standard-g`: `Workshop_Day3`
 -->
+
+-   [Some suggestions for the night](evening_suggestions.md)
+
 <!--
 ReservationName=Workshop_Day1 StartTime=2025-10-22T09:00:00 EndTime=2025-10-22T18:00:00 Duration=09:00:00
    Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
@@ -43,8 +50,6 @@ ReservationName=Workshop_Day3 StartTime=2025-10-24T09:00:00 EndTime=2025-10-24T1
    Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
    MaxStartDelay=(null)
 -->
-
--   [Some suggestions for the night](evening_suggestions.md)
 
 
 ## Course materials
