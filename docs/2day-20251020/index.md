@@ -9,7 +9,7 @@
 
 -   [Schedule](schedule.md)
 
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-10.25#General-Information)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-10.25?both)
 
 -   Project for the course: `project_465002174`.
 
