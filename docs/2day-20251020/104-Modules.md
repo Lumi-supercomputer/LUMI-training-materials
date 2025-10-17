@@ -44,11 +44,11 @@ the CÉA compute centre. The version numbering was continued from the C implemen
 starting with version 4.0.0. 
 The third system and currently probably the most popular one is Lmod, a version
 written in Lua with module files also written in Lua. Lmod also supports most
-Tcl module files. It is also supported by HPE Cray. They used to be a bit
+Tcl module files. It is also supported by HPE Cray. HPE used to be a bit
 slow in following versions, but since 2024 they stay close to the current version. 
 The original developer of Lmod, Robert McLay, retired 
-at the end of August 2023, but TACC, the centre where he worked, is committed to at least
-maintain Lmod though it may not see much new development anymore.
+in October 2025, but TACC, the centre where he worked, is committed to at least
+maintain Lmod though it may not see as much new development anymore as before.
 
 On LUMI we have chosen to use Lmod. As it is very popular, many users may already be
 familiar with it, though it does make sense to revisit some of the commands that are
@@ -853,7 +853,7 @@ much software preinstalled for everybody means a lot of small files which will m
 our Lustre file system very unhappy.
 Fortunately Lmod does use caches by default. On LUMI we currently have no 
 system cache and only a user cache. That cache can be found in `$HOME/.cache/lmod`
-(and in some versions of LMOD in `$HOME/.lmod.d/.cache`). 
+(and in older versions of LMOD in `$HOME/.lmod.d/.cache`). 
 
 That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
 e.g., the `module spider` and `module available` commands will be slow during the rebuild.

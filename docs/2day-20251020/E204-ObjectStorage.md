@@ -88,8 +88,8 @@ tools configuration files that are used in the following exercises.
             # DO NOT SHARE!
 
             # Default location is ${HOME}/.s3cfg
-
-            [lumi-465002174]
+            # otherwise: s3cmd -c <this_file> <subcommand>
+            [default]
             access_key   = XXXXXXXXXXXXXXXXXXXX
             secret_key   = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             host_base    = https://lumidata.eu
@@ -289,7 +289,7 @@ tools configuration files that are used in the following exercises.
 
         ```
         ACL:       *anon*: READ
-        ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+        ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
         ```
 
         The last line will always be present, with the name of the project and then `FULL_CONTROL`
@@ -309,7 +309,7 @@ tools configuration files that are used in the following exercises.
 
         ```
         ACL:       *anon*: READ
-        ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+        ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
         ```
 
         which shows that this object is actually public. So a private bucket can contain a public object,
@@ -350,6 +350,8 @@ tools configuration files that are used in the following exercises.
     `public-in-private.txt` and `private-in-private.txt` in the `training.private` bucket. What works and what doesn't?
 
     ??? Solution "Click here to see the solution."
+
+        The structure of the URL is `https://<project>.lumidata.eu/<bucket>/<object>`.
 
         -   `public-in-public.txt` in the `training.public` bucket:
             [https://465002174.lumidata.eu/training.public/public-in-public.txt](https://465002174.lumidata.eu/training.public/public-in-public.txt)
@@ -755,8 +757,8 @@ You do need a project on LUMI to make these exercises. Wherever we use
             # DO NOT SHARE!
 
             # Default location is ${HOME}/.s3cfg
-
-            [lumi-46YXXXXXX]
+            # otherwise: s3cmd -c <this_file> <subcommand>
+            [default]
             access_key   = XXXXXXXXXXXXXXXXXXXX
             secret_key   = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             host_base    = https://lumidata.eu
@@ -975,7 +977,7 @@ You do need a project on LUMI to make these exercises. Wherever we use
 
         ```
         ACL:       *anon*: READ
-        ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+        ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
         ```
 
         The last line will always be present, with the name of the project and then `FULL_CONTROL`
@@ -995,7 +997,7 @@ You do need a project on LUMI to make these exercises. Wherever we use
 
         ```
         ACL:       *anon*: READ
-        ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+        ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
         ```
 
         which shows that this object is actually public. So a private bucket can contain a public object,
@@ -1036,6 +1038,8 @@ You do need a project on LUMI to make these exercises. Wherever we use
     `public-in-private.txt` and `private-in-private.txt` in the `training.private` bucket. What works and what doesn't?
 
     ??? Solution "Click here to see the solution."
+
+        The structure of the URL is `https://<project>.lumidata.eu/<bucket>/<object>`.
 
         -   `public-in-public.txt` in the `training.public` bucket:
             [https://46YXXXXXX.lumidata.eu/training.public/public-in-public.txt](https://46YXXXXXX.lumidata.eu/training.public/public-in-public.txt)

@@ -1,8 +1,5 @@
 # The LUMI Architecture
 
-***These notes are a quick revision of the notes of a course in May, given by another presenter.
-They have not been thoroughly retested.***
-
 In this presentation, we will build up LUMI part by part, stressing those
 aspects that are important to know to run on LUMI efficiently and define
 jobs that can scale.
@@ -24,10 +21,20 @@ But it is also a very expensive infrastructure, with an investment of 160M EURO 
 and an estimated total cost (including operations) of 250M EURO. So it is important to use the computer
 efficiently. 
 
-And that efficiency comes not for free. Instead in most cases it is important to properly map an 
-application on the available resources to run efficiently.  The way an application is developed
-is important for this, but it is not the only factor. Every application needs some user help 
-to run in the most efficient way, and that requires an understanding of
+LUMI, as other large supercomputers, is built for running large parallel applications efficiently.
+But that efficiency does not for free. Scaling from a small problem size on a small computer 
+does not come for free, not in hardware and neither in software. For example, it is not true that
+increasing the amount of cores your application will run faster. you need to connect them, and to pass 
+data between them, and we will see in this lecture that it is not that easy. Another example (this time on software): 
+communication has a cost, and parts of programs are serial. if the dominant part of a program is the serial one,
+increasing the parallelism will have a negligible or even negative impact.
+Modern supercomputers are usually heterogeneous machines, with CPU and accelerators (usually GPU) that collaborate to perform the computation.
+But to collaborate, there is a need to move data from one device to the other, and this has a cost, which sometimes
+overshadows the gain of a faster processing of the data on the accellerator.
+
+For all these reasons, it is important to properly map an application on the available resources to run efficiently.
+The way an application is developed is important for this, but it is not the only factor. Every application needs some user help 
+to run in the most efficient way, and that requires that the user who is launching the application has an understanding of:
 
 1.  The **hardware architecture** of the supercomputer, which is something that we discuss in this
     section.
@@ -52,7 +59,7 @@ to run in the most efficient way, and that requires an understanding of
     how to use them for different problem types,
     and then up to users to combine the knowledge of an application obtained from such a course with the
     knowledge about the computer you want to use and its middleware obtained from courses such as this one
-    or our 4-day more advanced course.
+    or our more advanced courses.
 
 Some users expect that a support team can give answers to all those questions, even to the third and fourth
 bullet of the above list. If a support team could do that, it would basically imply that they could simply
@@ -79,7 +86,7 @@ Just some examples of using the wrong tools or infrastructure:
     performance per Watt and get their performance from using lots of cores through well-designed
     software. If you want the fastest core possible, you'll need a gaming PC.
 
-    *E.g., the AMD 5800X is a popular CPU for high end gaming PCs using the same core architecture 
+    *E.g., the AMD 5800X was a popular CPU for high end gaming PCs using the same core architecture 
     as the CPUs in LUMI. It runs at a
     base clock of 3.8 GHz and a boost clock of 4.7 GHz if only one core is used and the system has
     proper cooling. The 7763 used in the compute nodes of LUMI-C runs at a base clock of 2.45 GHz
@@ -91,7 +98,7 @@ Just some examples of using the wrong tools or infrastructure:
 -   **For some data formats the GPU performance may be slower also than on a high end gaming PC.**
     This is even more so because
     an MI250X should be treated as two GPUs for most practical purposes. The better double precision
-    floating point operations and matrix operations, also at full precision, require transistors also 
+    floating point operations and matrix operations, also at full precision, require transistors 
     that on some other GPUs are used for rendering hardware or for single precision compute units.
 
     *E.g., a single GPU die of the MI250X (half a GPU) has a peak FP32 performance at the boost clock
@@ -104,14 +111,6 @@ Just some examples of using the wrong tools or infrastructure:
 -   **Compute GPUs and rendering GPUs are different beasts these days.**
     We had a user who wanted to use the ray tracing units to do rendering. The MI250X does not
     have texture units or ray tracing units though. It is not a real graphics processor anymore.
-
--   **The environment is different also. It is not that because it runs some Linux it handles are your
-    Linux software.**
-    A user complained that they did not succeed in getting their nice remote development environment to
-    work on LUMI. The original author of these notes took a test license and downloaded a trial version.
-    It was a very nice environment but really made for local development and remote development in a 
-    cloud environment with virtual machines individually protected by personal firewalls and was 
-    not only hard to get working on a supercomputer but also insecure.
 
 -   **The environment is different also. It is not that because it runs some Linux it handles are your
     Linux software.**
@@ -148,7 +147,11 @@ True supercomputers, and LUMI in particular, are built for scalable parallel app
 are found on smaller clusters or on workstations that pose a threat to scalability are removed from the system.
 It is also a shared infrastructure but with a much more lightweight management layer than a cloud infrastructure
 and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
-other users than in a cloud infrastructure. Supercomputers since the mid to late '80s are also built according
+other users than in a cloud infrastructure (e.g. an user running memory intensive postprocessing scripts on the
+login node will damage all other users that are working on that login node because it will use all the memory 
+available on the node itself. measures are taken to avoid this, but sometimes not abuse but misuse can create
+problems for other issues. For that reason it is important to know what to do and what NOT to do on a supercomputer).
+ Supercomputers since the mid to late '80s are also built according
 to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
 and application level. They perform best when streaming data through the machine at all levels of the 
 memory hierarchy and are not built at all for random access to small bits of data (where the definition of
@@ -176,7 +179,7 @@ LUMI is built to prepare for the exascale era and to fit in the EuroHPC ecosyste
 But it does not even mean
 that it has to cater to all pre-exascale compute needs. The EuroHPC JU tries to
 build systems that have some flexibility, but also does not try to cover 
-all needs with a single machine. They are building 3 pre-exascale systems
+all needs with a single machine. They built 3 pre-exascale systems
 with different architecture to explore multiple architectures and to cater
 to a more diverse audience. LUMI is an AMD GPU-based supercomputer, 
 Leonardo uses NVIDIA A100 GPUS, and MareNostrum5 has a very large CPU section besides an
@@ -192,8 +195,8 @@ then add a number of CPU nodes to do the I/O and a specialised render GPU node f
 in-situ visualisation.
 
 LUMI is in the first place a huge **GPGPU supercomputer**. The GPU partition of
-LUMI, called **LUMI-G**, contains 2978 nodes with a single 64-core AMD EPYC 7A53 CPU and 4 AMD MI250X
-GPUs. Each node has 512 GB of RAM attached to the CPU (the maximum the CPU can handle
+LUMI, called **LUMI-G**, contains 2978 nodes with a single 64-core AMD EPYC 7A53 CPU (codename Trento)
+and 4 AMD MI250X GPUs. Each node has 512 GB of RAM attached to the CPU (the maximum the CPU can handle
 without compromising bandwidth) and 128 GB of HBM2e memory per GPU. Each GPU node
 has a theoretical peak performance of nearly 200 TFlops in single (FP32) or double (FP64)
 precision vector arithmetic (and twice that with the packed FP32 format, but that 
@@ -205,7 +208,7 @@ stellar.
 LUMI also has a **large CPU-only partition**, called **LUMI-C**, for jobs that do not run well on GPUs,
 but also integrated enough with the GPU partition that it is possible to have
 applications that combine both node types.
-LUMI-C consists of 2048 nodes with 2 64-core AMD EPYC 7763 CPUs. 32 of those nodes
+LUMI-C consists of 2048 nodes with 2 64-core AMD EPYC 7763 CPUs (codename Milan). 32 of those nodes
 have 1TB of RAM (with some of these nodes actually reserved for special purposes
 such as connecting to a Quantum computer), 128 have 512 GB and 1888 have
 256 GB of RAM.
@@ -213,23 +216,28 @@ such as connecting to a Quantum computer), 128 have 512 GB and 1888 have
 LUMI also has two smaller groups of nodes for **interactive data analytics**. 
 8 of those nodes have two 
 64-core Zen2/Rome CPUs with 4 TB of RAM per node, while 8 others have dual 64-core
-Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. 
+Zen2/Rome CPUs and 8 NVIDIA A40 GPUs for visualisation. Together these are known as
+**LUMI-D**. But this is a bit misleading, as from the scheduler perspective, those are two different partitions.
+The first one (the partition with the 4TB RAM nodes) is called **largemem**, while the second (the partition
+with the A40) is called **lumid** by the Slurm scheduler.
 There is also an **Open OnDemand based service (web interface)** to make some fo those facilities
 available. Note though that these nodes are meant for a very specific use,
 so it is not that we will also be offering, e.g., GPU compute facilities
 on NVIDIA hardware, and that these are shared resources that should not be
 monopolised by a single user (so no hope to run an MPI job on 8 4TB nodes).
 
-LUMI also has a **8 PB flash based file system** running the **Lustre parallel file system**.
-This system is often denoted as LUMI-F. The bandwidth of that system is over 2 TB/s. 
+LUMI also has three solutions for storing data: the first two are traditional **Lustre parallel
+file systems** while the last one is an **object based file system**.
+
+The first one is a **8 PB flash based file system** running the **Lustre parallel file system**.
+This system is often denoted as **LUMI-F**. The bandwidth of that system is over 2 TB/s. 
 Note however that this is still a remote file system with a parallel file system on it,
 so do not expect that it will behave as the local SSD in your laptop. 
-But that is 
-also the topic of another session in this course.
+But that is also the topic of another session in this course.
 
 The main work storage is provided by **4 20 PB hard disk based Lustre file systems**
 with a bandwidth of 240 GB/s each. That section of the machine is often denoted 
-as LUMI-P. 
+as **LUMI-P**. 
 
 Big parallel file systems need to be used in the proper way to be able to offer the
 performance that one would expect from their specifications. This is important enough that 
@@ -239,9 +247,10 @@ There is also a 30 PB **object based file system**
 similar to the Allas service of CSC that some
 of the Finnish users may be familiar with is also being worked on. At the 
 moment the interface to that system is still rather primitive.
+This part of LUMI is also known as **LUMI-O**.
 
-Currently LUMI has **4 login nodes** for ssh access, called user access nodes in the HPE Cray
-world. They each have 2 64-core AMD EPYC 7742 processors and 1 TB of RAM.
+Currently LUMI has **4 login nodes** for ssh access, called user access nodes (uan) in the HPE Cray
+world. They each have 2 64-core AMD EPYC 7742 processors (codename Rome) and 1 TB of RAM.
 Note that  whereas the GPU and CPU compute nodes have the Zen3 architecture
 code-named "Milan", the processors on the login nodes are Zen2 processors,
 code-named "Rome". Zen3 adds some new instructions so if a compiler generates
@@ -249,10 +258,10 @@ them, that code would not run on the login nodes. These instructions are basical
 used in cryptography though. However, many instructions have very different latency,
 so a compiler that optimises specifically for Zen3 may chose another ordering of
 instructions then when optimising for Zen2 so it may still make sense to compile
-specifically for the compute nodes on LUMI.
-
-There are also some additional
-login nodes for access via the web-based Open OnDemand interface.
+specifically for the compute nodes on LUMI. There are also an additional
+login nodes for access via the web-based Open OnDemand interface, plus others that are used for
+system administration at different level (and with different permissions!)
+Together these are sometimes called **LUMI-L**.
 
 All compute nodes, login nodes and storage are linked together through a 
 **high-performance interconnect**. LUMI uses the **Slingshot 11** interconnect which
@@ -277,7 +286,11 @@ The LUMI-C and LUMI-G compute nodes use third generation AMD EPYC CPUs.
 Whereas Intel CPUs launched in the same period were built out of a single large
 monolithic piece of silicon (that only changed recently with some variants
 of the Sapphire Rapids CPU launched in early 2023), AMD CPUs are made up
-of multiple so-called chiplets. 
+of multiple so-called chiplets. This is a clever trick to save money when 
+creating the chip itself. When there are defects in the silicon, the only 
+thing that can be done is to throw away the defective chip. In this way, by not 
+having monolithic chips, it is possible to throw away a smaller component and waste
+less resources!
 
 The basic building block of Zen3 CPUs is the **Core Complex Die (CCD)**.
 Each CCD contains 8 cores, and each core has 32 kB of L1 instruction 
@@ -304,13 +317,15 @@ cache per CCD).
 
 Each CCD connects to the memory/IO die through an Infinity Fabric link
 (also called GMI link which stands for Global Memory Interface). The connection
-is asymetric on Milan with 51.2 GB/s bandwidth to and 25.6 GB/s bandwidth from the CCD
-(32 bytes and 16 byte wide connections running at the memory clock with is 1.6 GHz for DDR4 3200).
+is asymmetric on Milan with 51.2 GB/s bandwidth from memory/IO die to CCD (read operations) 
+and 25.6 GB/s bandwidth from CCD to memory/io die (write operations, 32 bytes and 16 byte wide connections
+ running at the memory clock with is 1.6 GHz for DDR4 3200).
 The memory/IO die contains the memory controllers,
 connections to connect two CPU packages together, PCIe lanes to connect to external
 hardware, and some additional hardware, e.g., for managing the processor. 
 The memory/IO die supports 4 dual channel DDR4 memory controllers providing 
-a total of 8 64-bit wide memory channels. 
+a total of 8 64-bit wide memory channels. Each memory channel has a theoretical peak
+bandwidth of 25.6 GB/s.
 From a logical point of view the memory/IO-die is split in 4 quadrants,
 with each quadrant having a dual channel memory controller and 2 CCDs. They basically act
 as **4 NUMA domains**. For a core it is slightly faster to access memory in its own
@@ -375,12 +390,20 @@ At the coarsest level, each core supports two hardware threads (what Intel calls
 hyperthreads). Those hardware threads share all the resources of a core, including the 
 L1 data and instruction caches and the L2 cache, execution units and space for
 register renaming. 
-At the next level, a Core Complex Die contains (up to) 8 cores. These cores share
+One can think that it is optimal to map 2 threads on the same core by using hyperthreading, as the communication
+between those will be optimal. And this is true, but they will be using the same unit (i.e. contending the resources!).
+This is something that cannot be known apriori. Indeed, in many supercomputer applications the bottleneck is the 
+resource usage, so usually, the hyperthreading is disabled by default.
+In LUMI it is possible to activate it with a Slurm command (that will be shown in the Slurm lecture).
+However, keep in mind that this is something that **you** have to test and evaluate, as it changes
+from application to application!
+
+The next level is the Core Complex Die. It contains (up to) 8 cores. These cores share
 the L3 cache and the link to the memory/IO die. 
 Next, as configured on the LUMI compute nodes, there are 2 Core Complex Dies in a
 NUMA node. These two CCDs share the DRAM channels of that NUMA node.
 At the fourth level in our hierarchy 4 NUMA nodes are grouped in a socket. Those 4 
-nodes share an inter-socket link.
+nodes share an inter-socket link (a ring between the 4 quadrants of the memory/IO chiplet).
 At the fifth and last level in our shared memory hierarchy there are two sockets
 in a node. On LUMI, they share a single Slingshot inter-node link.
 
@@ -391,10 +414,13 @@ the higher the bandwidth.
 This table tells us a lot about how one should map jobs, processes and threads
 onto a node. E.g., if a process has fewer then 8 processing threads running
 concurrently, these should be mapped to cores on a single CCD so that they can share 
-the L3 cache, unless they are sufficiently independent of one another, but even in the
+the L3 cache, unless they are sufficiently independent of one another or memory bound, but even in the
 latter case the additional cores on those CCDs should not be used by other processes as
 they may push your data out of the cache or saturate the link to the memory/IO die and hence
-slow down some threads of your process. Similarly, on a 256 GB compute node each NUMA node has
+slow down some threads of your process. In some cases the optimal solution is to distribute 1 rank per ccd
+and leave the other cores idle, if that single core is able to use ALL the bandwidth of the memory controller,
+and having other cores contending for it would only create slowdowns! (memory bound applications).
+Similarly, on a 256 GB compute node each NUMA node has
 32 GB of RAM (or actually a bit less as the OS also needs memory, etc.), so if you have a job
 that uses 50 GB of memory but only, say, 12 threads, you should really have two NUMA nodes reserved
 for that job as otherwise other threads or processes running on cores in those NUMA nodes could saturate
@@ -442,7 +468,7 @@ So far nothing special. However, two elements make this compute node very
 special. First, the GPUs are not connected to the CPU though a PCIe bus. Instead
 they are connected through the same links that AMD uses to link the GPUs together,
 or to link the two sockets in the LUMI-C compute nodes, known as xGMI or
-Infinity Fabric. This enables unified memory across CPU and GPUS and 
+Infinity Fabric. This enables unified memory across CPU and GPUs and 
 provides partial cache coherency across the system. The CPUs coherently
 cache the CPU DDR and GPU HBM memory, but each GPU only coherently caches 
 its own local memory.
@@ -467,7 +493,7 @@ anymore, one has to look for ways to use each transistor as efficiently as possi
 
 It is also important to realise that even though we call the partition "LUMI-G", the MI250X
 is not a GPU in the true sense of the word. It is not a rendering GPU, which for AMD is 
-currently the RDNA architecture with version 3 out and version 4 coming, but a compute accelerator with
+currently the RDNA architecture which is at version 4, but a compute accelerator with
 an architecture that evolved from a GPU architecture, in this case the VEGA architecture
 from AMD. The architecture of the MI200 series is also known as CDNA2, with the MI100 series
 being just CDNA, the first version. Much of the hardware that does not serve compute purposes
@@ -485,7 +511,8 @@ Several of the functional blocks in the Ada Lovelace architecture are missing in
 architecture to make room for more compute power and double precision compute units. E.g.,
 Hopper does not contain the ray tracing units of Ada Lovelace.
 The Intel Data Center GPU Max code named "Ponte Vecchio" is the only current GPU for 
-HPC that still offers full hardware rendering support (and even ray tracing).
+HPC that still offers full hardware rendering support (and even ray tracing), but that line
+looks increasingly like a dead end.
 
 Graphics on one hand and HPC and AI on the other hand are becoming separate workloads for which
 manufacturers make different, specialised cards, and if you have applications that need both,
@@ -494,7 +521,7 @@ between them over the interconnect, and look for supercomputers that support bot
 And nowadays we're even starting to see a split between chips that really target AI and
 chips that target a more traditional HPC workload, with the latter threatened as there
 is currently much more money to make in the AI market. And within AI we're starting to 
-see specialised accelerators for inference.
+see specialised accelerators for inference (e.g., the NVIDIA Rubin CPX).
 
 But so far for the sales presentation, let's get back to reality...
 
@@ -592,10 +619,10 @@ and as we shall see later in the course, exploiting this is a bit tricky at the 
     used in those EPYC 7004 SKUs that have only 4 CCDs.
 -->
 
-### What the future looks like...
+### The next Gen: El Capitan
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide The future we're preparing for...](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-101-Architecture/GPUnodeFuture.png){ loading=lazy }
+  ![Slide The next gen: El Capitan](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-101-Architecture/GPUnodeFuture.png){ loading=lazy }
 </figure>
 
 Some users may be annoyed by the "small" amount of memory on each node. Others
@@ -676,7 +703,16 @@ features is that regular servers with Ethernet can be directly connected to the
 Slingshot network switches.
 HPE Cray has a tradition of developing their own interconnect for very large systems.
 As in previous generations, a lot of attention went to adaptive routing and congestion
-control. There are basically two versions of it. The early version was named Slingshot 10,
+control.
+In a recent [paper](https://arxiv.org/pdf/2408.14090), a comparison between networks in similar supercomputers
+has been done. One of the outcomes of this paper is that the Slingshot network, 
+when compared to tradional Infiniband (LEONARDO) approach provideda slightly worse "best" and "average" cases, 
+but a better performing "worst" case. And the reason why this is important is that
+in a HPC large job (which are the real reasons why HPC systems are built), at a synchronization point
+(be it a barrier or a collective operation) you need to wait for the last process to join the operation,
+so what really matters is the "worst" case time.
+
+There are basically two versions of it. The early version was named Slingshot 10,
 ran at 100 Gb/s per direction and did not yet have all features. It was used on the initial
 deployment of LUMI-C compute nodes but has since been upgraded to the full version.
 The full version with all features is called Slingshot 11. It supports a bandwidth of 200 Gb/s
@@ -861,7 +897,7 @@ columns is all the power circuitry. Each compute chassis can contain 8 compute b
 that are mounted vertically. Each compute blade can contain multiple nodes, depending on
 the type of compute blades. HPE Cray have multiple types of compute nodes, also with 
 different types of GPUs. In fact, the Aurora supercomputer which uses Intel CPUs and GPUs and
-El Capitan, which uses the MI300A APUs (integrated CPU and GPU) will use the same
+El Capitan, which uses the MI300A APUs (integrated CPU and GPU) use the same
 design with a different compute blade. Aurora uses compute blades that each contain only
 a single node, with two Intel Xeon CPUs and 6 Intel Data Centre GPU Max's (code named 
 Ponte Vecchio). The El Capitan compute blades contain two nodes, each with 4 NMI300A APUs.
@@ -897,7 +933,8 @@ switch blade environment is certainly less hostile to such storage than the very
 compute blades.
 
 This architecture is very popular for very large supercomputers. In fact, in the 
-[November 2024 Top-500 list](https://top500.org/lists/top500/2024/11/), 7 of the top-10 systems
+[June 2025 Top-500 list](https://top500.org/lists/top500/2025/06/), 6 of the top-10 systems
+and 10 of the top 20 systems
 use this system architecture, but with different types of compute blades.
 
 

@@ -1,8 +1,5 @@
-# Announcement: Intro to Supercomputing with LUMI - Hybrid course, October 20-21, 2025, on-site in Tallinn and online
+# Intro to Supercomputing with LUMI - Hybrid course, October 20-21, 2025, on-site in Tallinn and online
 
-!!! Note
-    If you are looking for course materials, check the materials from the
-    [June 2025 course](../2day-20250602/index.md).
 
 ## Course organisation
 
@@ -12,32 +9,28 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course?both#General-Information)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-10.25?both)
 
 -   Project for the course: `project_465002174`.
 
-    This project provides resources for the exercises. **The project should not be used for your own work!**
+    This project provides resources for the exercises. 
+    **The project should not be used for your own work!**
 
 -   There are two Slurm reservations for the course for the exercises on the second day:
 
-    -   CPU nodes: `LUMI_Intro_1` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_2` (on the `standard-g` Slurm partition)
--->
+    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
+    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
 
 -   [Some suggestions for the night](evening_suggestions.md)
 
-<!--
 ## Course materials
 
 Course materials include the Q&A of each session, slides when available and notes when available.
 These materials will become available as the course progresses.
 
-**Note:** Some links in the table below are dead and will remain so until after the end of the course.
--->
+**Note:** Some links in the table below may be dead and will remain so until after the end of the course.
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -46,7 +39,7 @@ These materials will become available as the course progresses.
 | [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
 | Introduction to the course notes | / | [N](000-Introduction.md) |  / |
 | ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
-| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-101-Architecture.pdf) | [(N)](101-Architecture.md) | [V](M101-Architecture.md) |
+| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-101-Architecture.pdf) | [N](101-Architecture.md) | [V](M101-Architecture.md) |
 | [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
 | [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
 | [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
@@ -63,7 +56,7 @@ These materials will become available as the course progresses.
 | [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
 | [Exercises 4](ME202-Exercises-4.md) | / | / | / |
 | **Theme: Data on LUMI** @span |  |  |  |
-| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-203-Lustre.pdf) | [(N)](203-Lustre.md) | [V](M203-Lustre.md) |
+| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-203-Lustre.pdf) | [N](203-Lustre.md) | [V](M203-Lustre.md) |
 | [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
@@ -75,12 +68,10 @@ These materials will become available as the course progresses.
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
--->
 
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 
-<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465002174` for the exercises.
@@ -96,7 +87,7 @@ missing only one element from the during-the-course
 version that can be made in your own project.
 For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
+if they are not made during the second course day (the reservation expires at 6pm CET/ 7pm EET that
 day).
 
 -   Create a directory in the scratch of your project, or if you want to
@@ -126,15 +117,15 @@ day).
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20251020/files/exercises-20250602.tar.bz2
-    tar -xf exercises-20250602.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20251020/files/exercises-20251020.tar.bz2
+    tar -xf exercises-20251020.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20251020/files/exercises-20250602.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20251020/files/exercises-20250602.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20251020/files/exercises-20251020.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20251020/files/exercises-20251020.tar.bz2).
 
 -   You're all set to go!
--->
+
 
 <!--
 ## Making the exercises after the course
@@ -178,7 +169,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 
 [The links to all documentation mentioned during the talks is on a separate page](A01-Documentation.md).
 
-This document will be updated after the summer '25 system update.
+<!-- This document will be updated after the summer '25 system update. -->
 
 
 ## Acknowledgement
