@@ -1,6 +1,6 @@
 # Introduction to Performance Analysis with Perftools
 
-*Presenter: Thierry Braconnier (HPE)*
+*Presenter: Thierry Braconnier and Alfio Lazzaro (HPE)*
 
 
 ## Materials
