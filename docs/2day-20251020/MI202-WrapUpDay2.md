@@ -1,6 +1,6 @@
 # What Else?
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 A brief recap of the material of day 2, and an outlook on the advanced part of the course.
 

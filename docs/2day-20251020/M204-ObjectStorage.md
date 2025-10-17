@@ -1,6 +1,6 @@
 # LUMI-O Object Storage
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 LUMI also has an object storage system. It is useful as a staging location
 to transfer data to LUMI, but some programs may also benefit from accessing the 

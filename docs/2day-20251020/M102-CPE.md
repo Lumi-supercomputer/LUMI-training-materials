@@ -1,6 +1,6 @@
 # The HPE Cray Programming Environment
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 As Linux itself is not a complete supercomputer operating system, many components
 that are essential for the proper functioning of a supercomputer are separate packages

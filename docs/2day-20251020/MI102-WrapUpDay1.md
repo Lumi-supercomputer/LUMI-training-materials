@@ -1,6 +1,6 @@
 # Wrap-Up Day 1
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 
 ## Materials

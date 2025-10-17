@@ -1,6 +1,6 @@
 # Modules on LUMI
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 LUMI uses Lmod, but as Lmod can be configured in different ways, even an experienced
 Lmod user can learn from this presentation how we use modules on LUMI and how
