@@ -1,6 +1,6 @@
 # Advanced Performance Analysis and Demo
 
-*Presenter: Alfio Lazzaro (HPE)*
+*Presenter: Thierry Braconnier and Alfio Lazzaro (HPE)*
 
 ## Materials
 
