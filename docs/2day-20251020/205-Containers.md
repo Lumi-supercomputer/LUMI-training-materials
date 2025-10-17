@@ -153,6 +153,24 @@ support all different software that users want to run in containers, and all pos
 want to run in those containers. We provide some advice on how to build a proper container, but if you chose to
 neglect it it is up to you to solve the problems that occur.
 
+<figure markdown style="border: 1px solid #000">
+  ![Storage manageability: Python](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/ContainersStoragePython.png){ loading=lazy }
+</figure>
+
+In case you wonder how important it is to containerise Conda and Python installations: Look no further than 
+the slide above which was borrowed from the 
+[presentation "Loading training data on LUMI" of the "Moving your AI training jobs to LUMI
+of October 2025](../ai-20251008/extra_10_TrainingData.md)
+and was presented by our colleagues
+from the HPE Center of Excellence supporting LUST. They wanted to see to what extent their
+profiling tools were useful to understanding the performance of AI jobs and took a simple
+example from the LUMI documentation. The conclusion of the profiling was a bit surprising, even for them.
+It turned out that in this rather standard example for machine learning (well, not so standard
+for what many users try as the MNIST dataset is not stored as many small files, but the tasks
+are standard) Python was spending as much time reading in Python code from Lustre as it
+was doing useful work. Containerising the Python installation sped up the benchmark from
+100s to 52s.
+
 
 ## Managing containers
 
@@ -676,6 +694,11 @@ versions of ROCm(tm) in mind, so if that version of ROCm(tm) is too new for the 
 driver on the software, running GPU software may fail. Some containers may also expect
 a newer version of the OS and though they contain the necessary userland libraries, these
 may expect a newer version of the kernel or libraries that are injected from the system.
+
+!!! Note "User coffee break seminar on the CCPE containers"
+
+    During the August 2025 user coffee break, there was a presentation on using the
+    [Cray PE containers](../User-Coffee-Breaks/20250827-user-coffee-break-CCPE.md).
 
 
 ### Pre-built AI containers
@@ -1272,6 +1295,12 @@ it from the installation afterwards).
 **Note that `cotainr` can build upon the ROCm(tm) containers that are provided on LUMI, but not
 upon containers that already contain a Conda installation. It cannot extend an existing Conda
 installation in a container.**
+
+!!! Note "Course lecture on `cotainr`"
+
+    The ["Moving your AI training jobs to LUMI" course](https://lumi-supercomputer.github.io/AI-latest)
+    has a session ["Building containers from Conda/pip environments"](../ai-20251008/extra_06_BuildingContainers.md)
+    (link to the materials of the course in October 2025) with examples and exercises for this approach.
 
 
 ### Extending the container with the singularity unprivileged `proot` build 

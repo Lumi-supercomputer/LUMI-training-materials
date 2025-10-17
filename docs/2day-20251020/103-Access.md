@@ -488,6 +488,9 @@ Web links:
 -   Example for data archiving services: In the Netherlands, SURF provides the
     [SURF Data Archive](https://www.surf.nl/en/services/data-archive) and 
     [SURF Data Repository](https://www.surf.nl/en/services/surf-data-repository) services.
+-   The [FENIX Research Infrastructure project](https://fenix-ri.eu/) also aims to build up,
+    among others, services for data publishing and archival. It is based on cloud computing
+    technology.
 
 
 ## Access
@@ -609,7 +612,7 @@ Web links:
     </figure>
 
     The "Login node shell" does just what you expect from it": It opens a tab in the browser with a shell
-    on one of the login nodes. Open OnDemand uses its own set of login nodes, as you can see from the name
+    on one of the login nodes. Open OnDemand uses its own login node (currently only one), as you can see from the name
     of the node, but these nodes are otherwise identical to the login nodes that you access via an ssh client
     on your laptop, and the same policies apply. They should not be used for running applications and only be
     used for small work or not too heavy compilations.

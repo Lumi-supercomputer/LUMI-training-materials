@@ -47,9 +47,8 @@ written in Lua with module files also written in Lua. Lmod also supports most
 Tcl module files. It is also supported by HPE Cray. HPE used to be a bit
 slow in following versions, but since 2024 they stay close to the current version. 
 The original developer of Lmod, Robert McLay, retired 
-at the end of August 2023, but TACC, the centre where he worked, is committed to at least
-maintain Lmod though it may not see as much new development anymore as before
-(and currently he's still working on it part-time).
+in October 2025, but TACC, the centre where he worked, is committed to at least
+maintain Lmod though it may not see as much new development anymore as before.
 
 On LUMI we have chosen to use Lmod. As it is very popular, many users may already be
 familiar with it, though it does make sense to revisit some of the commands that are
