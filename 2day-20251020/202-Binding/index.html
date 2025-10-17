@@ -807,7 +807,7 @@
   
   
   <span class="md-ellipsis">
-    Ann. Performance Analysis & Optimization October 2025
+    Performance Analysis & Optimization October 2025
     
   </span>
   
@@ -824,7 +824,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Ann. Performance Analysis & Optimization October 2025
+            Performance Analysis & Optimization October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Ann.: Supercomputing with LUMI October 2025
+    Supercomputing with LUMI October 2025
     
   </span>
   
@@ -934,7 +934,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Ann.: Supercomputing with LUMI October 2025
+            Supercomputing with LUMI October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -952,7 +952,7 @@
   
   
   <span class="md-ellipsis">
-    Preliminary schedule
+    Schedule
     
   </span>
   
@@ -4604,7 +4604,7 @@
 
 
 <h1 id="process-and-thread-distribution-and-binding">Process and Thread Distribution and Binding<a class="headerlink" href="#process-and-thread-distribution-and-binding" title="Permanent link">&para;</a></h1>
-<p><strong><em>These notes are a quick revision of the notes of a course in May, given by another presenter.
+<p><strong><em>These notes are a quick revision of the notes of an earlier version of the course, given by another presenter.
 They have not been thoroughly retested.</em></strong></p>
 <h2 id="what-are-we-talking-about-in-this-session">What are we talking about in this session?<a class="headerlink" href="#what-are-we-talking-about-in-this-session" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
@@ -4662,14 +4662,6 @@ with several extensions implemented by the LUST.</p>
 node type as LUMI-G.)</p>
 <p>The HPC Affinity Tracker tool is developed by HPE and made 
 <a href="https://github.com/HewlettPackard/hpcat">publicly available in GitHub</a>.</p>
-</details>
-<details class="bug">
-<summary><code>hpcat</code> on multiple nodes (click to expand)</summary>
-<p>As of the time of the last update of this paragraph, <code>hpcat</code> runs fine when started from an
-interactive session created with <code>salloc</code>, using <code>srun</code> to launch the application on the compute
-node(s), but it crashes when this is done in a batch script that uses more than one node. 
-So we do not really use it yet in the slides and notes. When fully stable, it would be a better
-replacement for the <code>gpu_check -l</code> command used in several of the examples.</p>
 </details>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide When/where is it done" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-202-Binding/WhenDone.png" /></p>
@@ -4851,7 +4843,7 @@ and how task affinity is used to manage the CPUs for a task. Consider the job sc
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=5:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeGNU-24.03
 
 cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; task_lstopo_$SLURM_JOB_ID</span>
 <span class="s">#!/bin/bash</span>
@@ -5209,7 +5201,7 @@ Consider the job script:</p>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=15:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.2a-cpeCray-24.03
 
 cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; task_lstopo_$SLURM_JOB_ID</span>
 <span class="s">#!/bin/bash</span>
@@ -5454,7 +5446,7 @@ task level. </p>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=5:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/G<span class="w"> </span>lumi-CPEtools/1.2a-cpeCray-24.03
 
 cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_1gpu_$SLURM_JOB_ID</span>
 <span class="s">#!/bin/bash</span>
@@ -5715,7 +5707,7 @@ we refer to the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.ht
     <code>--distribution</code> option above and replaces level 2 and level 3 of that option. </p>
 <p>E.g.,</p>
 <div class="highlight"><pre><span></span><code>salloc --nodes=1 --partition=standard-g
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeGNU-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeGNU-24.03
 srun --ntasks=8 --cpu-bind=map_cpu:49,57,17,25,1,9,33,41 mpi_check -r
 </code></pre></div>
 <p>will run the first task on hardware threads 49, the second task on 57, third on 17, fourth on 
@@ -5732,7 +5724,7 @@ this chapter.</p>
 option. </p>
 <p>E.g.,</p>
 <div class="highlight"><pre><span></span><code>salloc --nodes=1 --partition=standard-g
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeGNU-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeGNU-24.03
 srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000 hybrid_check -r
 </code></pre></div>
 <p>will run the first task on hardware threads 49-54, the second task on 57-62, third on 17-22, fourth on 
@@ -6183,7 +6175,7 @@ the same problem size (and hence same number of nodes and tasks).</p>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --time=5:00</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeGNU-24.03
 
 <span class="nb">set</span><span class="w"> </span>-x
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nSMP-style distribution on top of block.&quot;</span>
@@ -6488,7 +6480,7 @@ can also be used to check the OpenMP thread binding.</p>
 #SBATCH --hint=multithread
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeCray-24.03
 
 set -x
 export OMP_NUM_THREADS=4
@@ -7061,7 +7053,7 @@ the last line.</p>
 #SBATCH --nodes=2
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 # Mapping:
 # | Task | GCD | CCD | HWTs           | Available HWTs | CPU mask (w/o HWTs) |
@@ -7240,7 +7232,7 @@ to get the proper CPUs:</p>
 #SBATCH --nodes=2
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 # Mapping:
 # | Task | CCD | HWTs           | Available HWTs | CPU mask (w/o HWTs) | GCD |
@@ -7386,7 +7378,7 @@ in the two scripts above:</p>
 #SBATCH --nodes=2
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 # Mapping:
 # | Task | GCD | CCD | Available cores | CPU mask (w/o HWTs) |
@@ -7479,7 +7471,7 @@ is is also easy to check that each task is also mapped on the optimal CCD for th
 #SBATCH --nodes=1
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 #
 # Define the order of the GPUs and the core mask for CCD0
@@ -7640,7 +7632,7 @@ resources allocated via the <code>sbatch</code> arguments (usually <code>#SBATCH
 #SBATCH --hint=nomultithread
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
 #!/bin/bash
@@ -7795,7 +7787,7 @@ MPI 011 - OMP 001 - HWT 008 (CCD1) - Node nid007380 - RT_GPU_ID 0 - GPU_ID 3 - B
 #SBATCH --hint=nomultithread
 #SBATCH --time=5:00
 
-module load LUMI/24.03 partition/G lumi-CPEtools/1.2-cpeCray-24.03
+module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
 
 cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
 #!/bin/bash

@@ -807,7 +807,7 @@
   
   
   <span class="md-ellipsis">
-    Ann. Performance Analysis & Optimization October 2025
+    Performance Analysis & Optimization October 2025
     
   </span>
   
@@ -824,7 +824,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Ann. Performance Analysis & Optimization October 2025
+            Performance Analysis & Optimization October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Ann.: Supercomputing with LUMI October 2025
+    Supercomputing with LUMI October 2025
     
   </span>
   
@@ -934,7 +934,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Ann.: Supercomputing with LUMI October 2025
+            Supercomputing with LUMI October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -952,7 +952,7 @@
   
   
   <span class="md-ellipsis">
-    Preliminary schedule
+    Schedule
     
   </span>
   
@@ -4544,7 +4544,7 @@
 
 
 <h1 id="using-lustre">Using Lustre<a class="headerlink" href="#using-lustre" title="Permanent link">&para;</a></h1>
-<p><strong><em>These notes are a quick revision of the notes of a course in May, given by another presenter.
+<p><strong><em>These notes are a quick revision of the notes of a similar course given by another presenter.
 They have not been thoroughly retested.</em></strong></p>
 <h2 id="file-systems-on-lumi">File systems on LUMI<a class="headerlink" href="#file-systems-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
@@ -4580,9 +4580,6 @@ minimise OS jitter on the compute nodes to improve scalability of applications,
 and to reduce the memory footprint of the OS on the compute nodes.</p>
 <h2 id="lustre-building-blocks">Lustre building blocks<a class="headerlink" href="#lustre-building-blocks" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
-<p><img alt="Lustre building blocks" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1.png" /></p>
-</figure>
-<figure style="border: 1px solid #000">
 <p><img alt="Lustre building blocks (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks2.png" /></p>
 </figure>
 <p>A key element of Lustre - but also of other parallel file systems for large parallel
@@ -4591,7 +4588,10 @@ metadata and the actual file data, as the way both are accessed and used is very
 <p>A Lustre system consists of the following blocks:</p>
 <ol>
 <li>
-<p><strong>Metadata servers (MDSes)</strong> with one or more <strong>metadata targets (MDTs)</strong> each store
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_2_MDS.png" />
+   </figure>
+    <strong>Metadata servers (MDSes)</strong> with one or more <strong>metadata targets (MDTs)</strong> each store
     namespace metadata such as filenames, directories and access permissions, and the
     file layout.</p>
 <p>Each MDT is a filesystem, usually with some level of RAID or similar technologies
@@ -4604,10 +4604,13 @@ storage possible even if that storage is very expensive per terabyte. On LUMI al
 metadata servers use SSDs.</p>
 </li>
 <li>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_3_OSS.png" />
+  </figure></p>
 <p><strong>Object storage servers (OSSes)</strong> with one or more <strong>object storage targets (OSTs)</strong> each
-    store the actual data. Data from a single file can be distributed across multiple
-    OSTs and even multiple OSSes. As we shall see, this is also the key to getting very
-    high bandwidth access to the data.</p>
+store the actual data. Data from a single file can be distributed across multiple
+OSTs and even multiple OSSes. As we shall see, this is also the key to getting very
+high bandwidth access to the data.</p>
 <p>Each OST is a filesystem, again usually with some level of RAID or similar technologies
 to survive disk failures. One OSS typically has between 1 and 8 OSTs, and in a big setup
 a high availability setup will be used again (as is the case in LUMI).</p>
@@ -4624,7 +4627,10 @@ storage systems.</p>
 8.5 PB in an SSD-based Lustre file system. However, all MDSes use SSD storage.</p>
 </li>
 <li>
-<p><strong>Lustre clients</strong> access and use the data. They make the whole Lustre file system look like
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_4_client.png" />
+  </figure>
+    <strong>Lustre clients</strong> access and use the data. They make the whole Lustre file system look like
     a single file system.</p>
 <p>Lustre is <strong>transparent in functionality</strong>. You can use a Lustre file system just as any 
 other regular file system, with all your regular applications. However, it is <strong>not
@@ -4636,10 +4642,13 @@ at handling access to a large pool of small files instead. </p>
 in an appropriate way, in fewer but larger files instead of more smaller files. 
 Some centres with large supercomputers will advise you to containerise software for optimal
 performance. On LUMI we do advise Python users or users who install software through Conda
-to do so. </p>
+to do so.</p>
 </li>
 <li>
-<p>All these components are linked together through a <strong>high performance interconnect</strong>. On HPE Cray EX
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_5_network.png" />
+   </figure>
+    All these components are linked together through a <strong>high performance interconnect</strong>. On HPE Cray EX
     systems - but on more an more other systems also - there is no separate network anymore for 
     storage access and the same high performance interconnect that is also used for internode
     communication by applications (through, e.g., MPI) is used for that purpose.</p>
@@ -4694,23 +4703,31 @@ In fact, the Object Storage Servers use a regular file system such as
 ZFS or ldiskfs to store the "objects".</p>
 </div>
 <h2 id="accessing-a-file">Accessing a file<a class="headerlink" href="#accessing-a-file" title="Permanent link">&para;</a></h2>
-<figure style="border: 1px solid #000">
-<p><img alt="Accessing a file" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess.png" /></p>
-</figure>
 <p>Let's now study how Lustre will access a file for reading or writing. Let's assume that the
 second client in the above picture wants to write something to the file.</p>
 <ul>
-<li>
-<p>The first step is opening the file. </p>
-<p>For that, the Lustre client has to talk to the metadata server (MDS) and query some information
-about the file.</p>
-<p>The MDS in turn will return information about the file, including the layout of the file: chunksize
-and the OSSes/OSTs that keep the chunks of the file.</p>
-</li>
-<li>
-<p>From that point on, the client doesn't need to talk to the MDS anymore and can talk directly to 
-    the OSSes to write data to the OSTs or read data from the OSTs.</p>
-</li>
+<li>The first step is opening the file. </li>
+</ul>
+<figure style="border: 1px solid #000">
+<p><img alt="Accessing querymds" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_1_queryMDS.png" /></p>
+</figure>
+<ul>
+<li>For that, the Lustre client has to talk to the metadata server (MDS) and query some information
+    about the file.</li>
+</ul>
+<figure style="border: 1px solid #000">
+<p><img alt="Accessing returnmds" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_2_returnMDS.png" /></p>
+</figure>
+<ul>
+<li>The MDS in turn will return information about the file, including the layout of the file: chunksize
+    and the OSSes/OSTs that keep the chunks of the file.</li>
+</ul>
+<figure style="border: 1px solid #000">
+<p><img alt="Accessing-writeoss" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_3_writeOSS.png" /></p>
+</figure>
+<ul>
+<li>From that point on, the client doesn't need to talk to the MDS anymore and can talk directly to 
+    the OSSes to write data to the OSTs or read data from the OSTs.</li>
 </ul>
 <h2 id="parallelism-is-key">Parallelism is key!<a class="headerlink" href="#parallelism-is-key" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
@@ -4874,7 +4891,7 @@ lustref1-OST0003_UUID      121.3T       21.4T       98.6T  18% /pfs/lustref1[OST
 <p>so the command can also be used to see the number of MDTs and OSTs available in each
 filesystem, with the capacity.</p>
 <figure style="border: 1px solid #000">
-<p><img alt="Managing the striping parameters (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreManageStriping2.png" /></p>
+<p><img alt="stripingparams-ost" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreManageStriping2_3_ost.png" /></p>
 </figure>
 <p>Striping in Lustre is set at a filesystem level by the sysadmins, but users can
 adjust the settings at the directory level (which then sets the default for files
@@ -5046,7 +5063,7 @@ regular Linux <code>find</code> command.</p>
 supercomputer is important and wrong use has consequences for all other users, it is an important
 topic that many advanced courses will cover. 
 This is also discussed further in the presentation
-<a href="M503-IO_Optimization_Parallel_IO.md">"Optimizing Large Scale I/O"</a> on day 5 
+<a href="../../2p3day-20250303/M503-IO_Optimization_Parallel_IO/">"Optimizing Large Scale I/O"</a> on day 5 
 of our intensive course of March 2025.</p>
 <h2 id="lustre-on-lumi">Lustre on LUMI<a class="headerlink" href="#lustre-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">

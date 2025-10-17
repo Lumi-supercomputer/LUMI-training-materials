@@ -807,7 +807,7 @@
   
   
   <span class="md-ellipsis">
-    Ann. Performance Analysis & Optimization October 2025
+    Performance Analysis & Optimization October 2025
     
   </span>
   
@@ -824,7 +824,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Ann. Performance Analysis & Optimization October 2025
+            Performance Analysis & Optimization October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Ann.: Supercomputing with LUMI October 2025
+    Supercomputing with LUMI October 2025
     
   </span>
   
@@ -934,7 +934,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Ann.: Supercomputing with LUMI October 2025
+            Supercomputing with LUMI October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -952,7 +952,7 @@
   
   
   <span class="md-ellipsis">
-    Preliminary schedule
+    Schedule
     
   </span>
   
@@ -4567,8 +4567,8 @@ the browser with text that looks like</p>
 # DO NOT SHARE!
 
 # Default location is ${HOME}/.s3cfg
-
-[lumi-465002174]
+# otherwise: s3cmd -c &lt;this_file&gt; &lt;subcommand&gt;
+[default]
 access_key   = XXXXXXXXXXXXXXXXXXXX
 secret_key   = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 host_base    = https://lumidata.eu
@@ -4744,7 +4744,7 @@ buckets.</p>
 E.g., to check the bucket <code>training.public</code>, use <code>s3cmd info s3://training.public</code>.
 The crucial lines in the output are:</p>
 <div class="highlight"><pre><span></span><code>ACL:       *anon*: READ
-ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
 </code></pre></div>
 <p>The last line will always be present, with the name of the project and then <code>FULL_CONTROL</code>
 as whoever has the credentials of the project can do everything with the bucket. The first line
@@ -4757,7 +4757,7 @@ bucket, use</p>
 </code></pre></div>
 <p>The output will contain</p>
 <div class="highlight"><pre><span></span><code>ACL:       *anon*: READ
-ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
 </code></pre></div>
 <p>which shows that this object is actually public. So a private bucket can contain a public object,
 and in fact, you can access it with, e.g., a web browser without authenticating anywhere.</p>
@@ -4797,6 +4797,7 @@ s3cmd info s3://training.private/HTML/private.html
     <code>public-in-private.txt</code> and <code>private-in-private.txt</code> in the <code>training.private</code> bucket. What works and what doesn't?</p>
 <details class="solution">
 <summary>Click here to see the solution.</summary>
+<p>The structure of the URL is <code>https://&lt;project&gt;.lumidata.eu/&lt;bucket&gt;/&lt;object&gt;</code>.</p>
 <ul>
 <li>
 <p><code>public-in-public.txt</code> in the <code>training.public</code> bucket:
@@ -5150,8 +5151,8 @@ the browser with text that looks like</p>
 # DO NOT SHARE!
 
 # Default location is ${HOME}/.s3cfg
-
-[lumi-46YXXXXXX]
+# otherwise: s3cmd -c &lt;this_file&gt; &lt;subcommand&gt;
+[default]
 access_key   = XXXXXXXXXXXXXXXXXXXX
 secret_key   = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 host_base    = https://lumidata.eu
@@ -5351,7 +5352,7 @@ private and public objects with no way to distinguish between them.\</p>
 E.g., to check the bucket <code>training.public</code>, use <code>s3cmd info s3://training.public</code>.
 The crucial lines in the output are:</p>
 <div class="highlight"><pre><span></span><code>ACL:       *anon*: READ
-ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
 </code></pre></div>
 <p>The last line will always be present, with the name of the project and then <code>FULL_CONTROL</code>
 as whoever has the credentials of the project can do everything with the bucket. The first line
@@ -5364,7 +5365,7 @@ bucket, use</p>
 </code></pre></div>
 <p>The output will contain</p>
 <div class="highlight"><pre><span></span><code>ACL:       *anon*: READ
-ACL:       LUST Training / 2024-12-10-11 Supercomputing with LUMI - Online: FULL_CONTROL
+ACL:       LUST Training / 2025-10-20 LUMI Inro Course (Tallinn): FULL_CONTROL
 </code></pre></div>
 <p>which shows that this object is actually public. So a private bucket can contain a public object,
 and in fact, you can access it with, e.g., a web browser without authenticating anywhere.</p>
@@ -5404,6 +5405,7 @@ s3cmd info s3://training.private/HTML/private.html
     <code>public-in-private.txt</code> and <code>private-in-private.txt</code> in the <code>training.private</code> bucket. What works and what doesn't?</p>
 <details class="solution">
 <summary>Click here to see the solution.</summary>
+<p>The structure of the URL is <code>https://&lt;project&gt;.lumidata.eu/&lt;bucket&gt;/&lt;object&gt;</code>.</p>
 <ul>
 <li>
 <p><code>public-in-public.txt</code> in the <code>training.public</code> bucket:

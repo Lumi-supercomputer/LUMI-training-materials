@@ -807,7 +807,7 @@
   
   
   <span class="md-ellipsis">
-    Ann. Performance Analysis & Optimization October 2025
+    Performance Analysis & Optimization October 2025
     
   </span>
   
@@ -824,7 +824,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Ann. Performance Analysis & Optimization October 2025
+            Performance Analysis & Optimization October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -917,7 +917,7 @@
   
   
   <span class="md-ellipsis">
-    Ann.: Supercomputing with LUMI October 2025
+    Supercomputing with LUMI October 2025
     
   </span>
   
@@ -934,7 +934,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Ann.: Supercomputing with LUMI October 2025
+            Supercomputing with LUMI October 2025
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -952,7 +952,7 @@
   
   
   <span class="md-ellipsis">
-    Preliminary schedule
+    Schedule
     
   </span>
   
@@ -4725,8 +4725,8 @@
 <p>Let's now switch to using containers on LUMI. 
 This section is about using containers on the login nodes and compute nodes. 
 Some of you may have heard that there were plans to also have an OpenShift Kubernetes container cloud
-platform for running microservices but at this point it is not clear if and when this will materialize
-due to a lack of personpower to get this running and then to support this.</p>
+platform for running microservices but at this has not materialised yet and was also 
+never meant to be a big compute resource.</p>
 <p>In this section, we will </p>
 <ul>
 <li>
@@ -4861,6 +4861,22 @@ node level and then between containers on different nodes.</p>
 support all different software that users want to run in containers, and all possible Linux distributions they may
 want to run in those containers. We provide some advice on how to build a proper container, but if you chose to
 neglect it it is up to you to solve the problems that occur.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Storage manageability: Python" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/ContainersStoragePython.png" /></p>
+</figure>
+<p>In case you wonder how important it is to containerise Conda and Python installations: Look no further than 
+the slide above which was borrowed from the 
+<a href="../../ai-20251008/extra_10_TrainingData/">presentation "Loading training data on LUMI" of the "Moving your AI training jobs to LUMI
+of October 2025</a>
+and was presented by our colleagues
+from the HPE Center of Excellence supporting LUST. They wanted to see to what extent their
+profiling tools were useful to understanding the performance of AI jobs and took a simple
+example from the LUMI documentation. The conclusion of the profiling was a bit surprising, even for them.
+It turned out that in this rather standard example for machine learning (well, not so standard
+for what many users try as the MNIST dataset is not stored as many small files, but the tasks
+are standard) Python was spending as much time reading in Python code from Lustre as it
+was doing useful work. Containerising the Python installation sped up the benchmark from
+100s to 52s.</p>
 <h2 id="managing-containers">Managing containers<a class="headerlink" href="#managing-containers" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Managing containers" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/ContainersManaging_1.png" /></p>
@@ -4869,7 +4885,7 @@ neglect it it is up to you to solve the problems that occur.</p>
 such a system. On LUMI, we currently support only one container runtime.</p>
 <p>Docker is not available, and will never be on the regular compute nodes as it requires elevated privileges
 to run the container which cannot be given safely to regular users of the system.</p>
-<p>Singularity is currently the only supported container runtime and is available on the login nodes and
+<p>Singularity Community Edition is currently the only supported container runtime and is available on the login nodes and
 the compute nodes. It is a system command that is installed with the OS, so no module has to be loaded
 to enable it. We can also offer only a single version of singularity or its close cousin AppTainer 
 as singularity/AppTainer simply don't really like running multiple versions next to one another, 
@@ -4917,7 +4933,8 @@ pull operation so save on your storage billing units).</p>
 </figure>
 <p>There is currently limited support for building containers on LUMI and I do not expect that to change quickly.
 Container build strategies that require elevated privileges, and even those that require user namespaces, cannot
-be supported for security reasons (as user namespaces in Linux are riddled with security issues). 
+be supported for security reasons (as user namespaces in Linux are riddled with security issues
+when used in combination with networked file systems). 
 Enabling features that are known to have had several serious security vulnerabilities in the recent past, or that
 themselves are unsecure by design and could allow users to do more on the system than a regular user should
 be able to do, will never be supported.</p>
@@ -5263,7 +5280,11 @@ versions of ROCm&trade; in mind, so if that version of ROCm&trade; is too new fo
 driver on the software, running GPU software may fail. Some containers may also expect
 a newer version of the OS and though they contain the necessary userland libraries, these
 may expect a newer version of the kernel or libraries that are injected from the system.</p>
-<p>General availability to users is expected by the summer of 2025.</p>
+<div class="admonition note">
+<p class="admonition-title">User coffee break seminar on the CCPE containers</p>
+<p>During the August 2025 user coffee break, there was a presentation on using the
+<a href="../../User-Coffee-Breaks/20250827-user-coffee-break-CCPE/">Cray PE containers</a>.</p>
+</div>
 <h3 id="pre-built-ai-containers">Pre-built AI containers<a class="headerlink" href="#pre-built-ai-containers" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Environment enhancements (3): Prebuilt AI containers" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/ContainersPrebuiltAI.png" /></p>
@@ -5276,7 +5297,7 @@ also contain a RCCL library with the appropriate plugin to work well on the Slin
 interconnect, or a horovod compiled to use Cray MPICH. </p>
 <p>Some of the containers can be provided through a module that is user-installable with EasyBuild.
 That module sets the <code>SINGULARITY_BIND</code> environment variable
-to ensure proper bindings (as they need, e.g., the libfabric library from the system and the proper
+to ensure proper bindings (as some need, e.g., the libfabric library from the system and the proper
 "CXI provider" for libfabric to connect to the Slingshot interconnect). The module will also provide
 an environment variable to refer to the container (name with full path) to make it easy to refer to
 the container in job scripts. Some of the modules also provide some scripts that may make using the containers easier in some standard scenarios. 
@@ -5290,17 +5311,20 @@ with a container label.
 At the time of the course, there are containers for</p>
 <ul>
 <li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch</a>, which is the best tested and most developed one,</li>
-<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/t/TensorFlow/">TensorFlow</a>,</li>
 <li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/">JAX</a>,</li>
+<li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/t/TensorFlow/">TensorFlow</a>,</li>
 <li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/a/AlphaFold/">AlphaFold</a>,</li>
 <li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/">ROCm</a> and</li>
 <li><a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/m/mpi4py/">mpi4py</a>.</li>
 </ul>
+<p>Of these, the PyTorch containers are by far the most popular ones among the LUMI users, 
+probably followed by the ROCm containers as basis to build their own containers using
+<code>cotainr</code> or other tools.</p>
 <h2 id="running-the-ai-containers-complicated-way-without-modules">Running the AI containers - complicated way without modules<a class="headerlink" href="#running-the-ai-containers-complicated-way-without-modules" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Running the AI containers without EasyBuild-generated module" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/RunningAiComplicated.png" /></p>
 </figure>
-<p>The containers that we provide have everything they need to use RCCL and/or MPI on LUMI.
+<p>The containers that we provide have everything needed to use RCCL and/or MPI on LUMI.
 It is not needed to use the <code>singularity-bindings/system</code> module described earlier as that module
 tries to bind too much external software to the container.</p>
 <p>Yet to be able to properly use the containers, users do need to take care of some bindings</p>
@@ -5311,7 +5335,8 @@ tries to bind too much external software to the container.</p>
 </code></pre></div>
 <p>The first one is needed to work together with Slurm. The second one contains the MPI and libfabric library.
 The third one is the actual component that binds libfabric to the Slingshot network adapter and is called 
-the CXI provider.</p>
+the CXI provider and is not needed anymore on the containers built in 2025 as a
+newer provider library has already been included in those containers.</p>
 </li>
 <li>
 <p>By default your home directory will be available in the container, but as your home directory is not your
@@ -5342,11 +5367,14 @@ the CXI provider.</p>
 </ul>
 <p>Moreover, most (if not all at the moment) containers that we provide with Python packages, are
 built using Conda to install Python. When entering those containers, conda needs to be activated.
-The containers are built in such a way that the environment variable <code>WITH_CONDA</code> provides the 
+In the newer containers (including all those built in 2025), this is done automatically in
+the singularity initialisation process.
+Older containers are built in such a way that the environment variable <code>WITH_CONDA</code> provides the 
 necessary command, so in most cases you only need to run </p>
 <div class="highlight"><pre><span></span><code>$WITH_CONDA
 </code></pre></div>
-<p>as a command in the script that is executed in the container or on the command line.</p>
+<p>as a command in the script that is executed in the container or on the command line.
+(And in fact, using this in the newer containers will not cause an error or warning.)</p>
 <h2 id="running-the-containers-through-easybuild-generated-modules">Running the containers through EasyBuild-generated modules<a class="headerlink" href="#running-the-containers-through-easybuild-generated-modules" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Running the AI containers with EasyBuild-generated module - slide 1" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/RunningAIEasyBuild_1.png" /></p>
@@ -5388,6 +5416,20 @@ Python virtual environment by sourcing scripts.</p>
 <p>In fact, someone with EasyBuild experience may even help you to further extend the recipe that we provide to already
 install extra packages, and we provide an example of how to do that with 
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">our PyTorch containers</a>.</p>
+<div class="admonition remark">
+<p class="admonition-title">Difference between the Python wrapper scrips of the EasyBuild and the CSC modules</p>
+<p>The wrapper scripts of the CSC modules are written in such a way that even creating 
+virtual environments with them is supported.</p>
+<p>This is not the case with the modules provided via EasyBuild and discussed in the 
+<a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/">LUMI Software Library</a>.
+The newer <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch</a>
+and <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/">JAX</a>
+EasyBuild recipes will install modules that support the <code>python</code> wrapper script, but 
+there is a single virtual environment already pre-defined and the script will run in 
+that virtual environment. Because of that restriction, we can easily pack the whole
+virtual environment in a SquashFS file for more efficient and Lustre-friendly
+execution, which is hard or impossible to do with the CSC wrappers.</p>
+</div>
 <figure style="border: 1px solid #000">
 <p><img alt="Running the AI containers with EasyBuild-generated module - slide 2" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/RunningAIEasyBuild_2.png" /></p>
 </figure>
@@ -5426,6 +5468,8 @@ are not explained in this text. You can find more information on the
 <figure style="border: 1px solid #000">
 <p><img alt="Example: Distributed learning with PyTorch, no EasyBuild-generated module - slide 1" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/RunningAIExampleNoEasyBuild_1.png" /></p>
 </figure>
+<p>In this example, we'll do most of the initialisations inside the container, but different
+approaches are also possible.</p>
 <p>We'll need to create a number of scripts before we can even run the container. The job script
 alone is not enough as there are also per-task initialisations needed that cannot be done
 directly in the job script. In this example, we run the script that does the per-task
@@ -5675,7 +5719,7 @@ extend the containers that we provide:</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Extending containers with cotainr" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/ExtendingCotainr.png" /></p>
 </figure>
-<p>The LUMI Software Library offers some <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/">container images for ROCm&trade;)</a>.
+<p>The LUMI Software Library offers some <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/r/rocm/">container images for ROCm&trade;</a>.
 Though these images can be used simply to experiment with different versions of ROCm, an important use of those images is as base images
 for the <a href="https://docs.lumi-supercomputer.eu/software/containers/singularity/#building-containers-using-the-cotainr-tool">cotainr tool</a>
 that supports Conda to install software in the container.</p>
@@ -5761,6 +5805,12 @@ it from the installation afterwards). </p>
 <p><strong>Note that <code>cotainr</code> can build upon the ROCm&trade; containers that are provided on LUMI, but not
 upon containers that already contain a Conda installation. It cannot extend an existing Conda
 installation in a container.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Course lecture on <code>cotainr</code></p>
+<p>The <a href="https://lumi-supercomputer.github.io/AI-latest">"Moving your AI training jobs to LUMI" course</a>
+has a session <a href="../../ai-20251008/extra_06_BuildingContainers/">"Building containers from Conda/pip environments"</a>
+(link to the materials of the course in October 2025) with examples and exercises for this approach.</p>
+</div>
 <h3 id="extending-the-container-with-the-singularity-unprivileged-proot-build">Extending the container with the singularity unprivileged <code>proot</code> build<a class="headerlink" href="#extending-the-container-with-the-singularity-unprivileged-proot-build" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Extending containers with the singularity unprivileged proot build process" loading="lazy" src="https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-205-Containers/ExtendingSingularityBuild.png" /></p>
@@ -5864,7 +5914,7 @@ has <strong>two major flaws</strong></p>
 <li>
 <p>Every set of userland libraries comes with certain expectations for kernel versions, kernel drivers and their 
     versions, hardware, etc. If these expectations are not met, the container may not work at all or may work inefficiently.</p>
-<p>This is particulary true for ROCm(TM) support as each version of the ROCm&trade; libraries only
+<p>This is particulary true for ROCm&trade; support as each version of the ROCm&trade; libraries only
 works with a limited range of GPU driver versions. If the ROCm&trade; libraries in the container
 are too old or too new for the driver on the system, the container will not work. As the ROCm&trade;
 ecosystem is maturing, the range of driver versions that are compatible with each ROC&trade; version
