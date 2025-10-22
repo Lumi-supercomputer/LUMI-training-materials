@@ -1,6 +1,6 @@
 # Process and Thread Distribution and Binding
 
-*Presenter: Jorik van Kemenade (LUST)*
+*Presenter: Jorik van Kemenade*
 
 To get good performance on hardware with a strong hierarchy as AMD EPYC processors and
 GPUs, it is important to map processes and threads properly on the hardware. This talk discusses

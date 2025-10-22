@@ -1,6 +1,6 @@
 # Introduction
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 ## Materials
 

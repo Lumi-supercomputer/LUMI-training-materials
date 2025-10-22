@@ -1,6 +1,6 @@
 # Introduction Day 2
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Kurt Lust*
 
 
 ## Materials

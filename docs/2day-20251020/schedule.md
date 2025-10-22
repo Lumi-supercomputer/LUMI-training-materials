@@ -23,7 +23,7 @@ DAY 1
             <br/><em>08:00 CEST</em>
         </td>
         <td><b><a href="../MI101-IntroductionCourse/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Kurt Lust (LUST)</em>
+        <br/><em>Presenters: Kurt Lust</em>
         </td>
     </tr>
     <tr>
@@ -32,7 +32,7 @@ DAY 1
             <br/><em>08:15 CEST</em>
         </td>
         <td><b><a href="../M101-Architecture/">LUMI Architecture</a></b>
-        <br/><em>Presenter: Emanuele Vitali (LUST)</em>
+        <br/><em>Presenter: Emanuele Vitali</em>
         <br/>Some insight in the hardware of LUMI is necessary to understand what
         LUMI can do and what it cannot do, and to understand how an application can
         be mapped upon the machine for optimal performance.
@@ -44,7 +44,7 @@ DAY 1
             <br/><em>09:10 CEST</em>
         </td>
         <td><b><a href="../M102-CPE/">HPE Cray Programming Environment</a></b>
-        <br/><em>Presenter: Kurt Lust (LUST)</em>
+        <br/><em>Presenter: Kurt Lust</em>
         <br/>As Linux itself is not a complete supercomputer operating system, many components
         that are essential for the proper functioning of a supercomputer are separate packages
         (such as the Slurm scheduler discussed on day 2) or part of programming environments. 
@@ -66,7 +66,7 @@ DAY 1
             <br/><em>10:35 CEST</em>
         </td>
         <td><b><a href="../M103-Access/">Getting Access to LUMI</a></b>
-        <br/><em>Presenter: Kurt Lust (LUST)</em>
+        <br/><em>Presenter: Kurt Lust</em>
         <br/>We discuss the options to log on to LUMI and to transfer data.
         </td>
     </tr>
@@ -92,7 +92,7 @@ DAY 1
             <br/><em>12:30 CEST</em>
         </td>
         <td><b><a href="../M104-Modules/">Modules on LUMI</a></b>
-        <br/><em>Presenter: Kurt Lust (LUST)</em>
+        <br/><em>Presenter: Kurt Lust</em>
         <br/>LUMI uses Lmod, but as Lmod can be configured in different ways, even an experienced
         Lmod user can learn from this presentation how we use modules on LUMI and how
         modules can be found.
@@ -120,7 +120,7 @@ DAY 1
             <br/><em>14:05 CEST</em>
         </td>
         <td><b><a href="../M105-SoftwareStacks/">LUMI Software Stacks</a></b>
-        <br/><em>Presenter: Kurt Lust (LUST)</em>
+        <br/><em>Presenter: Kurt Lust</em>
         <br/>In this presentation we discuss how application software is made available to
         users of LUMI. For users of smaller Tier-2 clusters with large support teams compared
         to the user base of the machine, the approach taken on LUMI may be a bit unusual...
@@ -140,7 +140,7 @@ DAY 1
             <br/><em>15:30 CEST</em>
         </td>
         <td><b><a href="../M106-Support/">LUMI Support and Documentation</a></b>
-        <br/><em>Presenter: Kurt Lust</em>
+        <br/><em>Presenter: Jorik van Kemenade</em>
         <br/>Where can I find documentation or get training, and which support services are 
         available for what problems? And how can I formulate a support ticket so that I can
         get a quick answer without much back-and-forth mailing?
