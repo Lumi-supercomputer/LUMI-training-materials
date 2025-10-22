@@ -4498,19 +4498,24 @@ please contact the LUMI helpdesk instead.</p>
     This project should only be used during the course and be used for the course exercise 
     sessions only.</p>
 </li>
-</ul>
-<!--
--   Reservations:
-
-    -   Day 1: on partition `standard`: `Workshop_Day1`
-
-    -   Day 2: on partition `standard`: `Workshop_Day2`  
-
-    -   Day 3: on partition `standard-g`: `Workshop_Day3`
--->
-
+<li>
+<p>Reservations:</p>
 <ul>
-<li><a href="evening_suggestions/">Some suggestions for the night</a></li>
+<li>
+<p>Day 1: <code>Workshop_Day1</code> (on the <code>standard</code> Slurm partition)</p>
+</li>
+<li>
+<p>Day 2: <code>Workshop_Day2</code> for CPU (on the <code>standard</code> Slurm partition)
+    and <code>Workshop_Day2_gpu</code> for GPU (on the <code>standard-g</code> Slurm partition)</p>
+</li>
+<li>
+<p>Day 3: <code>Workshop_Day3</code> (on the <code>standard-g</code> Slurm partition)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="evening_suggestions/">Some suggestions for the night</a></p>
+</li>
 </ul>
 <!--
 ReservationName=Workshop_Day1 StartTime=2025-10-22T09:00:00 EndTime=2025-10-22T18:00:00 Duration=09:00:00
@@ -4523,6 +4528,16 @@ ReservationName=Workshop_Day2 StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T1
    Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
    TRES=cpu=4096
    Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   MaxStartDelay=(null)
+
+ReservationName=Workshop_Day2_gpu StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
+
+   Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
+
+   TRES=cpu=2048
+
+   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+
    MaxStartDelay=(null)
 
 ReservationName=Workshop_Day3 StartTime=2025-10-24T09:00:00 EndTime=2025-10-24T18:00:00 Duration=09:00:00
@@ -4561,6 +4576,16 @@ downloaded from LUMI.</p>
 <td><a href="ME101_HPE_PE/">Exercises #1</a></td>
 <td>/</td>
 <td>/</td>
+</tr>
+<tr>
+<td><a href="M102_Compilers/">Compilers, libraries, runtime, single-core optimisations</a></td>
+<td><a href="M102_Compilers/#materials">slides</a></td>
+<td><a href="M102_Compilers/">recording</a></td>
+</tr>
+<tr>
+<td><a href="M103_Perftools/">Performance Analysis with Perftools</a></td>
+<td><a href="M103_Perftools/#materials">slides</a></td>
+<td><a href="M103_Perftools/">recording</a></td>
 </tr>
 <tr>
 <td colspan="3"><strong>Extras</strong></td>
