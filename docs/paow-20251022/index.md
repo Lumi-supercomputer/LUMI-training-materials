@@ -19,15 +19,14 @@
     This project should only be used during the course and be used for the course exercise 
     sessions only.
 
-<!--
 -   Reservations:
 
-    -   Day 1: on partition `standard`: `Workshop_Day1`
+    -   Day 1: `Workshop_Day1` (on the `standard` Slurm partition)
 
-    -   Day 2: on partition `standard`: `Workshop_Day2`  
+    -   Day 2: `Workshop_Day2` for CPU (on the `standard` Slurm partition)
+        and `Workshop_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
 
-    -   Day 3: on partition `standard-g`: `Workshop_Day3`
--->
+    -   Day 3: `Workshop_Day3` (on the `standard-g` Slurm partition)
 
 -   [Some suggestions for the night](evening_suggestions.md)
 
@@ -42,6 +41,16 @@ ReservationName=Workshop_Day2 StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T1
    Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
    TRES=cpu=4096
    Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   MaxStartDelay=(null)
+
+ReservationName=Workshop_Day2_gpu StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
+
+   Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
+
+   TRES=cpu=2048
+
+   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+
    MaxStartDelay=(null)
 
 ReservationName=Workshop_Day3 StartTime=2025-10-24T09:00:00 EndTime=2025-10-24T18:00:00 Duration=09:00:00
@@ -65,11 +74,6 @@ downloaded from LUMI.
 
 | Presentation | slides | recording |
 |:-------------|:-------|:----------|
-| **Extras** @span |  |  |
-| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
-
-::end-spantable::
-<!--
 | **Day 1** @span |  |  |
 | [Introduction](M100_Course_Introduction.md) | / | [recording](M100_Course_Introduction.md) |
 | [Architecture, Programming and Runtime Environment](M101_HPE_PE.md) | [slides](M101_HPE_PE.md#materials) | [recording](M101_HPE_PE.md) |
@@ -78,8 +82,14 @@ downloaded from LUMI.
 | [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [recording](M103_Perftools.md) |
 | [Exercises #2](ME103_Perftools.md) | / | / |
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [recording](M104_AdvancedPerformanceAnalysis.md) |
-| [Exercises #3](ME104a_AdvancedPerformanceAnalysis.md) | / | / |
-| [Exercises #4](ME104b_AdvancedPerformanceAnalysis.md) | / | / |
+| [Exercises #3](ME104_AdvancedPerformanceAnalysis.md) | / | / |
+| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [slides](M105_Demo_Optimizing_Code.md#materials) | / |
+| **Extras** @span |  |  |
+| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
+
+::end-spantable::
+<!--
+| [Exercises #4](ME105_Demo_Optimizing_Code.md) | / | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [recording](M201_MPI.md) |
 | [Exercises #5](ME201_MPI.md) | / | / |

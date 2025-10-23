@@ -12,13 +12,17 @@ bars and cultural activities.
 
 Tallinn has several small breweries with taproom
 
--   [Humalakoda taproom](https://www.humalakoda.ee/), offers food also. It is in the
-    Telliskivi district.
+-   [Humalakoda taproom](https://www.humalakoda.ee/), offers food also. 
+    It is in the Telliskivi district. They have some of their own beers on tap,
+    but also a bottle selection of both some more special beers of their own and
+    beers from some other Estonian and non-Estonian breweries.
     ([taproom menu Untappd](https://untappd.com/v/humalakoda-brewpub/6234799))
     ([Google Maps](https://maps.app.goo.gl/4pZr44QWGsTYiXBS6))
 
--   [Kochi Aidad](https://kochiaidad.ee/en/kochi-aidad/): Restaurant and brewery bar,
-    but I haven't tried this one yet.
+-   [Kochi Aidad](https://kochiaidad.ee/en/kochi-aidad/): Restaurant and brewery bar. 
+    Their own beers are only average, but the food is good and affordable and the 
+    place has an interesting atmosphere. You can also see some of the brewery infrastructure
+    through a window.
     ([Google Maps](https://maps.app.goo.gl/JhyBhBJR9gjpev2V8))
 
 -   [Pöhjala taproom](https://www.pohjalabeer.com/visit/pohjala-tap-room)
@@ -27,6 +31,19 @@ Tallinn has several small breweries with taproom
     This area has become a rather hip area also in recent years.
     ([taproom menu Untappd](https://untappd.com/v/pohjala-brewery-and-tap-room/8349816))
     ([Google Maps](https://maps.app.goo.gl/MPPf7P1vCYZhxAgL9))
+
+-   [Põhja Konn](https://www.facebook.com/pohjakonnbar): A second taproom from 
+    Põhjala. This one is in the Telliskivi district.
+    ([menu Untappd](https://untappd.com/v/pohja-konn/11318726))
+    ([Google Maps](https://maps.app.goo.gl/gTB7j2LcsoZE6Biu6))
+
+-   [Pühaste Taproom Tallinn](https://puhaste-taproom.ourmenu.com/?menu=226736):
+    In a new area just west from the old town and close to the ferry terminal.
+    They tend to have an interesting selection on tap, but also many special 
+    bottles.
+    Pühaste is a brewery located in Tartu, two hours from Tallinn.
+    ([menu Untappd](https://untappd.com/v/puhaste-taproom/12942201))
+    ([Google Maps](https://www.facebook.com/pohjakonnbar))
 
 -   [Tuletorn Brewing](https://tuletorn.beer/): Far from the centre and the tram is 
     needed to get there. I've never been there.
@@ -39,7 +56,8 @@ Tallinn has several small breweries with taproom
 Good bars:
 
 -   [Drink Bar & Grill](https://www.facebook.com/Drinkbaarandgrill/) but few Estonian beers on tap.
-    This place is in the old town.
+    They offer good and affordable food.
+    This place is in the old town, but not in the most touristic streets.
     ([menu Untappd](https://untappd.com/v/drink-bar-and-grill/16752))
     ([Google Maps](https://maps.app.goo.gl/tivQtXxgMD2KFV8F7))
 
@@ -47,17 +65,15 @@ Good bars:
     ([menu Untappd](https://untappd.com/v/koht/669673))
     ([Google Maps](https://maps.app.goo.gl/Bf4ojqTs9BNB8SZ59))
 
--   [Põhja Konn](https://www.facebook.com/pohjakonnbar): A second taproom from 
-    Põhjala. This on is in the Telliskivi district.
-    ([menu Untappd](https://untappd.com/v/pohja-konn/11318726))
-    ([Google Maps](https://maps.app.goo.gl/gTB7j2LcsoZE6Biu6))
-
--   [Pühaste Taproom Tallinn](https://puhaste-taproom.ourmenu.com/?menu=226736):
-    In a new area just west from the old town and close to the ferry terminal.
-    ([menu Untappd](https://untappd.com/v/puhaste-taproom/12942201))
-    ([Google Maps](https://www.facebook.com/pohjakonnbar))
-
 -   [Uba ja Humal](https://www.facebook.com/ubajahumal/): Just north of 
     old town. I haven't tried this bar yet.
     ([menu Untappd](https://untappd.com/v/uba-ja-humal/2584738))
     ([Google Maps](https://maps.app.goo.gl/qG1DPuEQjW6MuTnc6))
+
+Other suggestions from locals:
+
+-   [Restaurant Argentiina](https://argentiina.ee/?lang=en):
+    A bit outside the old town, towards the airport. Mostly for meat lovers,
+    but they do have some fish dishes and dishes for vegetarians, so you can take
+    your non-meatloving friends to the restaurant also.
+    ([Google Maps](https://maps.app.goo.gl/FHmDcHhYFHKXyCKX8)
