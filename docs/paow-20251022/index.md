@@ -84,12 +84,6 @@ downloaded from LUMI.
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [recording](M104_AdvancedPerformanceAnalysis.md) |
 | [Exercises #3](ME104_AdvancedPerformanceAnalysis.md) | / | / |
 | [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [slides](M105_Demo_Optimizing_Code.md#materials) | / |
-| **Extras** @span |  |  |
-| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
-
-::end-spantable::
-<!--
-| [Exercises #4](ME105_Demo_Optimizing_Code.md) | / | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [recording](M201_MPI.md) |
 | [Exercises #5](ME201_MPI.md) | / | / |
@@ -99,6 +93,11 @@ downloaded from LUMI.
 | [Exercises #7](ME203_AMD_tools_1.md) | / | / |
 | [AMD Profiling Tools and GPU optimisations 2](M204_AMD_tools_2.md) | [slides](M204_AMD_tools_2.md#materials) | [recording](M204_AMD_tools_2.md) |
 | [Exercises #8](ME204_AMD_tools_2.md) | / | / |
+| **Extras** @span |  |  |
+| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
+
+::end-spantable::
+<!--
 | **Day 3** @span |  |  |
 | [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
 | [Exercises #9](ME301_Best_Practices_GPU_Optimization.md) | / | / |

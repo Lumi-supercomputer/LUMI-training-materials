@@ -12,31 +12,29 @@
 
 Course materials will be made available during and after the course
 
-<!--
 Directly available as web downloads:
 
--   [First part of the presentation: Overview of the profiling tools](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_01_profiler-tools-overview.pdf)
+-   [First part of the presentation: HIP and ROCm](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_01_HIP-and-ROCm.pdf)
 
--   [Second part of the presentation: Omnitrace by example](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_01_omnitrace-by-example.pdf)
--->
+-   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_01_introduction-to-rocprof.pdf)
 
-<!--
+
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides first part of the presentation: Overview of the profiling tools: `/project/project_465002175/Slides/AMD/AMD-session-1a-profiler-tools-overview.pdf`
+-   Slides first part of the presentation: HIP and ROCm: `'/project/project_465002175/Slides/AMD/session 01a - HIP and ROCm.pdf'`
 
--   Slides second part of the presentation: Omnitrace by example: `/project/project_465002175/Slides/AMD/AMD-session-1b-omnitrace-by-example.pdf`
+-   Slides second part of the presentation: Introduction to ROC-Profiler: `'/project/project_465002175/Slides/AMD/session 02 - introduction to rocprof.pdf'`
 
 -   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
--->
 
-<!--
+
 Archived materials on LUMI:
 
--   Slides first part of the presentation: Overview of the profiling tools: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_01_profiler-tools-overview.pdf`
+-   Slides first part of the presentation: HIP and ROCm: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_01_HIP-and-ROCm.pdf`
 
--   Slides second part of the presentation: Omnitrace by example: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_01_omnitrace-by-example.pdf`
+-   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_01_introduction-to-rocprof.pdf`
 
+<!-- 
 -   Recording: `/appl/local/training/paow-20251022/recordings/2_01_AMD_tools_1.mp4`
 -->
 

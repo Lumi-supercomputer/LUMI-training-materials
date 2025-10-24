@@ -1,11 +1,17 @@
 # Exercises session 7: AMD profiling tools and GPU optimizations.
 
-Exercises on AMD profiling tools and GPU optimizations.
-
 
 ## Materials
 
+<!--
 No materials available at the moment.
+-->
+
+[Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-tal-2025).
+
+Temporary location of materials (for the lifetime of the training project):
+
+-   Files for the exercises are in `/project/project_465002175/Exercises/AMD/HPCTrainingExamples`.
 
 <!--
 -   [Basic examples](https://hackmd.io/@sfantao/lumi-training-oslo2024-basic-examples)
