@@ -4461,6 +4461,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#making-the-exercises-after-the-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making the exercises after the course
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making the exercises after the course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hpe" class="md-nav__link">
+    <span class="md-ellipsis">
+      HPE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMD
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4676,43 +4709,37 @@ downloaded from LUMI.</p>
 <!--
 -->
 
-<!--
-## Making the exercises after the course
-
-### HPE
-
-The exercise material remains available in the course archive on LUMI:
-
--   The PDF notes in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf`
-
--   The other files for the exercises in either a
-    bzip2-compressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar`.
-
-To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
-
+<h2 id="making-the-exercises-after-the-course">Making the exercises after the course<a class="headerlink" href="#making-the-exercises-after-the-course" title="Permanent link">&para;</a></h2>
+<h3 id="hpe">HPE<a class="headerlink" href="#hpe" title="Permanent link">&para;</a></h3>
+<p>The exercise material remains available in the course archive on LUMI:</p>
+<ul>
+<li>
+<p>The PDF notes in <code>/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf</code></p>
+</li>
+<li>
+<p>The other files for the exercises in either a
+    bzip2-compressed tar file <code>/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2</code> or
+    an uncompressed tar file <code>/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar</code>.</p>
+</li>
+</ul>
+<p>To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:</p>
 <div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2
 </code></pre></div>
-
-in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
-from the training project. 
-
-However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
+<p>in the directory where you want to work on the exercises. This will create the <code>Exercises/HPE</code> subdirectory
+from the training project. </p>
+<p>However, instead of running the <code>lumi_c.sh</code> or <code>lumi_g.sh</code> scripts that only work for the course as 
 they set the course project as the active project for Slurm and also set a reservation, use the
-`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
-projects.
-
-### AMD
-
-See the notes at each session.
-
-There is no guarantee though that the software that is referred to on the system, will be there forever
-or will still work after an update of the system.
-
-!!! Warning
-    The software and exercises were tested thoroughly at the time of the course. LUMI however is in
-    continuous evolution and changes to the system may break exercises and software
--->
+<code>lumi_c_after.sh</code> and <code>lumi_g_after.sh</code> scripts instead, but first edit them to use one of your
+projects.</p>
+<h3 id="amd">AMD<a class="headerlink" href="#amd" title="Permanent link">&para;</a></h3>
+<p>See the notes at each session.</p>
+<p>There is no guarantee though that the software that is referred to on the system, will be there forever
+or will still work after an update of the system.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The software and exercises were tested thoroughly at the time of the course. LUMI however is in
+continuous evolution and changes to the system may break exercises and software</p>
+</div>
 
 
 
