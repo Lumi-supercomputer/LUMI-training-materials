@@ -4,23 +4,33 @@
 
 ## Materials
 
-Course materials will be made available during and after the course
-
 <!--
+Course materials will be made available during and after the course
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465002175/Slides/HPE/01_Architecture_PE_modules_slurm.pdf`
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-1_01_Architecture_PE_modules_slurm.pdf`
 
+<!--
 -   Recording: `/appl/local/training/paow-20251022/recordings/1_01_HPE_PE.mp4`
+-->
 
 These materials can only be distributed to actual users of LUMI (active user account).
--->
+
+
+## Additional links
+
+-   HPE debugging tools were covered in the 
+    ["Debugging at Scale" presentation of the "LUMI Intensive Course" of March 2025](../2p3day-20250303/M306-Debugging_at_Scale.md)
+
+-   [Specific documentation for CPE 24.03](https://cpe.ext.hpe.com/docs/24.03/index.html) and
+    [other documentation links](A01_Documentation.md)
+
 
 ## Q&A
 

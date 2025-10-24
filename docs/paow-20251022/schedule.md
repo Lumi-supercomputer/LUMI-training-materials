@@ -116,7 +116,7 @@ DAY 1
             14:00 EEST
             <br/><em>13:00 CEST</em>
         </td>
-        <td><b><a href="../ME104a_AdvancedPerformanceAnalysis/">Exercises (session 3)</a></b>
+        <td><b><a href="../ME104_AdvancedPerformanceAnalysis/">Exercises (session 3)</a></b>
         </td>
     </tr>
     <tr>
@@ -132,7 +132,7 @@ DAY 1
             15:00 EEST
             <br/><em>14:00 CEST</em>
         </td>
-        <td><b><a href="../ME104b_AdvancedPerformanceAnalysis/">Exercises (session 4)</a></b>
+        <td><b><a href="../M105_Demo_Optimizing_Code/">Interactive demo: Strategies for code optimization</a></b>
         </td>
     </tr>
     <tr>
@@ -283,7 +283,7 @@ DAY 3
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day3"><b>DAY 13 - Friday 24/10/2025</b></a>
+            <a name="Day3"><b>DAY 3 - Friday 24/10/2025</b></a>
         </td>
     </tr>
     <tr>

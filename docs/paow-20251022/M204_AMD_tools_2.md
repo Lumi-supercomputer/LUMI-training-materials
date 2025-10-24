@@ -10,27 +10,33 @@
 
 ## Materials
 
-Course materials will be made available during and after the course
-
 <!--
+Course materials will be made available during and after the course
+-->
+
 Directly available as web downloads:
 
--   [Slides](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_02_omiperf.pdf)
+-   Presentation 1: [System Profiling with Omnitrace](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_02_omnitrace.pdf)
 
+-   Presentation 2: [Introduction to Omniperf (rocprofiler-compute)](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-2_02_omiperf.pdf)
+
+<!--
 -   The last slides cover [exercises for this session](ME_2_02_AMD_tools_2.md#materials)
 -->
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
--   Slides: `/project/project_465002175/Slides/AMD/AMD-session-2-omiperf.pdf`
--->
+-   Presentation 1: System Profiling with Omnitrace: `'/project/project_465002175/Slides/AMD/session 03 - omnitrace.pdf'`
 
-<!--
+-   Presentation 2: Introduction to Omniperf (rocprofiler-compute): `'/project/project_465002175/Slides/AMD/session 04 - omniperf.pdf'`
+
 Archived materials on LUMI:
 
--   Slides: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_02_omiperf.pdf`
+-   Presentation 1: System Profiling with Omnitrace: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_02_omnitrace.pdf`
 
+-   Presentation 2: SIntroduction to Omniperf (rocprofiler-compute): `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-2_02_omiperf.pdf`
+
+<!--
 -   Recording: `/appl/local/training/paow-20251022/recordings/2_02_AMD_tools_2.mp4`
 -->
 

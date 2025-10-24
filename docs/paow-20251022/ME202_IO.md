@@ -2,29 +2,40 @@
 
 Exercises on I/O optimizations.
 
-<!--
-Exercises are in `Exercises/HPE/04_io`.
--->
+Directory: `Exercises/HPE/day2/VH1-io`
+
+I/O experiment with striping.
+
+ALTERNATIVELY look again at MPI with Apprentice
+
+-   If you did not do this yesterday, set PAT_RT_SUMMARY=0
+
+-   You get trace data per rank when you do this (huge file)
+
+-   Set only 2 cycles in the input file (indat)
+
+-   Use app2 on .ap2 file to see new displays (see help)
+
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
-    `/project/project_465002175/Exercises/HPE/04_io/README.md`
+    `/project/project_465002175/Slides/HPE/Exercises.pdf`
 
 -   Exercise materials in 
-    `/project/project_465002175/Exercises/HPE/04_io` 
+    `/project/project_465002175/Exercises/HPE/day2/VH1-io` 
     for the lifetime of the project and only for project members.
 
 Temporary web-available materials:
 
 -    Overview exercise assignments day 2 temporarily available on
-     [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE_Day2.pdf)
--->
+     [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf)
 
 <!--
 Archived materials on LUMI:

@@ -7,7 +7,11 @@ Participants are encouraged to try out the tools on their own code also.
 
 ## Materials
 
+<!--
 No materials available at the moment.
+-->
+
+[Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-tal-2025).
 
 <!--
 -   [Basic examples](https://hackmd.io/@sfantao/lumi-training-oslo2024-basic-examples)

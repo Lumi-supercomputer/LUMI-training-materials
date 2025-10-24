@@ -2,31 +2,35 @@
 
 Exercises on MPI optimizations.
 
-<!--
-Exercises are in `Exercises/HPE/03_mpi`.
+Exercises are in `Exercises/HPE/day2/ProgrammingModels`.
 
-See `Exercises/HPE/03_mpi/ProgrammingModelExamples_SLURM.pdf`
--->
+Test the Pi example with MPI or MPI/OpenMP on 4 nodes and 4 tasks.
+
+Show where the ranks/threads are running by using the appropriate MPICH environment variable.
+
+Use environment variables to change this order (rank-reordering)
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
+No materials available at the moment.
+-->
+
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
-    `/project/project_465002175/Exercises/HPE/03_mpi/ProgrammingModelExamples_SLURM.pdf`
+    `/project/project_465002175/Slides/HPE/Exercises.pdf`
 
 -   Exercise materials in 
-    `/project/project_465002175/Exercises/HPE/03_mpi` 
+    `/project/project_465002175/Exercises/HPE/day2/ProgrammingModels` 
     for the lifetime of the project and only for project members.
 
 Temporary web-available materials:
 
 -    Overview exercise assignments day 2 temporarily available on
-     [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE_Day2.pdf)
+     [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf)
 
+<!--
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-E-2-03-ProgrammingModelExamples_SLURM.pdf).
 -->
