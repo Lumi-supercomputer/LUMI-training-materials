@@ -27,7 +27,7 @@ Tallinn has several small breweries with taproom
 
 -   [Pöhjala taproom](https://www.pohjalabeer.com/visit/pohjala-tap-room)
     and [brewery](https://www.pohjalabeer.com/). A bit further away from the centre
-    in the Noblessner district, a former submarine shipyard. 
+    in the Noblessner district, a former submarine shipyard. Serves some food also.
     This area has become a rather hip area also in recent years.
     ([taproom menu Untappd](https://untappd.com/v/pohjala-brewery-and-tap-room/8349816))
     ([Google Maps](https://maps.app.goo.gl/MPPf7P1vCYZhxAgL9))
@@ -71,6 +71,11 @@ Good bars:
     ([Google Maps](https://maps.app.goo.gl/qG1DPuEQjW6MuTnc6))
 
 Other suggestions from locals:
+
+-   [Hell Hunt](https://hellhunt.ee/en/) is a restaurant and bar just a few 100 meters
+    from Town Hall Square, with a selection of Estonian and foreign beers.
+    They do seem to have good connections with Humalakoda mentioned above.
+    ([Google Maps](https://maps.app.goo.gl/iZRNY5bck99RxHrT8))
 
 -   [Restaurant Argentiina](https://argentiina.ee/?lang=en):
     A bit outside the old town, towards the airport. Mostly for meat lovers,

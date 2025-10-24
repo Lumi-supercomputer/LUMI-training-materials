@@ -93,17 +93,17 @@ downloaded from LUMI.
 | [Exercises #7](ME203_AMD_tools_1.md) | / | / |
 | [AMD Profiling Tools and GPU optimisations 2](M204_AMD_tools_2.md) | [slides](M204_AMD_tools_2.md#materials) | [recording](M204_AMD_tools_2.md) |
 | [Exercises #8](ME204_AMD_tools_2.md) | / | / |
+| **Day 3** @span |  |  |
+| [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
+| [Exercises #9](ME301_Best_Practices_GPU_Optimization.md) | / | / |
 | **Extras** @span |  |  |
 | [Appendix: Links to documentation](A01_Documentation.md) | / | / |
 
 ::end-spantable::
-<!--
-| **Day 3** @span |  |  |
-| [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
-| [Exercises #9](ME301_Best_Practices_GPU_Optimization.md) | / | / |
--->
 
 <!--
+-->
+
 ## Making the exercises after the course
 
 ### HPE
@@ -140,6 +140,6 @@ or will still work after an update of the system.
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
+
 
 
