@@ -8,7 +8,7 @@ I/O experiment with striping.
 
 ALTERNATIVELY look again at MPI with Apprentice
 
--   If you did not do this yesterday, set PAT_RT_SUMMARY=0
+-   If you did not do this before, set PAT_RT_SUMMARY=0
 
 -   You get trace data per rank when you do this (huge file)
 
@@ -23,6 +23,7 @@ ALTERNATIVELY look again at MPI with Apprentice
 No materials available at the moment.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -36,8 +37,8 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 2 temporarily available on
      [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf)
+-->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf`
@@ -48,5 +49,3 @@ Archived materials on LUMI:
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar`
 
--   Recording: `/appl/local/training/paow-20251022/recordings/E2_04_IO.mp4`
--->

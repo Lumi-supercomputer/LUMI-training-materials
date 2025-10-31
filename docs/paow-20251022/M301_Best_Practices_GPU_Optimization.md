@@ -3,9 +3,8 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antao (AMD)
 
-<!--
-<video src="https://462000265.lumidata.eu/paow-20251022/recordings/50-Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/paow-20251022/recordings/LUMI-paow-20251022-3_01-Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
+
 
 ## Materials
 
@@ -13,11 +12,13 @@
 Course materials will be provided during and after the course.
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `'/project/project_465002175/Slides/AMD/session 05 - ToolsInActionPytorchExample.pdf'`
 
 -   Scripts: `/project/project_465002175/Exercises/AMD/Pytorch`
+-->
 
 Materials on the web:
 
@@ -42,9 +43,7 @@ Archived materials on LUMI:
     bzip2-compressed tar archive in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-3_01-scripts.tar.bz2` and
     uncompressed tar archive in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-3_01-scripts.tar`.
 
-<!--
--   Recording: `/appl/local/training/paow-20251022/recordings/506-Best_Practices_GPU_Optimization.mp4`
--->
+-   Recording: `/appl/local/training/paow-20251022/recordings/LUMI-paow-20251022-3_01-Best_Practices_GPU_Optimization.mp4`
 
 !!! Note "PyTorch in the LUMI Software Library" 
     The example in this demo is also used as the example in our

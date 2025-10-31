@@ -8,17 +8,17 @@
 Course materials will be made available during and after the course
 -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465002175/Slides/HPE/01_Architecture_PE_modules_slurm.pdf`
+-->
 
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-1_01_Architecture_PE_modules_slurm.pdf`
 
-<!--
--   Recording: `/appl/local/training/paow-20251022/recordings/1_01_HPE_PE.mp4`
--->
+-   Recording: `/appl/local/training/paow-20251022/recordings/LUMI-paow-20251022-1_01_HPE_PE.mp4`
 
 These materials can only be distributed to actual users of LUMI (active user account).
 

@@ -9,8 +9,11 @@ See `Exercises/HPE/day1/perftools/README.md`
 
 ## Materials
 
+<!--
 No materials available at the moment.
+-->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -24,13 +27,12 @@ Temporary web-available materials:
 
 -    Overview exercise assignments temporarily available on
      [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf)
-
+-->
 <!--
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-E-2-03-ProgrammingModelExamples_SLURM.pdf).
 -->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf`
@@ -40,4 +42,3 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar`
--->
