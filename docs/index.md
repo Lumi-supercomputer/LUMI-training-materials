@@ -6,19 +6,13 @@
 
 Upcoming or currently running events with materials already partly available:
 
-<!--
 -   No upcoming training with early materials at the moment.
--->
-
--   [Intro to Supercomputing with LUMI (October 20-21, 2025). Hybrid course at TalTech, Tallinn, Estonia](2day-20251020/index.md)
-
--   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
 
 
 Most recently completed main training events:
 
 -   Introductory LUMI training aimed at regular users:
-    [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md)
+    [Intro to Supercomputing with LUMI (October 20-21, 2025)](2day-20251020/index.md)
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
@@ -35,7 +29,7 @@ Most recently completed main training events:
     *Short URL to the most recently completed training for AI users:
     [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
 
--   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
+-   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
 
 Other recent LUST-organised trainings for which the material is still very up-to-date and
 relevant:
@@ -88,6 +82,7 @@ relevant:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
+    -   [Intro to Supercomputing with LUMI (October 20-21, 2025)](2day-20251020/index.md) on-stie in Tallinn and online.
     -   [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md) on-site in Espoo and online.
     -   First two days of [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
@@ -113,6 +108,7 @@ By theme in reverse chronological order:
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools and/or program optimization
+    -   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
     -   [HPE and AMD profiling tools (May 7, 2025)](Profiling-20250507/index.md)
     -   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
     -   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)

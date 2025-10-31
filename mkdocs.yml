@@ -87,10 +87,6 @@ nav:
     - 2p3day-20250303/index.md
     - Schedule: 2p3day-20250303/schedule.md
     - Course materials: 2p3day-20250303/index.html#course-materials
-  - Performance Analysis & Optimization June 2024:
-    - paow-20240611/index.md
-    - Schedule: paow-20240611/schedule.md
-    - Course materials: paow-20240611/index.html#course-materials
   #- "Comprehensive LUMI NEXT": 
     #- Notes: 4day-2024next/notes_2_05_LUMI_Software_Stacks.md
   - Partner courses:
@@ -116,6 +112,10 @@ nav:
       - Hackathon-20241014/index.md
     - Profiling October 2024:
       - Profiling-20241009/index.md
+    - Performance Analysis & Optimization June 2024:
+      - paow-20240611/index.md
+      - Schedule: paow-20240611/schedule.md
+      - Course materials: paow-20240611/index.html#course-materials
     - Supercomputing with LUMI May 2024:
       - 2day-20240502/index.md
       - Schedule: 2day-20240502/schedule.md
@@ -199,7 +199,7 @@ plugins:
       redirect_maps:
           comprehensive-latest.md: 2p3day-20250303/index.md
           advanced-latest.md: 2p3day-20250303/index.md
-          intro-latest.md: 2day-20250602/index.md
+          intro-latest.md: 2day-20251020/index.md
           AI-latest.md: ai-20251008/index.md
           ai-latest.md: ai-20251008/index.md
           update-202308.md: User-Updates/Update-202308/index.md
