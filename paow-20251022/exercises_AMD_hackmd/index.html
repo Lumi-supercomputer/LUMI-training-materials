@@ -1,0 +1,5487 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/paow-20251022/exercises_AMD_hackmd/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>LUMI Training - Tallin, Estonia (October 2025) - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M0%20192h176V0h-16C71.6%200%200%2071.6%200%20160zm0%2032v128c0%2088.4%2071.6%20160%20160%20160h64c88.4%200%20160-71.6%20160-160V224H0m384-32v-32C384%2071.6%20312.4%200%20224%200h-16v192z%22/%3E%3C/svg%3E');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M78.6%205c-9.5-7.4-23-6.5-31.6%202L7%2047c-8.5%208.5-9.4%2022-2.1%2031.6l80%20104c4.5%205.9%2011.6%209.4%2019%209.4H158l109%20109c-14.7%2029-10%2065.4%2014.3%2089.6l112%20112c12.5%2012.5%2032.8%2012.5%2045.3%200l64-64c12.5-12.5%2012.5-32.8%200-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3L192%20158v-54.1c0-7.5-3.5-14.5-9.4-19zM19.9%20396.1C7.2%20408.8%200%20426.1%200%20444.1%200%20481.6%2030.4%20512%2067.9%20512c18%200%2035.3-7.2%2048-19.9l117.8-117.8c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7zM512%20144c0-10.5-1.1-20.7-3.2-30.5-2.4-11.2-16.1-14.1-24.2-6l-63.9%2063.9c-3%203-7.1%204.7-11.3%204.7L352%20176c-8.8%200-16-7.2-16-16v-57.4c0-4.2%201.7-8.3%204.7-11.3l63.9-63.9c8.1-8.1%205.2-21.8-6-24.2C388.7%201.1%20378.5%200%20368%200c-79.5%200-144%2064.5-144%20144v.8l85.3%2085.3c36-9.1%2075.8.5%20104%2028.7l15.7%2015.7c49-23%2083-72.8%2083-130.5M56%20432a24%2024%200%201%201%2048%200%2024%2024%200%201%201-48%200%22/%3E%3C/svg%3E');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20448c141.4%200%20256-93.1%20256-208S397.4%2032%20256%2032%200%20125.1%200%20240c0%2045.1%2017.7%2086.8%2047.7%20120.9-1.9%2024.5-11.4%2046.3-21.4%2062.9-5.5%209.2-11.1%2016.6-15.2%2021.6-2.1%202.5-3.7%204.4-4.9%205.7-.6.6-1%201.1-1.3%201.4l-.3.3c-4.6%204.6-5.9%2011.4-3.4%2017.4s8.3%209.9%2014.8%209.9c28.7%200%2057.6-8.9%2081.6-19.3%2022.9-10%2042.4-21.9%2054.3-30.6%2031.8%2011.5%2067%2017.9%20104.1%2017.9zM128%20208a32%2032%200%201%201%200%2064%2032%2032%200%201%201%200-64m128%200a32%2032%200%201%201%200%2064%2032%2032%200%201%201%200-64m96%2032a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M320%200c17.7%200%2032%2014.3%2032%2032v64h120c39.8%200%2072%2032.2%2072%2072v272c0%2039.8-32.2%2072-72%2072H168c-39.8%200-72-32.2-72-72V168c0-39.8%2032.2-72%2072-72h120V32c0-17.7%2014.3-32%2032-32M208%20384c-8.8%200-16%207.2-16%2016s7.2%2016%2016%2016h32c8.8%200%2016-7.2%2016-16s-7.2-16-16-16zm96%200c-8.8%200-16%207.2-16%2016s7.2%2016%2016%2016h32c8.8%200%2016-7.2%2016-16s-7.2-16-16-16zm96%200c-8.8%200-16%207.2-16%2016s7.2%2016%2016%2016h32c8.8%200%2016-7.2%2016-16s-7.2-16-16-16zM264%20256a40%2040%200%201%200-80%200%2040%2040%200%201%200%2080%200m152%2040a40%2040%200%201%200%200-80%2040%2040%200%201%200%200%2080M48%20224h16v192H48c-26.5%200-48-21.5-48-48v-96c0-26.5%2021.5-48%2048-48m544%200c26.5%200%2048%2021.5%2048%2048v96c0%2026.5-21.5%2048-48%2048h-16V224z%22/%3E%3C/svg%3E');--md-admonition-icon--audience:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M72%2088a56%2056%200%201%201%20112%200%2056%2056%200%201%201-112%200m-8%20157.7c-10%2011.2-16%2026.1-16%2042.3s6%2031.1%2016%2042.3v-84.7zm144.4-49.3C178.7%20222.7%20160%20261.2%20160%20304c0%2034.3%2012%2065.8%2032%2090.5V416c0%2017.7-14.3%2032-32%2032H96c-17.7%200-32-14.3-32-32v-26.8C26.2%20371.2%200%20332.7%200%20288c0-61.9%2050.1-112%20112-112h32c24%200%2046.2%207.5%2064.4%2020.3zM448%20416v-21.5c20-24.7%2032-56.2%2032-90.5%200-42.8-18.7-81.3-48.4-107.7C449.8%20183.5%20472%20176%20496%20176h32c61.9%200%20112%2050.1%20112%20112%200%2044.7-26.2%2083.2-64%20101.2V416c0%2017.7-14.3%2032-32%2032h-64c-17.7%200-32-14.3-32-32m8-328a56%2056%200%201%201%20112%200%2056%2056%200%201%201-112%200m120%20157.7v84.7c10-11.3%2016-26.1%2016-42.3s-6-31.1-16-42.3zM320%2032a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128m-80%20272c0%2016.2%206%2031%2016%2042.3v-84.7c-10%2011.3-16%2026.1-16%2042.3zm144-42.3v84.7c10-11.3%2016-26.1%2016-42.3s-6-31.1-16-42.3zm64%2042.3c0%2044.7-26.2%2083.2-64%20101.2V448c0%2017.7-14.3%2032-32%2032h-64c-17.7%200-32-14.3-32-32v-42.8c-37.8-18-64-56.5-64-101.2%200-61.9%2050.1-112%20112-112h32c61.9%200%20112%2050.1%20112%20112%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M234.7%2042.7%20197%2056.8c-3%201.1-5%204-5%207.2s2%206.1%205%207.2l37.7%2014.1%2014.1%2037.7c1.1%203%204%205%207.2%205s6.1-2%207.2-5l14.1-37.7L315%2071.2c3-1.1%205-4%205-7.2s-2-6.1-5-7.2l-37.7-14.1L263.2%205c-1.1-3-4-5-7.2-5s-6.1%202-7.2%205zM46.1%20395.4c-18.7%2018.7-18.7%2049.1%200%2067.9l34.6%2034.6c18.7%2018.7%2049.1%2018.7%2067.9%200l381.3-381.4c18.7-18.7%2018.7-49.1%200-67.9l-34.6-34.5c-18.7-18.7-49.1-18.7-67.9%200zM484.6%2082.6l-105%20105-23.3-23.3%20105-105zM7.5%20117.2C3%20118.9%200%20123.2%200%20128s3%209.1%207.5%2010.8L64%20160l21.2%2056.5c1.7%204.5%206%207.5%2010.8%207.5s9.1-3%2010.8-7.5L128%20160l56.5-21.2c4.5-1.7%207.5-6%207.5-10.8s-3-9.1-7.5-10.8L128%2096l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1%203-10.8%207.5L64%2096zm352%20256c-4.5%201.7-7.5%206-7.5%2010.8s3%209.1%207.5%2010.8L416%20416l21.2%2056.5c1.7%204.5%206%207.5%2010.8%207.5s9.1-3%2010.8-7.5L480%20416l56.5-21.2c4.5-1.7%207.5-6%207.5-10.8s-3-9.1-7.5-10.8L480%20352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1%203-10.8%207.5L416%20352z%22/%3E%3C/svg%3E');--md-admonition-icon--seealso:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M579.8%20267.7c56.5-56.5%2056.5-148%200-204.5-50-50-128.8-56.5-186.3-15.4l-1.6%201.1c-14.4%2010.3-17.7%2030.3-7.4%2044.6s30.3%2017.7%2044.6%207.4l1.6-1.1c32.1-22.9%2076-19.3%20103.8%208.6%2031.5%2031.5%2031.5%2082.5%200%20114L422.3%20334.8c-31.5%2031.5-82.5%2031.5-114%200-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4%206.9-34.4-7.4-44.6s-34.4-6.9-44.6%207.4l-1.1%201.6C206.5%20251.2%20213%20330%20263%20380c56.5%2056.5%20148%2056.5%20204.5%200zM60.2%20244.3c-56.5%2056.5-56.5%20148%200%20204.5%2050%2050%20128.8%2056.5%20186.3%2015.4l1.6-1.1c14.4-10.3%2017.7-30.3%207.4-44.6s-30.3-17.7-44.6-7.4l-1.6%201.1c-32.1%2022.9-76%2019.3-103.8-8.6C74%20372%2074%20321%20105.5%20289.5l112.2-112.3c31.5-31.5%2082.5-31.5%20114%200%2027.9%2027.9%2031.5%2071.8%208.6%20103.9l-1.1%201.6c-10.3%2014.4-6.9%2034.4%207.4%2044.6s34.4%206.9%2044.6-7.4l1.1-1.6C433.5%20260.8%20427%20182%20377%20132c-56.5-56.5-148-56.5-204.5%200z%22/%3E%3C/svg%3E');--md-admonition-icon--technical:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M160%2096a96%2096%200%201%201%20192%200%2096%2096%200%201%201-192%200m80%20152v264l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5%20457.2%200%20443.5%200%20427V224c0-17.7%2014.3-32%2032-32h30.3c63.6%200%20125.6%2019.6%20177.7%2056m32%20264V248c52.1-36.4%20114.1-56%20177.7-56H480c17.7%200%2032%2014.3%2032%2032v203c0%2016.4-12.5%2030.2-28.8%2031.8l-96%209.6c-23.2%202.3-45.9%208.9-66.8%2019.3z%22/%3E%3C/svg%3E');--md-admonition-icon--intermediate:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M320%2032c-8.1%200-16.1%201.4-23.7%204.1L15.8%20137.4C6.3%20140.9%200%20149.9%200%20160s6.3%2019.1%2015.8%2022.6l57.9%2020.9C57.3%20229.3%2048%20259.8%2048%20291.9V320c0%2028.4-10.8%2057.7-22.3%2080.8-6.5%2013-13.9%2025.8-22.5%2037.6-3.2%204.3-4.1%209.9-2.3%2015s6%208.9%2011.2%2010.2l64%2016c4.2%201.1%208.7.3%2012.4-2s6.3-6.1%207.1-10.4c8.6-42.8%204.3-81.2-2.1-108.7-3.2-14.2-7.5-28.7-13.5-42v-24.6c0-30.2%2010.2-58.7%2027.9-81.5%2012.9-15.5%2029.6-28%2049.2-35.7l157-61.7c8.2-3.2%2017.5.8%2020.7%209s-.8%2017.5-9%2020.7l-157%2061.7c-12.4%204.9-23.3%2012.4-32.2%2021.6l159.6%2057.6c7.6%202.7%2015.6%204.1%2023.7%204.1s16.1-1.4%2023.7-4.1l280.6-101c9.5-3.4%2015.8-12.5%2015.8-22.6s-6.3-19.1-15.8-22.6L343.7%2036.1c-7.6-2.7-15.6-4.1-23.7-4.1M128%20408c0%2035.3%2086%2072%20192%2072s192-36.7%20192-72l-15.3-145.4L354.5%20314c-11.1%204-22.8%206-34.5%206s-23.5-2-34.5-6l-142.2-51.4z%22/%3E%3C/svg%3E');--md-admonition-icon--advanced:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M219.3.5c3.1-.6%206.3-.6%209.4%200l200%2040C439.9%2042.7%20448%2052.6%20448%2064s-8.1%2021.3-19.3%2023.5L352%20102.9V160c0%2070.7-57.3%20128-128%20128S96%20230.7%2096%20160v-57.1l-48-9.6v65.1l15.7%2078.4c.9%204.7-.3%209.6-3.3%2013.3S52.8%20256%2048%20256H16c-4.8%200-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16%20158.4V86.6C6.5%2083.3%200%2074.3%200%2064c0-11.4%208.1-21.3%2019.3-23.5zM111.9%20327.7c10.5-3.4%2021.8.4%2029.4%208.5l71%2075.5c6.3%206.7%2017%206.7%2023.3%200l71-75.5c7.6-8.1%2018.9-11.9%2029.4-8.5%2065%2020.9%20112%2081.7%20112%20153.6%200%2017-13.8%2030.7-30.7%2030.7H30.7C13.8%20512%200%20498.2%200%20481.3c0-71.9%2047-132.7%20111.9-153.6%22/%3E%3C/svg%3E');--md-admonition-icon--lumi-be:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M48%200C21.5%200%200%2021.5%200%2048v416c0%2026.5%2021.5%2048%2048%2048h96v-80c0-26.5%2021.5-48%2048-48s48%2021.5%2048%2048v80h96c26.5%200%2048-21.5%2048-48V48c0-26.5-21.5-48-48-48zm16%20240c0-8.8%207.2-16%2016-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016H80c-8.8%200-16-7.2-16-16zm112-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16v-32c0-8.8%207.2-16%2016-16m80%2016c0-8.8%207.2-16%2016-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16zM80%2096h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016H80c-8.8%200-16-7.2-16-16v-32c0-8.8%207.2-16%2016-16m80%2016c0-8.8%207.2-16%2016-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16zm112-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16v-32c0-8.8%207.2-16%2016-16M448%200c-17.7%200-32%2014.3-32%2032v480h64V192h144c8.8%200%2016-7.2%2016-16V48c0-8.8-7.2-16-16-16H480c0-17.7-14.3-32-32-32%22/%3E%3C/svg%3E');--md-admonition-icon--nice-to-know:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M297.2%20248.9c14.4-20.6%2022.8-45.7%2022.8-72.9%200-70.7-57.3-128-128-128S64%20105.3%2064%20176c0%2027.2%208.4%2052.3%2022.8%2072.9%203.7%205.3%208.1%2011.3%2012.8%2017.7%2012.9%2017.7%2028.3%2038.9%2039.8%2059.8%2010.4%2019%2015.7%2038.8%2018.3%2057.5l-48.7.1c-2.2-12-5.9-23.7-11.8-34.5-9.9-18-22.2-34.9-34.5-51.8-5.2-7.1-10.4-14.2-15.4-21.4C27.6%20247.9%2016%20213.3%2016%20176%2016%2078.8%2094.8%200%20192%200s176%2078.8%20176%20176c0%2037.3-11.6%2071.9-31.4%20100.3-5%207.2-10.2%2014.3-15.4%2021.4-12.3%2016.8-24.6%2033.7-34.5%2051.8-5.9%2010.8-9.6%2022.5-11.8%2034.5h-48.6c2.6-18.7%207.9-38.6%2018.3-57.5%2011.5-20.9%2026.9-42.1%2039.8-59.8%204.7-6.4%209-12.4%2012.7-17.7zM192%20128c-26.5%200-48%2021.5-48%2048%200%208.8-7.2%2016-16%2016s-16-7.2-16-16c0-44.2%2035.8-80%2080-80%208.8%200%2016%207.2%2016%2016s-7.2%2016-16%2016m0%20384c-44.2%200-80-35.8-80-80v-16h160v16c0%2044.2-35.8%2080-80%2080%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/neoteroi-mkdocs.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+  
+      
+
+    
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", function(ev) {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
+    
+    
+
+  
+  
+  
+    
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMI training materials - LUMI Training - Tallin, Estonia (October 2025)" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/paow-20251022/exercises_AMD_hackmd/" />
+  <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@LUMIhpc" />
+  <meta name="twitter:creator" content="@LUMIhpc" />
+  <meta name="twitter:title" content="LUMI training materials - LUMI Training - Tallin, Estonia (October 2025)" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+
+  <style>
+    [data-md-color-primary="lumi"] {
+      --md-primary-fg-color: hsla(0, 0%, 100%, 1);
+      --md-primary-fg-color--light: hsla(0, 0%, 100%, 0.7);
+      --md-primary-fg-color--dark: hsla(0, 0%, 0%, 0.07);
+      --md-primary-bg-color: hsla(0, 0%, 0%, 0.87);
+      --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+      --md-button-bg-color: hsla(207,100%,28%, 1);
+      --md-button-bg-color--light: hsla(207,100%,38%, 1);
+      --md-typeset-a-color: hsla(207,100%,28%, 1);
+    }
+    
+    [data-md-color-accent="lumi"] {
+      --md-accent-fg-color: hsla(0,0%,0%, 1);
+      --md-accent-fg-color--transparent: hsla(0,0%,0%, 0.1);
+      --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+      --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    }
+  </style>
+
+  
+
+
+  
+  
+
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/extra-50959fdd9a.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
+    />
+    <link
+      rel="stylesheet"
+      id="typekit-fonts-css"
+      href="https://use.typekit.net/nlo5lta.css?ver=5.5.3"
+      type="text/css" media="all"
+    />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lumi" data-md-color-accent="lumi">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lumi-training-tallin-estonia-october-2025" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LUMI Training - Tallin, Estonia (October 2025)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    User Updates
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Updates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202409/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    August-September 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            August-September 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202409/202409_FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202409/202409_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    October-November 2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    August 2023
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            August 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Low-noise mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dev-g and eap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Responsible use
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    User Coffee Breaks
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User Coffee Breaks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Performance Analysis & Optimization October 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Performance Analysis & Optimization October 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20251020/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI October 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI October 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20251020/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20251020/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20251008/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AI workshop October 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop October 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20251008/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20251008/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-LUST-20250604/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    EasyBuild June 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            EasyBuild June 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20250602/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI June 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI June 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20250602/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20250602/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20250527/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AI workshop May 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop May 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250527/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250527/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20250512/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Hackathon May 2025
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon May 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20250507/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Profiling May 2025
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling May 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2p3day-20250303/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    LUMI intensive March 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI intensive March 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2p3day-20250303/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2p3day-20250303/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Partner courses
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Partner courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GROMACS workshop 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20250204/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AI workshop February 2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_1" id="__nav_14_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_1">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop February 2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250204/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250204/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20241210/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI December 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_2" id="__nav_14_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_2">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI December 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20241210/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20241210/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20241126/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AI workshop November 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_3" id="__nav_14_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop November 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20241126/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20241126/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20241028/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Advanced LUMI October 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_4" id="__nav_14_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced LUMI October 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20241028/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20241028/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20241014/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Hackathon October 2024
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_5">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon October 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20241009/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Profiling October 2024
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_6">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling October 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../paow-20240611/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Performance Analysis & Optimization June 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_7" id="__nav_14_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_7">
+            <span class="md-nav__icon md-icon"></span>
+            Performance Analysis & Optimization June 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20240611/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20240611/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20240502/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Supercomputing with LUMI May 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_8" id="__nav_14_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_8">
+            <span class="md-nav__icon md-icon"></span>
+            Supercomputing with LUMI May 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20240502/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20240502/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20240529/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AI workshop May 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_9" id="__nav_14_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_9">
+            <span class="md-nav__icon md-icon"></span>
+            AI workshop May 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20240529/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20240423/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI April 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_10" id="__nav_14_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_10">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI April 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20240423/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20240208/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    1-day February 2024
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_11" id="__nav_14_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_11">
+            <span class="md-nav__icon md-icon"></span>
+            1-day February 2024
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software stacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercises 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running jobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercises 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/A01_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Profiling November 2023
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_12">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling November 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20231003/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI October 2023
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_13">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI October 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230921/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    1-day September 2023
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_14" id="__nav_14_14_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_14">
+            <span class="md-nav__icon md-icon"></span>
+            1-day September 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software stacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercises 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running jobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercises 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230530/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI May-June 2023
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_15">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI May-June 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_16" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230509/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    1-day May 2023
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_16" id="__nav_14_16_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_16">
+            <span class="md-nav__icon md-icon"></span>
+            1-day May 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HPE Cray PE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software stacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercises 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running jobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercises 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    I/O and file systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_17" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Hackathon April 2023
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_17">
+            <span class="md-nav__icon md-icon"></span>
+            Hackathon April 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_18" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Profiling April 2013
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_18">
+            <span class="md-nav__icon md-icon"></span>
+            Profiling April 2013
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_19" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230214/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive LUMI February 2023
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_19">
+            <span class="md-nav__icon md-icon"></span>
+            Comprehensive LUMI February 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_20" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    LUMI-G January 2023
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_20">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G January 2023
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_21" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PEAP-Q November 2022
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_21" id="__nav_14_21_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_21">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q November 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_22" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    LUMI-G August 2022
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_22" id="__nav_14_22_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_22">
+            <span class="md-nav__icon md-icon"></span>
+            LUMI-G August 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    hackmd notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_23" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    EasyBuild May 2022
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_23" id="__nav_14_23_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_23">
+            <span class="md-nav__icon md-icon"></span>
+            EasyBuild May 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_24" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PEAP-Q April 2022
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14_24" id="__nav_14_24_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_24">
+            <span class="md-nav__icon md-icon"></span>
+            PEAP-Q April 2022
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    hackmd notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LUMI Software Stacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login to Lumi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hip-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      HIP Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HIP Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hipify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hipify
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hipify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hipify-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hipify Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hipify Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-manual-code-conversion-from-cuda-to-hip-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Manual code conversion from CUDA to HIP (10 min)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-code-conversion-from-cuda-to-hip-using-hipify-tools-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Code conversion from CUDA to HIP using HIPify tools (10 min)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rocprof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rocprof
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rocprof">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perfetto-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perfetto issue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-rocprofv3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploring RocprofV3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omnitrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Omnitrace
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Omnitrace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-instrumentation-the-commands-take-a-significant-ammount-of-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic instrumentation (the commands take a significant ammount of time)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-rewriting-to-be-used-with-mpi-codes-and-decreases-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary rewriting (to be used with MPI codes and decreases overhead)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-counters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware counters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-timings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel timings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omniperf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Omniperf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pytorch example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hip-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      HIP optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HIP optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimizing-daxpy-hip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing DAXPY HIP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run exercises
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#things-to-ponder-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      Things to ponder about
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Things to ponder about">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daxpy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      daxpy_1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daxpy_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      daxpy_2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daxpy_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      daxpy_3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daxpy_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      daxpy_4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daxpy_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      daxpy_5
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lumi-training-tallin-estonia-october-2025">LUMI Training - Tallin, Estonia (October 2025)<a class="headerlink" href="#lumi-training-tallin-estonia-october-2025" title="Permanent link">&para;</a></h1>
+<h2 id="login-to-lumi">Login to Lumi<a class="headerlink" href="#login-to-lumi" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>ssh USERNAME@lumi.csc.fi
+</code></pre></div>
+To simplify the login to LUMI, you can add the following to your .ssh/config file.</p>
+<p><div class="highlight"><pre><span></span><code># LUMI
+Host lumi
+User &lt;USERNAME&gt;
+   Hostname lumi.csc.fi
+   IdentityFile &lt;HOME_DIRECTORY&gt;/.ssh/id_rsa 
+   ServerAliveInterval 600
+   ServerAliveCountMax 30
+</code></pre></div>
+The <code>ServerAlive*</code> lines in the config file may be added to avoid timeouts when idle.</p>
+<p>Now you can shorten your login command to the following.</p>
+<div class="highlight"><pre><span></span><code>ssh lumi
+</code></pre></div>
+<p>If you are able to log in with the ssh command, you should be able to use the secure copy command to transfer files. For example, you can
+copy the presentation slides from lumi to view them.</p>
+<div class="highlight"><pre><span></span><code>scp lumi:/project/project_465002175/Slides/AMD/&lt;file_name&gt; &lt;local_filename&gt;
+</code></pre></div>
+<p>You can also copy all the slides with the . From your local system:</p>
+<div class="highlight"><pre><span></span><code>mkdir slides
+scp -r lumi:/project/project_465002175/Slides/AMD/* slides
+</code></pre></div>
+<p>If you don't have the additions to the config file, you would need a longer command:</p>
+<div class="highlight"><pre><span></span><code>mkdir slides
+scp -r -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi.csc.fi:/project/project_465002175/slides/AMD/ slides
+</code></pre></div>
+<p>or for a single file</p>
+<div class="highlight"><pre><span></span><code>scp -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi.csc.fi:/project/project_465002175/slides/AMD/&lt;file_name&gt; &lt;local_filename&gt;
+</code></pre></div>
+<h2 id="hip-exercises">HIP Exercises<a class="headerlink" href="#hip-exercises" title="Permanent link">&para;</a></h2>
+<p>We assume that you have already allocated resources with <code>salloc</code></p>
+<div class="highlight"><pre><span></span><code>cp -r /project/project_465002175/Exercises/AMD/HPCTrainingExamples/ .
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>salloc -N 1 -p standard-g --gpus=1 -t 10:00 -A project_465002175 --reservation LUMI_advanced_gpu
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+module load rocm
+</code></pre></div>
+<p>The examples are also available on github:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/amd/HPCTrainingExamples
+</code></pre></div>
+<p>However, we recommend using the version in <code>/project/project_465002175/Exercises/AMD/HPCTrainingExamples</code> as it has been tuned to the current LUMI environment.</p>
+<h3 id="basic-examples">Basic examples<a class="headerlink" href="#basic-examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>cd HPCTrainingExamples/HIP/vectorAdd
+</code></pre></div>
+<p>Examine files here – README, Makefile and <code>vectoradd_hip.cpp</code>. Notice that Makefile requires HIP_PATH to be set. Check with module show rocm or echo $HIP_PATH Also, the Makefile builds and runs the code. We’ll do the steps separately. Check also the HIPFLAGS in the Makefile.</p>
+<div class="highlight"><pre><span></span><code>export HCC_AMDGPU_TARGET=gfx90a
+make
+srun -n 1 ./vectoradd
+</code></pre></div>
+<p>We can use SLURM submission script, let's call it <code>hip_batch.sh</code>:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+#SBATCH -p standard-g
+#SBATCH -N 1
+#SBATCH --gpus=1
+#SBATCH -t 10:00
+#SBATCH --reservation LUMI_advanced_gpu
+#SBATCH -A project_465002175
+
+module load craype-accel-amd-gfx90a
+module load rocm
+cd $PWD/HPCTrainingExamples/HIP/vectorAdd 
+
+export HCC_AMDGPU_TARGET=gfx90a
+make vectoradd
+srun -n 1 --gpus 1 ./vectoradd
+</code></pre></div>
+<p>Submit the script</p>
+<div class="highlight"><pre><span></span><code>sbatch hip_batch.sh
+</code></pre></div>
+<p>Check for output in <code>slurm-&lt;job-id&gt;.out</code> or error in <code>slurm-&lt;job-id&gt;.err</code></p>
+<p>Compile and run with Cray compiler</p>
+<div class="highlight"><pre><span></span><code>CC -x hip vectoradd.hip -o vectoradd
+srun -n 1 --gpus 1 ./vectoradd
+</code></pre></div>
+<p>Now let’s try the cuda-stream example from <code>https://github.com/ROCm-Developer-Tools/HIP-Examples</code>. This example is from the original McCalpin code as ported to CUDA by Nvidia. This version has been ported to use HIP. See add4 for another similar stream example.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/ROCm-Developer-Tools/HIP-Examples
+export HCC_AMDGPU_TARGET=gfx90a
+cd HIP-Examples/cuda-stream
+make
+srun -n 1 ./stream
+</code></pre></div>
+<p>Note that it builds with the hipcc compiler. You should get a report of the Copy, Scale, Add, and Triad cases.
+The variable <code>export HCC_AMDGPU_TARGET=gfx90a</code> is not needed in case one sets the target GPU for MI250x as part of the compiler flags as <code>--offload-arch=gfx90a</code>.</p>
+<p>Now check the other examples in HPCTrainingExamples/HIP like jacobi etc.</p>
+<h2 id="hipify">Hipify<a class="headerlink" href="#hipify" title="Permanent link">&para;</a></h2>
+<p>We’ll use the same HPCTrainingExamples that were downloaded for the first exercise.</p>
+<p>Get a node allocation.</p>
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --gpus=1 -p standard-g -A project_465002175 –-t 00:10:00`--reservation LUMI_advanced_gpu
+</code></pre></div>
+<p>A batch version of the example is also shown.</p>
+<h3 id="hipify-examples">Hipify Examples<a class="headerlink" href="#hipify-examples" title="Permanent link">&para;</a></h3>
+<h4 id="exercise-1-manual-code-conversion-from-cuda-to-hip-10-min">Exercise 1: Manual code conversion from CUDA to HIP (10 min)<a class="headerlink" href="#exercise-1-manual-code-conversion-from-cuda-to-hip-10-min" title="Permanent link">&para;</a></h4>
+<p>Choose one or more of the CUDA samples in <code>HPCTrainingExamples/HIPIFY/mini-nbody/cuda</code> directory. Manually convert it to HIP. Tip: for example, the cudaMalloc will be called hipMalloc.
+Some code suggestions include <code>nbody-block.cu</code>, <code>nbody-orig.cu</code>, <code>nbody-soa.cu</code></p>
+<p>You’ll want to compile on the node you’ve been allocated so that hipcc will choose the correct GPU architecture.</p>
+<h4 id="exercise-2-code-conversion-from-cuda-to-hip-using-hipify-tools-10-min">Exercise 2: Code conversion from CUDA to HIP using HIPify tools (10 min)<a class="headerlink" href="#exercise-2-code-conversion-from-cuda-to-hip-using-hipify-tools-10-min" title="Permanent link">&para;</a></h4>
+<p>Use the <code>hipify-perl</code> script to “hipify” the CUDA samples you used to manually convert to HIP in Exercise 1. hipify-perl is in $ROCM_PATH/bin directory and should be in your path.</p>
+<p>First test the conversion to see what will be converted</p>
+<div class="highlight"><pre><span></span><code>hipify-perl -no-output -print-stats nbody-orig.cu
+</code></pre></div>
+<p>You'll see the statistics of HIP APIs that will be generated.</p>
+<div class="highlight"><pre><span></span><code>[HIPIFY] info: file &#39;nbody-orig.cu&#39; statisitics:
+  CONVERTED refs count: 10
+  TOTAL lines of code: 91
+  WARNINGS: 0
+[HIPIFY] info: CONVERTED refs by names:
+  cudaFree =&gt; hipFree: 1
+  cudaMalloc =&gt; hipMalloc: 1
+  cudaMemcpy =&gt; hipMemcpy: 2
+  cudaMemcpyDeviceToHost =&gt; hipMemcpyDeviceToHost: 1
+  cudaMemcpyHostToDevice =&gt; hipMemcpyHostToDevice: 1
+</code></pre></div>
+<p><code>hipify-perl</code> is in <code>$ROCM_PATH/bin</code> directory and should be in your path. In some versions of ROCm, the script is called <code>hipify-perl</code>.</p>
+<p>Now let's actually do the conversion.</p>
+<div class="highlight"><pre><span></span><code>hipify-perl nbody-orig.cu &gt; nbody-orig.cpp
+</code></pre></div>
+<p>Compile the HIP programs.</p>
+<div class="highlight"><pre><span></span><code>hipcc -DSHMOO -I ../ nbody-orig.cpp -o nbody-orig
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>The `#define SHMOO` fixes some timer printouts. 
+Add `--offload-arch=&lt;gpu_type&gt;` if not set by the environment to specify 
+the GPU type and avoid the autodetection issues when running on a single 
+GPU on a node.
+</code></pre></div>
+<ul>
+<li>
+<p>Fix any compiler issues, for example, if there was something that didn’t hipify correctly.</p>
+</li>
+<li>
+<p>Be on the lookout for hard-coded Nvidia specific things like warp sizes and PTX.</p>
+</li>
+</ul>
+<p>Run the program</p>
+<div class="highlight"><pre><span></span><code>srun ./nbody-orig
+</code></pre></div>
+<p>A batch version of Exercise 2 is:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+#SBATCH -N 1
+#SBATCH --ntasks=1
+#SBATCH --gpus=1
+#SBATCH -p standard-g
+#SBATCH -A project_465002175
+#SBATCH -t 00:10:00
+#SBATCH --reservation  LUMI_advanced_gpu
+
+module load craype-accel-amd-gfx90a
+module load rocm
+
+export HCC_AMDGPU_TARGET=gfx90a
+
+cd HPCTrainingExamples/mini-nbody/cuda
+hipify-perl -print-stats nbody-orig.cu &gt; nbody-orig.cpp
+hipcc -DSHMOO -I ../ nbody-orig.cpp -o nbody-orig
+srun ./nbody-orig
+cd ../../..
+</code></pre></div>
+<p>Notes:</p>
+<ul>
+<li>
+<p>Hipify tools do not check correctness</p>
+</li>
+<li>
+<p><code>hipconvertinplace-perl</code> is a convenience script that does <code>hipify-perl -inplace -print-stats</code> command</p>
+</li>
+</ul>
+<h2 id="rocprof">Rocprof<a class="headerlink" href="#rocprof" title="Permanent link">&para;</a></h2>
+<p>Setup environment</p>
+<div class="highlight"><pre><span></span><code>salloc -N 1 --gpus=8 -p standard-g --exclusive -A project_465002175 -t 20:00 --reservation LUMI_advanced_gpu
+
+module load PrgEnv-cray
+module load craype-accel-amd-gfx90a
+module load rocm
+</code></pre></div>
+<p>Obtain examples repo and navigate to the HIPIFY exercises</p>
+<div class="highlight"><pre><span></span><code>cd HPCTrainingExamples/HIPIFY/mini-nbody/hip/
+</code></pre></div>
+<p>Compile and run one case. We are on the front-end node, so we need to point he tools to use the correct GPU:</p>
+<p><div class="highlight"><pre><span></span><code>export HCC_AMDGPU_TARGET=gfx90a
+</code></pre></div>
+have two ways to compile for the GPU that we want to run on. We can now complete the build with:</p>
+<div class="highlight"><pre><span></span><code>make nbody-orig
+</code></pre></div>
+<p>Now run <code>rocprof</code> on nbody-orig to obtain hotspots list</p>
+<div class="highlight"><pre><span></span><code>srun rocprof --stats nbody-orig 65536
+</code></pre></div>
+<p>Check Results</p>
+<div class="highlight"><pre><span></span><code>cat results.csv
+</code></pre></div>
+<p>Check the statistics result file, one line per kernel, sorted in descending order of durations</p>
+<div class="highlight"><pre><span></span><code>cat results.stats.csv
+</code></pre></div>
+<p>Using <code>--basenames on</code> will show only kernel names without their parameters.</p>
+<div class="highlight"><pre><span></span><code>srun rocprof --stats --basenames on nbody-orig 65536
+</code></pre></div>
+<p>Check the statistics result file, one line per kernel, sorted in descending order of durations</p>
+<div class="highlight"><pre><span></span><code>cat results.stats.csv
+</code></pre></div>
+<p>Trace HIP calls with <code>--hip-trace</code></p>
+<div class="highlight"><pre><span></span><code>srun rocprof --stats --hip-trace nbody-orig 65536
+</code></pre></div>
+<p>Check the new file <code>results.hip_stats.csv</code></p>
+<div class="highlight"><pre><span></span><code>cat results.hip_stats.csv
+</code></pre></div>
+<p>Profile also the HSA API with the <code>--hsa-trace</code></p>
+<div class="highlight"><pre><span></span><code>srun rocprof --stats --hip-trace --hsa-trace nbody-orig 65536
+</code></pre></div>
+<p>Check the new file <code>results.hsa_stats.csv</code></p>
+<div class="highlight"><pre><span></span><code>cat results.hsa_stats.csv
+</code></pre></div>
+<p>On your laptop, download <code>results.json</code></p>
+<div class="highlight"><pre><span></span><code>scp -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi.csc.fi:&lt;path_to_file&gt;/results.json results.json
+</code></pre></div>
+<p>Open a browser and go to <a href="https://ui.perfetto.dev/"><code>https://ui.perfetto.dev/</code></a>.</p>
+<p>Click on <code>Open trace file</code> in the top left corner.</p>
+<p>Navigate to the <code>results.json</code> you just downloaded.</p>
+<p>Use the keystrokes W,A,S,D to zoom in and move right and left in the GUI</p>
+<div class="highlight"><pre><span></span><code>Navigation
+w/s Zoom in/out
+a/d Pan left/right
+</code></pre></div>
+<h3 id="perfetto-issue">Perfetto issue<a class="headerlink" href="#perfetto-issue" title="Permanent link">&para;</a></h3>
+<p>You could open a browser and go to <a href="https://ui.perfetto.dev/"><code>https://ui.perfetto.dev/</code></a> to load the latest version of the tool but we recomment using an older version that is known to work well with traces generated by rocprof. For that, make sure you start a session to connect to LUMI as:</p>
+<div class="highlight"><pre><span></span><code>ssh -i &lt;HOME_DIRECTORY&gt;/.ssh/&lt;public ssh key file&gt; &lt;username&gt;@lumi-uan01.csc.fi -L10000:uan01:10000
+</code></pre></div>
+<p>and then connect to <a href="http://localhost:10000"><code>http://localhost:10000</code></a>.</p>
+<p>Alternatively you can run perfetto on your laptop if you have a Docker installed with:</p>
+<div class="highlight"><pre><span></span><code>docker run -it --rm -p 10000:10000 --name myperfetto sfantao/perfetto4rocm
+</code></pre></div>
+<p>You need to have the Docker daemon running in your workstation, e.g.:</p>
+<div class="highlight"><pre><span></span><code>sudo dockerd
+</code></pre></div>
+<p>We can now proceed to connect your web browser to: <a href="http://localhost:10000"><code>http://localhost:10000</code></a> and open the trace.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Perfetto image..." loading="lazy" src="https://462000265.lumidata.eu/paow-20251022/img/perfetto_1.png" /></p>
+</figure>
+<p>Read about hardware counters available for the GPU on this system (look for gfx90a section)</p>
+<div class="highlight"><pre><span></span><code>less $ROCM_PATH/lib/rocprofiler/gfx_metrics.xml
+</code></pre></div>
+<p>Create a <code>rocprof_counters.txt</code> file with the counters you would like to collect</p>
+<div class="highlight"><pre><span></span><code>vi rocprof_counters.txt
+</code></pre></div>
+<p>Content for <code>rocprof_counters.txt</code>:</p>
+<div class="highlight"><pre><span></span><code>pmc : Wavefronts VALUInsts
+pmc : SALUInsts SFetchInsts GDSInsts
+pmc : MemUnitBusy ALUStalledByLDS
+</code></pre></div>
+<p>Execute with the counters we just added:</p>
+<div class="highlight"><pre><span></span><code>srun rocprof --timestamp on -i rocprof_counters.txt  nbody-orig 65536
+</code></pre></div>
+<p>You'll notice that rocprof runs 3 passes, one for each set of counters we have in that file.</p>
+<p>Contents of <code>rocprof_counters.csv</code></p>
+<div class="highlight"><pre><span></span><code>cat rocprof_counters.csv
+</code></pre></div>
+<h3 id="exploring-rocprofv3">Exploring RocprofV3<a class="headerlink" href="#exploring-rocprofv3" title="Permanent link">&para;</a></h3>
+<p>Rocprofv3 is becoming the recommended version for ROCm 6.2 onward. You can experiment with this version by running:</p>
+<div class="highlight"><pre><span></span><code>module use /appl/local/containers/test-modules
+module load rocm/6.2.2
+</code></pre></div>
+<p>We can now repeat the experiment we did before and obtain a HIP trace with the kernels and copy information:</p>
+<div class="highlight"><pre><span></span><code>srun rocprofv3 --hip-trace --kernel-trace --memory-copy-trace --output-format=pftrace -- ./nbody-orig 65536
+</code></pre></div>
+<p>Notice the difference in the options in comparison to rocprof V1. One can be more selective on what to collect. You would also notice that the profiler is faster and has less overhead. It also has the choice of using <code>pftrace</code> format that are more compatible with latest versions of the Perfetto UI <a href="https://ui.perfetto.dev/"><code>https://ui.perfetto.dev/</code></a>. The trace will look similar to what seen before with a slightly different convention for the namming of the different sections:</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Perfetto image..." loading="lazy" src="https://462000265.lumidata.eu/paow-20251022/img/perfetto_2.png" /></p>
+</figure>
+<h2 id="omnitrace">Omnitrace<a class="headerlink" href="#omnitrace" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Load Omnitrace</p>
+<p>For ROCm versions older than 6.2, Omnitrace is not installed as part of the ROCm suite. So we use a separate instalation for this.</p>
+<div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+module load cray-python
+
+module use /appl/local/containers/test-modules
+module load rocm/6.0.3 omnitrace/1.12.0-rocm6.0.x
+</code></pre></div>
+</li>
+<li>
+<p>Allocate resources with <code>salloc</code></p>
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --partition=standard-g --gpus=1 -A project_465002175 --time=00:15:00 --reservation LUMI_advanced_gpu
+</code></pre></div>
+</li>
+<li>
+<p>Check the various options and their values and also a second command for description</p>
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omnitrace-avail --categories omnitrace
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omnitrace-avail --categories omnitrace --brief --description
+</code></pre></div>
+</li>
+<li>
+<p>Create an Omnitrace configuration file with description per option</p>
+<div class="highlight"><pre><span></span><code>srun -n 1 omnitrace-avail -G omnitrace.cfg --all
+</code></pre></div>
+</li>
+<li>
+<p>Declare to use this configuration file:</p>
+<div class="highlight"><pre><span></span><code>export OMNITRACE_CONFIG_FILE=/path/omnitrace.cfg
+</code></pre></div>
+</li>
+<li>
+<p>Get the training examples:</p>
+<div class="highlight"><pre><span></span><code>cp -r /project/project_465002175/Exercises/AMD/HPCTrainingExamples/ .
+</code></pre></div>
+</li>
+<li>
+<p>Compile and execute saxpy</p>
+<div class="highlight"><pre><span></span><code>cd HPCTrainingExamples/HIP/saxpy
+hipcc --offload-arch=gfx90a -O3 -o saxpy saxpy.hip
+time srun -n 1 ./saxpy
+</code></pre></div>
+</li>
+<li>
+<p>Check the duration</p>
+</li>
+<li>
+<p>Compile and execute Jacobi</p>
+<div class="highlight"><pre><span></span><code>cd HIP/jacobi
+</code></pre></div>
+</li>
+<li>
+<p>Now build the code</p>
+<div class="highlight"><pre><span></span><code>make -f Makefile.cray
+time srun -n 1 --gpus 1 Jacobi_hip -g 1 1
+</code></pre></div>
+</li>
+<li>
+<p>Check the duration</p>
+</li>
+</ul>
+<h3 id="dynamic-instrumentation-the-commands-take-a-significant-ammount-of-time">Dynamic instrumentation (the commands take a significant ammount of time)<a class="headerlink" href="#dynamic-instrumentation-the-commands-take-a-significant-ammount-of-time" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Execute dynamic instrumentation: 
+    <div class="highlight"><pre><span></span><code>time srun -n 1 -c 7 --gpus 1 omnitrace-instrument -- ./saxpy
+</code></pre></div>
+    and check the duration</p>
+</li>
+<li>
+<p>About Jacobi example, as the dynamic instrumentation would take long time, check what the binary calls and gets instrumented: 
+    <div class="highlight"><pre><span></span><code>nm --demangle Jacobi_hip | egrep -i &#39; (t|u) &#39;
+</code></pre></div></p>
+</li>
+<li>
+<p>Available functions to instrument: 
+    <div class="highlight"><pre><span></span><code>srun -n 1 -c 7 --gpus 1 omnitrace-instrument -v 1 --simulate --print-available functions -- ./Jacobi_hip -g 1 1
+</code></pre></div></p>
+<ul>
+<li>the simulate option means that it will not execute the binary</li>
+</ul>
+</li>
+</ul>
+<h3 id="binary-rewriting-to-be-used-with-mpi-codes-and-decreases-overhead">Binary rewriting (to be used with MPI codes and decreases overhead)<a class="headerlink" href="#binary-rewriting-to-be-used-with-mpi-codes-and-decreases-overhead" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Binary rewriting: 
+    <div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omnitrace-instrument -v -1 --print-available functions -o jacobi.inst -- ./Jacobi_hip
+</code></pre></div></p>
+<ul>
+<li>We created a new instrumented binary called <code>jacobi.inst</code></li>
+</ul>
+</li>
+<li>
+<p>Executing the new instrumented binary: 
+    <div class="highlight"><pre><span></span><code>time srun -n 1 --gpus 1 omnitrace-run -- ./jacobi.inst -g 1 1
+</code></pre></div>
+    and check the duration</p>
+</li>
+<li>
+<p>See the list of the instrumented GPU calls: 
+    <div class="highlight"><pre><span></span><code>cat omnitrace-jacobi.inst-output/TIMESTAMP/roctracer.txt
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Copy the perfetto-trace.proto to your laptop, open the web page <a href="https://ui.perfetto.dev/v46.0-35b3d9845/#/"><code>https://ui.perfetto.dev/v46.0-35b3d9845/#/</code></a>. Click to open the trace and select the file</li>
+</ul>
+<h3 id="hardware-counters">Hardware counters<a class="headerlink" href="#hardware-counters" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>See a list of all the counters: 
+    <div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omnitrace-avail --all
+</code></pre></div></p>
+</li>
+<li>
+<p>Declare in your configuration file: 
+    <div class="highlight"><pre><span></span><code>OMNITRACE_ROCM_EVENTS = GPUBusy,Wavefronts,VALUBusy,L2CacheHit,MemUnitBusy
+</code></pre></div></p>
+</li>
+<li>
+<p>Execute: 
+    <div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omnitrace-run -- ./jacobi.inst -g 1 1
+</code></pre></div>
+    and copy the perfetto file and visualize</p>
+</li>
+</ul>
+<h3 id="sampling">Sampling<a class="headerlink" href="#sampling" title="Permanent link">&para;</a></h3>
+<p>Activate in your configuration file <code>OMNITRACE_USE_SAMPLING = true</code> and <code>OMNITRACE_SAMPLING_FREQ = 100</code>, execute and visualize</p>
+<h3 id="kernel-timings">Kernel timings<a class="headerlink" href="#kernel-timings" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Open the file <code>omnitrace-binary-output/timestamp/wall_clock.txt</code> (replace binary and timestamp with your information)</p>
+</li>
+<li>
+<p>In order to see the kernels gathered in your configuration file, make sure that <code>OMNITRACE_USE_TIMEMORY = true</code> and <code>OMNITRACE_FLAT_PROFILE = true</code>, execute the code and open again the file <code>omnitrace-binary-output/timestamp/wall_clock.txt</code></p>
+</li>
+</ul>
+<h2 id="omniperf">Omniperf<a class="headerlink" href="#omniperf" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Load Omniperf:</p>
+<p>Omniperf uses a separate instalation as it is not part of ROCm before its version 6.2. Let's load it in our environment.</p>
+<div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
+module load PrgEnv-amd
+module load cray-python
+
+module use /appl/local/containers/test-modules
+module load rocm/6.0.3 omniperf/2.1.0
+</code></pre></div>
+</li>
+<li>
+<p>Reserve a GPU, compile the exercise and execute Omniperf, observe how many times the code is executed</p>
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465002175 --time=00:30:00
+cp -r /project/project_465002175/Exercises/AMD/HPCTrainingExamples/ .
+cd HPCTrainingExamples/HIP/dgemm/
+mkdir build
+cd build
+cmake ..
+make
+cd bin
+srun -n 1 -c 7 omniperf profile -n dgemm -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv
+</code></pre></div>
+</li>
+<li>
+<p>Run 
+    <div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf profile -h
+</code></pre></div>
+    to see all the options</p>
+</li>
+<li>
+<p>Now is created a workload in the directory workloads with the name dgemm (the argument of the -n). So, we can analyze it</p>
+<div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/MI200/ &amp;&gt; dgemm_analyze.txt
+</code></pre></div>
+</li>
+<li>
+<p>If you want to only roofline analysis, then execute: 
+    <div class="highlight"><pre><span></span><code>srun -n 1 omniperf profile -n dgemm --roof-only -- ./dgemm -m 8192 -n 8192 -k 8192 -i 1 -r 10 -d 0 -o dgemm.csv
+</code></pre></div>
+    There is no need for <code>srun</code> to analyze but we want to avoid everybody to use the login node. Explore the file <code>dgemm_analyze.txt</code>.</p>
+</li>
+<li>
+<p>We can select specific IP Blocks, like:
+    <div class="highlight"><pre><span></span><code>srun -n 1 --gpus 1 omniperf analyze -p workloads/dgemm/MI200/ -b 7.1.2
+</code></pre></div>
+    But you need to know the code of the IP Block</p>
+</li>
+<li>
+<p>If you have installed Omniperf on your laptop (no ROCm required for analysis) then you can download the data and execute:
+    <div class="highlight"><pre><span></span><code>omniperf analyze -p workloads/dgemm/MI200/ --gui
+</code></pre></div></p>
+</li>
+<li>
+<p>Open the web page: <code>http://IP:8050/</code>. The IP will be displayed in the output</p>
+</li>
+</ul>
+<p>For more exercises, visit here: https://github.com/amd/HPCTrainingExamples/tree/main/OmniperfExamples or locally HPCTrainingExamples/OmniperfExamples, there are 5 exercises, in each directory there is a readme file with instructions.</p>
+<h2 id="pytorch-example">Pytorch example<a class="headerlink" href="#pytorch-example" title="Permanent link">&para;</a></h2>
+<p>This example is supported by the files in <code>/project/project_465002175/Exercises/AMD/Pytorch</code> (or the <code>Exercises/AMD/Pytorch</code> subdirectory in the download of the AMD exercises after the course: <a href="https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_AMD.tar.bz2">Download as .tar.bz2</a> or <a href="https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_AMD.tar">download as .tar</a>).</p>
+<p>These script experiment with different tools with a more realistic application. They cover PyTorch, how to install it, run it and then profile and debug a MNIST based training. We selected the one in <a href="https://github.com/kubeflow/examples/blob/master/pytorch_mnist/training/ddp/mnist/mnist_DDP.py">https://github.com/kubeflow/examples/blob/master/pytorch_mnist/training/ddp/mnist/mnist_DDP.py</a> but the concept would be similar for any PyTorch-based distributed training.</p>
+<p>This is mostly based on a two node allocation.</p>
+<ul>
+<li>
+<p>Installing PyTorch directly on the filesystem using the system python installation.
+    <div class="highlight"><pre><span></span><code>./01-install-direct.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Installing PyTorch in a virtual environment based on the system python installation.
+    <div class="highlight"><pre><span></span><code>./02-install-venv.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Installing PyTorch in a condo environment based on the condo package python version.
+    <div class="highlight"><pre><span></span><code>./03-install-conda.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Testing a container prepared for LUMI that comprises PyTorch.
+    <div class="highlight"><pre><span></span><code>./04-test-container.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Test the right affinity settings.
+    <div class="highlight"><pre><span></span><code>./05-afinity-testing.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Complete example with MNIST training with all the trimmings to run it properly on LUMI.
+    <div class="highlight"><pre><span></span><code>./06-mnist-example.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Examples using rocprof, Omnitrace and Omniperf.
+    <div class="highlight"><pre><span></span><code>./07-mnist-rocprof.sh
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>./08-mnist-omnitrace.sh
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>./09-mnist-omnitrace-python.sh
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code>./10-mnist-omniperf.sh
+</code></pre></div></p>
+</li>
+<li>
+<p>Example using Pytorch built-in profiling capabilities.
+    <div class="highlight"><pre><span></span><code>./11-mnist-pytorch-profile.sh
+</code></pre></div></p>
+</li>
+</ul>
+<h2 id="hip-optimization">HIP optimization<a class="headerlink" href="#hip-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="optimizing-daxpy-hip">Optimizing DAXPY HIP<a class="headerlink" href="#optimizing-daxpy-hip" title="Permanent link">&para;</a></h3>
+<p>In this exercise, we will progressively make changes to optimize the DAXPY kernel on GPU. Any AMD GPU can be used to test this.</p>
+<p>DAXPY Problem:</p>
+<div class="highlight"><pre><span></span><code>Z = aX + Y
+</code></pre></div>
+<p>where <code>a</code> is a scalar, <code>X</code>, <code>Y</code> and <code>Z</code> are arrays of double precision values.</p>
+<p>In DAXPY, we load 2 FP64 values (8 bytes each) and store 1 FP64 value (8 bytes). We can ignore the scalar load because it is constant. We have 1 multiplication and 1 addition operation for the 12 bytes moved per element of the array. This yields a low arithmetic intensity of 2/24. So, this kernel is not compute bound, so we will only measure the achieved memory bandwith instead of FLOPS.</p>
+<h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>N</code>, the number of elements in <code>X</code>, <code>Y</code> and <code>Z</code>. <code>N</code> may be reset to suit some optimizations.</p>
+<p>Choose a sufficiently large array size to see some differences in performance.</p>
+</li>
+</ul>
+<h3 id="build-code">Build Code<a class="headerlink" href="#build-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>module load craype-accel-amd-gfx90a
+module use /appl/local/containers/test-modules
+module load rocm/6.2.4
+
+git clone https://github.com/amd/HPCTrainingExamples.git
+cd HPCTrainingExamples/HIP-Optimizations/daxpy
+make
+</code></pre></div>
+<h3 id="run-exercises">Run exercises<a class="headerlink" href="#run-exercises" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>salloc -N 1 --ntasks=1 --partition=small-g --gpus=1 -A project_465002175 --time=00:30:00
+srun ./daxpy_1 10000000
+srun ./daxpy_2 10000000
+srun ./daxpy_3 10000000
+srun ./daxpy_4 10000000
+srun ./daxpy_5 10000000
+</code></pre></div>
+<h3 id="things-to-ponder-about">Things to ponder about<a class="headerlink" href="#things-to-ponder-about" title="Permanent link">&para;</a></h3>
+<h4 id="daxpy_1"><code>daxpy_1</code><a class="headerlink" href="#daxpy_1" title="Permanent link">&para;</a></h4>
+<p>This shows a naive implementation of the daxpy problem on the GPU where only 1 wavefront is launched and the 64 work-items in that wavefront loop over the entire array and process 64 elements at a time. We expect this kernel to perform very poorly because it simply utilizes a part of 1 CU, and leaves the rest of the GPU unutilized.</p>
+<h4 id="daxpy_2"><code>daxpy_2</code><a class="headerlink" href="#daxpy_2" title="Permanent link">&para;</a></h4>
+<p>This time, we are launching multiple wavefronts, each work-item now processing only 1 element of each array. This launches N/64 wavefronts, enough to be scheduled on all CUs. We see a big improvement in performance here.</p>
+<h4 id="daxpy_3"><code>daxpy_3</code><a class="headerlink" href="#daxpy_3" title="Permanent link">&para;</a></h4>
+<p>In this experiment, we check to see if launching larger workgroups can help lower our kernel launch overhead because we launch fewer workgroups if each workgroup has 256 work-items. In this case too, an improvement in measured bandwidth achieved is seen.</p>
+<h4 id="daxpy_4"><code>daxpy_4</code><a class="headerlink" href="#daxpy_4" title="Permanent link">&para;</a></h4>
+<p>If we ensured that the array has a multiple of <code>BLOCK_SIZE</code> elements so that all work-items in each workgroup have an element to process, then we can avoid the conditional statement in the kernel. This could reduce some instructions in the kernel.. Do we see any improvement? In this trivial case, this does not matter. Nevertheless, it is something we could keep in mind.</p>
+<p>Question: What happens if <code>BLOCK_SIZE</code> is <code>1024</code>? Why?</p>
+<h4 id="daxpy_5"><code>daxpy_5</code><a class="headerlink" href="#daxpy_5" title="Permanent link">&para;</a></h4>
+<p>In this experiment, we will use double2 type in the kernel to see if the compiler can generate <code>global_load_dwordx4</code> instructions instead of <code>global_load_dwordx2</code> instructions. So, with same number of load and store instructions, we are able to read/write two elements from each array in each thread. This should help amortize on the cost of index calculations.</p>
+<p>To show this difference, we need to generate the assembly for these two kernels. To generate the assembly code for these kernels, ensure that the <code>-g --save-temps</code> flags are passed to <code>hipcc</code>. Then you can find the assembly code in <code>daxpy_*-host-x86_64-unknown-linux-gnu.s</code> files. Examining <code>daxpy_3</code> and <code>daxpy_5</code>, we see the two cases (edited here for clarity):</p>
+<p><code>daxpy_3</code>:</p>
+<div class="highlight"><pre><span></span><code>    global_load_dwordx2 v[2:3], v[2:3], off
+    v_mov_b32_e32 v6, s5
+    global_load_dwordx2 v[4:5], v[4:5], off
+    v_add_co_u32_e32 v0, vcc, s4, v0
+    v_addc_co_u32_e32 v1, vcc, v6, v1, vcc
+    s_waitcnt vmcnt(0)
+    v_fmac_f64_e32 v[4:5], s[6:7], v[2:3]
+    global_store_dwordx2 v[0:1], v[4:5], off
+</code></pre></div>
+<p><code>daxpy_5</code>:</p>
+<div class="highlight"><pre><span></span><code>    global_load_dwordx4 v[0:3], v[0:1], off
+    v_mov_b32_e32 v10, s5
+    global_load_dwordx4 v[4:7], v[4:5], off
+    s_waitcnt vmcnt(0)
+    v_fmac_f64_e32 v[4:5], s[6:7], v[0:1]
+    v_add_co_u32_e32 v0, vcc, s4, v8
+    v_fmac_f64_e32 v[6:7], s[6:7], v[2:3]
+    v_addc_co_u32_e32 v1, vcc, v10, v9, vcc
+    global_store_dwordx4 v[0:1], v[4:7], off
+</code></pre></div>
+<p>We observe that, in the <code>daxpy_5</code> case, there are two <code>v_fmac_f64_e32</code> instructions as expected, one for each element being processed.</p>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Before timing kernels, it is best to launch the kernel at least once as warmup so that those initial GPU launch latencies do not affect your timing measurements.</p>
+</li>
+<li>
+<p>The timing loop is typically several hundred iterations.</p>
+</li>
+<li>
+<p>You may find that the various optimizations work differently in MI200 vs MI300 devices, and this may be due to differences in hardware architecture.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+
+
+
+
+<footer class="md-footer">
+
+  
+
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      
+    <div class="md-footer-copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" 
+             style="border-width:0" 
+             src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+        />
+      </a>
+      This work is licensed under a&nbsp;
+      <a rel="license" 
+         href="http://creativecommons.org/licenses/by/4.0/"
+      >
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </div>
+
+      
+      <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
