@@ -13,11 +13,11 @@ to the user base of the machine, the approach taken on LUMI may be a bit unusual
 Materials will be made available after the lecture
 -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20251020/recordings/105-SoftwareStacks.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/2day-20251020/recordings/LUMI-2day-20251020-105-SoftwareStacks.mp4" controls="controls"></video>
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-105-SoftwareStacks.pdf)
 
@@ -25,13 +25,11 @@ Materials will be made available after the lecture
 
 -   [Exercises](E105-SoftwareStacks.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-105-SoftwareStacks.pdf`
 
--   Recording: `/appl/local/training/2day-20251020/recordings/105-SoftwareStacks.mp4`
--->
+-   Recording: `/appl/local/training/2day-20251020/recordings/LUMI-2day-20251020-105-SoftwareStacks.mp4`
 
 
 ## Q&A

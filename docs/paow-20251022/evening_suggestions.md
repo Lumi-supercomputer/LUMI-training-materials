@@ -32,18 +32,10 @@ Tallinn has several small breweries with taproom
     ([taproom menu Untappd](https://untappd.com/v/pohjala-brewery-and-tap-room/8349816))
     ([Google Maps](https://maps.app.goo.gl/MPPf7P1vCYZhxAgL9))
 
--   [Põhja Konn](https://www.facebook.com/pohjakonnbar): A second taproom from 
+    [Põhja Konn](https://www.facebook.com/pohjakonnbar): A second taproom from 
     Põhjala. This one is in the Telliskivi district.
     ([menu Untappd](https://untappd.com/v/pohja-konn/11318726))
     ([Google Maps](https://maps.app.goo.gl/gTB7j2LcsoZE6Biu6))
-
--   [Pühaste Taproom Tallinn](https://puhaste-taproom.ourmenu.com/?menu=226736):
-    In a new area just west from the old town and close to the ferry terminal.
-    They tend to have an interesting selection on tap, but also many special 
-    bottles.
-    Pühaste is a brewery located in Tartu, two hours from Tallinn.
-    ([menu Untappd](https://untappd.com/v/puhaste-taproom/12942201))
-    ([Google Maps](https://www.facebook.com/pohjakonnbar))
 
 -   [Tuletorn Brewing](https://tuletorn.beer/): Far from the centre and the tram is 
     needed to get there. I've never been there.

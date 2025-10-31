@@ -14,11 +14,11 @@ available or because there are simply too many dependencies.
 Materials will be made available after the lecture
 -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20251020/recordings/205-Containers.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/2day-20251020/recordings/LUMI-2day-20251020-205-Containers.mp4" controls="controls"></video>
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-205-Containers.pdf)
 
@@ -37,13 +37,11 @@ There are two demos illustrating material from this talk:
 The videos of the demos are older ones, but the material was last revised in June 2025 and is 
 hence fairly recent.
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-205-Containers.pdf`
 
--   Recording: `/appl/local/training/2day-20251020/recordings/205-Containers.mp4`
--->
+-   Recording: `/appl/local/training/2day-20251020/recordings/LUMI-2day-20251020-205-Containers.mp4`
 
 
 ## Q&A

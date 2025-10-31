@@ -16,11 +16,11 @@ run a program.
 Materials will be made available after the lecture
 -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20251020/recordings/102-CPE.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/2day-20251020/recordings/LUMI-2day-20251020-102-CPE.mp4" controls="controls"></video>
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-102-CPE.pdf)
 
@@ -28,13 +28,11 @@ Materials will be made available after the lecture
 
 -   [Exercises](E102-CPE.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-102-CPE.pdf`
 
--   Recording: `/appl/local/training/2day-20251020/recordings/102-CPE.mp4`
--->
+-   Recording: `/appl/local/training/2day-20251020/recordings/LUMI-2day-20251020-102-CPE.mp4`
 
 
 ## Q&A
