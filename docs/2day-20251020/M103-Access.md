@@ -12,10 +12,14 @@ Materials will be made available after the lecture
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-20251020/recordings/103-Access.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2day-20251020/recordings/LUMI-2day-20251020-103-Access.mp4" controls="controls"></video>
 -->
 
+<!--
 -   A video recording will follow.
+-->
+
+-   Due to technical difficulties, there is no video available of this lecture.
 
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-103-Access.pdf)
 
@@ -23,12 +27,12 @@ Materials will be made available after the lecture
 
 -   [Exercises](E103-Access.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-103-Access.pdf`
 
--   Recording: `/appl/local/training/2day-20251020/recordings/103-Access.mp4`
+<!--
+-   Recording: `/appl/local/training/2day-20251020/recordings/LUMI-2day-20251020-103-Access.mp4`
 -->
 
 

@@ -13,11 +13,11 @@ talk to understand the particular configuration on LUMI.
 Materials will be made available after the lecture
 -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20251020/recordings/201-Slurm.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/2day-20251020/recordings/LUMI-2day-20251020-201-Slurm.mp4" controls="controls"></video>
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-201-Slurm.pdf)
 
@@ -25,13 +25,11 @@ Materials will be made available after the lecture
 
 -   [Exercises](E201-Slurm.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-201-Slurm.pdf`
 
--   Recording: `/appl/local/training/2day-20251020/recordings/201-Slurm.mp4`
--->
+-   Recording: `/appl/local/training/2day-20251020/recordings/LUMI-2day-20251020-201-Slurm.mp4`
 
 
 ## Q&A

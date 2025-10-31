@@ -13,11 +13,11 @@ modules can be found.
 Materials will be made available after the lecture
 -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20251020/recordings/104-Modules.mp4" controls="controls"></video>
--->
+<video src="https://462000265.lumidata.eu/2day-20251020/recordings/LUMI-2day-20251020-104-Modules.mp4" controls="controls"></video>
 
+<!--
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20251020/files/LUMI-2day-20251020-104-Modules.pdf)
 
@@ -25,13 +25,11 @@ Materials will be made available after the lecture
 
 -   [Exercises](E104-Modules.md)
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/2day-20251020/files/LUMI-2day-20251020-104-Modules.pdf`
 
--   Recording: `/appl/local/training/2day-20251020/recordings/104-Modules.mp4`
--->
+-   Recording: `/appl/local/training/2day-20251020/recordings/LUMI-2day-20251020-104-Modules.mp4`
 
 
 ## Q&A
