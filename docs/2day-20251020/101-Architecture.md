@@ -24,13 +24,13 @@ efficiently.
 LUMI, as other large supercomputers, is built for running large parallel applications efficiently.
 But that efficiency does not for free. Scaling from a small problem size on a small computer 
 does not come for free, not in hardware and neither in software. For example, it is not true that
-increasing the amount of cores your application will run faster. you need to connect them, and to pass 
+increasing the amount of cores your application will run faster. You need to connect them, and to pass 
 data between them, and we will see in this lecture that it is not that easy. Another example (this time on software): 
 communication has a cost, and parts of programs are serial. if the dominant part of a program is the serial one,
 increasing the parallelism will have a negligible or even negative impact.
 Modern supercomputers are usually heterogeneous machines, with CPU and accelerators (usually GPU) that collaborate to perform the computation.
 But to collaborate, there is a need to move data from one device to the other, and this has a cost, which sometimes
-overshadows the gain of a faster processing of the data on the accellerator.
+overshadows the gain of a faster processing of the data on the accelerator.
 
 For all these reasons, it is important to properly map an application on the available resources to run efficiently.
 The way an application is developed is important for this, but it is not the only factor. Every application needs some user help 
@@ -149,9 +149,9 @@ It is also a shared infrastructure but with a much more lightweight management l
 and far less isolation between users, meaning that abuse by one user can have more of a negative impact on 
 other users than in a cloud infrastructure (e.g. an user running memory intensive postprocessing scripts on the
 login node will damage all other users that are working on that login node because it will use all the memory 
-available on the node itself. measures are taken to avoid this, but sometimes not abuse but misuse can create
+available on the node itself. Measures are taken to avoid this, but sometimes not abuse but misuse can create
 problems for other issues. For that reason it is important to know what to do and what NOT to do on a supercomputer).
- Supercomputers since the mid to late '80s are also built according
+Supercomputers since the mid to late '80s are also built according
 to the principle of trying to reduce the hardware cost by using cleverly designed software both at the system
 and application level. They perform best when streaming data through the machine at all levels of the 
 memory hierarchy and are not built at all for random access to small bits of data (where the definition of
@@ -319,7 +319,7 @@ Each CCD connects to the memory/IO die through an Infinity Fabric link
 (also called GMI link which stands for Global Memory Interface). The connection
 is asymmetric on Milan with 51.2 GB/s bandwidth from memory/IO die to CCD (read operations) 
 and 25.6 GB/s bandwidth from CCD to memory/io die (write operations, 32 bytes and 16 byte wide connections
- running at the memory clock with is 1.6 GHz for DDR4 3200).
+running at the memory clock with is 1.6 GHz for DDR4 3200).
 The memory/IO die contains the memory controllers,
 connections to connect two CPU packages together, PCIe lanes to connect to external
 hardware, and some additional hardware, e.g., for managing the processor. 
@@ -706,7 +706,7 @@ As in previous generations, a lot of attention went to adaptive routing and cong
 control.
 In a recent [paper](https://arxiv.org/pdf/2408.14090), a comparison between networks in similar supercomputers
 has been done. One of the outcomes of this paper is that the Slingshot network, 
-when compared to tradional Infiniband (LEONARDO) approach provideda slightly worse "best" and "average" cases, 
+when compared to traditional Infiniband (LEONARDO) approach provided a slightly worse "best" and "average" cases, 
 but a better performing "worst" case. And the reason why this is important is that
 in a HPC large job (which are the real reasons why HPC systems are built), at a synchronization point
 (be it a barrier or a collective operation) you need to wait for the last process to join the operation,

@@ -45,6 +45,9 @@ and to reduce the memory footprint of the OS on the compute nodes.
 
 ## Lustre building blocks
 
+<figure markdown style="border: 1px solid #000">
+  ![Lustre building blocks (2)](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_1_separation.png){ loading=lazy }
+</figure>
 
 <figure markdown style="border: 1px solid #000">
   ![Lustre building blocks (2)](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks2.png){ loading=lazy }
@@ -56,9 +59,12 @@ metadata and the actual file data, as the way both are accessed and used is very
 
 A Lustre system consists of the following blocks:
 
-1. <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_2_MDS.png){ loading=lazy }
-   </figure>
+1.  **Metadata servers (MDSes)**
+  
+    <figure markdown style="border: 1px solid #000">
+      ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_2_MDS.png){ loading=lazy }
+    </figure>
+
     **Metadata servers (MDSes)** with one or more **metadata targets (MDTs)** each store
     namespace metadata such as filenames, directories and access permissions, and the
     file layout.
@@ -73,9 +79,11 @@ A Lustre system consists of the following blocks:
     storage possible even if that storage is very expensive per terabyte. On LUMI all
     metadata servers use SSDs.
 
-2. <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_3_OSS.png){ loading=lazy }
-  </figure>
+2.  **Object storage servers (OSSes)**
+
+    <figure markdown style="border: 1px solid #000">
+      ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_3_OSS.png){ loading=lazy }
+    </figure>
 
     **Object storage servers (OSSes)** with one or more **object storage targets (OSTs)** each
     store the actual data. Data from a single file can be distributed across multiple
@@ -100,9 +108,12 @@ A Lustre system consists of the following blocks:
     On LUMI there is roughly 80 PB spread across 4 large hard disk based Lustre file systems, and
     8.5 PB in an SSD-based Lustre file system. However, all MDSes use SSD storage.
 
-3. <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_4_client.png){ loading=lazy }
-  </figure>
+3.  **Lustre clients**
+
+    <figure markdown style="border: 1px solid #000">
+      ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_4_client.png){ loading=lazy }
+    </figure>
+
     **Lustre clients** access and use the data. They make the whole Lustre file system look like
     a single file system.
 
@@ -119,9 +130,12 @@ A Lustre system consists of the following blocks:
     performance. On LUMI we do advise Python users or users who install software through Conda
     to do so.
  
-4. <figure markdown style="border: 1px solid #000">
-  ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_5_network.png){ loading=lazy }
-   </figure>
+4.  **High-performance interconnect**
+
+    <figure markdown style="border: 1px solid #000">
+      ![Lustre building blocks -oss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreBuildingBlocks1_5_network.png){ loading=lazy }
+    </figure>
+
     All these components are linked together through a **high performance interconnect**. On HPE Cray EX
     systems - but on more an more other systems also - there is no separate network anymore for 
     storage access and the same high performance interconnect that is also used for internode
@@ -189,27 +203,31 @@ And unfortunately there is no single set of parameters that is good for all user
 Let's now study how Lustre will access a file for reading or writing. Let's assume that the
 second client in the above picture wants to write something to the file.
 
--   The first step is opening the file. 
+1.  The first step is opening the file. 
 
-<figure markdown style="border: 1px solid #000">
-  ![Accessing querymds](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_1_queryMDS.png){ loading=lazy }
-</figure>
+    <figure markdown style="border: 1px solid #000">
+      ![Accessing querymds](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_1_queryMDS.png){ loading=lazy }
+    </figure>
   
--   For that, the Lustre client has to talk to the metadata server (MDS) and query some information
+    For that, the Lustre client has to talk to the metadata server (MDS) and query some information
     about the file.
 
-<figure markdown style="border: 1px solid #000">
-  ![Accessing returnmds](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_2_returnMDS.png){ loading=lazy }
-</figure>
+2.  MDS answers:
+  
+    <figure markdown style="border: 1px solid #000">
+      ![Accessing returnmds](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_2_returnMDS.png){ loading=lazy }
+    </figure>
 
--   The MDS in turn will return information about the file, including the layout of the file: chunksize
+    The MDS in turn will return information about the file, including the layout of the file: chunksize
     and the OSSes/OSTs that keep the chunks of the file.
 
-<figure markdown style="border: 1px solid #000">
-  ![Accessing-writeoss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_3_writeOSS.png){ loading=lazy }
-</figure>
+3.  Data access:
+    
+    <figure markdown style="border: 1px solid #000">
+      ![Accessing-writeoss](https://462000265.lumidata.eu/2day-20251020/img/LUMI-2day-20251020-203-Lustre/LustreFileAccess_3_writeOSS.png){ loading=lazy }
+    </figure>
 
--   From that point on, the client doesn't need to talk to the MDS anymore and can talk directly to 
+    From that point on, the client doesn't need to talk to the MDS anymore and can talk directly to 
     the OSSes to write data to the OSTs or read data from the OSTs.
 
 
