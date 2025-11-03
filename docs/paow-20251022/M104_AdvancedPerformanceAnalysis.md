@@ -22,6 +22,11 @@ Archived materials on LUMI:
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
+!!! Note "Apprentice 2 download"
+
+    The most recent versions of Apprentice 2 for macOS and Windows can be found in 
+    `/opt/cray/pe/perftools/24.03.0/share/desktop_installers`.
+
 
 ## Q&A
 
