@@ -17,28 +17,32 @@ and run into problems that we did not expect.
 Almost all software components on LUMI have received an update during the past system
 maintenance. The user-facing updates are:
 
--   The operating system is now SUSE Enterprise Linux 15 SP5 on the login nodes
-    (formerly SP4), and the matching version of Cray Operating System on the
+-   The operating system is now SUSE Enterprise Linux 15 SP6 on the login nodes
+    (formerly SP5), and the matching version of Cray Operating System on the
     compute nodes.
 
--   Slurm is upgraded to [version 23.02.7](https://slurm.schedmd.com/archive/slurm-23.02.7/man_index.html).
+-   Slurm is upgraded to [version 24.05.8](https://slurm.schedmd.com/archive/slurm-24.05.8/man_index.html).
 
 -   The libfabric CXI provider has also been upgraded to a newer version. 
 
--   ROCm 6.0.3 is now the system-installed and default ROCm version
-    and ROCm 5.2.3 is no longer on the system.
+-   ROCm 6.3.4 is now the system-installed and default ROCm version
+    and ROCm 6.0.3 is no longer on the system.
 
-    The installed driver should be able to install ROCm version 5.6 to 6.2,
-    but that does not imply that all of those versions will work with all
-    versions of the Cray Programming Environment. Each version of the Cray
-    Programming Environment has only been tested with one or two versions of
-    ROCm.
+    The currently installed driver (`amdgpu` package) is version 
+    6.3.60300-2084815 (and note that this is not the version returned
+    by `rocm-smi` as the latter really returns the firmware version instead),
+    and that driver is compatible with ROCm userland libraries from version
+    6.1 till 7.0. This does not imply that all of those versions will be
+    fully functional on LUMI as each version of the Cray Programming
+    Environment has only been tested with one or two versions of ROCm(tm).
+
+    E.g., none of the MPI implementations of the programming environment 
+    25.09 or earlier can work with ROCm(tm) 7 to offer GPU-aware MPI.
 
 -   Two new programming environments have been installed, see the next section.
 
 **As after previous maintenance periods, the visualisation nodes in the `lumid`
 partition are not yet available as they require a slightly different setup.**
-
 
 ## Major changes to the programming environments
 
@@ -56,29 +60,30 @@ to one of those components may require a change in the MPI library.
 So you can understand that updating a system is not as simple as it may 
 appear, and the ROCm update has inevitably other consequences on the system:
 
--   The new 24.03 programming environment is the **only programming environment
-    that is fully supported by HPE** on the new system configuration
-    as it is the **only programming environment on
-    the system with official support for both the current version of the operating
-    system and ROCm 6.0.**
+-   The new 25.03 programming environment is the system default version after 
+    the maintenance as it is the version of the PE that is fully developed for
+    the current system configuration with ROCm(tm) 6.3.
 
-    It is therefore also the system default version of the programming environment.
+    25.09 is also offered, though it has been tested more with ROCm(tm) 6.4.
+
+    We cannot guarantee that older versions of the Programming Environment, which
+    were never developed for and tested on/with SUSE 15 SP6 and ROCm(tm) 6.3, will
+    work for everybody.
 
     **This implies that if you experience problems, the answer might be that you
-    will have to move to 24.03 or at least try if the problems occur there too.
+    will have to move to 25.03 or at least try if the problems occur there too.
     The LUMI User Support Team will focus its efforts on making the software stack 
-    for 24.03 as complete as possible as soon as we can, and a lot of it is already
+    for 25.03 as complete as possible as soon as we can, and a lot of it is already
     on the system. We only support relatively recent
-    versions of software though.**
+    versions of software though. After that, we will build a stack for 25.09.**
 
-    The CCE and ROCm compilers in this programming environment are both based on 
-    Clang/LLVM 17 while the AOCC compiler (module `aocc/4.1.0`) is based on
-    Clang/LLVM 16.
+    The CCE compilers are based on Clang/LLVM 19 (in 25.03) and Clang/LLVM 20 (25.09),
+    the ROCm(tm) 6.3 compiler is based on Clang/LLVM 18,
+    and the AOCC compiler (module `aocc/5.0.0`) is based on Clang/LLVM 17.
+    Both the ROCm(tm) and AOCC compilers offer classic flang, not yet the new
+    generation Fortran compiler.
 
--   The second new programming environment on the system is 23.12. This is offered
-    "as is", and problems cannot be excluded, especially with GPU software, as this
-    version does not officially support ROCm 6.0. This version of the CPE was designed
-    by HPE for ROCm 5.7.
+**TODO below**
 
 -   The 23.09 programming environment is also still on the system. It does
     support SUSE 15SP5, but it does not officially support ROCm 6.0. It was
@@ -91,7 +96,7 @@ appear, and the ROCm update has inevitably other consequences on the system:
     ROCm 6.0, this is not possible. It may be better to recompile all GPU software,
     and this will be particularly troublesome with `PrgEnv-amd`/`cpeAMD` as you now
     get a much newer but also much stricter compiler based on Clang 17 rather than Clang
-    14.  The LUST has recompiled the central software stack for LUMI-G and had to remove
+    1.   The LUST has recompiled the central software stack for LUMI-G and had to remove
     some packages due to compatibility problems with the newer and more strict compilers.
     These packages return in newer versions in the 24.03 stack.
 
