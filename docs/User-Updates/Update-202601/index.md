@@ -83,161 +83,110 @@ appear, and the ROCm update has inevitably other consequences on the system:
     Both the ROCm(tm) and AOCC compilers offer classic flang, not yet the new
     generation Fortran compiler.
 
-**TODO below**
+-   The 24.03 programming environment is still on the system. It was developed for
+    use with ROCm(tm) 6.0.0 but we trick it into using the current system default
+    ROCm(tm) version, 6.3.4. This is not guaranteed to work in all cases and the 
+    solution is to switch to one of the newer programming environments. However, 
+    it was left on the system to make the transition smoother as we expect that a
+    lot of software will still work, and as some users may depend on CCE 17.
 
--   The 23.09 programming environment is also still on the system. It does
-    support SUSE 15SP5, but it does not officially support ROCm 6.0. It was
-    developed to be used with ROCm 5.2 or 5.5, depending on the version of the OS.
+-   The 23.09 programming environment is also still on the system. It does neither
+    officially support SUSE 15SP6, nor does it officially support any of the 
+    ROCm(tm) 6.X versions.
 
-    As originally we planned to move to ROCm 5.7 instead of 6.0, it was expected
-    that we would still be able to support this version of the programming environment
-    as the ROCm versions are close enough (this had worked in the past).
-    However, due to the larger than expected upgrade of the system, moving directly to
-    ROCm 6.0, this is not possible. It may be better to recompile all GPU software,
-    and this will be particularly troublesome with `PrgEnv-amd`/`cpeAMD` as you now
-    get a much newer but also much stricter compiler based on Clang 17 rather than Clang
-    1.   The LUST has recompiled the central software stack for LUMI-G and had to remove
-    some packages due to compatibility problems with the newer and more strict compilers.
-    These packages return in newer versions in the 24.03 stack.
+    It is left on the system for users needing CCE 16 in particular, but LUST cannot
+    fix and will not try to fix any issues with this compiler.
 
--   Older programming environments on the system are offered "as is" as they 
-    support neither the current version of the OS nor ROCm 6.
+-   Older programming environments have been removed from the system as it has become
+    impossible to properly support those, are often already broken in different ways
+    for all but basic usage, and slow down both the module system and node reboots.
 
-    In fact, even repairing by trying to install the user-level libraries of older 
-    versions of ROCm may not be a solution, as the ROCm versions that are fully
-    supported by those programming environments are not supported by the current
-    ROCm driver on the system, and there can be only one driver.
-
-    Expect problems in particular with GPU code. In most, if not all cases, the 
-    proposed solution will be "upgrade to 24.03" as this is also the version for which
-    we can receive upstream support. However, we even cannot guarantee the proper working
-    of all CPU code, and recompiling may not be enough to solve problems. (In fact, we have
-    had problems with some software on 22.08 already for over one year.)
+-   Note that ROCm(tm) 7.X cannot be supported at the moment with the Cray Programming
+    Environments as HPE has no MPI libraries that are compatible with it yet, even though
+    the GPU driver can support ROCm(tm) 7.0 (but not 7.1 or newer).
 
 
 ###  Some major changes to the programming environment
 
 -   Just as after previous updates, the module system has been tuned to load
     the current ROCm module,
-    `rocm/6.0.3`, when you try to load one of the previous system ROCm versions,
-    including `rocm/5.2.3`. In some cases, programs will run just fine with the
-    newer version, in other cases issues may appear.
+    `rocm/6.3.4`, when you try to load one of the previous system ROCm versions,
+    including `rocm/6.0.3`. In some cases, programs will run just fine with the
+    newer version, in other cases issues may appear. This is particularly true
+    if you are using software that was compiled for ROCm(tm) 5. ROCm(tm) 6.0.3
+    had some compatibility libraries that have been removed in later versions
+    and probably wouldn't work on the current driver anyway.
 
     Some version of the HPE Cray PE also try to load non-existing ROCm versions and
     this is also being handled by the module environment which will offer the
-    `rocm/6.0.3` and `amd/6.0.3` modules instead.
+    `rocm/6.3.4` and `amd/6.3.4` modules instead.
 
--   The `amd/6.0.3` module does not offer the complete ROCm environment as older
-    versions did. So you may now have to load the `rocm/6.0.3` module also 
-    as was already needed with the other programming environments for complete ROCm
-    support.
-
--   23.12 and 24.03 use the `gcc-native` modules. They will, as older versions of the
-    programming environment are phased out, completely replace the `gcc` modules.
-    
-    The former `gcc` modules provided a version of the GNU compilers packaged by HPE
-    and hence installed in `/opt/cray`. The new `gcc-native` modules provide the GNU 
-    compilers from development packages in the SUSE Linux distribution. Hence
-    executables and runtime libraries have moved to the standard SUSE locations.
-
-    Note that using the GNU compilers without wrappers is therefore different from before
-    in these modules. E.g., in `gcc-native/12.3`, the compilers are now called
-    `gcc-12`, `g++-12` and `gfortran-12`.
-
-    When using the GNU compilers with the wrappers, one should make sure that the
-    right version of the wrappers is used with each type of GNU compiler module.
-    If you are not using the LUMI stacks, it is best to use the proper `cpe` module
-    to select a version of the programming environment and then use the default version
-    of the `craype` wrapper module for that version of the CPE.
-
-    You will have to be extra careful when installing software and double check if the
-    right compilers are used. Unless you tell the configuration process exactly which
-    compilers to use, it may pick up the system gcc instead which is rather old and just
-    there to ensure that there is a level of compatibility between system libraries for
-    all SUSE 15 versions.
+-   The changes to the `amd` modules and `gcc`/ `gcc-native` modules during [the
+    maintenance of August and September 2024](../Update-202409/index.md#some-major-changes-to-the-programming-environment) 
+    of course are still relevant.
 
 
 ### Known issues with the programming environment
 
--   The `intro_mpi` manual page for the latest version of Cray MPICH (8.1.29) was missing.
-    Instead, the one from version 8.1.28 is shown which does lack some new information.
-
-    The [web version of the manual page offered by HPE](https://cpe.ext.hpe.com/docs/latest/mpt/mpich/intro_mpi.html)
-    is currently the one from version 8.1.29 though and very interesting reading.
-
--   <span style="color:DarkBlue">It turns out that the Cray Fortran compilers 17.0.0 (23.12) and 
-    17.0.1 (24.12) have some severe regressions compared to the 16.0.1 version (23.09).
-    See, e.g., [a list of issues identified on the Frontier supercomputer](https://docs.olcf.ornl.gov/systems/frontier_user_guide.html#olcfdev-1803-cce-17-0-0-fortran-issues).
-    Unfortunately LUMI has never had a ROCm 5.5 installation which is the best ROCm version for 
-    CCE 16.0.1 on the new version of the operating system.
-    </span>
-
--   <span style="color:DarkBlue">The Fortran compiler of the `cce/16.0.1` module does not
-    always play nicely with the `rocm/6.0.3` module. We have observed `LLVM ERROR` crashes.
-    This is not unexpected as that compiler version was never tested by HPE Cray against 
-    ROCm 6 but was developed for use with ROCm 5.2 or 5.5. 
-    </span>
-
-    <span style="color:DarkBlue">A workaround is to load the `rocm/5.4.6` module in
-    `CrayEnv` or `LUMI/23.09 partition/G` and compile with that module loaded. This then
-    however causes problems when running, with the executable failing to detect the GPUs,
-    and that is then solved again by using the `rocm/6.0.3` module when running the code.
-    Note that ROCm 5.4 is not officially supported by the current driver, which may be the
-    cause of the problems when running.
-    </span>
+None so far
 
 
 ## The LUMI software stacks
 
-We are building new software stacks based on 
-the 23.12 and 24.03 versions of the CPE. The `LUMI/23.12` stack closely resembles
-the `23.09` stack as when we started preparing it, it was expected that this stack too
-would have been fully supported by HPE (but then we were planning an older version of
-ROCm), while the `24.03` stack contains more updates to packages in the central
-installation. Much of `24.03` and `23.12` was ready when the system was released again
-to users.
+We are building new software stacks based on 25.03 and 25.09.
+The recommended stable stack is `LUMI/25.03` and this one has been under
+development for quite some time already with the help of a containerised version
+of the PE. This also implies that the choice for versions of certain libraries was 
+made before the summer of 2025. It uses Cray MPICH 8.1 which is based on the
+MPICH 3.4 code base.
+The stack based on `LUMI/25.09` may be a bit more experimental. Several software
+packages will be upgraded compared to `LUMI/25.03` and it will be based on 
+Cray MPICH 9.0 which is derived from the MPICH 4.1 code base and we will also try
+to support ROCm 6.4 with it.
+
+`LUMI/25.03` should become available in the week after the update, but the development
+for `LUMI/25.09` has only just started and so it may take weeks or even two months before
+more than just some basic software appears on the system.
 
 Note that the [LUMI documentation](https://docs.lumi-supercomputer.eu) 
 will receive several updates in the first weeks after the maintenance. The
 [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
 is mostly consistent with what can be found on the system when it comes to the
-23.12 and 24.03 versions of the LUMI stack, but you may find some EasyConfigs for
+23.09. 24.03 and 25.03 versions of the LUMI stack, but you may find some EasyConfigs for
 packages that claim to be pre-installed but are not yet on the system.
 
-Since the `LUMI/24.03` software stack is sufficiently ready and since it is the only stack
-we can truly support, it is also the default software stack so that it also aligns with the
-system default version of the programming environment.
+Since the 25.03 version of the Cray Programming Environment is the default version for
+this version of the base LUMI software and since it is also the most ready version of the
+software stack, `LUMI/25.03` is the default version of the LUMI stack.
 In any case, we do encourage all users to **never** load the `LUMI` module without specifying
 a version, as that will better protect your jobscripts from future changes on the system.
 
-Some enhancements were made to the EasyBuild configuration. Note that the name of the
-`ebrepo_files` subdirectory of `$EBU_USER_PREFIX` and `/appl/lumi/mgmt` is now changed to
-`ebfiles_repo` to align with the standard name used by EasyBuild on other systems.
-The first time you load the `EasyBuild-user` module, it will try to adapt the name in
-your installation. The new configuration now also supports custom easyblocks in all
-repositories that are searched for easyconfig files. On the login nodes, the level of
-parallelism for parallel build operations is restricted to 16 to not overload the login
-nodes and as a higher level of parallelism rarely generates much gains.
+With 25.03, we also make the switch to [EasyBuild 5](https://docs.easybuild.io/). 
+The relevant LUMI-specific documentation will also be updated in the coming weeks.
+There are no major changes though in what you need to do to install software for which
+we already have EasyBuild recipes available. If you want an overview of all dependencies
+that are installed or missing, you now need to use `-Dr` instead of `-D` though.
 
-**Note that we have put some effort in testing LUMI/23.09 and have rebuild the GPU version of
-the packages in the LUMI/23.09 central stack to as much as possible remove references to ROCm libraries that
+<!--
+**Note that we have put some effort in testing LUMI/24.03 and have rebuild the GPU version of
+the packages in the LUMI/24.03 central stack to as much as possible remove references to ROCm libraries that
 may cause problems. However, we will not invest time in solving problems with even older versions
 of the LUMI stacks for which we already indicated before the maintenance
 that there would be problems.**
+-->
 
+## Other software stacks
 
-## <span style="color:DarkBlue">Other software stacks</span>
-
-<span style="color:DarkBlue">Local software stacks, with the one provided in `/appl/local/csc` as the most prominent example,
+Local software stacks, with the one provided in `/appl/local/csc` as the most prominent example,
 are not managed by the LUMI User Support Team. They have to be updated by the organisation who
-provides them and LUST cannot tell when they will do that.</span>
+provides them and LUST cannot tell when they will do that.
 
-<span style="color:DarkBlue">Expect that modules my not function anymore or become unavailable
+Expect that modules my not function anymore or become unavailable
 for a while while updates are being made. If the package has an equivalent in the 
 LUST-provided LUMI software stack and a new user-installable EasyBuild recipe is ready already
 (see the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
 for all available software),
-you can consider switching to those.</span>
+you can consider switching to those.
 
 
 ## How to get running again?
@@ -252,7 +201,7 @@ jobs that hang or produce incorrect results for other reasons.
     compensate for.
 
     To release the jobs again, use the 
-    [`scontrol release` command](https://slurm.schedmd.com/archive/slurm-23.02.7/scontrol.html#OPT_release).
+    [`scontrol release` command](https://slurm.schedmd.com/archive/slurm-24.05.8/scontrol.html#OPT_release).
     It argument is a comma-separated list of jobids, or alternatively you can use 
     "`jobname=`" with the job's name which would attempt to release all jobs with
     that name.
@@ -263,10 +212,10 @@ jobs that hang or produce incorrect results for other reasons.
     running a single smaller problem, then scaling up to your intended problem size,
     and only after a successful representative run, submit more jobs.
 
-    You may want to [cancel jobs](https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html) 
+    You may want to [cancel jobs](https://slurm.schedmd.com/archive/slurm-24.05.8/scancel.html) 
     that are still in the queue from before the maintenance.
 
--   As [explained in the courses](http://lumi-supercomputer.github.io/LUMI-training-materials/2day-20240502/02_CPE/#warning-1-you-do-not-always-get-what-you-expect), 
+-   As [explained in the courses](../../2day-20251020/102_CPE.md#warning-1-you-do-not-always-get-what-you-expect), 
     by default the HPE Cray PE will use
     system default versions of MPI etc., which are those of the 24.03 PE, even if older
     modules are loaded. The idea behind this is that in most cases the latest one is the
@@ -284,13 +233,9 @@ jobs that hang or produce incorrect results for other reasons.
     or, even simpler, load the module `lumi-CrayPath` after loading all modules and 
     reload this module after every module change.
 
-    We expect mostly problems for GPU applications that have not been recompiled with 24.03
-    and ROCm 6 as there you might be mixing ROCm 5 libraries and ROCm 6 libraries as the
-    latter are used by the default MPI libraries.
-
 -   Something rather technical: Sometimes software installation procedures hard-code paths to
-    libraries in the executable. The mechanisms that Linux uses for this are called rpath
-    and runpath. Binaries compiled before the system update may now try to look for libraries
+    libraries in the executable. The mechanisms that Linux uses for this are called *rpath*
+    and *runpath*. Binaries compiled before the system update may now try to look for libraries
     in places where they no longer are, or may cause loading versions of libraries that are
     no longer compatible with the system while you may be thinking it will load a newer version
     through the modules that you selected or through the default libraries.
@@ -302,44 +247,50 @@ jobs that hang or produce incorrect results for other reasons.
     [PETSc](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PETSc/) and
     [libdap](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/libdap/).
 
-    This jobs will fail immediately so no billing units will be wasted.
+    These jobs will fail immediately so no billing units will be wasted.
 
     There is no other solution to this problem than to completely reinstall these packages,
     and likely you'll have to use the latest compiler and/or LUMI stack to be fully safe.
 
 -   Do consider recompiling GPU software, even if it still seems to work just fine. 
-    In fact, we have seen that for software that
-    could be recompiled in the LUMI/23.09 stack, performance increased due to the much
-    better optimisations in the much newer ROCm version.
+    This can give you the performance benefits of a newer compiler version, but 
+    several ROCm(tm) libraries have also seen huge performance increases in certain
+    scenarios compared to ROCm(tm) 6.0.3.
 
--   Consider moving to the 24.03 programming environment, and if you are using the 
-    LUMI stacks, to the LUMI/24.03 stack, as soon as possible. 
+-   Consider moving to the 25.03 programming environment, and if you are using the 
+    LUMI stacks, to the LUMI/25.03 stack, as soon as possible. 
     Much work has already been done in preparing EasyBuild recipes for 
     user-installable packages also.
 
 -   For users using containers: Depending on how you bind Cray MPICH to the container and
     which version of Cray MPICH you use for that, you may have to bind additional packages from
     the system. Note that you may also run into runtime library conflicts between the version
-    of ROCm in the container and the MPI libraries which may expect a different version.
+    of ROCm(tm) in the container and the MPI libraries which may expect a different version.
     The LUST is also still gaining experience with this.
 
     We will also update the AI containers in the coming weeks 
-    as especially for those applications, ROCm 6 should
-    have great advantages and support (versions of) software that could not be supported before.
-    The initial focus for AI-oriented containers will be on providing base images for containers based on
-    ROCm 5.7 up to 6.2, and containers providing recent versions of PyTorch based on those
-    ROCm versions, as PyTorch is the most used AI application on LUMI.
+    as especially for those applications, the newer versions of ROCm(tm) 6 that we can now
+    support, should already give a performance benefit.
+
+    ROCm(tm) 7.0 is a more difficult proposition as those containers - if they can be built - will
+    require the use of a less efficient mpi4py implementation. This however does not matter much to
+    most AI software as most software relies primarily on RCCL for fast communication. It will not 
+    work with Cray MPICH.
+
+    ROCm(tm) 7.1 and higher cannot be supported at all at the moment. They do not only need a further
+    driver update, but also a further update of the OS to a version that is not yet fully supported on
+    our hardware.
 
 
-## <span style="color:DarkBlue">FAQ</span>
+## FAQ
 
-<span style="color:DarkBlue">See the 
+See the 
 [separate "Frequently Asked Questions" page](202601_FAQ.md)
-compiled from questions asked by users after the first few user coffee breaks after the update.</span>
+that will be compiled from questions asked by users after the first few user coffee breaks after the update.
 
 
-## <span style="color:DarkBlue">Other documentation</span>
+## Other documentation
 
-<span style="color:DarkBlue">See the 
+See the 
 [separate "Documentation links" page](202601_Documentation.md)
-for links to the relevant documentation for Slurm and CPE components.</span>
+for links to the relevant documentation for Slurm and CPE components.
