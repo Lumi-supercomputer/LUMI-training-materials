@@ -44,6 +44,10 @@ nav:
   - Home: index.md
   - User Updates:
     - User-Updates/index.md
+    - January 2026: 
+      - User-Updates/Update-202601/index.md
+      - FAQ: User-Updates/Update-202601/202601_FAQ.md
+      - Documentation links: User-Updates/Update-202601/202601_Documentation.md
     - August-September 2024: 
       - User-Updates/Update-202409/index.md
       - FAQ: User-Updates/Update-202409/202409_FAQ.md
@@ -205,6 +209,8 @@ plugins:
           update-202308.md: User-Updates/Update-202308/index.md
           update-202311.md: User-Updates/Update-202311/index.md
           update-202409.md: User-Updates/Update-202409/index.md
+          update-202601.md: User-Updates/Update-202601/index.md
+          update.md: User-Updates/Update-202601/index.md
           #Espoo-1.md: 2day-20250602/ME103_Exercises_1.md
           #Espoo-2.md: 2day-20250602/ME104_Exercises_2.md
           #Espoo-3.md: 2day-20250602/ME105_Exercises_3.md

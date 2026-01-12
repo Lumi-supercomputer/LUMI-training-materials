@@ -1,5 +1,7 @@
 # User updates
 
+-   [Update after the January 2026 maintenance](Update-202601/index.md)
+
 -   [Update after the August-September 2024 maintenance](Update-202409/index.md)
 
 -   [Update after the October-November 2023 maintenance](Update-202311/index.md)
