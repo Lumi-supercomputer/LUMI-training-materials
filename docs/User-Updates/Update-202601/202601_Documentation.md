@@ -62,8 +62,6 @@ is after the August-September 2024 update. It is taken from similar pages in the
 
     -   [AOCC 4.0 User Guide](https://www.amd.com/content/dam/amd/en/documents/pdfs/developer/aocc/aocc-v4.0-ga-user-guide.pdf)
 
--   TODO: HERE
-
 -   [ROCm(tm))](https://github.com/RadeonOpenCompute/ROCm/) [documentation overview for 6.3.3](https://rocm.docs.amd.com/en/docs-6.3.3/)
 
     -   [rocminfo](https://github.com/RadeonOpenCompute/rocminfo) application for reporting system info.
