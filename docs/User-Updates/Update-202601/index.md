@@ -175,6 +175,21 @@ of the LUMI stacks for which we already indicated before the maintenance
 that there would be problems.**
 -->
 
+### Known issues so far with the software stacks
+
+1.  Basic software stacks using partition/G may give issues, in particular when trying to
+    build software on it now.
+
+    The only solutions are to either move to LUMI/25.03, or we have to rebuild 24.03 for 
+    partition/G completely which can only be done in downtime and therefore was not done
+    yet to minimise the maintenance period. So the only practical solution is to move on
+    to 25.03 if you are affected...
+
+2.  We haven't been able to test yet on the production system, but software using the
+    `libpsl` module from the older LUMI software stacks, may fail. A solution has been
+    implemented in 25.03 and we are considering options for 24.03 and 23.09.
+
+
 ## Other software stacks
 
 Local software stacks, with the one provided in `/appl/local/csc` as the most prominent example,
