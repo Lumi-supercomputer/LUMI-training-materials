@@ -2,14 +2,15 @@
 
 <!--
 **See also the 
-[recording of the user update webinar of October 2, 2024](../../User-Coffee-Breaks/20241002-user-coffee-break-LUMI-update.md).**
+[recording of the user update webinar of Feburary 11, 2026](../../User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md).**
 -->
 
 <span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
 This page will be updated as we learn about problems with the system after the
-update and figure out workarounds for problems. Even though this time we had the
-opportunity to do more testing then during previous updates, most testing was not on the 
+update and figure out workarounds for problems. Even though we had the
+opportunity to do more testing then during the first updates of LUMI
+(though not as much as during the update in August 2024), most testing was not on the 
 main system and the system was also not a full copy of LUMI. Moreover, it turns out
 that there are always users who use the system in a different way than we expected
 and run into problems that we did not expect.
@@ -41,6 +42,7 @@ maintenance. The user-facing updates are:
 
 -   Two new programming environments have been installed, see the next section.
 
+<!-- TODO -->
 **As after previous maintenance periods, the visualisation nodes in the `lumid`
 partition are not yet available as they require a slightly different setup.**
 
@@ -83,12 +85,23 @@ appear, and the ROCm update has inevitably other consequences on the system:
     Both the ROCm(tm) and AOCC compilers offer classic flang, not yet the new
     generation Fortran compiler.
 
+    25.03 and 25.09 also come with two MPI implementation. The cray-mpich 8.1.x modules
+    use an MPI implementation derived from MPICH 3.4, while the cray-mpich 9.0.x modules
+    use an implementation derived from MPICH 4.1. In the 25.03 version of the programming
+    environment, the 8.1 module is the default and is also what we will use to build the
+    LUMI/25.03 software stack. In 25.09, the 9.0 module is the default and is what we
+    will use for the LUMI/25.09 stack.
+
 -   The 24.03 programming environment is still on the system. It was developed for
     use with ROCm(tm) 6.0.0 but we trick it into using the current system default
     ROCm(tm) version, 6.3.4. This is not guaranteed to work in all cases and the 
     solution is to switch to one of the newer programming environments. However, 
     it was left on the system to make the transition smoother as we expect that a
     lot of software will still work, and as some users may depend on CCE 17.
+
+    Preliminary testing on a test system has shown that some EasyBuild recipes 
+    for 24.03 do no longer build correctly. These will not be fixed unless the
+    fix would be trivial and instead users should move to 25.03.
 
 -   The 23.09 programming environment is also still on the system. It does neither
     officially support SUSE 15SP6, nor does it officially support any of the 
@@ -121,7 +134,7 @@ appear, and the ROCm update has inevitably other consequences on the system:
     this is also being handled by the module environment which will offer the
     `rocm/6.3.4` and `amd/6.3.4` modules instead.
 
--   The changes to the `amd` modules and `gcc`/ `gcc-native` modules during [the
+-   The changes to the `amd` modules and `gcc`/`gcc-native` modules during [the
     maintenance of August and September 2024](../Update-202409/index.md#some-major-changes-to-the-programming-environment) 
     of course are still relevant.
 
@@ -139,7 +152,7 @@ development for quite some time already with the help of a containerised version
 of the PE. This also implies that the choice for versions of certain libraries was 
 made before the summer of 2025. It uses Cray MPICH 8.1 which is based on the
 MPICH 3.4 code base.
-The stack based on `LUMI/25.09` may be a bit more experimental. Several software
+The stack based on `LUMI/25.09` is a bit more experimental. Several software
 packages will be upgraded compared to `LUMI/25.03` and it will be based on 
 Cray MPICH 9.0 which is derived from the MPICH 4.1 code base and we will also try
 to support ROCm 6.4 with it.
@@ -177,12 +190,12 @@ that there would be problems.**
 
 ### Known issues so far with the software stacks
 
-1.  Basic software stacks using partition/G may give issues, in particular when trying to
+1.  Pre-25.03 basic software stacks using partition/G may give issues, in particular when trying to
     build software on it now.
 
     The only solutions are to either move to LUMI/25.03, or we have to rebuild 24.03 for 
     partition/G completely which can only be done in downtime and therefore was not done
-    yet to minimise the maintenance period. So the only practical solution is to move on
+    yet to minimise the length maintenance period. So the only practical solution is to move on
     to 25.03 if you are affected...
 
 2.  We haven't been able to test yet on the production system, but software using the
@@ -217,7 +230,7 @@ jobs that hang or produce incorrect results for other reasons.
 
     To release the jobs again, use the 
     [`scontrol release` command](https://slurm.schedmd.com/archive/slurm-24.05.8/scontrol.html#OPT_release).
-    It argument is a comma-separated list of jobids, or alternatively you can use 
+    Its argument is a comma-separated list of jobids, or alternatively you can use 
     "`jobname=`" with the job's name which would attempt to release all jobs with
     that name.
 
@@ -230,7 +243,7 @@ jobs that hang or produce incorrect results for other reasons.
     You may want to [cancel jobs](https://slurm.schedmd.com/archive/slurm-24.05.8/scancel.html) 
     that are still in the queue from before the maintenance.
 
--   As [explained in the courses](../../2day-20251020/102_CPE.md#warning-1-you-do-not-always-get-what-you-expect), 
+-   As [explained in the courses](../../2day-20251020/102-CPE.md#warning-1-you-do-not-always-get-what-you-expect), 
     by default the HPE Cray PE will use
     system default versions of MPI etc., which are those of the 24.03 PE, even if older
     modules are loaded. The idea behind this is that in most cases the latest one is the
