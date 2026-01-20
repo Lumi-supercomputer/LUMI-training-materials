@@ -7,10 +7,10 @@
 </figure>
 
 Let's now switch to using containers on LUMI. 
-This section is about using containers on the login nodes and compute nodes. 
-Some of you may have heard that there were plans to also have an OpenShift Kubernetes container cloud
-platform for running microservices but at this has not materialised yet and was also 
-never meant to be a big compute resource.
+This section is about using HPC containers on the login nodes and compute nodes
+and not about building containers for and using containers on LUMI-K, the small
+OpenShift Kubernetes cloud partition, which delivers less than 0.8% of LUMI's 
+CPU compute power and has no GPUs.
 
 In this section, we will 
 
