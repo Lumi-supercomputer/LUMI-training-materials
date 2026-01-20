@@ -269,9 +269,28 @@ is developed by HPE Cray, so **not the Mellanox/NVIDIA InfiniBand** that you may
 be familiar with from many smaller clusters, and as we shall discuss later
 this also influences how you work on LUMI.
 
-Early on a small partition for containerised micro-services managed with
-Kubernetes was also planned, but that may never materialize due to lack of 
-people to set it up and manage it.
+Since early 2026, LUMI also has a small partition for containerised micro-services 
+managed with Kubernetes known as **LUMI-K**. 
+This is basically a small separate system and the only thing
+it shares with LUMI is its name. It is managed by different admins and has a different
+upgrade cycle from LUMI. 
+It also uses different compute hardware then the LUMI compute nodes: Traditional 
+not-very-dense servers rather than the very dense compute blades that we will 
+discuss later in these architecture notes.
+The resources are limited: Currently 28 worker nodes with
+2 64-core AMD EPYC 7742 processors (Zen2 architecture, codenamed Rome) and 512 GB of RAM
+and 5 local 1.6 TB SSDs, and 7 storage nodes with the same CPU, but 128 GB of RAM and 12
+3.84 TB SSDs. 
+There are no compute or visualisation GPUs in LUMI-K and no plans to add any either.
+The storage nodes offer both a CEPH filesystem and CEPH block storage.
+Object storage is offered by LUMI-O. For security reasons, there is no access to the
+Lustre filesystems of LUMI. The network capacity is also very limited, as the nodes
+are equiped with 25 Gb/s Ethernet rather than 200 Gb/s Slingshot adapters. 
+Support is also limited; the system is basically meant for users
+who already have experience with Kubernetes and can set up their own containers
+and the LUMI User Support Team does not have the capacity to do development on 
+that system.
+*LUMI-K will not be further discussed in this course.*
 
 In this section of the course we will now build up LUMI step by step.
 
