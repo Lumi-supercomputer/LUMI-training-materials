@@ -30,6 +30,11 @@
     scripts. See below for known packages of that type.**
     </span>
 
+
+!!! Note "Recent updates"
+    -   `lumi-workspaces` and similar commands do not yet function.
+
+
 This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though we had the
 opportunity to do more testing then during the first updates of LUMI
@@ -241,6 +246,10 @@ that there would be problems.**
 2.  We haven't been able to test yet on the production system, but software using the
     `libpsl` module from the older LUMI software stacks, may fail. A solution has been
     implemented in 25.03 and we are considering options for 24.03 and 23.09.
+
+3.  <span style="color:DarkBlue">`lumi-workspaces` and other commands that return project 
+    and user information and billing unit use, are not yet all functioning as some of the
+    databases used by these commands are still missing on the system.</span>
 
 
 ## Other software stacks
