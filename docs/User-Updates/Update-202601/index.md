@@ -2,8 +2,29 @@
 
 <!--
 **See also the 
-[recording of the user update webinar of Feburary 11, 2026](../../User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md).**
+[recording of the user update webinar of February 11, 2026](../../User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md).**
 -->
+
+!!! Note "State of the system"
+    <span style="color:DarkRed">
+    **The choice was made to make LUMI available to users before all software in the 
+    LUMI stacks could be checked and recompiled where possible and before the new stack
+    could be installed, so that advanced users who do not depend on software preinstalled
+    on the system beyond the programming environment, can start working again.**
+    </span>
+    
+    <span style="color:DarkRed">
+    **As the version of the `rocm` and `amd` modules has changed, we expect a lot of GPU software
+    to fail if not recompiled. This is particularly true for anything using cpeAMD/24.03 as there
+    even the base compilers have changed. One can try recompiling, but the cpeAMD toolchain needs to
+    be recompiled first which could not be done before the system was released to users.**
+    </span>
+    
+    <span style="color:DarkRed">
+    **Experience has taught us that hard-coded paths can be hidden where you wouldn't expect them,
+    e.g., because a library or application uses so-called rpath linking in its installation 
+    scripts. See below for known packages of that type.**
+    </span>
 
 <span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
