@@ -4,6 +4,7 @@
 **See also the 
 [recording of the user update webinar of February 11, 2026](../../User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md).**
 -->
+<span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
 !!! Note "State of the system"
     <span style="color:DarkRed">
@@ -12,12 +13,15 @@
     could be installed, so that advanced users who do not depend on software preinstalled
     on the system beyond the programming environment, can start working again.**
     </span>
+
+    <span style="color:DarkBlue">The LUMI web interface needs further debugging and remains
+    unavailable until further notice.</span>
     
     <span style="color:DarkRed">
     **As the version of the `rocm` and `amd` modules has changed, we expect a lot of GPU software
     to fail if not recompiled. This is particularly true for anything using cpeAMD/24.03 as there
-    even the base compilers have changed. One can try recompiling, but the cpeAMD toolchain needs to
-    be recompiled first which could not be done before the system was released to users.**
+    even the base compilers have changed.**</span> <span style="color:DarkBlue">**We have rebuild
+    cpeAMD/24.03 as the compilers for this toolchain have changed.**
     </span>
     
     <span style="color:DarkRed">
@@ -25,8 +29,6 @@
     e.g., because a library or application uses so-called rpath linking in its installation 
     scripts. See below for known packages of that type.**
     </span>
-
-<span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
 This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though we had the
