@@ -162,7 +162,24 @@ appear, and the ROCm update has inevitably other consequences on the system:
 
 ### Known issues with the programming environment
 
-None so far
+-   When running, software compiled with the Cray Programming Environment will by default
+    use many libraries from `/opt/cray/pe/lib64` rather than from the specific version of
+    the modules that are loaded.
+
+    This is explained, among others, in the [intro course, Cray Programming Environment lecture,
+    slide "Warning 1: You do not always get what you expect..."](../../2day-20251020/102-CPE.md#warning-1-you-do-not-always-get-what-you-expect).
+
+    This is particularly relevant to the `cray-mpich` modules: The version of the shared libraries
+    has not changed between Cray MPICH 8.1 and 9.0 even though the MPI libraries are very different
+    as the latter are based on MPICH 4.1 while the former are based on MPICH 3.4. As a consquence,
+    if you don't follow the advice on the slide mentioned in the previous paragraph, programs will
+    actually use the MPI libraries from Cray MPICH 8.1.32 for 25.03, even if they are compiled with
+    25.09 or with the `cray-mpich/9.0.0` module of 25.03.
+
+    We still have to see how we will deal with this for software installed in 25.09. It is rather 
+    likely that users will have to use the `lumi-CrayPath` module for that software. But it also 
+    matters to every user who builds their own executables or wants to use an MPICH 4.1-derived
+    Cray MPICH. 
 
 
 ## The LUMI software stacks
