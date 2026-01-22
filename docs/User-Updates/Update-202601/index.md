@@ -259,7 +259,7 @@ Local software stacks, with the one provided in `/appl/local/csc` as the most pr
 are not managed by the LUMI User Support Team. They have to be updated by the organisation who
 provides them and LUST cannot tell when they will do that.
 
-Expect that modules my not function anymore or become unavailable
+Expect that modules may not function anymore or become unavailable
 for a while while updates are being made. If the package has an equivalent in the 
 LUST-provided LUMI software stack and a new user-installable EasyBuild recipe is ready already
 (see the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
@@ -295,7 +295,7 @@ jobs that hang or produce incorrect results for other reasons.
 
 -   As [explained in the courses](../../2day-20251020/102-CPE.md#warning-1-you-do-not-always-get-what-you-expect), 
     by default the HPE Cray PE will use
-    system default versions of MPI etc., which are those of the 24.03 PE, even if older
+    system default versions of MPI etc., which are those of the 25.03 PE, even if older
     modules are loaded. The idea behind this is that in most cases the latest one is the
     most bug-free one and best adapted to the current OS and drivers on the system.
 
