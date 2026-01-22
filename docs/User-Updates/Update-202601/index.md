@@ -33,7 +33,7 @@
 
 !!! Note "Recent updates"
     -   <span style="color:DarkBlue">`lumi-workspaces` and similar commands that query project or user data do not yet function.</span>
-    -   <span style="color:DarkBlue">Outgoing internet access from the compute nodes is not yet enabled. Sysadmins are working on the issue.</span>
+    -   <span style="color:DarkBlue">FIXED: Outgoing internet access from the compute nodes is again working.</span>
 
 
 This page will be updated as we learn about problems with the system after the
