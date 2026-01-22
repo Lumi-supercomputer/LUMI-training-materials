@@ -5456,7 +5456,7 @@ could be installed, so that advanced users who do not depend on software preinst
 on the system beyond the programming environment, can start working again.</strong>
 </span></p>
 <p><span style="color:DarkBlue">The LUMI web interface needs further debugging and remains
-unavailable until further notice.</span></p>
+partly disfunctional until further notice (apps that connect to Slurm don't work).</span></p>
 <p><span style="color:DarkRed">
 <strong>As the version of the <code>rocm</code> and <code>amd</code> modules has changed, we expect a lot of GPU software
 to fail if not recompiled. This is particularly true for anything using cpeAMD/24.03 as there
@@ -5472,6 +5472,8 @@ scripts. See below for known packages of that type.</strong>
 <div class="admonition note">
 <p class="admonition-title">Recent updates</p>
 <ul>
+<li><span style="color:DarkBlue">The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+    so any app that runs in jobs does not yet work properly.</span></li>
 <li><span style="color:DarkBlue">FIXED: <code>lumi-workspaces</code> and similar commands that query project or user data work again.</span></li>
 <li><span style="color:DarkBlue">FIXED: Outgoing internet access from the compute nodes is again working.</span></li>
 </ul>
