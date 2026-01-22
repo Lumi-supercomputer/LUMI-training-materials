@@ -15,7 +15,7 @@
     </span>
 
     <span style="color:DarkBlue">The LUMI web interface needs further debugging and remains
-    unavailable until further notice.</span>
+    partly disfunctional until further notice (apps that connect to Slurm don't work).</span>
     
     <span style="color:DarkRed">
     **As the version of the `rocm` and `amd` modules has changed, we expect a lot of GPU software
@@ -32,6 +32,8 @@
 
 
 !!! Note "Recent updates"
+    -   <span style="color:DarkBlue">The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+        so any app that runs in jobs does not yet work properly.</span>
     -   <span style="color:DarkBlue">FIXED: `lumi-workspaces` and similar commands that query project or user data work again.</span>
     -   <span style="color:DarkBlue">FIXED: Outgoing internet access from the compute nodes is again working.</span>
 
