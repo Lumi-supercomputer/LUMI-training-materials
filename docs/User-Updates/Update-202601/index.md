@@ -32,7 +32,7 @@
 
 
 !!! Note "Recent updates"
-    -   <span style="color:DarkBlue">`lumi-workspaces` and similar commands that query project or user data do not yet function.</span>
+    -   <span style="color:DarkBlue">FIXED: `lumi-workspaces` and similar commands that query project or user data work again.</span>
     -   <span style="color:DarkBlue">FIXED: Outgoing internet access from the compute nodes is again working.</span>
 
 
@@ -248,9 +248,8 @@ that there would be problems.**
     `libpsl` module from the older LUMI software stacks, may fail. A solution has been
     implemented in 25.03 and we are considering options for 24.03 and 23.09.
 
-3.  <span style="color:DarkBlue">`lumi-workspaces` and other commands that return project 
-    and user information and billing unit use, are not yet all functioning as some of the
-    databases used by these commands are still missing on the system.</span>
+3.  <span style="color:DarkBlue">FIXED: `lumi-workspaces` and other commands that return project 
+    and user information and billing unit use, work again as intended.</span>
 
 
 ## Other software stacks
