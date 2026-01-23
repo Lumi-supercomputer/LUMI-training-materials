@@ -31,11 +31,13 @@
     </span>
 
 
-!!! Note "Recent updates"
-    -   <span style="color:DarkBlue">The LUMI web interface is open, but it is not yet possible to launch jobs from it,
-        so any app that runs in jobs does not yet work properly.</span>
-    -   <span style="color:DarkBlue">FIXED: `lumi-workspaces` and similar commands that query project or user data work again.</span>
-    -   <span style="color:DarkBlue">FIXED: Outgoing internet access from the compute nodes is again working.</span>
+!!! Note "Recent updates (newest first, some link to text further down)"
+    -   [The `htop` command from the `systools` module does not work anymore 
+        (also broken in some old stacks). Workaround: Use the regular `top` command.](#htop)
+    -   The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+        so any app that runs in jobs does not yet work properly.
+    -   [FIXED: `lumi-workspaces` and similar commands that query project or user data work again.](#lumi-workspaces)
+    -   FIXED: Outgoing internet access from the compute nodes is again working.
 
 
 This page will be updated as we learn about problems with the system after the
@@ -250,8 +252,13 @@ that there would be problems.**
     `libpsl` module from the older LUMI software stacks, may fail. A solution has been
     implemented in 25.03 and we are considering options for 24.03 and 23.09.
 
-3.  <span style="color:DarkBlue">FIXED: `lumi-workspaces` and other commands that return project 
+3.  <a id="lumi-workspaces"></a><span style="color:DarkBlue">FIXED: `lumi-workspaces` and other commands that return project 
     and user information and billing unit use, work again as intended.</span>
+
+4.  <a id="htop"></a><span style="color:DarkBlue">The `htop` command in the `systools` module for LUMI/24.03 and later is broken.</span>
+
+    <span style="color:DarkBlue">Workaround: Use the system `top` command.</span>
+
 
 
 ## Other software stacks
