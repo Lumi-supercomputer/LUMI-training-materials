@@ -5470,12 +5470,14 @@ scripts. See below for known packages of that type.</strong>
 </span></p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Recent updates</p>
+<p class="admonition-title">Recent updates (newest first, some link to text further down)</p>
 <ul>
-<li><span style="color:DarkBlue">The LUMI web interface is open, but it is not yet possible to launch jobs from it,
-    so any app that runs in jobs does not yet work properly.</span></li>
-<li><span style="color:DarkBlue">FIXED: <code>lumi-workspaces</code> and similar commands that query project or user data work again.</span></li>
-<li><span style="color:DarkBlue">FIXED: Outgoing internet access from the compute nodes is again working.</span></li>
+<li><a href="#htop">The <code>htop</code> command from the <code>systools</code> module does not work anymore 
+    (also broken in some old stacks). Workaround: Use the regular <code>top</code> command.</a></li>
+<li>The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+    so any app that runs in jobs does not yet work properly.</li>
+<li><a href="#lumi-workspaces">FIXED: <code>lumi-workspaces</code> and similar commands that query project or user data work again.</a></li>
+<li>FIXED: Outgoing internet access from the compute nodes is again working.</li>
 </ul>
 </div>
 <p>This page will be updated as we learn about problems with the system after the
@@ -5683,8 +5685,12 @@ to 25.03 if you are affected...</p>
     implemented in 25.03 and we are considering options for 24.03 and 23.09.</p>
 </li>
 <li>
-<p><span style="color:DarkBlue">FIXED: <code>lumi-workspaces</code> and other commands that return project 
+<p><a id="lumi-workspaces"></a><span style="color:DarkBlue">FIXED: <code>lumi-workspaces</code> and other commands that return project 
     and user information and billing unit use, work again as intended.</span></p>
+</li>
+<li>
+<p><a id="htop"></a><span style="color:DarkBlue">The <code>htop</code> command in the <code>systools</code> module for LUMI/24.03 and later is broken.</span></p>
+<p><span style="color:DarkBlue">Workaround: Use the system <code>top</code> command.</span></p>
 </li>
 </ol>
 <h2 id="other-software-stacks">Other software stacks<a class="headerlink" href="#other-software-stacks" title="Permanent link">&para;</a></h2>
