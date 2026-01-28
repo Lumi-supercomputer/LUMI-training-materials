@@ -5323,6 +5323,235 @@
 
 <h1 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
 <p>This document is based on questions asked during user coffee breaks after the system update.</p>
+<ol>
+<li>
+<p>After the last update, LUMI's filesystem has become very slow. Even simple processes like cloning, unzipping, or downloading files take a long time and often hang. Will this be resolved soon? I am wondering if this issue affect everyone?</p>
+<ul>
+<li>
+<p>As the root cause is not understood yet, there is no timeline to solution. It affects all users. Even the support team cannot do part of their work at the moment. See also the <a href="https://lumi-supercomputer.eu/lumi-service-status/information-lustre-filesystem-performance-is-very-slow/">announcement on the LUMI Service Status page</a>. It is the number 1 priority at the moment.</p>
+<p>The issue seems to be mostly related to metadata server performance so exactly those operations that you mention like cloning git repositories or unzipping that work with lots of small files, are even more affected by the issue as they are also the file system operations that put most stress on those servers. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Before the recent LUMI system maintenance, I was able to use VS Code Remote-SSH reliably for script editing and light development (no computations) on the login nodes.</p>
+<p>After the maintenance, plain SSH still works, but VS Code Remote-SSH consistently fails during the VS Code Server startup / handshake phase. I am aware that remote development via VS Code is not officially supported on CSC HPC systems and that web-based IDEs are recommended.Based on this awareness, I would like to clarify whether the current behavior is expected or the result of a system-level change.</p>
+<p>Was there any change introduced during the recent maintenance (e.g. SSH configuration, port forwarding, background processes, user-level services) that could affect VS Code Remote-SSH connections on login nodes?</p>
+<p>Is VS Code Remote-SSH now intentionally unsupported or effectively blocked on LUMI login nodes, even for non-computational use (code editing only)? Is the current behaviour expected to be permanent, or is it something that may change again with future updates?</p>
+<ul>
+<li>
+<p>I don't know what else we can do to announce this as there is a message in the status page and other questions in this document that were answered earlier, but LUMI has file system issues and if you would realise how VScode remote works, you would know that it is affected by it. After all it is reading and writing files and it is logging in to the system and we did put in our announcements about the issues that difficulties logging in is one of the symptoms.</p>
+<p>VScode remote is simply a very, very fragile piece of software that is causing us a headache, but regular use has not been blocked. It is one of the reasons though why the Operational Management Board decided to limit walltime and CPU time on the login nodes, as hanging VScode servers were consuming too much resources and killing them by hand took too much time from the sysadmins. I personally stopped using it long before the update because of all the issues when I was on even just a slow internet connection.</p>
+</li>
+<li>
+<p>Use of the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server">"Remote Tunnels"</a> extension is forbidden though as it is a breach of the conditions of use of LUMI as you are effectively sharing access to LUMI to a third party. It is blocked on other CSC systems already and there are plans to implement that block also on LUMI, but I don't know if they did it already during this update. There are actually more such services and the consortium is preparing better written condtions-of-use to make this more clear so there will be more communication about that in the next months.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>How will we LUMI users informed about the status of LUMI? Will there be emails when LUMI is expected to work again? I think I did not receive any emails about the fact that LUMI filesystem is slow.</p>
+<ul>
+<li>
+<p>For a long time already there has been the <a href="https://lumi-supercomputer.eu/lumi-service-status/">LUMI Service Status page</a> which is also linked from the main <a href="https://docs.lumi-supercomputer.eu/">LUMI documentation page</a> at the bottom of the Welcome frame at the top of that page.</p>
+<p>And the email announcing the availability of the system also pointed to the <a href="https://lumi-supercomputer.github.io/update">LUMI User Update</a> where other issues such as compatibility issues, changes in the programming environment, etc., are discussed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Is there any possibility to have something like a dashboard of "known issues" where users can look before filling up a complain about the same problems?</p>
+<ul>
+<li>
+<p>An overview of known issues already exists: <a href="https://lumi-supercomputer.eu/lumi-service-status/">LUMI Service Status page</a> and since a few days is also mentioned on the <a href="https://lumi-supercomputer.eu/user-support/need-help/">page where you can request help</a> (and since yesterday in red). And for other issues specific to the update (e.g., compatibility issues, changes to the PE, etc.) the mail that you got to announce the availability after the update, encouraged to read the <a href="https://lumi-supercomputer.github.io/update">user update page</a>. This page is also updated as we discover new issues or resolve known ones and has received several updates since the system came online again.</p>
+</li>
+<li>
+<p>But there is no live dashboard showing, e.g., partitions that are up or down and available nodes. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>We have an active allocation on LUMI, but we could not use it effectively due to the maintenance and filesystem issues. Would there be a consideration for that?</p>
+<ul>
+<li>Any extensions and/or changes in quota are at the discretion of the Resource Allocator (RA) and not something we in LUST can help with. Some will, and we know at least two resource allocators who gave 4-month projects that overlap with the maintenance 6 months right away to compensate for the downtime and issues that there always are just after maintanence,</li>
+</ul>
+</li>
+<li>
+<p>Is it possible  extend the project duration from 6 to 12 months for justified reasons,  and how to  contact  RA (resource Allocator)   </p>
+<ul>
+<li>Just like the previous question, this is something for your RA and not for LUST. You should know the contact details of your RA as that is also where you requested the project.</li>
+</ul>
+</li>
+<li>
+<p>Will the current issues/unavailability be reflected in the cutter? That is, will the cutter be postponed?</p>
+<ul>
+<li>That is not up to us to decide, but I doubt. After all, many users are running on LUMI today.</li>
+</ul>
+</li>
+<li>
+<p>Is it possible to log in to a specific login node ?</p>
+<ul>
+<li>
+<p>For the login nodes (UAN), e.g. lumi-uan02.csc.fi</p>
+<p>See <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20251020/103-Access/#access">this slide in the intro course</a> or <a href="https://docs.lumi-supercomputer.eu/firststeps/loggingin/#lumi-login-nodes-advanced">"LUMI login nodes (advanced)" in the LUMI documentation</a></p>
+<p>There is no guarantee that a particular login node will be available though and it makes no sense to send us tickets about a specific node not working if you log in in this way. But it is needed for packages such as VScode remote.</p>
+</li>
+<li>
+<p>But for security reasons, it is not possible to login in on the compute nodes with ssh, also not from a login node.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In MyCSC ”Information about the remaining resources is temporarily unavailable” for Lumi projects. And queueing a new job results in ”Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)”</p>
+<ul>
+<li>
+<p>You will have to ask questions about myCSC to CSC in their coffee room. LUST has nothing to do with that.</p>
+</li>
+<li>
+<p>The second error appears if you try to start a job without specifying the project to use or if your allocation in that project is terminated. You can check your projects and remaining billing units on LUMI with the <code>lumi-workspaces</code> command that we mention in the message-of-the-day when you log in the first three times every day. <code>lumi-ldap-projectinfo</code> will give you even more information about projects.</p>
+<p>Of course, there could also be other issues with your request, e.g., having too many jobs already in the queue.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Is the aws-ofi-rccl plugin planned for the new PE 25.03 stack shortly? It currently appears unsupported via EasyBuild, and a pre-installed module is missing.</p>
+<ul>
+<li>
+<p>We will look into it at some point, but we are overwhelmed with requests and for this one we're also waiting for help from HPE and AMD to figure out which version commit of aws-ofi-rccl works with our current libfabric stack and version of ROCm. The plugin itself is also in a messy state at the moment as development will be picked up by a different team at a different company.</p>
+<p>Our preferred way for offering aws-ofi-rccl at the moment is actually by offering containers with ROCm and a pre-installed aws-ofi-rccl on top of which users can then build with the Singularity CE 3.11 unprivileged proot process, as rccl is used most by packages that should not be installed directly on Lustre anyway (read: all AI software based on Python) as their installation kills the Lustre filesystem. But those containers are also a work-in-progress as the system has only just been available to us also and as that work is also slowed down because of the filesystem issues (we had a meeting with a developer just before this meeting).</p>
+<p>Offering the AWS OFI plugin as an EasyConfig has only been moderately successful as if it is injected into a container, the container may also have its compatibility constraints, e.g., due to the version of the OS used in the container.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Our ML project depends on Pytorch, which we previously installed (per <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/">PyTorch - LUMI Software Library</a>) extending the prebuilt containers such as <code>/appl/local/containers/tested-containers/lumi-pytorch-rocm-6.1.3-python-3.12-pytorch-v2.4.1-dockerhash-64804c7ab71a.sif</code>. Now that all is based on new versions of GPU drivers, we need new versions of these containers with newer <code>rocm</code>. What's the timeline for new official containers following the update? How long do we wait and should we or <strong>should we not</strong> try to hack some temporary solution ourselves? </p>
+<ul>
+<li>
+<p>Containers based on ROCm 6.1 or 6.2 should still work, at least those that are developed in 2025. It is time to switch to a newer PyTorch version though. PyTorch 2.4.1 is not ideal for the newer ROCm versions. The containers that we think may still be relevant still have images in <code>/appl/local/containers/easybuild-sif-images</code>.</p>
+<p>No promise about anything that requires ROCm 7 though. 7.0 should in theory be compatible with the current driver and OS release, but we haven't succeeded in getting RCCL to work and this is of course essential. 7.1 and newer are not compatible with the current LUMI setup and are the target for the next update. Any non-containerised installation of ROCm 7 is also impossible as we have no compatible version of the programming environment on the system. A new MPI library will be required. ROCm 7 support is definitely the target for the next system update. </p>
+<p>Most AI containers will now be developed by the LUMI AI factory and they will replace the ones in the local CSC stack. We are still deliberating and talking to AMD to see if we continue with our own approach (which were built by AMD for us). Of course, if we get enough feedback from users that the EasyBuild recipes were a useful way to use the AI containers as, e.g., they offer a more filesystem-friendly way to manage a virtual environment or other additional software and more features to be extended with extra software in the container, we will take that feedback into account for our decision.</p>
+<p>We're waiting for an update from the AI factory. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>We have developed a package which runs stable on different HPC systems, amd and nvidia based (same applies on LUMI and tested up to 256 nodes). However we have noticed issues with containers based on rocm 6.2.4 with torch 2.6.0 and 2.7.0. So the issue is, after couple of iterations (randomly) we experience NaNs being produced. However the same code works perfectely fine with torch 2.4.1 + rocm 6.0.3 no NaNs, we can successfully train our models. We dont experience issues with torch 2.7.0 on nvidia hardware. We wish to go higher version of torch to enable new optimization and compilers features for models. Is there a know issues with base-containers like (path: /appl/local/containers/sif-images): </p>
+<p>lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.6.0.sif</p>
+<p>lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.7.0.sif</p>
+<p>lumi-pytorch-rocm-6.2.4-python-3.12-pytorch-v2.7.1.sif</p>
+<ul>
+<li>
+<p>It would be more suitable to create a ticket with the description of this issue. Thank you.</p>
+</li>
+<li>
+<p>(SAM, AMD) There were some issues with triton in some containers that could cause NaNs, but these were solved in the 2.7.1 container.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For the purpose of testing my softwares (LUMI-C) installed with LUMI/24.03 modules I noticed that the same SLURM job set-up that I used before the update is not working unless I increase significantly the memory per CPU. Is it something that is expected?</p>
+<ul>
+<li>You're the first one with that remark. We haven't noticed it in any of our own tests. Are you sure that you are also solving exactly the same problem with your code as before?</li>
+</ul>
+<p>Response: Yes, the task is the same, which gets OOM killed with --mem-per-cpu=1800 (was enough before the update), now I have --mem-per-cpu=3G; this works as expected.</p>
+<ul>
+<li>When running, you are now effectively using different libraries than you would expect from the modules (see, e.g., <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20251020/102-CPE/#warning-1-you-do-not-always-get-what-you-expect">this slide in the Intro course</a> which was also referenced from the <a href="https://lumi-supercomputer.github.io/update">User Update pointed to in the mail when the system became available again</a>). It might be that they take more memory. The slide also explains how to use the old ones (<code>lumi-CrayPAth</code> module may be the easiest one). But the libc from the OS is also different and as I have had some issues myself with the <code>malloc</code> call already, I wonder if there are differences or even bugs in dynamic memory management.</li>
+</ul>
+</li>
+<li>
+<p>We see that some other HPE-Cray systems (ex. Adastra) maintain several ROCm modules (ex. starting from 5.2 till 7.1). On system Adastra, the driver version is also ROCm/6.10.5 (same as Lumi). Could you tell us why can't we maintain previous ROCm modules on Lumi ? </p>
+<ul>
+<li>
+<p>Well, if you would have done <code>module spider rocm</code> on the system you would have seen that we have a couple of very old ones also though not in <code>/opt/rocm-*</code>. We'll do a cleanup soon though.</p>
+</li>
+<li>
+<p>One reason to not have them in <code>/opt/rocm-*</code> is likely the system management environment that we are using. HPE has two, I believe Adastra is using the other one which may like installing multiple versions more than ours.</p>
+</li>
+<li>
+<p>Another one is the size of LUMI. A larger system image dramatically increases booting times. It is also the reason why we decided to remove the versions of the PE that don't work properly and only work for some users.</p>
+</li>
+<li>
+<p>Third is that we want vendor backing too. AMD will not help us support ROCm versions that are not officially supported on the kernel and drivers that we have. Our driver does not officially support anything below 6.1 and we have had issues running old software that way.</p>
+</li>
+<li>
+<p>We do offer some other ROCm versions as EasyBuild recipes, or installed in the version of the LUMI stack, or in the CrayEnv environment and you could try to install others by modifying our EasyBuild recipe that we use for it. But with a huge warning about support. Because, e.g., MPI also has its requirements for the ROCm version that is used. And we will not solve issues with ROCm versions that are not officially supported. Those old ROCm versions may still work for some people, but we do see that they are basically broken for general use. You need to know very, very well what you are doing and the LUMI User Support Team is too small to assist in that. We have way too many users and too many inexperienced users compared to the number of FTEs allocated to LUST for that kind of support.</p>
+<p>If Adastra indeed still offers all those ancient ROCm versions: Versions prior to 6.0 don't even officially support their newer GPUs.</p>
+<p>We try to avoid offering packages pre-installed that we know will not work anymore in many usecases, because even if we document the cases that don't work (which we cannot always know ourselves), many users don't read those docs and just send in tickets. We would be overwhelmed with such tickets. </p>
+</li>
+<li>
+<p>And really, we more often want a newer version than is on the system than an older one as the newer one solves known issues. ;-)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>We want to compile our Fortran code base with cce/17.0.0 (want to stick to it) on Lumi. We previously used hipcc (rocm/6.0.3) for compiling our HIP source code and linked with the Fortran code, that worked really well on lumi. now, we need to shift to hipcc from ROCm/6.3.4. While linking (with ftn) different objects compiled with cce/17 and hipcc on current environment on lumi we see the following bit code incompatibility issue </p>
+<div class="highlight"><pre><span></span><code>error: Invalid record (Producer: &#39;LLVM18.0.0git&#39; Reader: &#39;LLVM 17.0.6rc&#39;)
+warning: Linking two modules of different data layouts: &#39;/opt/rocm-6.3.4/amdgcn/bitcode/ockl.bc&#39; is &#39;e-p:64:64-p…..-A5-G1-ni:7:8:9&#39; whereas &#39;llvm-link&#39; is &#39;e-p:64:64-p1...... A5-G1-ni:7:8&#39;
+</code></pre></div>
+<p>Could someone help us understand the issue ?  And is there a workaround for such an issue if we don’t want to upgrade to a new version of CCE and neither downgrade ROCm for our custom environment ?</p>
+<ul>
+<li>
+<p>This is a question for a ticket. We can't solve such discussions via the hedgedoc, it requires too much information and interaction.</p>
+<p>My guess is though that you need to use a newer version of ftn as the LLVM 17 based compilers may have issues linking to the LLVM 18-based code from hipcc. If there is a workaround, it would be trying to figure out what runtime libraries the Fortran compiler needs and probably a specific piece of startup code that is added by the Fortran linker, and then link using tools from ROCm. But it might be that LLVM 17 and 18 are simply incompatible. From googling a bit, it looks like it comes from some mixing of different Intermediate Representations (IR) in LLVM 17 and 18 screwing up things as somehow some part of code in IR from LLVM 18 (i.e., ROCm) gets fed into LLVM 17 (the backend of cce 17).</p>
+<p>But there is a reason why we show a warning when you load <code>LUMI/24.03</code> which is based on CCE 17.</p>
+</li>
+<li>
+<p>(Alfio, HPE) CCE 17 is based on LLVM 17, which is imcompatible with rocm 6.3 (based on LLVM 18). I think you can try <code>module spider rocm</code> and load an older ROCm (The older ROCm modules load 6.3.4 as noted here: https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/Update-202601/#some-major-changes-to-the-programming-environment)</p>
+</li>
+</ul>
+<p>Well, I can load 6.2.2, but it is still based on LLVM 18. The next is 5.6.1, which is too old... Maybe Samuel Antao (AMD) has his own installation... As suggest, you can open a ticket...</p>
+<ul>
+<li>(Sam, AMD) building with relocatable symbols makes the code generation happen at compile time. this happens if one passes flags to hipcc such as <code>-fgpu-rdc</code>. When the linker bundles LLVM IR together it will generate mismatches. So, one way to circumvent the problem, if you application supports that, is build without enabling relocatable device code. Other option is to generate a shared library of the compilations units coming from the same compiler version and then link this library in your code. This could enable linking GPU code all coming from the same LLVM IR version.</li>
+</ul>
+</li>
+<li>
+<p>CMake fails to detect proper GPU architecture with the following message even when I loaded <code>craype-accel-amd-gfx90a</code>. This can be workarounded by passing additional flags such as <code>-DAMDGPU_TARGETS=gfx90a</code>, but is this a general issue or should I consider this as something specific to me? 
+    <div class="highlight"><pre><span></span><code>The amdgpu-arch tool failed: Error: &#39;Failed to get device count&#39;
+As a result, --offload-arch will not be set for subsuqent  &gt;&gt; compilations, and the default architecture  &gt;&gt; (gfx906 for dynamic build / gfx942 for static build) will be used`
+</code></pre></div></p>
+<ul>
+<li>Did you run CMake on a GPU compute node? Otherwise it will certainly fail. And workarounds depend on the specific package that you're trying to build as many CMake recipes that come withpackages are very buggy and don't use CMake the way the CMake developers intended.</li>
+</ul>
+<p>If you are mentioning loading <code>partition/G</code>, yes. This way used to work before OS update.   </p>
+<ul>
+<li>Loading <code>partition/G</code> does not enable the automatic detection in CMake. Only running on a GPU node does. But the offload-arch switch may not matter if you use partition/G and the compiler wrappers as those wrappers will add the options at least for OpenMP offload.</li>
+</ul>
+</li>
+<li>
+<p>Does the iFort compiler exist, if so, what module is it, if not, can I add mine as a module?</p>
+<ul>
+<li>
+<p>We don't support the Intel compilers on LUMI. The most advanced Fortran compiler on LUMI is the Cray one (PrgEnv-cray). Again as we don't have upstream support.</p>
+</li>
+<li>
+<p>It is possible to install your own version at your own risk but there may be incompatibilities with MPI.</p>
+</li>
+<li>
+<p>And once we have ROCm 7, there will be a whole new AMD Fortran compiler that HPE is very enthousiastic about. AMD is also motivated to find ways to make development releases available to test new features. This may be the better choice to move your code to longer term as that is basically AMD doing development that streams back into the open source LLVM and new-generation flang compiler, so you may expect that the same improvements will eventually appear on clusters with other CPU architectures (I assume you're not interested in GPU support if you want to use ifort).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>It seems unreasonable that hundreds or thousands of users sit at their computers and click every half hour the "Refresh" button to see whether anything on the LUMI services status or LUMI MOTD has changed. What is the level of commitment of LUMI to let LUMI users reivew the past diffs / changes to such important system information? Users need to corelate the timeline of their observations to the timeline of system status changes / MOTD changes. Only this way users can know whether they need to write to LUMI support for help or whether their observations line up with the timeline of system service changes. Is there a public GIT repo with commit email notifications to review all the changes? That would solve all of the above.</p>
+<ul>
+<li>
+<p>Any push system is completely unrealistic. Apart from the development work, most users don't want to be notified about everything but just the events that are important to them at that time. E.g., having messages pushed upon them about a login node becoming unavailable, will not interest them if they don't want to work on LUMI soon.</p>
+<p>And if we'd have to do that for every failure that could have affected a job: There are over 5000 nodes and close to 1000 switches in LUMI. Failure is an element of life on an exascale system. At a recent user day in a LUMI consortium country we had a user giving a talk about scaling up from Tier-2 (local clusters) to Tier-0 (large systems like LUMI) and he mentioned precisely that. One percent of his jobs failed on LUMI and he said this was a very low number, lower than on other large systems he had used recently. But he was not interested in exploring for each of those jobs why they failed. </p>
+</li>
+<li>
+<p>On a system like LUMI you also don't want to communicate all the changes and issues immediately, as some may expose security risks that need to be fixed to. Sometimes as a support team we also only get precise information days later to avoid exposing security issues until they are fixed.</p>
+</li>
+<li>
+<p>Moreover, if you would indeed have hundreds or even thousands of users just sitting there waiting until they get a notification that an issue is solved again, the last thing you want is inform them all at the same time. Because 100s or 1000s of users then trying to login or starting their file transfer almost simultaneously, is the best way to bring the system down again immediately.</p>
+</li>
+<li>
+<p>And I'm sure GitHub would not be happy with a repository used that way and at that scale. We have already experienced throttling of traffic to GitHub also because it was overused by LUMI. </p>
+</li>
+<li>
+<p>Moreover, doing frequent automated mailings to users is dangerous. Most people don't read them anymore. Most of the tickets that we got over the past days, came from people who did not read their emails and did never read the message-of-the-day and were therefore unaware of issues.</p>
+<p>What a user really wants, is being informed about exactly the issues that will hit them at exactly the time that it is relevant for them and they are open for it, which is of course impossible.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
