@@ -5472,6 +5472,7 @@ scripts. See below for known packages of that type.</strong>
 <div class="admonition note">
 <p class="admonition-title">Recent updates (newest first, some link to text further down)</p>
 <ul>
+<li><a href="#LMOD-loop">LMOD can enter an infinite loop.</a></li>
 <li><a href="#htop">The <code>htop</code> command from the <code>systools</code> module does not work anymore 
     (also broken in some old stacks). Workaround: Use the regular <code>top</code> command.</a></li>
 <li>The LUMI web interface is open, but it is not yet possible to launch jobs from it,
@@ -5691,6 +5692,16 @@ to 25.03 if you are affected...</p>
 <li>
 <p><a id="htop"></a><span style="color:DarkBlue">The <code>htop</code> command in the <code>systools</code> module for LUMI/24.03 and later is broken.</span></p>
 <p><span style="color:DarkBlue">Workaround: Use the system <code>top</code> command.</span></p>
+</li>
+<li>
+<p><a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
+    when switching to a different LUMI stack. An additional complication is that the load of the LUMI stack
+    is sometimes hidden in another module. This is the case for some modules in the CSC local software stack
+    where many modules rely on a particular version of the LUMI stack and load that version internally.</span></p>
+<p><span style="color:DarkBlue">The workaround for now is to do a <code>module purge</code> (no <code>module --force purge</code> as 
+that will create other issues) before loading the module that causes the infinite loop.</span></p>
+<p><span style="color:DarkBlue">The root cause of the issue has been identified and a solution will be rolled
+out on the system as soon as the filesystem condition allows to do so.</span></p>
 </li>
 </ol>
 <h2 id="other-software-stacks">Other software stacks<a class="headerlink" href="#other-software-stacks" title="Permanent link">&para;</a></h2>
