@@ -32,6 +32,7 @@
 
 
 !!! Note "Recent updates (newest first, some link to text further down)"
+    -   [LMOD can enter an infinite loop.](#LMOD-loop)
     -   [The `htop` command from the `systools` module does not work anymore 
         (also broken in some old stacks). Workaround: Use the regular `top` command.](#htop)
     -   The LUMI web interface is open, but it is not yet possible to launch jobs from it,
@@ -259,6 +260,16 @@ that there would be problems.**
 
     <span style="color:DarkBlue">Workaround: Use the system `top` command.</span>
 
+5.  <a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
+    when switching to a different LUMI stack. An additional complication is that the load of the LUMI stack
+    is sometimes hidden in another module. This is the case for some modules in the CSC local software stack
+    where many modules rely on a particular version of the LUMI stack and load that version internally.</span>
+
+    <span style="color:DarkBlue">The workaround for now is to do a `module purge` (no `module --force purge` as 
+    that will create other issues) before loading the module that causes the infinite loop.</span>
+
+    <span style="color:DarkBlue">The root cause of the issue has been identified and a solution will be rolled
+    out on the system as soon as the filesystem condition allows to do so.</span>
 
 
 ## Other software stacks
