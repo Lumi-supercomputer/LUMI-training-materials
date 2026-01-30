@@ -32,10 +32,13 @@
 
 
 !!! Note "Recent updates (newest first, some link to text further down)"
-    -   [LMOD can enter an infinite loop.](#LMOD-loop)
-    -   [The `htop` command from the `systools` module does not work anymore 
+    -   [Hugepages are broken and cause crashes when one of the cray-hugepages 
+        modules is loaded.](#hugepages)
+    -   [FIXED: LMOD can enter an infinite loop.](#LMOD-loop)
+    -   [FIXED: The `htop` command from the `systools` module does not work anymore 
         (also broken in some old stacks). Workaround: Use the regular `top` command.](#htop)
-    -   The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+    -   <span style="color:DarkBlue">FIXED except for the visualisation partition which is still down:</span>
+        The LUMI web interface is open, but it is not yet possible to launch jobs from it,
         so any app that runs in jobs does not yet work properly.
     -   [FIXED: `lumi-workspaces` and similar commands that query project or user data work again.](#lumi-workspaces)
     -   FIXED: Outgoing internet access from the compute nodes is again working.
@@ -256,11 +259,11 @@ that there would be problems.**
 3.  <a id="lumi-workspaces"></a><span style="color:DarkBlue">FIXED: `lumi-workspaces` and other commands that return project 
     and user information and billing unit use, work again as intended.</span>
 
-4.  <a id="htop"></a><span style="color:DarkBlue">The `htop` command in the `systools` module for LUMI/24.03 and later is broken.</span>
+4.  FIXED: <a id="htop"></a><span style="color:DarkBlue">The `htop` command in the `systools` module for LUMI/24.03 and later is broken.</span>
 
     <span style="color:DarkBlue">Workaround: Use the system `top` command.</span>
 
-5.  <a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
+5.  FIXED: <a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
     when switching to a different LUMI stack. An additional complication is that the load of the LUMI stack
     is sometimes hidden in another module. This is the case for some modules in the CSC local software stack
     where many modules rely on a particular version of the LUMI stack and load that version internally.</span>
@@ -270,6 +273,17 @@ that there would be problems.**
 
     <span style="color:DarkBlue">The root cause of the issue has been identified and a solution will be rolled
     out on the system as soon as the filesystem condition allows to do so.</span>
+
+6.  <a id="hugepages"></a><span style="color:DarkBlue">Hugepages support is broken. It appears that
+    memory corruption can happen and malloc/free calls can produce unexpected errors when this 
+    module is loaded.</span>
+
+    <span style="color:DarkBlue">This will show when using GROMACS from one of our EasyBuild recipes.
+    Building GROMACS may fail, but the point of failure in the build is not always the same. We suspect
+    that it may also show when running codes, either in the form of crashes or as wrong results.</span>
+
+    <span style="color:DarkBlue">The only available workaround is to not use hugepages. The EasyBuild
+    recipes for GROMACS will be adapted in the comming weeks.</span>
 
 
 ## Other software stacks
