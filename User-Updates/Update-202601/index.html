@@ -5472,10 +5472,13 @@ scripts. See below for known packages of that type.</strong>
 <div class="admonition note">
 <p class="admonition-title">Recent updates (newest first, some link to text further down)</p>
 <ul>
-<li><a href="#LMOD-loop">LMOD can enter an infinite loop.</a></li>
-<li><a href="#htop">The <code>htop</code> command from the <code>systools</code> module does not work anymore 
+<li><a href="#hugepages">Hugepages are broken and cause crashes when one of the cray-hugepages 
+    modules is loaded.</a></li>
+<li><a href="#LMOD-loop">FIXED: LMOD can enter an infinite loop.</a></li>
+<li><a href="#htop">FIXED: The <code>htop</code> command from the <code>systools</code> module does not work anymore 
     (also broken in some old stacks). Workaround: Use the regular <code>top</code> command.</a></li>
-<li>The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+<li><span style="color:DarkBlue">FIXED except for the visualisation partition which is still down:</span>
+    The LUMI web interface is open, but it is not yet possible to launch jobs from it,
     so any app that runs in jobs does not yet work properly.</li>
 <li><a href="#lumi-workspaces">FIXED: <code>lumi-workspaces</code> and similar commands that query project or user data work again.</a></li>
 <li>FIXED: Outgoing internet access from the compute nodes is again working.</li>
@@ -5690,11 +5693,11 @@ to 25.03 if you are affected...</p>
     and user information and billing unit use, work again as intended.</span></p>
 </li>
 <li>
-<p><a id="htop"></a><span style="color:DarkBlue">The <code>htop</code> command in the <code>systools</code> module for LUMI/24.03 and later is broken.</span></p>
+<p>FIXED: <a id="htop"></a><span style="color:DarkBlue">The <code>htop</code> command in the <code>systools</code> module for LUMI/24.03 and later is broken.</span></p>
 <p><span style="color:DarkBlue">Workaround: Use the system <code>top</code> command.</span></p>
 </li>
 <li>
-<p><a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
+<p>FIXED: <a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
     when switching to a different LUMI stack. An additional complication is that the load of the LUMI stack
     is sometimes hidden in another module. This is the case for some modules in the CSC local software stack
     where many modules rely on a particular version of the LUMI stack and load that version internally.</span></p>
@@ -5702,6 +5705,16 @@ to 25.03 if you are affected...</p>
 that will create other issues) before loading the module that causes the infinite loop.</span></p>
 <p><span style="color:DarkBlue">The root cause of the issue has been identified and a solution will be rolled
 out on the system as soon as the filesystem condition allows to do so.</span></p>
+</li>
+<li>
+<p><a id="hugepages"></a><span style="color:DarkBlue">Hugepages support is broken. It appears that
+    memory corruption can happen and malloc/free calls can produce unexpected errors when this 
+    module is loaded.</span></p>
+<p><span style="color:DarkBlue">This will show when using GROMACS from one of our EasyBuild recipes.
+Building GROMACS may fail, but the point of failure in the build is not always the same. We suspect
+that it may also show when running codes, either in the form of crashes or as wrong results.</span></p>
+<p><span style="color:DarkBlue">The only available workaround is to not use hugepages. The EasyBuild
+recipes for GROMACS will be adapted in the comming weeks.</span></p>
 </li>
 </ol>
 <h2 id="other-software-stacks">Other software stacks<a class="headerlink" href="#other-software-stacks" title="Permanent link">&para;</a></h2>
