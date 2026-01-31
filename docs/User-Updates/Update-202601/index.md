@@ -32,7 +32,7 @@
 
 
 !!! Note "Recent updates (newest first, some link to text further down)"
-    -   [Hugepages are broken and cause crashes when one of the cray-hugepages 
+    -   [Hugepages are broken and cause crashes when one of the `craype-hugepages` 
         modules is loaded.](#hugepages)
     -   [FIXED: LMOD can enter an infinite loop.](#LMOD-loop)
     -   [FIXED: The `htop` command from the `systools` module does not work anymore 
