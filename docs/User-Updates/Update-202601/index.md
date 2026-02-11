@@ -1,9 +1,8 @@
 # Changes after the update of January 2026
 
-<!--
 **See also the 
 [recording of the user update webinar of February 11, 2026](../../User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md).**
--->
+
 <span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
 !!! Note "State of the system"
