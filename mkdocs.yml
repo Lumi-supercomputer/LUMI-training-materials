@@ -60,6 +60,9 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - "LUMI hackathon May 2026":
+    - Hackathon-20260518/index.md
+    - Local info: Hackathon-20260518/localinfo.md
   - "Performance Analysis & Optimization October 2025":
     - paow-20251022/index.md
     - Schedule: paow-20251022/schedule.md
