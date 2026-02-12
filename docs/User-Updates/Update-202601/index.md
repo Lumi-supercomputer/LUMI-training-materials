@@ -32,7 +32,11 @@
 
 !!! Note "Recent updates (newest first, some link to text further down)"
     -   [Hugepages are broken and cause crashes when one of the `craype-hugepages` 
-        modules is loaded.](#hugepages)
+        modules is loaded.](#hugepages) Only the `craype-hugepages2M` module seems to 
+        have no issues, and some of the very large page sizes also seem to work.
+        Note that the hardware hugepage size is 2M, so it may make sense to use the
+        corresponding module anyway as a larger size will only cause more memory 
+        spillage but will likely not produce much better performance.
     -   [FIXED: LMOD can enter an infinite loop.](#LMOD-loop)
     -   [FIXED: The `htop` command from the `systools` module does not work anymore 
         (also broken in some old stacks). Workaround: Use the regular `top` command.](#htop)
@@ -255,34 +259,37 @@ that there would be problems.**
     `libpsl` module from the older LUMI software stacks, may fail. A solution has been
     implemented in 25.03 and we are considering options for 24.03 and 23.09.
 
-3.  <a id="lumi-workspaces"></a><span style="color:DarkBlue">FIXED: `lumi-workspaces` and other commands that return project 
-    and user information and billing unit use, work again as intended.</span>
+3.  <a id="lumi-workspaces"></a>FIXED: `lumi-workspaces` and other commands that return project 
+    and user information and billing unit use, work again as intended.
 
-4.  FIXED: <a id="htop"></a><span style="color:DarkBlue">The `htop` command in the `systools` module for LUMI/24.03 and later is broken.</span>
+4.  FIXED: <a id="htop"></a>The `htop` command in the `systools` module for LUMI/24.03 and later now working again.
 
-    <span style="color:DarkBlue">Workaround: Use the system `top` command.</span>
-
-5.  FIXED: <a id="LMOD-loop"></a><span style="color:DarkBlue">There are cases where LMOD enters an infinite loop
+5.  FIXED: <a id="LMOD-loop"></a>There are cases where LMOD enters an infinite loop
     when switching to a different LUMI stack. An additional complication is that the load of the LUMI stack
     is sometimes hidden in another module. This is the case for some modules in the CSC local software stack
-    where many modules rely on a particular version of the LUMI stack and load that version internally.</span>
+    where many modules rely on a particular version of the LUMI stack and load that version internally.
 
-    <span style="color:DarkBlue">The workaround for now is to do a `module purge` (no `module --force purge` as 
-    that will create other issues) before loading the module that causes the infinite loop.</span>
+    The workaround for now is to do a `module purge` (no `module --force purge` as 
+    that will create other issues) before loading the module that causes the infinite loop.
 
-    <span style="color:DarkBlue">The root cause of the issue has been identified and a solution will be rolled
-    out on the system as soon as the filesystem condition allows to do so.</span>
+    The root cause of the issue has been identified and a solution will be rolled
+    out on the system as soon as the filesystem condition allows to do so.
 
 6.  <a id="hugepages"></a><span style="color:DarkBlue">Hugepages support is broken. It appears that
     memory corruption can happen and malloc/free calls can produce unexpected errors when this 
-    module is loaded.</span>
+    module is loaded. Only the `craype-hugepages2M` module seems to have no issues, and some of 
+    the very large page sizes also seem to work.</span>
 
     <span style="color:DarkBlue">This will show when using GROMACS from one of our EasyBuild recipes.
     Building GROMACS may fail, but the point of failure in the build is not always the same. We suspect
     that it may also show when running codes, either in the form of crashes or as wrong results.</span>
 
-    <span style="color:DarkBlue">The only available workaround is to not use hugepages. The EasyBuild
-    recipes for GROMACS will be adapted in the comming weeks.</span>
+    <span style="color:DarkBlue">The only available workaround is to not use hugepages if you notice
+    issues. The EasyBuild recipes for GROMACS have been adapted to avoid using hugepages for now.</span>
+
+    <span style="color:DarkBlue">Note that the hardware hugepage size is 2M, so it may make sense to use the
+    corresponding module anyway as a larger size will only cause more memory 
+    spillage but will likely not produce much better performance.</span>
 
 
 ## Other software stacks
