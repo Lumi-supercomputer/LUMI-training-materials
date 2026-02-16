@@ -9,7 +9,7 @@ Slides of the presentations:
 
 -   [HPE presentation](https://462000265.lumidata.eu/user-coffee-breaks/files/20260211-user-coffe-break-LUMI-update-HPE.pdf)
 
--   [AMD presentation](https://462000265.lumidata.eu/user-coffee-breaks/files/20260211-user-coffe-break-LUMI-update-AMD.pdf) (still missing)
+-   [AMD presentation](https://462000265.lumidata.eu/user-coffee-breaks/files/20260211-user-coffe-break-LUMI-update-AMD.pdf)
 
 -   [LUST presentation](https://462000265.lumidata.eu/user-coffee-breaks/files/20260211-user-coffe-break-LUMI-update-LUST.pdf)
 
