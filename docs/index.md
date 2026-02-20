@@ -41,6 +41,8 @@ relevant:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
+-   [LUMI Update Webinar (February 11, 2026)](User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md)
+
 -   [Introduction to the use of the Julia programming language on LUMI (October 29, 2025)](User-Coffee-Breaks/20251029-user-coffee-break-Julia.md)
 
 -   [Scalable Parallel Programming with Chapel: From Multicore CPUs to GPU-Powered Supercomputers (October 15, 2025)](User-Coffee-Breaks/20251015-user-coffee-break-Chapel.md)

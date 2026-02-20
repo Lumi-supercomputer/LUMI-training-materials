@@ -1,9 +1,9 @@
 # Changes after the update of January 2026
 
-<!--
 **See also the 
 [recording of the user update webinar of February 11, 2026](../../User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md).**
--->
+
+<span style="color:DarkBlue">Recent changes are in dark blue.</span>
 
 !!! Note "State of the system"
     <span style="color:DarkRed">
@@ -12,12 +12,15 @@
     could be installed, so that advanced users who do not depend on software preinstalled
     on the system beyond the programming environment, can start working again.**
     </span>
+
+    <span style="color:DarkBlue">The LUMI web interface needs further debugging and remains
+    partly disfunctional until further notice (apps that connect to Slurm don't work).</span>
     
     <span style="color:DarkRed">
     **As the version of the `rocm` and `amd` modules has changed, we expect a lot of GPU software
     to fail if not recompiled. This is particularly true for anything using cpeAMD/24.03 as there
-    even the base compilers have changed. One can try recompiling, but the cpeAMD toolchain needs to
-    be recompiled first which could not be done before the system was released to users.**
+    even the base compilers have changed.**</span> <span style="color:DarkBlue">**We have rebuild
+    cpeAMD/24.03 as the compilers for this toolchain have changed.**
     </span>
     
     <span style="color:DarkRed">
@@ -26,7 +29,23 @@
     scripts. See below for known packages of that type.**
     </span>
 
-<span style="color:DarkBlue">Recent changes are in dark blue.</span>
+
+!!! Note "Recent updates (newest first, some link to text further down)"
+    -   [Hugepages are broken and cause crashes when one of the `craype-hugepages` 
+        modules is loaded.](#hugepages) Only the `craype-hugepages2M` module seems to 
+        have no issues, and some of the very large page sizes also seem to work.
+        Note that the hardware hugepage size is 2M, so it may make sense to use the
+        corresponding module anyway as a larger size will only cause more memory 
+        spillage but will likely not produce much better performance.
+    -   [FIXED: LMOD can enter an infinite loop.](#LMOD-loop)
+    -   [FIXED: The `htop` command from the `systools` module does not work anymore 
+        (also broken in some old stacks). Workaround: Use the regular `top` command.](#htop)
+    -   <span style="color:DarkBlue">FIXED except for the visualisation partition which is still down:</span>
+        The LUMI web interface is open, but it is not yet possible to launch jobs from it,
+        so any app that runs in jobs does not yet work properly.
+    -   [FIXED: `lumi-workspaces` and similar commands that query project or user data work again.](#lumi-workspaces)
+    -   FIXED: Outgoing internet access from the compute nodes is again working.
+
 
 This page will be updated as we learn about problems with the system after the
 update and figure out workarounds for problems. Even though we had the
@@ -240,6 +259,38 @@ that there would be problems.**
     `libpsl` module from the older LUMI software stacks, may fail. A solution has been
     implemented in 25.03 and we are considering options for 24.03 and 23.09.
 
+3.  <a id="lumi-workspaces"></a>FIXED: `lumi-workspaces` and other commands that return project 
+    and user information and billing unit use, work again as intended.
+
+4.  FIXED: <a id="htop"></a>The `htop` command in the `systools` module for LUMI/24.03 and later now working again.
+
+5.  FIXED: <a id="LMOD-loop"></a>There are cases where LMOD enters an infinite loop
+    when switching to a different LUMI stack. An additional complication is that the load of the LUMI stack
+    is sometimes hidden in another module. This is the case for some modules in the CSC local software stack
+    where many modules rely on a particular version of the LUMI stack and load that version internally.
+
+    The workaround for now is to do a `module purge` (no `module --force purge` as 
+    that will create other issues) before loading the module that causes the infinite loop.
+
+    The root cause of the issue has been identified and a solution will be rolled
+    out on the system as soon as the filesystem condition allows to do so.
+
+6.  <a id="hugepages"></a><span style="color:DarkBlue">Hugepages support is broken. It appears that
+    memory corruption can happen and malloc/free calls can produce unexpected errors when this 
+    module is loaded. Only the `craype-hugepages2M` module seems to have no issues, and some of 
+    the very large page sizes also seem to work.</span>
+
+    <span style="color:DarkBlue">This will show when using GROMACS from one of our EasyBuild recipes.
+    Building GROMACS may fail, but the point of failure in the build is not always the same. We suspect
+    that it may also show when running codes, either in the form of crashes or as wrong results.</span>
+
+    <span style="color:DarkBlue">The only available workaround is to not use hugepages if you notice
+    issues. The EasyBuild recipes for GROMACS have been adapted to avoid using hugepages for now.</span>
+
+    <span style="color:DarkBlue">Note that the hardware hugepage size is 2M, so it may make sense to use the
+    corresponding module anyway as a larger size will only cause more memory 
+    spillage but will likely not produce much better performance.</span>
+
 
 ## Other software stacks
 
@@ -247,7 +298,7 @@ Local software stacks, with the one provided in `/appl/local/csc` as the most pr
 are not managed by the LUMI User Support Team. They have to be updated by the organisation who
 provides them and LUST cannot tell when they will do that.
 
-Expect that modules my not function anymore or become unavailable
+Expect that modules may not function anymore or become unavailable
 for a while while updates are being made. If the package has an equivalent in the 
 LUST-provided LUMI software stack and a new user-installable EasyBuild recipe is ready already
 (see the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
@@ -283,7 +334,7 @@ jobs that hang or produce incorrect results for other reasons.
 
 -   As [explained in the courses](../../2day-20251020/102-CPE.md#warning-1-you-do-not-always-get-what-you-expect), 
     by default the HPE Cray PE will use
-    system default versions of MPI etc., which are those of the 24.03 PE, even if older
+    system default versions of MPI etc., which are those of the 25.03 PE, even if older
     modules are loaded. The idea behind this is that in most cases the latest one is the
     most bug-free one and best adapted to the current OS and drivers on the system.
 
