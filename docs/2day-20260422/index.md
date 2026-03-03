@@ -3,8 +3,11 @@
 
 ## Course organisation
 
--   Location: TBA
-    The TalTech Campus is easy to reach with public transportation from the city centre.
+-   Location: [Riga Technical University, Ķīpsalas Iela 6A, Riga, Latvia, LV-1048](Ķīpsalas iela 6a, Kurzemes rajons, Rīga, LV-1048, Letland).
+
+    The campus is on Kipsala island, a half hour walk from the city centre.
+
+    [More venue information...](venue.md)
 
 -   [Schedule](schedule.md)
 
