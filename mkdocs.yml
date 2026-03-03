@@ -60,6 +60,10 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - "Supercomputing with LUMI April 2026":
+    - 2day-20260422/index.md
+    - Schedule: 2day-20260422/schedule.md
+    - Course materials: 2day-20260422/index.html#course-materials
   - "Smartsim March 2026":
     - smartsim-20260331/index.md
     - Schedule: smartsim-20260331/schedule.md
