@@ -83,7 +83,7 @@ DAY 1
             12:30 EEST
             <br/><em>11:30 CEST</em>
         </td>
-        <td><b><em>Lunch break (60 minutesinutes)</em></b>
+        <td><b><em>Lunch break (60 minutes)</em></b>
         </td>
     </tr>
     <tr>
