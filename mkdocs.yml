@@ -60,6 +60,9 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - "Smartsim March 2026":
+    - smartsim-20260331/index.md
+    - Schedule: smartsim-20260331/schedule.md
   - "Performance Analysis & Optimization October 2025":
     - paow-20251022/index.md
     - Schedule: paow-20251022/schedule.md

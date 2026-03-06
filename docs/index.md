@@ -6,7 +6,7 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   No upcoming training with early materials at the moment.
+-   [SmartSim (March 31, 2026)](smartsim-20260331/index.md), on-site in Utrecht (The Netherlands)
 
 
 Most recently completed main training events:
