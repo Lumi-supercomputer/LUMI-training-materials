@@ -1,0 +1,6324 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20260422/203-Lustre/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon-LUMI.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Using Lustre - LUMI training materials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--demo:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M0%20192h168V0h-8C71.6%200%200%2071.6%200%20160zm0%2048v112c0%2088.4%2071.6%20160%20160%20160h64c88.4%200%20160-71.6%20160-160V240zm384-48v-32C384%2071.6%20312.4%200%20224%200h-8v192z%22/%3E%3C/svg%3E');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M70.8-6.7c5.4-5.4%2013.8-6.2%2020.2-2l118.9%2079.2c8.9%205.9%2014.2%2015.9%2014.2%2026.6v49.6l90.8%2090.8c33.3-15%2073.9-8.9%20101.2%2018.5l126.1%20126.1c18.7%2018.7%2018.7%2049.1%200%2067.9l-60.1%2060.1c-18.7%2018.7-49.1%2018.7-67.9%200L288.1%20384c-27.4-27.4-33.5-67.9-18.5-101.2L178.8%20192h-49.6c-10.7%200-20.7-5.3-26.6-14.2L23.4%2058.9c-4.2-6.3-3.4-14.8%202-20.2zm145%20303.5c-6.3%2036.9%202.3%2075.9%2026.2%20107.2l-94.9%2095c-28.1%2028.1-73.7%2028.1-101.8%200s-28.1-73.7%200-101.8l135.4-135.5%2035.2%2035.1zM384.1%200c20.1%200%2039.4%203.7%2057.1%2010.5%2010%203.8%2011.8%2016.5%204.3%2024.1l-56.7%2056.7c-3%203-4.7%207.1-4.7%2011.3V144c0%208.8%207.2%2016%2016%2016h41.4c4.2%200%208.3-1.7%2011.3-4.7l56.7-56.7c7.6-7.5%2020.3-5.7%2024.1%204.3%206.8%2017.7%2010.5%2037%2010.5%2057.1%200%2043.2-17.2%2082.3-45%20111.1L450%20222c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8V97.1l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9C290.8%2022.2%20334.8%200%20384.1-.1z%22/%3E%3C/svg%3E');--md-admonition-icon--remark:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20480c141.4%200%20256-107.5%20256-240S397.4%200%20256%200%200%20107.5%200%20240c0%2054.3%2019.2%20104.3%2051.6%20144.5L2.8%20476.8c-4.8%209-3.3%2020%203.6%2027.5s17.8%209.8%2027.1%205.8l118.4-50.7c31.8%2013.2%2067%2020.6%20104.1%2020.6M128%20208a32%2032%200%201%201%200%2064%2032%2032%200%201%201%200-64m128%200a32%2032%200%201%201%200%2064%2032%2032%200%201%201%200-64m96%2032a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M352%200c0-17.7-14.3-32-32-32s-32%2014.3-32%2032v64h-96c-53%200-96%2043-96%2096v224c0%2053%2043%2096%2096%2096h256c53%200%2096-43%2096-96V160c0-53-43-96-96-96h-96zM160%20368c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24M224%20176a48%2048%200%201%201%200%2096%2048%2048%200%201%201%200-96m144%2048a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200m-304%200c0-17.7-14.3-32-32-32S0%20206.3%200%20224v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32zm544-32c-17.7%200-32%2014.3-32%2032v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32v-96c0-17.7-14.3-32-32-32%22/%3E%3C/svg%3E');--md-admonition-icon--audience:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128m96%20312c0%2025-12.7%2047-32%2059.9V464c0%2026.5-21.5%2048-48%2048h-32c-26.5%200-48-21.5-48-48v-92.1C172.7%20359%20160%20337%20160%20312v-40c0-53%2043-96%2096-96s96%2043%2096%2096zM96%2032a56%2056%200%201%201%200%20112%2056%2056%200%201%201%200-112m16%20240v32c0%2032.5%2012.1%2062.1%2032%2084.7V464c0%201.2%200%202.5.1%203.7-8.5%207.6-19.7%2012.3-32.1%2012.3H80c-26.5%200-48-21.5-48-48v-56.6c-19.1-11-32-31.7-32-55.4v-32c0-53%2043-96%2096-96%2012.7%200%2024.8%202.5%2035.9%206.9-12.6%2021.4-19.9%2046.4-19.9%2073.1m256%20192v-75.3c19.9-22.5%2032-52.2%2032-84.7v-32c0-26.7-7.3-51.6-19.9-73.1%2011.1-4.5%2023.2-6.9%2035.9-6.9%2053%200%2096%2043%2096%2096v32c0%2023.7-12.9%2044.4-32%2055.4V432c0%2026.5-21.5%2048-48%2048h-32c-12.3%200-23.6-4.6-32.1-12.3%200-1.2.1-2.5.1-3.7m48-432a56%2056%200%201%201%200%20112%2056%2056%200%201%201%200-112%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22m263.4-27%2014.8%2036.8L315%2024.6c3%201.2%205%204.2%205%207.4s-2%206.2-5%207.4l-36.8%2014.8L263.4%2091c-1.2%203-4.2%205-7.4%205s-6.2-2-7.4-5l-14.8-36.8L197%2039.4c-3-1.2-5-4.2-5-7.4s2-6.2%205-7.4l36.8-14.8L248.6-27c1.2-3%204.2-5%207.4-5s6.2%202%207.4%205M110.7%2041.7l21.5%2050.1%2050.1%2021.5c5.9%202.5%209.7%208.3%209.7%2014.7s-3.8%2012.2-9.7%2014.7l-50.1%2021.5-21.5%2050.1c-2.5%205.9-8.3%209.7-14.7%209.7s-12.2-3.8-14.7-9.7l-21.5-50.1-50.1-21.5C3.8%20140.2%200%20134.4%200%20128s3.8-12.2%209.7-14.7l50.1-21.5%2021.5-50.1C83.8%2035.8%2089.6%2032%2096%2032s12.2%203.8%2014.7%209.7M464%20304c6.4%200%2012.2%203.8%2014.7%209.7l21.5%2050.1%2050.1%2021.5c5.9%202.5%209.7%208.3%209.7%2014.7s-3.8%2012.2-9.7%2014.7l-50.1%2021.5-21.5%2050.1c-2.5%205.9-8.3%209.7-14.7%209.7s-12.2-3.8-14.7-9.7l-21.5-50.1-50.1-21.5c-5.9-2.5-9.7-8.3-9.7-14.7s3.8-12.2%209.7-14.7l50.1-21.5%2021.5-50.1c2.5-5.9%208.3-9.7%2014.7-9.7M460%200c11%200%2021.6%204.4%2029.5%2012.2l42.3%2042.3C539.6%2062.4%20544%2073%20544%2084s-4.4%2021.6-12.2%2029.5l-88.2%2088.2-101.3-101.3%2088.2-88.2C438.4%204.4%20449%200%20460%200M44.2%20398.5l264.2-264.2%20101.3%20101.3-264.2%20264.2C137.6%20507.6%20127%20512%20116%20512s-21.6-4.4-29.5-12.2l-42.3-42.3C36.4%20449.6%2032%20439%2032%20428s4.4-21.6%2012.2-29.5%22/%3E%3C/svg%3E');--md-admonition-icon--seealso:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M419.5%2096c-16.6%200-32.7%204.5-46.8%2012.7-15.8-16-34.2-29.4-54.5-39.5%2028.2-24%2064.1-37.2%20101.3-37.2C505.9%2032%20576%20102%20576%20188.5c0%2041.5-16.5%2081.3-45.8%20110.6l-71.1%2071.1C429.8%20399.5%20390%20416%20348.5%20416%20262.1%20416%20192%20346%20192%20259.5c0-1.5%200-3%20.1-4.5.5-17.7%2015.2-31.6%2032.9-31.1s31.6%2015.2%2031.1%2032.9v2.6c0%2051.1%2041.4%2092.5%2092.5%2092.5%2024.5%200%2048-9.7%2065.4-27.1l71.1-71.1c17.3-17.3%2027.1-40.9%2027.1-65.4%200-51.1-41.4-92.5-92.5-92.5zm-144.3%2077.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5%200-48%209.7-65.4%2027.1l-71.1%2071.1C73.8%20275.5%2064%20299.1%2064%20323.6c0%2051.1%2041.4%2092.5%2092.5%2092.5%2016.5%200%2032.6-4.4%2046.7-12.6%2015.8%2016%2034.2%2029.4%2054.6%2039.5-28.2%2023.9-64%2037.2-101.3%2037.2C70.1%20480.2%200%20410.2%200%20323.7c0-41.5%2016.5-81.3%2045.8-110.6l71.1-71.1c29.3-29.3%2069.1-45.8%20110.6-45.8%2086.6%200%20156.5%2070.6%20156.5%20156.9v3.9c-.4%2017.7-15.1%2031.6-32.8%2031.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z%22/%3E%3C/svg%3E');--md-admonition-icon--technical:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20152a88%2088%200%201%200%200-176%2088%2088%200%201%200%200%20176m0%20298.7V301.4c16.3-6.8%2032.9-13.7%2049.7-20.7%2039-16.2%2080.8-24.6%20123.1-24.6H448v160h-19.2c-59.1%200-117.7%2011.7-172.3%2034.5l-.5.2zm0-218.7-25.1-10.5C184.1%20202%20133.9%20192%2083.2%20192H48c-26.5%200-48%2021.5-48%2048v192c0%2026.5%2021.5%2048%2048%2048h35.2c50.7%200%20100.9%2010%20147.7%2029.5l12.8%205.3c7.9%203.3%2016.7%203.3%2024.6%200l12.8-5.3c46.8-19.5%2097-29.5%20147.7-29.5H464c26.5%200%2048-21.5%2048-48V240c0-26.5-21.5-48-48-48h-35.2c-50.7%200-100.9%2010-147.7%2029.5z%22/%3E%3C/svg%3E');--md-admonition-icon--intermediate:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22m48%20195.8%20209.2%2086.1c9.8%204%2020.2%206.1%2030.8%206.1s21-2.1%2030.8-6.1l242.4-99.8c9-3.7%2014.8-12.4%2014.8-22.1s-5.8-18.4-14.8-22.1L318.8%2038.1c-9.8-4-20.2-6.1-30.8-6.1s-21%202.1-30.8%206.1L14.8%20137.9C5.8%20141.6%200%20150.3%200%20160v296c0%2013.3%2010.7%2024%2024%2024s24-10.7%2024-24zm48%2071.7V384c0%2053%2086%2096%20192%2096s192-43%20192-96V267.4l-142.9%2058.9c-15.6%206.4-32.2%209.7-49.1%209.7s-33.5-3.3-49.1-9.7L96%20267.4z%22/%3E%3C/svg%3E');--md-admonition-icon--advanced:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M241.3-13c-11.4-2.3-23.1-2.3-34.5%200L19.3%2024.5C8.1%2026.7%200%2036.6%200%2048c0%2010.3%206.5%2019.3%2016%2022.6V144L.3%20222.6c-.2.9-.3%201.9-.3%202.9%200%208%206.5%2014.6%2014.6%2014.6h34.9c8%200%2014.6-6.5%2014.6-14.6%200-1-.1-1.9-.3-2.9L48%20144V77.3l48%209.6V144c0%2070.7%2057.3%20128%20128%20128s128-57.3%20128-128V86.9l76.7-15.3C439.9%2069.3%20448%2059.4%20448%2048s-8.1-21.3-19.3-23.5zM224%20224c-44.2%200-80-35.8-80-80h160c0%2044.2-35.8%2080-80%2080m-103.9%2096.1C58.7%20348.3%2016%20410.3%2016%20482.3c0%2016.4%2013.3%2029.7%2029.7%2029.7H200V366l-57.4-43c-6.5-4.9-15.2-6.2-22.6-2.8zM248%20512h154.3c16.4%200%2029.7-13.3%2029.7-29.7%200-72-42.7-134-104.1-162.1-7.4-3.4-16.1-2.1-22.6%202.8l-57.4%2043v146z%22/%3E%3C/svg%3E');--md-admonition-icon--lumi-be:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M64%200C28.7%200%200%2028.7%200%2064v384c0%2035.3%2028.7%2064%2064%2064h256c35.3%200%2064-28.7%2064-64V64c0-35.3-28.7-64-64-64zm112%20352h32c17.7%200%2032%2014.3%2032%2032v80h-96v-80c0-17.7%2014.3-32%2032-32M96%20112c0-8.8%207.2-16%2016-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16zm144-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16v-32c0-8.8%207.2-16%2016-16M96%20240c0-8.8%207.2-16%2016-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16zm144-16h32c8.8%200%2016%207.2%2016%2016v32c0%208.8-7.2%2016-16%2016h-32c-8.8%200-16-7.2-16-16v-32c0-8.8%207.2-16%2016-16M464%200c-17.7%200-32%2014.3-32%2032v448c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32V192h112c17.7%200%2032-14.3%2032-32V64c0-17.7-14.3-32-32-32H496c0-17.7-14.3-32-32-32%22/%3E%3C/svg%3E');--md-admonition-icon--nice-to-know:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M296.5%20291.1C321%20265.2%20336%20230.4%20336%20192c0-79.5-64.5-144-144-144S48%20112.5%2048%20192c0%2038.4%2015%2073.2%2039.5%2099.1%2021.3%2022.4%2044.9%2054%2053.3%2092.9h102.4c8.4-39%2032-70.5%2053.3-92.9m34.8%2033C307.7%20349%20288%20379.4%20288%20413.7V432c0%2044.2-35.8%2080-80%2080h-32c-44.2%200-80-35.8-80-80v-18.3c0-34.3-19.7-64.7-43.3-89.6C20%20289.7%200%20243.2%200%20192%200%2086%2086%200%20192%200s192%2086%20192%20192c0%2051.2-20%2097.7-52.7%20132.1M144%20184c0%2013.3-10.7%2024-24%2024s-24-10.7-24-24c0-48.6%2039.4-88%2088-88%2013.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024c-22.1%200-40%2017.9-40%2040%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/neoteroi-mkdocs.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+  
+      
+
+    
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", function(ev) {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
+    
+
+  
+  
+  
+    
+  
+
+  
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMI training materials - Using Lustre" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20260422/203-Lustre/" />
+  <meta property="og:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="568" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@LUMIhpc" />
+  <meta name="twitter:creator" content="@LUMIhpc" />
+  <meta name="twitter:title" content="LUMI training materials - Using Lustre" />
+  <meta name="twitter:description" content="None" />
+  <meta name="twitter:image" content="https://lumi-supercomputer.github.io/LUMI-training-materials/assets/images/banner.png" />
+
+  <style>
+    [data-md-color-primary="lumi"] {
+      --md-primary-fg-color: hsla(0, 0%, 100%, 1);
+      --md-primary-fg-color--light: hsla(0, 0%, 100%, 0.7);
+      --md-primary-fg-color--dark: hsla(0, 0%, 0%, 0.07);
+      --md-primary-bg-color: hsla(0, 0%, 0%, 0.87);
+      --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+      --md-button-bg-color: hsla(207,100%,28%, 1);
+      --md-button-bg-color--light: hsla(207,100%,38%, 1);
+      --md-typeset-a-color: hsla(207,100%,28%, 1);
+    }
+    
+    [data-md-color-accent="lumi"] {
+      --md-accent-fg-color: hsla(0,0%,0%, 1);
+      --md-accent-fg-color--transparent: hsla(0,0%,0%, 0.1);
+      --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+      --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    }
+  </style>
+
+  
+
+
+  
+  
+
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/extra-50959fdd9a.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/overrides-5193e6f6df.css"
+    />
+    <link
+      rel="stylesheet"
+      id="typekit-fonts-css"
+      href="https://use.typekit.net/nlo5lta.css?ver=5.5.3"
+      type="text/css" media="all"
+    />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lumi" data-md-color-accent="lumi">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-lustre" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LUMI training materials" class="md-header__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LUMI training materials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Lustre
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LUMI training materials" class="md-nav__button md-logo" aria-label="LUMI training materials" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 723 212" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Layer-2" serif:id="Layer 2">
+        <g transform="matrix(1,0,0,1,0,175.883)">
+            <path d="M0,-140.304L0,0L102.89,0L102.89,-24.599L26.658,-24.599L26.658,-140.304L0,-140.304Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,257.262,35.5793)">
+            <path d="M0,140.304C-17.585,140.304 -32.083,135.347 -43.588,125.338C-55,115.423 -60.799,103.357 -60.799,89.14L-60.799,0L-34.328,0L-34.328,81.563C-34.328,92.413 -31.054,100.645 -24.319,105.976C-17.866,111.12 -9.728,113.74 0,113.74C9.728,113.74 17.865,111.12 24.319,105.976C31.054,100.645 34.328,92.413 34.328,81.563L34.328,0L60.799,0L60.799,89.14C60.799,103.357 55.093,115.329 43.588,125.338C32.083,135.347 17.585,140.304 0,140.304" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,550.374,119.668)">
+            <path d="M0,-27.874L-43.588,20.671L-87.176,-27.874L-87.176,56.215L-113.74,56.215L-113.74,-84.089L-105.695,-84.089L-43.588,-13.47L18.614,-84.089L26.658,-84.089L26.658,56.215L0.094,56.215L0,-27.874Z" style="fill:rgb(29,29,27);fill-rule:nonzero;"/>
+        </g>
+        <rect x="695.604" y="35.486" width="26.658" height="140.397" style="fill:rgb(29,29,27);"/>
+        <g transform="matrix(-1,0,0,1,722.262,-203.194)">
+            <rect x="0" y="203.194" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+        <g transform="matrix(-1,0,0,1,722.262,203.194)">
+            <rect x="0" y="0" width="722.262" height="8.175" style="fill:rgb(29,29,27);"/>
+        </g>
+    </g>
+</svg>
+
+    </a>
+    LUMI training materials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Updates
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202601/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    January 2026
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202601/202601_FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202601/202601_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202409/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August-September 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    August-September 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202409/202409_FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202409/202409_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202311/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October-November 2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202308/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    August 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-lownoise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Low-noise mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/lumig-devg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dev-g and eap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../User-Updates/Update-202308/responsible-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Coffee-Breaks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Coffee Breaks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Coffee Breaks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supercomputing with LUMI April 2026
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supercomputing with LUMI April 2026
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../smartsim-20260331/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Smartsim March 2026
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Smartsim March 2026
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartsim-20260331/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../paow-20251022/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Analysis & Optimization October 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance Analysis & Optimization October 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20251022/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20251022/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20251020/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supercomputing with LUMI October 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supercomputing with LUMI October 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20251020/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20251020/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20251008/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workshop October 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI workshop October 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20251008/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20251008/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-LUST-20250604/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild June 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EasyBuild June 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20250602/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supercomputing with LUMI June 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supercomputing with LUMI June 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20250602/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20250602/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20250527/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workshop May 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI workshop May 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250527/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250527/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20250512/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackathon May 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hackathon May 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20250507/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiling May 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Profiling May 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2p3day-20250303/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI intensive March 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14" id="__nav_14_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LUMI intensive March 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2p3day-20250303/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2p3day-20250303/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partner courses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partner courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://zenodo.org/records/10610643" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GROMACS workshop 2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20250204/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workshop February 2025
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_1" id="__nav_16_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI workshop February 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250204/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20250204/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20241210/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supercomputing with LUMI December 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_2" id="__nav_16_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supercomputing with LUMI December 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20241210/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20241210/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20241126/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workshop November 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_3" id="__nav_16_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI workshop November 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20241126/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20241126/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20241028/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced LUMI October 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_4" id="__nav_16_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced LUMI October 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20241028/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20241028/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20241014/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackathon October 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hackathon October 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20241009/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiling October 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Profiling October 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../paow-20240611/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Analysis & Optimization June 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_7" id="__nav_16_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Performance Analysis & Optimization June 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20240611/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../paow-20240611/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2day-20240502/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supercomputing with LUMI May 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_8" id="__nav_16_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supercomputing with LUMI May 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20240502/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2day-20240502/index.html#course-materials" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai-20240529/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workshop May 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_9" id="__nav_16_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI workshop May 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-20240529/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20240423/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comprehensive LUMI April 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_10" id="__nav_16_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Comprehensive LUMI April 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4day-20240423/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20240208/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1-day February 2024
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_11" id="__nav_16_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1-day February 2024
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_01_LUMI_Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_02_HPE_Cray_Programming_Environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPE Cray PE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_03_Modules_on_LUMI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_04_LUMI_Software_Stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/05_Exercises_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_06_Running_Jobs_on_LUMI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/07_Exercises_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_08_Introduction_to_Lustre_and_Best_Practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O and file systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/video_09_LUMI_User_Support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20240208/A01_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20231122/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiling November 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Profiling November 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20231003/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comprehensive LUMI October 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Comprehensive LUMI October 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230921/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1-day September 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_14" id="__nav_16_14_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1-day September 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/01_Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/02_CPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPE Cray PE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/03_Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/04_Software_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/05_Exercises_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/06_Running_jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/07_Exercises_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O and file systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/09_LUMI_support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230921/A01_Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230530/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comprehensive LUMI May-June 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Comprehensive LUMI May-June 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_16" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../1day-20230509/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1-day May 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_16" id="__nav_16_16_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1-day May 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/01_Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/02_CPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPE Cray PE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/03_Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/04_Software_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/05_Exercises_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/06_Running_jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/07_Exercises_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/08_Lustre_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O and file systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1day-20230509/09_LUMI_support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_17" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hackathon-20230417/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackathon April 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hackathon April 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_18" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Profiling-20230413/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiling April 2013
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Profiling April 2013
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_19" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4day-20230214/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comprehensive LUMI February 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Comprehensive LUMI February 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_20" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20230111/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI-G January 2023
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LUMI-G January 2023
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_21" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20221123/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PEAP-Q November 2022
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_21" id="__nav_16_21_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_21">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PEAP-Q November 2022
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20221123/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_22" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../LUMI-G-20220823/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI-G August 2022
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_22" id="__nav_16_22_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LUMI-G August 2022
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LUMI-G-20220823/hackmd_notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hackmd notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_23" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../EasyBuild-CSC-20220509/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EasyBuild May 2022
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_23" id="__nav_16_23_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_23">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EasyBuild May 2022
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16_24" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../PEAP-Q-20220427/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PEAP-Q April 2022
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_16_24" id="__nav_16_24_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_16_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16_24">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PEAP-Q April 2022
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/hackmd_notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hackmd notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PEAP-Q-20220427/software_stacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LUMI Software Stacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-systems-on-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File systems on LUMI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lustre-building-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lustre building blocks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#striping-large-files-are-spread-across-osts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Striping: Large files are spread across OSTs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallelism-is-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallelism is key!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-determine-the-striping-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to determine the striping values?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-the-striping-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing the striping parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The metadata servers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lustre-on-lumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lustre on LUMI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="using-lustre">Using Lustre<a class="headerlink" href="#using-lustre" title="Permanent link">&para;</a></h1>
+<h2 id="file-systems-on-lumi">File systems on LUMI<a class="headerlink" href="#file-systems-on-lumi" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="File systems on LUMI" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/FileSystemLumi.png" /></p>
+</figure>
+<p>Supercomputing since the second half of the 1980s, has almost always been about 
+trying to build a very fast system from relatively cheap volume components
+or technologies (as low as you
+can go without loosing too much reliability), and very cleverly written software
+both at the system level (to make the system look like a true single system as
+much as possible) and at the application level (to deal with the restrictions that
+inevitably come with such a setup).</p>
+<p>The Lustre parallel file system that we use on LUMI (and that is its main file system serving
+user files) fits in that way of thinking.
+A large file system is built by linking many fairly regular file servers
+through a fast network to the compute resources to build a single system
+with a lot of storage capacity and a lot of bandwidth.
+It has its restrictions also though: 
+not all types of IOPs (number of I/O operations per second)
+scale as well or as easily as bandwidth and capacity so this comes with
+usage restrictions on large clusters that may a lot more severe than you are used
+to from small systems. And yes, it is completely normal that some file operations are
+slower than on the SSD of a good PC.</p>
+<p>Lustre is the main filesystem on many large supercomputers and on all Cray EX systems.</p>
+<p>HPE Cray EX systems go even one step further than many other systems. 
+On HPE Cray EX systems, Lustre is the only network file system directly served to the compute nodes.
+Other network file system come via a piece of software called Data
+Virtualisation Service (abbreviated DVS) that basically forwards I/O requests
+to servers in the management section of the cluster where the actual file
+system runs. 
+This is part of the measures that Cray takes in Cray Operating System to
+minimise OS jitter on the compute nodes to improve scalability of applications,
+and to reduce the memory footprint of the OS on the compute nodes.</p>
+<h2 id="lustre-building-blocks">Lustre building blocks<a class="headerlink" href="#lustre-building-blocks" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Lustre building blocks" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreBuildingBlocks1_1_separation.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Lustre building blocks (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreBuildingBlocks2.png" /></p>
+</figure>
+<p>A key element of Lustre - but also of other parallel file systems for large parallel
+computers such as BeeGFS, Spectrum Scale (formerly GPFS) or PanFS - is the separation of
+metadata and the actual file data, as the way both are accessed and used is very different.</p>
+<p>A Lustre system consists of the following blocks:</p>
+<ol>
+<li>
+<p><strong>Metadata servers (MDSes)</strong></p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreBuildingBlocks1_2_MDS.png" />
+</figure></p>
+<p><strong>Metadata servers (MDSes)</strong> with one or more <strong>metadata targets (MDTs)</strong> each store
+namespace metadata such as filenames, directories and access permissions, and the
+file layout.</p>
+<p>Each MDT is a filesystem, usually with some level of RAID or similar technologies
+for increased reliability. Usually there is also more than one MDS and they are put
+in a high availability setup for increased availability (and this is the case in 
+LUMI).</p>
+<p>Metadata is accessed in small bits and it does not need much capacity. However, 
+metadata accesses are hard to parallelise so it makes sense to go for the fastest
+storage possible even if that storage is very expensive per terabyte. On LUMI all
+metadata servers use SSDs.</p>
+</li>
+<li>
+<p><strong>Object storage servers (OSSes)</strong></p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreBuildingBlocks1_3_OSS.png" />
+</figure></p>
+<p><strong>Object storage servers (OSSes)</strong> with one or more <strong>object storage targets (OSTs)</strong> each
+store the actual data. Data from a single file can be distributed across multiple
+OSTs and even multiple OSSes. As we shall see, this is also the key to getting very
+high bandwidth access to the data.</p>
+<p>Each OST is a filesystem, again usually with some level of RAID or similar technologies
+to survive disk failures. One OSS typically has between 1 and 8 OSTs, and in a big setup
+a high availability setup will be used again (as is the case in LUMI).</p>
+<p>The total capacity of a Lustre file system is the sum of the capacity of all OSTs in the 
+Lustre file system. Lustre file systems are often many petabytes large.</p>
+<p>Now you may think differently based upon prices that you see in the PC market for hard drives
+and SSDs, but SSDs of data centre quality are still up to 10 times as expensive as 
+hard drives of data centre quality. Building a file system of several tens of petabytes
+out of SSDs is still extremely expensive and rarely done, certainly in an environment 
+with a high write pressure on the file system, as that requires the highest quality SSDs.
+Hence it is not uncommon that supercomputers will use mostly hard drives for their large
+storage systems.</p>
+<p>On LUMI there is roughly 80 PB spread across 4 large hard disk based Lustre file systems, and
+8.5 PB in an SSD-based Lustre file system. However, all MDSes use SSD storage.</p>
+</li>
+<li>
+<p><strong>Lustre clients</strong></p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreBuildingBlocks1_4_client.png" />
+</figure></p>
+<p><strong>Lustre clients</strong> access and use the data. They make the whole Lustre file system look like
+a single file system.</p>
+<p>Lustre is <strong>transparent in functionality</strong>. You can use a Lustre file system just as any 
+other regular file system, with all your regular applications. However, it is <strong>not
+transparent when it comes to performance</strong>: How you use Lustre can have a huge impact on 
+performance. Lustre is optimised very much for high bandwidth access to large chunks of
+data at a time from multiple nodes in the application simultaneously, and is not very good 
+at handling access to a large pool of small files instead. </p>
+<p>So you have to store your data (but also your applications as the are a kind of data also)
+in an appropriate way, in fewer but larger files instead of more smaller files. 
+Some centres with large supercomputers will advise you to containerise software for optimal
+performance. On LUMI we do advise Python users or users who install software through Conda
+to do so. </p>
+</li>
+<li>
+<p><strong>High-performance interconnect</strong></p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Lustre building blocks -oss" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreBuildingBlocks1_5_network.png" />
+</figure></p>
+<p>All these components are linked together through a <strong>high performance interconnect</strong>. On HPE Cray EX
+systems - but on more an more other systems also - there is no separate network anymore for 
+storage access and the same high performance interconnect that is also used for internode
+communication by applications (through, e.g., MPI) is used for that purpose.</p>
+</li>
+<li>
+<p>There is also a <strong>management server</strong> which is not mentioned on the slides, but that component
+    is not essential to understand the behaviour of Lustre for the purpose of this lecture.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Links</p>
+<p>See also the <a href="https://wiki.lustre.org/Understanding_Lustre_Internals#Lustre_Components">"Lustre Components" in "Understanding Lustre Internals" on the Lustre Wiki</a></p>
+</div>
+<h2 id="striping-large-files-are-spread-across-osts">Striping: Large files are spread across OSTs<a class="headerlink" href="#striping-large-files-are-spread-across-osts" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Large files are spread across OSTs" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreFileStriping.png" /></p>
+</figure>
+<!--
+<figure markdown>
+  ![Figure striping](../img/203-Lustre_chunks_of_File.svg)
+   <caption>Striping a file across 4 (non-consecutive) OSTs</caption>
+</figure>
+-->
+
+<p>On Lustre, large files are typically broken into blocks called <strong>stripes</strong> or <strong>chunks</strong> that are then
+cyclically spread across a number of chunk files called <strong>objects</strong> in LUSTRE, each on
+a separate OST. 
+In the figure in the slide above, the file is spread across the OSTs 0, 2, 4 and 6.</p>
+<p>This process is completely transparent to the user with respect to correctness. The Lustre client
+takes care of the process and presents a traditional file to the application program.
+It is however not transparent with respect to performance. The performance of reading and
+writing a file depends a lot on how the file is spread across the OSTs of a file system.</p>
+<p>Basically, there are two parameters that have to be chosen: The <strong>size of the stripes</strong> (all stripes have
+the same size in this example, except for the last one which may be smaller) and the <strong>number of OSTs</strong> 
+that should be used for a file. Lustre itself takes care of choosing the OSTs in general.</p>
+<p>There are variants of Lustre where one has multiple layouts per file which can come in handy if one 
+doesn't know the size of the file in advance. The first part of the file will then typically be written
+with fewer OSTs and/or smaller chunks, but this is outside the scope of this course.
+The feature is known as <em>Progressive File Layout</em>.</p>
+<p>The stripe size and number of OSTs used can be chosen on a file-by-file basis. The default on LUMI
+is to use only one OST for a file. This is done because that is the most reasonable choice for the many
+small files that many unsuspecting users have, and as we shall see, it is sometimes even the best choice
+for users working with large files. But it is not always the best choice.
+And unfortunately there is no single set of parameters that is good for all users.</p>
+<div class="admonition note">
+<p class="admonition-title">Objects</p>
+<p>The term "object" nowadays has different meanings, even in the storage world.
+The Object Storage Servers in Lustre should not be confused with the object
+storage used in cloud solutions such as Amazon Web Services (AWS)
+with the S3 storage service or the LUMI-O object storage. 
+In fact, the Object Storage Servers use a regular file system such as
+ZFS or ldiskfs to store the "objects".</p>
+</div>
+<h2 id="accessing-a-file">Accessing a file<a class="headerlink" href="#accessing-a-file" title="Permanent link">&para;</a></h2>
+<p>Let's now study how Lustre will access a file for reading or writing. Let's assume that the
+second client in the above picture wants to write something to the file.</p>
+<ol>
+<li>
+<p>The first step is opening the file. </p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Accessing: Query MDS" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreFileAccess_1_queryMDS.png" />
+</figure></p>
+<p>For that, the Lustre client has to talk to the metadata server (MDS) and query some information
+about the file.</p>
+</li>
+<li>
+<p>MDS answers:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Accessing: Return MDS" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreFileAccess_2_returnMDS.png" />
+</figure></p>
+<p>The MDS in turn will return information about the file, including the layout of the file: chunksize
+and the OSSes/OSTs that keep the chunks of the file.</p>
+</li>
+<li>
+<p>Data access:</p>
+<p><figure markdown style="border: 1px solid #000">
+  <img alt="Accessing: Write to OSS" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreFileAccess_3_writeOSS.png" />
+</figure></p>
+<p>From that point on, the client doesn't need to talk to the MDS anymore and can talk directly to 
+the OSSes to write data to the OSTs or read data from the OSTs.</p>
+</li>
+</ol>
+<h2 id="parallelism-is-key">Parallelism is key!<a class="headerlink" href="#parallelism-is-key" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Parallelism is key! (slide 1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreParallelismKey_1.png" /></p>
+</figure>
+<p>The metadata servers can be the bottleneck in a Lustre setup. 
+It is not easy to spread metadata across multiple MDSes efficiently.
+Moreover, the amount of metadata for any given file is small, so any metadata
+operation will translate into small disk accesses on the MDTs and hence not 
+fully exploit the speed that some RAID setups can give you.</p>
+<p>However, when reading and writing data, there are up to four levels of parallelism:</p>
+<ol>
+<li>
+<p>The read and write operations can engage multiple OSSes.</p>
+</li>
+<li>
+<p>Since a single modern OSS can handle more bandwidth than a some OSTs can
+    deliver, OSSes may have multiple OSTs.</p>
+<p><em>How many OSTs are engaged is something that a user has control over.</em></p>
+</li>
+<li>
+<p>An OST will contain many disks or SSDs, typically with some kind of RAID, but hence
+    each read or write operation to an OST can engage multiple disks.</p>
+<p><em>An OST will only be used optimally when doing large enough file accesses. But the 
+file system client may help you here with caching.</em></p>
+</li>
+<li>
+<p>Internally, SSDs are also parallel devices. The high bandwidth of modern high-end SSDs
+    is the result of engaging multiple channels to the actual storage "chips" internally.</p>
+</li>
+</ol>
+<p>So to fully benefit from a Lustre file system, it is best to work with relatively few
+files (to not overload the MDS) but very large disk accesses.
+Very small I/O operations wouldn't even benefit from the RAID acceleration, and this is
+especially true for very small files as they cannot even benefit from caching provided
+by the file system client (otherwise a file system client may read in more data than requested,
+as file access is often sequential anyway so it would be prepared for the next access).
+To make efficient use of the OSTs it is important to have a relatively large chunk size
+and relatively large I/O operations, even more so for hard disk based file systems as
+if the OST file system manages to organise the data well on disk, it is a good way to
+reduce the impact on effective bandwidth of the inherent latency of disk access.
+And to engage multiple OSTs simultaneously (and thus reach a bandwidth which is much 
+higher than a single OST can provide), even larger disk accesses will be needed so that
+multiple chunks are read or written simultaneously. Usually you will have to do the I/O
+in a distributed memory application from multiple nodes simultaneously as otherwise the
+bandwidth to the interconnect and processing capacity of the client software 
+of a single node might become the limiting factor.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Parallelism is key! (slide 2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreParallelismKey_2.png" /></p>
+</figure>
+<p>Not all codes are using Lustre optimally though, even with the best care of their users.</p>
+<ul>
+<li>
+<p>😀 Some codes use files in scientific data formats like HDF5 and netCDF, and when written
+    properly they can have very scalable performance.</p>
+<p>A good code will write data to large files, from multiple nodes simultaneously, but 
+will avoid doing I/O from too many ranks simultaneously to avoid bombarding the OSSes/OSTs
+with I/O requests. But that is a topic for a more advanced course...</p>
+<p>One user has reported reading data from the hard disk based parallel file systems at
+about 25% of the maximal bandwidth, which is very good given that other users where also
+using that file system at the same time and not always in an optimal way.</p>
+<p>Surprisingly many of these codes may be rather old. But their authors grew up with
+noisy floppy drives (do you still know what that is) and slow hard drives so learned
+how to program efficiently.</p>
+</li>
+<li>
+<p>😭 But some codes open one or more files per MPI rank. Those codes may have difficulties
+    scaling to a large number of ranks, as they will put a heavy burden on the MDS when those
+    files are created, but also may bombard each OSS/OST with too many I/O requests.</p>
+<p>Some of these codes are rather old also, but were never designed to scale to thousands
+of MPI ranks. However, nowadays some users are trying to solve such big problems that 
+the computations do scale reasonably well. But the I/O of those codes becomes a problem...</p>
+</li>
+<li>
+<p>😭😭 But some users simply abuse the file system as an unstructured database and simply drop
+    their data as tens of thousands or even millions of small files with each one data element,
+    rather than structuring that data in suitable file formats. This is especially common in
+    science fields that became popular relatively recently - bio-informatics and AI - as those
+    users typically started their work on modern PCs with fast SSDs. </p>
+<p>The problem there is that metadata access and small I/O operations don't scale well to large
+systems. Even copying such a data set to a local SSD would be a problem should a compute node
+have a local SSD, but local SSDs suitable for supercomputers are also very expensive as they 
+have to deal with lots of write operations. Your gene data or training data set may be relatively
+static, but on a supercomputer you cannot keep the same node for weeks so you'd need to rewrite 
+your data to local disks very often. And there are shared file systems with better small file
+performance than Lustre, but those that scale to the size of even a fraction of Lustre, are
+also very expensive. And remember that supercomputing works exactly the opposite way: Try to
+reduce costs by using relatively cheap hardware but cleverly written software at all levels
+(system and application) as at a very large scale, this is ultimately cheaper than investing
+more in hardware and less in software. </p>
+</li>
+</ul>
+<p>Lustre was originally designed to achieve very high bandwidth to/from a small number of files,
+and that is in fact a good match for well organised scientific data sets and/or checkpoint data,
+but was not designed to handle large numbers of small files. Nowadays of course optimisations to 
+deal better with small files are being made, but they may come at a high hardware cost.</p>
+<h2 id="how-to-determine-the-striping-values">How to determine the striping values?<a class="headerlink" href="#how-to-determine-the-striping-values" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="How to determine the striping values?" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreDetermineParameters.png" /></p>
+</figure>
+<p>If you only access relatively small files (up to a few hundreds of kilobytes) and access them 
+sequentially, then you are out of luck. 😭😭😭 There is not much you can do. Engaging multiple OSTs 
+for a single file is not useful at all in this case, and you will also have no parallelism from
+accessing multiple files that may be stored on different OSTs. The metadata operations may also
+be rather expensive compared to the cost of reading the file once opened.</p>
+<p>As a rule of thumb, if you access a lot of data with a data access pattern that can exploit
+parallelism, try to use all OSTs of the Lustre file system without unnecessary overloading them:</p>
+<ul>
+<li>
+<p>If the number of files that will be accessed simultaneously is larger than the number of
+    OSTs, it is best to not spread a single file across OSTs and hence use a <em>stripe count</em> of 1.</p>
+<p>It will also reduce Lustre contention and OST file locking and as such gain performance
+for everybody.</p>
+</li>
+<li>
+<p>At the opposite end, if you access only one very large file and use large or parallel disk
+    accesses, set the stripe count to the number of OSTs (or a smaller number if you notice in
+    benchmarking that the I/O performance plateaus). On a system the size of LUMI with storage
+    as powerful as on LUMI, this will only work if you have more than on I/O client. </p>
+</li>
+<li>
+<p>When using multiple similar sized files simultaneously but less files than there are OSTs,
+    you should probably chose the stripe count such that the product of the number of files
+    and the stripe count is approximately the number of OSTs. E.g., with 32 OSTs and 8 files,
+    set the stripe count to 4.</p>
+</li>
+</ul>
+<p>It is better not to force the system to use specific OSTs but to let it chose OSTs at random.</p>
+<p>The typical <em>stripe size</em>  (size of the chunks) to use can be a bit harder to determine.
+Typically this will be 1MB or more, and it can be up to 4 GB, but that only makes sense
+for very large files. The ideal stripe size will also depend on the characteristics of
+the I/O in the file. If the application never writes more than 1 GB of data in a single 
+sequential or parallel I/O operation before continuing with more computations, obviously
+with a stripe size of 1 GB you'd be engaging only a single OST for each write operation.</p>
+<h2 id="managing-the-striping-parameters">Managing the striping parameters<a class="headerlink" href="#managing-the-striping-parameters" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Managing the striping parameters (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreManageStriping1.png" /></p>
+</figure>
+<p>The basic Lustre command for regular users to do special operations on Lustre is the
+<code>lfs</code> command, which has various subcommands.</p>
+<p>The first interesting subcommand is <code>df</code> which has a similar purpose as the regular
+Linux <code>df</code> command: Return information about the filesystem. In particular,</p>
+<div class="highlight"><pre><span></span><code>lfs df -h
+</code></pre></div>
+<p>will return information about all available Lustre filesystems. The <code>-h</code> flag tells the
+command to use "human-readable" number formats: return sizes in gigabytes and terabytes
+rather than blocks. On LUMI, the output starts with:</p>
+<div class="highlight"><pre><span></span><code>$ lfs df -h
+UUID                       bytes        Used   Available Use% Mounted on
+lustref1-MDT0000_UUID       11.8T       16.8G       11.6T   1% /pfs/lustref1[MDT:0]
+lustref1-MDT0001_UUID       11.8T        4.1G       11.6T   1% /pfs/lustref1[MDT:1]
+lustref1-MDT0002_UUID       11.8T        2.8G       11.7T   1% /pfs/lustref1[MDT:2]
+lustref1-MDT0003_UUID       11.8T        2.7G       11.7T   1% /pfs/lustref1[MDT:3]
+lustref1-OST0000_UUID      121.3T       21.5T       98.5T  18% /pfs/lustref1[OST:0]
+lustref1-OST0001_UUID      121.3T       21.6T       98.4T  18% /pfs/lustref1[OST:1]
+lustref1-OST0002_UUID      121.3T       21.4T       98.6T  18% /pfs/lustref1[OST:2]
+lustref1-OST0003_UUID      121.3T       21.4T       98.6T  18% /pfs/lustref1[OST:3]
+</code></pre></div>
+<p>so the command can also be used to see the number of MDTs and OSTs available in each
+filesystem, with the capacity.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Managing the striping parameters (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreManageStriping2_0_full.png" /></p>
+</figure>
+<p>Striping in Lustre is set at a filesystem level by the sysadmins, but users can
+adjust the settings at the directory level (which then sets the default for files
+created in that directory) and file level. Once a file is created, the striping
+configuration cannot be changed anymore on-the-fly. </p>
+<p>To inspect the striping configuration, one can use the <code>getstripe</code> subcommand of <code>lfs</code>.</p>
+<p>Let us first use it at the directory level:</p>
+<div class="highlight"><pre><span></span><code>$ lfs getstripe -d /appl/lumi/SW
+stripe_count:  1 stripe_size:   1048576 pattern:       0 stripe_offset: -1
+
+$ lfs getstripe -d --raw /appl/lumi/SW
+stripe_count:  0 stripe_size:   0 pattern:       0 stripe_offset: -1
+</code></pre></div>
+<p>The <code>-d</code> flag tells that we only want information about the directory itself and not about
+everything in that directory. The first <code>lfs getstripe</code> command tells us that files 
+created in this directory will use only a single OST and have a stripe size of 1 MiB. 
+By adding the <code>--raw</code> we actually see the settings that have been made specifically
+for this directory. The <code>0</code> for <code>stripe_count</code> and <code>stripe_size</code> means that the default
+value is being used, and the <code>stripe_offset</code> of <code>-1</code> also indicates the default value.</p>
+<p>We can also use <code>lfs getstripe</code> for individual files:</p>
+<div class="highlight"><pre><span></span><code>$ lfs getstripe /appl/lumi/LUMI-SoftwareStack/etc/motd.txt
+/appl/lumi/LUMI-SoftwareStack/etc/motd.txt
+lmm_stripe_count:  1
+lmm_stripe_size:   1048576
+lmm_pattern:       raid0
+lmm_layout_gen:    0
+lmm_stripe_offset: 10
+        obdidx           objid           objid           group
+            10        56614379      0x35fddeb                0
+</code></pre></div>
+<p>Now <code>lfs getstripe</code> does not only return the stripe size and number of OSTs used,
+but it will also show the OSTs that are actually used (in the column <code>obdidx</code> of
+the output). The <code>lmm_stripe_offset</code> is also the number of the OST with the first
+object of the file.</p>
+<figure style="border: 1px solid #000">
+<p><img alt="Managing the striping parameters (3)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreManageStriping3.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="Managing the striping parameters (4)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreManageStriping4.png" /></p>
+</figure>
+<p>The final subcommand that we will discuss is the <code>setstripe</code> subcommand to set the striping policy
+for a file or directory.</p>
+<p>Let us first look at setting a striping policy at the directory level:</p>
+<div class="highlight"><pre><span></span><code>$ module use /appl/local/training/modules/2day-20240502
+$ module load lumi-training-tools
+$ mkdir testdir
+$ lfs setstripe -S 2m -c 4 testdir
+$ cd testdir
+$ mkfile 2g testfile1
+$ lfs getstripe testfile1
+testfile1
+lmm_stripe_count:  4
+lmm_stripe_size:   2097152
+lmm_pattern:       raid0
+lmm_layout_gen:    0
+lmm_stripe_offset: 28
+        obdidx           objid           objid           group
+            28        66250987      0x3f2e8eb                0
+            30        66282908      0x3f3659c                0
+             1        71789920      0x4476d60                0
+             5        71781120      0x4474b00                0
+</code></pre></div>
+<p>The <code>lumi-training-tools</code> module provides the <code>mkfile</code> command that we use in
+this example.</p>
+<p>We first create a directory and then set the striping parameters to a stripe size
+of 2 MiB (the <code>-S</code> flag) and a so-called stripe count, the number of OSTs used for 
+the file, of 4 (the <code>-c</code> flag).</p>
+<p>Next we go into the subdirectory and use the <code>mkfile</code> command to generate a file of 
+2 GiB. </p>
+<p>When we now check the file layout of the file that we just created with <code>lfs getstripe</code>,
+we see that the file now indeed uses 4 OSTs with a stripe size of 2 MiB, and has object on
+in this case OSTs 28, 30, 1 and 5. </p>
+<p>However, we can even control striping at the level of an individual file. The
+condition is that the layout of the file is set as soon as it is created.
+We can do this also with <code>lfs setstripe</code>:</p>
+<div class="highlight"><pre><span></span><code>$ lfs setstripe -S 16m -c 2 testfile2
+$ ls -lh
+total 0
+-rw-rw---- 1 XXXXXXXX project_462000000 2.0G Jan 15 16:17 testfile1
+-rw-rw---- 1 XXXXXXXX project_462000000    0 Jan 15 16:23 testfile2
+$ lfs getstripe testfile2
+testfile2
+lmm_stripe_count:  2
+lmm_stripe_size:   16777216
+lmm_pattern:       raid0
+lmm_layout_gen:    0
+lmm_stripe_offset: 10
+        obdidx           objid           objid           group
+            10        71752411      0x446dadb                0
+            14        71812909      0x447c72d                0
+</code></pre></div>
+<p>In this example, the <code>lfs setstripe</code> command will create an empty file but with
+the required layout. In this case we have set the stripe size to 16 MiB and use
+only 2 OSTs, and the <code>lfs getstripe</code> command confirms that information.
+We can now open the file to write data into it with the regular file
+operations of the Linux glibc library or your favourite programming language
+(though of course you need to take into account that the file already exists
+so you should use routines that do not return an error if the file already
+exists).</p>
+<div class="admonition note">
+<p class="admonition-title">Lustre API</p>
+<p>Lustre also offers a C API to directly set file layout properties, etc., from
+your package. Few scientific packages seem to support it though.</p>
+</div>
+<h2 id="the-metadata-servers">The metadata servers<a class="headerlink" href="#the-metadata-servers" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="The metadata servers (1)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreMDS_1.png" /></p>
+</figure>
+<figure style="border: 1px solid #000">
+<p><img alt="The metadata servers (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LustreMDS_2.png" /></p>
+</figure>
+<p>Parallelising metadata access is very difficult. Even large Lustre filesystems have very
+few metadata servers. They are a finite and shared resource, and overloading the metadata
+server slows down the file system for all users.</p>
+<p>The metadata servers are involved in many operations. The play a role in creating, opening and
+also closing files. The provide some of the attributes of a file. And they also play a role in
+file locking.</p>
+<p>Yet the metadata servers have a very finite capacity. The Lustre documentation claims that in
+theory a single metadata server should be capable of up to 200,000 operations per second, depending
+on the type of request. However, 75,000 operations per second may be more realistic.</p>
+<p>As a user, many operations that you think are harmless from using your PC, are in fact expensive
+operations on a supercomputer with a large parallel file system and you will find "Lustre best
+practices" pages on web sites of many large supercomputer centres. Some tips for regular users:</p>
+<ul>
+<li>
+<p>Any command that requests attributes is fairly expensive and should not be used 
+    in large directories. This holds even for something as trivial as <code>ls -l</code>. 
+    But it is even more so for commands as <code>du</code> that run recursively through attributes
+    of lots of files.</p>
+</li>
+<li>
+<p>Opening a file is also rather expensive as it involves a metadata server and one or more
+    object servers. It is not a good idea to frequently open and close the same file while 
+    processing data. </p>
+</li>
+<li>
+<p>Therefore access to many small files from many processes is not a good idea. One example of this
+    is using Python, and even more so if you do distributed memory parallel computing with Python.
+    This is why on LUMI we ask to do big Python installations in containers. Another alternative is
+    to run such programs from <code>/tmp</code> (and get them on <code>/tmp</code> from an archive file).</p>
+<p>For data, it is not a good idea to dump a big dataset as lots of small files on the filesystem.
+Data should be properly organised, preferably using file formats that support parallel access
+from many processes simultaneously. Technologies popular in supercomputing are 
+<a href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a>,
+<a href="https://www.unidata.ucar.edu/software/netcdf/">netCDF</a> and
+<a href="https://adios2.readthedocs.io/">ADIOS2</a>.
+Sometimes libraries that read tar-files or other archive file formats without first 
+fully uncompressing, may even be enough for read-only data. 
+Or if your software runs in a container,
+you may be able to put your read-only dataset into a 
+<a href="https://tldp.org/HOWTO/SquashFS-HOWTO/index.html">SquashFS file</a> and mount into a container.</p>
+</li>
+<li>
+<p>Likewise, shuffling data in a distributed memory program should not be done via the 
+    filesystem (put data on a shared filesystem and then read it again in a different
+    order) but by direct communication between the processes over the interconnect.</p>
+</li>
+<li>
+<p>It is also obvious that directories with thousands of files should be avoided as even an 
+    <code>ls -l</code> command on that directory generates a high load on the metadata servers. But the same
+    holds for commands such as <code>du</code> or <code>find</code>.</p>
+<p>Note that the <code>lfs</code> command also has a subcommand <code>find</code> (see <code>man lfs-find</code>), but it cannot do
+everything that the regular Linux <code>find</code> command can do. E.g., the <code>--exec</code> functionality is
+missing. But to simply list files it will put less strain on the filesystem as running the 
+regular Linux <code>find</code> command.</p>
+</li>
+</ul>
+<p>There are many more tips more specifically for programmers. As good use of the filesystems on a
+supercomputer is important and wrong use has consequences for all other users, it is an important
+topic in the <a href="https://lumi-supercomputer.github.io/comprehensive-latest">4-day comprehensive LUMI course</a> or "Performance Analysis and Optimisation Workshop"
+that the LUMI User Support Team organises a few times per year, and you'll find many more tips
+about proper use of Lustre in that lecture (which is only available to actual users on LUMI
+unfortunately).</p>
+<h2 id="lustre-on-lumi">Lustre on LUMI<a class="headerlink" href="#lustre-on-lumi" title="Permanent link">&para;</a></h2>
+<figure style="border: 1px solid #000">
+<p><img alt="Lustre on LUMI" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-203-Lustre/LumiLustreOnLumi.png" /></p>
+</figure>
+<p>LUMI has 5 Lustre filesystems:</p>
+<p>The file storage sometimes denoted as LUMI-P consists of 4 disk based Lustre filesystems, each
+with a capacity of roughly 18 PB and 240 GB/s aggregated bandwidth in the optimal case (which of
+course is shared by all users, no single user will ever observe that bandwidth unless they have
+the machine for themselves). Each of the 4 systems has 2 MDTs, one per MDS (but in a high availability
+setup), and 32 OSTs spread across 16 OSSes, so 2 OSTs per OSS. All 4 systems are used to serve the
+home directories, persistent project space and regular scratch space, but also, e.g., most of the
+software pre-installed on LUMI. Some of that pre-installed software is copied on all 4 systems to 
+distribute the load.</p>
+<p>The fifth Lustre filesystem of LUMI is also known as LUMI-F, where the "F" stands for flash as it
+is entirely based on SSDs. It currently has a capacity of approximately 8.5 PB and a total of over
+2 TB/s aggregated bandwidth. The system has 4 MDTs spread across 4 MDSes, and 72 OSTs and 72 OSSes,
+os 1 OST per OSS (as a single OST already offers a lot more bandwidth and hence needs more server
+capacity than a hard disk based OST).</p>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>The <code>lfs</code> command itself is documented through a manual page that can be accessed at the
+    LUMI command line with <code>man lfs</code>. The various subcommands each come with their own man page,
+    e.g., <code>lfs-df</code>, <code>lfs-getstripe</code>, <code>lfs-setstripe</code> and <code>lfs-find</code>.</p>
+</li>
+<li>
+<p><a href="https://wiki.lustre.org/Understanding_Lustre_Internals">Understanding Lustre Internals</a>
+    on the <a href="https://wiki.lustre.org/">Lustre Wiki</a>.</p>
+</li>
+<li>
+<p><a href="https://www.nas.nasa.gov/hecc/support/kb/lustre-basics_224.html">Lustre Basics</a> and
+    <a href="https://www.nas.nasa.gov/hecc/support/kb/lustre-best-practices_226.html">Lustre Best Practices</a>
+    in the <a href="https://www.nas.nasa.gov/hecc/support/kb/">knowledge base of the NASA supercomputers</a>.</p>
+</li>
+<li>
+<p><a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00115089en_us&amp;page=Introduction_to_DVS.html">Introduction to DVS</a>
+    in an <a href="https://support.hpe.com/hpesc/public/docDisplay?docId=a00115089en_us&amp;page=index.html">administration guide</a></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+
+
+
+
+<footer class="md-footer">
+
+  
+
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      
+    <div class="md-footer-copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" 
+             style="border-width:0" 
+             src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+        />
+      </a>
+      This work is licensed under a&nbsp;
+      <a rel="license" 
+         href="http://creativecommons.org/licenses/by/4.0/"
+      >
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </div>
+
+      
+      
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCb31KOJ6Wqu0sRpIRi_k8Mw" target="_blank" rel="noopener" title="LUMI on YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/lumi-supercomputer" target="_blank" rel="noopener" title="LUMI on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/LUMIhpc" target="_blank" rel="noopener" title="LUMI on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
