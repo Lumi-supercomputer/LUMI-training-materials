@@ -8,6 +8,8 @@ Upcoming or currently running events with materials already partly available:
 
 -   [SmartSim (March 31, 2026)](smartsim-20260331/index.md), on-site in Utrecht (The Netherlands)
 
+-   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-stie in Riga and online.
+
 
 Most recently completed main training events:
 
@@ -84,7 +86,8 @@ relevant:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
-    -   [Intro to Supercomputing with LUMI (October 20-21, 2025)](2day-20251020/index.md) on-stie in Tallinn and online.
+    -   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-stie in Riga and online.
+    -   [Intro to Supercomputing with LUMI (October 20-21, 2025)](2day-20251020/index.md) on-site in Tallinn and online.
     -   [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md) on-site in Espoo and online.
     -   First two days of [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Supercomputing with LUMI (December 10-11, 2024)](2day-20241210/index.md)
