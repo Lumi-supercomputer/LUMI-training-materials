@@ -1,6 +1,6 @@
 # LUMI Architecture
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Emanuele Vitali (LUST)*
 
 Some insight in the hardware of LUMI is necessary to understand what
 LUMI can do and what it cannot do, and to understand how an application can
