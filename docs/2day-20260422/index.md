@@ -3,7 +3,10 @@
 
 ## Course organisation
 
--   Location: [Riga Technical University, Ķīpsalas Iela 6A, Riga, Latvia, LV-1048](Ķīpsalas iela 6a, Kurzemes rajons, Rīga, LV-1048, Letland).
+-   Location: [Riga Technical University, Ķīpsalas Iela 6A, Riga, Latvia, LV-1048](https://maps.app.goo.gl/nvPgcKHsG7AQNJXG7),
+    "Mush-room" (room 247), second floor of the 
+    [Faculty of Civil and Mechanical Engineering](https://www.rtu.lv/en/fcme), 
+    [Institute of Civil Engineering](https://www.rtu.lv/en/fcme/about-us-fcme/structural-units-fcme/ice)).
 
     The campus is on Kipsala island, a half hour walk from the city centre.
 
