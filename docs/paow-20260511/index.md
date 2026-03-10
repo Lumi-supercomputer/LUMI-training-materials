@@ -1,4 +1,4 @@
-# LUMI Performance Analysis and Optimization Workshop, Tallinn, 22-24 October 2025
+# LUMI Performance Analysis and Optimization Workshop, Stockholm, 11-13 May 2026
 
 **[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-profiling-and-optimization-workshop-advanced-level/)**
 
