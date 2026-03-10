@@ -81,3 +81,103 @@ More budget options:
 -   [B&B Hotels](https://www.hotel-bb.com/fr/hotel/antwerpen-centrum) is also relatively cheap during 
     less busy periods and is close to the venue and the station 
     ([location on Google Maps](https://maps.app.goo.gl/Nh5BLmwTZPnPuaGYA))
+
+
+## Food in the evening
+
+## Some restaurant suggestions
+
+Basically, check the reviews on Google Maps.
+You have to be a bit careful on the De Keyserlei close to the central station, and
+in the streets close to the cathedral and "Grote Markt". These are the main areas
+where some restaurants are pretty much tourist traps, though there are many rather good
+ones also.
+
+Some good suggestions:
+
+-   On Thursday evening and Friday if people would still be around,
+    [Refill](https://maps.app.goo.gl/e9DjqnnvM6QSGYnZ8)
+    is a fine option. Belgian-style food done well, and the owners 
+    are always there when the restaurant is open (one in the kitchen
+    and one at the bar). The do not serve larger groups though, as
+    the kitchen is very small.
+
+-   There are some suggestions below in the drinks area also.
+    [Antwerpse Brouw Compagnie Brouwerij & Taproom](https://maps.app.goo.gl/1DATY7q4SK32VGGv5)
+    is a nice place for some simple dishes and a good local beer. 
+    Food is served in the hall where the brewing also takes place, and
+    in the summer there is some seating outside.
+    [Billie's Bier Kafétaria](https://maps.app.goo.gl/jfZKMz7gxMZAEb6F7)
+    is also an option.
+
+-   [De Zeven Schaken](https://www.de7schaken.be/)
+    in the corner of the Grote Markt is a pretty decent place also. It is closed
+    on Mondays. ([Google Maps](https://maps.app.goo.gl/PCpkPZp2UMgCCpJd9))
+
+-   [Griekse Taverne](https://grieksetaverne.be/) is a Greek restaurant, a bit
+    hard to spot from the street as it is only a large door leading you to an
+    area away from the street. They also have outdoor seating in the summer. 
+    It is part of a greek community centre.
+    ([Google Maps](https://maps.app.goo.gl/J4iJ6ALEuAPoe4n4A))
+
+-   [Kunthun Tibethan restaurant](https://maps.app.goo.gl/5G3oAuiJca5QTmfN7)
+    in China Town is a relatively cheap place, but the food is good. It is a rather
+    busy place. Closed on Wednesday.
+
+-   Some other places that drew the attention of the author of this text but where
+    he has never been:
+
+    -   [Amvrosia Cousina](https://amvrosiacousina.be/),
+        another Greek place ([Google Maps](https://maps.app.goo.gl/JvCDwdahabtgkdaC6))
+
+    -   [NaNoi](https://www.nanoi.be/), a small Thai restaurant.
+        ([Google Maps](https://maps.app.goo.gl/ZCKeN8fmvHDZoyn16))
+
+    -   [Little Ethiopia](https://little-ethiopia-antwerp.be/)
+        ([Google Maps](https://maps.app.goo.gl/t8P1XmVwvbyuZesw7))
+
+    -   [Georgian House](https://georgianhouseantwerpen.be/), close to the Central Station.
+        ([Google Maps](https://maps.app.goo.gl/wRasnpKAvEA4kHdC7))
+
+
+## Drinks in the evening
+
+-   [Beerlovers Bar](https://maps.app.goo.gl/FE7F8hxcxZSKD5CPA): 
+    Tested and approved recently by the EPICURE and by a LUST activity. 
+    There is some outside seating also, but in a busy and noisy environment.
+    It is also the closes non-tourist-trap place for quality beer if you stay near the
+    central station.
+    Closed on Tuesday.
+
+-   [Dr. Beer](https://maps.app.goo.gl/EnaRfdzehD82QLvH6). It also has outside
+    seating in a quiet street.
+    There are also several restaurants in the area, some with a terrace near the 
+    old harbour dock. And there is the
+    [Wolf Sharing Food Market](https://maps.app.goo.gl/gyFGmhUc6uvgyRQo9),
+    in a historical building from the harbour that has been completely renovated.
+    Closed on Monday and Tuesday.
+
+-   [Café Pardaf](https://maps.app.goo.gl/EXzebn2wA6q35F2h6), with outside
+    seating also.
+    Closed on Monday, and it closes very early on the other weekdays.
+
+-   [Café Ernst](https://maps.app.goo.gl/n5ZwjBKeCjGYw6hm6).
+    There is some outside seating also.
+    Closed on Wednesday.
+
+-   [The Northerner](https://maps.app.goo.gl/dZdXzo5oGvg7JF9EA). 
+    Closed on Monday.
+
+-   [Billie's Bier Kafétaria](https://maps.app.goo.gl/jfZKMz7gxMZAEb6F7): Very small place. 
+    They do serve food at night also.
+    Closed on Tuesday.
+
+-   [Antwerpse Brouw Compagnie Brouwerij & Taproom](https://maps.app.goo.gl/1DATY7q4SK32VGGv5).
+    They do serve food also. 
+    Closed on Monday and Tuesday.
+
+-   [Spéciale Belge Taproom](https://maps.app.goo.gl/Lf1o3LTBkd5FVKAq6): 
+    A bit further away, on the site of what used to be a military hospital.
+    The place is a bit hard to find, but you can trust the location on Google Maps
+    (and [this picture on Google Maps](https://maps.app.goo.gl/QTiVtGWvXJGFK7wi6))
+    Only closed on Sunday.
