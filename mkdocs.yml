@@ -60,6 +60,11 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - "Performance Analysis & Optimization May 2026":
+    - paow-20260511/index.md
+    - Schedule: paow-20260511/schedule.md
+    - Travel info: paow-20260511/travel.md
+    - Course materials: paow-20260511/index.html#course-materials
   - "Supercomputing with LUMI April 2026":
     - 2day-20260422/index.md
     - Schedule: 2day-20260422/schedule.md

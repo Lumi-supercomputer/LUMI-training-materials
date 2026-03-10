@@ -8,7 +8,10 @@ Upcoming or currently running events with materials already partly available:
 
 -   [SmartSim (March 31, 2026)](smartsim-20260331/index.md), on-site in Utrecht (The Netherlands)
 
--   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-stie in Riga and online.
+-   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-site in Riga (Latvia) and online.
+
+-   [LUMI Profiling and Optimization Workshop (Advanced Level) (May 11-13, 2026)](paow-20260511/index.md)
+    on-site at KTH, Stockholm, Sweden.
 
 
 Most recently completed main training events:
@@ -113,6 +116,7 @@ By theme in reverse chronological order:
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools and/or program optimization
+    -   [LUMI Profiling and Optimization Workshop (Advanced Level), KTH, Stockholm (May 11-13, 2026)](paow-20260511/index.md)
     -   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
     -   [HPE and AMD profiling tools (May 7, 2025)](Profiling-20250507/index.md)
     -   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
