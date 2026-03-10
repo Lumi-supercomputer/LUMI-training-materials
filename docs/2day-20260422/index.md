@@ -19,7 +19,7 @@
 <!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-04.26?both)
 
--   Project for the course: `project_465002174`.
+-   Project for the course: `project_465002764`.
 
     This project provides resources for the exercises. 
     **The project should not be used for your own work!**
@@ -43,7 +43,7 @@ These materials will become available as the course progresses.
 -->
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
+
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -81,14 +81,13 @@ These materials will become available as the course progresses.
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
--->
 
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
 <!--
 ## Setting up for the exercises
 
-During the course, you can use the training project `project_465002174` for the exercises.
+During the course, you can use the training project `project_465002764` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
 **This project should only be used for exercises and not for your own work!**
@@ -112,19 +111,19 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465002174/course-20250602-$USER/Exercises
-    cd /scratch/project_465002174/course-20250602-$USER/Exercises
+    mkdir -p /scratch/project_465002764/course-20250602-$USER/Exercises
+    cd /scratch/project_465002764/course-20250602-$USER/Exercises
     ```
 
-    where you have to replace `project_465002174` using the number of your own project.
+    where you have to replace `project_465002764` using the number of your own project.
 
     If you have no other project on LUMI, you can also use the scratch of the
-    course project `project_465002174`. Do use a personal subdirectory as in the
+    course project `project_465002764`. Do use a personal subdirectory as in the
     following commands:
 
     ```
-    mkdir -p /scratch/project_465002174/$USER/Exercises
-    cd /scratch/project_465002174/$USER/Exercises
+    mkdir -p /scratch/project_465002764/$USER/Exercises
+    cd /scratch/project_465002764/$USER/Exercises
     ```
 
 
