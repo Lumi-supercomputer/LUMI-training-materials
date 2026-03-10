@@ -1,4 +1,6 @@
-# Intro to Supercomputing with LUMI - Hybrid course, April 22-23, 2026, on-site in Riga and online
+# Moving your HPC workloads to LUMI - Hybrid course, April 22-23, 2026, on-site in Riga and online
+
+**[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/)**
 
 
 ## Course organisation
