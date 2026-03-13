@@ -7,8 +7,6 @@
     <li><a href="#Day3">Day 3 - Friday 24/10/2025</a>
 </ul>
 
-Names of lecturers are preliminary and may still change.
-
 <table style="text-align: left;">
 <tbody>
 <!--
