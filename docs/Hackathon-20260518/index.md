@@ -11,9 +11,11 @@
     so the link may be dead)
 -->
 
+<!--
 ## Projects
 
 In alphabetical order:
+-->
 
 <!--
 -   [ASTRAPÉ](1-ASTRAPE.md)
