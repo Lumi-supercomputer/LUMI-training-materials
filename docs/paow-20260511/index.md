@@ -43,13 +43,13 @@
 ReservationName=Workshop_Day1 StartTime=2025-10-22T09:00:00 EndTime=2025-10-22T18:00:00 Duration=09:00:00
    Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
    TRES=cpu=4096
-   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
    MaxStartDelay=(null)
 
 ReservationName=Workshop_Day2 StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
    Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
    TRES=cpu=4096
-   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
    MaxStartDelay=(null)
 
 ReservationName=Workshop_Day2_gpu StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
@@ -58,14 +58,14 @@ ReservationName=Workshop_Day2_gpu StartTime=2025-10-23T09:00:00 EndTime=2025-10-
 
    TRES=cpu=2048
 
-   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
 
    MaxStartDelay=(null)
 
 ReservationName=Workshop_Day3 StartTime=2025-10-24T09:00:00 EndTime=2025-10-24T18:00:00 Duration=09:00:00
    Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
    TRES=cpu=2048
-   Users=(null) Groups=(null) Accounts=project_465002175 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
    MaxStartDelay=(null)
 -->
 
@@ -122,16 +122,16 @@ downloaded from LUMI.
 
 The exercise material remains available in the course archive on LUMI:
 
--   The PDF notes in `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.pdf`
+-   The PDF notes in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf`
 
 -   The other files for the exercises in either a
-    bzip2-compressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar`.
+    bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar`.
 
 To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
 ```
-tar -xf /appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_HPE.tar.bz2
+tar -xf /appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2
 ```
 
 in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
@@ -147,11 +147,11 @@ projects.
 See the notes at each session.
 
 Files for the exercercises can be downloaded as either a
-[bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_AMD.tar.bz2)
-or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20251022/files/LUMI-paow-20251022-Exercises_AMD.tar)
+[bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2)
+or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar)
 and are also archived on LUMI as either the
-bzip2-compressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_AMD.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20251022/files/LUMI-paow-20251022-Exercises_AMD.tar`.
+bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar`.
 
 There is no guarantee though that the software that is referred to on the system, will be there forever
 or will still work after an update of the system.
