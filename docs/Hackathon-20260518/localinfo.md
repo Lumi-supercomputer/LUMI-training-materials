@@ -83,9 +83,8 @@ More budget options:
     ([location on Google Maps](https://maps.app.goo.gl/Nh5BLmwTZPnPuaGYA))
 
 
-## Food in the evening
 
-## Some restaurant suggestions
+## Some restaurant suggestions for the night
 
 Basically, check the reviews on Google Maps.
 You have to be a bit careful on the De Keyserlei close to the central station, and
