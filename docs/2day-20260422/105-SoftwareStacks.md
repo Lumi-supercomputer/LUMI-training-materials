@@ -20,12 +20,18 @@ In this section we discuss
         (and a precursor of the upcoming Ultra Ethernet standard)
         rather than being based on InfiniBand, 
         and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. 
-    2.  It also uses a **relatively new GPU architecture**, AMD CDNA2, with a not fully mature software ecosystem. 
+
+    2.  It also uses a **relatively recent GPU architecture**, AMD CDNA2, with a still maturing software ecosystem. 
         The GPU nodes are really **GPU-first**, with the **interconnect cards connected directly to the GPU packages** 
         and only one CPU socket, and another feature which is relatively new: the option to use a **partly coherent fully unified memory**
         space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
         only been seen in supercomputers in some clusters with NVIDIA P100 and V100 GPUs and IBM Power 8 and 9 CPUs used
         for some USA pre-exascale systems.
+
+        The relatively small range of ROCm(tm) userland library versions that can run on a given driver,
+        compared to CUDA userland libraries on an NVIDIA driver, shows that under the hood, there is still
+        a rapid evolution.
+
     3.  LUMI is also **inhomogeneous** because some nodes have zen2 processors while the two main compute partitions
         have zen3-based CPUs, and the compute GPU nodes have AMD GPUs while the visualisation nodes have
         NVIDIA GPUs. 
@@ -70,6 +76,7 @@ In this section we discuss
     need for more customised setups and the need for multiple setups as it has become nearly impossible
     to combine everything in a single setup due to conflicts between packages and the dependencies they need.
 
+
 ### The LUMI solution
 
 <figure markdown style="border: 1px solid #000">
@@ -83,7 +90,7 @@ In principle there should be a high degree of compatibility between releases of 
 Environment but LUST decided not to take the risk and **build our software for a specific release of the 
 programming environment**, which is also a better fit with the typical tools used to manage a scientific 
 software stack such as EasyBuild and Spack as they also prefer precise versions for all dependencies and
-compilers etc. The stack is also made very easy to extend. So LUMI has **many base libraries and some packages
+compilers etc. The stack is also made to be very easy to extend. So LUMI has **many base libraries and some packages
 already pre-installed** but also provides an **easy and very transparent way to install additional packages in
 your project space in exactly the same way as is done for the central stack**, with the same performance but the
 benefit that the installation can be customised more easily to the needs of your project. Not everybody needs
@@ -177,6 +184,10 @@ community**.
         download the source code. We're trying to get better access with a support license
         but it takes time.
 
+        We have already talked to the VASP people and voiced our concerns. They promised they would
+        come back with a solution better suited for the way the LUMI support team is organised,
+        so that we could at least offer better support, but they didn't.
+
 <!-- BELGIUM
 The LUMI User Support Team **tries to help with installations of recent software** but **porting or bug
 correction in software is not their task**. In Flanders some help is possible by the VSC Tier-0 support team
@@ -204,9 +215,9 @@ high performance from the interconnect. For example,
     libraries needs to be ported. 
 -   Binaries that do only contain NVIDIA code paths, even if the programming
     model is supported on AMD GPUs, will not run on LUMI. 
--   Binaries for AMD GPUs must work with the ROCm versions that can be supported on the system.
+-   Binaries for AMD GPUs must work with the ROCm(tm) versions that can be supported on the system.
     There can be only one driver version and each driver version supports only a limited range
-    of ROCm versions.
+    of ROCm(tm) versions.
 -   The LUMI interconnect requires **libfabric**, the Open Fabrics Interface (OFI) library,
     using a specific provider for the NIC used on LUMI, the so-called Cassini provider (CXI), 
     so any software compiled with an MPI library that
@@ -224,7 +235,7 @@ high performance from the interconnect. For example,
     As has been discussed earlier in the course, LUMI runs SUSE Linux and not Ubuntu which is popular on 
     workstations or a Red Hat-derived Linux popular on many clusters. Subtle differences between Linux 
     versions can cause compatibility problems that in some cases can be solved with containers. But containers
-    won't help you if they are build for different kernel extensions and hardware interfaces.
+    won't help you if they are built for different kernel extensions and hardware interfaces.
 -   The **compute nodes also lack some Linux daemons** that may be present on smaller clusters. HPE Cray use an
     optimised Linux version called COS or Cray Operating System on the compute nodes. It is optimised to
     reduce OS jitter and hence to enhance scalability of applications as that is after all the primary
@@ -234,10 +245,10 @@ high performance from the interconnect. For example,
 Also, the LUMI user support team is **too small to do all software installations** which is why LUMI currently
 states in its policy that a LUMI user should be capable of installing their software themselves or have
 another support channel. The LUST cannot install every single piece of often badly documented research-quality
-code that was never meant to be used by people who don't understand the code. Again some help is possible 
-at the Belgian level but our resources are also limited.
+code that was never meant to be used by people who don't understand the code. 
+Your national organisation may also be able to provide some help, but not all countries offer such service on LUMI.
 
-Another soft compatibility problem that I did not yet mention is that software that **accesses tens
+Another soft compatibility problem that has not yet been mentioned is that software that **accesses tens
 of thousands of small files and abuses the file system as a database** rather than using structured
 data formats designed to organise data on supercomputers is not welcome on LUMI. For that reason LUMI
 also requires to **containerize conda and Python installations**. 
