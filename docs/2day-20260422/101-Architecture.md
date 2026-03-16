@@ -39,19 +39,25 @@ to run in the most efficient way, and that requires that the user who is launchi
 1.  The **hardware architecture** of the supercomputer, which is something that we discuss in this
     section.
 
-2.  The **middleware**: the layers of software that sit between the application on one hand and the
-    hardware and operating system on the other hand. LUMI runs a sligthly modified version of Linux.
-    But Linux is not a supercomputer operating system. Missing functionality in Linux is offered
+2.  The **operating system**: The operating system requires different tunings for supercomputers that
+    want to support very large parallel jobs. In this chapter, we will discuss the so-called
+    **OS jitter**: Work of the OS on the background can break scalability of large parallel applications.
+    Hence Linux on the compute nodes of LUMI lacks some features that you may be used to from your
+    workstation or smaller clusters.
+
+3.  The **middleware**: the layers of software that sit between the application on one hand and the
+    hardware and operating system on the other hand. Even with the tunings that we mentioned above,
+    Linux is not a supercomputer operating system. Missing functionality in Linux is offered
     by other software layers instead that on supercomputers often come as part of the programming
     environment.
-    This is a topic of discussion in several sessions of this course.
+    This is a topic of discussion in several presentations in this course.
 
-3.  The **application**. This is very domain-specific and application-specific and hence cannot be the
+4.  The **application**. This is very domain-specific and application-specific and hence cannot be the
     topic of a general course like this one. In fact, there are so many different applications and
     often considerable domain knowledge is required so that a small support team like the one of 
     LUMI cannot provide that information. 
 
-4.  Moreover, the way an application should be used may even depend on **the particular problem that you
+5.  Moreover, the way an application should be used may even depend on **the particular problem that you
     are trying to solve**. Bigger problems, bigger computers, and different settings may be needed in
     the application.
 
@@ -59,9 +65,9 @@ to run in the most efficient way, and that requires that the user who is launchi
     how to use them for different problem types,
     and then up to users to combine the knowledge of an application obtained from such a course with the
     knowledge about the computer you want to use and its middleware obtained from courses such as this one
-    or our more advanced courses.
+    or our 4-day more advanced course.
 
-Some users expect that a support team can give answers to all those questions, even to the third and fourth
+Some users expect that a support team can give answers to all those questions, even to the fourth and fifth
 bullet of the above list. If a support team could do that, it would basically imply that they could simply
 do all the research that users do and much faster as they are assumed to have the answer ready in hours...
 
@@ -104,7 +110,8 @@ Just some examples of using the wrong tools or infrastructure:
     *E.g., a single GPU die of the MI250X (half a GPU) has a peak FP32 performance at the boost clock
     of almost 24 TFlops or 48 TFlops
     in the packed format which is actually hard for a compiler to exploit, while the high-end AMD
-    graphics GPU RX 7900 XTX claims 61 TFlops at the boost clock. But the FP64 performance of one MI250X 
+    graphics GPU RX 7900 XTX, which came to market in the same period that the LUMI GPUs were 
+    installed, claims 61 TFlops at the boost clock. But the FP64 performance of one MI250X 
     die is also close to 24 TFlops in vector math, while the RX 7900 XTX does less than 2 TFlops
     in that data format which is important for a lot of scientific computing applications.*
 
@@ -112,13 +119,19 @@ Just some examples of using the wrong tools or infrastructure:
     We had a user who wanted to use the ray tracing units to do rendering. The MI250X does not
     have texture units or ray tracing units though. It is not a real graphics processor anymore.
 
+    In fact, nowadays we're seeing even further segmentation of the market, with separate GPUs for
+    traditional HPC applications that require more high-precision floating point power and GPUs
+    more oriented towards AI applications where those transistors are used for low-precision data 
+    formats instead. And some companies are even considering to build specific GPUs or other
+    accelerators for inference.
+
 -   **The environment is different also. It is not that because it runs some Linux it handles are your
     Linux software.**
     A user complained that they did not succeed in getting their nice remote development environment to
     work on LUMI. The original author of these notes took a test license and downloaded a trial version.
     It was a very nice environment but really made for local development and remote development in a 
     cloud environment with virtual machines individually protected by personal firewalls and was 
-    not only hard to get working on a supercomputer but also insecure.
+    not only hard to get working on a supercomputer, but also insecure.
 
 <!-- GENERAL version -->
 -   **And supercomputer need proper software that exploits the strengths and works around the weaknesses
@@ -157,6 +170,12 @@ and application level. They perform best when streaming data through the machine
 memory hierarchy and are not built at all for random access to small bits of data (where the definition of
 "small" depends on the level in the memory hierarchy).
 
+As some say, a cluster only becomes a supercomputer when you start optimising software for 
+the specific purpose of a true supercomputer: Running scalable applications over a large
+fraction of the machine.
+To the horror of some users who expect that LUMI will behave exactly like their small
+departmental or university cluster...
+
 At several points in this course you will see how this impacts what you can do with a supercomputer and
 how you work with a supercomputer.
 
@@ -183,7 +202,7 @@ all needs with a single machine. They built 3 pre-exascale systems
 with different architecture to explore multiple architectures and to cater
 to a more diverse audience. LUMI is an AMD GPU-based supercomputer, 
 Leonardo uses NVIDIA A100 GPUS, and MareNostrum5 has a very large CPU section besides an
-NVIDIA Hopper GPU section.
+NVIDIA Hopper GPU section (and it was initially planned to have Intel GPUs also).
 
 LUMI is also a very modular machine designed according to the principles explored
 in a series of European projects, and in particular
@@ -203,7 +222,9 @@ precision vector arithmetic (and twice that with the packed FP32 format, but tha
 is not well supported so this number is not often quoted). The matrix units are
 capable of about 400 TFlops in FP32 or FP64. However, compared to the NVIDIA GPUs,
 the performance for lower precision formats used in some AI applications is not that
-stellar.
+stellar, and now that LUMI is aging and newer generation GPUs have been launched by both
+NVIDIA and AMD, you can find systems that are much faster and more cost-effective at 
+those computations.
 
 LUMI also has a **large CPU-only partition**, called **LUMI-C**, for jobs that do not run well on GPUs,
 but also integrated enough with the GPU partition that it is possible to have
@@ -258,8 +279,8 @@ them, that code would not run on the login nodes. These instructions are basical
 used in cryptography though. However, many instructions have very different latency,
 so a compiler that optimises specifically for Zen3 may chose another ordering of
 instructions then when optimising for Zen2 so it may still make sense to compile
-specifically for the compute nodes on LUMI. There are also an additional
-login nodes for access via the web-based Open OnDemand interface, plus others that are used for
+specifically for the compute nodes on LUMI. There is also an additional
+login node for access via the web-based Open OnDemand interface, plus others that are used for
 system administration at different level (and with different permissions!)
 Together these are sometimes called **LUMI-L**.
 
@@ -272,7 +293,7 @@ this also influences how you work on LUMI.
 Since early 2026, LUMI also has a small partition for containerised micro-services 
 managed with Kubernetes known as **LUMI-K**. 
 This is basically a small separate system and the only thing
-it shares with LUMI is its name. It is managed by different admins and has a different
+it shares with LUMI, is its name. It is managed by different admins and has a different
 upgrade cycle from LUMI. 
 It also uses different compute hardware then the LUMI compute nodes: Traditional 
 not-very-dense servers rather than the very dense compute blades that we will 
@@ -285,12 +306,14 @@ There are no compute or visualisation GPUs in LUMI-K and no plans to add any eit
 The storage nodes offer both a CEPH filesystem and CEPH block storage.
 Object storage is offered by LUMI-O. For security reasons, there is no access to the
 Lustre filesystems of LUMI. The network capacity is also very limited, as the nodes
-are equiped with 25 Gb/s Ethernet rather than 200 Gb/s Slingshot adapters. 
+are equipped with two 25 Gb/s Ethernet rather than 200 Gb/s Slingshot adapters. 
 Support is also limited; the system is basically meant for users
 who already have experience with Kubernetes and can set up their own containers
 and the LUMI User Support Team does not have the capacity to do development on 
 that system.
-*LUMI-K will not be further discussed in this course.*
+*LUMI-K will not be further discussed in this course,* and user support for this partition
+is also limited. It is mostly meant for users who already have a lot of experience with
+Kubernetes/OpenShift.
 
 In this section of the course we will now build up LUMI step by step.
 
@@ -759,7 +782,7 @@ connections while still minimizing the amount of long cables that have to be use
 its complicated set of connections it does rely heavily on adaptive routing and congestion control for
 optimal performance more than the fat tree topology used in many smaller clusters.
 It also needs so-called high-radix switches. The Slingshot switch, code-named Rosetta, has 64 ports.
-16 of those ports connect directly to compute nodes (and the in a few slides, we will show you how),
+16 of those ports connect directly to compute nodes (and in a few slides, we will show you how),
 while the other ports are used to connect the switches.
 
 <figure markdown style="border: 1px solid #000">
@@ -952,7 +975,7 @@ switch blade environment is certainly less hostile to such storage than the very
 compute blades.
 
 This architecture is very popular for very large supercomputers. In fact, in the 
-[June 2025 Top-500 list](https://top500.org/lists/top500/2025/06/), 6 of the top-10 systems
+[November 2025 Top-500 list](https://top500.org/lists/top500/2025/11/), 6 of the top-10 systems
 and 10 of the top 20 systems
 use this system architecture, but with different types of compute blades.
 
