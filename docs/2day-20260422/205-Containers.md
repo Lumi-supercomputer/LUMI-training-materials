@@ -1479,7 +1479,192 @@ but they do no harm.
 
 #### Bonus example: Bindings
 
-Under development.
+To illustrate that bindings work differently during the `%post` phase then when running
+a container, consider the following example based on a very simple Ubuntu container.
+
+First, we pull the container from docker to create a base singularity image:
+
+``` bash
+singularity pull docker://ubuntu:24.04
+```
+
+Now load the bindings module from the LUMI AI Factory:
+
+``` bash
+module load Local-LAIF lumi-aif-singularity-bindings
+```
+
+This module will set `SINGULARITY_BIND` to tell singularity to bind mount
+`/var/spool/slurmd` which is a directory that is needed by MPI libraries to
+communicate with Slurm, and a number of directories to provide all Lustre filesystems
+on LUMI. The module is very generic and can be used with other containers also
+if these are the effects that you want.
+
+Now check the container:
+
+``` bash
+singularity shell ubuntu_24.04.sif
+```
+
+and check:
+
+``` bash
+ls /scratch
+ls /pfs/lustref1
+ls /appl/lumi
+```
+
+and notice that all these commands work as expected and show the same output as they
+do outside the container.
+
+Now consider the near trivial definition file
+
+```
+Bootstrap: localimage
+From: ubuntu_24.04.sif
+
+%post
+
+    echo "If you see fine /build_results.echo in the container, everything was OK..." >/build_results.echo
+```
+
+and store this in the file `bindings-fail.def`. 
+
+Now try to build with this definition file:
+
+``` bash
+singularity build bindings.sif bindings-fail.def
+```
+
+and after printing some lines on the screen, singularity will show an error message:
+
+```
+FATAL:   container creation failed: mount /var/spool/slurmd->/var/spool/slurmd error: while mounting /var/spool/slurmd: destination /var/spool/slurmd doesn't exist in container
+FATAL:   While performing build: while running engine: exit status 255
+```
+
+even though we could run the container from which we start the build without issue.
+
+Now try the following definition file:
+
+```
+Bootstrap: localimage
+From: ubuntu_24.04.sif
+
+%files
+
+    EMPTY_DIR /var/spool/slurmd
+    EMPTY_DIR /pfs
+    EMPTY_DIR /scratch
+    EMPTY_DIR /projappl
+    EMPTY_DIR /project
+    EMPTY_DIR /flash
+    EMPTY_DIR /appl
+
+%post
+
+    echo "If you see this file, everything was OK..." >/build_results.echo
+```
+
+and store this in the file `bindings-good.def`. In the `%files` section we copy an empty directory
+from the system that can then serve as a mount point for the directories that we will bind mount
+during `%post`. So let us first create that empty directory:
+
+``` bash
+mkdir EMPTY_DIR
+```
+
+Now run the build again:
+
+``` bash
+singularity build bindings.sif bindings-good.def
+```
+
+and notice that the build works without issues.
+
+Now if we would bind mount some files instead, the same idea can be used, but then by copying
+empty files: Create an empty file in the directory from which you want to run the build:
+
+``` bash
+touch EMPTY_FILE
+```
+
+and use lines in `%files` similar to
+
+```
+%files
+    EMPTY_FILE /etc/slurm/slurm.conmf
+```
+
+Let us check if the container still works as expected:
+
+``` bash
+singularity shell bindings.sif
+```
+
+and then, e.g.,
+
+``` bash
+ls -l /pfs
+ls -l /appl/lumi
+ls -l /var/spool/slurmd
+```
+
+and notice that all those commands work and produce the output that you may expect.
+
+Let us now unload the bindings module
+
+``` bash
+module unload lumi-aif-singularity-bindings
+```
+
+and enter the container again:
+
+``` bash
+singularity shell bindings.sif
+```
+
+Now try the commands:
+
+``` bash
+ls -l /
+ls -l /var/spool
+```
+
+and notice that `/var/spool/slurmd`, `/pfs`, `/scratch`, `/projappl`, `/project`, `/flash` and
+`/appl` all exist, but most will be owned by root and be unreadable. If you were running the
+container from a subdirectory of one of those, you may be the owner of that directory.
+
+The other solution of course is to do a two-step build. First build a container
+without using any bindings, and create the bind mounts in the `%post` step
+(and then you can set permissions to make them world-readable), 
+and then in a second step use the container from the first step as the 
+start container for further builds.
+
+??? Note "Special case: Building on top of the ccpe containers"
+    Usually you don't need many bind mounts during the build.
+    There is one exception though: Our 
+    [ccpe containers](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/ccpe/)
+    with the Cray programming environment want to find the Slurm configuration
+    file `/etc/slurm/slurm.conf` in the container. 
+
+    Instead of bind mounting that file, you can just copy the file from LUMI in the container:
+
+    ```
+    %files
+        /etc/slurm/slurm.conf
+    ```
+
+    and then delete it again at the end of the `%post` section:
+
+    ```
+    rm -f /etc/slurm/slurm.conf`
+    ```
+
+    Please don't leave that file in the container as (a) we want the container to
+    produce a warning when run on another system and (b) some sysadmins may be very 
+    unhappy if users try to run Slurm commands from that container on another system
+    and forget to bind mount the correct Slurm configuration file.
 
 
 #### Bonus example: Support for Slurm commands in Ubuntu
