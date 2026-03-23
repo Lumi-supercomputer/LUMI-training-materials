@@ -1669,10 +1669,223 @@ start container for further builds.
 
 #### Bonus example: Support for Slurm commands in Ubuntu
 
-Under development.
+To add support for Slurm commands in a container based on Ubuntu, the following 
+elements are certainly needed in the definition file:
+
+```
+Bootstrap: docker
+From: ubuntu:24.04
+
+%files
+    /etc/passwd
+    /etc/group
+
+%post
+    # First we install tools that we will need later on
+    apt update
+    # Split over multiple commands for readability
+    apt install -y lz4 libmunge2 libnghttp2-14 curl 
+    apt install -y libldap-common libjson-c5
+    apt install -y lua5.3 liblua5.3-0 lua-posix
+    # Symbolic links that exist in SUSE 15 SP6 to libraries
+    # that we copied to run the Slurm clients
+    cd /usr/lib/x86_64-linux-gnu
+    ln -s liblua5.3.so.0.0.0 liblua5.3.so.5
+    # OPTIONAL PART BELOW:
+    # In case you want to clean up go reduce image size:
+    apt-get clean
+    /bin/rm -rf /var/lib/apt/lists/*
+    /bin/rm -f /usr/lib/x86_64-linux-gnu/liblua5.1* 
+    /bin/rm -f /usr/lib/x86_64-linux-gnu/liblua5.2* 
+    /bin/rm -f /usr/lib/x86_64-linux-gnu/liblua5.4*
+    /bin/rm -rf /usr/lib/x86_64-linux-gnu/lua/5.1 
+    /bin/rm -rf /usr/lib/x86_64-linux-gnu/lua/5.2 
+    /bin/rm -rf /usr/lib/x86_64-linux-gnu/lua/5.4
+```
+
+In the `%files` section, we add the `/etc/passwd` and `/etc/groups` file from LUMI to
+the container. This is not ideal. Ideally we would create a merge of those files in
+the bare container (but they are hard to copy as as soon as we run singularity, new
+ones will be created with some additional users and groups) and the one from LUMI, 
+create those as a file outside the container and then copy as we cannot change those
+files during `%post`. 
+
+In `%post` we first install a number of additional libraries that are needed by the
+various Slurm libraries and commands but are missing from the base Ubuntu container.
+If you use this procedure to add to another Ubuntu container, the list may change a bit
+as some packages may be present already, and if Slurm is updated on LUMI, the list may
+change also. To figure out which ones are missing, first create an empty Ubuntu container,
+then run a shell in the container bind mounting all Slurm tools you want to use and the
+`/usr/lib64/slurm` subdirectory and then use the `ldd` tool to chech all libraries that
+are loaded by those commands and libraries in `/etc/lib64/slurm`. That list may not be 
+complete as libraries and commands can also load extra libraries when running that are
+not pre-linked and shown by `ldd`. We've tried to make this list as complete as we 
+could and tested several Slurm commands, but cannot exclude that the list may be 
+incomplete.
+
+Next there is the line
+
+``` bash
+ln -s liblua5.3.so.0.0.0 liblua5.3.so.5
+```
+
+This deals with a difference between Ubuntu and SUSE 15 SP6, where in the latter
+`liblua5.3.so` is offered with a different strategy for the version numbering part of the name.
+
+The final block does some clean-up, but that is optional. It can help to slightly 
+reduce the size of the container.
+
+To run with this container, a lot of bindings are needed and we cannot simply use
+the `lumi-aif-singularity-bindings` module anymore:
+
+``` bash
+export SINGULARITY_BIND='/pfs,/scratch,/projappl,/project,/flash,/appl,/etc/slurm,/var/spool/slurmd,/var/run/munge,/usr/lib64/slurm,/usr/bin/sacct,/usr/bin/salloc,/usr/bin/sbatch,/usr/bin/sinfo,/usr/bin/squeue,/usr/bin/srun,/usr/bin/sstat'
+```
+
+We now also need to bind also the Slurm configuration from `/etc/slurm`, `/var/run/munge` 
+used by the `munge` library, `/usr/lib64/slurm` with many libraries used by Slurm,
+including some plugins specific for the Cray EX supercomputers, and the various 
+Slurm tools that we want to be available in the container. There are more tools,
+but these are probably the most useful ones. And adding more tools may also requiring
+adding more libraries.
+
+Note that the `salloc` command will not work in a container!
+
+??? Tip "EasyConfigs to create a module for this container."
+
+    The following EasyConfig will create a recipe for a module similar
+    to the `lumi-aif-singularity-bindings` module for the LUMI AI Factory
+    containers:
+
+    ``` python
+    easyblock = 'Bundle'
+
+    name = 'singularity-slurm-bindings'
+    version = '1.0.0'
+
+    description = """
+    Singularity bindings for containers with Slurm support.
+
+    Note that this is done by simply setting SINGULARITY_BIND, making this approach
+    incompatible with other bindings modules. Which is an issue when used with the 
+    LUMI AI Factory containers as those also need another environment variable to
+    be set for proper Slurm support for the MPI implementation in those containers.
+    """
+
+    homepage = '()'
+
+    toolchain = SYSTEM
+
+    env_mod_extra_vars = {
+        'SINGULARITY_BIND' : ','.join([
+                                  # LUMI filesystems
+                                  '/pfs',
+                                  '/scratch',
+                                  '/projappl',
+                                  '/project',
+                                  '/flash',
+                                  '/appl',
+                                  # Slurm configuration
+                                  '/etc/slurm',
+                                  # Communication with system services
+                                  '/var/spool/slurmd',
+                                  '/var/run/munge',
+                                  # Slurm libraries and plugins
+                                  '/usr/lib64/slurm',
+                                  # Slurm commands
+                                  '/usr/bin/sacct',
+                                  '/usr/bin/sbatch',
+                                  '/usr/bin/sinfo',
+                                  '/usr/bin/squeue',
+                                  '/usr/bin/srun',
+                                  '/usr/bin/sstat'
+                              ]),
+        # Uncomment the next line for the LUMI AI Factory containers
+        # 'SLURM_MPI_TYPE'   : 'pmi2',
+    }
+
+    env_mod_category = 'tools'
+    ```
+
+    To install this module, copy this script to `singularity-slurm-bindings-1.0.0.eb`,
+    then, after setting up your EasyBuild user environment as explained in the 
+    ["Software Stack" chapter](105-SoftwareStacks.md), load and run
+
+    ``` bash
+    module load LUMI partition/container EasyBuild-user
+    eb singularity-slurm-bindings-1.0.0.eb
+    ```
+
+    Note that this module cannot be used in combination with other bindings modules
+    that we offer, as each tries to set its own `SINGULARITY_BIND` environment variable.
+
+    An nicer EasyConfig but currently without advantages is
+
+    ``` python
+    easyblock = 'Bundle'
+
+    name = 'singularity-slurm-bindings'
+    version = '1.0.0'
+
+    description = """
+    Singularity bindings for containers with Slurm support.
+
+    Note that this is done by simply setting SINGULARITY_BIND, making this approach
+    incompatible with other bindings modules. Which is an issue when used with the 
+    LUMI AI Factory containers as those also need another environment variable to
+    be set for proper Slurm support for the MPI implementation in those containers.
+    """
+
+    homepage = '()'
+
+    toolchain = SYSTEM
+
+    env_mod_extra_vars = {
+        # Uncomment the next line for the LUMI AI Factory containers
+        # 'SLURM_MPI_TYPE': 'pmi2',
+    }
+
+    env_mod_extra_paths = {
+        'SINGULARITY_BIND': {
+            'paths': [
+                # LUMI filesystems
+                '/pfs',
+                '/scratch',
+                '/projappl',
+                '/project',
+                '/flash',
+                '/appl',
+                # Slurm configuration
+                '/etc/slurm',
+                # Communication with system services
+                '/var/spool/slurmd',
+                '/var/run/munge',
+                # Slurm libraries and plugins
+                '/usr/lib64/slurm',
+                # Slurm commands
+                '/usr/bin/sacct',
+                '/usr/bin/sbatch',
+                '/usr/bin/sinfo',
+                '/usr/bin/squeue',
+                '/usr/bin/srun',
+                '/usr/bin/sstat'             
+            ],
+            'delimiter': ',',
+            'prepend': False,
+            'var_type': 'PATH',
+        }
+    }
+
+    env_mod_category = 'tools'
+    ```
+
+    Here `SINGULARITY_BIND` is treated the same way as `PATH` and other similar
+    variables to which you can add and remove entries.  But this would only help
+    if all modules dealing with bindings would work that way. Each module could
+    then add extra capabilities. So for now you can as well use the first variant.
 
 
-#### Bonus package: FFmpeg
+#### Bonus example: FFmpeg
 
 FFmpeg is a very popular tool for video conversion. Unfortunately, it is a very hard
 package to install on LUMI.
