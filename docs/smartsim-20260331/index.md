@@ -14,3 +14,15 @@
 
 -   [Preliminary schedule](schedule.md)
 
+-   [Collaborative document to be used during the course](https://siili.rahtiapp.fi/SmarSim-Workshop)
+    
+    If you want to ask a question during the morning session and don't want to interrupt the talk,
+    you can ask the question here and we'll try to pick it up at the end of the talk.
+
+    Questions asked in person at the end of the talk have a higher priority, and written answers
+    to questions may not be provided during the presentations or even during the course day as 
+    this is a first-time course so with few people around who can answer the questions. 
+
+-   The morning sessions will be recorded and added to these pages in the days after the workshop. 
+    Questions asked at the end of the session can be deleted to preserve people's privacy. 
+    Questions asked during the presentation will be part of the recording though.
