@@ -9,5 +9,8 @@
     also direct access to the very attractive city centre of Utrecht if you decide to stay for one 
     or more nights.
 
+    There are construction works going on at the building, so please
+    [check the instructions of the SURF website on how to reach the venue](https://www.surf.nl/en/about/contact-with-surf).
+
 -   [Preliminary schedule](schedule.md)
 
