@@ -23,6 +23,12 @@
     to questions may not be provided during the presentations or even during the course day as 
     this is a first-time course so with few people around who can answer the questions. 
 
+-   Course project for the work sessions: `project_465002763`.
+
+    During the course, a reservation is available named `smartsim` on the `small-g` partition.
+
+    Project and reservation should only be used for course work during the training.
+
 -   The morning sessions will be recorded and added to these pages in the days after the workshop. 
     Questions asked at the end of the session can be deleted to preserve people's privacy. 
     Questions asked during the presentation will be part of the recording though.
