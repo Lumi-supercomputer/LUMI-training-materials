@@ -24,8 +24,8 @@ The system software (Linux, ROCm(tm) and Slurm)
 has several mechanisms for that. Slurm uses Linux cgroups or control groups to limit the 
 resources that a job can use within a node and thus to isolate jobs from one another on a
 node so that one job cannot deplete the resources of another job, and sometimes even
-uses control groups at the task level to restrict some resources for a task (currently when 
-doing task-level GPU binding via Slurm).
+uses control groups at the task level to restrict some resources for a task (currently 
+default behaviour when doing task-level GPU binding via Slurm).
 The second mechanism is processor affinity which works at the process and thread level and is
 used by Slurm at the task level and 
 can be used by the OpenMP runtime to further limit thread migration. It works through affinity masks
@@ -48,7 +48,7 @@ if the binding is OK.
 ??? Note "Credits for these programs (click to expand)"
     The `hybrid_check` program and its derivatives `serial_check`, `omp_check` and `mpi_check`
     are similar to the [`xthi` program](https://support.hpe.com/hpesc/public/docDisplay?docId=a00114008en_us&docLocale=en_US&page=Run_an_OpenMP_Application.html)
-    used in the 4-day comprehensive LUMI course organised by the LUST in collaboration with 
+    used in many of the advanced courses organised by the LUST in collaboration with 
     HPE Cray and AMD. Its main source of inspiration is a very similar program,
     `acheck`, written by Harvey Richardson of HPE Cray and used in an earlier course,
     but it is a complete rewrite of that application.
@@ -107,7 +107,7 @@ help a bit with performance in some cases.
 
 !!! Warning
     Note also that some `srun` options that we have seen (sometimes already given at the `sbatch` or `salloc` level
-    but picket up by `srun`) already do a simple binding, so those options **cannot be combined** with the options
+    but picked up by `srun`) already do a simple binding, so those options **cannot be combined** with the options
     that we will discuss in this session. This is the case for `--cpus-per-task`, `--gpus-per-task` and `--ntasks-per-gpu`. 
     In fact, the latter two options will also change the numbering of the GPUs visible to the ROCm runtime, so 
     using `ROCR_VISIBLE_DEVICES` may also lead to surprises!
@@ -161,7 +161,8 @@ scalability on supercomputers.
 
 -   In some cases it is important on the GPU nodes to ensure that tasks are nicely spread out over CCDs with each task
     using the GPU (GCD) that is closest to the CCD the task is running on. This is certainly the case if the application
-    would rely on cache-coherent access to GPU memory from the CPU.
+    would rely on cache-coherent access to GPU memory from the CPU, but also helps if there is a lot of copying
+    going on between CPU and GPU memory.
 
 -   With careful mapping of MPI ranks on nodes you can often reduce the amount of inter-node data transfer in favour of the
     faster intra-node transfers. This requires some understanding of the communication pattern of your MPI application,
@@ -217,7 +218,9 @@ started with subsequent `srun` commands.
     #SBATCH --hint=nomultithread
     #SBATCH --time=5:00
     
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
+    module load LUMI/25.03 partition/C 
+    module load systools/25.03-2 lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+    export HWLOC_COMPONENTS=-rsmi # Avoid warning on CPU nodes
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -335,7 +338,9 @@ started with subsequent `srun` commands.
             L2 P#115 (512KB) + L1d P#115 (32KB) + L1i P#115 (32KB) + Core P#51
               PU P#115
               PU P#243
-    
+      Block(Disk) "sdiq"
+      ...
+      Block(Disk) "sdox"
     Taskset of the current shell: pid 81788's current affinity mask: ffff0000000000000000000000000000ffff0000000000000000000000000
     ```
     
@@ -355,7 +360,7 @@ started with subsequent `srun` commands.
     Despite `--hint=nomultithread` being the default behaviour, at this level we still see
     both hardware threads for each physical core in the taskset. 
 
-    Next look at the output printed by lines 29 and 31:
+    Next look at the output printed by lines 31 and 33:
 
     ```
     Task 0
@@ -413,6 +418,9 @@ started with subsequent `srun` commands.
               PU P#235
         Group0
           NUMANode P#7 (31GB)
+      Block(Disk) "sdiq"
+      ...
+      Block(Disk) "sdox"
     Taskset of current shell: pid 82340's current affinity mask: f0000000000000000000000000
     
     Task 1
@@ -470,6 +478,9 @@ started with subsequent `srun` commands.
               PU P#235
         Group0
           NUMANode P#7 (31GB)
+      Block(Disk) "sdiq"
+      ...
+      Block(Disk) "sdox"
     Taskset of current shell: pid 82341's current affinity mask: f00000000000000000000000000
     ```
     
@@ -491,7 +502,7 @@ started with subsequent `srun` commands.
     that it is not possible to set a taskset manually without knowing which physical cores
     can be used!
     
-    The output of the `srun` command on line 34 confirms this:
+    The output of the `srun` command on line 36 confirms this:
     
     ```
     Running 2 MPI ranks with 4 threads each (total number of threads: 8).
@@ -537,7 +548,7 @@ it would still see them as GPUs 0 to 3, and this is the numbering that one would
 for the `ROCR_VISIBLE_DEVICES` environment variable that is used to further limit the GPUs that the ROCm runtime
 will use in an application. We will call this the *job-local numbering*.
 
-Inside task of a regular job step, Slurm can further restrict the GPUs that are visible through control
+Inside a task of a regular job step, Slurm can further restrict the GPUs that are visible through control
 groups at the task level, leading to yet another numbering that starts from 0 which we will call the 
 *task-local numbering*. 
 That kind of control group should be avoided though at any price as it stops direct 
@@ -571,7 +582,7 @@ the HIP runtime will number the GPUs that are available from 0 on.
     #SBATCH --hint=nomultithread
     #SBATCH --time=15:00
     
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
+    module load LUMI/25.03 partition/G systools/25.03-2 lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
     cat << EOF > task_lstopo_$SLURM_JOB_ID
     #!/bin/bash
@@ -901,6 +912,7 @@ uses the numbering within the current control group.
 
 **Running GPUs in a different control group per task has consequences for the way inter-GPU
 communication within a node can be organised so the above examples are important. It is essential
+to understand that task-levels control groups should be avoided
 to run MPI applications with optimal efficiency.**
 
 
