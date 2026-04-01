@@ -32,3 +32,20 @@
 -   The morning sessions will be recorded and added to these pages in the days after the workshop. 
     Questions asked at the end of the session can be deleted to preserve people's privacy. 
     Questions asked during the presentation will be part of the recording though.
+
+
+## Course materials
+
+-   [SmartSim Overview](M01-Overview.md)
+
+    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/01-SmartSim-Overview.pdf)
+
+-   [Practical Use of SmartSim](M02-Practical-use-of-SmartSim.md)
+
+    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/01-SmartSim-Overview.pdf)
+    from slide 28 onwards.
+
+-   [Exercises](E01-Exercises-1.md)
+  
+    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/E01-SmartSim-Exercises.pdf)
+
