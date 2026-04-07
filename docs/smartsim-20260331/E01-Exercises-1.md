@@ -1,1 +1,0 @@
-# Hands-on - Practical examples

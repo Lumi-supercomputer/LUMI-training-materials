@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [SmartSim (March 31, 2026)](smartsim-20260331/index.md), on-site in Utrecht (The Netherlands)
-
 -   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-site in Riga (Latvia) and online.
 
 -   [LUMI Profiling and Optimization Workshop (Advanced Level) (May 11-13, 2026)](paow-20260511/index.md)
@@ -127,6 +125,8 @@ By theme in reverse chronological order:
     -   [Performance Analysis and Optimization Workshop, Oslo, 12-12 June 2024](paow-20240611/index.md)
     -   [HPE and AMD profiling tools (November 22, 2023)](Profiling-20231122/index.md)
     -   [HPE and AMD profiling tools (April 13, 2023)](Profiling-20230413/index.md)
+-   Combining HPC and AI - SmartSim
+    -   [SmartSim (March 31, 2026)](smartsim-20260331/index.md), on-site in Utrecht (The Netherlands)
 -   Materials from Hackathons 
     -   [LUMI-G hackathon (May 18-22, 2026)](Hackathon-20260518/index.md)
     -   [LUMI-G hackathon (May 12-16, 2025)](Hackathon-20250512/index.md)
