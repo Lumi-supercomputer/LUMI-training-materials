@@ -12,8 +12,9 @@
     There are construction works going on at the building, so please
     [check the instructions of the SURF website on how to reach the venue](https://www.surf.nl/en/about/contact-with-surf).
 
--   [Preliminary schedule](schedule.md)
+-   [Schedule](schedule.md)
 
+<!--
 -   [Collaborative document to be used during the course](https://siili.rahtiapp.fi/SmarSim-Workshop)
     
     If you want to ask a question during the morning session and don't want to interrupt the talk,
@@ -32,20 +33,24 @@
 -   The morning sessions will be recorded and added to these pages in the days after the workshop. 
     Questions asked at the end of the session can be deleted to preserve people's privacy. 
     Questions asked during the presentation will be part of the recording though.
+-->
 
 
 ## Course materials
 
--   [SmartSim Overview](M01-Overview.md)
+-   [Course introduction](M00-Course-introduction.md)
+
+    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/00-Course-introduction.pdf)
+
+-   [Overview of ML and HPC coupling - Introduction to SmartSim - A practical usage example](M01-SmartSim-overview.md)
 
     [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/01-SmartSim-Overview.pdf)
 
--   [Practical Use of SmartSim](M02-Practical-use-of-SmartSim.md)
+-   [Use cases and examples](M03-Use-cases-and-examples.md)
 
-    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/01-SmartSim-Overview.pdf)
-    from slide 28 onwards.
+    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/03-Use-cases-and-examples.pdf)
 
--   [Exercises](E01-Exercises-1.md)
+-   [Exercises](E03-Exercises-1.md)
   
-    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/E01-SmartSim-Exercises.pdf)
+    [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/E03-SmartSim-Exercises.pdf)
 

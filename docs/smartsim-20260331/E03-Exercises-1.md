@@ -1,5 +1,8 @@
 # Hands-on - Practical examples
 
+<video src="https://462000265.lumidata.eu/smartsim-20260331/recordings/LUMI-SmartSim-20260331-E03-Exercises.mp4" controls="controls"></video>
+
+
 How to get started: There is a workshop repository!
 
 ``` bash
@@ -8,12 +11,12 @@ cd SmartSim-workshops/
 cd LUMI_2026
 cd exercise_01/
 
-# On LUMI
+# On LUMI (during the course only)
 module use /pfs/lustref1/flash/project_465002763/shared/modulefiles
 module load smartsim
 ```
   
--   [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/E01-SmartSim-Exercises.pdf)
+-   [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/E03-SmartSim-Exercises.pdf)
 
 -   [SmartSim repository](https://github.com/CrayLabs/SmartSim-workshops)
 
@@ -23,3 +26,9 @@ module load smartsim
 
 -   [Online SmartSim Docs are available](https://www.craylabs.org/docs/overview.html).
 
+-   [SmartSim Zoo examples](https://www.craylabs.org/docs/smartsim_zoo.html)
+
+There was a SmartSim installation for the course on the flash partition (to minimise
+the impact of the large amount of small files) but unfortunately this installation
+cannot easily be moved to another place due to some hard-coded path information in 
+some files, so we cannot offer it as a download.

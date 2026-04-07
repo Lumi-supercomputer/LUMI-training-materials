@@ -1,6 +1,8 @@
-# Overview of ML and HPC coupling and introduction to SmartSim 
+# Overview of ML and HPC coupling - Introduction to SmartSim - A practical usage example
 
 *Presenter: Holly Judge*
+
+<video src="https://462000265.lumidata.eu/smartsim-20260331/recordings/LUMI-SmartSim-20260331-01-SmartSim-overview.mp4" controls="controls"></video>
 
 -      [Slides](https://462000265.lumidata.eu/smartsim-20260331/files/01-SmartSim-Overview.pdf)
 
