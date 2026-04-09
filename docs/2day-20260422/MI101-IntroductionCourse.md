@@ -1,6 +1,6 @@
 # Introduction
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Līna Marta Sarma (RTU HPC Centre) and Kurt Lust (LUST)*
 
 ## Materials
 
