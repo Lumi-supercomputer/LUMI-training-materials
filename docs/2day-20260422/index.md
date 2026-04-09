@@ -187,9 +187,12 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 
 <!-- This document will be updated after the summer '25 system update. -->
 
-<!--
+
 ## Acknowledgement
 
+This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)
+
+<!--
 Though a LUST course, the course borrows a lot of material from
 [a similar course prepared by the Belgian local organisation](https://klust.github.io/LUMI-BE-training-materials/intro-evolving/),
 which in turn was prepared in the framework of the 

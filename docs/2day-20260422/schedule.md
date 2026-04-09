@@ -23,7 +23,7 @@ DAY 1
             <br/><em>08:00 CEST</em>
         </td>
         <td><b><a href="../MI101-IntroductionCourse/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Kurt Lust</em>
+        <br/><em>Presenters: Līna Marta Sarma (RTU HPC Centre) and Kurt Lust (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -151,15 +151,16 @@ DAY 1
             16:55 EEST
             <br/><em>15:55 CEST</em>
         </td>
-        <td><b><a href="../MI102-WrapUpDay1">Wrap-up of the day</a></b> 
+        <td><b><a href="../M107-LocalTalk/">PRACE National Node in Latvia: Current research support tools and international collaboration platforms</a></b>
+        <br/><em>Presenter: RTU HPC Centre</em>
         </td>
     </tr>
     <tr>
         <td>
-            17:00 EEST
-            <br/><em>16:00 CEST</em>
+            17:15 EEST
+            <br/><em>16:15 CEST</em>
         </td>
-        <td><b>Free Q&A</a></b> 
+        <td><b><a href="../MI102-WrapUpDay1">Wrap-up of the day</a></b> 
         </td>
     </tr>
     <tr>
@@ -319,4 +320,5 @@ DAY 2
 </tbody>
 </table>
 
+This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)
 
