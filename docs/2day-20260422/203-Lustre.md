@@ -468,7 +468,7 @@ for a file or directory.
 Let us first look at setting a striping policy at the directory level:
 
 ```
-$ module use /appl/local/training/modules/2day-20250422
+$ module use /appl/local/training/modules/2day-20260422
 $ module load lumi-training-tools
 $ mkdir testdir
 $ lfs setstripe -S 2m -c 4 testdir
