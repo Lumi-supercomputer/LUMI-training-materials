@@ -84,7 +84,6 @@ These materials will become available as the course progresses.
 
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
-<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465002764` for the exercises.
@@ -111,8 +110,8 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465002764/course-20250602-$USER/Exercises
-    cd /scratch/project_465002764/course-20250602-$USER/Exercises
+    mkdir -p /scratch/project_465002764/course-20260422-$USER/Exercises
+    cd /scratch/project_465002764/course-20260422-$USER/Exercises
     ```
 
     where you have to replace `project_465002764` using the number of your own project.
@@ -130,15 +129,15 @@ day).
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar.bz2
-    tar -xf exercises-20251020.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2
+    tar -xf exercises-20260422.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2).
 
 -   You're all set to go!
--->
+
 
 <!--
 ## Making the exercises after the course
@@ -159,8 +158,8 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
-    cd /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
+    mkdir -p /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
     ```
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
@@ -168,7 +167,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 -   Now install the exercise files:
 
     ```
-    tar -xf /appl/local/training/2day-20260422/files/exercises-20250602.tar.bz2
+    tar -xf /appl/local/training/2day-20260422/files/exercises-20260422.tar.bz2
     ```
 
 -   You're all set to go!
@@ -178,11 +177,10 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     continuous evolution and changes to the system may break exercises and software
 -->
 
-<!--
+
 ## Links to documentation
 
 [The links to all documentation mentioned during the talks is on a separate page](A01-Documentation.md).
--->
 
 <!-- This document will be updated after the summer '25 system update. -->
 

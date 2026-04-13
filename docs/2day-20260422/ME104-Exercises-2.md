@@ -2,10 +2,9 @@
 
 <!--
 Exercises will be made available during the course
-
-<!--
--   [Exercises on "Modules on LUMI"](E104-Modules.md)
 -->
+
+-   [Exercises on "Modules on LUMI"](E104-Modules.md)
 
 
 ## Q&A
