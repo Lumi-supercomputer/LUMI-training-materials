@@ -986,7 +986,7 @@ use this system architecture, but with different types of compute blades.
   ![Slide LUMI](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-101-Architecture/AssemblyLUMI.png){ loading=lazy }
 </figure>
 
-This slide shows LUMI fully assembled (as least as it was at the end of 2022).
+This slide shows LUMI fully assembled.
 
 At the front there are 5 rows of cabinets similar to the ones in the exploded Cray EX picture 
 on the previous slide.
