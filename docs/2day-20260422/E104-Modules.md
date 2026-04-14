@@ -39,7 +39,7 @@ to set up for the exercises.
         and then for a specific version
 
         ```
-        module spider cray-hdf5/1.12.2.11
+        module spider cray-hdf5/1.14.3.5
         ```
 
         and see that there is not much information. Even worse, the help of this particular version
@@ -47,10 +47,11 @@ to set up for the exercises.
         where the info is, is
 
         ```
-        /opt/cray/pe/hdf5/1.12.2.11/release_info.md
+        /opt/cray/pe/hdf5/1.14.3.7/release_info.md
         ```
 
-        (and the same holds true for `cray-hdf5-parallel`)
+        (and the same holds true for `cray-hdf5-parallel` where in some versions the file is
+        even simply missing)
 
 
 2.  The `Bison` program installed in the OS image is pretty old (version 3.0.4) and
@@ -104,6 +105,10 @@ to set up for the exercises.
             at least if you recently had one of the spack modules loaded. We try to prevent
             polluting results with "secondary" software stacks, but this does not always work.
 
+            This would have happened if you had recently loaded one of the spack modules and the Lmod
+            cache would have been generated during that period. In new Spack installations, we will avoid
+            this by not pre-installing any software.
+
 3.  The `htop` command is a nice alternative for the `top` command with a more powerful user interface.
     However, typing `htop` on the command line produces an error message. Can you find and run `htop`?
 
@@ -113,20 +118,20 @@ to set up for the exercises.
         available on the system. With `module keyword htop` we'll find out immediately that it is in the 
         `systools` modules and some of those seem to be numbered after editions of the LUMI stack suggesting
         that they may be linked to a stack, with `module spider` you'll first see that it is an extension of
-        a module and see the versions. You may again see some versions installed with Spack.
+        a module and see the versions. In rare cases, you may again see some versions installed with Spack.
 
-        Let's check further for `htop/3.3.0` that should exist according to `module spider htop`:
+        Let's check further for `htop/3.4.1` that should exist according to `module spider htop`:
 
         ```
-        module spider htop/3.3.0
+        module spider htop/3.4.1
         ```
 
-        tells us that this version of `htop` is available in all partitions of `LUMI/24.03`
+        tells us that this version of `htop` is available in all partitions of `LUMI/25.03`, `LUMI/25.09`
         and in `CrayEnv`. Let us just run it in the `CrayEnv` environment:
 
         ```
         module load CrayEnv
-        module load systools/24.03
+        module load systools/25.03
         htop
         ```
 
