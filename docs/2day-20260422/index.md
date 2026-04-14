@@ -74,8 +74,6 @@ These materials will become available as the course progresses.
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
-| [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
-| [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
 | [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
 | **Appendices** @span |  |  |  |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
