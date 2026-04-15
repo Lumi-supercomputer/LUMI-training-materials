@@ -1183,14 +1183,14 @@ optional sections. A non-exhaustive list is:
     but it is also possible to, e.g., pull a container from [Docker Hub](https://hub.docker.com/)
     and start from there. E.g., to start from the Ubuntu 24.04 container on docker, you'd use
 
-    ```
+    ``` singularity
     Bootstrap: docker
     From: ubuntu:24.04
     ```
 
     and to start from a file available on a LUMI filesystem, you'd use
 
-    ```
+    ``` singularity
     Bootstrap: localimage
     From: <PATH_TO_AND_NAME_FROM_THE_SIF_FILE>
     ```
@@ -1264,7 +1264,7 @@ the virtual environment from the AI container. As the environment variable
 the container instead so that we don't need to specify it anymore elsewhere.
 We'll also demonstrate how a definition file can be parameterised:
 
-```
+``` singularity
 Bootstrap: localimage
 From: {{ sif }}
 
@@ -1412,7 +1412,7 @@ As this is just for demonstration purposes, we will not build on top of the full
 container to save some time, but of course, the full container is also
 on Docker Hub.
 
-```
+``` singularity
 Bootstrap: docker
 From: docker.io/lumiaifactory/lumi-multitorch:mpich-u24r64f21m43t29-20260225_144743
 
@@ -1477,9 +1477,9 @@ but they do no harm.
 </figure>
 
 
-#### Bonus example: Bindings
+#### Bonus example: Bind mounts
 
-To illustrate that bindings work differently during the `%post` phase then when running
+To illustrate that bind mounts work differently during the `%post` phase then when running
 a container, consider the following example based on a very simple Ubuntu container.
 
 First, we pull the container from docker to create a base singularity image:
@@ -1519,7 +1519,7 @@ do outside the container.
 
 Now consider the near trivial definition file
 
-```
+``` singularity
 Bootstrap: localimage
 From: ubuntu_24.04.sif
 
@@ -1547,7 +1547,7 @@ even though we could run the container from which we start the build without iss
 
 Now try the following definition file:
 
-```
+``` singularity
 Bootstrap: localimage
 From: ubuntu_24.04.sif
 
@@ -1672,7 +1672,7 @@ start container for further builds.
 To add support for Slurm commands in a container based on Ubuntu, the following 
 elements are certainly needed in the definition file:
 
-```
+``` singularity
 Bootstrap: docker
 From: ubuntu:24.04
 
@@ -1903,7 +1903,7 @@ whatever is in the main branch of the GitHub repository at that time, so you don
 know if you have an officially released version or some intermediate one that may be
 less tested.
 
-```
+``` singularity
 Bootstrap: docker
 From: ubuntu:24.04
 
@@ -2005,7 +2005,158 @@ supercomputer environment.
     ```
 
 
-#### Relevant documentation for this section:
+#### Bonus example: Python from scratch with a Python package from GitHub
+
+In this example, we install a Python package that does not need `mpi4py` or ROCm(tm). 
+Starting from [one of the containers made by the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/)
+is overkill in this case. Instead, in this example we started from a barebones
+Ubuntu container and install the system Python (which was Python 12 for Ubuntu 24.04 -
+we prefer to use a long-term service release) ourselves. The process we used for that
+is derived from the process that the LUMI AI Factory also uses when building its containers,
+but they use a different build tool that does not run on LUMI. The example that we give
+here can be processed on LUMI with singularity and does not need another container build
+tool run on your local workstation or other server.
+
+Ubuntu does not like that we add Python packages to the system installation. Instead,
+we create a virtual environment in `/opt` where we will install the packages. We also 
+make sure that when the container is initialised, the virtual environment is also activated,
+so that the user doesn't need to care about this.
+
+**If you add packages to the container in a follow-up build process, it might still be necessary 
+to activate the virtual environment as initialisation during the build process works differently
+than when running a container.**
+
+As the virtual environment has just been created, we need to activate it in our build script here too.
+
+We also show how `/tmp` can be used when installing software in the container. In this case, we clone
+the git repository of the Python package in `/tmp` rather than in a directory in the container as we 
+do not want to keep that data around anyway and as writing in `/tmp` is much faster than writing in 
+the emulated root filesystem when building a container. Then we install the Python package from there
+using `pip install`. The package that we install here is a typical research code that is not on
+PyPi, [AITW_microstructures](https://github.com/Crivella/AITW_microstructures).
+
+The same idea can also be used when compiling software packages: Do the build process in a subdirectory of
+`/tmp` and then use the `make install` step to install the package where it belongs in the container.
+This will speed up the process of container building.
+
+We also add a runscript that will start Python, passing all additional arguments to `singularity run`
+to the `python3` command.
+
+The container definition file is:
+
+``` singularity linenums="1"
+Bootstrap: docker
+From: ubuntu:24.04
+
+%labels
+    Description "Ubuntu 24.04 with Python 3.12"
+
+%post
+    # Update base system
+    apt-get update
+
+    apt-get -y --no-install-recommends install man locales
+    locale-gen en_US.UTF-8 fi_FI.UTF-8 pl_PL.UTF-8
+
+    apt-get install -y --no-install-recommends \
+        python3.12 \
+        python3.12-venv \
+        python3.12-dev \
+        python3-pip \
+        build-essential \
+        ca-certificates \
+        file \
+        git \
+        less \
+        nano \
+        vim \
+        unzip \
+        wget \
+        curl
+
+    # Ensure python3 points to python3.12
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+
+    # Clean up
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+    #
+    # Finished the Ubuntu installation, now we go on with Python packages.
+    #
+    # Ubuntu does not want you to overwrite system packages, so we have to use a venv.
+    #
+    python3.12 -m venv /opt/venv
+    . /opt/venv/bin/activate
+
+    python3.12 -m pip install --upgrade pip
+
+    #
+    # Now the code from the GitHub repository
+    #
+
+    curdir=$PWD
+    tmpdir=$(mktemp -d)
+    cd $tmpdir ; git clone https://github.com/Crivella/AITW_microstructures ;  cd $curdir
+    pip install $tmpdir/AITW_microstructures
+    /bin/rm -rf $tmpdir
+
+%environment
+    export PATH="/usr/local/bin:$PATH"
+    source /opt/venv/bin/activate
+
+%runscript
+    exec python3 "$@"
+```
+
+In the first part of the `%post` section, lines 8 till 35, we install a number of Ubuntu packages and
+also show how additional locales can be added should you require special language support. 
+At the end, we clean up some files that are useless in a container (basically information that
+Ubuntu would use to install or update packages which we cannot do as the container file is
+read-only anyway).
+
+On line 42 and 43, we create the virtual environment and activate it. In lines 51 to 55,
+we create a unique subdirectory in `/tmp`, clone the git repository, then install the Python
+package from the sources in that cloned directory, and remove the temporary directory
+again.
+
+We use the `%environment` section, which is usually used to set environment variables that should
+be set at initialisation, to run the `activate` script for our virtual environment. 
+The `export PATH` command on line 58 currently makes no sense, as `/usr/local/bin` is empty, but 
+is put there to show how you would normally set an environment variable. Also, if you would compile
+software yourself and want to add it to the container, `/usr/local` is a good choice for the 
+installation directory as that one would not cause conflicts with Ubuntu package management.
+
+The `%runscript` section shows the commands that go into our very simple runscript.
+
+??? advanced "What does this look like in the container?"
+    The commands that we used in the `%environment` section have landed in the 
+    `/.singularity.d/env/90-environment.sh` file. These scripts are really sourced
+    by the script that does the container intialisation, as you can see from the various
+    scripts in `/.singularity.d/actions`. 
+    These scripts use the `/bin/sh` shell which in the container is the `dash` shell,
+    a minimal but fast POSIX-compliant shell and is what Ubuntu uses by default.
+    So you cannot use a number of bash-specific syntax constructions in the `%environment`
+    section (and other sections such as `%runscript`).
+
+    The runscript that is generated is the file `/.singularity.d/runscript` in the container.
+    Note that it again uses the shell `/bin/sh`.
+
+If you'd need a container with ROCm(tm) support or support for `mpi4py`, it would be better
+to start from the containers from the LUMI AI Factory. The `mpi4py` package that you download
+from PyPi does not properly support the LUMI interconnect, so it needs to be compiled from sources,
+but that also requires an MPI library with good performance in the container. Another option is
+to start from containers with components of the programming environment in there that the 
+LUMI User Support Team also supports, or bind mount a suitable version of Cray MPICH in the container.
+You can then build on top of Cray Python which already has a proper `mpi4py` or compile an 
+`mpi4py` yourself on top of Cray MPICH.
+These options would require to use a container OS compatible with the programming environment,
+i.e., at the time of writing (April 2026), OpenSUSE 15 SP6. In fact, one of the reasons to 
+experiment now already with Ubuntu is that there is no OpenSUSE equivalent to SUSE Enterprise
+Linux 15 SP7 which will likely be needed for future versions of the Cray PE.
+
+
+#### Relevant documentation for this section
 
 -   ["Unprivileged PRoot builds" in the SingularityCE 4.1 manual](https://docs.sylabs.io/guides/4.1/user-guide/build_a_container.html#unprivilged-proot-builds)
 
