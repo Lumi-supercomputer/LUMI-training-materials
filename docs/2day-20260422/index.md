@@ -97,7 +97,7 @@ missing only one element from the during-the-course
 version that can be made in your own project.
 For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 6pm CET/ 7pm EET that
+if they are not made during the second course day (the reservation expires at 5pm CEST/ 6pm EEST that
 day).
 
 -   Create a directory in the scratch of your project, or if you want to
