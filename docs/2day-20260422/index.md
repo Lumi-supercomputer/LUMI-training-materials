@@ -1,6 +1,6 @@
 # Moving your HPC workloads to LUMI - Hybrid course, April 22-23, 2026, on-site in Riga and online
 
-**[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/)**
+<!-- **[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/)** -->
 
 
 ## Course organisation
@@ -16,7 +16,6 @@
 
 -   [Schedule](schedule.md)
 
-<!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-04.26?both)
 
 -   Project for the course: `project_465002764`.
@@ -26,9 +25,10 @@
 
 -   There are two Slurm reservations for the course for the exercises on the second day:
 
-    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
+    -   CPU nodes: `lumi_intro_small` (on the `small` Slurm partition)
+    -   GPU nodes: `lumi_intro_standard-g` (on the `standard-g` Slurm partition)
 
+<!--
 -   [Some suggestions for the night](evening_suggestions.md)
 -->
 
@@ -74,7 +74,7 @@ These materials will become available as the course progresses.
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
-| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
+| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WrapUpDay2.pdf) | / | [V](MI202-WrapUpDay2.md) |
 | **Appendices** @span |  |  |  |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 

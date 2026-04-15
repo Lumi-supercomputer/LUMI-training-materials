@@ -6,7 +6,7 @@
 
 The campus is on Kipsala island, a half hour walk from the old town.
 
-Nearby hotels are:
+## Nearby hotels
 
 -   [Riga Islande Hotel](https://www.islandehotel.lv/), on the island next to the campus and just
     a 5 minutes walk from the course venue. 

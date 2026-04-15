@@ -13,9 +13,9 @@ For these exercises, you'll need to take care of some settings:
 
 -   On April 23 we have a reservation that you can use (through `#SBATCH --reservation=...`):
   
-    -   For the `small` partition, the reservation name is `LUMI_intro_small`
+    -   For the `small` partition, the reservation name is `lumi_intro_small`
 
-    -   For the `standard-g` partition, the reservation name is `LUMI_intro_standard-g`
+    -   For the `standard-g` partition, the reservation name is `lumi_intro_standard-g`
 
 An alternative (during the course only) for manually specifying 
 the account, the partition and the reservation, is to set
