@@ -800,6 +800,79 @@ Or they may require a different version of the network drivers.
     [Cray PE containers](../User-Coffee-Breaks/20250827-user-coffee-break-CCPE.md).
 
 
+### Pre-build containers: AI
+
+<figure markdown style="border: 1px solid #000">
+  ![Environment enhancements (5)](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-205-Containers/ContainersEnvironmentEnhancement_5.png){ loading=lazy }
+</figure>
+
+
+#### LUMI AI Factory containers
+
+The LUMI AI Factory currently focuses on containers built around PyTorch, though containers 
+with Tensorflow or JAX will follow at a later date. 
+
+Their containers are completely independent of the Cray PE and hence can in principle also run on
+other systems sufficiently compatible with LUMI. Their containers are built in a hierarchy of
+images:
+
+-   `lumi-multitorch-rocm-*`: Base container based on Ubuntu with ROCm
+-   `lumi-multitorch-libfabric-*`: Adding libfabric on top of the previous one
+-   `lumi-multitorch-mpich-*`: Adding the MPICH MPI library with GPU support on top of the previous one
+-   `lumi-multitorch-torch-*`: Adding PyTprch on top of the previous one
+-   `lumi-multitorch-full-*`: Adding a selection of additional AI and ML libraries on top of the previous one
+
+They can be found on LUMI in `/appl/local/laifs/containers`.
+Unlike earlier containers offered on LUMI, they do not come with wrapper scripts, but there is a module that 
+takes care of the necessary bindings so that you can use all your filespaces and that also sets an environment
+variable that is needed to let Slurm work together with the MPI library in the container. The module has been
+mentioned before in these notes and can be loaded with:
+
+``` bash
+module load Local-LAIF lumi-aif-singularity-bindings
+```
+
+or
+
+```
+module use /appl/local/laifs/modules
+module load lumi-aif-singularity-bindings
+```
+
+
+#### Former LUST-provided containers
+
+Some of the containers previously provided by LUST in collaboration with AMD, should also still function until the
+system update to full ROCm(tm) 7 support and can be found in `/appl/local/containers/sif-images`.
+
+For these containers, there are also EasyConfigs available that install a module providing all bindings and also
+some wrapper scripts that can make life easier. We refer to the LUMI Software Library pages for:
+
+-   [PyTorch](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/PyTorch/)
+
+-   [TensorFlow](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/t/TensorFlow/)
+
+-   [JAX](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
+
+No further development is going on for these containers and they are offered as-is. In case of issues, the user
+will be asked to try with the LUMI AI Factory containers instead.
+
+
+#### Former CSC containers
+
+CSC also offered some containers for AI in their local software stack with wrapper scripts, though in a 
+slightly different approach as the containers offered by LUST. 
+
+-   [PyTorch](https://docs.csc.fi/apps/pytorch/#lumi)
+
+-   [TensorFlow](https://docs.csc.fi/apps/tensorflow/#lumi)
+
+-   [JAX](https://docs.csc.fi/apps/jax/)
+
+Just as the LUST-provided containers, these containers are offered as-is and are unsupported. No issues about
+those containers will be solved.
+
+
 ## Extending containers
 
 ### Extend Python containers with a virtual environment
