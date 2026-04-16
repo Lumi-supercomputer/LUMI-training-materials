@@ -479,59 +479,10 @@ which produces
   ![module spider CMake](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake1.png)
 </figure>
 
-the output above shows us that there are actually 4 other versions of CMake on the system, but their
+the output above shows us that there are actually 5 versions of CMake on the system, but their
 version is followed by `(E)` which says that they are extensions of other modules.
 
-Most users would have gotten the same output from
-
-```bash
-$ module spider cmake
-```
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider cmake](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake2.png)
-</figure>
-
-However, if you've recently used one of the `spack` modules and the Lmod cache was last created with one of those
-modules loaded, 
-
-```bash
-$ module spider CMake
-```
-
-may show you something like
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider CMake with Spack](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake3.png)
-</figure>
-
-This shows a number of alternative modules also called `cmake`. These are modules that were installed on the system using Spack, a tool for HPC software management that
-we provide as our secondary tool for users familiar with that tool. More about it also in the presentation on
-[software stack](105-SoftwareStacks.md).
-
-With a `spack` module loaded, 
-
-```bash
-$ module spider cmake
-```
-
-would give you something similar to 
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider cmake with Spack](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake4.png)
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider cmake with Spack](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake5.png)
-</figure>
-
-and we no longer see the CMake versions provided as extensions (and our main CMake instances),
-but as modules take priority over extensions, Lmod is happy to just show us the module
-named `cmake` which is immediately recognisable as a spack-installed module from the seemingly
-random string of characters at the end.
-
-So there is no module called `CMake` on the system (well, there may be one for Spack users but then
-with lowercase name).
+So there is no module called `CMake` on the system.
 But Lmod already tells us
 how to find out which module actually provides the CMake tools. So let's try
 
@@ -568,6 +519,12 @@ $ module spider buildtools/25.09
 ```
 
 to get even more information about the buildtools module, including any help included in the module.
+
+!!! note "Some users may have seen different output"
+    Not only is the output we have shown here, just the output at the moment of time that the screenshots
+    were taken (and LUMI is in continuous evolution), but if you have recently loaded modules from other
+    softwarestacks on LUMI, modules from those software stacks may also show up if the cache was rebuilt
+    while those modules were loaded.
 
 
 ## Alternative search: the module keyword command
@@ -864,7 +821,7 @@ system cache and only a user cache. That cache can be found in `$HOME/.cache/lmo
 
 That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
 e.g., the `module spider` and `module available` commands will be slow during the rebuild.
-you may need to clean the cache after installing new software as on LUMI Lmod does not
+You may need to clean the cache after installing new software as on LUMI Lmod does not
 always detect changes to the installed software,
 
 Sometimes you may have to clear the cache also if you get very strange answers from 
