@@ -1148,6 +1148,9 @@ for users in fall of 2026.
     Support is only offered through [the EFP helpdesk](https://docs.my-eurohpc.eu/support/).
     LUST cannot forward these requests.
 
+    EESSI also has its own [training events](https://www.eessi.io/docs/training-events/)
+    and a weekly [EESSI happy hour session](https://www.eessi.io/docs/training-events/happy-hours-sessions/).
+
     The EESSI software stack is currently not offered through modules. Access is also different on 
     the login nodes and on the compute nodes. For the expert: EESSI on LUMI is currently not offered
     through CernVM-FS but through SquashFS files that are synchronised with the main EESSI repository
