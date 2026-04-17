@@ -69,12 +69,14 @@ reproducing a lab experiment where, e.g., each measurement instrument introduces
 The only thing that containers do reproduce very well, is your software stack. But not without problems:
 
 Containers are certainly **not performance portable** unless they have been specifically designed to run optimally on a range of hardware
-and your hardware falls into that range. E.g., without proper support for the
-interconnect it may still run but in a much slower mode. But one should also realise that speed gains in the x86
+and your hardware falls into that range. E.g., one should also realise that speed gains in the x86
 family over the years come to a large extent from adding new instructions to the CPU set, and that two processors
 with the same instructions set extensions may still benefit from different optimisations by the compilers. 
 Not using the proper instruction set extensions can have a lot of influence. At my local site we've seen GROMACS 
 doubling its speed by choosing proper options, and the difference can even be bigger.
+The same holds for GPUs: newer generations may add new instructions that speed up things.
+Sometimes, this is dealt with by just-in-time compiling, but this is not the case in all applications
+as just-in-time compiling also greatly increases the startup time of applications.
 
 Many HPC sites try to build software as much as possible from sources to exploit the available hardware as much as 
 possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
@@ -88,7 +90,7 @@ performance of shared memory communication and that extension is not present (or
 around, the container cannot exploit such an extension on LUMI). This is not so strange:
 Many supercomputers use the `knem` extension while LUMI uses `xpmem` instead.
 
-Some container promoters say that all you need to do to get good performance is to run a standard container on an optimised OS kernel. This is nonsense. Scientific software typically spends around
+Some container promoters say that all you need to do to get good performance, is to run a standard container on an optimised OS kernel. This is nonsense. Scientific software typically spends around
 99% of its time in user mode. So even if you can optimise that 1% that it spends in the kernel
 away, you've still shaved only one minute of a 100 minute job. 
 
@@ -106,8 +108,8 @@ This is particularly true for GPU software: If your userland libraries in the co
 too new or too old for the GPU driver, they may simply fail to run. 
 And containers may also want to talk to certain services on the supercomputer. 
 One important one is communicating with the resource manager, which some MPI libraries need.
-Versions that do not sufficiently or features that the host does not offer but the container
-expects, may also cause crashes.
+Versions of libraries that do not sufficiently correspond to those of the services on the host,
+or features that the host does not offer but the container expects, may also cause crashes.
 
 
 ## But what can they then do on LUMI?
@@ -118,7 +120,8 @@ expects, may also cause crashes.
 
 
 Containers are in the first place a **software management instrument** to create a contained software 
-installation: Files not spread over the system, better control of dependencies, and more:
+installation: Files not spread over the system, better control of dependencies, and when used to run 
+services, an additional level of security:
 
 *   A very important reason to use containers on LUMI is **reducing the pressure on the file system** by software
     that accesses many thousands of small files (Python and R users, you know who we are talking about).
@@ -286,7 +289,7 @@ be supported for security reasons. You have to keep in mind that an HPC machine 
 with little to no isolation between users, unlike a cloud solution where containers can be locked up
 in a micro virtual machine and filesystems are completely virtualised also or work with different security
 models from traditional parallel filesystems or other popular networked filesystems from the PC and 
-workstation world..
+workstation world.
 Enabling features that are known to have had several serious security vulnerabilities in the recent past, or that
 themselves are unsecure by design and could allow users to do more on the system than a regular user should
 be able to do, will never be supported.
@@ -384,6 +387,9 @@ running a container means. You can check if it is present and what it does with 
 singularity inspect --runscript container.sif
 ```
 
+or you can just open a shell in the container and check if `/.singularity.d/runscript` exists and
+what it does.
+
 ???+demo "Demo singularity run"
 
     <figure markdown style="border: 1px solid #000">
@@ -421,7 +427,7 @@ export SINGULARITY_BIND='/pfs,/scratch,/projappl,/project,/flash'
 will ensure that you have access to the scratch, project and flash directories of your project, and
 
 ``` bash
-export SINGULARITY_BIND='/pfs,/scratch,/projappl,/project,/flash,appl'
+export SINGULARITY_BIND='/pfs,/scratch,/projappl,/project,/flash,/appl'
 ```
 will also add `/appl` though you should not expect that you can run the LUMI software stack in
 your container.
@@ -433,6 +439,13 @@ For some containers that are provided by the LUMI User Support Team, modules are
 set `SINGULARITY_BINDPATH` so that all necessary system libraries are available in the container and
 users can access all their files using the same paths as outside the container.
 
+??? Note "`SINGULARITY_BIND` or `SINGULARITY_BINDPATH`?"
+    Both work. `SINGULARITY_BINDPATH` is the original name for the variable in the early versions
+    of singularity. `SINGULARITY_BIND` is the newer and more intuitive one, as its name refers to
+    the `--bind` command line option.
+
+    If both are present, both are used to define the bind mounts.
+
 
 ## Running containers on LUMI
 
@@ -442,11 +455,11 @@ users can access all their files using the same paths as outside the container.
 
 Just as for other jobs, you need to use Slurm to run containers on the compute nodes.
 
-For MPI containers one should use `srun` to run the `singularity exec` command, e.g,,
+For MPI containers one should use `srun` to run the `singularity exec` command, e.g.,
 
 ```
 srun singularity exec --bind ${BIND_ARGS} \
-${CONTAINER_PATH} mp_mpi_binary ${APP_PARAMS}
+    ${CONTAINER_PATH} mp_mpi_binary ${APP_PARAMS}
 ```
 
 (and replace the environment variables above with the proper bind arguments for `--bind`, container file and
@@ -456,7 +469,8 @@ On LUMI, the software that you run in the container
 should either be compiled with an MPI library that can talk to the libfabric and libcxi from the system,
 or be compiled with an MPI library that has those libraries in the container already, or
 should be compatible with Cray MPICH, i.e., use the
-MPICH ABI (currently Cray MPICH is based on MPICH 3.4) so that you can tell the container to use
+MPICH ABI (Cray MPICH 8.1 is based on MPICH 3.4, different 9.x versions on various 4.y versions) 
+so that you can tell the container to use
 Cray MPICH (from outside the container) rather than the MPICH variant installed in the container, so that
 it can offer optimal performance on the LUMI Slingshot 11 interconnect.
 
@@ -471,7 +485,7 @@ Open MPI has a slight preference for the UCX communication library over the OFI 
 until version 5 full GPU support required UCX. Moreover, binaries using Open MPI often use the so-called
 rpath linking process so that it becomes a lot harder to inject an Open MPI library that is installed
 elsewhere. The good news though is that the Open MPI developers of course also want Open MPI
-to work on biggest systems in the USA, and all three currently operating or planned exascale systems
+to work on biggest systems in the USA, and all three currently operating USA exascale systems
 use the Slingshot 11 interconnect, so work is going on for better support for OFI in general and 
 Cray Slingshot in particular and for full GPU support.
 
@@ -773,7 +787,7 @@ be a better alternative.
 
 #### CCPE
 
-We are currently also working with HPE to provide containerised Cray Programming Environments
+Together with HPE LUST also maintains containerised versions of the Cray Programming Environment
 to be able to test newer versions of the Cray PE than are offered on LUMI, or to keep using
 older ones that have been removed from the system.
 
@@ -793,6 +807,8 @@ driver on the software, running GPU software may fail. Some containers may also 
 a different version of the OS and though they contain the necessary userland libraries, these
 may expect a different version of the kernel or libraries that are injected from the system.
 Or they may require a different version of the network drivers.
+
+**Note that these containers contain licensed software and should only be used on LUMI!**
 
 !!! Note "User coffee break seminar on the CCPE containers"
 
@@ -1057,7 +1073,7 @@ installed in a virtual environment located in `/opt/venv`. That environment is a
 activated when you open a shell in the container or use `singularity exec` instead of
 `singularity run`. We are now building a second virtual environment on top of that one
 that also uses its packages. Even though many people don't recommend nesting virtual environments,
-it just works if you are careful. Don't try to take the new virtual environment that we've build
+it just works if you are careful. Don't try to take the new virtual environment that we've built
 here to a different base container with different package versions though, as that may result in
 version conflicts. It is definitely safer to rebuild the virtual environment if you switch
 to a newer version of the PyTorch container.
@@ -1130,7 +1146,8 @@ of that directory and use `makesquashfs` to generate the SquashFS file:
 
 ``` bash
 cd /tmp/$USER
-mksquashfs user-software <SOME_DIR>/user-software-mace.sqsh -processors 1 -all-root -action "chmod(a+rX) @true"
+mksquashfs user-software <SOME_DIR>/user-software-mace.sqsh \
+    -processors 1 -all-root -action "chmod(a+rX) @true"
 ```
 
 You are free to chose the filename extension, but here we use `sqsh` which is one of the more popular
@@ -1292,6 +1309,9 @@ optional sections. A non-exhaustive list is:
     order but not in a full bash shell, and it is possible to inject other scripts also via
     the `%files` or `%post` sections.
 
+    Note that these scripts typically don't run in the context of a full featured bash shell, but
+    in a restricted shell. Which shell that is, may depend on the OS in the container.
+
 -   The `%post` section is the section where you can put all commands that should be executed
     to install additional software in the container. 
 
@@ -1309,6 +1329,8 @@ optional sections. A non-exhaustive list is:
 
     -   Create an empty file (and/or empty directory) outside the container and use the `%files` section
         to copy those to where they are needed for the bindings.
+
+    This will be demonstrated in [one of the bonus examples further on](#bonus-example-bind-mounts).
 
 -   The `%runscript` section defines the runscript that will be used by the container. It is written to
     `/.singularity.d/runscript` in the container.
@@ -1435,7 +1457,7 @@ FATAL:   container creation failed: mount /var/spool/slurmd->/var/spool/slurmd e
 It is also rather likely that you will run out-of-memory on the login nodes so we will
 build on a compute node instead. Even though this is GPU software, it is not necessary to
 use a GPU node, so for the demo we use the `standard` partition.
-(Or you can set the environment variable `SINGULARITY_TMPDIR` to point to a location
+(Alternatively, to avoid using a job, you can set the environment variable `SINGULARITY_TMPDIR` to point to a location
 with more space than `/tmp`, but that would then be on Lustre which would come
 with serious performance consequences.)
 
@@ -1598,7 +1620,7 @@ From: ubuntu_24.04.sif
 
 %post
 
-    echo "If you see fine /build_results.echo in the container, everything was OK..." >/build_results.echo
+    echo "If you see the file /build_results.echo in the container, everything was OK..." >/build_results.echo
 ```
 
 and store this in the file `bindings-fail.def`. 
@@ -1738,6 +1760,8 @@ start container for further builds.
     produce a warning when run on another system and (b) some sysadmins may be very 
     unhappy if users try to run Slurm commands from that container on another system
     and forget to bind mount the correct Slurm configuration file.
+    And if you forget to then bind mount the real file and that file changes on LUMI,
+    LUMI sysadmins may also be very unhappy...
 
 
 #### Bonus example: Support for Slurm commands in Ubuntu
@@ -1961,15 +1985,14 @@ Note that the `salloc` command will not work in a container!
 #### Bonus example: FFmpeg
 
 FFmpeg is a very popular tool for video conversion. Unfortunately, it is a very hard
-package to install on LUMI.
+package to install in a container on LUMI.
 E.g., installing the Ubuntu package does not work. It is a full-featured version that
 requires dependencies that are not compatible with the LUMI environment and in fact even
 installing in the container will fail.
 Our solution for this example is to download a precompiled statically linked version
-that works on most Linux variants. Unfortunately, the site we use here seems to have
-stopped compiling the newest versions.
+that works on most Linux variants.
 
-We'll downlaod from [a GitHub site periodically generates builds](https://github.com/BtbN/FFmpeg-Builds)
+We'll download from [a GitHub site periodically generates builds](https://github.com/BtbN/FFmpeg-Builds)
 from the [FFmpeg master branch](https://github.com/ffmpeg/ffmpeg).
 The downside is that they don't follow specific FFmpeg versions, but simply build
 whatever is in the main branch of the GitHub repository at that time, so you don't
@@ -2112,7 +2135,7 @@ The same idea can also be used when compiling software packages: Do the build pr
 `/tmp` and then use the `make install` step to install the package where it belongs in the container.
 This will speed up the process of container building.
 
-We also add a runscript that will start Python, passing all additional arguments to `singularity run`
+We also add a runscript that will start Python, passing all additional arguments of `singularity run`
 to the `python3` command.
 
 The container definition file is:
@@ -2216,7 +2239,7 @@ The `%runscript` section shows the commands that go into our very simple runscri
     Note that it again uses the shell `/bin/sh`.
 
 If you'd need a container with ROCm(tm) support or support for `mpi4py`, it would be better
-to start from the containers from the LUMI AI Factory. The `mpi4py` package that you download
+to start from the containers from the LUMI AI Factory. The `mpi4py` wheel that you download
 from PyPi does not properly support the LUMI interconnect, so it needs to be compiled from sources,
 but that also requires an MPI library with good performance in the container. Another option is
 to start from containers with components of the programming environment in there that the 
@@ -2280,4 +2303,5 @@ has **two major flaws**
 
 The support for building containers on LUMI is currently limited due to security
 concerns. Any build process that requires elevated privileges, fakeroot or user namespaces
-will not work.
+will not work. Yet, with the singularity unprivileged PRoot build process, there is still
+a lot that we can do.
