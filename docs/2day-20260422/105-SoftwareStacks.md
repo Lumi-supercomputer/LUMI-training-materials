@@ -1143,7 +1143,7 @@ for users in fall of 2026.
 -   [EESSI](https://www.eessi.io/docs/) is provided as part of the
     [EuroHPC Federation Platform (EFP)](https://my-eurohpc.eu) and documented in the
     [EFP documentation](https://docs.my-eurohpc.eu/) with
-    [specific instructions for running on LUMI](https://docs.my-eurohpc.eu/).
+    [specific instructions for running on LUMI](https://docs.my-eurohpc.eu/software-catalog/system-specific/lumi/).
 
     Support is only offered through [the EFP helpdesk](https://docs.my-eurohpc.eu/support/).
     LUST cannot forward these requests.
