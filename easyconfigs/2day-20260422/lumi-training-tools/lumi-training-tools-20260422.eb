@@ -1,0 +1,111 @@
+# Written by Kurt Lust for the LUMI consortium.
+#
+#DOC Tools used in the training notes and exercises of the 2-day training
+#DOC given by LUST in Riga on April 22-23 2026.
+#DOC Only includes `mkfile`, compiled with the system compiler and usable without CPE,
+#DOC lstopo. Install with `module load LUMI/25.03 partition/common EasyBuild-user`.
+#
+easyblock = 'Bundle'
+
+local_hwloc_version = '2.13.0'
+local_hwloc_version_mm = '.'.join(local_hwloc_version.split('.')[:2])
+
+from os import getenv as local_getenv
+local_LUMI_version = local_getenv('LUMI_STACK_VERSION', default='25.03')
+
+name =    'lumi-training-tools'
+version = '20260422'
+
+homepage = '()'
+
+whatis = [
+    "Description: Useful tools for exercises etc. during LUMI trainings."
+]
+
+description = """
+This module provides tools that are used to demo other commands on LUMI or to
+be used for exercises.
+
+-   mkfile: Generate a file of given size.
+-   lstopo: Study the hardware topology of a node.
+
+Note that when run on a node without GPU, lstopo will start with an error 
+message: "hwloc/rsmi: Failed to initialize with rsmi_init(): 
+RSMI_STATUS_INIT_ERROR: An error occurred during initialization, during monitor 
+discovery or when when initializing internal data structures". This message is
+harmless, but if you don't want it in the output, run
+HWLOC_COMPONENTS=-rsmi lstopo
+or set
+export HWLOC_COMPONENTS=-rsmi
+before running lstopo.
+"""
+
+docurls = [
+    'mkfile: man page `man 1 mkfile`',
+    'lstopo: man page `man 1 lstopo`',
+]
+
+toolchain = SYSTEM
+
+builddependencies = [
+    ('buildtools', local_LUMI_version),
+]
+
+default_easyblock = 'ConfigureMake'
+
+components = [
+    ('mkfile', '1.1.3', { # FreeBSD mkfile utility
+        'easyblock':     'CmdCp',
+        'sources':       ['%(name)s-%(version)s.tar.gz'],
+        'source_urls':   ['https://www.infolab.ne.jp/~hatanou/freebsd/mkfile'],
+        'patches':       ['mkfile_Manual_page.patch'], 
+        'checksums':     [
+                            {'%(name)s-%(version)s.tar.gz': 'd51591319c5336620b45494a458aa8e27be0ee96a03aa641b1c03463e105353c'},
+                            {'mkfile_Manual_page.patch':    '1f6c3dec4a59f50138eaf00b155dbdc23553353f7f66f129c89e3f0bb1c7378a'},
+                         ],
+        'start_dir':     '%(name)s-%(version)s',
+        'cmds_map':      [('%(name)s-%(version)s.tar.gz', 'cd %(builddir)s/%(name)s-%(version)s && ' +
+                                                          'gcc -O2 -march=znver1 mkfile.c -o mkfile && ' +
+                                                          'mv mkfile.8 mkfile.1')],
+        'files_to_copy': [
+                             (['mkfile'], 'bin'),
+                             (['mkfile.1'], 'share/man/man1'),
+                         ],
+    }),
+    ('lstopo', local_hwloc_version, { # lstopo taken out of hwloc
+        'easyblock':     'ConfigureMake',
+        'sources':       [f'hwloc-{local_hwloc_version}.tar.bz2'],
+        'source_urls':   [f'https://www.open-mpi.org/software/hwloc/v{local_hwloc_version_mm}/downloads/'],
+        'checksums':     ['52e936afb6ebd80f171f763fcf14f7b1f5ce98b125af5dd2f328b873b1fd0dab'],
+        'start_dir':     f'hwloc-{local_hwloc_version}',
+        'configopts':    ' '.join([
+                             '--with-rocm=/opt/rocm',
+                             '--disable-shared',
+                             '--enable-static',
+                         ]),
+    })
+]
+
+postinstallcmds = [
+    '/bin/rm -r %(installdir)s/bin/hwloc* %(installdir)s/include %(installdir)s/lib %(installdir)s/lib64 %(installdir)s/sbin',
+    '/bin/rm -r %(installdir)s/share/doc %(installdir)s/share/hwloc',
+    '/bin/rm -r %(installdir)s/share/man/man1/hwloc* %(installdir)s/share/man/man3 %(installdir)s/share/man/man7',
+    'mkdir -p %(installdir)s/share/licenses/lstopo',
+    f'cd ../hwloc-{local_hwloc_version} && cp AUTHORS COPYING NEWS README %(installdir)s/share/licenses/lstopo',
+]
+
+sanity_check_paths = {
+    'files': # mkfile
+             ['bin/mkfile'] +
+             # lstopo
+             ['bin/lstopo'],
+    'dirs':  # mkfile and lstopo
+             ['share/man/man1'],
+}
+
+sanity_check_commands = [
+    'mkfile 4k testfile_easybuild_mkfile',
+    'lstopo'
+]
+
+moduleclass = 'tools'

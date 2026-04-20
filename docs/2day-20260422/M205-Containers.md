@@ -18,11 +18,10 @@ Materials will be made available after the lecture
 <video src="https://462000265.lumidata.eu/2day-20260422/recordings/205-Containers.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
-<!--
+
 -   [Slides](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-205-Containers.pdf)
 
 -   [Course notes](205-Containers.md)
--->
 
 <!--
 There are two demos illustrating material from this talk:

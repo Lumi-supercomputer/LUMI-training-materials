@@ -1,6 +1,6 @@
 # PRACE National Node in Latvia: Current research support tools and international collaboration platforms
 
-*Presenter: RTU HPC Centre*
+*Presenter: Līna Marta Sarma (RTU HPC Centre)*
 
 
 ## Materials

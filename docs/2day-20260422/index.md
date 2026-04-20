@@ -1,6 +1,6 @@
 # Moving your HPC workloads to LUMI - Hybrid course, April 22-23, 2026, on-site in Riga and online
 
-**[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/)**
+<!-- **[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/)** -->
 
 
 ## Course organisation
@@ -16,19 +16,19 @@
 
 -   [Schedule](schedule.md)
 
-<!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-04.26?both)
 
--   Project for the course: `project_465002174`.
+-   Project for the course: `project_465002764`.
 
     This project provides resources for the exercises. 
     **The project should not be used for your own work!**
 
 -   There are two Slurm reservations for the course for the exercises on the second day:
 
-    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
+    -   CPU nodes: `lumi_intro_small` (on the `small` Slurm partition)
+    -   GPU nodes: `lumi_intro_standard-g` (on the `standard-g` Slurm partition)
 
+<!--
 -   [Some suggestions for the night](evening_suggestions.md)
 -->
 
@@ -43,7 +43,7 @@ These materials will become available as the course progresses.
 -->
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
+
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -74,21 +74,17 @@ These materials will become available as the course progresses.
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
-| [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
-| [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
-| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
+| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WrapUpDay2.pdf) | / | [V](MI202-WrapUpDay2.md) |
 | **Appendices** @span |  |  |  |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
--->
 
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
-<!--
 ## Setting up for the exercises
 
-During the course, you can use the training project `project_465002174` for the exercises.
+During the course, you can use the training project `project_465002764` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
 **This project should only be used for exercises and not for your own work!**
@@ -101,7 +97,7 @@ missing only one element from the during-the-course
 version that can be made in your own project.
 For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 6pm CET/ 7pm EET that
+if they are not made during the second course day (the reservation expires at 5pm CEST/ 6pm EEST that
 day).
 
 -   Create a directory in the scratch of your project, or if you want to
@@ -112,34 +108,34 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465002174/course-20250602-$USER/Exercises
-    cd /scratch/project_465002174/course-20250602-$USER/Exercises
+    mkdir -p /scratch/project_465002764/course-20260422-$USER/Exercises
+    cd /scratch/project_465002764/course-20260422-$USER/Exercises
     ```
 
-    where you have to replace `project_465002174` using the number of your own project.
+    where you have to replace `project_465002764` using the number of your own project.
 
     If you have no other project on LUMI, you can also use the scratch of the
-    course project `project_465002174`. Do use a personal subdirectory as in the
+    course project `project_465002764`. Do use a personal subdirectory as in the
     following commands:
 
     ```
-    mkdir -p /scratch/project_465002174/$USER/Exercises
-    cd /scratch/project_465002174/$USER/Exercises
+    mkdir -p /scratch/project_465002764/$USER/Exercises
+    cd /scratch/project_465002764/$USER/Exercises
     ```
 
 
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar.bz2
-    tar -xf exercises-20251020.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2
+    tar -xf exercises-20260422.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2).
 
 -   You're all set to go!
--->
+
 
 <!--
 ## Making the exercises after the course
@@ -160,8 +156,8 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
-    cd /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
+    mkdir -p /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
     ```
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
@@ -169,7 +165,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 -   Now install the exercise files:
 
     ```
-    tar -xf /appl/local/training/2day-20260422/files/exercises-20250602.tar.bz2
+    tar -xf /appl/local/training/2day-20260422/files/exercises-20260422.tar.bz2
     ```
 
 -   You're all set to go!
@@ -179,11 +175,10 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     continuous evolution and changes to the system may break exercises and software
 -->
 
-<!--
+
 ## Links to documentation
 
 [The links to all documentation mentioned during the talks is on a separate page](A01-Documentation.md).
--->
 
 <!-- This document will be updated after the summer '25 system update. -->
 

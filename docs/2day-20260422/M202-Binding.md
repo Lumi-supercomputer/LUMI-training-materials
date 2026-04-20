@@ -17,11 +17,11 @@ Materials will be made available after the lecture
 <video src="https://462000265.lumidata.eu/2day-20260422/recordings/202-Binding.mp4" controls="controls"></video>
 -->
 -    A video recording will follow.
-<!--
+
 -   [Slides](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-202-Binding.pdf)
 
 -   [Course notes](202-Binding.md)
--->
+
 -   [Exercises](E202-Binding.md)
 
 ## Q&A

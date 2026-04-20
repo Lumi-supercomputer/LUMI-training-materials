@@ -1,4 +1,4 @@
-# Modules on LUMI
+# Environment modules on LUMI
 
 !!! Audience "Intended audience"
     As this course is designed for people already familiar with HPC systems and
@@ -10,10 +10,10 @@
     these notes as not every Lmod configuration is the same.
 
 
-## Module environments
+## Environment modules implementations
 
 <figure markdown style="border: 1px solid #000">
-  ![Module environments](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleEnvironments.png)
+  ![Environment modules implementations](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/EnvironmentModulesImplementations.png)
 </figure>
 
 An HPC cluster is a multi-user machine. Different users may need different 
@@ -42,7 +42,9 @@ A second system builds upon the C implementation but now uses Tcl also for the
 module command and not only for the module files. It is developed in France at
 the CÉA compute centre. The version numbering was continued from the C implementation,
 starting with version 4.0.0. 
-The third system and currently probably the most popular one is Lmod, a version
+It is known under the name [Environment Modules](https://modules.readthedocs.io/en/latest/index.html).
+The third system and currently probably the most popular one is 
+[Lmod](https://lmod.readthedocs.io/en/latest/), a version
 written in Lua with module files also written in Lua. Lmod also supports most
 Tcl module files. It is also supported by HPE Cray. HPE used to be a bit
 slow in following versions, but since 2024 they stay close to the current version. 
@@ -122,6 +124,10 @@ each other, and we use that to some extent on LUMI. Lmod **distinguishes between
 available modules**. Installed modules are all modules on the system that can be loaded one way or
 another, sometimes through loading other modules first. Available modules are all those modules
 that can be loaded at a given point in time without first loading other modules.
+This is a very powerful feature when used right, that has been a unique feature of Lmod until
+the [Tcl-based Environment Modules](https://modules.readthedocs.io/en/latest/index.html) 
+version 5.6 became available that introduced the 
+[`requiring_via` concept](https://modules.readthedocs.io/en/latest/MIGRATING.html#requiring-via-module).
 
 The HPE Cray Programming Environment also uses a hierarchy though it is not fully implemented in
 the way the Lmod developer intended so that some features do not function as they should.
@@ -189,8 +195,8 @@ which results in the next slide:
 The first two lines of output are due to to other mechanisms that are at work here, 
 and the order of the lines may seem strange but that has to do with the way Lmod works
 internally. Each of the PrgEnv modules hard loads a compiler module which is why Lmod tells
-you that it is loading `gcc-native/13.2`. However, there is also another mechanism at work that
-causes `cce/17.0.1` and `PrgEnv-cray/8.5.0` to be unloaded, but more about that in the next
+you that it is loading `gcc-native/14.2`. However, there is also another mechanism at work that
+causes `cce/19.0.0` and `PrgEnv-cray/8.6.0` to be unloaded, but more about that in the next
 subsection (next slide).
 
 The important line for the hierarchy in the output are the lines starting with 
@@ -199,12 +205,12 @@ Remember that we said that each module has a corresponding **module file**. Just
 on a system, these are **organised in a directory structure**, and there is a path, in this
 case `MODULEPATH`, that determines where Lmod will look for module files. The hierarchy is
 implemented with a directory structure and the environment variable `MODULEPATH`, and
-when the `cce/17.0.1` module was unloaded and `gcc-native/13.2` module was loaded, that 
+when the `cce/19.0.0` module was unloaded and `gcc-native/14.2` module was loaded, that 
 `MODULEPATH` was changed. As a result, the version of the cray-mpich module for the 
-`cce/17.0.1` compiler became unavailable, but one with the same module name for the
-`gcc-native/13.2` compiler became available and hence Lmod unloaded the version for the
-`cce/17.0.1` compiler as it is no longer available but loaded the matching one for
-the `gcc-native/13.2` compiler. 
+`cce/19.0.0` compiler became unavailable, but one with the same module name for the
+`gcc-native/14.2` compiler became available and hence Lmod unloaded the version for the
+`cce/19.0.0` compiler as it is no longer available but loaded the matching one for
+the `gcc-native/14.2` compiler. 
 
 
 ## About module names and families
@@ -265,6 +271,9 @@ to find out where a command is located, and very long search path environment
 variables such as `PATH` or the various variables packages such as Python, R or Julia use
 to find extension packages.
 On LUMI related packages are often bundled in a single module. 
+One example are the `buildtools` modules that bundle many tools that are used when 
+building software, such as CMake, Make, Autotools, ..., to avoid having to load
+many modules and to reduce the number of directories to seach in the PATH environment variable.
 
 Now you may wonder: If a module cannot be simply named after the package it contains as
 it contains several ones, how can I then find the appropriate module to load?
@@ -334,12 +343,7 @@ After a few more screens, we get the last one:
   ![module spider 3](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCommand_3.png)
 </figure>
 
-On the second screen we see, e.g., the ARMForge module which was available in just a single version
-at that time, and then Autoconf where the version is in blue and followed by `(E)`. This denotes
-that the Autoconf package is actually provided as an extension of another module, and one of the next
-examples will tell us how to figure out which one.
-
-The third screen shows the last few lines of the output, which actually also shows some help information
+That screen shows the last few lines of the output, which actually also shows some help information
 for the command.
 
 
@@ -366,17 +370,17 @@ The output also suggests us to dig a bit deeper and
 check for a specific version, so let's run
 
 ```bash
-$ module spider cray-fftw/3.3.10.7
+$ module spider cray-fftw/3.3.10.11
 ```
 
 This produces:
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider cray-fftw/3.3.10.7](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderFFTWVersion_1.png)
+  ![module spider cray-fftw/3.3.10.11](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderFFTWVersion_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider cray-fftw/3.3.10.7](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderFFTWVersion_2.png)
+  ![module spider cray-fftw/3.3.10.11](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderFFTWVersion_2.png)
 </figure>
 
 We now get a long list of possible combinations of modules that would enable us to load this module.
@@ -418,7 +422,7 @@ letters are not always used in the same way on different clusters. Some manageme
 stacks will only use lowercase letters, while the package we use for the LUMI software stacks often uses both. -->
 
 We see that there are a lot of versions installed on the system and that the version actually contains more 
-information (e.g., `-cpeGNU-24.03`) that we will explain in the next part of this course. But you might of
+information (e.g., `-cpeGNU-25.03`) that we will explain in the next part of this course. But you might of
 course guess that it has to do with the compilers that were used. It may look strange to you to have the same
 software built with different compilers. However, mixing compilers is sometimes risky as a library compiled
 with one compiler may not work in an executable compiled with another one, so to enable workflows that use
@@ -429,17 +433,17 @@ line in terms of the other software that you will be using.
 The output again suggests to dig a bit further for more information, so let's try
 
 ```bash
-$ module spider gnuplot/5.4.10-cpeGNU-24.03
+$ module spider gnuplot/6.0.3-cpeGNU-25.09
 ```
 
 This produces:
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider gnuplot/5.4.10-cpeGNU-24.03 screen 1](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderGnuplotVersion_1.png)
+  ![module spider gnuplot/6.0.3-cpeGNU-25.09 screen 1](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderGnuplotVersion_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider gnuplot/5.4.10-cpeGNU-24.03 screen 2](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderGnuplotVersion_2.png)
+  ![module spider gnuplot/6.0.3-cpeGNU-25.09 screen 2](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderGnuplotVersion_2.png)
 </figure>
 
 In this case, this module is provided by 3 different combinations of modules that also will be explained
@@ -475,76 +479,35 @@ which produces
   ![module spider CMake](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake1.png)
 </figure>
 
-the output above shows us that there are actually 4 other versions of CMake on the system, but their
+the output above shows us that there are actually 5 versions of CMake on the system, but their
 version is followed by `(E)` which says that they are extensions of other modules.
 
-Most users would have gotten the same output from
-
-```bash
-$ module spider cmake
-```
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider cmake](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake2.png)
-</figure>
-
-However, if you've recently used one of the `spack` modules and the Lmod cache was last created with one of those
-modules loaded, 
-
-```bash
-$ module spider CMake
-```
-
-may show you something like
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider CMake with Spack](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake3.png)
-</figure>
-
-This shows a number of alternative modules also called `cmake`, but with sometimes strange looking strings at the end
-of the version. These are modules that were installed on the system using Spack, a tool for HPC software management that
-we provide as our secondary tool for users familiar with that tool. More about it also in the presentation on
-[software stack](105-SoftwareStacks.md).
-
-With a `spack` module loaded, 
-
-```bash
-$ module spider cmake
-```
-
-would give you something similar to 
-
-<figure markdown style="border: 1px solid #000">
-  ![module spider cmake with Spack](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMake4.png)
-</figure>
-
-and we no longer see the CMake versions provided as extensions (and our main CMake instances).
-
-So there is no module called `CMake` on the system (well, there may be one for Spack users but then
-with lowercase name).
+So there is no module called `CMake` on the system.
 But Lmod already tells us
 how to find out which module actually provides the CMake tools. So let's try
 
 ```bash
-$ module spider CMake/3.29.3
+$ module spider CMake/4.2.3
 ```
 
 which produces
 
 <figure markdown style="border: 1px solid #000">
-  ![module spider CMake/3.29.3](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMakeVersion_1.png)
+  ![module spider CMake/4.2.3](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleSpiderCMakeVersion_1.png)
 </figure>
 
 This shows us that the version is provided by a number of `buildtools` modules, and for each of those
 modules also shows us which other modules should be loaded to get access to the commands. E.g.,
-the first line tells us that there is a module `buildtools/24.03` that provides that version of CMake, but
-that we first need to load some other modules, with `LUMI/24.03` and `partition/L` (in that order) 
+the first line tells us that there is a module `buildtools/25.09` that provides that version of CMake, but
+that we first need to load some other modules, with `LUMI/25.09` and `partition/L` (in that order) 
 one such combination.
+There is also the `buildtools/25.09-bootstrap` module, but that one is a more limited version
+that was needed to build some libraries to build fully featured tools in `buildtools/25.09`.
 
 So in this case, after
 
 ```bash
-$ module load LUMI/24.03 partition/L buildtools/24.03
+$ module load LUMI/25.09 partition/L buildtools/25.09
 ```
 
 the `cmake` command would be available.
@@ -552,10 +515,16 @@ the `cmake` command would be available.
 And you could of course also use
 
 ```
-$ module spider buildtools/24.03
+$ module spider buildtools/25.09
 ```
 
 to get even more information about the buildtools module, including any help included in the module.
+
+!!! note "Some users may have seen different output"
+    Not only is the output we have shown here, just the output at the moment of time that the screenshots
+    were taken (and LUMI is in continuous evolution), but if you have recently loaded modules from other
+    softwarestacks on LUMI, modules from those software stacks may also show up if the cache was rebuilt
+    while those modules were loaded.
 
 
 ## Alternative search: the module keyword command
@@ -570,28 +539,28 @@ given keyword, and shows in which modules the keyword was found.
 We do an effort to put enough information in the modules to make this a suitable additional way
 to discover software that is installed on the system.
 
-Let us look for packages that allow us to download software via the `https` protocol.
+Let us try to search for an editor.
 One could try
 
 ```bash
-$ module keyword https
+$ module keyword editor
 ```
 
 which produces the following output:
 
 <!-- Use a window of 95x23 -->
 <figure markdown style="border: 1px solid #000">
-  ![module keyword https screen 1](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleKeywordHTTPS_1.png)
+  ![module keyword editor 1](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleKeywordEditor_1.png)
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![module keyword https screen 2](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleKeywordHTTPS_2.png)
+  ![module keyword editor 2](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleKeywordEditor_2.png)
 </figure>
 
-The first option is misleading and is shown because it contains a URL in the module
-information that is used by `module keyword`. 
-But `cURL` and `wget` are indeed 
-two tools that can be used to fetch files from the internet.
+The search finds two modules that offer an editor, both in multiple versions: Vim and nano. 
+Both can actually be used directly on the system, but the newer modules tend to be a newer
+version than the version on the system, and they also serve to test some libraries
+in the software stack.
 
 !!! Note "LUMI Software Library"
     The [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
@@ -602,10 +571,6 @@ two tools that can be used to fetch files from the internet.
     web site, and from a page with an EasyBuild recipe (which may not mean much for you) it is
     easy to go back to the software package page itself for more information. Hence you can use
     the search box to search for packages that may not be installed on the system.
-
-    The example given above though, searching for `https`, would not work via that box as most
-    EasyBuild recipes include https web links to refer to, e.g., documentation and would be 
-    shown in the result.
 
     The LUMI Software Library site includes both software installed in our central software stack
     and software for which we make customisable build recipes available for user installation,
@@ -686,10 +651,6 @@ time of writing of these notes (the exact list of modules shown is a bit fluid):
   ![module avail slide 11](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleAvail_11.png)
 </figure>
 
-<figure markdown style="border: 1px solid #000">
-  ![module avail slide 12](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-104-Modules/ModuleAvail_12.png)
-</figure>
-
 Next to the names of modules you sometimes see one or more letters.
 The `(D)` means that that is currently the default version of the module, the one that will be loaded
 if you do not specify a version. Note that the default version may depend on other modules that are already
@@ -699,15 +660,15 @@ The `(L)` means that a module is currently loaded.
 
 The `(S)` means that the module is a sticky module.
 
-Next to the `rocm` module (on the fourth screen) you see 
-`(5.0.2:5.1.0:5.2.0:5.2.3:5.5.1:5.7.0:6.0.0)`.
-This shows that the `rocm/6.0.3` module can also 
+Next to the `rocm` module (on the eigth screen) you see 
+`(5.0.2:5.1.0:5.2.0:5.2.3:5.5.1:5.7.0:6.0.0:6.0.3:6.2.1:6.3.0)`.
+This shows that the `rocm/6.3.4` module can also 
 be loaded as `rocm/5.0.2` or any of the other versions in that list.
 Some of them were old versions that have been removed from the system in later updates,
 and others are versions that are hard-coded some of the Cray PE modules and other
 files but have never been on the system as we had an already patched version.
-(E.g., the 24.03 version of the Cray PE will sometimes try to load `rocm/6.0.0` 
-while we have immediate had `rocm/6.0.3` on the system which corrects some bugs).
+(E.g., the 25.03 version of the Cray PE will sometimes try to load `rocm/6.3.0` 
+while we have `rocm/6.3.4` on the system which corrects some bugs).
 
 At the end of the overview the extensions are also shown. If this would be fully implemented on LUMI, the list
 could become very long. However, as we shall see next, there is an easy way to hide those from view.
@@ -789,13 +750,13 @@ so that they are easily recognised.
 
 !!! Example
     An example that will only become clear in the next session: When working with the software stack
-    called `LUMI/24.03`, which is built upon the HPE Cray Programming Environment version 24.03,
+    called `LUMI/25.03`, which is built upon the HPE Cray Programming Environment version 25.03,
     all (well, most) of the modules corresponding to other versions of the Cray PE are hidden.
 
     Just try
 
     ```
-    $ module load LUMI/24.03
+    $ module load LUMI/25.03
     $ module avail
     ```
 
@@ -826,8 +787,11 @@ Try, e.g., the following commands:
 ```
 $ module help cray-mpich
 $ module help cray-python/3.11.7
-$ module help buildtools/24.03
+$ module help buildtools/25.03
 ```
+
+(For the last one you actually have to do a `module load CrayEnv` or `module load LUMI/25.03` first
+as you can only get help for available modules with `module help`.)
 
 Lmod also has another command that produces more limited information (and is currently not fully exploited
 on LUMI): `module whatis`. It is more a way to tag a module with different kinds of information, some of 
@@ -838,7 +802,7 @@ Try, e.g.,:
 
 ```
 $ module whatis Subversion
-$ module whatis Subversion/1.14.3
+$ module whatis Subversion/1.14.5
 ```
 
 
@@ -857,7 +821,7 @@ system cache and only a user cache. That cache can be found in `$HOME/.cache/lmo
 
 That cache is also refreshed automatically every 24 hours. You'll notice when this happens as,
 e.g., the `module spider` and `module available` commands will be slow during the rebuild.
-you may need to clean the cache after installing new software as on LUMI Lmod does not
+You may need to clean the cache after installing new software as on LUMI Lmod does not
 always detect changes to the installed software,
 
 Sometimes you may have to clear the cache also if you get very strange answers from 
@@ -897,7 +861,7 @@ is loaded that makes this one or an equivalent module available again.
     $ module load craype-network-ofi
 
     Activating Modules:
-      1) cray-mpich/8.1.29
+      1) cray-mpich/8.1.32
     ```
 
     The `cray-mpich` module needs both a valid network architecture target module to be loaded

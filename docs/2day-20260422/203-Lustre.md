@@ -468,7 +468,7 @@ for a file or directory.
 Let us first look at setting a striping policy at the directory level:
 
 ```
-$ module use /appl/local/training/modules/2day-20240502
+$ module use /appl/local/training/modules/2day-20260422
 $ module load lumi-training-tools
 $ mkdir testdir
 $ lfs setstripe -S 2m -c 4 testdir
@@ -606,7 +606,8 @@ practices" pages on web sites of many large supercomputer centres. Some tips for
 
 There are many more tips more specifically for programmers. As good use of the filesystems on a
 supercomputer is important and wrong use has consequences for all other users, it is an important
-topic in the [4-day comprehensive LUMI course](https://lumi-supercomputer.github.io/comprehensive-latest) or "Performance Analysis and Optimisation Workshop"
+topic in the [4-day comprehensive LUMI course](https://lumi-supercomputer.github.io/comprehensive-latest) 
+or ["Performance Analysis and Optimisation Workshop"](https://lumi-supercomputer.github.io/LUMI-training-materials/paow-20251022/)
 that the LUMI User Support Team organises a few times per year, and you'll find many more tips
 about proper use of Lustre in that lecture (which is only available to actual users on LUMI
 unfortunately).

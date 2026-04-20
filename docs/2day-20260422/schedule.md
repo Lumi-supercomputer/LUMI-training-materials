@@ -152,7 +152,7 @@ DAY 1
             <br/><em>15:55 CEST</em>
         </td>
         <td><b><a href="../M107-LocalTalk/">PRACE National Node in Latvia: Current research support tools and international collaboration platforms</a></b>
-        <br/><em>Presenter: RTU HPC Centre</em>
+        <br/><em>Presenter: Līna Marta Sarma (RTU HPC Centre)</em>
         </td>
     </tr>
     <tr>
