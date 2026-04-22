@@ -16,7 +16,7 @@
 
 -   [Schedule](schedule.md)
 
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-04.26?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-april26?both)
 
 -   Project for the course: `project_465002764`.
 
