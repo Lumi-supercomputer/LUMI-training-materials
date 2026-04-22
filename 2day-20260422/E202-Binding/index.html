@@ -5822,11 +5822,12 @@
 #SBATCH --time=5                    # Run time (minutes)
 #SBATCH --account=&lt;project_id&gt;      # Project for billing
 
-module load LUMI/24.03
-module load lumi-CPEtools/1.2a-cpeGNU-24.03
+module load LUMI/25.03
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 </code></pre></div>
+<p>(or omit the <code>-n</code> argument of <code>hybrid_check</code> which can make the output more readable).</p>
 <p>Improve the thread affinity with OpenMP runtime variables. 
 Alter the above script and ensure that each thread is bound to
 a specific core. </p>
@@ -5856,8 +5857,8 @@ some start with <code>SLURM_</code> but a few start with <code>SRUN_</code> whil
 #SBATCH --time=5                    # Run time (minutes)
 #SBATCH --account=&lt;project_id&gt;      # Project for billing
 
-module load LUMI/24.03
-module load lumi-CPEtools/1.2a-cpeGNU-24.03
+module load LUMI/25.03
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 
@@ -5895,7 +5896,7 @@ to the way Slurm CPU masks for <code>--cpu-bind</code> are constructed.</p>
 <summary>Click to see the solution.</summary>
 <p>We can chose between different approaches. In the example below,
 we follow the 
-"GPU binding: Linear GCD, match cores" 
+<a href="../202-Binding/#linear-assignment-of-gcd-then-match-the-cores">"GPU binding: Linear GCD, match cores"</a> 
 slides and we only need to adapt the CPU mask:</p>
 <div class="highlight"><pre><span></span><code>#!/bin/bash -l
 #SBATCH --partition=standard-g      # Partition (queue) name
@@ -5904,10 +5905,101 @@ slides and we only need to adapt the CPU mask:</p>
 #SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
 #SBATCH --time=5                    # Run time (minutes)
 #SBATCH --account=&lt;project_id&gt;      # Project for billing
-#SBATCH --hint=nomultithread
 
-module load LUMI/24.03 partition/G
-module load lumi-CPEtools/1.2a-cpeGNU-24.03
+module load LUMI/25.03 partition/G
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+CPU_BIND=&quot;mask_cpu:0x7e000000000000,0x7e00000000000000,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e,0x7e00,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000&quot;
+
+export OMP_NUM_THREADS=6
+export OMP_PROC_BIND=close
+export OMP_PLACES=cores
+
+srun --cpu-bind=${CPU_BIND} \
+     --gpu-bind=map:0,1,2,3,4,5,6,7 --gres-flags=allow-task-sharing \
+     gpu_check -l
+</code></pre></div>
+<p>The base mask we need for this exercise, with each first and last core of a chiplet disabled,
+is <code>01111110</code> which is <code>0x7e</code> in hexadecimal notation (though using <code>0xfe</code>
+as the building block would also have worked as we already limit the number
+of threads to 6 through <code>OMP_NUM_THREADS</code> and use other binding variables
+that will bind all threads as close as possible to the core with relative
+number 1 of each chiplet).</p>
+<p>Save the job script as <code>job_step.sh</code> then simply submit it with sbatch. Inspect the job output.</p>
+<p>Note that in fact, if you had used the <code>cpeCray</code> version of the
+<code>lumi-CPEtools</code> module, 
+you don't even need to use the <code>OMP_*</code> environment variables above as the threads are 
+automatically pinned to a single core and as the correct number of threads is derived from
+the affinity mask for each task.</p>
+<p>An alternative is to use a 
+<a href="../202-Binding/#linear-assignment-of-the-ccds-then-match-the-gcd">linear CCD mapping, adapting the order of the GPUs</a>:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash -l
+#SBATCH --partition=standard-g      # Partition (queue) name
+#SBATCH --nodes=1                   # Total number of nodes
+#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
+#SBATCH --time=5                    # Run time (minutes)
+#SBATCH --account=&lt;project_id&gt;      # Project for billing
+
+module load LUMI/25.03 partition/G
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+CPU_BIND=&quot;mask_cpu:0x7e,0x7e00,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e000000000000,0x7e00000000000000&quot;
+
+export OMP_NUM_THREADS=6
+export OMP_PROC_BIND=close
+export OMP_PLACES=cores
+
+srun --cpu-bind=${CPU_BIND} \
+     --gpu-bind=map:4,5,2,3,6,7,0,1 --gres-flags=allow-task-sharing \
+     gpu_check -l
+</code></pre></div>
+<p>As the code that we want to run is OpenMP-based and as threads can be restricted via OpenMP
+environment variables, we can as well make life easier then and simply allocate 7 cores to 
+each task, then restricting via OpenMP environment variables. So we can also use
+<code>--cps-per-task</code>: </p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash -l
+#SBATCH --partition=standard-g      # Partition (queue) name
+#SBATCH --nodes=1                   # Total number of nodes
+#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
+#SBATCH --time=5                    # Run time (minutes)
+#SBATCH --account=&lt;project_id&gt;      # Project for billing
+
+module load LUMI/25.03 partition/G
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+CPU_BIND=&quot;mask_cpu:0x7e,0x7e00,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000,&quot;
+CPU_BIND=&quot;${CPU_BIND}0x7e000000000000,0x7e00000000000000&quot;
+
+export OMP_NUM_THREADS=6
+export OMP_PROC_BIND=close
+export OMP_PLACES=cores
+
+srun --cpus-per-task=7 \
+     --gpu-bind=map:4,5,2,3,6,7,0,1 --gres-flags=allow-task-sharing \
+     gpu_check -l
+</code></pre></div>
+<p>Finally, we can of course also do the GPU binding via a wrapper script.
+For the linear GCD case, we get:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash -l
+#SBATCH --partition=standard-g      # Partition (queue) name
+#SBATCH --nodes=1                   # Total number of nodes
+#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
+#SBATCH --time=5                    # Run time (minutes)
+#SBATCH --account=&lt;project_id&gt;      # Project for billing
+
+module load LUMI/25.03 partition/G
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
 #!/bin/bash
@@ -5926,19 +6018,17 @@ export OMP_PROC_BIND=close
 export OMP_PLACES=cores
 
 srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
+
+# Or without the wrapper script
+echo -e &quot;\nWithout wrapper script:&quot;
+srun --cpu-bind=${CPU_BIND} bash -c &quot;ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l&quot;
+echo -e &quot;\nOr with another quoting style:&quot;
+srun --cpu-bind=${CPU_BIND} bash -c &#39;ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l&#39;
 </code></pre></div>
-<p>The base mask we need for this exercise, with each first and last core of a chiplet disabled,
-is <code>01111110</code> which is <code>0x7e</code> in hexadecimal notation (though using <code>0xfe</code>
-as the building block would also have worked as we already limit the number
-of threads to 6 through <code>OMP_NUM_THREADS</code> and use other binding variables
-that will bind all threads as close as possible to the core with relative
-number 1 of each chiplet).</p>
-<p>Save the job script as <code>job_step.sh</code> then simply submit it with sbatch. Inspect the job output.</p>
-<p>Note that in fact, if you had used the <code>cpeCray</code> version of the
-<code>lumi-CPEtools</code> module, 
-you don't even need to use the <code>OMP_*</code> environment variables above as the threads are 
-automatically pinned to a single core and as the correct number of threads is derived from
-the affinity mask for each task.</p>
+<p>The difference between the last two lines is something for bash specialists. We don't want
+the environment variable <code>SLURM_LOCALID</code> to be expanded while the script is executing, but only 
+when the <code>bash</code> command is actually executing, so either we need to protect it with the single
+quotes or, when we use double quotes, escape the <code>$</code> with <code>\$</code>.</p>
 </details>
 </li>
 </ol>

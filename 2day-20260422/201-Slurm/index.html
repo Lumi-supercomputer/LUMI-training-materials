@@ -6304,7 +6304,7 @@ is no better option at this moment that is sufficiently mature.</p>
 <p>Lawrence Livermore National Laboratory, the USA national laboratory that 
 originally developed Slurm is now working on the 
 development of another resource and job management framework called 
-<a href="https://computing.llnl.gov/projects/flux-building-framework-resource-management">flux</a>.
+<a href="https://flux-framework.org/">flux</a>.
 It is used on the third USA exascale supercomputer El Capitan. </p>
 </div>
 <h2 id="slurm-concepts-physical-resources">Slurm concepts: Physical resources<a class="headerlink" href="#slurm-concepts-physical-resources" title="Permanent link">&para;</a></h2>
@@ -6332,8 +6332,8 @@ your job, you cannot do so.</p>
 </li>
 <li>
 <p>A <strong>CPU</strong> is a "consumable resource" and the unit at which CPU processing capacity is allocated to a job.
-    On LUMI a Slurm CPU corresponds to a physical core, but Slurm could also be configured to let it correspond
-    to a hardware thread.</p>
+    On LUMI a Slurm CPU usually corresponds to a physical core, but Slurm could also be configured to let it correspond
+    to a hardware thread and in some cases, it is treated as a virtual core on LUMI.</p>
 </li>
 </ul>
 <p>The first four bullets already show the problem we have with Slurm on LUMI: For three levels in the hierarchy
@@ -6362,10 +6362,11 @@ are not accessible to regular users.</p>
 <p>A <strong>job</strong> in Slurm is basically only a resource allocation request.</p>
 </li>
 <li>
-<p>A <strong>job step</strong> is a set of (possibly parallel) tasks within a job</p>
+<p>A <strong>job step</strong> is a set of (possibly parallel) tasks within a job and is where all the 
+    work is done.</p>
 <ul>
 <li>
-<p>Each batch job always has a special job step called the batch job step which runs
+<p>Each batch job always has a special job step called the <strong>batch job step</strong> which runs
     the job script on the first node of a job allocation.</p>
 </li>
 <li>
@@ -6405,10 +6406,10 @@ within a single operating system image.</p>
 </figure>
 <p><strong>And LUMI is in the first place a batch processing supercomputer.</strong></p>
 <p>A supercomputer like LUMI is a very large and very expensive machine. This implies that it also has to be
-used as efficiently as possible which in turn implies that we don't want to wast time waiting for input
+used as efficiently as possible which in turn implies that we don't want to waste time waiting for input
 as is the case in an interactive program.</p>
 <p>On top of that, very few programs can use the whole capacity of the supercomputer, so in practice a
-supercomputer is a shared resource and each simultaneous user gets a fraction on the machine depending
+supercomputer is a shared resource and each simultaneous user gets a fraction of the machine depending
 on the requirements that they specify. Yet, as parallel applications work best when performance is predictable,
 it is also important to isolate users enough from each other.</p>
 <p>Research supercomputers are also typically very busy with lots of users so one often has to wait a little 
@@ -6420,12 +6421,12 @@ for input from the user, specified via batch scripts with resource specification
 precisely the amount of resources needed for the job, submitted to a queueing system with a scheduler
 to select the next job in a fair way based on available resources and scheduling policies set by the 
 compute centre.</p>
-<p>LUMI does have some facilities for interactive jobs, and with the introduction of Open On Demand some more
+<p>LUMI does have some facilities for interactive jobs, and with the introduction of Open OnDemand some more
 became available. But it is far from ideal, and you will also be billed for the idle time of the resources
 you request. In fact, if you only need some interactive resources for a quick 10-minute experiment and don't 
 need too many resources, the wait may be minimal thanks to a scheduler mechanism called backfill where the
 scheduler looks for small and short jobs to fill up the gaps left while the scheduler is collecting resources
-for a big job.</p>
+for a big job. This is particularly true on what we will later call the job-exclusive partitions.</p>
 <h2 id="a-slurm-batch-script">A Slurm batch script<a class="headerlink" href="#a-slurm-batch-script" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide A Slurm batch script" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/BatchScript.png" /></p>
@@ -6541,39 +6542,49 @@ User Support Team, so don't take the above tables in the slide for granted.</p>
 <p>Some useful commands with respect to Slurm partitions:</p>
 <ul>
 <li>
-<p>To request information about the available partitions, use <code>sinfo -s</code>: </p>
+<p>To request information about the available partitions, use <code>sinfo -s</code>
+    (or a slight variant as the standard width of some fields is not enough to display all
+    information for LUMI):</p>
 <div class="highlight"><pre><span></span><code>$ sinfo -s
-PARTITION   AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
-debug          up      30:00          1/7/0/8 nid[002500-002501,002504-002506,002595-002597]
-interactive    up    8:00:00          2/2/0/4 nid[002502,002507,002594,002599]
-q_fiqci        up      15:00          0/1/0/1 nid002598
-q_industry     up      15:00          0/1/0/1 nid002598
-q_nordiq       up      15:00          0/1/0/1 nid002503
-small          up 3-00:00:00     281/8/17/306 nid[002280-002499,002508-002593]
-standard       up 2-00:00:00  1612/1/115/1728 nid[001000-002279,002600-003047]
-dev-g          up    3:00:00        44/2/2/48 nid[005002-005025,007954-007977]
-small-g        up 3-00:00:00      191/2/5/198 nid[005026-005123,007852-007951]
-standard-g     up 2-00:00:00 1641/749/338/272 nid[005124-007851]
-largemem       up 1-00:00:00          0/5/1/6 nid[000101-000106]
-lumid          up    4:00:00          1/6/1/8 nid[000016-000023]
+$ sinfo -o &quot;%11P %.5a %.10l %.20F %N&quot;
+PARTITION   AVAIL  TIMELIMIT       NODES(A/I/O/T) NODELIST
+debug          up      30:00             3/7/0/10 nid[002275-002276,002500-002501,002504-002506,002595-002597]
+interactive    up    8:00:00              5/1/0/6 nid[002278-002279,002502,002507,002594,002599]
+q_fiqci        up    2:00:00              0/1/0/1 nid002343
+q_industry     up    2:00:00              0/1/0/1 nid002343
+q_nordiq       up      15:00              0/1/0/1 nid002503
+small          up 3-00:00:00         268/36/1/305 nid[002280-002342,002344-002499,002508-002593]
+standard       up 2-00:00:00      1674/39/10/1723 nid[001000-002274,002600-003047]
+fmr            up 1-00:00:00      1934/75/11/2020 nid[001000-002271,002280-002339,002344-002499,002508-002591,002600-003047]
+dev-g          up    3:00:00           20/27/2/49 nid[005001-005025,007954-007977]
+small-g        up 3-00:00:00          199/0/0/199 nid[005026-005123,007852-007952]
+standard-g     up 2-00:00:00     2584/101/43/2728 nid[005124-007851]
+fmr-g          up 1-00:00:00     2772/101/43/2916 nid[005032-007947]
+largemem       up 1-00:00:00              3/3/0/6 nid[000101-000106]
+lumid          up    4:00:00              1/7/0/8 nid[000016-000023]
 </code></pre></div>
 <p>The fourth column shows 4 numbers: The number of nodes that are currently fully or partially allocated
 to jobs, the number of idle nodes, the number of nodes in one of the other possible states (and not
 user-accessible) and the total number of nodes in the partition. Sometimes a large number of nodes
 can be in the "O" column, e.g., when mechanical maintenance is needed (like problem with the
 cooling). Also note that the width of the <code>NODES</code> field is not enough as the total number
-of nodes for <code>standard-g</code> doesn't make sense, but this is easyly solved, e.g., using</p>
+of nodes for <code>standard-g</code> doesn't make sense, but this is easily solved, e.g., using</p>
 <div class="highlight"><pre><span></span><code>sinfo -o &quot;%11P %.5a %.10l %.20F %N&quot;
 </code></pre></div>
+<p>(which is the output that we actually show).</p>
 <!-- BELGIUM 
 Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
 the <code>q_nordic</code> and <code>q_fiqci</code> partitions are used to access experimental quantum computers that are only
 available to some users of those countries that paid for those machines, which does not include Belgium.
+Also, the <code>fmr</code> and <code>fmr-g</code> runs are only used for hero runs that can be requested 10 days in advance
+and will be scheduled on the last Sunday of most months.
 -->
 <p><!-- GENERAL More general version -->
 Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
 the <code>q_nordic</code> and <code>q_fiqci</code> partitions are used to access experimental quantum computers that are only
 available to some users of those countries that paid for those machines.
+Also, the <code>fmr</code> and <code>fmr-g</code> runs are only used for hero runs that can be requested 10 days in advance
+and will be scheduled on the last Sunday of most months.
 <!-- END GENERAL VERSION --></p>
 <p>The <code>interactive</code> partition is used by the Open OnDemand web interface.</p>
 </li>
@@ -6698,7 +6709,7 @@ all the time. Another application running on socket 0 may then get part or all
 of its memory on socket 1, and the latency to access that memory is more than 
 3 times higher, so performance of that application will suffer. In other words,
 the other cores in socket 0 cannot be used with full efficiency.</p>
-<p>This is not a hypothetical scenario. The author of this text has seem benchmarks
+<p>This is not a hypothetical scenario. The author of this text has seen benchmarks
 run on one of the largest systems in Flanders that didn't scale at all and for
 some core configuration ran at only 10% of the speed they should have been
 running at...</p>
@@ -6808,11 +6819,11 @@ that in fact can also be found on the web.</p>
 </ul>
 </li>
 <li>
-<p>To delete a job, use <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/scancel.html"><code>scancel &lt;jobID&gt;</code></a></p>
+<p>To delete a job, use <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/scancel.html"><code>scancel &lt;jobID&gt;</code></a></p>
 </li>
 <li>
 <p>An important command to manage jobs while they are running is 
-    <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sstat.html"><code>sstat -j &lt;jobID&gt;</code></a>.
+    <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sstat.html"><code>sstat -j &lt;jobID&gt;</code></a>.
     This command display real-time information directly gathered from the resource manager
     component of Slurm and can also be used to show information about individual job steps using
     the job step identifier (which is in most case <code>&lt;jobID&gt;.0</code> for the first regular job step and so on).
@@ -6820,7 +6831,7 @@ that in fact can also be found on the web.</p>
     <a href="./#the-sstat-command">further in the notes of this session</a>.</p>
 </li>
 <li>
-<p>The <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html"><code>sacct -j &lt;jobID&gt;</code> command</a> can be used both while the
+<p>The <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sacct.html"><code>sacct -j &lt;jobID&gt;</code> command</a> can be used both while the
     job is running and when the job has finished. It is the main command to get information about a job
     after the job has finished. All information comes from a database, also while the job is running, so 
     the information is available with some delay compared to the information obtained with <code>sstat</code> for
@@ -6881,9 +6892,9 @@ For the <code>sbatch</code> command this are the <code>SBATCH_*</code> environme
 the <code>SALLOC_*</code> environment variables and for <code>srun</code> the <code>SLURM_*</code> and some <code>SRUN_*</code> environment variables.
 For the <code>sbatch</code> command this will overwrite values on the <code>#SBATCH</code> lines. You can find
 lists in the manual pages of the 
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html"><code>sbatch</code></a>,
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/salloc.html"> <code>salloc</code></a> and
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html"><code>srun</code></a> command.
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html"><code>sbatch</code></a>,
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/salloc.html"> <code>salloc</code></a> and
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html"><code>srun</code></a> command.
 Specifying command line options via environment variables that are hidden in your
 <code>.profile</code> or <code>.bashrc</code> file or any script that you run before starting your work,
 is not free of risks. Users often forget that they set those environment variables and
@@ -6913,7 +6924,7 @@ the job (which really only makes sense if you have entire nodes, e.g., in node-e
 allocations) and is attractive as it is easy to scale your allocation by just changing
 the number of nodes. </p>
 <p>Checking the 
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks-per-node">srun manual page for the <code>--ntasks-per-node</code> option</a>, 
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks-per-node">srun manual page for the <code>--ntasks-per-node</code> option</a>, 
 you read that the <code>--ntasks</code> option takes precedence and if present, 
 <code>--ntasks-per-node</code> will be interpreted as the <strong>maximum</strong> number of tasks per node.</p>
 <p>Now depending on how the allocation was made, Slurm may set the environment variables
@@ -7038,8 +7049,8 @@ information. Examples are <code>%x</code> which will be replaced with the name o
 <code>--job-name</code>) and <code>%j</code> which will be replaced with the job ID (job number). It is recommended to always include 
 the latter in the template for the filename as this ensures unique names if the same job script would be run a 
 few times with different input files. Discussing all patterns that can be used for the filename is outside the
-scope of this tutorial, but you can find them all in the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html">sbatch manual page</a>
-in the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E">"filename pattern" section</a>.</p>
+scope of this tutorial, but you can find them all in the <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html">sbatch manual page</a>
+in the <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E">"filename pattern" section</a>.</p>
 <h2 id="requesting-resources-cpus-and-gpus">Requesting resources: CPUs and GPUs<a class="headerlink" href="#requesting-resources-cpus-and-gpus" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Requesting resources: CPUs and GPUs" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/RequestingCPUsGPUs.png" /></p>
@@ -7066,8 +7077,7 @@ a multi-threaded shared memory program and then run a pure MPI job with a single
 mapping of MPI ranks across nodes and within nodes, binding of threads to cores, and binding of GPUs to
 MPI ranks. This will be the topic of the <a href="../202-Binding/">next chapter of the course</a> and is for some applications very important
 to get optimal performance on modern supercomputer nodes that have a strongly hierarchical architecture
-(which in fact is not only the case for AMD processors, but will likely be an issue on some Intel Sapphire
-Rapids processors also).</p>
+(which in fact is not only the case for AMD processors, but might be an issue on some recent Intel processors also).</p>
 <p>The downside is that allocations and hence billing is always per full node, so if you need only half a node 
 you waste a lot of billing units. It shows that to exploit the full power of a supercomputer you really need
 to have problems and applications that can at least exploit a full node.</p>
@@ -7114,10 +7124,12 @@ mapping of each subjob on the available resources (e.g., in case of two jobs on 
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Per-node allocations" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/PerNode.png" /></p>
 </figure>
-<p>In a per-node allocation, all you need to specify is the partition and the number of nodes needed, and in some cases,
+<p>In a per-node allocation, all you need to specify is the account to charge the job to,
+the partition, the number of nodes needed, the wall time for the job, and in some cases,
 the amount of memory. In this scenario, one should use those Slurm options that specify resources per node
 also.</p>
-<p>The partition is specified using <code>--partition=&lt;partition</code> or <code>-p &lt;partition&gt;</code>.</p>
+<p>Partition, account and wall time specification were already discussed earlier when 
+<a href="#some-common-options-to-all-partitions">discussing common options to all partition</a>.</p>
 <p>The number of nodes is specified with <code>--nodes=&lt;number_of_nodes&gt;</code> or its short form 
 <code>-N &lt;number_of_nodes&gt;</code>.</p>
 <p>If you want to use a per-node allocation on a partition which is allocatable-by-resources such as <code>small</code>
@@ -7241,6 +7253,8 @@ or jobs getting stuck.</p>
     <code>--extra-node-info=1:56</code>.</p>
 </li>
 </ol>
+<p><strong>But we repeat, if you only run on LUMI, don't use these options as wrong values can only cause
+issues for your jobs.</strong></p>
 <details class="intermediate">
 <summary>What about <code>--threads-per-core</code>?</summary>
 <p>Slurm also has a <code>--threads-per-core</code> (or a third number with <code>--extra-node-info</code>)
@@ -7274,7 +7288,7 @@ On LUMI, you could in principle use <code>--gpus-per-node=mi250:8</code>.</p>
 <details class="example">
 <summary>Example of an unexpected allocation</summary>
 <p>Assuming <code>SLURM_ACCOUNT</code> is set to a valid project with access to the partition used: </p>
-<div class="highlight"><pre><span></span><code>module load LUMI/24.03 partition/G lumi-CPEtools
+<div class="highlight"><pre><span></span><code>module load LUMI/25.03 partition/G lumi-CPEtools
 srun --partition standard-g --time 5:00 --nodes 2 --tasks-per-node 1 --gpus 8 gpu_check
 </code></pre></div>
 <p>returns</p>
@@ -7291,7 +7305,9 @@ MPI 001 - OMP 000 - HWT 001 - Node nid007265 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID d
 </li>
 </ol>
 <p>As these options are also forwarded to <code>srun</code>, it will save you from specifying them there
-if you specified them already at the time of the job allocation.</p>
+if you specified them already at the time of the job allocation. Otherwise you will still need
+to specify them (or some alternatives that tell Slurm GPUs should be used and how
+they should be used) when starting a job step with <code>srun</code>.</p>
 <h2 id="per-node-allocations-starting-a-job-step">Per-node allocations: Starting a job step<a class="headerlink" href="#per-node-allocations-starting-a-job-step" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Per-node allocations: Starting a job step" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/PerNodeJobStep_1.png" /></p>
@@ -7316,22 +7332,27 @@ resources are for each individual task, but this scheme is an easy scheme:</p>
 <ol>
 <li>
 <p>Specifying the total number of tasks: 
-    <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks"><code>--ntasks=&lt;ntasks</code> or <code>-n ntasks</code></a>.
+    <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks"><code>--ntasks=&lt;ntasks</code> or <code>-n ntasks</code></a>.
     There is a risk associated to this approach which is the same as when specifying the
     total number of GPUs for a job: If you change the number of nodes, then you should
     change the total number of tasks also. However, it is also very useful in certain cases.
     Sometimes the number of tasks cannot be easily adapted and does not fit perfectly into
     your allocation (cannot be divided by the number of nodes). In that case, specifying the
     total number of nodes makes perfect sense.</p>
+<p>This issue can be circumvented though with some use of bash. E.g., for 8 nodes per task you can use</p>
+<div class="highlight"><pre><span></span><code>--ntasks<span class="o">=</span><span class="k">$((</span><span class="nv">SLURM_NNODES</span><span class="o">*</span><span class="m">8</span><span class="k">))</span>
+</code></pre></div>
+<p>as argument to <code>srun</code> (but not in <code>#SBATCH</code> lines as these are comments so no computation would
+be done, and even it it would, <code>SLURM_NNODES</code> would not be set).</p>
 </li>
 <li>
 <p>Specifying on a per node basis: 
-    <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks-per-core"><code>--ntasks-per-node=&lt;ntasks&gt;</code></a> 
+    <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks-per-core"><code>--ntasks-per-node=&lt;ntasks&gt;</code></a> 
     is possible in combination with <code>--nodes</code> according to the Slurm manual. 
     In fact, this would be a logical thing to do in a per node allocation. 
     <strong>However, we see it fail on LUMI when it is used as an option for <code>srun</code> and not with <code>sbatch</code>, 
     even though it should work
-    <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_ntasks-per-core">according to the documentation</a>.</strong></p>
+    <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks-per-core">according to the documentation</a>.</strong></p>
 <p>The reason for the failure is that Slurm when starting a batch job defines a large number of <code>SLURM_*</code> and
 <code>SRUN_*</code> variables. Some only give information about the allocation, but others are picked up by <code>srun</code> as
 options and some of those options have a higher priority than <code>--ntasks-per-node</code>. So the trick is to 
@@ -7363,15 +7384,22 @@ the total number of tasks <code>--ntasks</code> if you want to specify the numbe
     We have also had issues in the past with tasks sharing a GPU on LUMI.</p>
 </li>
 </ol>
-<p><strong>This however does not always work and you should not use this approach in job-exclusive
-node allocations...</strong> A proper solution will be discussed in the 
-<a href="../202-Binding/">"Bindings" chapter of these notes</a>.</p>
+<p>When using these options, you also need to specify
+<code>--gres-flags=allow-task-sharing</code> as otherwise inter-GPU communication would not work.</p>
 </li>
 </ol>
+<p><strong>Specifying number of CPUs and GPUs per task in this way does not guarantee you a mapping with
+the best performance, as neither your CPUs nor the GPUs may be mapped properly to the task
+to ensure good L3 cache performance and optimal routing between CPUs and GPUs in a task.</strong>
+A proper solution will be discussed in the 
+<a href="../202-Binding/">"Bindings" chapter of these notes</a>.</p>
 <p>The job steps created in this simple scheme do not always run the programs at optimal efficiency. Slurm has various
 strategies to assign tasks to nodes, and there is an option which we will discuss in the next session
 of the course (binding) to change that. Moreover, not all clusters use the same default setting for this
-strategy. Cores and GPUs are assigned in order and this is not always the best order.</p>
+strategy. Cores and GPUs are often assigned in order and this is not always the best order.
+In fact, the version of Slurm that is on LUMI since the January 2026 update tries to make an
+effort to come up with something useful, but it rarely succeeds (and in fact, does worse if
+<code>--gres-flags=allow-task-sharing</code> is used).</p>
 <p>It is also possible to specify these options already on <code>#SBATCH</code> lines. Slurm will transform those
 options into <code>SLURM_*</code> environment variables that will then be picked up by <code>srun</code>. However, this 
 behaviour has changed in more recent versions of Slurm. E.g., <code>--cpus-per-task</code> is no longer 
@@ -7423,26 +7451,32 @@ echo -e &quot;\nsacct for the job:\n$(sacct -j $SLURM_JOB_ID)\n&quot;
 <p>Allocating GPUs with <code>--gpus-per-task</code> or <code>--tasks-per-gpu</code> may seem the most logical thing to do
 when reading the Slurm manual pages. It does come with a problem though resulting of how Slurm
 currently manages the AMD GPUs, and now the discussion becomes more technical.</p>
-<p>Slurm currently uses a separate control group per task for the GPUs.
+<p>Slurm by default uses a separate control group per task for the GPUs.
 Now control groups are a mechanism in Linux for restricting resources available to a process and its childdren.
 Putting the GPUs in a separate control group per task limits the ways in intra-node communication can be
 done between GPUs, and this in turn is incompatible with some software.</p>
-<p>The solution is to ensure that all tasks within a node see all GPUs in the node and then to
-manually perform the binding of each task to the GPUs it needs using a different mechanism more
-like affinity masks for CPUs. It can be tricky to do though as many options for <code>srun</code> do a
-mapping under the hood.</p>
+<p>The solution to this is precisely the <code>--gres-flags=allow-task-sharing</code> flag for <code>srun</code>. 
+It will enable a single GPU cgroup for all tasks that run within a single node.</p>
+<p>The alternative is to not use Slurm at all for GPU binding and do the GPU binding ourselves
+by setting the ROCm&trade; runtime environment variable <code>ROCR_VISIBLE_DEVICES</code> to the proper
+value for each task.</p>
 <p>As we need a mechanisms that are not yet discussed yet in this chapter, we refer to the
-<a href="../202-Binding/">chapter "Process and thread distribution and binding"</a> for a more ellaborate
+<a href="../202-Binding/">chapter "Process and thread distribution and binding"</a> for a more elaborate
 discussion and a solution.</p>
 <p>Unfortunately using AMD GPUs in Slurm is more complicated then it should be (and we will see even
-more problems).</p>
+more problems). Even though support has improved through the years, Slurm still struggles to
+exploit the topology of nodes in LUMI.</p>
 <h2 id="turning-simultaneous-multithreading-on-or-off">Turning simultaneous multithreading on or off<a class="headerlink" href="#turning-simultaneous-multithreading-on-or-off" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Turning hardware threading on or off" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/PerNodeHardwareThreading.png" /></p>
 </figure>
 <p>Hardware threads are enabled by default at the operating system level. In Slurm however, regular
-job steps start by default with hardware threads disabled. This is not true though for the 
-batch job step as the example below will show.</p>
+job steps start by default with hardware threads disabled. 
+This is only done via so-called <code>affinity masks</code> (for those who know how Linux works internally)
+so at the hardware level, the hardware threading remains enabled which is a combined limitation
+of Linux and the processor hardware.
+The situation is different for the batch job step though: Here all hardware threads are 
+enabled as the example below will show.</p>
 <p>Hardware threading for a regular job step can be turned on explicitly with
 <code>--hint=multhithread</code> and turned off explicitly with <code>--hint=nomultithread</code>, 
 with the latter the default on LUMI. The hint should be given as an option to
@@ -7572,17 +7606,19 @@ of 4 cores.</p>
 </details>
 <details class="warning">
 <summary>Buggy behaviour when used with <code>srun</code></summary>
-<p>Consider the following job script:</p>
+<p>Trying to overwrite the implicitly specified <code>--hint=nomultithread</code> in a job script
+(or for that matter also when explicitly specified at <code>#SBATCH</code>) leads to unexpected
+results if we then specify <code>--hint=multithread</code> at the <code>srun</code> level.</p>
+<p>Consider the following job script to demonstrate this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#! /usr/bin/bash</span>
-<span class="c1">#SBATCH --job-name=slurm-HWT-standard-bug2</span>
+<span class="c1">#SBATCH --job-name=slurm-HWT-standard-bug1</span>
 <span class="c1">#SBATCH --partition=standard</span>
 <span class="c1">#SBATCH --nodes=1</span>
 <span class="c1">#SBATCH --time=2:00</span>
 <span class="c1">#SBATCH --output=%x-%j.txt</span>
-<span class="c1">#SBATCH --hint=multithread</span>
 <span class="c1">#SBATCH --account=project_46YXXXXXX</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeGNU-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 <span class="nb">set</span><span class="w"> </span>-x
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>--hint<span class="o">=</span>nomultithread<span class="w"> </span>omp_check<span class="w"> </span>-r
@@ -7592,79 +7628,101 @@ srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><s
 <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>--hint<span class="o">=</span>multithread<span class="w"> </span>omp_check<span class="w"> </span>-r
 
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>omp_check<span class="w"> </span>-r
-<span class="nb">set</span><span class="w"> </span>+x
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
 
+<span class="nb">set</span><span class="w"> </span>+x
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nCan all hardware threads be used properly?\n&quot;</span>
 <span class="nb">set</span><span class="w"> </span>-x
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">256</span><span class="w"> </span>--hint<span class="o">=</span>multithread<span class="w"> </span>omp_check<span class="w"> </span>-r
+
+<span class="nb">set</span><span class="w"> </span>+x
+sleep<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c1"># Give Slurm some time to update internal databases after the srun command.</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
 </code></pre></div>
 <p>The relevant lines of the output are:</p>
 <div class="highlight"><pre><span></span><code>+ srun -n 1 -c 4 --hint=nomultithread omp_check -r
 
 Running 4 threads in a single process
 
-++ omp_check: OpenMP thread   0/4   on cpu   0/256 of nid001246 mask 0-3
-++ omp_check: OpenMP thread   1/4   on cpu   1/256 of nid001246 mask 0-3
-++ omp_check: OpenMP thread   2/4   on cpu   2/256 of nid001246 mask 0-3
-++ omp_check: OpenMP thread   3/4   on cpu   3/256 of nid001246 mask 0-3
+++ omp_check: host nid001001 OpenMP thread   0/4   cpu   0/256 mask (0-3)
+++ omp_check: host nid001001 OpenMP thread   1/4   cpu   2/256 mask (0-3)
+++ omp_check: host nid001001 OpenMP thread   2/4   cpu   3/256 mask (0-3)
+++ omp_check: host nid001001 OpenMP thread   3/4   cpu   1/256 mask (0-3)
 
 + srun -n 1 -c 4 --hint=multithread omp_check -r
 
 Running 4 threads in a single process
 
-++ omp_check: OpenMP thread   0/4   on cpu   0/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   1/4   on cpu 129/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   2/4   on cpu 128/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   3/4   on cpu   1/256 of nid001246 mask 0-1, 128-129
+++ omp_check: host nid001001 OpenMP thread   0/4   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   1/4   cpu   1/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   2/4   cpu 128/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   3/4   cpu 129/256 mask (0-1, 128-129)
 
 + OMP_NUM_THREADS=8
 + srun -n 1 -c 4 --hint=multithread omp_check -r
 
 Running 8 threads in a single process
 
-++ omp_check: OpenMP thread   0/8   on cpu   0/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   1/8   on cpu 128/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   2/8   on cpu   0/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   3/8   on cpu   1/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   4/8   on cpu 129/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   5/8   on cpu 128/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   6/8   on cpu 129/256 of nid001246 mask 0-1, 128-129
-++ omp_check: OpenMP thread   7/8   on cpu   1/256 of nid001246 mask 0-1, 128-129
+++ omp_check: host nid001001 OpenMP thread   0/8   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   1/8   cpu 128/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   2/8   cpu 128/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   3/8   cpu   1/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   4/8   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   5/8   cpu 129/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   6/8   cpu 129/256 mask (0-1, 128-129)
+++ omp_check: host nid001001 OpenMP thread   7/8   cpu   1/256 mask (0-1, 128-129)
 
 + srun -n 1 -c 4 omp_check -r
 
 Running 4 threads in a single process
 
-++ omp_check: OpenMP thread   0/4   on cpu   0/256 of nid001246 mask 0-3
-++ omp_check: OpenMP thread   1/4   on cpu   1/256 of nid001246 mask 0-3
-++ omp_check: OpenMP thread   2/4   on cpu   2/256 of nid001246 mask 0-3
-++ omp_check: OpenMP thread   3/4   on cpu   3/256 of nid001246 mask 0-3
+++ omp_check: host nid001001 OpenMP thread   0/4   cpu   0/256 mask (0-3)
+++ omp_check: host nid001001 OpenMP thread   1/4   cpu   1/256 mask (0-3)
+++ omp_check: host nid001001 OpenMP thread   2/4   cpu   2/256 mask (0-3)
+++ omp_check: host nid001001 OpenMP thread   3/4   cpu   3/256 mask (0-3)
 
 + set +x
 
-sacct for the job:
-JobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
------------- ---------- ---------- ---------- ---------- ---------- -------- 
-4238801      slurm-HWT+   standard project_4+        256    RUNNING      0:0 
-4238801.bat+      batch            project_4+        256    RUNNING      0:0 
-4238801.0     omp_check            project_4+          8  COMPLETED      0:0 
-4238801.1     omp_check            project_4+          8  COMPLETED      0:0 
-4238801.2     omp_check            project_4+          8  COMPLETED      0:0 
-4238801.3     omp_check            project_4+          8  COMPLETED      0:0 
+Can all hardware threads be used properly (used to fail)?
 
 + srun -n 1 -c 256 --hint=multithread omp_check -r
-srun: error: Unable to create step for job 4238919: More processors requested than permitted
+srun: error: Unable to create step for job 17351075: More processors requested than permitted
+
+sacct for the job:
+JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- --------
+17351075     slurm-HWT+   standard project_4+        256    RUNNING      0:0
+17351075.ba+      batch            project_4+        256    RUNNING      0:0
+17351075.0    omp_check            project_4+          8  COMPLETED      0:0
+17351075.1    omp_check            project_4+          8  COMPLETED      0:0
+17351075.2    omp_check            project_4+          8  COMPLETED      0:0
+17351075.3    omp_check            project_4+          8  COMPLETED      0:0
 </code></pre></div>
-<p>The first <code>omp_check</code> runs as expected. The second one uses only 2 cores but all
-4 hyperthreads on those cores. This is also not unexpected. In the third case
+<p>The first <code>omp_check</code> runs as expected. </p>
+<p>The second one uses only 2 cores but all
+4 hyperthreads on those cores. This is also not unexpected. </p>
+<p>In the third case
 we force the use of 8 threads, and they all land on the 4 hardware threads of
-2 cores. Again, this is not unexpected. And neither is the output of the last 
-run of <code>omp_check</code> which is again with multithreading disabled as requested in
-the <code>#SBATCH</code> lines. What is surprising though is the output of <code>sacct</code>: 
-It claims there were 8 hardware threads, so 4 cores, allocated to the second 
-(the <code>.1</code>) and third (the <code>.2</code>) job step while whatever we tried, <code>omp_check</code>
-could only see 2 cores and 4 hardware threads. Indeed, if we would try to run
-with <code>-c 256</code> then <code>srun</code> will fail.</p>
+2 cores. Again, this is not unexpected. </p>
+<p>And neither is the output of the next 
+run of <code>omp_check</code> which is again with multithreading disabled as implied by the
+defaults on LUMI. </p>
+<p>The fifth one causes a failure, claiming that there are more processors requested
+than permitted, which is very surprising as the node supports 256 hardware threads.</p>
+<p>The output of <code>sacct</code> is starting to give us a clue as to what happens: The 
+<code>AllocCPUS</code> column tells us that 8 hardware threads, so 4 physical cores,
+were set aside for each of the first 4 <code>srun</code> commands, even though the output
+of <code>omp_check</code> showed that in the second and third one, we could only access
+the hardware threads on two physical cores. So it appears that <code>srun</code> gets confused
+when we overwrite <code>--hint=nomultithread</code> with <code>--hint=multithread</code>: When reserving
+resources for the job step, it appears that <code>-c X</code> is treated as reserving X
+phyisical cores, so 2X hardware threads. However, then Slurm then sets up the affinity
+groups that determine where we can run, we get access to only X hardware threads in
+all cases where those X hardware threads are the first hardware thread of each core
+allocated to the job step when using <code>--hint=nomultithread</code>, or all X hardware threads
+on the first X/2 cores when using <code>--hint=multithread</code>. And this then also explains
+why <code>srun -n1 -c256 --hint=multithread</code> failed, as it first tried to get 128 physical
+cores. Since this <code>srun</code> command failed to even create a job step, we can't see it in
+the output of <code>sacct</code> though.</p>
 <p>But now try the reverse: we turn multithreading on in the <code>#SBATCH</code> lines
 and try to turn it off again with <code>srun</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#! /usr/bin/bash</span>
@@ -7676,15 +7734,24 @@ and try to turn it off again with <code>srun</code>:</p>
 <span class="c1">#SBATCH --hint=multithread</span>
 <span class="c1">#SBATCH --account=project_46YXXXXXX</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeGNU-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 <span class="nb">set</span><span class="w"> </span>-x
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>--hint<span class="o">=</span>nomultithread<span class="w"> </span>omp_check<span class="w"> </span>-r
 
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>--hint<span class="o">=</span>multithread<span class="w"> </span>omp_check<span class="w"> </span>-r
 
+<span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>--hint<span class="o">=</span>multithread<span class="w"> </span>omp_check<span class="w"> </span>-r
+
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>omp_check<span class="w"> </span>-r
+
 <span class="nb">set</span><span class="w"> </span>+x
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nCan all hardware threads be used properly (used to fail)?\n&quot;</span>
+<span class="nb">set</span><span class="w"> </span>-x
+srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">256</span><span class="w"> </span>--hint<span class="o">=</span>multithread<span class="w"> </span>omp_check<span class="w"> </span>-r
+
+<span class="nb">set</span><span class="w"> </span>+x
+sleep<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c1"># Give Slurm some time to update internal databases after the srun command.</span>
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
 </code></pre></div>
 <p>The relevant part of the output is now</p>
@@ -7692,46 +7759,79 @@ srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><s
 
 Running 4 threads in a single process
 
-++ omp_check: OpenMP thread   0/4   on cpu   1/256 of nid001460 mask 0-3
-++ omp_check: OpenMP thread   1/4   on cpu   2/256 of nid001460 mask 0-3
-++ omp_check: OpenMP thread   2/4   on cpu   3/256 of nid001460 mask 0-3
-++ omp_check: OpenMP thread   3/4   on cpu   0/256 of nid001460 mask 0-3
+++ omp_check: host nid001156 OpenMP thread   0/4   cpu   0/256 mask (0-3)
+++ omp_check: host nid001156 OpenMP thread   1/4   cpu   1/256 mask (0-3)
+++ omp_check: host nid001156 OpenMP thread   2/4   cpu   2/256 mask (0-3)
+++ omp_check: host nid001156 OpenMP thread   3/4   cpu   3/256 mask (0-3)
 
 + srun -n 1 -c 4 --hint=multithread omp_check -r
 
 Running 4 threads in a single process
 
-++ omp_check: OpenMP thread   0/4   on cpu   0/256 of nid001460 mask 0-1, 128-129
-++ omp_check: OpenMP thread   1/4   on cpu 129/256 of nid001460 mask 0-1, 128-129
-++ omp_check: OpenMP thread   2/4   on cpu 128/256 of nid001460 mask 0-1, 128-129
-++ omp_check: OpenMP thread   3/4   on cpu   1/256 of nid001460 mask 0-1, 128-129
+++ omp_check: host nid001156 OpenMP thread   0/4   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   1/4   cpu 129/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   2/4   cpu 128/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   3/4   cpu   1/256 mask (0-1, 128-129)
 
-++ srun -n 1 -c 4 omp_check -r
++ OMP_NUM_THREADS=8
++ srun -n 1 -c 4 --hint=multithread omp_check -r
+
+Running 8 threads in a single process
+
+++ omp_check: host nid001156 OpenMP thread   0/8   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   1/8   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   2/8   cpu 128/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   3/8   cpu   1/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   4/8   cpu 129/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   5/8   cpu 129/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   6/8   cpu   1/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   7/8   cpu 128/256 mask (0-1, 128-129)
+
++ srun -n 1 -c 4 omp_check -r
 
 Running 4 threads in a single process
 
-++ omp_check: OpenMP thread   0/4   on cpu   0/256 of nid001460 mask 0-1, 128-129
-++ omp_check: OpenMP thread   1/4   on cpu 129/256 of nid001460 mask 0-1, 128-129
-++ omp_check: OpenMP thread   2/4   on cpu 128/256 of nid001460 mask 0-1, 128-129
-++ omp_check: OpenMP thread   3/4   on cpu   1/256 of nid001460 mask 0-1, 128-129
+++ omp_check: host nid001156 OpenMP thread   0/4   cpu   0/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   1/4   cpu 129/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   2/4   cpu 128/256 mask (0-1, 128-129)
+++ omp_check: host nid001156 OpenMP thread   3/4   cpu   1/256 mask (0-1, 128-129)
 
 + set +x
 
+Can all hardware threads be used properly (used to fail)?
+
++ srun -n 1 -c 256 --hint=multithread omp_check -r
+
+Running 256 threads in a single process
+
+++ omp_check: host nid001156 OpenMP thread   0/256 cpu 204/256 mask (0-255)
+++ omp_check: host nid001156 OpenMP thread   1/256 cpu 113/256 mask (0-255)
+++ omp_check: host nid001156 OpenMP thread   2/256 cpu 219/256 mask (0-255)
+...
+
 sacct for the job:
-JobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
------------- ---------- ---------- ---------- ---------- ---------- -------- 
-4238802      slurm-HWT+   standard project_4+        256    RUNNING      0:0 
-4238802.bat+      batch            project_4+        256    RUNNING      0:0 
-4238802.0     omp_check            project_4+          8  COMPLETED      0:0 
-4238802.1     omp_check            project_4+          4  COMPLETED      0:0 
-4238802.2     omp_check            project_4+          4  COMPLETED      0:0 
+JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- --------
+17354689     slurm-HWT+   standard project_4+        256    RUNNING      0:0
+17354689.ba+      batch            project_4+        256    RUNNING      0:0
+17354689.0    omp_check            project_4+          8  COMPLETED      0:0
+17354689.1    omp_check            project_4+          4  COMPLETED      0:0
+17354689.2    omp_check            project_4+          4  COMPLETED      0:0
+17354689.3    omp_check            project_4+          4  COMPLETED      0:0
+17354689.4    omp_check            project_4+        256  COMPLETED      0:0
 </code></pre></div>
 <p>And this is fully as expected. The first <code>srun</code> does not use hardware threads
 as requested by <code>srun</code>, the second run does use hardware threads and only 2 cores
-which is also what we requested with the <code>srun</code> command, and the last one also uses
-hardware threads. The output of <code>sacct</code> (and in particular the <code>AllocCPUS</code> comumn)
-not fully confirms that indeed there were only 2 cores allocated to the second and
-third run.</p>
+which is also what we requested with the <code>srun</code> command, 
+the third one nicely puts all 8 threads on the 4 hardware threads of the first 
+2 cores, the fourth one correctly uses <code>--hint=multithread</code> as specified, and
+the case with <code>-c 256</code> now also works properly, using all hardware threads of all
+cores of the node.</p>
+<p>The output of <code>sacct</code> is now also correct. The <code>.0</code> job step created by the first
+<code>srun</code> command reports 8 for <code>AllocCPUS</code> but that is correct as there are basically
+4 physical cores used and the second hardware thread on each core cannot be used
+by a different job step. The next 3 job steps all use 4 hardware threads, and the last
+one now also shows up and uses all 256 hardware threads.</p>
 <p>So turning hardware threads on in the <code>#SBATCH</code> lines and then off again with <code>srun</code>
 works as expected, but the opposite, explicitly turning it off in the <code>#SBATCH</code> lines
 (or relying on the default which is off) and then trying to turn it on again, does not
@@ -7811,15 +7911,15 @@ some limitations.</p>
 <li>
 <p>If however you want multiple tasks to share a GPU, then you should use 
     <code>--ntasks-per-gpu=&lt;number_of_tasks&gt;</code>. There are use cases where this makes sense.
-    We have experienced issues with this though on LUMI, see below.</p>
+    We have experienced issues with this on LUMI though, see below.</p>
 </li>
 </ol>
 <p>While this does ensure a proper distribution of GPUs across nodes compatible with the 
-distributions of cores to run the requested tasks, we will again run into binding issues
-when these options are propagated to <code>srun</code> to create the actual job steps, and here this
-is even more tricky to solve. It will stop some of the more efficient modes of MPI 
-and RCCL communications from working properly.</p>
-<p>We will again discuss a solution in the 
+distributions of cores to run the requested tasks, it does not guarantee an optimal
+mapping of CPUs and GPUs on tasks, and it is also again essential to also use 
+<code>--gres-flags=allow-task-sharing</code> or some of the more efficient modes of MPI 
+and RCCL communications will not work.</p>
+<p>This is also discussed a bit more in the 
 <a href="../202-Binding/">Chapter "Process and thread distribution and binding"</a></p>
 </li>
 <li>
@@ -7837,7 +7937,8 @@ and RCCL communications from working properly.</p>
     <strong>This is still CPU memory and not GPU memory!</strong></p>
 </li>
 <li>
-<p>Specifying memory per node with <code>--mem</code> doesn't make much sense unless the number of nodes is fixed.</p>
+<p>Specifying memory per node with <code>--mem</code> doesn't make much sense unless only a single node is requested
+    or the request is done in such a way that only entire nodes would be allocated to the job (step).</p>
 </li>
 </ol>
 </li>
@@ -7881,14 +7982,12 @@ a single L3 cache domain, is futile.</p>
 <p><img alt="Slide Per core allocations: Different job steps (2)" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/PerCoreJobstep_2.png" /></p>
 </figure>
 <p>It is possible to have an <code>srun</code> command with a different task structure in your job script.
-This will work if no task requires more CPUs or GPUs than in the original request, and if there are
+This will work if a task does not require more CPUs or GPUs than a task in the original request, and if there are
 either not more tasks either or if an entire number of tasks in the new structure fits in a task
 in the structure from the allocation and the total number of tasks does not exceed the original number
 multiplied with that entire number. Other cases may work randomly, depending on how Slurm did the
 actual allocation. In fact, this may even be abused to ensure that all tasks are allocated to a single
 node, though this is done more elegantly by just specifying <code>--nodes=1</code>.</p>
-<p>With GPUs though it can become very complicated to avoid binding problems if the Slurm way of implementing
-GPU binding does not work for you.</p>
 <details class="example">
 <summary>Some examples that work and don't work (click to expand)</summary>
 <p>Consider the job script:</p>
@@ -8202,7 +8301,7 @@ mechanism than using <code>--export</code> as can be seen from the bug discussed
 <p>One of the problems with <code>--export</code> is that you cannot really assign any variable to a new
 environment variable the way you would do it on the bash command line. It is not clear what
 internal processing is going on, but the value is not always what you would expect. 
-In particular, problems can be expected when the value of the variable contains a semicolon.</p>
+In particular, problems can be expected when the value of the variable contains a comma.</p>
 <p>E.g., try the command from the previous example with <code>--export=ALL,PAR1='Hello, world'</code> 
 and it turns out that only <code>Hello</code> is passed as the value of the variable.</p>
 </div>
@@ -8228,7 +8327,7 @@ is used and by default the prefious output will be truncated when the requeueed 
     of the <code>sbatch</code> command.</p>
 </li>
 <li>
-<p>Truncating of the output files can be avoided by specifying <code>--open-mode=append</code>.</p>
+<p>Truncating of the output files when the job is restarted can be avoided by specifying <code>--open-mode=append</code>.</p>
 </li>
 <li>
 <p>It is also possible to detect in a job script if a job has been restarted or not. For this
@@ -8254,10 +8353,10 @@ It would take us too far to discuss all possible cases in this tutorial.</p>
 given jobID has ended successfully (and you may have to clean up the queue if it never ends successfully). But 
 there are other possibilities also, e.g., start another job after a list of jobs has ended, or after a job has
 failed. We refer to the 
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html">sbatch manual page</a> where you should 
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#OPT_dependency">look for <code>--dependency</code> on the page</a>.</p>
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html">sbatch manual page</a> where you should 
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html#OPT_dependency">look for <code>--dependency</code> on the page</a>.</p>
 <p>It is also possible to automate the process of submitting a chain of dependent jobs. For this the
-<code>sbatch</code> flag <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sbatch.html#OPT_parsable"><code>--parsable</code></a>
+<code>sbatch</code> flag <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html#OPT_parsable"><code>--parsable</code></a>
 can be used which on LUMI will only print the job number of the job being submitted. So to 
 let the job defined by <code>jobdepend.slurm</code> run after the job defined by <code>jobfirst.slurm</code> while 
 submitting both at the same time, you can use something like</p>
@@ -8277,7 +8376,7 @@ sbatch<span class="w"> </span>--dependency<span class="o">=</span>afterok:<span 
     a single task supporting multiple cores if your code supports a parallel build process.
     Building on the compute nodes is needed if architecture-specific optimisations are desired
     while the code building process does not support cross-compiling (e.g., because the build process
-    adds <code>-march=native</code> or a similar compiler switch even if it is told not to do so) or ie you want
+    adds <code>-march=native</code> or a similar compiler switch even if it is told not to do so) or if you want
     to compile software for the GPUs that during the configure or build process needs a GPU to be 
     present in the node to detect its features.</p>
 </li>
@@ -8317,7 +8416,7 @@ salloc: Pending job allocation 4292946
 salloc: job 4292946 queued and waiting for resources
 salloc: job 4292946 has been allocated resources
 salloc: Granted job allocation 4292946
-$ module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeCray-24.03
+$ module load LUMI/25.03 partition/G lumi-CPEtools/1.2-cpeCray-25.03-hpcat-0.9
 
 ...
 
@@ -8493,27 +8592,32 @@ bugs are being introduced.</p>
 that we have used in earlier examples also.</p>
 <p>The job script for the first method would look like:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#! /usr/bin/bash</span>
-<span class="kp">#SBATCH --job-name=slurm-herterogeneous-sbatch</span>
-<span class="kp">#SBATCH --time=5:00</span>
-<span class="kp">#SBATCH --output %x-%j.txt</span>
-<span class="kp">#SBATCH --partition=standard</span>
-<span class="kp">#SBATCH --nodes=1</span>
-<span class="kp">#SBATCH --ntasks-per-node=32</span>
-<span class="kp">#SBATCH --cpus-per-task=4</span>
-<span class="kp">#SBATCH hetjob</span>
-<span class="kp">#SBATCH --partition=standard</span>
-<span class="kp">#SBATCH --nodes=2</span>
-<span class="kp">#SBATCH --ntasks-per-node=4</span>
-<span class="kp">#SBATCH --cpus-per-task=32</span>
+<span class="c1">#SBATCH --job-name=slurm-herterogeneous-sbatch</span>
+<span class="c1">#SBATCH --account=project_46YXXXXXX</span>
+<span class="c1">#SBATCH --time=5:00</span>
+<span class="c1">#SBATCH --output %x-%j.txt</span>
+<span class="c1">#SBATCH --partition=standard</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks=32</span>
+<span class="c1">#SBATCH --cpus-per-task=4</span>
+<span class="c1">#SBATCH hetjob</span>
+<span class="c1">#SBATCH --partition=standard</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks=8</span>
+<span class="c1">#SBATCH --cpus-per-task=32</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeCray-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-25.03-hpcat-0.9
 
-<span class="nb">srun</span><span class="w"> </span>--het-group<span class="o">=</span><span class="m">0</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_0</span><span class="w"> </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>--het-group<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_1</span><span class="w"> </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">32</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;CPUs per task for first executable: </span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;CPUs per task for second executable: </span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_1</span><span class="s2">&quot;</span>
 
-<span class="nb">srun</span><span class="w"> </span>--het-group<span class="o">=</span><span class="m">0</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_0</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>--het-group<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_1</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
+srun<span class="w"> </span>--het-group<span class="o">=</span><span class="m">0</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_0</span><span class="w"> </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--het-group<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_1</span><span class="w"> </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">32</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
 
+srun<span class="w"> </span>--het-group<span class="o">=</span><span class="m">0</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_0</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--het-group<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_1</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
+
+sleep<span class="w"> </span><span class="m">10</span>
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
 </code></pre></div>
 <p>There is a single <code>srun</code> command. <code>--het-group=0</code> tells <code>srun</code> to pick up the settings for the first
@@ -8570,20 +8674,22 @@ not really treated as a single job.</p>
 <p>The same example can also be done by just allocating 3 nodes and then using more arguments
 with <code>srun</code> to start the application:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#! /usr/bin/bash</span>
-<span class="kp">#SBATCH --job-name=slurm-herterogeneous-srun</span>
-<span class="kp">#SBATCH --time=5:00</span>
-<span class="kp">#SBATCH --output %x-%j.txt</span>
-<span class="kp">#SBATCH --partition=standard</span>
-<span class="kp">#SBATCH --nodes=3</span>
+<span class="c1">#SBATCH --job-name=slurm-herterogeneous-srun</span>
+<span class="c1">#SBATCH --account=project_46YXXXXXX</span>
+<span class="c1">#SBATCH --time=5:00</span>
+<span class="c1">#SBATCH --output %x-%j.txt</span>
+<span class="c1">#SBATCH --partition=standard</span>
+<span class="c1">#SBATCH --nodes=3</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeCray-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-25.03-hpcat-0.9
 
-<span class="nb">srun</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">32</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w">  </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
+srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">32</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w">  </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--ntasks<span class="o">=</span><span class="m">8</span><span class="w">  </span>--cpus-per-task<span class="o">=</span><span class="m">32</span><span class="w"> </span>--export<span class="o">=</span>ALL,OMP_NUM_THREADS<span class="o">=</span><span class="m">32</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
 
-<span class="nb">srun</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">32</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
+srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">32</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--ntasks<span class="o">=</span><span class="m">8</span><span class="w">  </span>--cpus-per-task<span class="o">=</span><span class="m">32</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
 
+sleep<span class="w"> </span><span class="m">5</span>
 <span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
 </code></pre></div>
 <p>The output of the two <code>srun</code> commands is essentially the same as before, but the output 
@@ -8601,30 +8707,6 @@ JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
 <p>We now get a single job ID but the job step for each of the <code>srun</code> commands is split 
 in two separate job steps, a <code>+0</code> and a <code>+1</code>. </p>
 </details>
-<div class="admonition warning">
-<p class="admonition-title">Erratic behaviour of <code>--nodes=&lt;X&gt; --ntasks-per-node=&lt;Y&gt;</code> </p>
-<p>One can wonder if in the second case we could still specify resources on a per-node
-basis in the <code>srun</code> command:</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#! /usr/bin/bash</span>
-<span class="kp">#SBATCH --job-name=slurm-herterogeneous-srun</span>
-<span class="kp">#SBATCH --time=5:00</span>
-<span class="kp">#SBATCH --output %x-%j.txt</span>
-<span class="kp">#SBATCH --partition=standard</span>
-<span class="kp">#SBATCH --nodes=3</span>
-
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeCray-24.03
-
-<span class="nb">srun</span><span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">32</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>--nodes<span class="o">=</span><span class="m">2</span><span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">4</span><span class="w">  </span>--cpus-per-task<span class="o">=</span><span class="m">32</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
-</code></pre></div>
-<p>It turns out that this does not work at all. Both components get the wrong number of tasks.
-For some reason only 3 copies were started of the first application on the first node of the
-allocation, the 2 32-thread processes on the second node and one 32-thread process on the third
-node, also with an unexpected thread distribution.</p>
-<p>This shows that before starting a big application it may make sense to check with the
-tools from the <code>lumi-CPEtools</code> module if the allocation would be what you expect as Slurm
-is definitely not free of problems when it comes to hetereogeneous jobs.</p>
-</div>
 <h2 id="simultaneous-job-steps">Simultaneous job steps<a class="headerlink" href="#simultaneous-job-steps" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Simultaneous job steps" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/SimultaneousJobSteps.png" /></p>
@@ -8669,7 +8751,7 @@ multiple jobs, one for each job step that you would run simultaneously.</p>
 <span class="c1">#SBATCH --time=2:00</span>
 <span class="c1">#SBATCH --output %x-%j.txt</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2a-cpeCray-24.03
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-25.03-hpcat-0.9
 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Submitted from </span><span class="nv">$SLURM_SUBMIT_HOST</span><span class="s2">&quot;</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running on </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="s2">&quot;</span>
@@ -8740,7 +8822,7 @@ overlapped.</p>
 <p>The <code>sstat</code> command is a command to get real-time information about a running job.
 That information is obtained from the resource manager components in Slurm and not from the 
 accounting database. The command can only produce information about job steps that are currently 
-being executed and cannot be used to get information about jobs tha thave already been terminated,
+being executed and cannot be used to get information about jobs that have already been terminated,
 or job steps that have terminated from jobs that are still running.</p>
 <p>In its most simple form, you'd likely use the <code>-j</code> (or <code>--jobs</code>) flag to specify the job for which you want information:</p>
 <div class="highlight"><pre><span></span><code>sstat -j 1234567
@@ -8777,7 +8859,7 @@ JobID            MaxRSS MaxRSSTask MaxRSSNode
 which task that is and on which node it is running.</p>
 <p>You can get a list of output fields using <code>sstat -e</code> or <code>sstat --helpformat</code>. 
 Or check the 
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sstat.html#SECTION_Job-Status-Fields">"Job Status Fields" section in the <code>sstat</code> manual page</a>. That page also contains further examples.</p>
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sstat.html#SECTION_Job-Status-Fields">"Job Status Fields" section in the <code>sstat</code> manual page</a>. That page also contains further examples.</p>
 <h3 id="the-sacct-command">The <code>sacct</code> command<a class="headerlink" href="#the-sacct-command" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Job information with sacct 1" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/MonitoringSacct_1.png" /></p>
@@ -8785,7 +8867,7 @@ Or check the
 <p>The <code>sacct</code> command shows information kept in the Slurm job accounting database.
 Its main use is to extract information about jobs or job steps that have already 
 terminated. It will however also provide information about running jobs and job steps,
-but that information if not real-time and only pushed periodically to the accounting
+but that information is not real-time and only pushed periodically to the accounting
 database.</p>
 <p>If you know the job ID of the job you want to investigate, you can specify it
 directly using the <code>-j</code> or <code>--jobs</code> flag. E.g.,</p>
@@ -8809,6 +8891,18 @@ physical core but that again cannot be directly derived from the output shown he
 or <code>--long</code> (which shows an unwieldly amount of information similar to <code>sstat</code>),
 and just as with <code>sstat</code>, the information can be fully customised using <code>-o</code> or <code>--format</code>,
 but as there is a lot more information in the accounting database, the format options are different.</p>
+<div class="admonition warning">
+<p class="admonition-title">The <code>AllocCPUS</code> column</p>
+<p>The <code>AllocCPUS</code> column always gives the number of hardware threads set apart for the job
+or job step. Even when running using <code>--hint=nomultithread</code> (which is actually the default),
+this number will be double the number of physical cores used in the job as the second hardware
+thread of each core is also allocated to the job, even though you cannot directly use it
+(and because of the <a href="#turning-simultaneous-multithreading-on-or-off">issues that we have discussed before</a>, 
+cannot be used properly once the job has been created with <code>--hint=nomultithread</code>). </p>
+<p>In other words, this is one of the cases where <code>CPUS</code> in Slurm denotes hardware threads
+rather than physical cores.</p>
+<p>The same is in fact also true for the data reported by <code>sstat</code> and <code>sreport</code>.</p>
+</div>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Job information with sacct 2" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/MonitoringSacct_2.png" /></p>
 </figure>
@@ -8832,7 +8926,7 @@ the columns. The <code>%-13</code> tells to use a field width of 13 and to left-
 in that column.</p>
 <p>You can get a list of output fields using <code>sacct -e</code> or <code>sacct --helpformat</code>. 
 Or check the 
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html#SECTION_Job-Accounting-Fields">"Job Accounting Fields" section in the <code>sacct</code> manual page</a>. That page also contains further examples.</p>
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sacct.html#SECTION_Job-Accounting-Fields">"Job Accounting Fields" section in the <code>sacct</code> manual page</a>. That page also contains further examples.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Job information with sacct 3" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/MonitoringSacct_3.png" /></p>
 </figure>
@@ -8841,10 +8935,11 @@ You can run <code>sacct</code> without any arguments, and in that case it will p
 have run since midnight. It is also possible to define the start time (with <code>-S</code> or <code>--starttime</code>)
 and the end time (with <code>-E</code> or <code>--endtime</code>) of the time window for which job data should be shown,
 and there are even more features to filter jobs, though some of them are really more useful for 
-administrators.</p>
+administrators. On LUMI, the time window should not be more than 30 days, and this is done to
+restrict the load on Slurm as this is a query on a very large database.</p>
 <p>This is only a very brief introduction to <code>sacct</code>, basically so that you know that it exists and what
 its main purpose is. But you can find more information in the
-<a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sacct.html"><code>sacct</code> manual page</a></p>
+<a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sacct.html"><code>sacct</code> manual page</a></p>
 <h3 id="the-sreport-command">The <code>sreport</code> command<a class="headerlink" href="#the-sreport-command" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Job information from sreport" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/MonitoringSreport.png" /></p>
@@ -8855,14 +8950,14 @@ Its main use is to track consumed resources in a project.</p>
 of Slurm that uses data from the Slurm accounting database. That data is gathered in a different 
 database though with no direct user access, and only some summary reports are brought back to the
 system (and used by the <code>lumi-workspaces</code> command and some other tools for user and project monitoring).
-So the correct billing information is not available in the Slurm accounting database, nor can it be easily
+So <strong>the correct billing information is <em>NOT</em> available in the Slurm accounting database</strong>, nor can it be easily
 derived from data in the summary reports as the billing is more complicated than some billing for individual
 elements such as core use, memory use and accelerator use. E.g., one can get summary reports mentioning the
 amount of core hours used per user for a project, but that is reported for all partitions together and hence 
 irrelevant to get an idea of how the CPU billing units were consumed.</p>
 <p>This section is mostly to discourage you to use <code>sreport</code> as its information is often misleading and certainly
-it it is used to follow up your use of billing units on LUMI, but should you insist, there is more information
-in the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sreport.html"><code>sreport</code> manual page</a>.</p>
+if it is used to follow up your use of billing units on LUMI, but should you insist, there is more information
+in the <a href="https://slurm.schedmd.com/archive/slurm-24.05.8/sreport.html"><code>sreport</code> manual page</a>.</p>
 <!-- BELGIUM
 ## Local trainings and materials
 
@@ -8873,7 +8968,7 @@ in the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sreport.html"><c
 
     -   [Slurm in the VUB-specific documentation](https://hpc.vub.be/docs/job-submission/)
 
--   Docs CÉCI: Extensive [documentation on the use of Slurm](https://support.ceci-hpc.be/doc/#submitting-jobs-to-the-cluster)
+-   Docs CÉCI: Extensive [documentation on the use of Slurm](https://support.ceci-hpc.be/doc/SubmittingJobs/SlurmTutorial/)
 
 -   VSC training materials
 

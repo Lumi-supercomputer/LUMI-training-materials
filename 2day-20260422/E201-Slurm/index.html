@@ -5854,8 +5854,8 @@ Submit with <code>sbatch</code> on the CPU partition and check task and thread a
 #SBATCH --time=5                    # Run time (minutes)
 #SBATCH --account=&lt;project_id&gt;      # Project for billing
 
-module load LUMI/24.03
-module load lumi-CPEtools/1.2a-cpeGNU-24.03
+module load LUMI/25.03
+module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 </code></pre></div>
@@ -5864,7 +5864,7 @@ occur, depending on the editor you use.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
 <p>Save the script contents into the file  <code>job.sh</code> (you can use the <code>nano</code> console text editor for instance). 
-Remember to use valid project account name (or omit the line if you are using the <code>exercises/small</code> module).</p>
+Remember to use a valid project account name (or omit the line if you are using the <code>exercises/small</code> module).</p>
 <p>Submit the job script using the <code>sbatch</code> command:</p>
 <div class="highlight"><pre><span></span><code>sbatch job.sh
 </code></pre></div>
@@ -5897,7 +5897,8 @@ to build the code from the Makefile, don't use simply <code>make</code> as sugge
 </code></pre></div>
 <p><em>Note:</em> Given that the reservation is on <code>standard-g</code> where you can only get
 whole nodes, which is rather stupid for this example, it is better to try to
-get a single GPU with 7 cores and 60GB of memory on the <code>small-g</code> partition.</p>
+get a single GPU with 7 cores and 60GB of memory on the <code>small-g</code> partition
+if the wait is not too long.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
 <p>Clone the code using <code>git</code> command:</p>
@@ -5918,25 +5919,28 @@ code using the <code>make</code> command, but first we need to make sure that th
 is a proper programming environment loaded. </p>
 <p>As an example we will built with the system default programming environment, <code>PrgEnv-cray</code> in <code>CrayEnv</code>. 
 Just to be sure we'll load even the programming environment module explicitly.</p>
-<p>The build will fail if the <code>rocm/6.0.3</code> module is not loaded when using <code>PrgEnv-cray</code>. Whereas the instructions suggest to simply use the <code>rocm</code> 
+<p>The build will fail if the <code>rocm/6.3.4</code> module is not loaded when using <code>PrgEnv-cray</code>. Whereas the instructions suggest to simply use the <code>rocm</code> 
 module, we're specifying a version as at the time of the course, there 
 was a newer but not fully supported <code>rocm</code> module on the system.</p>
 <div class="highlight"><pre><span></span><code>module load CrayEnv
 module load PrgEnv-cray
-module load rocm/6.0.3
+module load rocm/6.3.4
 </code></pre></div>
-<p>Alternatively, you can build in the <code>LUMI/24.03</code> stack using the EasyBuild toolchain instead
+<p>Alternatively, you can build in the <code>LUMI/25.03</code> stack using the EasyBuild toolchain instead
 of <code>PrgEnv-cray</code>:</p>
-<div class="highlight"><pre><span></span><code>module load LUMI/24.03 partition/G cpeCray
+<div class="highlight"><pre><span></span><code>module load LUMI/25.03 partition/G cpeCray
 </code></pre></div>
 <p>In this case, you do not need to load the ROCm module as it is loaded automatically by
-<code>cpeCray/24.03</code> when working in <code>partition/G</code>.</p>
+<code>cpeCray/25.03</code> when working in <code>partition/G</code>.</p>
 <p>To build the code, use</p>
 <div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME=&quot;frontier&quot;
 </code></pre></div>
 <p>You need to add <code>LMOD_SYSTEM_NAME="frontier"</code> variable for make as the code originates from the Frontier system
 and doesn't know LUMI.</p>
 <p>(As an exercise you can try to fix the <code>Makefile</code> and enable it for LUMI :))</p>
+<p>In this case we are lucky as the Makefile is already made for the Cray programming environment
+and we don't need to set the name of the C++ compiler. It is already done correctly in the 
+first line of the Makefile.</p>
 <p>Finally you can just execute <code>./hello_jobstep</code> binary program to see how it behaves:</p>
 <div class="highlight"><pre><span></span><code>./hello_jobstep
 </code></pre></div>

@@ -5848,14 +5848,14 @@ the subdirectory CPE of the download.</em></p>
 <p>Try to compile these programs using the programming environment of your choice.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
-<p>We'll use the default version of the programming environment (24.03 at the moment of the
-course in December 2024), but in case you want to use
-a particular version, e.g., the 23.12 version, and want to be very sure that all modules are
+<p>We'll use the default version of the programming environment (25.03 at the moment of the
+course in April 2025), but in case you want to use
+a particular version, e.g., the 24.03 version, and want to be very sure that all modules are
 loaded correctly from the start you could consider using</p>
-<div class="highlight"><pre><span></span><code>module load cpe/23.12
-module load cpe/23.12
+<div class="highlight"><pre><span></span><code>module load cpe/24.03
+module load cpe/24.03
 </code></pre></div>
-<p>(but don't try this now or undo again by loading <code>cpe/24.03</code> twice or logging in again).</p>
+<p>(but don't try this now or undo again by loading <code>cpe/25.03</code> twice or logging in again).</p>
 <p>So note that we do twice the same command as the first iteration does not always succeed to reload
 all modules in the correct version. Do not combine both lines into a single <code>module load</code> statement
 as that would again trigger the bug that prevents all modules to be reloaded in the first iteration.</p>
@@ -6023,27 +6023,6 @@ are provided also. Though they will take care of linking with the MPI
 libraries properly, they do not take care of linking with the BLAS libraries
 and some other HPE CPE libraries that are linked in automatically when using
 the CPE wrappers.</p>
-<p>Moreover, when using the wrappers in the <code>PrgEnv-gnu</code> version of Cray MPICH, 
-they don't understand the right names for the GCC compiler executables based on
-which GCC module is loaded. As a result, when loading one of the <code>gcc-native</code> modules
-which are now the standard GCC modules in the HPE Cray PE, they will run the system 
-compiler instead, and you may get errors when trying to link or run with other libraries
-that are properly compiled with the much newer GCC versions in the <code>gcc-native</code> modules.</p>
-<p>Just try:</p>
-<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
-mpicc --version
-</code></pre></div>
-<p>to see this issue when using a recent version of the programming environment (such as 
-the 24.03 default version).</p>
-<p>A workaround is to point the environment variable <code>MPICH_CC</code> to the correct GCC C compiler
-executable. If you're making this exercise in the 24.03 version of the CPE (the default 
-version when this exercise was last revised), you can use:</p>
-<div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
-export MPICH_CC=gcc-13
-mpicc --version
-</code></pre></div>
-<p>Similarly, for C++ and Fortran, you'd have to point <code>MPICH_CXX</code> and <code>MPICH_FC</code> to the
-correct versions of <code>g++</code> and <code>gfortran</code>.</p>
 </details>
 
 

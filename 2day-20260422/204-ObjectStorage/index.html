@@ -6204,6 +6204,17 @@ you risk creating problems with the metadata server as you will be dealing with 
 <p>There is no "best" here: both are different technologies, developed with a specific purpose in mind,
 and which one you should use is hence dictated by the technology that you want to use to store your
 data. </p>
+<details class="note">
+<summary>S3 files</summary>
+<p>AWS recently (April 2026) launched the <a href="https://aws.amazon.com/blogs/aws/launching-s3-files-making-s3-buckets-accessible-as-file-systems/">"S3 Files" service</a>
+which can make objects available as files in a filesystem. This is done through clever 
+caching systems, etc., as access to an object still has to be through a few atomic
+operations. Though in principle the <code>rclone</code> tool does support fuse-mounting buckets
+also and make them appear as a regular filesystem, 
+we would not recommend trying this out on LUMI. The support that <code>rclone</code> offers
+for having a file view is not nearly as sophisticated as what S3 files offers
+and not all regular filesystem operations are fully supported.</p>
+</details>
 <h2 id="accessing-lumi-o-general-principles">Accessing LUMI-O: General principles<a class="headerlink" href="#accessing-lumi-o-general-principles" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Accessing LUMI-O" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-204-ObjectStorage/LUMIOAccessing.png" /></p>
@@ -6325,9 +6336,11 @@ various tools:</p>
 </figure></p>
 <p>This screen shows us the snippet for the rclone configuration file (on Linux it is
 <code>~/.config/rclone/rclone.conf</code>). Notice that it creates two so-called endpoints. In the slide
-this is <code>lumi-465001102-private</code> and <code>lumi-465001102-public</code>, for storing buckets and objects which are private
+this is <code>lumi-465002175-private</code> and <code>lumi-465002175-public</code>, for storing buckets and objects which are private
 or public (i.e., also web-accessible).
 We'll come back to what this means later, when we discuss access rights.</p>
+<p>Note that you should never show your access key ID and secret to someone else. Revoke the key
+immediately is something like this happens!</p>
 </div>
 <h3 id="credential-management-and-access-through-open-ondemand">Credential management and access through Open OnDemand<a class="headerlink" href="#credential-management-and-access-through-open-ondemand" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
@@ -6767,7 +6780,8 @@ deleted when project A ends. If the data on LUMI-O is in the space of project A,
 will be deleted after the 90-day grace period after the end of the project, even if project B is
 still a valid project. On LUMI-O, data is not deleted while a project is valid, is made read-only
 after the end of a project for a 90-day grace period, and is then queued for deletion, so
-just as for the Lustre filesystems, you need to move out the data in time.</p>
+just as for the Lustre filesystems, you need to move out the data in time. (And in fact, currently
+it is also not made read-only.)</p>
 <h2 id="further-lumi-o-documentation">Further LUMI-O documentation<a class="headerlink" href="#further-lumi-o-documentation" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://docs.lumi-supercomputer.eu/storage/lumio/">Documentation for the LUMI-O object storage service</a></li>

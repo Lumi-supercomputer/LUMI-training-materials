@@ -6304,7 +6304,7 @@ object of the file.</p>
 <p>The final subcommand that we will discuss is the <code>setstripe</code> subcommand to set the striping policy
 for a file or directory.</p>
 <p>Let us first look at setting a striping policy at the directory level:</p>
-<div class="highlight"><pre><span></span><code>$ module use /appl/local/training/modules/2day-20240502
+<div class="highlight"><pre><span></span><code>$ module use /appl/local/training/modules/2day-20260422
 $ module load lumi-training-tools
 $ mkdir testdir
 $ lfs setstripe -S 2m -c 4 testdir
@@ -6430,7 +6430,8 @@ regular Linux <code>find</code> command.</p>
 </ul>
 <p>There are many more tips more specifically for programmers. As good use of the filesystems on a
 supercomputer is important and wrong use has consequences for all other users, it is an important
-topic in the <a href="https://lumi-supercomputer.github.io/comprehensive-latest">4-day comprehensive LUMI course</a> or "Performance Analysis and Optimisation Workshop"
+topic in the <a href="https://lumi-supercomputer.github.io/comprehensive-latest">4-day comprehensive LUMI course</a> 
+or <a href="https://lumi-supercomputer.github.io/LUMI-training-materials/paow-20251022/">"Performance Analysis and Optimisation Workshop"</a>
 that the LUMI User Support Team organises a few times per year, and you'll find many more tips
 about proper use of Lustre in that lecture (which is only available to actual users on LUMI
 unfortunately).</p>

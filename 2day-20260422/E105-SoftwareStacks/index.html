@@ -5815,10 +5815,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installing-a-simple-program-without-dependencies-with-easybuild" class="md-nav__link">
+  <a href="#installing-a-simple-program-without-unavailable-dependencies-with-easybuild" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installing a simple program without dependencies with EasyBuild
+        Installing a simple program without unavailable dependencies with EasyBuild
       
     </span>
   </a>
@@ -5921,15 +5921,15 @@ select a set of relevant benchmarks for GROMACS.</p>
 </code></pre></div>
 <p>shows that there are versions of <code>brotli</code> for several of the <code>cpe*</code> toolchains and in several versions
 of the LUMI software stack.</p>
-<p>Of course we prefer to use a recent software stack, the <code>23.12</code> or <code>24.03</code> (and preferably the <code>24.03</code> as 
-that is the best supported on at this time, early December 2024). 
+<p>Of course we prefer to use a recent software stack, the <code>25.03</code> or <code>25.09</code> (and preferably the <code>25.03</code> as 
+that is the system default stack and best supported on at this time, April 2025). 
 Since we want to use other software
 compiled with the Cray compilers also, we really want a <code>cpeCray</code> version to avoid conflicts between 
-different toolchains. So the module we want to load is <code>Brotli/1.1.0-cpeCray-24.03</code>.</p>
+different toolchains. So the module we want to load is <code>Brotli/1.1.0-cpeCray-25.03</code>.</p>
 <p>To figure out how to load it, use</p>
-<div class="highlight"><pre><span></span><code>module spider Brotli/1.1.0-cpeCray-24.03
+<div class="highlight"><pre><span></span><code>module spider Brotli/1.1.0-cpeCray-25.03
 </code></pre></div>
-<p>and see that (as expected from the name) we need to load <code>LUMI/24.03</code> and can then use it in any of the
+<p>and see that (as expected from the name) we need to load <code>LUMI/25.03</code> and can then use it in any of the
 partitions.</p>
 <p>Instead of using the <code>module spider</code> command, you could also have searched for <code>brotli</code> in the 
 LUMI Software Guide and you would end up on the <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/b/Brotli/">Brotli page</a>
@@ -5946,12 +5946,13 @@ but are no longer as the programming environment cannot be properly supported.</
 (and we have a <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/2022-CSC_and_LO/">special version for LUMI</a> also).</em></p>
 <p><em>Note</em>: If you want to be able to uninstall all software installed through the exercises
 easily, we suggest you make a separate EasyBuild installation for the course, e.g.,
-in <code>/scratch/project_465001603/$USER/eb-course</code> if you make the exercises during the course:</p>
+in <code>/scratch/project_465002764/$USER/eb-course</code> if you make the exercises during the course.
+See also the <a href="../">instructions on the intro page of the course</a>.</p>
 <ul>
 <li>Start from a clean login shell with only the standard modules loaded.</li>
 <li>
 <p>Set <code>EBU_USER_PREFIX</code>: </p>
-<div class="highlight"><pre><span></span><code>export EBU_USER_PREFIX=/scratch/project_465001603/$USER/eb-course
+<div class="highlight"><pre><span></span><code>export EBU_USER_PREFIX=/scratch/project_465002764/$USER/eb-course
 </code></pre></div>
 <p>You'll need to do that in every shell session where you want to install or use that software.</p>
 </li>
@@ -5961,13 +5962,13 @@ in <code>/scratch/project_465001603/$USER/eb-course</code> if you make the exerc
 <li>
 <p>At the end, when you don't need the software installation anymore, you can simply remove the directory
     that you just created.</p>
-<div class="highlight"><pre><span></span><code>rm -rf /scratch/project_465001603/$USER/eb-course
+<div class="highlight"><pre><span></span><code>rm -rf /scratch/project_465002764/$USER/eb-course
 </code></pre></div>
 </li>
 </ul>
-<h3 id="installing-a-simple-program-without-dependencies-with-easybuild">Installing a simple program without dependencies with EasyBuild<a class="headerlink" href="#installing-a-simple-program-without-dependencies-with-easybuild" title="Permanent link">&para;</a></h3>
+<h3 id="installing-a-simple-program-without-unavailable-dependencies-with-easybuild">Installing a simple program without unavailable dependencies with EasyBuild<a class="headerlink" href="#installing-a-simple-program-without-unavailable-dependencies-with-easybuild" title="Permanent link">&para;</a></h3>
 <p>The LUMI Software Library contains the package <code>eb-tutorial</code>. Install the version of
-the package for the <code>cpeCray</code> toolchain in the 24.03 version of the software stack.
+the package for the <code>cpeCray</code> toolchain in the 25.03 version of the software stack.
 Install the software for the LUMI-C compute nodes.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
@@ -5979,45 +5980,47 @@ Install the software for the LUMI-C compute nodes.</p>
     <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs">LUMI Software Library</a>
     if we want to see more information about the package.</p>
 <p>You'll notice that there are versions of the EasyConfigs for <code>cpeGNU</code>, <code>cpeCray</code> and <code>cpeAOCC</code>.
-As we want to install software with the <code>cpeCray</code> toolchain for <code>LUMI/24.03</code>, we'll
-need the <code>cpeCray-24.03</code> version which is the EasyConfig
-<code>eb-tutorial-1.0.1-cpeCray-24.03.eb</code>.</p>
+As we want to install software with the <code>cpeCray</code> toolchain for <code>LUMI/25.03</code>, we'll
+need the <code>cpeCray-25.03</code> version which is the EasyConfig
+<code>eb-tutorial-1.0.1-cpeCray-25.03.eb</code>.</p>
 </li>
 <li>
-<p>Obviously we need to load the <code>LUMI/24.03</code> module. If we would like to install software
+<p>Obviously we need to load the <code>LUMI/25.03</code> module. If we would like to install software
     for the CPU compute nodes, you need to also load <code>partition/C</code>.
     To be able to use EasyBuild, we also need the <code>EasyBuild-user</code> module.</p>
-<div class="highlight"><pre><span></span><code>module load LUMI/24.03 partition/C
+<div class="highlight"><pre><span></span><code>module load LUMI/25.03 partition/C
 module load EasyBuild-user
 </code></pre></div>
 </li>
 <li>
 <p>Now all we need to do is run the <code>eb</code> command from EasyBuild to install the software.</p>
 <p>Let's however take the slow approach and first check if what dependencies the package needs:</p>
-<div class="highlight"><pre><span></span><code>eb eb-tutorial-1.0.1-cpeCray-24.03.eb -D
+<div class="highlight"><pre><span></span><code>eb eb-tutorial-1.0.1-cpeCray-25.03.eb -Dr
 </code></pre></div>
+<p>We use <code>-Dr</code> as we also want to see which dependencies of dependencies and so on may be missing.
+The <code>r</code> is required for this since EasyBuild 5.</p>
 <p>We can do this from any directory as the EasyConfig file is already in the LUMI Software Library
 and will be located automatically by EasyBuild. You'll see that all dependencies are already on 
 the system so we can proceed with the installation:</p>
-<div class="highlight"><pre><span></span><code>eb eb-tutorial-1.0.1-cpeCray-24.03.eb 
+<div class="highlight"><pre><span></span><code>eb eb-tutorial-1.0.1-cpeCray-25.03.eb 
+</code></pre></div>
+</li>
+<li>
+<p>After this you should have a module <code>eb-tutorial/1.0.1-cpeCray-25.03</code>. Try</p>
+<div class="highlight"><pre><span></span><code>module av eb-tutorial/1.0.1-cpeCray-25.03
 </code></pre></div>
 <p>This may take a while as EasyBuild has erased the Lmod cache to ensure that the
 new module can be found.</p>
 </li>
 <li>
-<p>After this you should have a module <code>eb-tutorial/1.0.1-cpeCray-24.03</code>. Try</p>
-<div class="highlight"><pre><span></span><code>module av eb-tutorial/1.0.1-cpeCray-24.03
-</code></pre></div>
-</li>
-<li>
 <p>Now that we have the module, we can check what it actually does:</p>
-<div class="highlight"><pre><span></span><code>module help eb-tutorial/1.0.1-cpeCray-24.03
+<div class="highlight"><pre><span></span><code>module help eb-tutorial/1.0.1-cpeCray-25.03
 </code></pre></div>
 <p>and we see that it provides the <code>eb-tutorial</code> command.</p>
 </li>
 <li>
 <p>So let's now try to run this command:</p>
-<div class="highlight"><pre><span></span><code>module load eb-tutorial/1.0.1-cpeCray-24.03
+<div class="highlight"><pre><span></span><code>module load eb-tutorial/1.0.1-cpeCray-25.03
 eb-tutorial
 </code></pre></div>
 <p>Note that if you now want to install one of the other versions of this module, EasyBuild will
@@ -6039,21 +6042,21 @@ which would be a very slow process).</p>
 a Python package that uses the <code>eb-tutorial</code> package installed in the previous exercise. These
 EasyConfig files are in the <code>EasyBuild</code> subdirectory of the exercises for this course.
 In the first exercise you are asked to install the version of <code>py-eb-tutorial</code> for the
-<code>cpeCray/24.03</code> toolchain.</p>
+<code>cpeCray/25.03</code> toolchain.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
 <ul>
 <li>
 <p>Go to the <code>EasyBuild</code> subdirectory of the exercises and check that it indeed contains the
-    <code>py-eb-tutorial-1.0.0-cpeCray-24.03-cray-python-3.11.7.eb</code> and
-    <code>py-eb-tutorial-1.0.0-cpeGNU-24.03-cray-python-3.11.7.eb</code> files.
+    <code>py-eb-tutorial-1.0.0-cpeCray-25.03-cray-python-3.11.7.eb</code> and
+    <code>py-eb-tutorial-1.0.0-cpeGNU-25.03-cray-python-3.11.7.eb</code> files.
     It is the first one that we need for this exercise.</p>
 <p>You can see that we have used a very long name as we are also using a version suffix to
 make clear which version of Python we'll be using.</p>
 </li>
 <li>
 <p>Let's first check for the dependencies (out of curiosity):</p>
-<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeCray-24.03-cray-python-3.11.7.eb -D
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeCray-25.03-cray-python-3.11.7.eb -Dr
 </code></pre></div>
 <p>and you'll see that all dependencies are found (at least if you made the previous exercise 
 successfully). You may find it strange that it shows no Python module but that is because
@@ -6062,24 +6065,25 @@ known to EasyBuild as an external module.</p>
 </li>
 <li>
 <p>And now we can install the package:</p>
-<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeCray-24.03-cray-python-3.11.7.eb
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeCray-25.03-cray-python-3.11.7.eb
 </code></pre></div>
 </li>
 <li>
 <p>To use the package all we need to do is to load the module and to run the command that it
     defines:</p>
-<div class="highlight"><pre><span></span><code>module load py-eb-tutorial/1.0.0-cpeCray-24.03-cray-python-3.11.7
+<div class="highlight"><pre><span></span><code>module load py-eb-tutorial/1.0.0-cpeCray-25.03-cray-python-3.11.7
 py-eb-tutorial
 </code></pre></div>
 <p>with the same remark as in the previous exercise if Lmod fails to find the module.</p>
-<p>You may want to do this step in a separate terminal session set up the same way, or you
+<p>You may want to do this step in a separate terminal session set up the same way or just 
+start a new bash shell and exit that shell after the command, or you
 will get an error message in the next exercise with EasyBuild complaining that there are
 some modules loaded that should not be loaded.</p>
 </li>
 </ul>
 </details>
 <h3 id="installing-software-with-uninstalled-dependencies">Installing software with uninstalled dependencies<a class="headerlink" href="#installing-software-with-uninstalled-dependencies" title="Permanent link">&para;</a></h3>
-<p>Now you're asked to also install the version of <code>py-eb-tutorial</code> for the <code>cpeGNU</code> toolchain in <code>LUMI/24.03</code>
+<p>Now you're asked to also install the version of <code>py-eb-tutorial</code> for the <code>cpeGNU</code> toolchain in <code>LUMI/25.03</code>
 (and the solution given below assumes you haven'ty accidentally installed the wrong EasyBuild recipe in one
 of the previous two exercises).</p>
 <details class="solution">
@@ -6088,32 +6092,38 @@ of the previous two exercises).</p>
 <li>
 <p>We again work in the same environment as in the previous two exercises. Nothing has changed here.
     Hence if not done yet we need</p>
-<div class="highlight"><pre><span></span><code>module load LUMI/24.03 partition/C
+<div class="highlight"><pre><span></span><code>module load LUMI/25.03 partition/C
 module load EasyBuild-user
 </code></pre></div>
 </li>
 <li>
 <p>Now go to the <code>EasyBuild</code> subdirectory of the exercises (if not there yet from the previous
-    exercise) and check what the <code>py-eb-tutorial-1.0.0-cpeGNU-24.03-cray-python-3.11.7.eb</code> needs:</p>
-<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeGNU-24.03-cray-python-3.11.7.eb -D
+    exercise) and check what the <code>py-eb-tutorial-1.0.0-cpeGNU-25.03-cray-python-3.11.7.eb</code> needs:</p>
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeGNU-25.03-cray-python-3.11.7.eb -Dr
 </code></pre></div>
 <p>We'll now see that there are two missing modules. Not only is the 
-<code>py-eb-tutorial/1.0.0-cpeGNU-24.03-cray-python-3.11.7</code> that we try to install missing, but also the
-<code>eb-tutorial/1.0.1-cpeGNU-24.03</code>. EasyBuild does however manage to find a recipe from which this module
+<code>py-eb-tutorial/1.0.0-cpeGNU-25.03-cray-python-3.11.7</code> that we try to install missing, but also the
+<code>eb-tutorial/1.0.1-cpeGNU-25.03</code>. EasyBuild does however manage to find a recipe from which this module
 can be built in the pre-installed build recipes.</p>
 </li>
 <li>
 <p>We can install both packages separately, but it is perfectly possible to install both packages in a single
     <code>eb</code> command by using the <code>-r</code> option to tell EasyBuild to also install all dependencies.</p>
-<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeGNU-24.03-cray-python-3.11.7.eb -r
+<div class="highlight"><pre><span></span><code>eb py-eb-tutorial-1.0.0-cpeGNU-25.03-cray-python-3.11.7.eb -r
 </code></pre></div>
+<p>EasyBuild will now first install <code>eb-tutorial-1.0.0-cpeGNU-25.03.eb</code> (module <code>eb-tutorial/1.0.0-cpeGNU-25.03</code>)
+and then install <code>py-eb-tutorial-1.0.0-cpeGNU-25.03-cray-python-3.11.7.eb</code>
+(or module <code>py-eb-tutorial/1.0.0-cpeGNU-25.03-cray-python-3.11.7</code>).</p>
 </li>
 <li>
 <p>At the end you'll now notice (with <code>module avail</code>) that both the module 
-    <code>eb-tutorial/1.0.1-cpeGNU-24.03</code> and <code>py-eb-tutorial/1.0.0-cpeGNU-24.03-cray-python-3.11.7</code>
-    are now present.</p>
+    <code>eb-tutorial/1.0.1-cpeGNU-25.03</code> and <code>py-eb-tutorial/1.0.0-cpeGNU-25.03-cray-python-3.11.7</code>
+    are now present. Just try</p>
+<div class="highlight"><pre><span></span><code>module av eb-tutorial
+</code></pre></div>
+<p>to check. </p>
 <p>To run you can use</p>
-<div class="highlight"><pre><span></span><code>module load py-eb-tutorial/1.0.0-cpeGNU-24.03-cray-python-3.11.7
+<div class="highlight"><pre><span></span><code>module load py-eb-tutorial/1.0.0-cpeGNU-25.03-cray-python-3.11.7
 py-eb-tutorial
 </code></pre></div>
 </li>

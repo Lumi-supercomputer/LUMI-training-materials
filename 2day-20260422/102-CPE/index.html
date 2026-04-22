@@ -6114,7 +6114,7 @@ END BELGIUM -->
 <figure style="border: 1px solid #000">
 <p><img alt="Slide The OS on LUMI" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-102-CPE/OperatingSystem.png" /></p>
 </figure>
-<p>The <strong>login nodes</strong> of LUMI run a <strong>regular SUSE Linux Enterprise Server 15 SP5</strong> distribution.
+<p>The <strong>login nodes</strong> of LUMI run a <strong>regular SUSE Linux Enterprise Server 15 SP6</strong> distribution.
 That alone already causes subtle differences with the Red Hat clones and Debian Linux derivatives (like Ubuntu) that are popular on many clusters.
 The <strong>compute nodes</strong> however run <strong>Cray OS, a restricted version of the SUSE Linux</strong> that runs
 on the login nodes. Some daemons are inactive or configured differently and Cray also 
@@ -6132,7 +6132,7 @@ and that there is no support for UCX, a popular library on NVIDIA InfiniBand net
 noted though that libfabric has much wider support among network vendors than UCX and also
 seems to be the preferred communication library by most vendors working on the next-generation
 Ultra Ethernet for HPC and AI systems.</p>
-<p>arge HPC clusters also have a small system image, so <strong>don't expect all the bells-and-whistles 
+<p>Large HPC clusters also have a small system image, so <strong>don't expect all the bells-and-whistles 
 from a Linux workstation to be present on a large supercomputer</strong> (and certainly not in the same
 way as they would be on a workstation).
 Since LUMI compute nodes are diskless, the system image actually occupies RAM which is another
@@ -6184,7 +6184,7 @@ users now effectively see a 56-core node with 8 CCDs with 7 cores each.</p>
 <p>On LUMI we have several C/C++ and Fortran compilers. These will be discussed more in this
 session.</p>
 <p>There is also support for MPI and SHMEM for distributed applications. And we also support
-<a href="https://github.com/ROCmSoftwarePlatform/rccl">RCCL</a>, the ROCm-equivalent of the 
+<a href="https://github.com/ROCm/rccl">RCCL</a>, the ROCm-equivalent of the 
 <a href="https://developer.nvidia.com/nccl">CUDA NCCL</a> library that is popular in machine learning packages.</p>
 <p>All compilers have some level of <a href="https://www.openmp.org/">OpenMP</a> support, 
 and two compilers support OpenMP offload to 
@@ -6193,7 +6193,7 @@ the AMD GPUs, but again more about that later.</p>
 is only supported in the Cray Fortran compiler. There is no commitment of neither HPE Cray
 or AMD to extend that support to C/C++ or other compilers, even though there is work going on
 in the LLVM community and several compilers on the system are based on LLVM.</p>
-<p>The other important programming model for AMD GPUs is <a href="https://github.com/rocm-developer-tools/hip">HIP</a>
+<p>The other important programming model for AMD GPUs is <a href="https://github.com/ROCm/hip">HIP</a>
 (Heterogeneous-Compute Interface for Portability), 
 which is their alternative for the
 proprietary CUDA model. It does not support all CUDA features though (basically it is more CUDA 7 or 8 level) 
@@ -6228,7 +6228,7 @@ and debugging tools that work in the context of HPC.</p>
 <ul>
 <li>
 <p>Cray still builds its own compilers for C/C++ and Fortran, called the Cray Compiling
-    Environment (CCE). </p>
+    Environment (CCE), though they do use Open Source components also for those compilers. </p>
 </li>
 <li>
 <p>The GNU compilers are also supported on every Cray system,
@@ -6236,7 +6236,9 @@ and debugging tools that work in the context of HPC.</p>
     In recent versions of the HPE Cray PE, HPE uses the GNU compilers as packaged in 
     the SUSE Enterprise distribution. As a result of this, the GNU compiler executables
     now also have their version in the name as modules are not a standard element of every
-    SUSE system.</p>
+    SUSE system. However, since the system update of January 2026, they can be called again
+    with their generic names (<code>gcc</code>, <code>g++</code>, <code>gfortran</code> and <code>cpp</code>) when the corresponding
+    <code>gcc-native</code> module is loaded.</p>
 </li>
 </ul>
 <p>Depending on the hardware of the system, other compilers will also be provided and 
@@ -6247,7 +6249,7 @@ integrated in the environment. On LUMI two other compilers are available: </p>
 </li>
 <li>
 <p>AMD ROCm&trade; compilers for GPU programming with a C/C++ compiler and Fortran compiler.</p>
-<p>The ROCm compilers also contain the support for HIP, AMD's CUDA clone.</p>
+<p>The ROCm&trade; compilers also contain the support for HIP, AMD's CUDA clone.</p>
 </li>
 </ul>
 <p>Both AMD compilers are discussed in the next section.</p>
@@ -6283,7 +6285,7 @@ The NVIDIA programming environment doesn't make sense on an AMD GPU system,
 but it could be useful for some visualisation software on the 
 visualisation nodes so it is currently installed on those nodes.</p>
 <p>We will now discuss some of these components in a little bit more detail, but refer
-to the advanced 4 or 5-day trainings that we organise several times a year with HPE for more material.</p>
+to the advanced trainings that we organise several times a year with HPE for more material.</p>
 <h2 id="amd-tools-and-technologies-on-lumi">AMD tools and technologies on LUMI<a class="headerlink" href="#amd-tools-and-technologies-on-lumi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Development environment" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-102-CPE/AMDTools.png" /></p>
@@ -6330,15 +6332,11 @@ There is a C/C++ compiler with advanced OpenMP offload support, based on clang
 and LLVM. The unified memory architecture of MI250X (and MI300A) is fully supported.
 The Fortran compiler is currently still based on the former PGI
 Fortran frontend (also known as classic flang) and misses OpenMP offload support.
-With ROCm&trade; 7 AMD is switching to the new Fortran frontend, and in fact, 
-with ROCm 6.3 users can have early access, but
-unfortunately neither of these versions of ROCm can be supported on LUMI with the current
-driver version and will only be supportable after the update planned for the summer
-of 2025. The other issue is that switching to a different Fortran frontend may break
-the Fortran MPI bindings that come with Cray MPICH, as they include precompiled
-module files. So even if you can get an early beta that works with a ROCm version that 
-we can support, we cannot guarantee that it will also work with MPI, or other
-libraries from HPE Cray.</p>
+With ROCm&trade; 7.0, AMD is switching to the new Fortran frontend, but at the 
+moment of writing, we cannot offer that yet on LUMI as there are still issues to
+get RCCL running reliably on the current network stack and as there is no compatible
+MPI library yet. The latter is expected sometime in Q2 2026 and will initially be 
+offered in containers.</p>
 <p>The ROCm&trade; stack also has its own command line interface debugging tool, 
 <a href="https://rocm.docs.amd.com/projects/ROCgdb/en/latest/">rocgdb</a>. It builds on
 the GNU debugger gdb and can be used directly by users, but is also used internally
@@ -6353,34 +6351,41 @@ by other debugging tools from third parties.</p>
 serve as the information collecting tool for other profiling tools.</p>
 </li>
 <li>
-<p><a href="https://rocm.github.io/omnitrace/">OmniTrace</a> is a more comprehensive 
+<p><a href="https://rocm.docs.amd.com/projects/rocprofiler-systems/en/docs-6.3.3/what-is-rocprof-sys.html">ROCm&trade; Systems Profiler</a> is a more comprehensive 
     profiling and tracing tool, supporting C, C++, Fortran and Python on CPU
     and CP+GPU. It also supports interactive visualisation of trace data in a 
     web-based GUI (that can be installed as an app on your laptop).</p>
-<p>Before ROCm&trade; 6.2, this was not an official product but a product from AMD Research.
-With ROCm&trade; 6.2, it became an official part of ROCm&trade; and in ROCm&trade;6.3,
-it was renamed to ROCm Systems Profiler.</p>
+<p>The tool used to be known as <a href="https://rocm.github.io/omnitrace/">OmniTrace</a>
+before ROCm&trade; 6.3 and for a long time was not an official product but a 
+product from AMD Research.</p>
 </li>
 <li>
-<p><a href="https://rocm.docs.amd.com/projects/omniperf/en/docs-6.2.0/">Omniperf</a> is 
-    a performance profiler for HPC and machine learning applications. It uses 
+<p><a href="https://rocm.docs.amd.com/projects/rocprofiler-compute/en/docs-6.3.3/what-is-rocprof-compute.html">ROCm&trade; Compute Profiler</a>
+    is a performance profiler for HPC and machine learning applications. It uses 
     ROC-profiler under the hood to collect data, but offers several high level
     performance analysis tools (like roofline analyses, ...) to better understand
-    application behaviour at a high level.</p>
-<p>Before ROCm&trade; 6.2, this was not an official product but a product from AMD Research.
-With ROCm&trade; 6.2, it became an official part of ROCm&trade; and in ROCm&trade;6.3,
-it was renamed to ROCm Compute Profiler or <code>rocprof-compute</code>.</p>
-<p>The tool now also has a standalone GUI which is much safer than the Grafana-based
-GUI used before.</p>
+    application behaviour at a high level. It is also known as 
+    <code>rocprof-compute</code>, its main command.</p>
+<p>The tool used to be known as 
+<a href="https://rocm.docs.amd.com/projects/omniperf/en/docs-6.2.0/">Omniperf</a>
+before ROCm&trade; 6.3 and for a long time was not an official product but a 
+product from AMD Research.</p>
 </li>
 </ul>
-<p>The AMD profiling tools are currently going through a very quick evolution. 
-ROCm&trade; 6.2 saw a great improvement of these tools. The 6.2 versions can be used on 
-LUMI already, even though we cannot fully support them as only ROCm 6.0 is fully supported
-in the current programming environment.</p>
+<p>The AMD profiling tools are currently going through a very quick evolution, especially
+over several ROCm&trade; 6.x versions. </p>
 <p>The debugger and profiling tools, and the structure of HIP programs, are discussed
-in several sessions of the advanced LUMI courses (the 4 or 5-day courses) given by 
+in several sessions of the advanced LUMI courses given by 
 LUST in collaboration with HPE and AMD.</p>
+<div class="admonition note">
+<p class="admonition-title">Currently missing in the system <code>rocm/6.3.4</code> module.</p>
+<p>The ROCm&trade; Compute and Systems profilers are missing in the <code>rocm/6.3.4</code> module
+which is the basis for the software stack based on the Cray Programming Environment
+25.03, but there is an alternative module in the stack based on the CPE 25.09
+that is more full-featured and an alternative LUSE-developed module, <code>rocm/6.3.4-extra</code>, 
+for use with 25.03. See also <a href="../105-SoftwareStacks/">later sections in this course that 
+discuss the software stacks</a>.</p>
+</div>
 <h3 id="cpu-tools">CPU tools<a class="headerlink" href="#cpu-tools" title="Permanent link">&para;</a></h3>
 <p>On the CPU side, the <a href="https://www.amd.com/en/developer/aocc.html">AMD AOCC compiler</a> 
 is fully integrated in the HPE Cray PE.
@@ -6414,30 +6419,34 @@ The version numbering of the CCE
 currently follows the major versions of the Clang compiler used. The support for C and C++
 language standards corresponds to that of Clang.
 The Fortran compiler uses a frontend and optimiser developed by HPE Cray, but an LLVM-based code generator. 
-The compiler supports most of Fortran 2018 (ISO/IEC 1539:2018). The CCE Fortran compiler
+The most recent versions of the compiler fully support Fortran 2018 (ISO/IEC 1539:2018)
+and most Fortran 2023 features (with only one feature missing in CCE 20.0.0). The CCE Fortran compiler
 is known to be very strict with language standards. Programs that use GNU or Intel extensions
-will usually fail to compile, and unfortunately since many developers only test with these
+will usually fail to compile, and unfortunately, since many developers only test with these
 compilers, much Fortran code is not fully standards compliant and will fail.</p>
 <p>All CCE compilers support OpenMP, with offload for AMD and NVIDIA GPUs. 
 In their most recent versions, they claim full
-OpenMP 5.0 support with partial (and growing) support for OpenMP 5.1 and 5.2. More 
+OpenMP 5.0 support with partial (and growing) support for OpenMP 5.1, 5.2 and 6.0. More 
 information about the OpenMP support is found by checking a manual page:
 <div class="highlight"><pre><span></span><code>man intro_openmp
 </code></pre></div>
 which does require that the <code>cce</code> module is loaded,
-or the <a href="https://cpe.ext.hpe.com/docs/24.03/cce/man7/intro_openmp.7.html">web version of that page</a>
-which may be for a more recent version of the programming environment than available on LUMI.
+or the <a href="https://cpe.ext.hpe.com/docs/25.03/cce/man7/intro_openmp.7.html">web version of that page</a>
+(<a href="https://cpe.ext.hpe.com/docs/25.09/cce/man7/intro_openmp.7.html">or this version for CCE 20 in 25.09</a>).
 The Fortran compiler also supports OpenACC for AMD and NVIDIA GPUs. That implementation
 claims to be fully OpenACC 2.0 compliant, and offers partial support for OpenACC 2.x/3.x. 
 Information is available via
 <div class="highlight"><pre><span></span><code>man intro_openacc
 </code></pre></div>
 or the corresponding
-<a href="https://cpe.ext.hpe.com/docs/24.03/cce/man7/intro_openacc.7.html">web version of that page</a>
-which again may be for a more recent version of the programming environment than available on LUMI.
-AMD and HPE Cray still recommend moving to OpenMP which is a much broader supported standard.
+<a href="https://cpe.ext.hpe.com/docs/25.03/cce/man7/intro_openacc.7.html">web version of that page</a>
+(<a href="https://cpe.ext.hpe.com/docs/25.09/cce/man7/intro_openacc.7.html">or this version for CCE 20 in 25.09</a>).
+AMD and HPE Cray still recommend moving to OpenMP which is a much broader supported standard
+and the OpenACC standards support in the Fortran compiler isn't really moving much anymore
+apart from bug fixes.
 There are no plans to also support OpenACC in the Cray C/C++ compiler, nor are there any 
-plans for support by AMD in the ROCm stack.</p>
+plans for support by AMD in the ROCm stack, even though there are some developments going
+on in the open source LLVM ecosystem.</p>
 <p>The CCE compilers also offer support for some PGAS (Partitioned Global Address Space) languages.
 UPC 1.2 is supported, as is Fortran 2008 coarray support. These implementations do not require a
 preprocessor that first translates the code to regular C or Fortran. There is also support
@@ -6447,7 +6456,8 @@ for debugging with Linaro Forge.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Scientific and math libraries" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-102-CPE/ScientificLibraries.png" /></p>
 </figure>
-<p><a href="https://cpe.ext.hpe.com/docs/24.03/csml/index.html">Cray Scientific and Math Libraries overview web page</a></p>
+<p><a href="https://cpe.ext.hpe.com/docs/25.03/csml/index.html">Cray Scientific and Math Libraries overview web page for 25.03</a>
+and <a href="https://cpe.ext.hpe.com/docs/25.09/csml/index.html">for 25.09</a></p>
 <p>Some mathematical libraries have become so popular that they basically define an API for which
 several implementations exist, and CPU manufacturers and some open source groups spend a significant
 amount of resources to make optimal implementations for each CPU architecture.</p>
@@ -6455,7 +6465,7 @@ amount of resources to make optimal implementations for each CPU architecture.</
 for vector-vector, matrix-vector and matrix-matrix implementations. It is the basis for many
 other libraries that need those linear algebra operations, including Lapack, a library with
 solvers for linear systems and eigenvalue problems.</p>
-<p>The <a href="https://cpe.ext.hpe.com/docs/24.03/csml/cray_libsci.html">HPE Cray LibSci</a> library 
+<p>The <a href="https://cpe.ext.hpe.com/docs/25.03/csml/cray_libsci.html">HPE Cray LibSci</a> library 
 contains BLAS and its C-interface CBLAS, and LAPACK and its
 C interface LAPACKE. It also adds ScaLAPACK, a distributed memory version of LAPACK, and BLACS, the 
 Basic Linear Algebra Communication Subprograms, which is the communication layer used by ScaLAPACK.
@@ -6467,12 +6477,12 @@ of a double precision result with nearly a factor of two for those problems that
 iterative refinement. If you are familiar with numerical analysis, you probably know that the matrix should
 not be too ill-conditioned for that.</p>
 <p>There is also a GPU-optimized version of LibSci, called 
-<a href="https://cpe.ext.hpe.com/docs/24.03/csml/cray_libsci_acc.html">LibSci_ACC</a>, which contains a subset of the
+<a href="https://cpe.ext.hpe.com/docs/25.03/csml/cray_libsci_acc.html">LibSci_ACC</a>, which contains a subset of the
 routines of LibSci. We or the LUMI User Support Team don't have much experience with this library though.
 It can be compared with what Intel is doing with oneAPI MKL which also offers GPU versions of some of
 the traditional MKL routines.</p>
 <p>Another separate component of the scientific and mathematical libraries is 
-<a href="https://cpe.ext.hpe.com/docs/24.03/csml/cray_fftw.html">FFTW3, Fastest Fourier Transforms in the West</a>, 
+<a href="https://cpe.ext.hpe.com/docs/25.03/csml/cray_fftw.html">FFTW3, Fastest Fourier Transforms in the West</a>, 
 which comes with
 optimized versions for all CPU architectures supported by recent HPE Cray machines.</p>
 <p>Finally, the scientific and math libraries also contain HDF5 and netCDF libraries
@@ -6481,19 +6491,25 @@ they interface properly with MPI parallel I/O and the Lustre file system to offe
 the best bandwidth to and from storage. </p>
 <p>Cray used to offer more pre-installed third party libraries for which the only added value
 was that they compiled the binaries. Instead they now offer
-<a href="https://github.com/Cray/pe-scripts">build scripts in a GitHub repository</a>.</p>
+<a href="https://github.com/Cray/pe-scripts">build scripts in a GitHub repository</a>, though these too
+haven't been updated in years.</p>
 <h2 id="cray-mpi">Cray MPI<a class="headerlink" href="#cray-mpi" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Cray MPI" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-102-CPE/CrayMPI.png" /></p>
 </figure>
 <p>HPE Cray build their own MPI library with optimisations for their own interconnects.
-The Cray MPI library is derived from the ANL MPICH 3.4 code base and fully supports the 
-ABI (Application Binary Interface) of that implementation which implies that in principle
+Different versions of the Cray MPI library are derived from different versions of 
+ANL MPICH. The 8.1 versions are derived from ANL MPICH 3.4a,
+while the 9.0.0 version is derived from ANL MPICH 4.0.2 and the 9.0.1 version from ANL MPICH 4.1.2.
+Those libraries fully support the 
+ABI (Application Binary Interface) of the corresponding ANL implementation which implies that in principle
 it should be possible to swap the MPI library of applications build with that ABI with
 the Cray MPICH library. Or in other words, if you can only get a binary distribution of
 an application and that application was build against an MPI library compatible with 
 the MPICH 3.4 ABI (which includes Intel MPI), it should be possible to exchange that
-library for the Cray one to have optimised communication on the Cray Slingshot interconnect.</p>
+library for the Cray 8.1.x one to have optimised communication on the Cray Slingshot interconnect
+(and possibly even for the 9.0.x ones as the ABI version number seems to be the same, 
+even though there are additional functions in the 9.0 versions).</p>
 <p>Cray MPI contains many tweaks specifically for Cray systems.
 HPE Cray claim improved algorithms for many collectives, an asynchronous
 progress engine to improve overlap of communications and computations, 
@@ -6503,12 +6519,14 @@ passive remote memory access.</p>
 <p>When used in the correct way (some attention is needed when linking applications) it is also fully
 GPU aware with currently support for AMD and NVIDIA GPUs.</p>
 <p>The MPI library also supports bindings for Fortran 2008.</p>
-<p>MPI 3.1 is almost completely supported, with two exceptions. Dynamic process management is not
+<p>In the 8.1.x versions, MPI 3.1 is almost completely supported, with two exceptions. 
+Dynamic process management is not
 supported (and a problem anyway on systems with batch schedulers), and when using CCE
-<code>MPI_LONG_DOUBLE</code> and <code>MPI_C_LONG_DOUBLE_COMPLEX</code> are also not supported.
-The MPI standard is currently at version 4.1 however, but the 4.X extensions are not
-yet supported by Cray MPICH. A new version with support for MPI 4.0 based on MPICH 4.1 is
-in the works and the first preview versions are available to users.</p>
+<code>MPI_LONG_DOUBLE</code> and <code>MPI_C_LONG_DOUBLE_COMPLEX</code> are also not supported,
+simply because those compilers do not support that data type.
+The 9.0.x versions are largely MPI 4 compliant but with similar restrictions.</p>
+<p>In the 25.03 release of the Cray Programming Environment, <code>cray-mpich/8.1.32</code> is
+the default version, while in the 25.09 release, <code>cray-mpich/9.0.1</code> is the default.</p>
 <p>The Cray MPI library does not support the <code>mpirun</code> or <code>mpiexec</code> commands, which is in fact
 allowed by the standard which only requires a process starter and suggest <code>mpirun</code> or <code>mpiexec</code> 
 depending on the version of the standard. Instead the Slurm <code>srun</code> command is used as the 
@@ -6531,7 +6549,7 @@ that we will discuss later if you ensure the ROCm module is loaded.
 At run time, you should set the environment variable:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_SUPPORT_ENABLED</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
-<p>In addition to this, if the GPU code does use MPI operations that access GPU-attached memory regions it is best to also set</p>
+<p>In addition to this, if the GPU code does use MPI operations that access GPU-attached memory regions, it is best to also set</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_OFI_NIC_POLICY</span><span class="o">=</span>GPU
 </code></pre></div>
 <p>to tell MPICH to always use the NIC closest to the GPU.</p>
@@ -6547,13 +6565,14 @@ for multi-NIC CPU nodes in Cray systems) so setting <code>MPICH_OFI_NIC_POLICY</
 or alternatively
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_SMP_SINGLE_COPY_MODE</span><span class="o">=</span>NONE
 </code></pre></div>
-Both options entail a serious loss of performance. The underlying problem is that the way in which Slurm does GPU
+Both options entail a serious loss of performance. The underlying problem is that the default way in which Slurm does GPU
 binding using control groups makes other GPUS from other tasks in the node invisible to a task.</p>
 <p>More information about Cray MPICH and the many environment variables to fine-tune performance can
 be found in the manual page</p>
 <div class="highlight"><pre><span></span><code>man intro_mpi
 </code></pre></div>
-<p>or its <a href="https://cpe.ext.hpe.com/docs/24.03/mpt/mpich/intro_mpi.html">web-based version</a>
+<p>or its <a href="https://cpe.ext.hpe.com/docs/25.03/mpt/mpich/intro_mpi.html">web-based version cor Cray MPICH 8.1.32 in 25.03</a>
+or <a href="https://cpe.ext.hpe.com/docs/25.09/mpt/mpich9/intro_mpi.html">Cray MPICH 9.0.1 in 25.09</a>.
 which may be for a newer version than available on LUMI.</p>
 <h2 id="lmod">Lmod<a class="headerlink" href="#lmod" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
@@ -6618,8 +6637,8 @@ the Cray Compiling Environment (module <code>cce</code>), GNU Compiler Collectio
 or <code>gcc</code> depending on the version of the Cray Programming Environment), 
 the AMD Optimizing Compiler for CPUs (module <code>aocc</code>) and the ROCm LLVM-based compilers
 (module <code>amd</code>) are available. On the visualisation nodes, the NVIDIA HPC compiler is currently
-also installed (module <code>nvhpc</code>). On other HPE Cray systems, you may also find the Intel
-compilers.</p>
+also installed (module <code>nvidia</code>), but may not be fully functional and was never tested. 
+On other HPE Cray systems, you may also find the Intel compilers.</p>
 <p>The target architectures for CPU and GPU are also selected through modules, so it is better
 to not use compiler options such as <code>-march=native</code>. This makes cross compiling also easier.</p>
 <p>The wrappers will also automatically link in certain libraries, and make the include files available,
@@ -6646,21 +6665,22 @@ simply pass those to those compilers.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Selecting the version of the CPE" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-102-CPE/SelectingCPEVersion.png" /></p>
 </figure>
-<p>The version numbers of the HPE Cray PE are of the form <code>yy.dd</code>, e.g., <code>24.03</code> for the version
-released in March 2024. There are several releases each year, but not all
+<p>The version numbers of the HPE Cray PE are of the form <code>yy.dd</code>, e.g., <code>25.03</code> for the version
+released in March 2025. There are several releases each year, but not all
 of them are offered on LUMI as installing them may require downtime and as changes in
-the system every few months are not appreciated by all users. </p>
+the system every few months are not appreciated by all users. Some additional versions
+may be offered through containers though.</p>
 <p>There is always a default version assigned by the sysadmins when installing the programming
 environment. It is possible to change the default version for loading further modules
-by loading one of the versions of the <code>cpe</code> module. E.g., assuming the 24.03 version would be
+by loading one of the versions of the <code>cpe</code> module. E.g., assuming the 25.09 version would be
 present on the system, it can be loaded through
-<div class="highlight"><pre><span></span><code>module load cpe/24.03
+<div class="highlight"><pre><span></span><code>module load cpe/25.09
 </code></pre></div>
 Loading this module will also try to switch the already loaded PE modules to the versions from
 that release. This does not always work correctly, due to some bugs in most versions of this
 module and a limitation of Lmod. Executing the <code>module load</code> twice will fix this:
-<div class="highlight"><pre><span></span><code>module load cpe/24.03
-module load cpe/24.03
+<div class="highlight"><pre><span></span><code>module load cpe/25.09
+module load cpe/25.09
 </code></pre></div>
 The module will also produce a warning when it is unloaded (which is also the case when you
 do a <code>module load</code> of <code>cpe</code> when one is already loaded, as it then first unloads the already
@@ -6729,7 +6749,7 @@ activate:</p>
 <td>PrgEnv-gnu</td>
 <td>GNU Compiler Collection</td>
 <td><code>gcc-native</code><br/><code>gcc</code><sup>(*)</sup></td>
-<td><code>gcc-13</code>, <code>g++-13</code>, <code>gfortran-13</code><br/><code>gcc</code>, <code>g++</code>, <code>gfortran</code></td>
+<td>(<code>gcc-14</code>, <code>g++-14</code>, <code>gfortran-14</code>)<br/><code>gcc</code>, <code>g++</code>, <code>gfortran</code></td>
 </tr>
 <tr>
 <td>PrgEnv-aocc</td>
@@ -6746,7 +6766,9 @@ activate:</p>
 </tbody>
 </table>
 <p><sup>(*)</sup> In the 23.12 programming environment, HPE Cray switched from own-built gcc binaries to
-those from SUSE, and the module name was changed to <code>gcc-native</code> to reflect this change.</p>
+those from SUSE, and the module name was changed to <code>gcc-native</code> to reflect this change. The latter
+can now use both versions of the GCC command names, with and without the major version, and the major
+version name can even be used without loading the corresponding module.</p>
 <p>There is also a second module that offers the AMD ROCm environment, <code>rocm</code>. That module
 has to be used with <code>PrgEnv-cray</code>, <code>PrgEnv-gnu</code> and recently also with <code>PrgEnv-amd</code> to 
 enable MPI-aware GPU, hipcc with the GNU compilers or GPU support with the Cray compilers.</p>
@@ -6759,10 +6781,23 @@ is still 7.5, the compiler that was offered with the initial release of SUSE Ent
 <p>In releases up to the 23.09, the GNU compilers are offered through the
 <code>gcc</code> compiler module. When loaded, it adds newer versions of the <code>gcc</code>, <code>g++</code> and <code>gfortran</code> compilers
 to the path, calling the version indicated by the version of the <code>gcc</code> module.</p>
-<p>In releases from 23.12 on, that compiler module is now called <code>gcc-native</code>, and the compilers
-now have the major version attached to the name of binary, e.g.,
-<code>gcc-13</code>, <code>g++-13</code> and <code>gfortran-13</code>, while
-<code>gcc</code>, <code>g++</code> and <code>gfortran</code> will compile with version 7.5, the default version for SUSE 15.</p>
+<p>In releases from 23.12 on, that compiler module is now called <code>gcc-native</code>.
+The compilers are now even available without loading a module if the right names
+are used: They now include the major version of the compiler, e.g.,
+<code>gcc-14</code>, <code>g++-14</code> and <code>gfortran-14</code>. Since the system update of January 2026,
+these compilers are now also available with their "regular" names <code>gcc</code>, <code>g++</code> and
+<code>gfortran</code> when the corresponding module is loaded.</p>
+<p>However, some other seemingly strange behaviour appeared on the system. 
+For GCC 13, the module is called <code>gcc-native/13.2</code>, but if you load this module
+after the January system update and run <code>gcc --version</code>, you'll see that the 
+compiler version is 13.3 instead of 13.2. This is a consequence of using the
+default SUSE binaries. GCC 13.2 was the compiler for the 24.03 version of the
+programming environment and the version of GCC that was installed if you installed
+the GCC 13 packages on SUSE 15 SP5. However, in SP6 those packages got upgraded
+to GCC 13.3, while the module name in the programming environment was not 
+changed to maintain compatibility with other modules from that release of 
+the programming environment and other modules for installed software on the
+system.</p>
 </details>
 <h2 id="getting-help">Getting help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
 <figure style="border: 1px solid #000">
@@ -6789,9 +6824,9 @@ and compiler flags. Online help is limited and difficult to locate.</p>
 </tr>
 <tr>
 <td>PrgEnv-gnu</td>
-<td><code>man gcc-13</code></td>
-<td><code>man g++-13</code></td>
-<td><code>man gfortran-13</code></td>
+<td><code>man gcc-14</code></td>
+<td><code>man g++-14</code></td>
+<td><code>man gfortran-14</code></td>
 </tr>
 <tr>
 <td>PrgEnv-aocc/PrgEnv-amd</td>
@@ -6808,7 +6843,7 @@ and compiler flags. Online help is limited and difficult to locate.</p>
 </tbody>
 </table>
 <p>Recently, HPE Cray have also created 
-<a href="https://cpe.ext.hpe.com/docs/24.03/">a web version of some of the CPE documentation</a>.</p>
+<a href="https://cpe.ext.hpe.com/docs/25.03/">a web version of some of the CPE documentation</a>.</p>
 <p>Some compilers also support the <code>--help</code> flag, e.g., <code>amdclang --help</code>. For the wrappers,
 the switch <code>-help</code> should be used instead as the double dash version is passed to the 
 compiler.</p>
@@ -6838,14 +6873,21 @@ that give additional documentation via the <code>explain</code> command.</p>
 <figure style="border: 1px solid #000">
 <p><img alt="Slide Google, ChatGPT and LUMI" loading="lazy" src="https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-102-CPE/ChatGPT.png" /></p>
 </figure>
-<p>When looking for information on the HPE Cray Programming Environment using search engines such as
-Google, you'll be disappointed how few results show up. HPE doesn't put much information on the 
-internet, and the environment so far was mostly used on Cray systems of which there are not that
-many. </p>
-<p>The same holds for ChatGPT. In fact, much of the training of the current version of ChatGPT was done
-with data of two or so years ago and there is not that much suitable training data available on
-the internet either.</p>
-<p>There is now proper <a href="https://cpe.ext.hpe.com/docs/latest/index.html">online documentation</a> and it makes sense
+<p>Finding information on the HPE Cray Programming Environment using search engines such as
+Google, was often disappointing in the past. However, in May 2023 HPE started putting more 
+information on the web, and as the Cray EX has been rather successful over the past years,
+there is also a growing amount of information from various sites on the web.</p>
+<p>The same holds for ChatGPT, gemini, copilot or other similar AI assistants. Nowadays they can produce rather
+useful results, certainly if you can use the more complex models that you usually need to pay for,
+as they use more recent training materials and as there is simply more public information available
+for them to digest.
+The results are certainly not always right, but they often put you in the right direction to solve
+your issues. But you may have to engage in dialogue with the bot and also ask for the sources
+of information so that you can check yourself how relevant the information can be.
+We have already experienced though that AI is very good with coming up with environment variables
+that do not exist.</p>
+<p>There is now proper <a href="https://cpe.ext.hpe.com/docs/latest/index.html">online documentation</a> 
+(link may be for a newer version than on the system) and it makes sense
 trying the search box on that page.
 It is often useful to better understand some error messages.
 E.g., sometimes Cray MPICH will suggest you to set some environment variable to work around some problem.
@@ -6896,7 +6938,7 @@ who come from an environment where the software is managed through EasyBuild, bu
 other users.</p>
 <p>The PE does not use the versions of many libraries determined by the loaded modules at runtime
 but instead uses default versions of libraries (which are actually in <code>/opt/cray/pe/lib64</code> on the system)
-which correspond to the version of the programming environment that is set as the system default when installed.
+which correspond to the version of the programming environment that is set as the system default when installed, or for libraries that are not in that version, the last version that had them on the system.
 This is very much the behaviour of Linux applications also that pick standard libraries in a few standard
 directories and it enables many programs built with the HPE Cray PE to run without reconstructing the
 environment and in some cases to mix programs compiled with different compilers with ease (with the
@@ -6916,30 +6958,32 @@ of the libraries corresponding to the version of the module to the PATH-style en
 </code></pre></div></p>
 <!-- TODO Check the following example every course -->
 <details class="note">
-<summary>Small demo of adapting <code>LD_LIBRARY_PATH</code>:</summary>
+<summary>Small demo of adapting <code>LD_LIBRARY_PATH</code>, demonstrating an issue with 25.09:</summary>
 <p>An example that can only be fully understood after the section on the LUMI software stacks:
-<div class="highlight"><pre><span></span><code>$ module load LUMI/24.03
-$ module load lumi-CPEtools/1.2-cpeGNU-24.03
+<div class="highlight"><pre><span></span><code>$ module load LUMI/25.09
+$ module load lumi-CPEtools/1.2-cpeGNU-25.09-hpcat-0.9
 $ ldd $EBROOTLUMIMINCPETOOLS/bin/mpi_check
-      linux-vdso.so.1 (0x00007ffeb39be000)
-      libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007f64e3d84000)
-      libmpi_gnu_123.so.12 =&gt; /opt/cray/pe/lib64/libmpi_gnu_123.so.12 (0x00007f64e1858000)
+      linux-vdso.so.1 (0x00007ffeee9c2000)
+      libmpi_gnu_123.so.12 =&gt; /opt/cray/pe/lib64/libmpi_gnu_123.so.12 (0x00007f18ec182000)
       ...
 $ export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 $ ldd $EBROOTLUMIMINCPETOOLS/bin/mpi_check
-      linux-vdso.so.1 (0x00007ffc23c3d000)
-      libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007f5e023ad000)
-      libmpi_gnu_123.so.12 =&gt; /opt/cray/pe/mpich/8.1.29/ofi/gnu/12.3/lib/libmpi_gnu_123.so.12 (0x00007f5dffe81000)
+      linux-vdso.so.1 (0x00007f908bb7b000)
+      libmpi_gnu_123.so.12 =&gt; /opt/cray/pe/mpich/9.0.1/ofi/gnu/12.3/lib/libmpi_gnu_123.so.12 (0x00007f908aa25000)
       ...
+$ ls -l /opt/cray/pe/lib64/libmpi_gnu_123.so.12
+lrwxrwxrwx 1 root root 63 Feb 10  2025 /opt/cray/pe/lib64/libmpi_gnu_123.so.12 -&gt; /opt/cray/pe/mpich/8.1.32/ofi/gnu/12.3/lib/libmpi_gnu_123.so.12
 </code></pre></div>
 The <code>ldd</code> command shows which libraries are used by an executable. Only a part of the very long
 output is shown in the above example. But we can already see that in the first case, the library
 <code>libmpi_gnu_123.so.12</code> is taken from <code>opt/cray/pe/lib64</code> which is the directory with the default
-versions, while in the second case it is taken from <code>/opt/cray/pe/mpich/8.1.29/ofi/gnu/12.3/lib/</code>
-which clearly is for a specific version of <code>cray-mpich</code>.</p>
+versions, while in the second case it is taken from <code>/opt/cray/pe/mpich/9.0.1/ofi/gnu/12.3/lib/</code>
+which clearly is for a specific version of <code>cray-mpich</code>. And in this case, there can be rather
+serious consequenses as the <code>ls</code> command shows that the default library is a Cray MPICH
+8.1.32 library that lacks some features from the 9.0.1 one...</p>
 </details>
 <p>We do provide the module <code>lumi-CrayPath</code> 
-that tries to fix <code>LD_LIBRARY_PATH</code> in a way that unloading
+that fixes <code>LD_LIBRARY_PATH</code> in a way that unloading
 the module fixes <code>LD_LIBRARY_PATH</code> again to the state before adding <code>CRAY_LD_LIBRARY_PATH</code> and that
 reloading the module adapts <code>LD_LIBRARY_PATH</code> to the current value of <code>CRAY_LD_LIBRARY_PATH</code>. Loading that
 module after loading all other modules should fix this issue for most if not all software.</p>
@@ -6947,6 +6991,16 @@ module after loading all other modules should fix this issue for most if not all
 the <code>CRAY_ADD_RPATH</code> environment variable:
 <div class="highlight"><pre><span></span><code>export CRAY_ADD_RPATH=yes
 </code></pre></div></p>
+<p>Since version 25.03 of the CPE, there is also a third trick, but one that has to be used with
+care: You can set</p>
+<div class="highlight"><pre><span></span><code>export PE_LD_LIBRARY_PATH=system
+</code></pre></div>
+<p>and from then on, <code>CRAY_LD_LIBRARYPATH</code> will not be used and instead those paths will be added
+to <code>LD_LIBRARY_PATH</code>. The catch is that you have to so while none of the modules that use
+<code>CRAY_LD_LIBRARY_PATH</code> are loaded, or you will end up with a broken environment when those 
+modules are unloaded. So do so only after a <code>module purge</code>. And if you want to do so in your
+<code>.bashrc</code> or <code>.profile</code> file: Note that the modules are already loaded when these files are
+executed in the shell initialisation process. </p>
 <p>However, there is also a good side to the standard Cray PE behaviour. Updates of the underlying
 operating system or network software stack may break older versions of the MPI library. By letting
 the applications use the default libraries and updating the defaults to a newer version, most
@@ -6999,7 +7053,7 @@ by the following table:</p>
 <tr>
 <td>PrgEnv-gnu</td>
 <td><code>gcc-native</code><br/><code>gcc</code><sup>(*)</sup></td>
-<td><code>gcc-13</code>, <code>g++-13</code>, <code>gfortran-13</code><br/><code>gcc</code>, <code>g++</code>, <code>gfortran</code></td>
+<td>(<code>gcc-14</code>, <code>g++-14</code>, <code>gfortran-14</code>)<br/><code>gcc</code>, <code>g++</code>, <code>gfortran</code></td>
 </tr>
 <tr>
 <td>AMD Optimizing Compilers<br>(CPU only)</td>
@@ -7015,20 +7069,19 @@ by the following table:</p>
 </table>
 <p><sup>(*)</sup>: The <code>gcc</code> modules are from older versions of the HPE Cray PE and will over time
 disappear from LUMI. They contain a set of GCC compilers packaged by HPE Cray, while the
-<code>gcc-native</code> modules provide GCC compilers packages by SUSE.</p>
+<code>gcc-native</code> modules provide GCC compilers packages by SUSE. The latter are always available
+with their long names that includes the major version, e.g. <code>gcc-14</code>, even without loading the
+module, but since the January 2026 system update, they are now also available with their
+unversioned names after loading the corresponding <code>gcc-native</code> module.</p>
 <p>Recent versions of the <code>cray-mpich</code> module now also provide the traditional MPI compiler wrappers
 such as <code>mpicc</code>, <code>mpicxx</code> or <code>mpifort</code>. Note that you will still need to ensure that the network
 target module <code>craype-network-ofi</code> is loaded to be able to load the <code>cray-mpich</code> module, which is
 needed to get access to the regular MPI compiler wrappers.</p>
-<p>There is an issue when using these wrappers with the compilers from the <code>gcc-native</code> modules. 
-The wrappers are the regular MPICH wrappers, and these were not made to integrate with the HPE Cray PE,
-hence are not able to detect the right names for the C, C++ and Fortran compiler. You'll have to set
-<code>MPICH_CC</code>, <code>MPICH_CXX</code> and <code>MPICH_FC</code> to point to the right compilers as otherwise the <code>mpi*</code>
-MPI wrappers will use the system GCC installation:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_CC</span><span class="o">=</span><span class="s2">&quot;gcc-13&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_CXX</span><span class="o">=</span><span class="s2">&quot;g++-13&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_FC</span><span class="o">=</span><span class="s2">&quot;gfortran-13&quot;</span>
-</code></pre></div>
+<p>Before the January 2026 system update, there was
+an issue when using these wrappers with the compilers from the <code>gcc-native</code> modules, as those wrappers
+simply call the unversioned command names, which could be fixed by setting . 
+<code>MPICH_CC</code>, <code>MPICH_CXX</code> and <code>MPICH_FC</code> to point to the right compilers, but that is no 
+longer needed after the January 2026 system update.</p>
 <p>The <code>cray-mpich</code> module also defines the environment variable <code>MPICH_DIR</code> that points to the
 MPI installation for the selected compiler. This environment variable is useful if you don't
 want to use the <code>mpi*</code> wrappers.</p>
@@ -7036,7 +7089,7 @@ want to use the <code>mpi*</code> wrappers.</p>
 This module defines the <code>CRAY_PE_LIBSCI_PREFIX_DIR</code> environment variable that points to the directory
 with the library and include file subdirectories for the selected compiler.
 (Or <code>CRAY_LIBSCI_PREFIX_DIR</code> before release 23.12 of the programming environment.) 
-See <a href="https://cpe.ext.hpe.com/docs/24.03/csml/cray_libsci.html">the <code>intro_libsci</code> manual page</a>
+See <a href="https://cpe.ext.hpe.com/docs/25.03/csml/cray_libsci.html">the <code>intro_libsci</code> manual page</a>
 for information about the different libraries.</p>
 <p>To be able to use the <code>cray-fftw</code> FFTW libraries, you still need to load the right CPU target module,
 even though you need to specify the target architecture yourself now when calling the compilers. 

@@ -5808,6 +5808,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#setting-up-for-the-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up for the exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-to-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links to documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acknowledgement
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5826,7 +5859,8 @@
 
 
 <h1 id="moving-your-hpc-workloads-to-lumi-hybrid-course-april-22-23-2026-on-site-in-riga-and-online">Moving your HPC workloads to LUMI - Hybrid course, April 22-23, 2026, on-site in Riga and online<a class="headerlink" href="#moving-your-hpc-workloads-to-lumi-hybrid-course-april-22-23-2026-on-site-in-riga-and-online" title="Permanent link">&para;</a></h1>
-<p><strong><a href="https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/">Registration is via the LUMI web site.</a></strong></p>
+<!-- **[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-intro-course-april2026/)** -->
+
 <h2 id="course-organisation">Course organisation<a class="headerlink" href="#course-organisation" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -5840,20 +5874,23 @@
 <li>
 <p><a href="schedule/">Schedule</a></p>
 </li>
+<li>
+<p><a href="https://siili.rahtiapp.fi/intro-to-supercomputing-april26?both">HedgeDoc for questions</a></p>
+</li>
+<li>
+<p>Project for the course: <code>project_465002764</code>.</p>
+<p>This project provides resources for the exercises. 
+<strong>The project should not be used for your own work!</strong></p>
+</li>
+<li>
+<p>There are two Slurm reservations for the course for the exercises on the second day:</p>
+<ul>
+<li>CPU nodes: <code>lumi_intro_small</code> (on the <code>small</code> Slurm partition)</li>
+<li>GPU nodes: <code>lumi_intro_standard-g</code> (on the <code>standard-g</code> Slurm partition)</li>
+</ul>
+</li>
 </ul>
 <!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-04.26?both)
-
--   Project for the course: `project_465002174`.
-
-    This project provides resources for the exercises. 
-    **The project should not be used for your own work!**
-
--   There are two Slurm reservations for the course for the exercises on the second day:
-
-    -   CPU nodes: `LUMI_Intro_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_standard-g` (on the `standard-g` Slurm partition)
-
 -   [Some suggestions for the night](evening_suggestions.md)
 -->
 
@@ -5865,101 +5902,217 @@ These materials will become available as the course progresses.</p>
 -->
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
-<!--
-::spantable::
 
-| Presentation | slides | notes | recording |
-|:-------------|:-------|:------|:----------|
-| **Day 1** @span |  |  |  |
-| [Welcome and Introduction](MI101-IntroductionCourse.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I101-IntroductionCourse.pdf) | / | [V](MI101-IntroductionCourse.md) |
-| Introduction to the course notes | / | [N](000-Introduction.md) |  / |
-| ***Theme: Exploring LUMI from the login nodes*** @span |  |  |  |
-| [LUMI Architecture](M101-Architecture.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-101-Architecture.pdf) | [N](101-Architecture.md) | [V](M101-Architecture.md) |
-| [HPE Cray Programming Environment](M102-CPE.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-102-CPE.pdf) | [N](102-CPE.md) | [V](M102-CPE.md) |
-| [Getting Access to LUMI](M103-Access.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-103-Access.pdf) | [N](103-Access.md) | [V](M103-Access.md) |
-| [Exercises 1](ME103-Exercises-1.md) | / | /  | / |
-| [Modules on LUMI](M104-Modules.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-104-Modules.pdf) | [N](104-Modules.md) | [V](M104-Modules.md) |
-| [Exercises 2](ME104-Exercises-2.md) | / | / | / |
-| [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
-| [Exercises 3](ME105-Exercises-3.md) | / | / | / |
-| [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-106-Support.pdf) | [N](106-Support.md) | [V](M106-Support.md) |
-| [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
-| **Day 2** @span |  |  |  |
-| [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
-| ***Theme: Running jobs efficiently*** @span |  |  |  |
-| [Slurm on LUMI](M201-Slurm.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-201-Slurm.pdf) | [(N)](201-Slurm.md) || [V](M201-Slurm.md) |
-| [Process and Thread Distribution and Binding](M202-Binding.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-202-Binding.pdf) | [(N)](202-Binding.md) | [V](M202-Binding.md) |
-| [Exercises 4](ME202-Exercises-4.md) | / | / | / |
-| **Theme: Data on LUMI** @span |  |  |  |
-| [Using Lustre](M203-Lustre.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-203-Lustre.pdf) | [N](203-Lustre.md) | [V](M203-Lustre.md) |
-| [Object Storage](M204-ObjectStorage.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-204-ObjectStorage.pdf) | [N](204-ObjectStorage.md) | [V](M204-ObjectStorage.md) |
-| [Exercises 5](ME204-Exercises-5.md) | / | / | / |
-| **Theme: Containers on LUMI** @span |  |  |  |
-| [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
-| [Demo 1 (optional)](Demo1.md) | / | [N](Demo1.md) | [V](Demo1.md#video-of-the-demo) |
-| [Demo 2 (optional)](Demo2.md) | / | [N](Demo2.md) | [V](Demo2.md#video-of-the-demo) |
-| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WhatElse.pdf) | / | [V](MI202-WrapUpDay2.md) |
-| **Appendices** @span |  |  |  |
-| A1 Additional documentation | / | [N](A01-Documentation.md) | / |
-
-::end-spantable::
--->
-
+<div class="span-table-wrapper">
+<table class="span-table">
+<tr>
+<td>Presentation</td>
+<td>slides</td>
+<td>notes</td>
+<td>recording</td>
+</tr>
+<tr>
+<td colspan="4"><strong>Day 1</strong></td>
+</tr>
+<tr>
+<td><a href="MI101-IntroductionCourse/">Welcome and Introduction</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I101-IntroductionCourse.pdf">S</a></td>
+<td>/</td>
+<td><a href="MI101-IntroductionCourse/">V</a></td>
+</tr>
+<tr>
+<td>Introduction to the course notes</td>
+<td>/</td>
+<td><a href="000-Introduction/">N</a></td>
+<td>/</td>
+</tr>
+<tr>
+<td colspan="4"><strong><em>Theme: Exploring LUMI from the login nodes</em></strong></td>
+</tr>
+<tr>
+<td><a href="M101-Architecture/">LUMI Architecture</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-101-Architecture.pdf">S</a></td>
+<td><a href="101-Architecture/">N</a></td>
+<td><a href="M101-Architecture/">V</a></td>
+</tr>
+<tr>
+<td><a href="M102-CPE/">HPE Cray Programming Environment</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-102-CPE.pdf">S</a></td>
+<td><a href="102-CPE/">N</a></td>
+<td><a href="M102-CPE/">V</a></td>
+</tr>
+<tr>
+<td><a href="M103-Access/">Getting Access to LUMI</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-103-Access.pdf">S</a></td>
+<td><a href="103-Access/">N</a></td>
+<td><a href="M103-Access/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME103-Exercises-1/">Exercises 1</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td><a href="M104-Modules/">Modules on LUMI</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-104-Modules.pdf">S</a></td>
+<td><a href="104-Modules/">N</a></td>
+<td><a href="M104-Modules/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME104-Exercises-2/">Exercises 2</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td><a href="M105-SoftwareStacks/">LUMI Software Stacks</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-105-SoftwareStacks.pdf">S</a></td>
+<td><a href="105-SoftwareStacks/">N</a></td>
+<td><a href="M105-SoftwareStacks/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME105-Exercises-3/">Exercises 3</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td><a href="M106-Support/">LUMI Support and Documentation</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-106-Support.pdf">S</a></td>
+<td><a href="106-Support/">N</a></td>
+<td><a href="M106-Support/">V</a></td>
+</tr>
+<tr>
+<td><a href="MI102-WrapUpDay1/">Wrap-Up Day 1</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I102-WrapUpDay1.pdf">S</a></td>
+<td>/</td>
+<td><a href="MI102-WrapUpDay1/">V</a></td>
+</tr>
+<tr>
+<td colspan="4"><strong>Day 2</strong></td>
+</tr>
+<tr>
+<td><a href="MI201-IntroductionDay2/">Introduction Day 2</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I201-IntroductionDay2.pdf">S</a></td>
+<td>/</td>
+<td><a href="MI201-IntroductionDay2/">V</a></td>
+</tr>
+<tr>
+<td colspan="4"><strong><em>Theme: Running jobs efficiently</em></strong></td>
+</tr>
+<tr>
+<td><a href="M201-Slurm/">Slurm on LUMI</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-201-Slurm.pdf">S</a></td>
+<td><a href="201-Slurm/">(N)</a></td>
+<td><a href="M201-Slurm/">V</a></td>
+</tr>
+<tr>
+<td><a href="M202-Binding/">Process and Thread Distribution and Binding</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-202-Binding.pdf">S</a></td>
+<td><a href="202-Binding/">(N)</a></td>
+<td><a href="M202-Binding/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME202-Exercises-4/">Exercises 4</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td colspan="4"><strong>Theme: Data on LUMI</strong></td>
+</tr>
+<tr>
+<td><a href="M203-Lustre/">Using Lustre</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-203-Lustre.pdf">S</a></td>
+<td><a href="203-Lustre/">N</a></td>
+<td><a href="M203-Lustre/">V</a></td>
+</tr>
+<tr>
+<td><a href="M204-ObjectStorage/">Object Storage</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-204-ObjectStorage.pdf">S</a></td>
+<td><a href="204-ObjectStorage/">N</a></td>
+<td><a href="M204-ObjectStorage/">V</a></td>
+</tr>
+<tr>
+<td><a href="ME204-Exercises-5/">Exercises 5</a></td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td colspan="4"><strong>Theme: Containers on LUMI</strong></td>
+</tr>
+<tr>
+<td><a href="M205-Containers/">Containers on LUMI-C and LUMI-G</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-205-Containers.pdf">S</a></td>
+<td><a href="205-Containers/">N</a></td>
+<td><a href="M205-Containers/">V</a></td>
+</tr>
+<tr>
+<td><a href="MI202-WrapUpDay2/">Wrap-Up Day 2</a></td>
+<td><a href="https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I202-WrapUpDay2.pdf">S</a></td>
+<td>/</td>
+<td><a href="MI202-WrapUpDay2/">V</a></td>
+</tr>
+<tr>
+<td colspan="4"><strong>Appendices</strong></td>
+</tr>
+<tr>
+<td>A1 Additional documentation</td>
+<td>/</td>
+<td><a href="A01-Documentation/">N</a></td>
+<td>/</td>
+</tr>
+</table>
+</div>
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
-<!--
-## Setting up for the exercises
-
-During the course, you can use the training project `project_465002174` for the exercises.
+<h2 id="setting-up-for-the-exercises">Setting up for the exercises<a class="headerlink" href="#setting-up-for-the-exercises" title="Permanent link">&para;</a></h2>
+<p>During the course, you can use the training project <code>project_465002764</code> for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
-**This project should only be used for exercises and not for your own work!**
-
-The ["Object Storage" exercises](E204-ObjectStorage.md)
-in [Exercise session 5](ME204-Exercises-5.md) do require data in the training project, so
+<strong>This project should only be used for exercises and not for your own work!</strong></p>
+<p>The <a href="E204-ObjectStorage/">"Object Storage" exercises</a>
+in <a href="ME204-Exercises-5/">Exercise session 5</a> do require data in the training project, so
 these exercises should really be made while the training project is still active. 
-There is an [alternative set of exercises](E204-ObjectStorage.md#exercises-that-can-be-made-in-your-own-project) 
+There is an <a href="E204-ObjectStorage/#exercises-that-can-be-made-in-your-own-project">alternative set of exercises</a> 
 missing only one element from the during-the-course 
 version that can be made in your own project.
 For the
-exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 6pm CET/ 7pm EET that
-day).
-
--   Create a directory in the scratch of your project, or if you want to
+exercises from <a href="ME202-Exercises-4/">Exercise session 4</a> you can no longer use the reservation
+if they are not made during the second course day (the reservation expires at 5pm CEST/ 6pm EEST that
+day).</p>
+<ul>
+<li>
+<p>Create a directory in the scratch of your project, or if you want to
     keep the exercises around for a while, in a subdirectory of your project directory 
     or in your home directory (though we don't recommend the latter).
-    Then go into that directory.
-
-    E.g., in the scratch directory of your project:
-
-    <div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465002174/course-20250602-$USER/Exercises
-cd /scratch/project_465002174/course-20250602-$USER/Exercises
+    Then go into that directory.</p>
+<p>E.g., in the scratch directory of your project:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465002764/course-20260422-$USER/Exercises
+cd /scratch/project_465002764/course-20260422-$USER/Exercises
 </code></pre></div>
-
-    where you have to replace `project_465002174` using the number of your own project.
-
-    If you have no other project on LUMI, you can also use the scratch of the
-    course project `project_465002174`. Do use a personal subdirectory as in the
-    following commands:
-
-    <div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465002174/$USER/Exercises
-cd /scratch/project_465002174/$USER/Exercises
+<p>where you have to replace <code>project_465002764</code> using the number of your own project.</p>
+<p>If you have no other project on LUMI, you can also use the scratch of the
+course project <code>project_465002764</code>. Do use a personal subdirectory as in the
+following commands:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_465002764/$USER/Exercises
+cd /scratch/project_465002764/$USER/Exercises
 </code></pre></div>
-
-
--   Now download the exercises and un-tar:
-
-    <div class="highlight"><pre><span></span><code>wget https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar.bz2
-tar -xf exercises-20251020.tar.bz2
+</li>
+<li>
+<p>Now download the exercises and un-tar:</p>
+<div class="highlight"><pre><span></span><code>wget https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2
+tar -xf exercises-20260422.tar.bz2
 </code></pre></div>
-
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20260422/files/exercises-20251020.tar.bz2).
-
--   You're all set to go!
--->
-
+<p><a href="https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar">Link to the tar-file with the exercises</a> and the
+<a href="https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2">bzip2-compressed version</a>.</p>
+</li>
+<li>
+<p>You're all set to go!</p>
+</li>
+</ul>
 <!--
 ## Making the exercises after the course
 
@@ -5978,15 +6131,15 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 
     E.g., in the scratch directory of your project:
 
-    <div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
-cd /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
+    <div class="highlight"><pre><span></span><code>mkdir -p /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
+cd /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
 </code></pre></div>
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
 
 -   Now install the exercise files:
 
-    <div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/2day-20260422/files/exercises-20250602.tar.bz2
+    <div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/2day-20260422/files/exercises-20260422.tar.bz2
 </code></pre></div>
 
 -   You're all set to go!
@@ -5996,17 +6149,13 @@ cd /scratch/project_46YXXXXXX/course-20250602-$USER/Exercises
     continuous evolution and changes to the system may break exercises and software
 -->
 
-<!--
-## Links to documentation
-
-[The links to all documentation mentioned during the talks is on a separate page](A01-Documentation.md).
--->
-
+<h2 id="links-to-documentation">Links to documentation<a class="headerlink" href="#links-to-documentation" title="Permanent link">&para;</a></h2>
+<p><a href="A01-Documentation/">The links to all documentation mentioned during the talks is on a separate page</a>.</p>
 <!-- This document will be updated after the summer '25 system update. -->
 
+<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permanent link">&para;</a></h2>
+<p>This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)</p>
 <!--
-## Acknowledgement
-
 Though a LUST course, the course borrows a lot of material from
 [a similar course prepared by the Belgian local organisation](https://klust.github.io/LUMI-BE-training-materials/intro-evolving/),
 which in turn was prepared in the framework of the 

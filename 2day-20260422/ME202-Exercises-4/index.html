@@ -5839,18 +5839,18 @@
     exercises on GPU the <code>standard-g</code> partition.</p>
 </li>
 <li>
-<p>During the course you can use the course training project <code>project_465001603</code>
+<p>During the course you can use the course training project <code>project_465002764</code>
     for these exercises. A few days after the course you will need to use a different project
     on LUMI. </p>
 </li>
 <li>
-<p>On December 11 we have a reservation that you can use (through <code>#SBATCH --reservation=...</code>):</p>
+<p>On April 23 we have a reservation that you can use (through <code>#SBATCH --reservation=...</code>):</p>
 <ul>
 <li>
-<p>For the <code>small</code> partition, the reservation name is <code>LUMI_Intro_small</code></p>
+<p>For the <code>small</code> partition, the reservation name is <code>lumi_intro_small</code></p>
 </li>
 <li>
-<p>For the <code>standard-g</code> partition, the reservation name is <code>LUMI_Intro_standard-g</code></p>
+<p>For the <code>standard-g</code> partition, the reservation name is <code>lumi_intro_standard-g</code></p>
 </li>
 </ul>
 </li>
@@ -5858,26 +5858,32 @@
 <p>An alternative (during the course only) for manually specifying 
 the account, the partition and the reservation, is to set
 them through modules. For this, first add an additional directory to the module search path:</p>
-<div class="highlight"><pre><span></span><code>module use /appl/local/training/modules/2day-20241210
+<div class="highlight"><pre><span></span><code>module use /appl/local/training/modules/2day-20260422
 </code></pre></div>
-<p>and then you can load either the module <code>exercises/small</code> or <code>exercises/standard-g</code>.</p>
+<p>and then you can load either the module <code>exercises/intro-C</code> (to use the reservation in the
+<code>small</code> partition of LUMI-C) or <code>exercises/intro-G</code> (to use the reservation in the <code>standard-g</code>
+partition of LUMI-G).</p>
 <div class="admonition note">
 <p class="admonition-title">Check what these modules do...</p>
 <p>Try, e.g., </p>
-<div class="highlight"><pre><span></span><code>module show exercises/small
+<div class="highlight"><pre><span></span><code>module show exercises/intro-C
 </code></pre></div>
 <p>to get an idea of what these modules do. Can you see which environment variables they set?</p>
 </div>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
-<p>Exercises will be made available during the course</p>
 <!--
--   Start with the [exercises on "Slurm on LUMI"](E201-Slurm.md)
-
-    You may want to postpone the advanced exercise a bit as that one takes a lot of time.
-
--   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E202-Binding.md)
+Exercises will be made available during the course
 -->
 
+<ul>
+<li>
+<p>Start with the <a href="../E201-Slurm/">exercises on "Slurm on LUMI"</a></p>
+<p>You may want to postpone the advanced exercise a bit as that one takes a lot of time.</p>
+</li>
+<li>
+<p>Proceed with the <a href="../E202-Binding/">exercises on "Process and Thread Distribution and Binding"</a></p>
+</li>
+</ul>
 <h2 id="aa">A&amp;A<a class="headerlink" href="#aa" title="Permanent link">&para;</a></h2>
 <p>/</p>
 
