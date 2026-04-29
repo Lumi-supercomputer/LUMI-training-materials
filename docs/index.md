@@ -11,6 +11,8 @@ Upcoming or currently running events with materials already partly available:
 
 -   [LUMI-G hackathon, 18-22 May 2026, in Antwerp, Belgium](Hackathon-20260518/index.md)
 
+-   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
+
 
 Most recently completed main training events:
 
@@ -110,6 +112,8 @@ By theme in reverse chronological order:
     -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 -   Comprehensive AI trainings for LUMI:
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
+        This is the first training based on the [AI containers of the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025, Stockholm)](ai-20251008/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
