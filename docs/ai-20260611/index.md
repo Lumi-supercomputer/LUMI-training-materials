@@ -1,17 +1,22 @@
 # Moving your AI training jobs to LUMI workshop - UiT, Tromsø, June 11-12, 2026
 
-<!--
 !!! Note
     If you are looking for course materials, check the pages of the 
-    [previous edition in October 2025](../ai-20270611/index.md).
--->
+    [previous edition in October 2025](../ai-20251008/index.md).
+    The previous course was still based on the LUST/AMD containers and CSC modules,
+    while this edition is fully based on the 
+    [LUMI AI Factory containers](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
+
 
 ## Course organisation
 
 -   Location: UiT - The Artic University of Norway, Tromsø.
     [University library room UB 244 (2nd floor)](https://use.mazemap.com/#v=1&config=uit&campusid=5&zlevel=1&center=18.973518,69.680798&zoom=18&sharepoitype=poi&sharepoi=174057&search=244)
 
+-   Schedule: TBA
+<!--
 -   [Very preliminary schedule](schedule.md)
+-->
 
 <!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/lumi-ai-workshop-oct25?both)
