@@ -10,7 +10,8 @@ See the [map of the city campus](https://462000265.lumidata.eu/hackathon-2026051
 -   Monday till Thursday: Room C.101.
   
     This building can be accessed from Prinsstraat 13. The gate in the middle of the
-    building will take you to a small courtyard. Cross that courtyard to the left
+    building (the middle gate of those with a wood cover in the scaffolding) 
+    will take you to a small courtyard. Cross that courtyard to the left
     corner, go through the corridor to a bigger courtyard, cross that one also to 
     the left corner, go through the large glass door, go forward through the first 
     hall to the next one which is building C.
