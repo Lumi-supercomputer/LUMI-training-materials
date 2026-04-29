@@ -6,7 +6,7 @@
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/11_Coupling.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/11_Coupling.mp4" controls="controls"></video>
 -->
 
 
@@ -15,7 +15,7 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-11-Coupling_Simulation_and_AI.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-11-Coupling_Simulation_and_AI.pdf)
 
 -   [Recent LUMI User Coffee Break seminar on SmartSim](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20250924-user-coffee-break-SmartSim/)
 

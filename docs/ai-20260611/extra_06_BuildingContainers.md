@@ -11,7 +11,7 @@ Content:
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/06_BuildingContainers.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/06_BuildingContainers.mp4" controls="controls"></video>
 -->
 
 
@@ -20,11 +20,11 @@ A video recording will follow.
 More materials will become available during and shortly after the course.
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-06-Building_containers_from_conda_pip_environments.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
 
--   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20251008/bonus_material)
+-   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611/bonus_material)
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
 

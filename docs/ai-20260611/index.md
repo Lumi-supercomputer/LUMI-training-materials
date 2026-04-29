@@ -79,8 +79,8 @@ The exercises as they were during the course are
 be cloned during the course, now you have to either:
 
 -   Download the content of the repository as 
-    a [tar file](https://462000265.lumidata.eu/ai-20270611/files/ai-20270611-Getting_Started_with_AI_workshop.tar)
-    or [bzip2-compressed tar file](https://462000265.lumidata.eu/ai-20270611/files/ai-20270611-Getting_Started_with_AI_workshop.tar.bz2)
+    a [tar file](https://462000265.lumidata.eu/ai-20260611/files/ai-20260611-Getting_Started_with_AI_workshop.tar)
+    or [bzip2-compressed tar file](https://462000265.lumidata.eu/ai-20260611/files/ai-20260611-Getting_Started_with_AI_workshop.tar.bz2)
     or [from the GitHub release](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/releases/tag/ai-20260611)
     where you have a choice of formats,
 
@@ -112,24 +112,24 @@ materials are uploaded.
 | Presentation | Slides | recording |
 |:-------------|:-------|:----------|
 | [Welcome and course introduction](extra_00_Course_Introduction.md) | / | [video](extra_00_Course_Introduction.md) |
-| [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
-| [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
+| [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
+| [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
 | [Hands-on: Run a simple PyTorch example notebook](E02_Webinterface.md) | / | [video](E02_Webinterface.md) |
-| [Your first AI training job on LUMI](extra_03_FirstJob.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-03-First_AI_job.pdf) | [video](extra_03_FirstJob.md) |
+| [Your first AI training job on LUMI](extra_03_FirstJob.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-03-First_AI_job.pdf) | [video](extra_03_FirstJob.md) |
 | [Hands-on: Run a simple single-GPU PyTorch AI training job](E03_FirstJob.md) | / | [video](E03_FirstJob.md) |
-| [Understanding GPU activity & checking jobs](extra_04_CheckingGPU.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-04-Understanding_GPU_activity.pdf) | [video](extra_04_CheckingGPU.md) |
+| [Understanding GPU activity & checking jobs](extra_04_CheckingGPU.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-04-Understanding_GPU_activity.pdf) | [video](extra_04_CheckingGPU.md) |
 | [Hands-on: Checking GPU usage interactively using rocm-smi](E04_CheckingGPU.md) | / | [video](E04_CheckingGPU.md) |
-| [Running containers on LUMI](extra_05_RunningContainers.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-05-Running_containers_on_LUMI.pdf) | [video](extra_05_RunningContainers.md) |
+| [Running containers on LUMI](extra_05_RunningContainers.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-05-Running_containers_on_LUMI.pdf) | [video](extra_05_RunningContainers.md) |
 | [Hands-on: Pull and run a container](E05_RunningContainers.md) | / | [video](E05_RunningContainers.md) |
-| [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
+| [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
 | [Hands-on: Creating a conda environment file and building a container using cotainr](E06_BuildingContainers.md) | / | [video](E06_BuildingContainers.md) |
-| [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
-| [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
+| [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
+| [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
 | [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
-| [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
+| [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
 | [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
-| [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
-| [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20270611/files/LUMI-ai-20270611-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
+| [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
+| [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
 | [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | [video](E12_Project_and_QA.md) |
 -->
 <!--

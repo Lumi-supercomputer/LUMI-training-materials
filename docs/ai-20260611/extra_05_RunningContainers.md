@@ -13,7 +13,7 @@ Content:
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/05_RunningContainers.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/05_RunningContainers.mp4" controls="controls"></video>
 -->
 
 
@@ -22,7 +22,7 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-05-Running_containers_on_LUMI.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-05-Running_containers_on_LUMI.pdf)
 
 -   [Hands-on exercises](E05_RunningContainers.md)
 

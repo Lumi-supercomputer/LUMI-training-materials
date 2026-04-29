@@ -12,7 +12,7 @@ Contents:
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/07_VirtualEnvironments.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/07_VirtualEnvironments.mp4" controls="controls"></video>
 -->
 
 
@@ -21,7 +21,7 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-07-Extending_containers.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-07-Extending_containers.pdf)
 
 -   [Examples](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20251009/07_Extending_containers_with_virtual_environments_for_faster_testing)
 

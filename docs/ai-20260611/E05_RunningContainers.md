@@ -22,7 +22,7 @@ A video recording of the discussion of the solution will follow.
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/E05_RunningContainers.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/E05_RunningContainers.mp4" controls="controls"></video>
 -->
 
 

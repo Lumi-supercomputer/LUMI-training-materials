@@ -5,7 +5,7 @@
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20251008/recordings/10_TrainingData.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/10_TrainingData.mp4" controls="controls"></video>
 -->
 
 
@@ -14,7 +14,7 @@ A video recording will follow.
 More materials will become available during and shortly after the course
 
 <!--
--   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-10-Training_Data_on_LUMI.pdf)
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-10-Training_Data_on_LUMI.pdf)
 
     Correction: [LUMI-O key max lifetime changed to 1 year](https://www.lumi-supercomputer.eu/lumi-service-status/information-lumi-o-key-max-lifetime-changed-to-1-year/)
 
