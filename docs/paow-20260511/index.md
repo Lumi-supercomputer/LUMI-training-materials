@@ -29,43 +29,37 @@
 
 -   Reservations:
 
-    -   Day 1: `Workshop_Day1` (on the `standard` Slurm partition)
+    -   Day 1: `LUMI_Advanced_Day1` (on the `standard` Slurm partition)
 
-    -   Day 2: `Workshop_Day2` for CPU (on the `standard` Slurm partition)
-        and `Workshop_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
+    -   Day 2: `LUMI_Advanced_Day2` for CPU (on the `standard` Slurm partition)
+        and `LUMI_Advanced_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
 
-    -   Day 3: `Workshop_Day3` (on the `standard-g` Slurm partition)
-
--   [Some suggestions for the night](evening_suggestions.md)
+    -   Day 3: `LUMI_Advanced_Day3_gpu` (on the `standard-g` Slurm partition)
 -->
 
 <!--
-ReservationName=Workshop_Day1 StartTime=2025-10-22T09:00:00 EndTime=2025-10-22T18:00:00 Duration=09:00:00
-   Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
+ReservationName=LUMI_Advanced_Day1 StartTime=2026-05-11T10:00:00 EndTime=2026-05-11T18:00:00 Duration=08:00:00
+   Nodes=nid[002006-002008,002703-002715] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
    TRES=cpu=4096
-   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=Workshop_Day2 StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
-   Nodes=nid[001000-001015] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
+ReservationName=LUMI_Advanced_Day2 StartTime=2026-05-12T10:00:00 EndTime=2026-05-12T18:00:00 Duration=08:00:00
+   Nodes=nid[002006-002008,002703-002715] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
    TRES=cpu=4096
-   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=Workshop_Day2_gpu StartTime=2025-10-23T09:00:00 EndTime=2025-10-23T18:00:00 Duration=09:00:00
-
-   Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
-
+ReservationName=LUMI_Advanced_Day2_gpu StartTime=2026-05-12T10:00:00 EndTime=2026-05-12T18:00:00 Duration=08:00:00
+   Nodes=nid[005206,005304,005921,005923,005929,006040,006158,006235,006261,006980,007204,007364,007530,007552,007751,007753] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
    TRES=cpu=2048
-
-   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
-
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=Workshop_Day3 StartTime=2025-10-24T09:00:00 EndTime=2025-10-24T18:00:00 Duration=09:00:00
-   Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
+ReservationName=LUMI_Advanced_Day3_gpu StartTime=2026-05-13T10:00:00 EndTime=2026-05-13T18:00:00 Duration=08:00:00
+   Nodes=nid[005206,005304,005921,005923,005929,006040,006158,006235,006261,006980,007204,007206,007364,007530,007552,007751] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
    TRES=cpu=2048
-   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002770 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 -->
 
