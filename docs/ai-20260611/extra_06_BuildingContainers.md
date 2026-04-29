@@ -8,19 +8,18 @@ Content:
 -   Recipes for PyTorch, Tensorflow, and JAX/Flax on LUMI
 
 
-<!--
 A video recording will follow.
--->
 
+<!--
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/06_BuildingContainers.mp4" controls="controls"></video>
+-->
 
 
 ## Extra materials
 
-<!--
 More materials will become available during and shortly after the course.
--->
 
+<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
@@ -45,7 +44,9 @@ More materials will become available during and shortly after the course.
 
 -   The [additional training materials mentioned in the "Running containers" page](extra_05_RunningContainers.md#extra-materials)
     are relevant for this presentation also.
+-->
 
+<!--
 ## Remarks to things mentioned in the recording
 
 ### ROCm compatibility
@@ -72,7 +73,7 @@ It is possible to extend an existing container with a virtual environment (topic
 The `lumi-container-wrapper` provides a tool that enables to do some pip and conda installations in a file system friendly way. It also uses a base container but that one does not have a ROCm in it so it is of little use for AI software unless you can use the ROCm from the system. It basically does not change the base container, but installs the software in a separate SquashFS file. Furthermore, for each command it can find in the container, it will create a wrapper script outside the container that will call singularity with the right bindings to run that command in the container. It is actually rather hard to start the container "by hand" using the `singularity` command as you will also have to create the right bindmount for the SquashFS file containing the actual software installation.
 
 The `cotainr` tool on the other hand will take the selected base image and build a new container from it that can be used the way containers are normally used.
-
+-->
 
 ## Q&A
 

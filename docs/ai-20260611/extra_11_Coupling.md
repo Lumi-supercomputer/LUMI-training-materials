@@ -1,21 +1,20 @@
 # Coupling machine learning with HPC simulation
 
 *Presenter:* Harvey Richardson(HPE)
-<br/>*Co-author:*  Alessandro Rigazzi (HPE)
+<br/>*Co-author:*  Alessandro Rigazzi (formerly HPE)
+
+A video recording will follow.
 
 <!--
-A video recording will follow.
--->
-
 <video src="https://462000265.lumidata.eu/ai-20251008/recordings/11_Coupling.mp4" controls="controls"></video>
+-->
 
 
 ## Extra materials
 
-<!--
 More materials will become available during and shortly after the course
--->
 
+<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20251008/files/LUMI-ai-20251008-11-Coupling_Simulation_and_AI.pdf)
 
 -   [Recent LUMI User Coffee Break seminar on SmartSim](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20250924-user-coffee-break-SmartSim/)
@@ -72,6 +71,7 @@ More materials will become available during and shortly after the course
             -   [Nobel press release](https://www.nobelprize.org/prizes/chemistry/2024/press-release/)
                 and [additional technical document 1](https://www.nobelprize.org/uploads/2024/11/popular-chemistryprize2024.pdf) 
                 and [additional technical document 2](https://www.nobelprize.org/uploads/2024/10/advanced-chemistryprize2024.pdf)
+-->
 
 
 ## Q&A

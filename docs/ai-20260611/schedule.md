@@ -12,7 +12,7 @@ DAY 1
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day1"><b>DAY 1 - Wednesday 08/10/2025</b></a>
+            <a name="Day1"><b>DAY 1 - Thursday 11/06/2026</b></a>
         </td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@ DAY 1
             <br/><em>10:45 EEST</em>
         </td>
         <td><b><a href="../extra_02_Webinterface/">Using the LUMI web interface</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Oskar Taubert (CSC)</em>
+        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@ DAY 1
             <br/><em>11:50 EEST</em>
         </td>
         <td><b><a href="../extra_03_FirstJob/">Your first AI training job on LUMI</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Oskar Taubert (CSC)</em>
+        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ DAY 1
             <br/><em>14:05 EEST</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenter: Marius Kurz, Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -106,7 +106,7 @@ DAY 1
             <br/><em>14:45 EEST</em>
         </td>
         <td><b><a href="../extra_05_RunningContainers/">Running containers on LUMI</a></b>
-        </br><em>Presenter: Julius Roeder (DeiC)</em>
+        </br><em>Presenter: Henk Dreuning (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -173,7 +173,7 @@ DAY 2
 -->
     <tr>
         <td colspan="2" align="center">
-            <a name="Day2"><b>DAY 2 - Thursday 09/10/2025</b></a>
+            <a name="Day2"><b>DAY 2 - Friday 12/06/2026</b></a>
         </td>
     </tr>
     <tr>
@@ -182,7 +182,7 @@ DAY 2
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_08_MultipleGPUs">Scaling AI training to multiple GPUs</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Oskar Taubert (CSC)</em>
+        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ DAY 2
             <br/><em>11:35 EEST</em>
         </td>
         <td><b><a href="../extra_09_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenter: Samuel Antão, Marius Kurz, Paul Bauer (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
