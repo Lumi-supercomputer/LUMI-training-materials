@@ -1,4 +1,4 @@
-# Exercises (session 5)
+# Exercises (session 4)
 
 Exercises on MPI optimizations.
 

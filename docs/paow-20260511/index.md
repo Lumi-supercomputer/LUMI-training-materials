@@ -77,7 +77,7 @@ Materials will follow as the course progresses
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
 
-<!--
+<!-- -->
 **Note:** Some links in the table below are dead and will remain so until after the end of the course.
 
 ::spantable::
@@ -90,9 +90,9 @@ downloaded from LUMI.
 | [Exercises #1](ME101_HPE_PE.md) | / | / |
 | [Compilers, libraries, runtime, single-core optimisations](M102_Compilers.md) | [slides](M102_Compilers.md#materials) | [lumi](M102_Compilers.md) |
 | [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [lumi](M103_Perftools.md) |
-| [Exercises #2](ME103_Perftools.md) | / | / |
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [lumi](M104_AdvancedPerformanceAnalysis.md) |
-| [Exercises #3](ME104_AdvancedPerformanceAnalysis.md) | / | / |
+| [Exercises #2](ME104a_Session_2.md) | / | / |
+| [Exercises #3](ME104b_Session_3.md) | / | / |
 | [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [lumi](M201_MPI.md) |
@@ -110,7 +110,7 @@ downloaded from LUMI.
 | [Appendix: Links to documentation](A01_Documentation.md) | / | / |
 
 ::end-spantable::
--->
+<!-- -->
 
 <!--
 -->

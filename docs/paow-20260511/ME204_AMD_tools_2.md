@@ -1,4 +1,4 @@
-# Exercises session 8: AMD profiling tools and GPU optimizations
+# Exercises session 7: AMD profiling tools and GPU optimizations
 
 Exercises on AMD profiling tools and GPU optimizations.
 
