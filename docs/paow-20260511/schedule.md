@@ -216,7 +216,7 @@ DAY 2
             13:00 CEST
             <br/><em>14:00 EEST</em>
         </td>
-        <td><b><a href="../M203_AMD_tools_1/">AMD Profiling Tools and GPU optimisations 1</a></b>
+        <td><a name="hackathon_3"></a><b><a href="../M203_AMD_tools_1/">AMD Profiling Tools and GPU optimisations 1</a></b>
         <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
@@ -225,7 +225,7 @@ DAY 2
             14:00 CEST
             <br/><em>15:00 EEST</em>
         </td>
-        <td><a name="hackathon_3"></a><b><a href="../ME203_AMD_tools_1/">Exercises (session 6)</a></b>
+        <td><b><a href="../ME203_AMD_tools_1/">Exercises (session 6)</a></b>
         </td>
     </tr>
     <tr>
