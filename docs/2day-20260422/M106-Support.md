@@ -13,10 +13,11 @@ get a quick answer without much back-and-forth mailing?
 Materials will be made available after the lecture
 -->
 
+<video src="https://462000265.lumidata.eu/2day-20260422/recordings/LUMI-2day-20260422-106-Support.mp4" controls="controls"></video>
+
 <!--
-<video src="https://462000265.lumidata.eu/2day-20260422/recordings/106-Support.mp4" controls="controls"></video>
--->
 -   A video recording will follow.
+-->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-106-Support.pdf)
 

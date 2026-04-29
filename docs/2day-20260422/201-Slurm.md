@@ -2740,6 +2740,50 @@ bugs are being introduced.
     in two separate job steps, a `+0` and a `+1`. 
 
 
+## Multi-prog: An alternative for heterogeneous jobs
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide Slurm multi-prog](https://462000265.lumidata.eu/2day-20260422/img/LUMI-2day-20260422-201-Slurm/Multiprog.png){ loading=lazy }
+</figure>
+
+Heterogeneous jobs are a nice way to start multiple binaries that have to share one `MPI_COMM_WORLD`,
+but they are not without issues, especially on a very busy system as LUMI, as each component is treated
+as a separate job and multiple jobs need to be scheduled together. This often causes long delays, not only
+for the heterogeneous job to start, but also reduced efficiency of Slurm for other users.
+
+In many cases, starting a job step with `--multi-prog` is a better alternative. With `--multi-prog` you 
+have to specify a job configuration file that lists which tasks will run which executable (and of course
+you can also specify arguments for that executable). Such a configuration file looks like:
+
+```
+# config file example
+0-3	  ./a.out --myargs
+4,6   ./b.out
+5	  ./c.out
+```
+
+If this would be stored in the file `mpmd.conf` and started with
+
+```
+srun -n7 --multi-prog mpmd.comnf
+```
+
+then tasks 0 till 3 would run the executable `./a.out --mypargs`, tasks 4 and 6 would run `./b.out`
+and task 5 would run `./c.out`.
+
+More information is available in the 
+["MULTIPLE PROGRAM CONFIGURATION" section of the `srun` manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#SECTION_MULTIPLE-PROGRAM-CONFIGURATION).
+
+As this runs in a single job, it avoid the scheduling issues that heterogeneous jobs often experience
+on LUMI, but the job can not use multiple partitions. Yet it is highly recommended if you can fit
+all work in a single node type (e.g., running the I/O server on some unused cores of a GPU node for 
+a GPU code that uses separate I/O server processes).
+
+Specifying configurations for the components such as number of threads and binding can be a little
+tricky though as not all tasks may need the same number of cores. And it is often easier to get 
+exclusive nodes and do some of the bindings manually outside of Slurm.
+
+
 ## Simultaneous job steps
 
 <figure markdown style="border: 1px solid #000">
