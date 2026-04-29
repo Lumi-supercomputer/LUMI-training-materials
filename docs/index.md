@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-site in Riga (Latvia) and online.
-
 -   [LUMI Profiling and Optimization Workshop (Advanced Level) (May 11-13, 2026)](paow-20260511/index.md)
     on-site at KTH, Stockholm, Sweden.
 
@@ -17,7 +15,7 @@ Upcoming or currently running events with materials already partly available:
 Most recently completed main training events:
 
 -   Introductory LUMI training aimed at regular users:
-    [Intro to Supercomputing with LUMI (October 20-21, 2025)](2day-20251020/index.md)
+    [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md)
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
