@@ -16,7 +16,8 @@
 
 -   [Schedule](schedule.md)
 
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/intro-to-supercomputing-04.26?both)
+<!--
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-april26?both)
 
 -   Project for the course: `project_465002764`.
 
@@ -27,6 +28,7 @@
 
     -   CPU nodes: `lumi_intro_small` (on the `small` Slurm partition)
     -   GPU nodes: `lumi_intro_standard-g` (on the `standard-g` Slurm partition)
+-->
 
 <!--
 -   [Some suggestions for the night](evening_suggestions.md)
@@ -36,7 +38,7 @@
 ## Course materials
 
 Course materials include the Q&A of each session, slides when available and notes when available.
-These materials will become available as the course progresses.
+<!-- These materials will become available as the course progresses. -->
 
 <!--
 **Note:** Some links in the table below may be dead and will remain so until after the end of the course.
@@ -61,6 +63,7 @@ These materials will become available as the course progresses.
 | [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
 | [Exercises 3](ME105-Exercises-3.md) | / | / | / |
 | [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-106-Support.pdf) | [N](106-Support.md) | [V](M106-Support.md) |
+| [PRACE National Node in Latvia](M107-LocalTalk) | / | / | / |
 | [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
 | **Day 2** @span |  |  |  |
 | [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
@@ -82,6 +85,7 @@ These materials will become available as the course progresses.
 
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
+<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465002764` for the exercises.
@@ -135,9 +139,8 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20260422/files/exercises-20260422.tar.bz2).
 
 -   You're all set to go!
+-->
 
-
-<!--
 ## Making the exercises after the course
 
 The ["Object Storage" exercises](E204-ObjectStorage.md)
@@ -173,7 +176,6 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
 
 
 ## Links to documentation

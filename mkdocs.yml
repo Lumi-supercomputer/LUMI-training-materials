@@ -79,10 +79,6 @@ nav:
     - paow-20251022/index.md
     - Schedule: paow-20251022/schedule.md
     - Course materials: paow-20251022/index.html#course-materials
-  - "Supercomputing with LUMI October 2025":
-    - 2day-20251020/index.md
-    - Schedule: 2day-20251020/schedule.md
-    - Course materials: 2day-20251020/index.html#course-materials
   - "AI workshop October 2025":
     - ai-20251008/index.md
     - Schedule: ai-20251008/schedule.md
@@ -90,14 +86,6 @@ nav:
   - EasyBuild June 2025:
     - EasyBuild-LUST-20250604/index.md
     - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
-  - Supercomputing with LUMI June 2025:
-    - 2day-20250602/index.md
-    - Schedule: 2day-20250602/schedule.md
-    - Course materials: 2day-20250602/index.html#course-materials
-  - AI workshop May 2025:
-    - ai-20250527/index.md
-    - Schedule: ai-20250527/schedule.md
-    - Course materials: ai-20250527/index.html#course-materials
   - Hackathon May 2025:
     - Hackathon-20250512/index.md
   - Profiling May 2025:
@@ -111,6 +99,18 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - "Supercomputing with LUMI October 2025":
+      - 2day-20251020/index.md
+      - Schedule: 2day-20251020/schedule.md
+      - Course materials: 2day-20251020/index.html#course-materials
+    - Supercomputing with LUMI June 2025:
+      - 2day-20250602/index.md
+      - Schedule: 2day-20250602/schedule.md
+      - Course materials: 2day-20250602/index.html#course-materials
+    - AI workshop May 2025:
+      - ai-20250527/index.md
+      - Schedule: ai-20250527/schedule.md
+      - Course materials: ai-20250527/index.html#course-materials
     - AI workshop February 2025:
       - ai-20250204/index.md
       - Schedule: ai-20250204/schedule.md
@@ -218,7 +218,7 @@ plugins:
       redirect_maps:
           comprehensive-latest.md: 2p3day-20250303/index.md
           advanced-latest.md: 2p3day-20250303/index.md
-          intro-latest.md: 2day-20251020/index.md
+          intro-latest.md: 2day-20260422/index.md
           AI-latest.md: ai-20251008/index.md
           ai-latest.md: ai-20251008/index.md
           update-202308.md: User-Updates/Update-202308/index.md

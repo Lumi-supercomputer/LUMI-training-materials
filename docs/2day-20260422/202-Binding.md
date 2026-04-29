@@ -95,8 +95,14 @@ In this section we will consider process and thread distribution and binding at 
     use different OpenMP runtimes so the default behaviour will not be the same for all compilers,
     and on LUMI is different for the Cray compiler compared to the GNU and AMD compilers.
 
--   Finally, the ROCm(tm) runtime also can limit the use of GPUs by a process to a subset of the ones that Slurm allocated 
+-   The ROCm(tm) runtime also can limit the use of GPUs by a process to a subset of the ones that Slurm allocated 
     to the task through the use of the `ROCR_VISIBLE_DEVICES` environment variable.
+
+-   Binding can also be done by calling APIs inside the program: HIP, libnuma, etc., all provide binding
+    APIs to the application, but that is very application-specific and cannot be covered in this presentation.
+
+    An example of such an application is `torchrun`, where you need to set bindings in your Python script itself
+    as [discussed in the LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide/blob/main/5-multi-gpu-and-node/README.md#cpu-gpu-binding).
 
 Binding almost only makes sense on job-exclusive nodes as only then you have full control over all available 
 resources. On ["allocatable by resources"](201-Slurm.md#partitions) partitions 

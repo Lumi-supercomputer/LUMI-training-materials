@@ -5,7 +5,7 @@
 
 ## Materials
 
--   A video recording will follow
+-   There are no materials available for this talk.
 
 
 ## Q&A
