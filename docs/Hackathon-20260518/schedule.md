@@ -111,7 +111,7 @@ DAY 2
 
 ## Hackathon days
 
--   Monday May 18:
+-   Monday May 18: Room C.101
 
     -   From 12:45: Check in at the venue. Sandwiches will be provided
 
@@ -123,7 +123,7 @@ DAY 2
 
     -   Until 17:30: Group work
 
--   Tuesday till Thursday, May 19-15
+-   Tuesday till Thursday, May 19-21: Room C.101
 
     -   9:00: Status update (max 5min each group)
         -   What did you work on yesterday?
@@ -140,11 +140,11 @@ DAY 2
 
     -   Likely a group dinner on Wednesday evening
 
--   Friday May 22
+-   Friday May 22: D.226
 
     -   9:00: Last group work
 
-    -   10:00-12:00: Final presentations
+    -   10:30-12:00: Final presentations
 
         -   Which of your goals did you accomplish?
         -   What is left to do?
