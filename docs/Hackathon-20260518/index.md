@@ -8,6 +8,8 @@
 
 -   [Tentative schedule](schedule.md) preparatory lectures and hackathon
 
+-   Project that can be used for sharing files with support staff and small experiments: `project_465002953`.
+
 <!--
 -   [Hedgedoc for collaboration](https://md.sigma2.no/lumi-hackathon-spring2025?both) (will become unavailable over time,
     so the link may be dead)
