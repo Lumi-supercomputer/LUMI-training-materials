@@ -49,10 +49,18 @@ DAY 1
     </tr>
     <tr>
         <td style="width:8em">
-            12:10 CEST
-            <br/><em>13:10 EEST</em>
+            13:50 CEST
+            <br/><em>14:50 EEST</em>
         </td>
         <td><b><a href="../../paow-20260511/ME104a_Session_2/">Exercises (session 2)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            14:20 CEST
+            <br/><em>15:20 EEST</em>
+        </td>
+        <td><b>End of day 1 recommended lectures for the hackathon</b> 
         </td>
     </tr>
 <!--
@@ -103,6 +111,14 @@ DAY 2
             <br/><em>16:40 EEST</em>
         </td>
         <td><b><a href="../../paow-20260511/ME204_AMD_tools_2/">Exercises (session 7)</a></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            17:00 CEST
+            <br/><em>18:00 EEST</em>
+        </td>
+        <td><b>End of day 2 recommended lectures for the hackathon</b> 
         </td>
     </tr>
 </tbody>
