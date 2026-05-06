@@ -2,7 +2,9 @@
 
 ## Hackathon information
 
--   [Local information: Antwerp](localinfo.md)   
+-   [Local information: Antwerp](localinfo.md)
+
+    With directions to Antwerp, to the venue, and hotel, restaurant and bar suggestions.
 
 -   [Tentative schedule](schedule.md) preparatory lectures and hackathon
 

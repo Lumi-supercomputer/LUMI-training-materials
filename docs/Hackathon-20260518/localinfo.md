@@ -7,18 +7,34 @@ The hackathon takes place on the city campus of the University of Antwerp,
 
 See the [map of the city campus](https://462000265.lumidata.eu/hackathon-20260518/files/hackathon-20260518-venue.pdf).
 
--   Monday till Thursday: Room C.101.
+-   Monday till Thursday: Room C.101 (yellow arrow)
   
-    This building can be accessed from Prinsstraat 13. The gate in the middle of the
-    building will take you to a small courtyard. Cross that courtyard to the left
+    This building can be accessed from Prinsstraat 13 (green arrow). 
+    The gate in the middle of the
+    building (the middle gate of those with a wood cover in the scaffolding) 
+    will take you to a small courtyard. Cross that courtyard to the left
     corner, go through the corridor to a bigger courtyard, cross that one also to 
     the left corner, go through the large glass door, go forward through the first 
     hall to the next one which is building C.
 
 -   Friday: Room D.226 which can also be entered through "Grote Kauwenberg"
+    (red arrow)
 
 The venue is within walking distance from the central station, with many hotels
 also within walking distance.
+
+If you don't have breakfast at your hotel, there is a café called 
+["Agora Caffee"](https://www.agoracaffee.com/) (don't discuss the spelling...) 
+in the building complex of the hackathon that is open from 8am till 10pm. 
+On the map, it is marked with the blue arrow. The entrance is also via Grote Kauwenberg.
+In that place you can also find the University beer "Cum Laude". It exists in 
+several variants, but availability changes over time as they do have special
+editions from time to time also. Some variants may only be available in 75cl bottles
+to share. Most likely you'll find the Cum Laude blue which is a blond IPA and 
+relatively low in alcohol for a Belgian beer (6.3%) and a non-alcoholic variant.
+Last time I had them, the blue was only available in 75cl bottles while the non-alcoholic
+one was in 33cl bottles. There is also a Cum Laude Red which is a brown ale, but I haven't
+seen that one for a while.
 
 
 ## How to reach Antwerp?
@@ -83,7 +99,6 @@ More budget options:
     ([location on Google Maps](https://maps.app.goo.gl/Nh5BLmwTZPnPuaGYA))
 
 
-
 ## Some restaurant suggestions for the night
 
 Basically, check the reviews on Google Maps.
@@ -100,6 +115,12 @@ Some good suggestions:
     are always there when the restaurant is open (one in the kitchen
     and one at the bar). The do not serve larger groups though, as
     the kitchen is very small.
+
+    Outside seating is available if the weather is fine. 
+
+    As far as I know they only take reservations for inside but even then you can always
+    move outside if the weather allows. As the place has become rather popular, a
+    reservation may be a good idea which you can [simply do online](https://refill.eatbu.com/?lang=en).
 
 -   There are some suggestions below in the drinks area also.
     [Antwerpse Brouw Compagnie Brouwerij & Taproom](https://maps.app.goo.gl/1DATY7q4SK32VGGv5)
@@ -123,6 +144,10 @@ Some good suggestions:
     in China Town is a relatively cheap place, but the food is good. It is a rather
     busy place. Closed on Wednesday.
 
+-   Hot Pot - Antwerpia is a very small and rather primitive Polish restaurant in
+    Antwerpen.
+    ([Google Maps](https://maps.app.goo.gl/pMuLcREP18TKspcP8))
+
 -   Some other places that drew the attention of the author of this text but where
     he has never been:
 
@@ -138,6 +163,26 @@ Some good suggestions:
     -   [Georgian House](https://georgianhouseantwerpen.be/), close to the Central Station.
         ([Google Maps](https://maps.app.goo.gl/wRasnpKAvEA4kHdC7))
 
+    -   [Yalla Yalla](https://yallayalla.be/) is a lebanese restaurant a bit further
+        away on the Draakplaats, but at the corner of the renowned Cogels-Osylei
+        with beautiful Belle Époque houses.
+        ([Google Maps](https://maps.app.goo.gl/qus9vMguXjnUEzcEA))
+
+        There are a few more restaurants on the Draakplaats that also get good reviews.
+
+    -   Not far from the Draakplaats there is the Dageraadplaats, with the
+        Vietnamese restaurant [Dang's Kitchen](https://dangs.be/) 
+        and Thai restaurant [May's](https://mays.be/)
+        that also get good reviews.
+        ([Google Maps Dang's Kitchen](https://maps.app.goo.gl/V87kkZEoeZGEQjJF6))
+        ([Google Maps May's](https://maps.app.goo.gl/vpKdKewWynQSgKXx9))
+
+-   If you don't want to walk far, there are plenty of restaurants in the 
+    "Statiestraat" and "Breydelstraat" close to the station. Some are tourist traps
+    (and that definitely holds for several of the place on de "De Keyserlei"),
+    but some get good reviews. 
+    ([Google Maps](https://maps.app.goo.gl/qzD13H6PMnPSLfaa6))
+    
 
 ## Drinks in the evening
 
