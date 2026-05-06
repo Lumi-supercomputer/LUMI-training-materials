@@ -105,24 +105,24 @@ DAY 1
     </tr>
     <tr>
         <td style="width:8em">
-            12:10 CEST
-            <br/><em>13:10 EEST</em>
+            13:50 CEST
+            <br/><em>14:50 EEST</em>
         </td>
         <td><b><a href="../ME104a_Session_2/">Exercises (session 2)</a></b>
         </td>
     </tr>
     <tr>
         <td>
-            14:30 CEST
-            <br/><em>15:30 EEST</em>
+            14:20 CEST
+            <br/><em>15:20 EEST</em>
         </td>
         <td><b><em>Break (30 minutes)</em></b>
         </td>
     </tr>
     <tr>
         <td style="width:8em">
-            14:00 CEST
-            <br/><em>15:00 EEST</em>
+            14:50 CEST
+            <br/><em>15:50 EEST</em>
         </td>
         <td><b><a href="../ME104b_Session_3/">Exercises (session 3)</a></b>
         </td>

@@ -79,7 +79,7 @@ downloaded from LUMI.
 | Presentation | slides | recording |
 |:-------------|:-------|:----------|
 | **Day 1** @span |  |  |
-| [Introduction](M100_Course_Introduction.md) | / | [recording](M100_Course_Introduction.md) |
+| [Welcome and introduction](M100_Course_Introduction.md) | / | [recording](M100_Course_Introduction.md) |
 | [Architecture, Programming and Runtime Environment](M101_HPE_PE.md) | [slides](M101_HPE_PE.md#materials) | [lumi](M101_HPE_PE.md) |
 | [Exercises #1](ME101_HPE_PE.md) | / | / |
 | [Compilers, libraries, runtime, single-core optimisations](M102_Compilers.md) | [slides](M102_Compilers.md#materials) | [lumi](M102_Compilers.md) |
@@ -87,24 +87,25 @@ downloaded from LUMI.
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [lumi](M104_AdvancedPerformanceAnalysis.md) |
 | [Exercises #2](ME104a_Session_2.md) | / | / |
 | [Exercises #3](ME104b_Session_3.md) | / | / |
-| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [lumi](M201_MPI.md) |
-| [Exercises #5](ME201_MPI.md) | / | / |
+| [Exercises #4](ME201_MPI.md) | / | / |
 | [I/O Optimizations](M202_IO.md) | [slides](M202_IO.md) | [lumi](M202_IO.md) |
-| [Exercises #6](ME202_IO.md) | / | / |
+| [Exercises #5](ME202_IO.md) | / | / |
 | [AMD Profiling Tools and GPU optimisations 1](M203_AMD_tools_1.md) | [slides](M203_AMD_tools_1.md#materials) | [recording](M203_AMD_tools_1.md) |
-| [Exercises #7](ME203_AMD_tools_1.md) | / | / |
+| [Exercises #6](ME203_AMD_tools_1.md) | / | / |
 | [AMD Profiling Tools and GPU optimisations 2](M204_AMD_tools_2.md) | [slides](M204_AMD_tools_2.md#materials) | [recording](M204_AMD_tools_2.md) |
-| [Exercises #8](ME204_AMD_tools_2.md) | / | / |
+| [Exercises #7](ME204_AMD_tools_2.md) | / | / |
 | **Day 3** @span |  |  |
 | [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
-| [Exercises #9](ME301_Best_Practices_GPU_Optimization.md) | / | / |
+| [Exercises #8](ME301_Best_Practices_GPU_Optimization.md) | / | / |
 | **Extras** @span |  |  |
 | [Appendix: Links to documentation](A01_Documentation.md) | / | / |
 
 ::end-spantable::
-<!-- -->
+<!-- 
+| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
+-->
 
 <!--
 -->
