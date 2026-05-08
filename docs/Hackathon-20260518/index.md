@@ -10,10 +10,8 @@
 
 -   Project that can be used for sharing files with support staff and small experiments: `project_465002953`.
 
-<!--
--   [Hedgedoc for collaboration](https://md.sigma2.no/lumi-hackathon-spring2025?both) (will become unavailable over time,
-    so the link may be dead)
--->
+-   [Hedgedoc for collaboration](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both)
+<!--  (will become unavailable over time, so the link may be dead) -->
 
 ## Preparation: Lectures about HPE and AMD profiling tools
 
