@@ -16,12 +16,7 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/Profiling-October25?both)
-
-    This document is for questions during the course by course participants only.
-    It will not be checked before the course. If you have issues joining the project,
-    please contact the LUMI helpdesk instead.
+-   [HedgeDoc for the sessions with Hackathon participants](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both)
 
 -   Course project: `project_465002770`.
     This project should only be used during the course and be used for the course exercise 
@@ -35,6 +30,13 @@
         and `LUMI_Advanced_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
 
     -   Day 3: `LUMI_Advanced_Day3_gpu` (on the `standard-g` Slurm partition)
+
+<!--
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/Profiling-May26?both)
+
+    This document is for questions during the course by course participants only.
+    It will not be checked before the course. If you have issues joining the project,
+    please contact the LUMI helpdesk instead.
 -->
 
 <!--
