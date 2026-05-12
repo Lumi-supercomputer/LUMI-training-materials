@@ -62,7 +62,7 @@ DAY 1
             <br/><em>11:30 EEST</em>
         </td>
         <td><b><a href="../M102_Compilers/">Compilers, libraries, runtime, single-core optimisations</a></b>
-        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
+        <br/><em>Presenter: Harvey Richardson (HPE)</em>
         <ul>
             <li>Topics relevant to performance and optimization.</li>
         </ul>
@@ -94,7 +94,7 @@ DAY 1
             13:00 CEST
             <br/><em>14:00 EEST</em>
         </td>
-        <td><a name="hackathon_2"></a><b><a href="../M104_AdvancedPerformanceAnalysis/">Advanced Performance Analysis - Demo</a></b>
+        <td><a name="hackathon_2"></a><b><a href="../M104_AdvancedPerformanceAnalysis/">Advanced Performance Analysis</a></b>
         <br/><em>Presenters: Thierry Braconnier and Alfio Lazzaro (HPE)</em>
         <ul>
             <li>Automatic performance analysis and loop work estimated with perftools.</li>
@@ -108,7 +108,7 @@ DAY 1
             13:50 CEST
             <br/><em>14:50 EEST</em>
         </td>
-        <td><b><a href="../ME104a_Session_2/">Exercises (session 2)</a></b>
+        <td><b><a href="../ME104_Session_2/">Exercises (session 2)</a></b>
         </td>
     </tr>
     <tr>
@@ -124,7 +124,8 @@ DAY 1
             14:50 CEST
             <br/><em>15:50 EEST</em>
         </td>
-        <td><b><a href="../ME104b_Session_3/">Exercises (session 3)</a></b>
+        <td><b><a href="../M105_Demo_Optimizing_Code/">Interactive demo/Exercises 3: Strategies for code optimization</a></b>
+        <br/><em>Presenters: Harvey Richardson and Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -322,7 +323,6 @@ DAY 3
     </tr>
 </tbody>
 </table>
-
 
 <!--
 Building blocks:

@@ -16,7 +16,11 @@
 
 -   [Schedule](schedule.md)
 
--   [HedgeDoc for the sessions with Hackathon participants](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/advanced-may-2026?both)
+
+    This document is for questions during the course by course participants only.
+    It will not be checked before the course. If you have issues joining the project,
+    please contact the LUMI helpdesk instead.
 
 -   Course project: `project_465002770`.
     This project should only be used during the course and be used for the course exercise 
@@ -30,14 +34,6 @@
         and `LUMI_Advanced_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
 
     -   Day 3: `LUMI_Advanced_Day3_gpu` (on the `standard-g` Slurm partition)
-
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/Profiling-May26?both)
-
-    This document is for questions during the course by course participants only.
-    It will not be checked before the course. If you have issues joining the project,
-    please contact the LUMI helpdesk instead.
--->
 
 <!--
 ReservationName=LUMI_Advanced_Day1 StartTime=2026-05-11T10:00:00 EndTime=2026-05-11T18:00:00 Duration=08:00:00
@@ -87,8 +83,8 @@ downloaded from LUMI.
 | [Compilers, libraries, runtime, single-core optimisations](M102_Compilers.md) | [slides](M102_Compilers.md#materials) | [lumi](M102_Compilers.md) |
 | [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [lumi](M103_Perftools.md) |
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [lumi](M104_AdvancedPerformanceAnalysis.md) |
-| [Exercises #2](ME104a_Session_2.md) | / | / |
-| [Exercises #3](ME104b_Session_3.md) | / | / |
+| [Exercises #2](ME104_Session_2.md) | / | / |
+| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [lumi](M201_MPI.md) |
 | [Exercises #4](ME201_MPI.md) | / | / |
