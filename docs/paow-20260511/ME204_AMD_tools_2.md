@@ -7,10 +7,14 @@ Participants are encouraged to try out the tools on their own code also.
 
 ## Materials
 
-No materials available at the moment.
+<!-- No materials available at the moment. -->
+
+-   [Rocprof-sys exercises](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof-sys)
+
+-   [Rocprof-compute exercises](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof-compute)
 
 <!--
--   [Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-tal-2025)
+-   [Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-sto-2026)
     and [local clone of this document](exercises_AMD_hackmd.md).
 
 -   Files for the exercises can be downloaded as either a
