@@ -1,5 +1,32 @@
 # Local information
 
+## Wednesday evening dinner
+
+[Full menu in dutch](https://462000265.lumidata.eu/hackathon-20260518/files/ABC-menu-2026.pdf)
+
+We need to make a selection in advance though. 
+[Pleae fill in your choice here](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both#Dinner-Wednesday-evening) towards the bottom of the page.
+
+Starters:
+
+1.  Brewer's soup: Just a seasonal soup
+2.  Cheese croquettes
+3.  Meat croquettes
+
+Main dishes:
+
+1.  Flemish stew with beer sauce, fries and coleslaw.
+2.  Cheeseburger Juicy Lucie with Chef's sauce
+3.  Fish and chips
+4.  Veggie Cheeseburger Juicy Lucie
+
+Desserts
+
+1.  Chocolate mousse
+2.  Apple cake with vanilla ice cream
+3.  Rice pudding (a popular flemish dessert)
+
+
 ## Venue
 
 The hackathon takes place on the city campus of the University of Antwerp, 
