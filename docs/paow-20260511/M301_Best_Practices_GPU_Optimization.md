@@ -12,19 +12,19 @@
 
 Course materials will be provided during and after the course.
 
-<!--
+<!-- -->
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `'/project/project_465002770/Slides/AMD/session 05 - ToolsInActionPytorchExample.pdf'`
 
 -   Scripts: `/project/project_465002770/Exercises/AMD/Pytorch`
--->
+<!-- -->
 
-<!--
 Materials on the web:
 
 -   [Slides on the web](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-3_01-Best_Practices_GPU_Optimization.pdf)
 
+<!--
 -   Downloadable scripts as
     [bzip2-compressed tar archive](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-3_01-scripts.tar.bz2) and 
     [uncompressed tar archive](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-3_01-scripts.tar)
@@ -37,11 +37,11 @@ Materials on the web:
     and [local web backup](exercises_AMD_hackmd.md#pytorch-example).
 -->
 
-<!--
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-3_01-Best_Practices_GPU_Optimization.pdf`
 
+<!--
 -   Scripts as
     bzip2-compressed tar archive in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-3_01-scripts.tar.bz2` and
     uncompressed tar archive in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-3_01-scripts.tar`.
