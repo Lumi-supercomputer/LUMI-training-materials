@@ -5946,6 +5946,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#making-the-exercises-after-the-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making the exercises after the course
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making the exercises after the course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hpe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5980,33 +6019,27 @@ for more information on public transportation in Stockholm.</p>
 <li>
 <p><a href="schedule/">Schedule</a></p>
 </li>
-<li>
-<p><a href="https://siili.rahtiapp.fi/advanced-may-2026?both">HedgeDoc for questions</a></p>
-<p>This document is for questions during the course by course participants only.
-It will not be checked before the course. If you have issues joining the project,
-please contact the LUMI helpdesk instead.</p>
-</li>
-<li>
-<p>Course project: <code>project_465002770</code>.
+</ul>
+<!-- 
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/advanced-may-2026?both)
+
+    This document is for questions during the course by course participants only.
+    It will not be checked before the course. If you have issues joining the project,
+    please contact the LUMI helpdesk instead.
+
+-   Course project: `project_465002770`.
     This project should only be used during the course and be used for the course exercise 
-    sessions only.</p>
-</li>
-<li>
-<p>Reservations:</p>
-<ul>
-<li>
-<p>Day 1: <code>LUMI_Advanced_Day1</code> (on the <code>standard</code> Slurm partition)</p>
-</li>
-<li>
-<p>Day 2: <code>LUMI_Advanced_Day2</code> for CPU (on the <code>standard</code> Slurm partition)
-    and <code>LUMI_Advanced_Day2_gpu</code> for GPU (on the <code>standard-g</code> Slurm partition)</p>
-</li>
-<li>
-<p>Day 3: <code>LUMI_Advanced_Day3_gpu</code> (on the <code>standard-g</code> Slurm partition)</p>
-</li>
-</ul>
-</li>
-</ul>
+    sessions only.
+
+-   Reservations:
+
+    -   Day 1: `LUMI_Advanced_Day1` (on the `standard` Slurm partition)
+
+    -   Day 2: `LUMI_Advanced_Day2` for CPU (on the `standard` Slurm partition)
+        and `LUMI_Advanced_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
+
+    -   Day 3: `LUMI_Advanced_Day3_gpu` (on the `standard-g` Slurm partition)
+-->
 <!--
 ReservationName=LUMI_Advanced_Day1 StartTime=2026-05-11T10:00:00 EndTime=2026-05-11T18:00:00 Duration=08:00:00
    Nodes=nid[002006-002008,002703-002715] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
@@ -6037,8 +6070,9 @@ ReservationName=LUMI_Advanced_Day3_gpu StartTime=2026-05-13T10:00:00 EndTime=202
 <p>Materials will follow as the course progresses</p>
 <p>Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.</p>
-<!-- -->
-<p><strong>Note:</strong> Some links in the table below are dead and will remain so until after the end of the course.</p>
+<!--
+**Note:** Some links in the table below are dead and will remain so until after the end of the course.
+-->
 <div class="span-table-wrapper">
 <table class="span-table">
 <tr>
@@ -6155,57 +6189,43 @@ downloaded from LUMI.</p>
 </tr>
 </table>
 </div>
-<!-- 
-| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
--->
-
-<!--
--->
-
-<!--
-## Making the exercises after the course
-
-### HPE
-
-The exercise material remains available in the course archive on LUMI:
-
--   The PDF notes in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf`
-
--   The other files for the exercises in either a
-    bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar`.
-
-To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
-
+<h2 id="making-the-exercises-after-the-course">Making the exercises after the course<a class="headerlink" href="#making-the-exercises-after-the-course" title="Permanent link">&para;</a></h2>
+<h3 id="hpe">HPE<a class="headerlink" href="#hpe" title="Permanent link">&para;</a></h3>
+<p>The exercise material remains available in the course archive on LUMI:</p>
+<ul>
+<li>
+<p>The PDF notes in <code>/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf</code></p>
+</li>
+<li>
+<p>The other files for the exercises in either a
+    bzip2-compressed tar file <code>/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2</code> or
+    an uncompressed tar file <code>/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar</code>.</p>
+</li>
+</ul>
+<p>To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:</p>
 <div class="highlight"><pre><span></span><code>tar -xf /appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2
 </code></pre></div>
-
-in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
-from the training project. 
-
-However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
+<p>in the directory where you want to work on the exercises. This will create the <code>Exercises/HPE</code> subdirectory
+from the training project. </p>
+<p>However, instead of running the <code>lumi_c.sh</code> or <code>lumi_g.sh</code> scripts that only work for the course as 
 they set the course project as the active project for Slurm and also set a reservation, use the
-`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
-projects.
-
-### AMD
-
-See the notes at each session.
-
-Files for the exercercises can be downloaded as either a
-[bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2)
-or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar)
+<code>lumi_c_after.sh</code> and <code>lumi_g_after.sh</code> scripts instead, but first edit them to use one of your
+projects.</p>
+<h3 id="amd">AMD<a class="headerlink" href="#amd" title="Permanent link">&para;</a></h3>
+<p>See the notes at each session.</p>
+<p>Files for the exercises can be downloaded as either a
+<a href="https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2">bzip2-compressed tar file</a>
+or an <a href="https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar">uncompressed tar file</a>
 and are also archived on LUMI as either the
-bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar`.
-
-There is no guarantee though that the software that is referred to on the system, will be there forever
-or will still work after an update of the system.
-
-!!! Warning
-    The software and exercises were tested thoroughly at the time of the course. LUMI however is in
-    continuous evolution and changes to the system may break exercises and software
--->
+bzip2-compressed tar file <code>/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2</code> or
+an uncompressed tar file <code>/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar</code>.</p>
+<p>There is no guarantee though that the software that is referred to on the system, will be there forever
+or will still work after an update of the system.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The software and exercises were tested thoroughly at the time of the course. LUMI however is in
+continuous evolution and changes to the system may break exercises and software</p>
+</div>
 
 
 
