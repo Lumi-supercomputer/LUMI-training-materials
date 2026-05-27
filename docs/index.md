@@ -6,9 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [LUMI Profiling and Optimization Workshop (Advanced Level) (May 11-13, 2026)](paow-20260511/index.md)
-    on-site at KTH, Stockholm, Sweden.
-
 -   [LUMI-G hackathon, 18-22 May 2026, in Antwerp, Belgium](Hackathon-20260518/index.md)
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
@@ -21,6 +18,13 @@ Most recently completed main training events:
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
+
+-   Program Analysis and Optimization Workshop (advanced level): A shorter version of the 4-day advanced
+    training, focussed on profiling tools and techniques to improve program performance:
+    [LUMI Profiling and Optimization Workshop (Advanced Level) (May 11-13, 2026)](paow-20260511/index.md)
+
+    *Short URL to the most recently completed Program Analysis and Optimization workshop:
+    [lumi-supercomputer.github.io/paow-latest](https://lumi-supercomputer.github.io/paow-latest)*
 
 -   Advanced LUMI training aimed at developers and advanced users, mostly focusing on traditional HPC users:
     [LUMI Intensive Training (March 3-7, 2025)](2p3day-20250303/index.md)

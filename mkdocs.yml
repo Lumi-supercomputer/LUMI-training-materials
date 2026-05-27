@@ -79,10 +79,6 @@ nav:
   - "Smartsim March 2026":
     - smartsim-20260331/index.md
     - Schedule: smartsim-20260331/schedule.md
-  - "Performance Analysis & Optimization October 2025":
-    - paow-20251022/index.md
-    - Schedule: paow-20251022/schedule.md
-    - Course materials: paow-20251022/index.html#course-materials
   - "AI workshop October 2025":
     - ai-20251008/index.md
     - Schedule: ai-20251008/schedule.md
@@ -103,6 +99,10 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - "Performance Analysis & Optimization October 2025":
+      - paow-20251022/index.md
+      - Schedule: paow-20251022/schedule.md
+      - Course materials: paow-20251022/index.html#course-materials
     - "Supercomputing with LUMI October 2025":
       - 2day-20251020/index.md
       - Schedule: 2day-20251020/schedule.md
@@ -220,9 +220,10 @@ plugins:
   # redirects to avoid broken URLs in original version of the tutorial (June 2020)
   - redirects:
       redirect_maps:
+          intro-latest.md: 2day-20260422/index.md
+          paow-latest.md: paow-20260511/index.md
           comprehensive-latest.md: 2p3day-20250303/index.md
           advanced-latest.md: 2p3day-20250303/index.md
-          intro-latest.md: 2day-20260422/index.md
           AI-latest.md: ai-20251008/index.md
           ai-latest.md: ai-20251008/index.md
           update-202308.md: User-Updates/Update-202308/index.md
