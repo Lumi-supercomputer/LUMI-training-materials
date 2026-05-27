@@ -2,7 +2,6 @@
 
 Exercises on I/O optimizations.
 
-<!--
 Directory: `Exercises/HPE/day2/VH1-io`
 
 I/O experiment with striping.
@@ -16,12 +15,13 @@ ALTERNATIVELY look again at MPI with Apprentice
 -   Set only 2 cycles in the input file (indat)
 
 -   Use app2 on .ap2 file to see new displays (see help)
--->
 
 
 ## Materials
 
+<!--
 No materials available at the moment.
+-->
 
 <!--
 Temporary location of materials (for the lifetime of the training project):
@@ -39,7 +39,6 @@ Temporary web-available materials:
      [this link](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf)
 -->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf`
@@ -49,5 +48,4 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar`
--->
 

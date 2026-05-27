@@ -2,21 +2,22 @@
 
 Exercises on using the HPE Cray Programming Environment
 
+<!--
 Exercises are in `Exercises/HPE/day1`.
 
-<!--
 Please don't work in that directory, but copy to your own project or a 
 personal directory in the `project_465002770` directory, e.g., to
 `/scratch/project_465002770/$USER`.
 -->
 
-<!--
 See `Exercises/HPE/01_intro/README.md`
--->
+
 
 ## Materials
 
+<!--
 No materials available at the moment.
+-->
 
 <!--
 Temporary location of materials (for the lifetime of the training project):
@@ -34,13 +35,10 @@ Temporary web-available materials:
 
 -    Overview exercise assignments temporarily available on
      [this link](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf)
--->
-<!--
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-E-2-03-ProgrammingModelExamples_SLURM.pdf).
 -->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf`
@@ -50,4 +48,3 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar`
--->

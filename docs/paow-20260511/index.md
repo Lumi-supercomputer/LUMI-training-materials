@@ -16,8 +16,8 @@
 
 -   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/Profiling-October25?both)
+<!-- 
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/advanced-may-2026?both)
 
     This document is for questions during the course by course participants only.
     It will not be checked before the course. If you have issues joining the project,
@@ -36,7 +36,6 @@
 
     -   Day 3: `LUMI_Advanced_Day3_gpu` (on the `standard-g` Slurm partition)
 -->
-
 <!--
 ReservationName=LUMI_Advanced_Day1 StartTime=2026-05-11T10:00:00 EndTime=2026-05-11T18:00:00 Duration=08:00:00
    Nodes=nid[002006-002008,002703-002715] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
@@ -71,9 +70,9 @@ Materials will follow as the course progresses
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
 
-<!-- -->
+<!--
 **Note:** Some links in the table below are dead and will remain so until after the end of the course.
-
+-->
 ::spantable::
 
 | Presentation | slides | recording |
@@ -85,8 +84,8 @@ downloaded from LUMI.
 | [Compilers, libraries, runtime, single-core optimisations](M102_Compilers.md) | [slides](M102_Compilers.md#materials) | [lumi](M102_Compilers.md) |
 | [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [lumi](M103_Perftools.md) |
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [lumi](M104_AdvancedPerformanceAnalysis.md) |
-| [Exercises #2](ME104a_Session_2.md) | / | / |
-| [Exercises #3](ME104b_Session_3.md) | / | / |
+| [Exercises #2](ME104_Session_2.md) | / | / |
+| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [lumi](M201_MPI.md) |
 | [Exercises #4](ME201_MPI.md) | / | / |
@@ -103,14 +102,8 @@ downloaded from LUMI.
 | [Appendix: Links to documentation](A01_Documentation.md) | / | / |
 
 ::end-spantable::
-<!-- 
-| [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
--->
 
-<!--
--->
 
-<!--
 ## Making the exercises after the course
 
 ### HPE
@@ -137,16 +130,17 @@ they set the course project as the active project for Slurm and also set a reser
 `lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
 projects.
 
+
 ### AMD
 
 See the notes at each session.
 
-Files for the exercercises can be downloaded as either a
+Files for the exercises can be downloaded as either a
 [bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2)
 or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar)
 and are also archived on LUMI as either the
 bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar`.
+an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar`.
 
 There is no guarantee though that the software that is referred to on the system, will be there forever
 or will still work after an update of the system.
@@ -154,6 +148,4 @@ or will still work after an update of the system.
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
-
 
