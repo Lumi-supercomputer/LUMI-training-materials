@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [LUMI-G hackathon, 18-22 May 2026, in Antwerp, Belgium](Hackathon-20260518/index.md)
-
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
 
 
