@@ -11,7 +11,8 @@
 -   Project that can be used for sharing files with support staff and small experiments: `project_465002953`.
 
 -   [Hedgedoc for collaboration](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both)
-<!--  (will become unavailable over time, so the link may be dead) -->
+    (will become unavailable over time, so the link may be dead)
+
 
 ## Preparation: Lectures about HPE and AMD profiling tools
 
@@ -41,16 +42,17 @@ Recommended lectures:
 
 See also the [tentative schedule of the hackathon](schedule.md)
 
-<!--
+
 ## Projects
 
 In alphabetical order:
--->
 
-<!--
--   Agile
--   Mammoth
--   McStas
--   Terraneo
--   UppASD
--->
+-   [Agile](https://github.com/amrvac/AGILE)
+
+-   Murphy is a multiresolution multiphysics code developed at MIT and Louvain-la-Neuve.
+    It wasn't really selected as a hackathon project, but as one of the developers had questions in a LUMI 
+    ticket they were invited to come and discuss those and one person attended the hackathon for two days.
+
+-   [Terraneo](https://terraneo.fau.de/)
+
+-   UppASD GPU port optimizations (Fortran code with OpenMP)

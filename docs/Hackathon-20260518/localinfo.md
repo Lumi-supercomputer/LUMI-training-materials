@@ -1,32 +1,5 @@
 # Local information
 
-## Wednesday evening dinner
-
-[Full menu in dutch](https://462000265.lumidata.eu/hackathon-20260518/files/ABC-menu-2026.pdf)
-
-We need to make a selection in advance though. 
-[Pleae fill in your choice here](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both#Dinner-Wednesday-evening) towards the bottom of the page.
-
-Starters:
-
-1.  Brewer's soup: Just a seasonal soup
-2.  Cheese croquettes
-3.  Meat croquettes
-
-Main dishes:
-
-1.  Flemish stew with beer sauce, fries and coleslaw.
-2.  Cheeseburger Juicy Lucie with Chef's sauce
-3.  Fish and chips
-4.  Veggie Cheeseburger Juicy Lucie
-
-Desserts
-
-1.  Chocolate mousse
-2.  Apple cake with vanilla ice cream
-3.  Rice pudding (a popular flemish dessert)
-
-
 ## Venue
 
 The hackathon takes place on the city campus of the University of Antwerp, 
@@ -140,7 +113,7 @@ Some good suggestions:
     [Refill](https://maps.app.goo.gl/e9DjqnnvM6QSGYnZ8)
     is a fine option. Belgian-style food done well, and the owners 
     are always there when the restaurant is open (one in the kitchen
-    and one at the bar). The do not serve larger groups though, as
+    and one at the bar). They do not serve larger groups though, as
     the kitchen is very small.
 
     Outside seating is available if the weather is fine. 
@@ -216,7 +189,7 @@ Some good suggestions:
 -   [Beerlovers Bar](https://maps.app.goo.gl/FE7F8hxcxZSKD5CPA): 
     Tested and approved recently by the EPICURE and by a LUST activity. 
     There is some outside seating also, but in a busy and noisy environment.
-    It is also the closes non-tourist-trap place for quality beer if you stay near the
+    It is also the closest non-tourist-trap place for quality beer if you stay near the
     central station.
     Closed on Tuesday.
 
@@ -236,9 +209,6 @@ Some good suggestions:
     There is some outside seating also.
     Closed on Wednesday.
 
--   [The Northerner](https://maps.app.goo.gl/dZdXzo5oGvg7JF9EA). 
-    Closed on Monday.
-
 -   [Billie's Bier Kafétaria](https://maps.app.goo.gl/jfZKMz7gxMZAEb6F7): Very small place. 
     They do serve food at night also.
     Closed on Tuesday.
@@ -252,3 +222,28 @@ Some good suggestions:
     The place is a bit hard to find, but you can trust the location on Google Maps
     (and [this picture on Google Maps](https://maps.app.goo.gl/QTiVtGWvXJGFK7wi6))
     Only closed on Sunday.
+
+
+## Wednesday evening group dinner
+
+We have a group dinner at [Antwerp Brew Company](https://seef.be/en/) ([Google maps](https://maps.app.goo.gl/mfxAgMLcdDtdf4wr5)).
+
+[Full menu in dutch](https://462000265.lumidata.eu/hackathon-20260518/files/ABC-menu-2026.pdf)
+
+We need to make a selection in advance though. 
+[Pleae fill in your choice here](https://siili.rahtiapp.fi/hackatchon-may-antwerp?both#Dinner-Wednesday-evening) towards the bottom of the page.
+
+Main dishes:
+
+1.  Flemish stew with beer sauce, fries and coleslaw.
+2.  Cheeseburger Juicy Lucie with Chef's sauce
+3.  Fish and chips
+4.  Veggie Cheeseburger Juicy Lucie
+
+Desserts
+
+1.  Chocolate mousse
+2.  Apple cake with vanilla ice cream
+3.  Rice pudding (a popular flemish dessert)
+
+

@@ -86,8 +86,6 @@ nav:
   - EasyBuild June 2025:
     - EasyBuild-LUST-20250604/index.md
     - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
-  - Hackathon May 2025:
-    - Hackathon-20250512/index.md
   - Profiling May 2025:
     - Profiling-20250507/index.md
   - LUMI intensive March 2025:
@@ -115,6 +113,8 @@ nav:
       - ai-20250527/index.md
       - Schedule: ai-20250527/schedule.md
       - Course materials: ai-20250527/index.html#course-materials
+    - Hackathon May 2025:
+      - Hackathon-20250512/index.md
     - AI workshop February 2025:
       - ai-20250204/index.md
       - Schedule: ai-20250204/schedule.md
