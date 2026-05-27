@@ -9,50 +9,40 @@ Participants are encouraged to try out the tools on their own code also.
 
 <!-- No materials available at the moment. -->
 
+<!--
 -   [Rocprof-sys exercises](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof-sys)
 
 -   [Rocprof-compute exercises](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof-compute)
+-->
 
-<!--
 -   [Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-sto-2026)
     and [local clone of this document](exercises_AMD_hackmd.md).
+
+    Sections on Rocprof-sys:
+    
+    -   [original hackmd document](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof-sys)
+  
+    -   [local copy with some updates](exercises_AMD_hackmd.md#rocprof-sys)
+    
+    and Rocprof-compute:
+    
+    -   [original hackmd document](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof-compute)
+  
+    -   [local copy with some updates](exercises_AMD_hackmd.md#Rocprof-compute)
 
 -   Files for the exercises can be downloaded as either a
     [bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2)
     or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar)
--->
 
-<!--
--   [Basic examples](https://hackmd.io/@sfantao/lumi-training-oslo2024-basic-examples)
 
-    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-basic-examples.html)[^1]
-    or as as [MHTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-basic-examples.mhtml)[^2]
-
--   [Advanced Omniperf examples part 1](https://hackmd.io/@sfantao/lumi-training-oslo2024-advanced-omniperf1): Exercises 1-4
-
-    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-advanced-omniperf-examples-1.html)[^1]
-    or as as [MHTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-advanced-omniperf-examples-1.mhtml)[^2]
-
--   [Advanced Omniperf examples part 2](https://hackmd.io/@sfantao/lumi-training-oslo2024-advanced-omniperf2): Exercise 5
-
-    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-advanced-omniperf-examples-2.html)[^1]
-    or as as [MHTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-advanced-omniperf-examples-2.mhtml)[^2]
-
-[^1]: Single-page HTML with embedded figures, but some layout issues.
-
-[^2]: Supported by several Chromium-based browsers, but currently due 
-to the way the pages are served, the page will be downloaded.
--->
-
-<!--
 Archived materials on LUMI:
 
 -   Exercise files as either a
     bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2` or
     an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar`.
--->
 
-
+<!--
 ## Q&A
 
 /
+-->

@@ -2,13 +2,11 @@
 
 *Presenter: Samuel Antao (AMD)*
 
-<!--
-=== "Omnitrace"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_04a_AMD_tools_2a_omnitrace.mp4" controls="controls"></video>
+=== "rocprofiler-sys"
+    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_04a_AMD_tools_2a_rocprof-sys.mp4" controls="controls"></video>
 
-=== "Omniperf (rocprofiler-compute)"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_04b_AMD_tools_2b_omniperf.mp4" controls="controls"></video>
--->
+=== "rocprofiler-compute"
+    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_04b_AMD_tools_2b_rocprof-compute.mp4" controls="controls"></video>
 
 
 ## Materials
@@ -24,14 +22,13 @@ Directly available as web downloads:
 <!--
 -   The last slides cover [exercises for this session](ME_2_02_AMD_tools_2.md#materials)
 -->
-
-<!-- -->
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Presentation 1: System Profiling with rocprofiler-sys: `'/project/project_465002770/Slides/AMD/session 03 - rocprof-sys.pdf'`
 
 -   Presentation 2: Introduction to Rocprofiler-compute: `'/project/project_465002770/Slides/AMD/session 04 - rocprof-compute.pdf'`
-<!-- -->
+-->
 
 Archived materials on LUMI:
 
@@ -39,9 +36,8 @@ Archived materials on LUMI:
 
 -   Presentation 2: Introduction to Rocprofiler-compute: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_02_rocprof-compute.pdf`
 
-<!--
--   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_04a_AMD_tools_2a_omnitrace.mp4` and `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_04b_AMD_tools_2b_omniperf.mp4`
--->
+-   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_04a_AMD_tools_2a_rocprof-sys.mp4` and `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_04b_AMD_tools_2b_rocprof-compute.mp4`
+
 
 ## Links from the slides
 
@@ -56,6 +52,8 @@ Archived materials on LUMI:
     Interesting page: [Definitions of various terms used in the tool](https://rocm.docs.amd.com/projects/rocprofiler-compute/en/latest/conceptual/definitions.html)
 
 
+<!--
 ## Q&A
 
 /
+-->

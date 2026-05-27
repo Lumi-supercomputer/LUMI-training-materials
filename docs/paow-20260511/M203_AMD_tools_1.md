@@ -2,13 +2,12 @@
 
 *Presenter: Samuel Antao (AMD)*
 
-<!--
 === "HIP and ROCm"
     <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_03a_AMD_tools_1a_ROCm.mp4" controls="controls"></video>
 
 === "ROC-profiler"
     <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4" controls="controls"></video>
--->
+
 
 ## Materials
 
@@ -20,12 +19,13 @@ Directly available as web downloads:
 
 -   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_01_introduction-to-rocprof.pdf)
 
-<!-- -->
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides first part of the presentation: HIP and ROCm: `'/project/project_465002770/Slides/AMD/session 01 - HIP and ROCm.pdf'`
 
 -   Slides second part of the presentation: Introduction to ROC-Profiler: `'/project/project_465002770/Slides/AMD/session 02 - introduction to rocprof.pdf'`
+-->
 
 <!--
 -   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
@@ -38,10 +38,8 @@ Archived materials on LUMI:
 
 -   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_01_introduction-to-rocprof.pdf`
 
-<!--
 -   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_03a_AMD_tools_1a_ROCm.mp4` and
-    `LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4`
--->
+    `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4`
 
 
 ## References (from the slides)
@@ -75,6 +73,8 @@ Archived materials on LUMI:
 -->
 
 
+<!--
 ## Q&A
 
 /
+-->

@@ -23,7 +23,7 @@ ALTERNATIVELY look again at MPI with Apprentice
 No materials available at the moment.
 -->
 
-<!-- -->
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -37,17 +37,15 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 2 temporarily available on
      [this link](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf)
-<!-- -->
+-->
 
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.pdf`
 
-<!--
 -   Exercises as bizp2-compressed tar file in
     `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2`
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar`
--->
 

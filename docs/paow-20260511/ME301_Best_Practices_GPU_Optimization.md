@@ -8,6 +8,8 @@ Participants are encouraged to try out the materials of this course on their own
 No materials available.
 
 
+<!--
 ## Q&A
 
 /
+-->

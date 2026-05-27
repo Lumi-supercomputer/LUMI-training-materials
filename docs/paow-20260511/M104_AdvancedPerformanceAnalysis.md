@@ -1,24 +1,23 @@
 # Advanced Performance Analysis
 
-*Presenter: Thierry Braconnier and Alfio Lazzaro (HPE)*
+*Presenter: Thierry Braconnier (HPE)*
 
 ## Materials
 
+<!--
 Course materials will be made available during and after the course
-
-<!-- -->
+-->
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `/project/project_465002770/Slides/HPE/04_advanced_performance_analysis_merged.pdf`
-<!-- -->
+-   -->
 
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-1_04_advanced_performance_analysis.pdf`
 
-<!--
 -   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-1_04_AdvancedPerformanceAnalysis.mp4`
--->
 
 These materials can only be distributed to actual users of LUMI (active user account).
 
