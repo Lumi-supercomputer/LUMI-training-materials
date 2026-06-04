@@ -30,7 +30,7 @@ DAY 1
             <br/><em>10:15 EEST</em>
         </td>
         <td><b><a href="../extra_01_Introduction/">Introduction to LUMI</a></b>
-        <br/><em>Presenter: Gregor Decristoforo (LUST)</em>
+        <br/><em>Presenter: Henk Dreuning (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@ DAY 1
             <br/><em>10:45 EEST</em>
         </td>
         <td><b><a href="../extra_02_Webinterface/">Using the LUMI web interface</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Oskar Taubert (CSC)</em>
+        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@ DAY 1
             <br/><em>11:50 EEST</em>
         </td>
         <td><b><a href="../extra_03_FirstJob/">Your first AI training job on LUMI</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Oskar Taubert (CSC)</em>
+        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ DAY 1
             <br/><em>14:05 EEST</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenter: Marius Kurz, Samuel Antão (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -148,7 +148,7 @@ DAY 1
             <br/><em>16:20 EEST</em>
         </td>
         <td><b><a href="../extra_07_VirtualEnvironments/">Extending containers with virtual environments for faster testing</a></b>
-        </br><em>Presenter: Gregor Decristoforo (LUST)</em>
+        </br><em>Presenter: Henk Dreuning (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -182,7 +182,7 @@ DAY 2
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_08_MultipleGPUs">Scaling AI training to multiple GPUs</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Oskar Taubert (CSC)</em>
+        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ DAY 2
             <br/><em>11:35 EEST</em>
         </td>
         <td><b><a href="../extra_09_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenter: Samuel Antão, Marius Kurz, Paul Bauer (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -251,6 +251,7 @@ DAY 2
         </td>
         <td><b><a href="../E12_Project_and_QA">Hands-on: Advancing your own project and Q&A</a></b>
         <br/>Bring your own AI code, you want to run on LUMI, and spent some time applying what you have learned during the workshop - with on-site support from LUST/AMD.
+        <br/><b>(Coffee with snack at 14:00 CEST.)</b>
         </td>
     </tr>
     <tr>

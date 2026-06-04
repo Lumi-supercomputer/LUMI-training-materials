@@ -1,7 +1,7 @@
 # Moving your AI training jobs to LUMI workshop - UiT, Tromsø, June 11-12, 2026
 
 !!! Note
-    If you are looking for course materials, check the pages of the 
+    If you are looking for course materials in advance of the course, check the pages of the 
     [previous edition in October 2025](../ai-20251008/index.md).
     The previous course was still based on the LUST/AMD containers and CSC modules,
     while this edition is fully based on the 
@@ -13,41 +13,39 @@
 -   Location: UiT - The Artic University of Norway, Tromsø.
     [University library room UB 244 (2nd floor)](https://use.mazemap.com/#v=1&config=uit&campusid=5&zlevel=1&center=18.973518,69.680798&zoom=18&sharepoitype=poi&sharepoi=174057&search=244)
 
--   Schedule: TBA
-<!--
--   [Very preliminary schedule](schedule.md)
--->
+-   [Schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/lumi-ai-workshop-oct25?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-June2026?both)
    
     Questions with longer-term relevance will be incorporated into the pages linked below.
     This HedgeDoc document will not be monitored anymore for further questions after the course.
     The link will likely die over time.
 
 -   [Zoom link](https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09) 
+    <br/>Meeting ID: 652 0710 8811
+    <br/>Passcode: 530739
 
 -   There are two Slurm reservations for the course. One for each day:
 
     -   First day: `AI_workshop_Day1` (on the `small-g` Slurm partition)
     -   Second day: `AI_workshop_Day2` (on the `standard-g` Slurm partition)
 
-    Project with the compute resources: `project_465002178`.
+    Project with the compute resources: `project_465002757`.
     These resources are limited and should only be used for the exercises during
     the course and not for your own work.
--->
+
 
 <!--
-ReservationName=AI_workshop_Day1 StartTime=2025-10-08T10:00:00 EndTime=2025-10-08T20:00:00 Duration=10:00:00
-   Nodes=nid[005026-005041] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=small-g Flags=
+ReservationName=AI_workshop_Day1 StartTime=2026-06-11T10:00:00 EndTime=2026-06-11T17:30:00 Duration=07:30:00
+   Nodes=nid[005039,005052,005056,005059,005066,005088,005098,005102,005109,007861-007863,007884-007885,007899-007900] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=small-g Flags=
    TRES=cpu=2048
-   Users=(null) Groups=(null) Accounts=project_465002178 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+   Users=(null) Groups=(null) Accounts=project_465002757 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=AI_workshop_Day2 StartTime=2025-10-09T10:00:00 EndTime=2025-10-09T20:00:00 Duration=10:00:00
-   Nodes=nid[005124-005139] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
-   TRES=cpu=2048
-   Users=(null) Groups=(null) Accounts=project_465002178 Licenses=(null) State=INACTIVE BurstBuffer=(null) Watts=n/a
+ReservationName=AI_workshop_Day2 StartTime=2026-06-12T10:00:00 EndTime=2026-06-12T17:30:00 Duration=07:30:00
+   Nodes=nid[005133,005146,005184,005211,005236,005292-005293,005304,005321,005346,005348-005349,005353,005380,005408,005538,005540-005541,005584-005585,005659,006401,006516-006518,006522-006523,006703,006794-006795,006906-006907] NodeCnt=32 CoreCnt=2048 Features=(null) PartitionName=standard-g Flags=
+   TRES=cpu=4096
+   Users=(null) Groups=(null) Accounts=project_465002757 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 -->
 
@@ -142,7 +140,12 @@ materials are uploaded.
 
     -   [Main documentation](https://docs.lumi-supercomputer.eu/)
 
+    -   [LUMI AI Factory documentation as part of the main LUMI documentation](https://docs.lumi-supercomputer.eu/laif/)
+
     -   [Shortcut to the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
 
     -   [LUMI AI guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
 
+    -   [Main LUMI web page](https://lumi-supercomputer.eu/)
+  
+    -   [Main LUMI AI Factory web page](https://lumi-ai-factory.eu/)

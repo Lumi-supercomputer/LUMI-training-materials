@@ -1,6 +1,6 @@
 # Introduction to LUMI
 
-*Presenter:* Gregor Decristoforo (LUST)
+*Presenter:* Henk Dreuning (LUST)
 
 Content:
 
