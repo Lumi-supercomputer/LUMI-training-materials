@@ -19,10 +19,5 @@ A video recording of the discussion of the solution will follow.
 
 ## Q&A
 
-1.  Does `cotainr` set `SINGULARITY_CACHEDIR` and `_TMPDIR` internally?
-
-    -   Is your question essentially where the container is build? If yes, 
-        then `cotainr` creates a singularity sandbox in the `/tmp` folder. 
-        It uses the `tempfile` module built into python to determine the folder. 
-
+/
 
