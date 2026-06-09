@@ -54,7 +54,6 @@ Course materials include the Q&A of each session, slides when available and note
 | [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
 | [Exercises 3](ME105-Exercises-3.md) | / | / | / |
 | [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-106-Support.pdf) | [N](106-Support.md) | [V](M106-Support.md) |
-| [PRACE National Node in Latvia](M107-LocalTalk) | / | / | / |
 | [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
 | **Day 2** @span |  |  |  |
 | [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20260422/files/LUMI-2day-20260422-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
