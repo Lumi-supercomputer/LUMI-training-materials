@@ -1,6 +1,6 @@
 # LUMI Support and Documentation
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Dan Jonsson (LUST)*
 
 Where can I find documentation or get training, and which support services are 
 available for what problems? And how can I formulate a support ticket so that I can

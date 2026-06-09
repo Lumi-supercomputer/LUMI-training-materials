@@ -23,6 +23,7 @@ Materials will be made available after the lecture
 
 -   [Course notes](205-Containers.md)
 
+<!--
 There are two demos illustrating material from this talk:
 
 -   [Demo 1](Demo1.md): Installing Fooocus on top of an existing container provided by LUST.
@@ -35,6 +36,7 @@ There are two demos illustrating material from this talk:
 
 The videos of the demos are older ones, but the material in the notes was correct at the time of
 the course.
+-->
 
 
 ## Q&A

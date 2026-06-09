@@ -118,6 +118,7 @@ that still needs to be transferred but is not immediately needed by jobs, or to
 maintain backups on LUMI yourself.
 
 
+
 ## A comparison between Lustre and LUMI-O
 
 Or: What are the differences between a parallel filesystem and object storage?
@@ -308,6 +309,16 @@ There is no "best" here: both are different technologies, developed with a speci
 and which one you should use is hence dictated by the technology that you want to use to store your
 data. 
 
+??? Note "S3 files"
+    AWS recently (April 2026) launched the ["S3 Files" service](https://aws.amazon.com/blogs/aws/launching-s3-files-making-s3-buckets-accessible-as-file-systems/)
+    which can make objects available as files in a filesystem. This is done through clever 
+    caching systems, etc., as access to an object still has to be through a few atomic
+    operations. Though in principle the `rclone` tool does support fuse-mounting buckets
+    also and make them appear as a regular filesystem, 
+    we would not recommend trying this out on LUMI. The support that `rclone` offers
+    for having a file view is not nearly as sophisticated as what S3 files offers
+    and not all regular filesystem operations are fully supported.
+
 
 ## Accessing LUMI-O: General principles
 
@@ -462,9 +473,12 @@ Let's walk through the interface:
 
     This screen shows us the snippet for the rclone configuration file (on Linux it is
     `~/.config/rclone/rclone.conf`). Notice that it creates two so-called endpoints. In the slide
-    this is `lumi-465001102-private` and `lumi-465001102-public`, for storing buckets and objects which are private
+    this is `lumi-465002175-private` and `lumi-465002175-public`, for storing buckets and objects which are private
     or public (i.e., also web-accessible).
     We'll come back to what this means later, when we discuss access rights.
+
+    Note that you should never show your access key ID and secret to someone else. Revoke the key
+    immediately is something like this happens!
 
 
 ### Credential management and access through Open OnDemand
@@ -1002,7 +1016,8 @@ deleted when project A ends. If the data on LUMI-O is in the space of project A,
 will be deleted after the 90-day grace period after the end of the project, even if project B is
 still a valid project. On LUMI-O, data is not deleted while a project is valid, is made read-only
 after the end of a project for a 90-day grace period, and is then queued for deletion, so
-just as for the Lustre filesystems, you need to move out the data in time.
+just as for the Lustre filesystems, you need to move out the data in time. (And in fact, currently
+it is also not made read-only.)
 
 
 ## Further LUMI-O documentation

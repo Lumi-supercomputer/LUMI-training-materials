@@ -1,6 +1,6 @@
 # Slurm on LUMI
 
-*Presenter: Kurt Lust (LUST)*
+*Presenter: Tuomas Lunttila (LUST)*
 
 Slurm is the batch job scheduler used on LUMI. As no two Slurm configurations are
 identical, even an experienced Slurm user should have a quick look at the notes of this
