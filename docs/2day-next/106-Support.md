@@ -89,7 +89,7 @@ all his tasks. Here also the lumi-be-support@enccb.be mail address can be used.
 -   The [AI Factories](https://digital-strategy.ec.europa.eu/en/policies/ai-factories) are an initiative
     that is more oriented towards the use of AI in industry, and especially for generative AI models.
 
--   In principle the [EuroHPC Centres of Excellence](https://www.hpccoe.eu/) should also play a role in porting some applications in their
+-   In principle the [EuroHPC Centres of Excellence](https://hpc-portal.eu/coes) should also play a role in porting some applications in their
     field of expertise and offer some support and training, but so far especially the support and training are
     not yet what one would like to have.
 -->
@@ -113,7 +113,7 @@ all his tasks. Here also the lumi-be-support@enccb.be mail address can be used.
 -   The [AI Factories](https://digital-strategy.ec.europa.eu/en/policies/ai-factories) are an initiative
     that is more oriented towards the use of AI in industry, and especially for generative AI models.
 
--   In principle the [EuroHPC Centres of Excellence](https://www.hpccoe.eu/) should also play a role in porting some applications in their
+-   In principle the [EuroHPC Centres of Excellence](https://hpc-portal.eu/coes) should also play a role in porting some applications in their
     field of expertise and offer some support and training, but so far especially the support and training are
     not yet what one would like to have.
 
@@ -148,7 +148,7 @@ it is nearly impossible to find suitable teachers for such course given the amou
 in both the specific application and the specific system. It would also be hard to repeat such a training
 with a high enough frequency to deal with the continuous inflow of new users.
 
-The LUMI User Support Team organises 2 system-specific trainings:
+The LUMI User Support Team organises 3 system-specific trainings:
 
 <!-- BELGIUM
 1.  There is a 2-day introductory course entirely given by members of the LUST.
@@ -164,11 +164,13 @@ The LUMI User Support Team organises 2 system-specific trainings:
     The training does assume familiarity with HPC systems, and each local organisation
     should offer such courses for their local systems already.
 
-2.  And there is a 4-day advanced training or 5-day training that includes the introductory one
-    with more attention on how to run efficiently, and on the
-    development and profiling tools. Even if you are not a developer, you may benefit from more knowledge
-    about these tools as especially a profiler can give you insight in why your application does not run
-    as expected.
+2.  And there is an advanced training that may or may not be linked to the introductory one,
+    and there are two variants of it. One variant focusses on all HPE and AMD tools, including
+    compilers and debuggers, while the other variant (usually 2.5 days) focusses only on
+    profiling and performance optimisation tools and best practices.
+
+3.   Apart from these more HPC-oriented trainings, there is also a 2-day introductory
+     training to using AI software on LUMI with a heavy focus on PyTorch.
 
 <!-- BELGIUM
 This particular training is similar to the 2-day LUMI training offered by the LUST
@@ -186,9 +188,9 @@ factories, more oriented towards industry startups, and the MINERVA project.
 
 Currently the training landscape in Europe is not too well organised. EuroHPC is starting some new
 training initiatives to succeed the excellent PRACE trainings.
-Moreover, CASTIEL, the centre coordinating the National Competence Centres and EuroHPC Centres of Excellence also 
-[tries to maintain an overview of available trainings](https://www.eurocc-access.eu/services/training/)
-(and several National Competence Centres organise trainings open to others also).
+There is now also a [training section](https://hpc-portal.eu/training) in the
+[HPC in Europe portal](https://hpc-portal.eu/) that contains a lot of available courses
+and training materials.
 
 
 ### Read/search the documentation
@@ -345,7 +347,7 @@ so we cannot see your data and you will have to pass all relevant information to
 
 The LUST help desk should be contacted through 
 [web forms in the "User Support - Contact Us" section of the main LUMI web site](https://lumi-supercomputer.eu/user-support/need-help/).
-The page is also linked from the ["Help Desk" page in the LUMI documentation](https://docs.lumi-supercomputer.eu/help desk/).
+The page is also linked from the ["Help Desk" page in the LUMI documentation](https://docs.lumi-supercomputer.eu/helpdesk/).
 These forms help you to provide more information that we need to deal with your support request.
 Please do not email directly to the support web address (that you will know as soon as we answer at ticket as that
 is done through e-mail).
@@ -521,9 +523,13 @@ Some proper examples are
     -   This does include your geographical location. Doing things from work may have different issues
         then doing things from your home connection, and being abroad may be part of the problem!
 
-        -   Extreme example: Iran blocks most encrypted internet traffic going abroad.
-            This is an extreme example though as you are not allowed to use LUMI while being in Iran as
-            it breaks the US export restrictions and hence the LUMI conditions of use.
+        -   Note that access to LUMI is blocked from certain countries due to EU or USA export
+            restrictions (as USA export restrictions also apply as the hardware and some of the
+            software is from USA companies). Do not try to circumvent those restrictions by
+            using a VPN. If we find out, you get a permanent ban from LUMI!
+
+        -   But some countries or sites may also block outgoing internet traffic.
+
 
 -   What software are you using, and how was it installed or where did you find it?
 

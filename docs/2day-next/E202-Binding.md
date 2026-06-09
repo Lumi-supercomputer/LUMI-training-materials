@@ -15,11 +15,13 @@
 	#SBATCH --time=5                    # Run time (minutes)
 	#SBATCH --account=<project_id>      # Project for billing
 
-	module load LUMI/24.03
-	module load lumi-CPEtools/1.2a-cpeGNU-24.03
+	module load LUMI/25.03
+	module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 	srun --cpus-per-task=$SLURM_CPUS_PER_TASK hybrid_check -n -r
 	``` 
+
+	(or omit the `-n` argument of `hybrid_check` which can make the output more readable).
 
     Improve the thread affinity with OpenMP runtime variables. 
     Alter the above script and ensure that each thread is bound to
@@ -61,8 +63,8 @@
 		#SBATCH --time=5                    # Run time (minutes)
 		#SBATCH --account=<project_id>      # Project for billing
 
-		module load LUMI/24.03
-		module load lumi-CPEtools/1.2a-cpeGNU-24.03
+		module load LUMI/25.03
+		module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 		export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 
@@ -103,7 +105,7 @@
 		
 		We can chose between different approaches. In the example below,
 		we follow the 
-		"GPU binding: Linear GCD, match cores" 
+		["GPU binding: Linear GCD, match cores"](202-Binding.md#linear-assignment-of-gcd-then-match-the-cores) 
 		slides and we only need to adapt the CPU mask:
 		
 		```
@@ -114,10 +116,113 @@
 		#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
 		#SBATCH --time=5                    # Run time (minutes)
 		#SBATCH --account=<project_id>      # Project for billing
-		#SBATCH --hint=nomultithread
 		
-		module load LUMI/24.03 partition/G
-		module load lumi-CPEtools/1.2a-cpeGNU-24.03
+		module load LUMI/25.03 partition/G
+		module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+		CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
+		CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+		CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
+		CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
+		
+		export OMP_NUM_THREADS=6
+		export OMP_PROC_BIND=close
+		export OMP_PLACES=cores
+		
+		srun --cpu-bind=${CPU_BIND} \
+		     --gpu-bind=map:0,1,2,3,4,5,6,7 --gres-flags=allow-task-sharing \
+			 gpu_check -l
+		```
+
+		The base mask we need for this exercise, with each first and last core of a chiplet disabled,
+		is `01111110` which is `0x7e` in hexadecimal notation (though using `0xfe`
+		as the building block would also have worked as we already limit the number
+		of threads to 6 through `OMP_NUM_THREADS` and use other binding variables
+		that will bind all threads as close as possible to the core with relative
+		number 1 of each chiplet).
+
+		Save the job script as `job_step.sh` then simply submit it with sbatch. Inspect the job output.
+		
+		Note that in fact, if you had used the `cpeCray` version of the
+		`lumi-CPEtools` module, 
+		you don't even need to use the `OMP_*` environment variables above as the threads are 
+		automatically pinned to a single core and as the correct number of threads is derived from
+		the affinity mask for each task.
+
+		An alternative is to use a 
+		[linear CCD mapping, adapting the order of the GPUs](202-Binding.md#linear-assignment-of-the-ccds-then-match-the-gcd):
+
+		```
+		#!/bin/bash -l
+		#SBATCH --partition=standard-g      # Partition (queue) name
+		#SBATCH --nodes=1                   # Total number of nodes
+		#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+		#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
+		#SBATCH --time=5                    # Run time (minutes)
+		#SBATCH --account=<project_id>      # Project for billing
+		
+		module load LUMI/25.03 partition/G
+		module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+		CPU_BIND="mask_cpu:0x7e,0x7e00,"
+		CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+		CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
+		CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
+		
+		export OMP_NUM_THREADS=6
+		export OMP_PROC_BIND=close
+		export OMP_PLACES=cores
+		
+		srun --cpu-bind=${CPU_BIND} \
+		     --gpu-bind=map:4,5,2,3,6,7,0,1 --gres-flags=allow-task-sharing \
+			 gpu_check -l
+		```
+
+		As the code that we want to run is OpenMP-based and as threads can be restricted via OpenMP
+		environment variables, we can as well make life easier then and simply allocate 7 cores to 
+		each task, then restricting via OpenMP environment variables. So we can also use
+		`--cps-per-task`: 
+
+		```
+		#!/bin/bash -l
+		#SBATCH --partition=standard-g      # Partition (queue) name
+		#SBATCH --nodes=1                   # Total number of nodes
+		#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+		#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
+		#SBATCH --time=5                    # Run time (minutes)
+		#SBATCH --account=<project_id>      # Project for billing
+		
+		module load LUMI/25.03 partition/G
+		module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+		CPU_BIND="mask_cpu:0x7e,0x7e00,"
+		CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+		CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
+		CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
+		
+		export OMP_NUM_THREADS=6
+		export OMP_PROC_BIND=close
+		export OMP_PLACES=cores
+		
+		srun --cpus-per-task=7 \
+		     --gpu-bind=map:4,5,2,3,6,7,0,1 --gres-flags=allow-task-sharing \
+			 gpu_check -l
+		```
+
+        Finally, we can of course also do the GPU binding via a wrapper script.
+		For the linear GCD case, we get:
+
+		```
+		#!/bin/bash -l
+		#SBATCH --partition=standard-g      # Partition (queue) name
+		#SBATCH --nodes=1                   # Total number of nodes
+		#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
+		#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
+		#SBATCH --time=5                    # Run time (minutes)
+		#SBATCH --account=<project_id>      # Project for billing
+		
+		module load LUMI/25.03 partition/G
+		module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
 		cat << EOF > select_gpu_$SLURM_JOB_ID
 		#!/bin/bash
@@ -136,19 +241,15 @@
 		export OMP_PLACES=cores
 		
 		srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
+
+		# Or without the wrapper script
+		echo -e "\nWithout wrapper script:"
+		srun --cpu-bind=${CPU_BIND} bash -c "ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l"
+		echo -e "\nOr with another quoting style:"
+		srun --cpu-bind=${CPU_BIND} bash -c 'ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l'
 		```
 
-		The base mask we need for this exercise, with each first and last core of a chiplet disabled,
-		is `01111110` which is `0x7e` in hexadecimal notation (though using `0xfe`
-		as the building block would also have worked as we already limit the number
-		of threads to 6 through `OMP_NUM_THREADS` and use other binding variables
-		that will bind all threads as close as possible to the core with relative
-		number 1 of each chiplet).
-
-		Save the job script as `job_step.sh` then simply submit it with sbatch. Inspect the job output.
-		
-		Note that in fact, if you had used the `cpeCray` version of the
-		`lumi-CPEtools` module, 
-		you don't even need to use the `OMP_*` environment variables above as the threads are 
-		automatically pinned to a single core and as the correct number of threads is derived from
-		the affinity mask for each task.
+		The difference between the last two lines is something for bash specialists. We don't want
+		the environment variable `SLURM_LOCALID` to be expanded while the script is executing, but only 
+		when the `bash` command is actually executing, so either we need to protect it with the single
+		quotes or, when we use double quotes, escape the `$` with `\$`.
