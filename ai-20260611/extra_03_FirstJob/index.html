@@ -6006,7 +6006,30 @@ More materials will become available during and shortly after the course
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>Is the <code>--mem-per-gpu</code> parameter required for the SLURM batch script? If you do not specify this, do you get all available memory for one gpu? </p>
+<ul>
+<li>What you get depends on the partition. You should always specify how much RAM you need just to be safe. On <code>standard-g</code> you get all the memory, but on <code>small-g</code> you do not and may get much less than you expect. It is a fixed quantity independent of the amount of GPUs you ask. Another reason for a proper memory request is that it can protect you from getting a node where memory is taken by, e.g., a memory leak. We had that in the early years of LUMI.</li>
+</ul>
+</li>
+<li>
+<p>How to add log files parameters to the bash file ?</p>
+<ul>
+<li>
+<p>You can redirect output to a file by adding in your slurm script:</p>
+<ul>
+<li>
+<p>To redirect stdout: <code>#SBATCH  -o &lt;name of output file&gt;</code></p>
+</li>
+<li>
+<p>To redirect stderr: <code>#SBATCH -e &lt;name of error output file&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
