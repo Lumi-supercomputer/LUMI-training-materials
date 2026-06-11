@@ -1,6 +1,6 @@
 # Understanding GPU activity & checking jobs
 
-*Presenter:* Samuel Antão (AMD)
+*Presenters:* **Paul Bauer (AMD)** and Samuel Antão (AMD)
 
 Content:
 
@@ -18,13 +18,13 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
-
 <!--
+More materials will become available during and shortly after the course
+-->
+
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-04-Understanding_GPU_activity.pdf)
 
 -   [Hands-on exercises](E04_CheckingGPU.md)
--->
 
 
 ## Q&A

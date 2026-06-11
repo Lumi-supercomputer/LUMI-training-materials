@@ -18,3 +18,6 @@ A video recording will follow.
 
 /
 
+<!--
+-   [Slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-00-Course_Introduction.pdf)
+-->

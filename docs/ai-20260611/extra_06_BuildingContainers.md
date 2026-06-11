@@ -17,16 +17,19 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course.
-
 <!--
+More materials will become available during and shortly after the course.
+-->
+
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
 
+<!--
 -   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611/bonus_material)
     contains among other things the files used to generate the container used in the course with
     the `cotainr` tool.
+-->
 
 -   Further reading materials from the slides:
 
@@ -44,7 +47,7 @@ More materials will become available during and shortly after the course.
 
 -   The [additional training materials mentioned in the "Running containers" page](extra_05_RunningContainers.md#extra-materials)
     are relevant for this presentation also.
--->
+
 
 <!--
 ## Remarks to things mentioned in the recording
@@ -77,4 +80,9 @@ The `cotainr` tool on the other hand will take the selected base image and build
 
 ## Q&A
 
-/
+Remark: MPI was definitely not fully functional in older containers built with cotainr and the base images that were used back then but I guess there are still issues if you install `mpi4py` with Conda as it may not be using the right MPI library that fully recognises the LUMI network. And using the `lumi-c` base image from cotainr, I would not expect any change with the old situation. If you have software that uses a recent MPICH binary compatible MPI implementations there are tricks that sometimes work to make MPI work efficiently, but it is not always that simple. (Injecting a library in the container sounds nice on paper, but if the library that you inject is not compatible with the glibc library in the container, it can be very hard to fix that.)
+
+1.  What about cotainr with uv?
+
+    -   Cotainr is fully based on Conda. You can build upon some of the existing container with `uv` if you want with the Singularity CE proot unprivileged build process which is discussed in the container lecture in the regular intro course. See [this part of the lecture notes of that lecture](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20260422/205-Containers/#extending-containers-with-the-unprivileged-proot-build-process) (but we do not discuss `uv` there specifically).
+
