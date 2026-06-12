@@ -5936,6 +5936,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#links-from-the-slides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links from the slides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5964,7 +5975,7 @@
 
 
 <h1 id="extreme-scale-ai">Extreme-scale AI<a class="headerlink" href="#extreme-scale-ai" title="Permanent link">&para;</a></h1>
-<p><em>Presenters:</em> Samuel Antão (AMD)</p>
+<p><em>Presenters:</em> <strong>Samuel Antão</strong> and Paul Bauer (AMD)</p>
 <p>Content:</p>
 <ul>
 <li>Model parallelism on LUMI via FSDP or DeepSpeed</li>
@@ -5976,7 +5987,10 @@
 -->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
-<p>More materials will become available during and shortly after the course</p>
+<!--
+More materials will become available during and shortly after the course
+-->
+
 <ul>
 <li>
 <p><a href="https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-09-Extreme_scale_AI.pdf">Presentation slides</a></p>
@@ -5985,14 +5999,31 @@
 <p><a href="../E09_ExtremeScale/">Demo and hands-on exercises</a></p>
 </li>
 </ul>
+<h2 id="links-from-the-slides">Links from the slides<a class="headerlink" href="#links-from-the-slides" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://github.com/HewlettPackard/shs-ccl-docs/blob/main/rccl/rccl_tuning_guide.md">Advice on RCCL tuning</a>
+    which may be important for stability at very large scale (slide 11, with more information on slide 12)</p>
+</li>
+<li>
+<p><a href="https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/">PyTorch blog article on Fully Sharded Data Parallel API</a></p>
+</li>
+<li>
+<p><a href="https://huggingface.co/docs/transformers/index">Enabling FSDP on transformer</a></p>
+</li>
+</ul>
 <!--
 ## Remark: Why is binding not easier in Slurm?
 
 There are some reasons why the situation with the binding is not better:
 
--   Slurm GPU binding is broken and uses a technique that breaks communication with RCCL and GPU-aware MPI
+-   Slurm GPU binding is broken and uses by default a technique that breaks communication with RCCL and GPU-aware MPI,
+    though there is a way to restore proper behaviour in Slurm after the January 2026 update.
+    Unfortunately that then breaks other improvements that were made in assigning the ideal GPU for 
+    the cores assigned in `small-g`.
 
--   One change that would offer some improvement is system-wide and would have a large impact on LUMI-C also, 
+-   In the past, changes have been suggested by other sites that could offer some improvement, but they are
+    system-wide settings and would have a large (and undesirable) impact on LUMI-C also, 
     necessitating retraining all users and probably making some use scenarios on that partition difficult.
 
 -   It is not easy either because you can only do something with few environment variables or a pre-made script 
