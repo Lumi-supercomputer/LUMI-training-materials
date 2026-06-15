@@ -3,17 +3,15 @@
 Bring your own AI code, you want to run on LUMI, and spent some time applying what 
 you have learned during the workshop - with on-site support from LUST/AMD.
 
+<!--
 ## Closing remarks
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/E12_Conclusions.mp4" controls="controls"></video>
 -->
 
-<!--
 ## Extra materials
 
--   [LUMI AI guide promoted in the closing words](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
--->
+-   [LUMI AI guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
 
 
 ## General Q&A

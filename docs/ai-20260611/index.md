@@ -1,12 +1,12 @@
 # Moving your AI training jobs to LUMI workshop - UiT, Tromsø, June 11-12, 2026
 
-!!! Note
+<!-- !!! Note
     If you are looking for course materials in advance of the course, check the pages of the 
     [previous edition in October 2025](../ai-20251008/index.md).
     The previous course was still based on the LUST/AMD containers and CSC modules,
     while this edition is fully based on the 
     [LUMI AI Factory containers](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
-
+-->
 
 ## Course organisation
 
@@ -17,10 +17,11 @@
 
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-June2026?both)
    
-    Questions with longer-term relevance will be incorporated into the pages linked below.
+    Questions with longer-term relevance have been incorporated into the pages linked below.
     This HedgeDoc document will not be monitored anymore for further questions after the course.
     The link will likely die over time.
 
+<!--
 -   [Zoom link](https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09) 
     <br/>Meeting ID: 652 0710 8811
     <br/>Passcode: 530739
@@ -33,7 +34,7 @@
     Project with the compute resources: `project_465002757`.
     These resources are limited and should only be used for the exercises during
     the course and not for your own work.
-
+-->
 
 <!--
 ReservationName=AI_workshop_Day1 StartTime=2026-06-11T10:00:00 EndTime=2026-06-11T17:30:00 Duration=07:30:00
@@ -53,9 +54,11 @@ ReservationName=AI_workshop_Day2 StartTime=2026-06-12T10:00:00 EndTime=2026-06-1
 
 ### During the course
 
-More information will follow at the start of the course.
+Not relevant anymore as the course has ended.
 
 <!--
+More information will follow at the start of the course.
+
 If you have an active project on LUMI, you should be able to make the exercises in that project
 (i.e., store the files in your own project, but use the course project for running).
 That way you're guaranteed access to your work for the duration of your project.
@@ -67,9 +70,10 @@ You can find all exercises on our [AI workshop GitHub page](https://github.com/L
 
 ### After the termination of the course project
 
-More information will follow after the course.
-
 <!--
+More information will follow after the course.
+-->
+
 Setting up for the exercises is a bit more elaborate now.
 
 The exercises as they were during the course are 
@@ -97,7 +101,7 @@ so it is expected that some exercises may fail over time, and modules that need 
 change as at every update we have to drop some versions of the `LUMI` module as the programming environment
 is no longer functional. Likewise it is expected that at some point the ROCm driver on the system may
 become incompatible with the ROCm versions used in the containers for the course.
--->
+
 
 ## Course materials
 
@@ -121,15 +125,13 @@ materials are uploaded.
 | [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
 | [Hands-on: Creating a conda environment file and building a container using cotainr](E06_BuildingContainers.md) | / | [video](E06_BuildingContainers.md) |
 | [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
-<!--
 | [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
 | [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
 | [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
-| [Demo/Hands-on: Using multiple nodes](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
+| [Hands-on: Extreme scale AI](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
 | [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
 | [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
 | [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | [video](E12_Project_and_QA.md) |
--->
 <!--
 -->
 

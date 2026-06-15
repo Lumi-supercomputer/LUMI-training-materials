@@ -1,6 +1,6 @@
 # Your first training job on LUMI
 
-*Presenters:* Mats Sjöberg (CSC) and Marlon Tobaben (CSC)
+*Presenters:* **Mats Sjöberg (CSC)** and Marlon Tobaben (CSC)
 
 Content:
 

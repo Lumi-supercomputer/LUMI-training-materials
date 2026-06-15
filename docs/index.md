@@ -6,7 +6,8 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
+-   There are no planned trainings at the moment. The next trainings are expected 
+    in the November-December 2026 time frame.
 
 
 Most recently completed main training events:
@@ -16,6 +17,12 @@ Most recently completed main training events:
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
+
+-   Introductory training specifically for AI users moving to HPC in general and LUMI in particular:
+    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md)
+
+    *Short URL to the most recently completed training for AI users:
+    [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
 
 -   Program Analysis and Optimization Workshop (advanced level): A shorter version of the 4-day advanced
     training, focussed on profiling tools and techniques to improve program performance:
@@ -29,19 +36,6 @@ Most recently completed main training events:
 
     *Short URL to the most recently completed comprehensive LUMI training aimed at developers and advanced users:
     [lumi-supercomputer.github.io/advanced-latest](https://lumi-supercomputer.github.io/advanced-latest)*
-
--   Comprehensive training specifically for AI users:
-    [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025)](ai-20251008/index.md)
-
-    *Short URL to the most recently completed training for AI users:
-    [lumi-supercomputer.github.io/AI-latest](https://lumi-supercomputer.github.io/AI-latest)*
-
--   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
-
-Other recent LUST-organised trainings for which the material is still very up-to-date and
-relevant:
-
--   [HPE and AMD profiling tools (October 9, 2024)](Profiling-20241009/index.md)
 
 
 ### LUMI User Coffee Break Talks
@@ -102,6 +96,14 @@ By theme in reverse chronological order:
     -   [LUMI 1-day training (February, 2024)](1day-20240208/index.md)
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
+-   Introductory training specifically for AI users moving to HPC in general and LUMI in particular:
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
+        This is the first training based on the [AI containers of the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/)
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025, Stockholm)](ai-20251008/index.md)
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md)
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Comprehensive general LUMI trainings aimed at at developers and advanced users, mostly focusing on traditional HPC users
     -   [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
@@ -113,14 +115,6 @@ By theme in reverse chronological order:
     -   [Detailed introduction to the LUMI-C environment and architecture (November 23/24, 2022)](PEAP-Q-20221123/index.md)
     -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
--   Comprehensive AI trainings for LUMI:
-    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
-        This is the first training based on the [AI containers of the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/)
-    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025, Stockholm)](ai-20251008/index.md)
-    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 27-28, 2025)](ai-20250527/index.md)
-    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
-    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
-    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
 -   Performance analysis tools and/or program optimization
     -   [LUMI Profiling and Optimization Workshop (Advanced Level), KTH, Stockholm (May 11-13, 2026)](paow-20260511/index.md)
     -   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)

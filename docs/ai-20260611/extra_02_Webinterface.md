@@ -1,6 +1,6 @@
 # Using the LUMI web interface
 
-*Presenters:* Mats Sjöberg (CSC) and Marlon Tobaben (CSC)
+*Presenters:* **Mats Sjöberg (CSC)** and Marlon Tobaben (CSC)
 
 Content:
 

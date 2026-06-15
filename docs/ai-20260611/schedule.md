@@ -39,7 +39,7 @@ DAY 1
             <br/><em>10:45 EEST</em>
         </td>
         <td><b><a href="../extra_02_Webinterface/">Using the LUMI web interface</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
+        <br/><em>Presenters: <b>Mats Sjöberg (CSC)</b> and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -48,6 +48,7 @@ DAY 1
             <br/><em>11:05 EEST</em>
         </td>
         <td><b><a href="../E02_Webinterface/">Hands-on: Run a simple PyTorch example notebook</a></b>
+        <br/><em>Presenters: <b>Marlon Tobaben (CSC)</b> and Mats Sjöberg (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -64,7 +65,7 @@ DAY 1
             <br/><em>11:50 EEST</em>
         </td>
         <td><b><a href="../extra_03_FirstJob/">Your first AI training job on LUMI</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
+        <br/><em>Presenters: <b>Mats Sjöberg (CSC)</b> and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -73,6 +74,7 @@ DAY 1
             <br/><em>12:20 EEST</em>
         </td>
         <td><b><a href="../E03_FirstJob/">Hands-on: Run a simple single-GPU PyTorch AI training job</a></b>
+        <br/><em>Presenters: <b>Marlon Tobaben (CSC)</b> and Mats Sjöberg (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -98,6 +100,7 @@ DAY 1
             <br/><em>14:25 EEST</em>
         </td>
         <td><b><a href="../E04_CheckingGPU/">Hands-on: Checking GPU usage interactively using rocm-smi</a></b>
+        <br/><em>Presenter: <b>Samuel Antão</b> and Paul Bauer (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -115,6 +118,7 @@ DAY 1
             <br/><em>15:05 EEST</em>
         </td>
         <td><b><a href="../E05_RunningContainers/">Hands-on: Pull and run a container</a></b>
+        </br><em>Presenter: Julius Roeder (DeiC)</em>
         </td>
     </tr>
     <tr>
@@ -140,6 +144,7 @@ DAY 1
             <br/><em>16:00 EEST</em>
         </td>
         <td><b><a href="../E06_BuildingContainers">Hands-on: Creating a conda environment file and building a container using cotainr</a></b>
+        </br><em>Presenter: Julius Roeder (DeiC)</em>
         </td>
     </tr>
     <tr>
@@ -182,7 +187,7 @@ DAY 2
             <br/><em>10:00 EEST</em>
         </td>
         <td><b><a href="../extra_08_MultipleGPUs">Scaling AI training to multiple GPUs</a></b>
-        <br/><em>Presenters: Mats Sjöberg (CSC) and Marlon Tobaben (CSC)</em>
+        <br/><em>Presenters: <b>Mats Sjöberg (CSC)</b> and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -191,6 +196,7 @@ DAY 2
             <br/><em>10:40 EEST</em>
         </td>
         <td><b><a href="../E08_MultipleGPUs/">Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP</a></b>
+        <br/><em>Presenters: <b>Marlon Tobaben (CSC)</b> and Mats Sjöberg (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -207,7 +213,7 @@ DAY 2
             <br/><em>11:35 EEST</em>
         </td>
         <td><b><a href="../extra_09_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenter: Samuel Antão (AMD)</em>
+        <br/><em>Presenter: <b>Samuel Antão</b> and Paul Bauer (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -215,7 +221,7 @@ DAY 2
             11:20 CEST
             <br/><em>12:20 EEST</em>
         </td>
-        <td><b><a href="../E09_ExtremeScale/">Demo/Hands-on: Using multiple nodes</a></b>
+        <td><b><a href="../E09_ExtremeScale/">Hands-on: Extreme scale AI</a></b>
         </td>
     </tr>
     <tr>
