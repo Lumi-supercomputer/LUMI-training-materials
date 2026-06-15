@@ -2,11 +2,11 @@
 
 *Presenter:* Gregor Decristoforo (LUST)
 
-A video recording will follow.
-
 <!--
-<video src="https://462000265.lumidata.eu/ai-20260611/recordings/00_Course_Introduction.mp4" controls="controls"></video>
+A video recording will follow.
 -->
+
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/00_Course_Introduction.mp4" controls="controls"></video>
 
 
 ## Extra materials
@@ -18,3 +18,6 @@ A video recording will follow.
 
 /
 
+<!--
+-   [Slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-00-Course_Introduction.pdf)
+-->
