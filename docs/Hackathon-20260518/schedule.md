@@ -154,7 +154,9 @@ DAY 2
 
     -   15:00: Coffee break
 
-    -   Likely a group dinner on Wednesday evening
+    -   Group dinner on Wednesday evening at 19:00 at [Antwerpse Brouw Company](https://maps.app.goo.gl/BABnaxjnzXQaQTYy9).
+        We meet at 18:15 outside [Opera Metro Station](https://maps.app.goo.gl/EXPd5UPiAHJbXntS6) if you want to join for a
+        walk to the dinner place. 
 
 -   Friday May 22: D.226
 
@@ -170,3 +172,6 @@ DAY 2
     -   10:45: Coffee break
 
     -   12:00: End. A sandwich lunch will be offered. The room must be fully vacated by 14:00.
+
+In the evening, those who want to join for dinner meet outside Opera Metro Station](https://maps.app.goo.gl/EXPd5UPiAHJbXntS6).
+The time is to be agreed during the workshop day.
