@@ -8,19 +8,18 @@ Content:
 -   Scaling beyond a single node 
 
 
-<!--
 A video recording will follow.
--->
 
+<!--
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/09_ExtremeScale.mp4" controls="controls"></video>
+-->
 
 
 ## Extra materials
 
-<!--
 More materials will become available during and shortly after the course
--->
 
+<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-09-Extreme_scale_AI.pdf)
 
 -   [Demo and hands-on exercises](E09_ExtremeScale.md)
@@ -34,6 +33,7 @@ More materials will become available during and shortly after the course
 -   [PyTorch blog article on Fully Sharded Data Parallel API](https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/)
   
 -   [Enabling FSDP on transformer](https://huggingface.co/docs/transformers/index)
+-->
 
 
 <!--

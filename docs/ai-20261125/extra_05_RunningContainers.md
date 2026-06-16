@@ -10,19 +10,18 @@ Content:
 -   Official LUMI (FakeCPE) containers
 
 
-<!--
 A video recording will follow.
--->
 
+<!--
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/05_RunningContainers.mp4" controls="controls"></video>
+-->
 
 
 ## Extra materials
 
-<!--
 More materials will become available during and shortly after the course
--->
 
+<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-05-Running_containers_on_LUMI.pdf)
 
 -   [Hands-on exercises](E05_RunningContainers.md)
@@ -41,6 +40,7 @@ More materials will become available during and shortly after the course
 
     -   The ["Containers on LUMI-C and LUMI-G" talk](../2day-20260420/M205-Containers.md)
         also covers the AI containers towards the end of the presentation.
+-->
 
 
 ## Q&A

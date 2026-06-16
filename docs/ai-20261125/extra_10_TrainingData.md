@@ -2,24 +2,19 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
-<!--
 A video recording will follow.
--->
 
+<!--
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/10_TrainingData.mp4" controls="controls"></video>
+-->
 
 
 ## Extra materials
 
-<!--
 More materials will become available during and shortly after the course
--->
-
--   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-10-Training_Data_on_LUMI.pdf)
 
 <!--
-    Correction: [LUMI-O key max lifetime changed to 1 year](https://www.lumi-supercomputer.eu/lumi-service-status/information-lumi-o-key-max-lifetime-changed-to-1-year/)
--->
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-10-Training_Data_on_LUMI.pdf)
 
 -   Links from the "More Information" slide:
 
@@ -75,6 +70,7 @@ Note that asking for more quota doesn't make sense if your project doesn't have 
 Storing 20TB for one year on /scratch or /project would cost you 175,200 TB hours, so make sure you have enough storage
 billing units. There is enough storage on LUMI that resource allocators can grant decent amounts of storage, but it is
 not infinite. LUST cannot grant you storage billing units, that is something you need to negotiate with the instance that granted you your project on LUMI.
+-->
 
 
 ## Q&A

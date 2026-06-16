@@ -8,22 +8,22 @@ Content:
 -   Recipes for PyTorch, Tensorflow, and JAX/Flax on LUMI
 
 
-<!--
 A video recording will follow.
--->
 
+<!--
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/06_BuildingContainers.mp4" controls="controls"></video>
+-->
 
 
 ## Extra materials
 
-<!--
 More materials will become available during and shortly after the course.
--->
 
+<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
+-->
 
 <!--
 -   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611/bonus_material)
@@ -31,6 +31,7 @@ More materials will become available during and shortly after the course.
     the `cotainr` tool.
 -->
 
+<!--
 -   Further reading materials from the slides:
 
     -   [LUMI Docs containers page](https://docs.lumi-supercomputer.eu/software/containers/singularity/)
@@ -63,13 +64,8 @@ Furthermore, we need to ensure that MPI also works. GPU-aware MPI also depends o
 The `lumi-container-wrapper` provides a tool that enables to do some pip and conda installations in a file system friendly way. It also uses a base container but that one does not have a ROCm in it so it is of little use for AI software unless you can use the ROCm from the system. It basically does not change the base container, but installs the software in a separate SquashFS file. Furthermore, for each command it can find in the container, it will create a wrapper script outside the container that will call singularity with the right bindings to run that command in the container. It is actually rather hard to start the container "by hand" using the `singularity` command as you will also have to create the right bindmount for the SquashFS file containing the actual software installation.
 
 The `cotainr` tool on the other hand will take the selected base image and build a new container from it that can be used the way containers are normally used.
-
+-->
 
 ## Q&A
 
-Remark: MPI was definitely not fully functional in older containers built with cotainr and the base images that were used back then but I guess there are still issues if you install `mpi4py` with Conda as it may not be using the right MPI library that fully recognises the LUMI network. And using the `lumi-c` base image from cotainr, I would not expect any change with the old situation. If you have software that uses a recent MPICH binary compatible MPI implementations there are tricks that sometimes work to make MPI work efficiently, but it is not always that simple. (Injecting a library in the container sounds nice on paper, but if the library that you inject is not compatible with the glibc library in the container, it can be very hard to fix that.)
-
-1.  What about cotainr with uv?
-
-    -   Cotainr is fully based on Conda. You can build upon some of the existing container with `uv` if you want with the Singularity CE proot unprivileged build process which is discussed in the container lecture in the regular intro course. See [this part of the lecture notes of that lecture](https://lumi-supercomputer.github.io/LUMI-training-materials/2day-20260422/205-Containers/#extending-containers-with-the-unprivileged-proot-build-process) (but we do not discuss `uv` there specifically).
-
+/

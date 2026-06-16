@@ -8,14 +8,14 @@
 
 ## Course organisation
 
-Location: Riga (Latvia)
+-   Location: Riga (Latvia)
 
 <!--
 -   Location: UiT - The Artic University of Norway, Tromsø.
     [University library room UB 244 (2nd floor)](https://use.mazemap.com/#v=1&config=uit&campusid=5&zlevel=1&center=18.973518,69.680798&zoom=18&sharepoitype=poi&sharepoi=174057&search=244)
-
--   [Schedule](schedule.md)
-
+-->
+-   [Preliminary schedule](schedule.md)
+<!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-June2026?both)
    
     Questions with longer-term relevance have been incorporated into the pages linked below.
