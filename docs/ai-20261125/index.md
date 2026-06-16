@@ -1,4 +1,4 @@
-# Moving your AI training jobs to LUMI workshop - UiT, Tromsø, June 11-12, 2026
+# Moving your AI training jobs to LUMI workshop - Riga, November 25-26, 2026
 
 !!! Note
     If you are looking for course materials in advance of the course, check the pages of the 
