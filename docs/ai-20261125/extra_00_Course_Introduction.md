@@ -5,7 +5,7 @@
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20260611/recordings/00_Course_Introduction.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-00_Course_Introduction.mp4" controls="controls"></video>
 -->
 
 
@@ -19,5 +19,5 @@ A video recording will follow.
 /
 
 <!--
--   [Slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-00-Course_Introduction.pdf)
+-   [Slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-00-Course_Introduction.pdf)
 -->
