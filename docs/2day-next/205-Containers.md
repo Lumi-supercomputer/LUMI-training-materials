@@ -1592,7 +1592,8 @@ module load Local-LAIF lumi-aif-singularity-bindings
 This module will set `SINGULARITY_BIND` to tell singularity to bind mount
 `/var/spool/slurmd` which is a directory that is needed by MPI libraries to
 communicate with Slurm, and a number of directories to provide all Lustre filesystems
-on LUMI. The module is very generic and can be used with other containers also
+on LUMI, and some other directories some of the containers need. 
+The module is very generic and can be used with other containers also
 if these are the effects that you want.
 
 Now check the container:
@@ -1655,6 +1656,7 @@ From: ubuntu_24.04.sif
     EMPTY_DIR /project
     EMPTY_DIR /flash
     EMPTY_DIR /appl
+    EMPTY_DIR /boot
 
 %post
 
@@ -1688,7 +1690,7 @@ and use lines in `%files` similar to
 
 ```
 %files
-    EMPTY_FILE /etc/slurm/slurm.conmf
+    EMPTY_FILE /etc/slurm/slurm.conf
 ```
 
 Let us check if the container still works as expected:
@@ -1726,8 +1728,8 @@ ls -l /
 ls -l /var/spool
 ```
 
-and notice that `/var/spool/slurmd`, `/pfs`, `/scratch`, `/projappl`, `/project`, `/flash` and
-`/appl` all exist, but most will be owned by root and be unreadable. If you were running the
+and notice that `/var/spool/slurmd`, `/pfs`, `/scratch`, `/projappl`, `/project`, `/flash`,
+`/appl` and `/boot` all exist, but most will be owned by root and be unreadable. If you were running the
 container from a subdirectory of one of those, you may be the owner of that directory.
 
 The other solution of course is to do a two-step build. First build a container
