@@ -6,8 +6,8 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   There are no planned trainings at the moment. The next trainings are expected 
-    in the November-December 2026 time frame.
+-   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
+    An official announcement will follow.
 
 
 Most recently completed main training events:
@@ -97,6 +97,7 @@ By theme in reverse chronological order:
     -   [LUMI 1-day training (September, 2023)](1day-20230921/index.md)
     -   [LUMI 1-day training (May 9 and 16, 2023)](1day-20230509/index.md)
 -   Introductory training specifically for AI users moving to HPC in general and LUMI in particular:
+    -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (June 11-12, 2026, Tromsø)](ai-20260611/index.md).
         This is the first training based on the [AI containers of the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (October 8-9, 2025, Stockholm)](ai-20251008/index.md)
