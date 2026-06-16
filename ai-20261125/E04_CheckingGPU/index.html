@@ -5954,7 +5954,10 @@
 
 <h1 id="hands-on-checking-gpu-usage-interactively-using-rocm-smi">Hands-on: Checking GPU usage interactively using rocm-smi<a class="headerlink" href="#hands-on-checking-gpu-usage-interactively-using-rocm-smi" title="Permanent link">&para;</a></h1>
 <p><em>Presenters:</em> <strong>Samuel Antão</strong> and Paul Bauer (AMD)</p>
-<p><a href="https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611/04_Understanding_GPU_activity_and_checking_jobs">Exercises on the course GitHub</a>.</p>
+<!--
+[Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611/04_Understanding_GPU_activity_and_checking_jobs).
+-->
+
 <!--
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/main/04_Understanding_GPU_activity_and_checking_jobs).
 -->
@@ -5963,44 +5966,12 @@
 A video recording of the discussion of the solution will follow.
 -->
 
+<!--
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/E04_CheckingGPU.mp4" controls="controls"></video>
+-->
 
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Why is <code>srun</code> needed? What happens if I forget using it (while still being sure I am on a compute node?)
-    I know that one has to use it for multi-node jobs (since the script actually runs only on the first node of the allocation),
-    but what does it do in a single node job?</p>
-<ul>
-<li>
-<p>In order for you to be on a compute node you must have used srun at some point. The way to get to the compute nodes is <code>srun your_command</code> or <code>srun --overlap --jobid ### --pty bash</code>. The latter starts a bash session and then you can </p>
-</li>
-<li>
-<p>If you forget <code>srun</code> with salloc, you will be running on the login node. If you forget <code>srun</code> in a batch script, you will be running on the first node in the allocation only.</p>
-</li>
-</ul>
-<p>Doesn't <code>salloc</code> <em>without arguments</em> already brings me to a compute node? Just checked: no (on other HPC systems it does, sorry)</p>
-<ul>
-<li>
-<p>This can be configured differently in SLURM - on LUMI salloc doesn't start a session on the compute nodes. This just reserves the nodes for subsequent srun invocations.</p>
-</li>
-<li>
-<p>Actually, LUMI uses the standard behaviour of Slurm. Those systems that do give you a shell on the compute node have modified the Slurm configuration. Often this is because those sites were running another resource manager and scheduler before that launched a shell on the compute node by default with the equivalent command to <code>salloc</code> (e.g., Torque/MAUI or Torque/MOAB). </p>
-</li>
-</ul>
-</li>
-<li>
-<p>There was a question if rocm-smi can show memory usage in absolute numbers instead of a percentage. This can be done with:</p>
-<ul>
-<li>
-<p>For rocm-smi: <code>rocm-smi --showmeminfo vram</code></p>
-</li>
-<li>
-<p>With the newer amd-smi (available in the containers) you can use: <code>amd-smi metric -m</code></p>
-</li>
-</ul>
-</li>
-</ol>
+<p>/</p>
 
 
 

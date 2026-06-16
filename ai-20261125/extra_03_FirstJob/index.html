@@ -5970,67 +5970,33 @@
 <li>Using LUMI via the command line</li>
 <li>Submitting and running AI training jobs using the batch system</li>
 </ul>
+<p>A video recording will follow.</p>
 <!--
-A video recording will follow.
--->
-
 <video src="https://462000265.lumidata.eu/ai-20260611/recordings/03_FirstJob.mp4" controls="controls"></video>
+-->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
+<p>More materials will become available during and shortly after the course</p>
 <!--
-More materials will become available during and shortly after the course
+-   [Presentation slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-03-First_AI_job.pdf)
+
+-   [Hands-on exercises](E03_FirstJob.md)
+
+-   [More extensive training materials on Slurm from the recent introductory "Supercomputing with LUMI" course from April 2026](../2day-20260422/index.md)
+
+    -   A more detailed introduction to Slurm but without AI-specific examples is given in the 
+        ["Slurm on LUMI" presentation](../2day-20260422/M201-Slurm.md).
+        It also discusses the `sacct` command that can be used to get at least some resource use info
+        from jobs.
+
+    -   The presentation ["Process and Thread Distribution and Binding"](../2day-20260422/M202-Binding.md)
+        is more oriented towards traditional HPC codes, but the discussion on a proper mapping
+        of GPU dies onto CPU chiplets is also relevant for AI applications. But that is a discussion
+        for the second day of this course/workshop
 -->
 
-<ul>
-<li>
-<p><a href="https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-03-First_AI_job.pdf">Presentation slides</a></p>
-</li>
-<li>
-<p><a href="../E03_FirstJob/">Hands-on exercises</a></p>
-</li>
-<li>
-<p><a href="../../2day-20260422/">More extensive training materials on Slurm from the recent introductory "Supercomputing with LUMI" course from April 2026</a></p>
-<ul>
-<li>
-<p>A more detailed introduction to Slurm but without AI-specific examples is given in the 
-    <a href="../../2day-20260422/M201-Slurm/">"Slurm on LUMI" presentation</a>.
-    It also discusses the <code>sacct</code> command that can be used to get at least some resource use info
-    from jobs.</p>
-</li>
-<li>
-<p>The presentation <a href="../../2day-20260422/M202-Binding/">"Process and Thread Distribution and Binding"</a>
-    is more oriented towards traditional HPC codes, but the discussion on a proper mapping
-    of GPU dies onto CPU chiplets is also relevant for AI applications. But that is a discussion
-    for the second day of this course/workshop</p>
-</li>
-</ul>
-</li>
-</ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Is the <code>--mem-per-gpu</code> parameter required for the SLURM batch script? If you do not specify this, do you get all available memory for one gpu? </p>
-<ul>
-<li>What you get depends on the partition. You should always specify how much RAM you need just to be safe. On <code>standard-g</code> you get all the memory, but on <code>small-g</code> you do not and may get much less than you expect. It is a fixed quantity independent of the amount of GPUs you ask. Another reason for a proper memory request is that it can protect you from getting a node where memory is taken by, e.g., a memory leak. We had that in the early years of LUMI.</li>
-</ul>
-</li>
-<li>
-<p>How to add log files parameters to the bash file ?</p>
-<ul>
-<li>
-<p>You can redirect output to a file by adding in your slurm script:</p>
-<ul>
-<li>
-<p>To redirect stdout: <code>#SBATCH  -o &lt;name of output file&gt;</code></p>
-</li>
-<li>
-<p>To redirect stderr: <code>#SBATCH -e &lt;name of error output file&gt;</code></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+<p>/</p>
 
 
 
