@@ -1,4 +1,4 @@
-# Preliminary schedule
+# Schedule
 
 **This is a preliminary schedule. Start time and end time of the workshop are fixed,
 but the order of the talks and the presenters may still change.**
