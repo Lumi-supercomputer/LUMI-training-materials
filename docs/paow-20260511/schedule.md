@@ -1,8 +1,5 @@
 # Schedule
 
-**This is a preliminary schedule. Start time and end time of the workshop are fixed,
-but the order of the talks and the presenters may still change.**
-
 <ul>
     <li><a href="#Day1">Day 1 - Monday 11/05/2026</a>
     <li><a href="#Day2">Day 2 - Tuesday 12/05/2026</a>
