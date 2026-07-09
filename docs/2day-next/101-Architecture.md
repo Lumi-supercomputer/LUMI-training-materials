@@ -703,7 +703,8 @@ providing a total of 128 GB of RAM. The MI300X,  which is the regular version
 without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
 but presumably those were not yet available when the design of MI300A was tested
 for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan)
-which became the number 1 in the [TOP500 list of November 2024](https://top500.org/lists/top500/2024/11/).
+which became the number 1 in the [TOP500 list of November 2024](https://top500.org/lists/top500/2024/11/)
+and stayed in that position until June 2026 when it was surpassed by a [Chinese system](https://top500.org/system/180490/).
 [HLRS is building the Hunter cluster based on AMD MI300A](https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart) 
 as a transitional system
 to their first exascale-class system Herder that will become operational by 2027.
