@@ -976,7 +976,7 @@ switch blade environment is certainly less hostile to such storage than the very
 compute blades.
 
 This architecture is very popular for very large supercomputers. In fact, in the 
-[November 2025 Top-500 list](https://top500.org/lists/top500/2025/11/), 6 of the top-10 systems
+[June 2026 Top-500 list](https://top500.org/lists/top500/list/2026/06/), 6 of the top-10 systems
 and 10 of the top 20 systems
 use this system architecture, but with different types of compute blades.
 
