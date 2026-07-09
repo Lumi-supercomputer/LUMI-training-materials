@@ -288,6 +288,9 @@ Web links
     which is loaded by default. The command will usually give the output you need when used
     without any argument.
 
+-   [EuroHPC federation platform documentation](https://docs.my-eurohpc.eu)
+
+-   ["Get Started" on LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/)
 
 ## File spaces
 
