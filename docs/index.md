@@ -8,6 +8,8 @@ Upcoming or currently running events with materials already partly available:
 
 -   [LUMI-G hackathon (Sep 28-Oct 2, 2026)](Hackathon-20260928/index.md)
 
+-   [Moving your HPC workloads to LUMI (November 9-10, 2026)](2day-20261109/index.md) on-site in Copenhagen and online.
+
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
     An official announcement will follow.
 
@@ -89,7 +91,8 @@ Most recently completed main training events:
 By theme in reverse chronological order:
 
 -   Short introductory trainings to LUMI
-    -   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-stie in Riga and online.
+    -   [Moving your HPC workloads to LUMI (November 9-10, 2026)](2day-20261109/index.md) on-site in Copenhagen and online.
+    -   [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md) on-site in Riga and online.
     -   [Intro to Supercomputing with LUMI (October 20-21, 2025)](2day-20251020/index.md) on-site in Tallinn and online.
     -   [Supercomputing with LUMI (June 2-3, 2025)](2day-20250602/index.md) on-site in Espoo and online.
     -   First two days of [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
