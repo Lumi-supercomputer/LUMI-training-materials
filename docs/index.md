@@ -6,6 +6,8 @@
 
 Upcoming or currently running events with materials already partly available:
 
+-   [LUMI-G hackathon (Sep 28-Oct 2, 2026)](Hackathon-20260928/index.md)
+
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
     An official announcement will follow.
 
@@ -127,6 +129,7 @@ By theme in reverse chronological order:
 -   Combining HPC and AI - SmartSim
     -   [SmartSim (March 31, 2026)](smartsim-20260331/index.md), on-site in Utrecht (The Netherlands)
 -   Materials from Hackathons 
+    -   [LUMI-G hackathon (Sep 28-Oct 2, 2026)](Hackathon-20260928/index.md)
     -   [LUMI-G hackathon (May 18-22, 2026)](Hackathon-20260518/index.md)
     -   [LUMI-G hackathon (May 12-16, 2025)](Hackathon-20250512/index.md)
     -   [LUMI-G hackathon (October 14-18, 2024)](Hackathon-20241014/index.md)
