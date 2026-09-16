@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -5977,7 +5977,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>exercises-20251020.tar.bz2
 <p>Install with <code>EasyBuild-user</code>: In a fresh shell</p>
 <div class="highlight"><pre><span></span><code><span class="nb">umask</span><span class="w"> </span><span class="m">002</span>
 mkdir<span class="w"> </span>-p<span class="w"> </span>/appl/local/training/EasyBuild/2day-20251020
-<span class="nb">export</span><span class="w"> </span><span class="nv">EBU_USER_PREFIX</span><span class="o">=</span><span class="s1">&#39;/appl/local/training/EasyBuild/2day-20251020&#39;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">EBU_USER_PREFIX</span><span class="o">=</span><span class="s1">'/appl/local/training/EasyBuild/2day-20251020'</span>
 module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/common<span class="w"> </span>EasyBuild-user
 eb<span class="w"> </span>lumi-training-tools-20251020.eb<span class="w"> </span>-r<span class="w"> </span>.
 </code></pre></div>
@@ -6004,11 +6004,11 @@ ln<span class="w"> </span>-s<span class="w"> </span>../../EasyBuild/2day-2025102
 </li>
 <li>
 <p>Create the file <code>intro-C.lua</code> with content:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">=</span><span class="w">   </span><span class="s1">&#39;small&#39;</span>
-<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LUMI_Intro_small&#39;</span>
-<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_account</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="s1">&#39;project_465002174&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">=</span><span class="w">   </span><span class="s1">'small'</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'LUMI_Intro_small'</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_account</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="s1">'project_465002174'</span>
 
-<span class="nf">whatis</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;Description: Sets account, reservation and partition for exercises using the &#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">&#39; partition.&#39;</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">whatis</span><span class="p">(</span><span class="w"> </span><span class="s1">'Description: Sets account, reservation and partition for exercises using the '</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">' partition.'</span><span class="w"> </span><span class="p">)</span>
 
 <span class="nf">help</span><span class="p">(</span><span class="w"> </span><span class="s">[[</span>
 <span class="s">Description</span>
@@ -6018,26 +6018,26 @@ ln<span class="w"> </span>-s<span class="w"> </span>../../EasyBuild/2day-2025102
 <span class="s">variables.</span>
 <span class="s">]]</span><span class="w"> </span><span class="p">)</span>
 
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SLURM_ACCOUNT&#39;</span><span class="p">,</span><span class="w">      </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SLURM_PARTITION&#39;</span><span class="p">,</span><span class="w">    </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SLURM_RESERVATION&#39;</span><span class="p">,</span><span class="w">  </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SLURM_ACCOUNT'</span><span class="p">,</span><span class="w">      </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SLURM_PARTITION'</span><span class="p">,</span><span class="w">    </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SLURM_RESERVATION'</span><span class="p">,</span><span class="w">  </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
 
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SBATCH_ACCOUNT&#39;</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SBATCH_PARTITION&#39;</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SBATCH_RESERVATION&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SBATCH_ACCOUNT'</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SBATCH_PARTITION'</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SBATCH_RESERVATION'</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
 
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SALLOC_ACCOUNT&#39;</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SALLOC_PARTITION&#39;</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SALLOC_RESERVATION&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SALLOC_ACCOUNT'</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SALLOC_PARTITION'</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SALLOC_RESERVATION'</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create the file <code>intro-G.lua</code> with content:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">=</span><span class="w">   </span><span class="s1">&#39;standard-g&#39;</span>
-<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LUMI_Intro_standard-g&#39;</span>
-<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_account</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="s1">&#39;project_46500274&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">=</span><span class="w">   </span><span class="s1">'standard-g'</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'LUMI_Intro_standard-g'</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">slurm_account</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="s1">'project_46500274'</span>
 
-<span class="nf">whatis</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;Description: Sets account, reservation and partition for exercises using the &#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">&#39; partition.&#39;</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">whatis</span><span class="p">(</span><span class="w"> </span><span class="s1">'Description: Sets account, reservation and partition for exercises using the '</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">' partition.'</span><span class="w"> </span><span class="p">)</span>
 
 <span class="nf">help</span><span class="p">(</span><span class="w"> </span><span class="s">[[</span>
 <span class="s">Description</span>
@@ -6047,17 +6047,17 @@ ln<span class="w"> </span>-s<span class="w"> </span>../../EasyBuild/2day-2025102
 <span class="s">variables.</span>
 <span class="s">]]</span><span class="w"> </span><span class="p">)</span>
 
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SLURM_ACCOUNT&#39;</span><span class="p">,</span><span class="w">      </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SLURM_PARTITION&#39;</span><span class="p">,</span><span class="w">    </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SLURM_RESERVATION&#39;</span><span class="p">,</span><span class="w">  </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SLURM_ACCOUNT'</span><span class="p">,</span><span class="w">      </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SLURM_PARTITION'</span><span class="p">,</span><span class="w">    </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SLURM_RESERVATION'</span><span class="p">,</span><span class="w">  </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
 
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SBATCH_ACCOUNT&#39;</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SBATCH_PARTITION&#39;</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SBATCH_RESERVATION&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SBATCH_ACCOUNT'</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SBATCH_PARTITION'</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SBATCH_RESERVATION'</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
 
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SALLOC_ACCOUNT&#39;</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SALLOC_PARTITION&#39;</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
-<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;SALLOC_RESERVATION&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SALLOC_ACCOUNT'</span><span class="p">,</span><span class="w">     </span><span class="nv">slurm_account</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SALLOC_PARTITION'</span><span class="p">,</span><span class="w">   </span><span class="nv">slurm_partition</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">setenv</span><span class="p">(</span><span class="w"> </span><span class="s1">'SALLOC_RESERVATION'</span><span class="p">,</span><span class="w"> </span><span class="nv">slurm_reservation</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ul>
@@ -6165,7 +6165,7 @@ ln<span class="w"> </span>-s<span class="w"> </span>../../EasyBuild/2day-2025102
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6053,10 +6053,10 @@ slides and we only need to adapt the CPU mask:</p>
 module load LUMI/25.03 partition/G
 module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-CPU_BIND=&quot;mask_cpu:0x7e000000000000,0x7e00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e,0x7e00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000&quot;
+CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
+CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
+CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6091,10 +6091,10 @@ the affinity mask for each task.</p>
 module load LUMI/25.03 partition/G
 module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-CPU_BIND=&quot;mask_cpu:0x7e,0x7e00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e000000000000,0x7e00000000000000&quot;
+CPU_BIND="mask_cpu:0x7e,0x7e00,"
+CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
+CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6119,10 +6119,10 @@ each task, then restricting via OpenMP environment variables. So we can also use
 module load LUMI/25.03 partition/G
 module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-CPU_BIND=&quot;mask_cpu:0x7e,0x7e00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e000000000000,0x7e00000000000000&quot;
+CPU_BIND="mask_cpu:0x7e,0x7e00,"
+CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
+CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6152,10 +6152,10 @@ exec \$*
 EOF
 chmod +x ./select_gpu_$SLURM_JOB_ID
 
-CPU_BIND=&quot;mask_cpu:0x7e000000000000,0x7e00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e,0x7e00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000&quot;
+CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
+CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
+CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6164,10 +6164,10 @@ export OMP_PLACES=cores
 srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
 
 # Or without the wrapper script
-echo -e &quot;\nWithout wrapper script:&quot;
-srun --cpu-bind=${CPU_BIND} bash -c &quot;ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l&quot;
-echo -e &quot;\nOr with another quoting style:&quot;
-srun --cpu-bind=${CPU_BIND} bash -c &#39;ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l&#39;
+echo -e "\nWithout wrapper script:"
+srun --cpu-bind=${CPU_BIND} bash -c "ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l"
+echo -e "\nOr with another quoting style:"
+srun --cpu-bind=${CPU_BIND} bash -c 'ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l'
 </code></pre></div>
 <p>The difference between the last two lines is something for bash specialists. We don't want
 the environment variable <code>SLURM_LOCALID</code> to be expanded while the script is executing, but only 
@@ -6278,7 +6278,7 @@ quotes or, when we use double quotes, escape the <code>$</code> with <code>\$</c
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

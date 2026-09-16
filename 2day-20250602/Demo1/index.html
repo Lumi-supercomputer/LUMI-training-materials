@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6083,7 +6083,7 @@ as additional system level libraries are needed for the graphics.</p>
 <p>Let's create an installation directory for the demo. Set the environment variable
 <code>installdir</code> to a proper value for the directories on LUMI that you have access to.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">installdir</span><span class="o">=</span>/scratch/project_465001965/<span class="nv">$USER</span>/DEMO1
-mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">&quot;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$installdir</span><span class="s2">"</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$installdir</span><span class="s2">"</span>
 </code></pre></div>
 <p>We are now in the installation directory of which we also ensured its existence first.
 Let's now download and unpack Fooocus release 2.5.5 (the one we tested for this demo)</p>
@@ -6115,7 +6115,7 @@ need to change the container, we'll follow a somewhat atypical build process.</p
 <p>Rather than installing directly from the available EasyBuild recipes, we'll edit an EasyConfig
 to change the name to reflect that we have made changes and installed Fooocus with it.
 First we must prepare a temporary directory to do this work and also set up EasyBuild:</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">/tmp&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">/tmp&quot;</span>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$installdir</span><span class="s2">/tmp"</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$installdir</span><span class="s2">/tmp"</span>
 module<span class="w"> </span>purge
 module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/container<span class="w"> </span>EasyBuild-user
 </code></pre></div>
@@ -6126,13 +6126,13 @@ rename it in one move to reflect the module version that we want:</p>
 <p>This is not enough to generate a module <code>PyTorch/2.3.1-rocm-6.0.3-python-3.12-Fooocus-singularity-20240923</code>, 
 we also need to edit the <code>versionsuffix</code> line in the EasyBuild recipe. Of course you can do this easily with
 your favourite editor, but to avoid errors we'll use a command for the demo that you only need to copy:</p>
-<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;s|^\(versionsuffix.*\)-singularity-\(.*\)|\1-Fooocus-singularity-\2|&quot;</span><span class="w"> </span>-i<span class="w"> </span>PyTorch-2.3.1-rocm-6.0.3-python-3.12-Fooocus-singularity-20240923.eb
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-e<span class="w"> </span><span class="s2">"s|^\(versionsuffix.*\)-singularity-\(.*\)|\1-Fooocus-singularity-\2|"</span><span class="w"> </span>-i<span class="w"> </span>PyTorch-2.3.1-rocm-6.0.3-python-3.12-Fooocus-singularity-20240923.eb
 </code></pre></div>
 <p>Let's check:</p>
 <div class="highlight"><pre><span></span><code>grep<span class="w"> </span>versionsuffix<span class="w"> </span>PyTorch-2.3.1-rocm-6.0.3-python-3.12-Fooocus-singularity-20240923.eb
 </code></pre></div>
 <p>which returns</p>
-<div class="highlight"><pre><span></span><code>versionsuffix = f&#39;-rocm-{local_c_rocm_version}-python-{local_c_python_mm}-Fooocus-singularity-{local_c_date}&#39;
+<div class="highlight"><pre><span></span><code>versionsuffix = f'-rocm-{local_c_rocm_version}-python-{local_c_python_mm}-Fooocus-singularity-{local_c_date}'
 </code></pre></div>
 <p>so we see that the <code>versionsuffix</code> line looks rather strange but we do see that the <code>-Fooocus-</code> part is injected
 in the name so we assume everything is OK.</p>
@@ -6161,7 +6161,7 @@ point to the <code>.sif</code> file of the container:</p>
 <p>First, the <code>PyTorch</code> module cannot be loaded as it sets a number of singularity-related 
 environment variables. Yet we want to use the value of <code>SIF</code>, so we will simply save it in
 a different environment variable before unloading the module:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CONTAINERFILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SIF</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CONTAINERFILE</span><span class="o">=</span><span class="s2">"</span><span class="nv">$SIF</span><span class="s2">"</span>
 module<span class="w"> </span>unload<span class="w"> </span>PyTorch/2.3.1-rocm-6.0.3-python-3.12-Fooocus-singularity-20240923
 </code></pre></div>
 <p>Second, the <code>proot</code> command is not available by default on LUMI, but it can be enabled by loading
@@ -6338,7 +6338,7 @@ files and directories on LUMI are reset:</p>
 <p>So now we are ready-to-run.</p>
 <h3 id="the-reward-running-fooocus">The reward: Running Fooocus<a class="headerlink" href="#the-reward-running-fooocus" title="Permanent link">&para;</a></h3>
 <p>First go into the directory containing the Fooocus package :</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installdir</span><span class="s2">/Fooocus-</span><span class="nv">$fooocusversion</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$installdir</span><span class="s2">/Fooocus-</span><span class="nv">$fooocusversion</span><span class="s2">"</span>
 </code></pre></div>
 <p>We'll start an interactive job with a single GPU:</p>
 <div class="highlight"><pre><span></span><code>srun<span class="w"> </span>-psmall-g<span class="w"> </span>-n1<span class="w"> </span>-c7<span class="w"> </span>--time<span class="o">=</span><span class="m">30</span>:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>60G<span class="w"> </span>-A<span class="w"> </span>project_465001965<span class="w"> </span>--pty<span class="w"> </span>bash
@@ -6378,7 +6378,7 @@ Fooocus code,</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03
 module<span class="w"> </span>load<span class="w"> </span>PyTorch/2.3.1-rocm-6.0.3-python-3.12-Fooocus-singularity-20240923
 srun<span class="w"> </span>-psmall-g<span class="w"> </span>-n1<span class="w"> </span>-c7<span class="w"> </span>--time<span class="o">=</span><span class="m">30</span>:00<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem<span class="o">=</span>60G<span class="w"> </span>-A<span class="w"> </span>project_465001965<span class="w"> </span>--pty<span class="w"> </span><span class="se">\</span>
-<span class="w">   </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo -e &quot;Running on $(hostname)\n&quot; ; singularity exec $SIF python launch.py --listen --disable-xformers&#39;</span>
+<span class="w">   </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo -e "Running on $(hostname)\n" ; singularity exec $SIF python launch.py --listen --disable-xformers'</span>
 </code></pre></div>
 <p>It will also print the host name on which the Fooocus is running, so you can connect to Fooocus using the
 same procedure as above.</p>
@@ -6489,7 +6489,7 @@ same procedure as above.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

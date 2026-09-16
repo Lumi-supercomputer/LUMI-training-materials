@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6076,13 +6076,13 @@ lrwxrwxrwx 1 samantao samantao 63 Nov  9 19:59 /users/samantao/.vscode-server -&
 </ul>
 <p>There is only problem with permission for running of Xorg :0, the example to allow Xorg running (CentOS7) - e.g. for prolog
 <div class="highlight"><pre><span></span><code>{
-  log_debug &quot;xorg_load&quot;
-  echo &quot;allowed_users=anybody&quot; &gt; /etc/X11/Xwrapper.config
-  echo &quot;#%PAM-1.0
+  log_debug "xorg_load"
+  echo "allowed_users=anybody" &gt; /etc/X11/Xwrapper.config
+  echo "#%PAM-1.0
   auth       sufficient   pam_rootok.so
   auth       sufficient   pam_permit.so
   account    required     pam_permit.so
-  session    optional     pam_keyinit.so force revoke&quot; &gt; /etc/pam.d/xserver
+  session    optional     pam_keyinit.so force revoke" &gt; /etc/pam.d/xserver
 }
 </code></pre></div></p>
 <ul>
@@ -6208,7 +6208,7 @@ lrwxrwxrwx 1 samantao samantao 63 Nov  9 19:59 /users/samantao/.vscode-server -&
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

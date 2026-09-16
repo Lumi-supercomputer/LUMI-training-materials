@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6752,10 +6752,10 @@ either using the
 <code>--bind src1:dest1,src2:dest2</code> 
 flag (or <code>-B</code>) or via the <code>SINGULARITY_BIND</code> or <code>SINGULARITY_BINDPATH</code> environment variables.
 E.g.,</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">&#39;/pfs,/scratch,/projappl,/project,/flash&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">'/pfs,/scratch,/projappl,/project,/flash'</span>
 </code></pre></div>
 <p>will ensure that you have access to the scratch, project and flash directories of your project, and</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">&#39;/pfs,/scratch,/projappl,/project,/flash,/appl&#39;</span>
+<p><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">'/pfs,/scratch,/projappl,/project,/flash,/appl'</span>
 </code></pre></div>
 will also add <code>/appl</code> though you should not expect that you can run the LUMI software stack in
 your container.</p>
@@ -7193,7 +7193,7 @@ the Python installation. Lustre will be very happy.</p>
 </code></pre></div>
 <p>We'll use one of the containers of the LUMI AI Factory in this example. As the full name is very long,
 we'll set an environment variable:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SIF</span><span class="o">=</span><span class="s1">&#39;/appl/local/laifs/containers/lumi-multitorch-u24r64f21m43t29-20260225_144743/lumi-multitorch-full-u24r64f21m43t29-20260225_144743.sif&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SIF</span><span class="o">=</span><span class="s1">'/appl/local/laifs/containers/lumi-multitorch-u24r64f21m43t29-20260225_144743/lumi-multitorch-full-u24r64f21m43t29-20260225_144743.sif'</span>
 </code></pre></div>
 <p>We also load the bindings module for the LAIF containers so that we have access to all our filespaces:</p>
 <div class="highlight"><pre><span></span><code>module<span class="w"> </span>load<span class="w"> </span>Local-LAIF<span class="w"> </span>lumi-aif-singularity-bindings
@@ -7307,7 +7307,7 @@ Outside the container, in our example, this was <code>/tmp/$USER/user-software</
 of that directory and use <code>makesquashfs</code> to generate the SquashFS file:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp/<span class="nv">$USER</span>
 mksquashfs<span class="w"> </span>user-software<span class="w"> </span>&lt;SOME_DIR&gt;/user-software-mace.sqsh<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-processors<span class="w"> </span><span class="m">1</span><span class="w"> </span>-all-root<span class="w"> </span>-action<span class="w"> </span><span class="s2">&quot;chmod(a+rX) @true&quot;</span>
+<span class="w">    </span>-processors<span class="w"> </span><span class="m">1</span><span class="w"> </span>-all-root<span class="w"> </span>-action<span class="w"> </span><span class="s2">"chmod(a+rX) @true"</span>
 </code></pre></div>
 <p>You are free to chose the filename extension, but here we use <code>sqsh</code> which is one of the more popular
 ones. The <code>-processors 1</code> tells <code>makesquashfs</code> to use only a single processor as we want to keep 
@@ -7355,7 +7355,7 @@ only a part of that file.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/user-software/mace-demo/bin/activate
 </code></pre></div>
 <p>As a test that everything works, we can import the <code>mace</code> package and print its version:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import mace; print( mace.__version__ )&#39;</span>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">'import mace; print( mace.__version__ )'</span>
 </code></pre></div>
 <h3 id="extending-containers-with-the-unprivileged-proot-build-process">Extending containers with the unprivileged PRoot build process<a class="headerlink" href="#extending-containers-with-the-unprivileged-proot-build-process" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
@@ -7499,7 +7499,7 @@ We'll also demonstrate how a definition file can be parameterised:</p>
 <span class="k">From</span>:<span class="w"> </span>{{<span class="w"> </span>sif<span class="w"> </span>}}
 
 <span class="gh">%environment</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">NCCL_SOCKET_IFNAME</span><span class="o">=</span><span class="s1">&#39;hsn0,hsn1,hsn2,hsn3&#39;</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">NCCL_SOCKET_IFNAME</span><span class="o">=</span><span class="s1">'hsn0,hsn1,hsn2,hsn3'</span>
 
 <span class="gh">%post</span>
 <span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>mace-torch
@@ -7539,7 +7539,7 @@ the initialisation.</p>
 </figure>
 <p>Building a container using this script can then be done as follows.</p>
 <p>To make life easy, we again use the <code>SIF</code> environment variable to point to the container we want to extend:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SIF</span><span class="o">=</span><span class="s1">&#39;/appl/local/laifs/containers/lumi-multitorch-u24r64f21m43t29-20260225_144743/lumi-multitorch-full-u24r64f21m43t29-20260225_144743.sif&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SIF</span><span class="o">=</span><span class="s1">'/appl/local/laifs/containers/lumi-multitorch-u24r64f21m43t29-20260225_144743/lumi-multitorch-full-u24r64f21m43t29-20260225_144743.sif'</span>
 </code></pre></div>
 <p>Next, we must make sure that the bindings module is not loaded. As discussed before, in order to use bindings
 during the build step, mount points have to be present in the container and they are not. So just to be sure:</p>
@@ -7564,7 +7564,7 @@ make reading easier):</p>
 in the environment variable <code>SIF</code>. The third line and final two arguments of <code>singularity build</code>
 are the name for the new container and the definition file that should be used.</p>
 <p>If you have failed to unload the bindings module, you would now get an error message similar to:</p>
-<div class="highlight"><pre><span></span><code>FATAL:   container creation failed: mount /var/spool/slurmd-&gt;/var/spool/slurmd error: while mounting /var/spool/slurmd: destination /var/spool/slurmd doesn&#39;t exist in container
+<div class="highlight"><pre><span></span><code>FATAL:   container creation failed: mount /var/spool/slurmd-&gt;/var/spool/slurmd error: while mounting /var/spool/slurmd: destination /var/spool/slurmd doesn't exist in container
 </code></pre></div>
 <p>It is also rather likely that you will run out-of-memory on the login nodes so we will
 build on a compute node instead. Even though this is GPU software, it is not necessary to
@@ -7587,7 +7587,7 @@ the bindings. Enter the container with</p>
 <p>and check the output of the following commands:</p>
 <div class="highlight"><pre><span></span><code>ls -l /opt/venv/bin/mace_run_train
 ls /opt/venv/lib/python3.12/site-packages/mace*
-python -c &#39;import mace; print(mace.__version__)&#39;
+python -c 'import mace; print(mace.__version__)'
 </code></pre></div>
 <p>to convince yourself that the mace package is installed where we expect it
 (in the <code>/opt/venv</code> virtual environment) and is found by Python.</p>
@@ -7634,7 +7634,7 @@ image fetched from Docker Hub.</p>
 </figure>
 <p>After the build, try</p>
 <div class="highlight"><pre><span></span><code>singularity run lumi-multitorch-user-u24r64f21m43t29-20260423.sif \
-    bash -c &#39;vim --version&#39;
+    bash -c 'vim --version'
 </code></pre></div>
 <p>to convince yourself that <code>vim</code> is in the container.</p>
 <p>Though many Ubuntu packages can be installed that way, this does not hold for all packages.
@@ -7680,14 +7680,14 @@ do outside the container.</p>
 
 <span class="gh">%post</span>
 
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;If you see the file /build_results.echo in the container, everything was OK...&quot;</span><span class="w"> </span>&gt;/build_results.echo
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"If you see the file /build_results.echo in the container, everything was OK..."</span><span class="w"> </span>&gt;/build_results.echo
 </code></pre></div>
 <p>and store this in the file <code>bindings-fail.def</code>. </p>
 <p>Now try to build with this definition file:</p>
 <div class="highlight"><pre><span></span><code>singularity<span class="w"> </span>build<span class="w"> </span>bindings.sif<span class="w"> </span>bindings-fail.def
 </code></pre></div>
 <p>and after printing some lines on the screen, singularity will show an error message:</p>
-<div class="highlight"><pre><span></span><code>FATAL:   container creation failed: mount /var/spool/slurmd-&gt;/var/spool/slurmd error: while mounting /var/spool/slurmd: destination /var/spool/slurmd doesn&#39;t exist in container
+<div class="highlight"><pre><span></span><code>FATAL:   container creation failed: mount /var/spool/slurmd-&gt;/var/spool/slurmd error: while mounting /var/spool/slurmd: destination /var/spool/slurmd doesn't exist in container
 FATAL:   While performing build: while running engine: exit status 255
 </code></pre></div>
 <p>even though we could run the container from which we start the build without issue.</p>
@@ -7707,7 +7707,7 @@ FATAL:   While performing build: while running engine: exit status 255
 
 <span class="gh">%post</span>
 
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;If you see this file, everything was OK...&quot;</span><span class="w"> </span>&gt;/build_results.echo
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"If you see this file, everything was OK..."</span><span class="w"> </span>&gt;/build_results.echo
 </code></pre></div>
 <p>and store this in the file <code>bindings-good.def</code>. In the <code>%files</code> section we copy an empty directory
 from the system that can then serve as a mount point for the directories that we will bind mount
@@ -7833,7 +7833,7 @@ incomplete.</p>
 reduce the size of the container.</p>
 <p>To run with this container, a lot of bindings are needed and we cannot simply use
 the <code>lumi-aif-singularity-bindings</code> module anymore:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">&#39;/pfs,/scratch,/projappl,/project,/flash,/appl,/etc/slurm,/var/spool/slurmd,/var/run/munge,/usr/lib64/slurm,/usr/bin/sacct,/usr/bin/salloc,/usr/bin/sbatch,/usr/bin/sinfo,/usr/bin/squeue,/usr/bin/srun,/usr/bin/sstat&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">'/pfs,/scratch,/projappl,/project,/flash,/appl,/etc/slurm,/var/spool/slurmd,/var/run/munge,/usr/lib64/slurm,/usr/bin/sacct,/usr/bin/salloc,/usr/bin/sbatch,/usr/bin/sinfo,/usr/bin/squeue,/usr/bin/srun,/usr/bin/sstat'</span>
 </code></pre></div>
 <p>We now also need to bind also the Slurm configuration from <code>/etc/slurm</code>, <code>/var/run/munge</code> 
 used by the <code>munge</code> library, <code>/usr/lib64/slurm</code> with many libraries used by Slurm,
@@ -7847,53 +7847,53 @@ adding more libraries.</p>
 <p>The following EasyConfig will create a recipe for a module similar
 to the <code>lumi-aif-singularity-bindings</code> module for the LUMI AI Factory
 containers:</p>
-<div class="highlight"><pre><span></span><code><span class="n">easyblock</span> <span class="o">=</span> <span class="s1">&#39;Bundle&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">easyblock</span> <span class="o">=</span> <span class="s1">'Bundle'</span>
 
-<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;singularity-slurm-bindings&#39;</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">'singularity-slurm-bindings'</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s1">'1.0.0'</span>
 
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">Singularity bindings for containers with Slurm support.</span>
 
 <span class="s2">Note that this is done by simply setting SINGULARITY_BIND, making this approach</span>
 <span class="s2">incompatible with other bindings modules. Which is an issue when used with the </span>
 <span class="s2">LUMI AI Factory containers as those also need another environment variable to</span>
 <span class="s2">be set for proper Slurm support for the MPI implementation in those containers.</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 
-<span class="n">homepage</span> <span class="o">=</span> <span class="s1">&#39;()&#39;</span>
+<span class="n">homepage</span> <span class="o">=</span> <span class="s1">'()'</span>
 
 <span class="n">toolchain</span> <span class="o">=</span> <span class="n">SYSTEM</span>
 
 <span class="n">env_mod_extra_vars</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;SINGULARITY_BIND&#39;</span> <span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+    <span class="s1">'SINGULARITY_BIND'</span> <span class="p">:</span> <span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
                               <span class="c1"># LUMI filesystems</span>
-                              <span class="s1">&#39;/pfs&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/scratch&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/projappl&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/project&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/flash&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/appl&#39;</span><span class="p">,</span>
+                              <span class="s1">'/pfs'</span><span class="p">,</span>
+                              <span class="s1">'/scratch'</span><span class="p">,</span>
+                              <span class="s1">'/projappl'</span><span class="p">,</span>
+                              <span class="s1">'/project'</span><span class="p">,</span>
+                              <span class="s1">'/flash'</span><span class="p">,</span>
+                              <span class="s1">'/appl'</span><span class="p">,</span>
                               <span class="c1"># Slurm configuration</span>
-                              <span class="s1">&#39;/etc/slurm&#39;</span><span class="p">,</span>
+                              <span class="s1">'/etc/slurm'</span><span class="p">,</span>
                               <span class="c1"># Communication with system services</span>
-                              <span class="s1">&#39;/var/spool/slurmd&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/var/run/munge&#39;</span><span class="p">,</span>
+                              <span class="s1">'/var/spool/slurmd'</span><span class="p">,</span>
+                              <span class="s1">'/var/run/munge'</span><span class="p">,</span>
                               <span class="c1"># Slurm libraries and plugins</span>
-                              <span class="s1">&#39;/usr/lib64/slurm&#39;</span><span class="p">,</span>
+                              <span class="s1">'/usr/lib64/slurm'</span><span class="p">,</span>
                               <span class="c1"># Slurm commands</span>
-                              <span class="s1">&#39;/usr/bin/sacct&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/usr/bin/sbatch&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/usr/bin/sinfo&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/usr/bin/squeue&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/usr/bin/srun&#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;/usr/bin/sstat&#39;</span>
+                              <span class="s1">'/usr/bin/sacct'</span><span class="p">,</span>
+                              <span class="s1">'/usr/bin/sbatch'</span><span class="p">,</span>
+                              <span class="s1">'/usr/bin/sinfo'</span><span class="p">,</span>
+                              <span class="s1">'/usr/bin/squeue'</span><span class="p">,</span>
+                              <span class="s1">'/usr/bin/srun'</span><span class="p">,</span>
+                              <span class="s1">'/usr/bin/sstat'</span>
                           <span class="p">]),</span>
     <span class="c1"># Uncomment the next line for the LUMI AI Factory containers</span>
-    <span class="c1"># &#39;SLURM_MPI_TYPE&#39;   : &#39;pmi2&#39;,</span>
+    <span class="c1"># 'SLURM_MPI_TYPE'   : 'pmi2',</span>
 <span class="p">}</span>
 
-<span class="n">env_mod_category</span> <span class="o">=</span> <span class="s1">&#39;tools&#39;</span>
+<span class="n">env_mod_category</span> <span class="o">=</span> <span class="s1">'tools'</span>
 </code></pre></div>
 <p>To install this module, copy this script to <code>singularity-slurm-bindings-1.0.0.eb</code>,
 then, after setting up your EasyBuild user environment as explained in the 
@@ -7904,61 +7904,61 @@ eb<span class="w"> </span>singularity-slurm-bindings-1.0.0.eb
 <p>Note that this module cannot be used in combination with other bindings modules
 that we offer, as each tries to set its own <code>SINGULARITY_BIND</code> environment variable.</p>
 <p>An nicer EasyConfig but currently without advantages is</p>
-<div class="highlight"><pre><span></span><code><span class="n">easyblock</span> <span class="o">=</span> <span class="s1">&#39;Bundle&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">easyblock</span> <span class="o">=</span> <span class="s1">'Bundle'</span>
 
-<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;singularity-slurm-bindings&#39;</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">'singularity-slurm-bindings'</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s1">'1.0.0'</span>
 
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">Singularity bindings for containers with Slurm support.</span>
 
 <span class="s2">Note that this is done by simply setting SINGULARITY_BIND, making this approach</span>
 <span class="s2">incompatible with other bindings modules. Which is an issue when used with the </span>
 <span class="s2">LUMI AI Factory containers as those also need another environment variable to</span>
 <span class="s2">be set for proper Slurm support for the MPI implementation in those containers.</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 
-<span class="n">homepage</span> <span class="o">=</span> <span class="s1">&#39;()&#39;</span>
+<span class="n">homepage</span> <span class="o">=</span> <span class="s1">'()'</span>
 
 <span class="n">toolchain</span> <span class="o">=</span> <span class="n">SYSTEM</span>
 
 <span class="n">env_mod_extra_vars</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># Uncomment the next line for the LUMI AI Factory containers</span>
-    <span class="c1"># &#39;SLURM_MPI_TYPE&#39;: &#39;pmi2&#39;,</span>
+    <span class="c1"># 'SLURM_MPI_TYPE': 'pmi2',</span>
 <span class="p">}</span>
 
 <span class="n">env_mod_extra_paths</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;SINGULARITY_BIND&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;paths&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s1">'SINGULARITY_BIND'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'paths'</span><span class="p">:</span> <span class="p">[</span>
             <span class="c1"># LUMI filesystems</span>
-            <span class="s1">&#39;/pfs&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/scratch&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/projappl&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/project&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/flash&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/appl&#39;</span><span class="p">,</span>
+            <span class="s1">'/pfs'</span><span class="p">,</span>
+            <span class="s1">'/scratch'</span><span class="p">,</span>
+            <span class="s1">'/projappl'</span><span class="p">,</span>
+            <span class="s1">'/project'</span><span class="p">,</span>
+            <span class="s1">'/flash'</span><span class="p">,</span>
+            <span class="s1">'/appl'</span><span class="p">,</span>
             <span class="c1"># Slurm configuration</span>
-            <span class="s1">&#39;/etc/slurm&#39;</span><span class="p">,</span>
+            <span class="s1">'/etc/slurm'</span><span class="p">,</span>
             <span class="c1"># Communication with system services</span>
-            <span class="s1">&#39;/var/spool/slurmd&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/var/run/munge&#39;</span><span class="p">,</span>
+            <span class="s1">'/var/spool/slurmd'</span><span class="p">,</span>
+            <span class="s1">'/var/run/munge'</span><span class="p">,</span>
             <span class="c1"># Slurm libraries and plugins</span>
-            <span class="s1">&#39;/usr/lib64/slurm&#39;</span><span class="p">,</span>
+            <span class="s1">'/usr/lib64/slurm'</span><span class="p">,</span>
             <span class="c1"># Slurm commands</span>
-            <span class="s1">&#39;/usr/bin/sacct&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/usr/bin/sbatch&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/usr/bin/sinfo&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/usr/bin/squeue&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/usr/bin/srun&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;/usr/bin/sstat&#39;</span>             
+            <span class="s1">'/usr/bin/sacct'</span><span class="p">,</span>
+            <span class="s1">'/usr/bin/sbatch'</span><span class="p">,</span>
+            <span class="s1">'/usr/bin/sinfo'</span><span class="p">,</span>
+            <span class="s1">'/usr/bin/squeue'</span><span class="p">,</span>
+            <span class="s1">'/usr/bin/srun'</span><span class="p">,</span>
+            <span class="s1">'/usr/bin/sstat'</span>             
         <span class="p">],</span>
-        <span class="s1">&#39;delimiter&#39;</span><span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;prepend&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;var_type&#39;</span><span class="p">:</span> <span class="s1">&#39;PATH&#39;</span><span class="p">,</span>
+        <span class="s1">'delimiter'</span><span class="p">:</span> <span class="s1">','</span><span class="p">,</span>
+        <span class="s1">'prepend'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">'var_type'</span><span class="p">:</span> <span class="s1">'PATH'</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">env_mod_category</span> <span class="o">=</span> <span class="s1">&#39;tools&#39;</span>
+<span class="n">env_mod_category</span> <span class="o">=</span> <span class="s1">'tools'</span>
 </code></pre></div>
 <p>Here <code>SINGULARITY_BIND</code> is treated the same way as <code>PATH</code> and other similar
 variables to which you can add and remove entries.  But this would only help
@@ -8162,7 +8162,7 @@ to the <code>python3</code> command.</p>
 <span class="k">From</span>:<span class="w"> </span>ubuntu:<span class="m">24.04</span>
 
 <span class="gh">%labels</span>
-<span class="w">    </span>Description<span class="w"> </span><span class="s2">&quot;Ubuntu 24.04 with Python 3.12&quot;</span>
+<span class="w">    </span>Description<span class="w"> </span><span class="s2">"Ubuntu 24.04 with Python 3.12"</span>
 
 <span class="gh">%post</span>
 <span class="w">    </span><span class="c1"># Update base system</span>
@@ -8215,11 +8215,11 @@ to the <code>python3</code> command.</p>
 <span class="w">    </span>/bin/rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$tmpdir</span>
 
 <span class="gh">%environment</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/usr/local/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
 <span class="w">    </span><span class="nb">source</span><span class="w"> </span>/opt/venv/bin/activate
 
 <span class="gh">%runscript</span>
-<span class="w">    </span><span class="nb">exec</span><span class="w"> </span>python3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">exec</span><span class="w"> </span>python3<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
 </code></pre></div></td></tr></table></div>
 <p>In the first part of the <code>%post</code> section, lines 8 till 35, we install a number of Ubuntu packages and
 also show how additional locales can be added should you require special language support. 
@@ -8420,7 +8420,7 @@ a lot that we can do.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

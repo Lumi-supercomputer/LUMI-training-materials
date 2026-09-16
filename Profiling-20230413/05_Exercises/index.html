@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6050,7 +6050,7 @@ export ROOFLINE_BIN=/project/project_465000502/software/omniperf108/bin/utils/ro
 </li>
 <li>
 <p>I'm having a problem with perftools and OpenACC code</p>
-<div class="highlight"><pre><span></span><code>Instrumented code exits with &quot;pat[WARNING][0]: abort process 72108 because of signal 6 ...&quot;
+<div class="highlight"><pre><span></span><code>Instrumented code exits with "pat[WARNING][0]: abort process 72108 because of signal 6 ..."
 </code></pre></div>
 <p>This happens both with "perftools-lite-gpu" as well as with "perftools" + "pat_build". Uninstrumented code works fine.</p>
 <ul>
@@ -6097,14 +6097,14 @@ srun -n 1 rocprof --hip-trace ./vcopy 1048576 256
 </code></pre></div>
 <p>I get some errors I can not understand, regarding a HSA table already existing. I added -t ${PWD} to use the current directory, I see the temporary directories created but I get the same error and the directories contain only some .txt files</p>
 <p><div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-    File &quot;/pfs/lustrep3/appl/lumi/SW/LUMI-22.08/G/EB/rocm/5.3.3/libexec/rocprofiler/tblextr.py&quot;, line 833, in &lt;module&gt;
-    hsa_trace_found = fill_api_db(&#39;HSA&#39;, db, indir, &#39;hsa&#39;, HSA_PID, COPY_PID, kern_dep_list, {}, 0)
-    File &quot;/pfs/lustrep3/appl/lumi/SW/LUMI-22.08/G/EB/rocm/5.3.3/libexec/rocprofiler/tblextr.py&quot;, line 406, in fill_api_db
+    File "/pfs/lustrep3/appl/lumi/SW/LUMI-22.08/G/EB/rocm/5.3.3/libexec/rocprofiler/tblextr.py", line 833, in &lt;module&gt;
+    hsa_trace_found = fill_api_db('HSA', db, indir, 'hsa', HSA_PID, COPY_PID, kern_dep_list, {}, 0)
+    File "/pfs/lustrep3/appl/lumi/SW/LUMI-22.08/G/EB/rocm/5.3.3/libexec/rocprofiler/tblextr.py", line 406, in fill_api_db
     table_handle = db.add_table(table_name, api_table_descr)
-    File &quot;/pfs/lustrep3/appl/lumi/SW/LUMI-22.08/G/EB/rocm/5.3.3/libexec/rocprofiler/sqlitedb.py&quot;, line 48, in add_table
+    File "/pfs/lustrep3/appl/lumi/SW/LUMI-22.08/G/EB/rocm/5.3.3/libexec/rocprofiler/sqlitedb.py", line 48, in add_table
     cursor.execute(stm)
 sqlite3.OperationalError: table HSA already exists 
-    Profiling data corrupted: &#39; /users/bellenta/work_dir/rocm/rpl_data_230413_165341_47398/input_results_230413_165341/results.txt 
+    Profiling data corrupted: ' /users/bellenta/work_dir/rocm/rpl_data_230413_165341_47398/input_results_230413_165341/results.txt 
 </code></pre></div>
 I deleted a results.db present in the directory, and now I see a results.csv file together with others (however still errors in the logfile).. maybe there is a flag to overwrite</p>
 <ul>
@@ -6123,7 +6123,7 @@ I deleted a results.db present in the directory, and now I see a results.csv fil
 <li>
 <p>It needs the wrapper, I believe.</p>
 <div class="highlight"><pre><span></span><code>WORK_DIR=${PWD}
-if [[ &quot;$SLURM_PROCID&quot; == 0 ]]; then
+if [[ "$SLURM_PROCID" == 0 ]]; then
     rocprof -t ${WORK_DIR} --hsa-trace --hip-trace \
             ./pw.x -i atom.in
 else
@@ -6293,7 +6293,7 @@ export MPICH_GPU_SUPPORT_ENABLED=1
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

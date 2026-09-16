@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6708,7 +6708,7 @@ user-accessible) and the total number of nodes in the partition. Sometimes a lar
 can be in the "O" column, e.g., when mechanical maintenance is needed (like problem with the
 cooling). Also note that the width of the <code>NODES</code> field is not enough as the total number
 of nodes for <code>standard-g</code> doesn't make sense, but this is easyly solved, e.g., using</p>
-<div class="highlight"><pre><span></span><code>sinfo -o &quot;%11P %.5a %.10l %.20F %N&quot;
+<div class="highlight"><pre><span></span><code>sinfo -o "%11P %.5a %.10l %.20F %N"
 </code></pre></div>
 <!-- BELGIUM 
 Note that this overview may show partitions that are not hidden but also not accessible to everyone. E.g., 
@@ -6734,7 +6734,7 @@ available to some users of those countries that paid for those machines.
 <details class="example">
 <summary>Additional example with <code>sinfo</code></summary>
 <p>Try</p>
-<p><div class="highlight"><pre><span></span><code>$ sinfo --format &quot;%4D %10P %25f %.4c %.8m %25G %N&quot;
+<p><div class="highlight"><pre><span></span><code>$ sinfo --format "%4D %10P %25f %.4c %.8m %25G %N"
 NODE PARTITION  AVAIL_FEATURES            CPUS   MEMORY GRES                      NODELIST
 2    debug      AMD_EPYC_7763,x1004        256   229376 (null)                    nid[002275-002276]
 5    debug      AMD_EPYC_7763,x1005        256   229376 (null)                    nid[002500-002501,002504-002506]
@@ -7324,7 +7324,7 @@ module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class=
 gpu_check
 
 sleep<span class="w"> </span><span class="m">2</span>
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p>As we are using <code>small-g</code> here instead of <code>standard-g</code>, we added the <code>#SBATCH --exclusive</code> and <code>#SBATCH --mem=480G</code> lines.</p>
 <p>A similar job script for a CPU-node in LUMI-C and now in the <code>standard</code> partition would look like:</p>
@@ -7341,7 +7341,7 @@ module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class=
 omp_check
 
 sleep<span class="w"> </span><span class="m">2</span>
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p><code>gpu_check</code> and <code>omp_check</code> are two programs provided by the <code>lumi-CPEtools</code> modules to check
 the allocations. Try <code>man lumi-CPEtools</code> after loading the module. The programs will be used
@@ -7534,11 +7534,11 @@ to do so. Otherwise the developers of Slurm wouldn't have changed that behaviour
 
 module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeCray-24.03
 
-echo &quot;Submitted from $SLURM_SUBMIT_HOST&quot;
-echo &quot;Running on $SLURM_JOB_NODELIST&quot;
+echo "Submitted from $SLURM_SUBMIT_HOST"
+echo "Running on $SLURM_JOB_NODELIST"
 echo
-echo -e &quot;Job script:\n$(cat $0)\n&quot;
-echo &quot;SLURM_* and SRUN_* environment variables:&quot;
+echo -e "Job script:\n$(cat $0)\n"
+echo "SLURM_* and SRUN_* environment variables:"
 env | egrep ^SLURM
 env | egrep ^SRUN
 
@@ -7554,7 +7554,7 @@ unset SLURM_NTASKS
 unset SLURM_NPROCS
 srun --ntasks-per-node=16 --cpus-per-task=8 hybrid_check -r
 set +x
-echo -e &quot;\nsacct for the job:\n$(sacct -j $SLURM_JOB_ID)\n&quot;
+echo -e "\nsacct for the job:\n$(sacct -j $SLURM_JOB_ID)\n"
 </code></pre></div></p>
 </details>
 <h3 id="a-warning-for-gpu-applications">A warning for GPU applications<a class="headerlink" href="#a-warning-for-gpu-applications" title="Permanent link">&para;</a></h3>
@@ -7612,12 +7612,12 @@ core. This is illustrated with the example below.</p>
 
 module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-24.03
 
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Job script:\n</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"Job script:\n</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">\n"</span>
 
 <span class="nb">set</span><span class="w"> </span>-x
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>omp_check<span class="w"> </span>-r
 <span class="nb">set</span><span class="w"> </span>+x
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div></p>
 <p>We consider three variants of this script:</p>
 <ol>
@@ -7734,7 +7734,7 @@ srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><s
 
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>omp_check<span class="w"> </span>-r
 <span class="nb">set</span><span class="w"> </span>+x
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 
 <span class="nb">set</span><span class="w"> </span>-x
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">256</span><span class="w"> </span>--hint<span class="o">=</span>multithread<span class="w"> </span>omp_check<span class="w"> </span>-r
@@ -7826,7 +7826,7 @@ srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><s
 
 srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>omp_check<span class="w"> </span>-r
 <span class="nb">set</span><span class="w"> </span>+x
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p>The relevant part of the output is now</p>
 <div class="highlight"><pre><span></span><code>+ srun -n 1 -c 4 --hint=nomultithread omp_check -r
@@ -8044,7 +8044,7 @@ GPU binding does not work for you.</p>
 
 module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-24.03
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running on </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Running on </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="s2">"</span>
 
 <span class="nb">set</span><span class="w"> </span>-x
 
@@ -8061,7 +8061,7 @@ srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">16</
 srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">16</span><span class="w"> </span>omp_check
 
 <span class="nb">set</span><span class="w"> </span>+x
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p>In the first output example (with lots of output deleted) we got the full
 allocation of 16 cores on a single node, and in fact, even 16 consecutive cores
@@ -8141,7 +8141,7 @@ for one task in the <code>#SBATCH</code> request. The warning at the start may o
 Slurm was still freeing up the cores from the previous run and therefore the new <code>srun</code> dind't 
 have enough resources the first time it tried to, but it automatically tried a second time.</p>
 <div class="highlight"><pre><span></span><code>+ srun --ntasks=1 --cpus-per-task=16 omp_check
-srun: Job step&#39;s --cpus-per-task value exceeds that of job (16 &gt; 4). Job step may never run.
+srun: Job step's --cpus-per-task value exceeds that of job (16 &gt; 4). Job step may never run.
 srun: Job 4268529 step creation temporarily disabled, retrying (Requested nodes are busy)
 srun: Step created for job 4268529
 
@@ -8258,8 +8258,8 @@ Running 16 single-threaded MPI ranks.
 </code></pre></div>
 <p>16 single threaded MPI processes also works without problems.</p>
 <div class="highlight"><pre><span></span><code>+ srun --ntasks=1 --cpus-per-task=16 omp_check
-srun: Job step&#39;s --cpus-per-task value exceeds that of job (16 &gt; 4). Job step may never run.
-srun: Warning: can&#39;t run 1 processes on 4 nodes, setting nnodes to 1
+srun: Job step's --cpus-per-task value exceeds that of job (16 &gt; 4). Job step may never run.
+srun: Warning: can't run 1 processes on 4 nodes, setting nnodes to 1
 srun: error: Unable to create step for job 4268614: More processors requested than permitted
 ...
 </code></pre></div>
@@ -8319,12 +8319,12 @@ demonstrate both options:</p>
 <span class="c1">#SBATCH --output %x-%j.txt</span>
 <span class="c1">#SBATCH --account=project_46YXXXXXX</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Batch script parameter 0: </span><span class="nv">$0</span><span class="s2">&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Batch script parameter 1: </span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Environment variable PAR1: </span><span class="nv">$PAR1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Batch script parameter 0: </span><span class="nv">$0</span><span class="s2">"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Batch script parameter 1: </span><span class="nv">$1</span><span class="s2">"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Environment variable PAR1: </span><span class="nv">$PAR1</span><span class="s2">"</span>
 </code></pre></div>
 <p>Now start this with (assuming the job script is saved as <code>slurm-small-parameters.slurm</code>)</p>
-<div class="highlight"><pre><span></span><code>$ sbatch --export=ALL,PAR1=&quot;Hello&quot; slurm-small-parameters.slurm &#39;Wow, this works!&#39;
+<div class="highlight"><pre><span></span><code>$ sbatch --export=ALL,PAR1="Hello" slurm-small-parameters.slurm 'Wow, this works!'
 </code></pre></div>
 <p>and check the output file when the job is completed:</p>
 <div class="highlight"><pre><span></span><code>Batch script parameter 0: /var/spool/slurmd/job4278998/slurm_script
@@ -8561,8 +8561,8 @@ single <code>sbatch</code> operation.</p>
 <span class="c1">#SBATCH --mem-per-cpu=1G</span>
 <span class="c1">#SBATCH --time=15:00</span>
 
-<span class="nv">INPUT_FILE</span><span class="o">=</span><span class="s2">&quot;input_</span><span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span><span class="s2">.dat&quot;</span>
-<span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">&quot;output_</span><span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span><span class="s2">.dat&quot;</span>
+<span class="nv">INPUT_FILE</span><span class="o">=</span><span class="s2">"input_</span><span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span><span class="s2">.dat"</span>
+<span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">"output_</span><span class="si">${</span><span class="nv">SLURM_ARRAY_TASK_ID</span><span class="si">}</span><span class="s2">.dat"</span>
 
 ./test_set<span class="w"> </span>-input<span class="w"> </span><span class="si">${</span><span class="nv">INPUT_FILE</span><span class="si">}</span><span class="w"> </span>-output<span class="w"> </span><span class="si">${</span><span class="nv">OUTPUT_FILE</span><span class="si">}</span>
 </code></pre></div>
@@ -8654,7 +8654,7 @@ module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class=
 <span class="nb">srun</span><span class="w"> </span>--het-group<span class="o">=</span><span class="m">0</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_0</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--het-group<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK_HET_GROUP_1</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
 
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p>There is a single <code>srun</code> command. <code>--het-group=0</code> tells <code>srun</code> to pick up the settings for the first
 heterogeneous group (before the <code>#SBATCH hetjob</code> line), and use that to start the <code>hybrid_check</code> program
@@ -8666,7 +8666,7 @@ LUMI does not work.</p>
 <p>This job script shows also demonstrates how a different value of a variable can be passed to each
 component using <code>--export</code>, even though this was not needed as the second case would show.</p>
 <p>The output of this job script would look lik (with a lot omitted):</p>
-<div class="highlight"><pre><span></span><code>srun: Job step&#39;s --cpus-per-task value exceeds that of job (32 &gt; 4). Job step may never run.
+<div class="highlight"><pre><span></span><code>srun: Job step's --cpus-per-task value exceeds that of job (32 &gt; 4). Job step may never run.
 
 Running 40 MPI ranks with between 4 and 32 threads each (total number of threads: 384).
 
@@ -8724,7 +8724,7 @@ module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class=
 <span class="nb">srun</span><span class="w"> </span>--ntasks<span class="o">=</span><span class="m">32</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w">  </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_A<span class="w"> </span>:<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>--ntasks<span class="o">=</span><span class="m">8</span><span class="w">  </span>--cpus-per-task<span class="o">=</span><span class="m">32</span><span class="w"> </span>hybrid_check<span class="w"> </span>-l<span class="w"> </span>app_B
 
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p>The output of the two <code>srun</code> commands is essentially the same as before, but the output 
 of <code>sacct</code> is different:</p>
@@ -8811,17 +8811,17 @@ multiple jobs, one for each job step that you would run simultaneously.</p>
 
 module<span class="w"> </span>load<span class="w"> </span>LUMI/24.03<span class="w"> </span>partition/C<span class="w"> </span>lumi-CPEtools/1.2-cpeCray-24.03
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Submitted from </span><span class="nv">$SLURM_SUBMIT_HOST</span><span class="s2">&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running on </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Submitted from </span><span class="nv">$SLURM_SUBMIT_HOST</span><span class="s2">"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Running on </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="s2">"</span>
 <span class="nb">echo</span>
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Job script:\n</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">\n&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SLURM_* environment variables:&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"Job script:\n</span><span class="k">$(</span>cat<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">\n"</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"SLURM_* environment variables:"</span>
 env<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>^SLURM
 
 <span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">7</span><span class="k">)</span>
 <span class="k">do</span><span class="w"> </span>
-<span class="w">    </span>srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">16</span><span class="w"> </span>--output<span class="o">=</span><span class="s2">&quot;slurm-simultaneous-CPU-1-</span><span class="nv">$SLURM_JOB_ID</span><span class="s2">-</span><span class="nv">$i</span><span class="s2">.txt&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;export ROCR_VISIBLE_DEVICES=</span><span class="si">${</span><span class="nv">GPU_BIND</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> &amp;&amp; omp_check -w 30&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span>srun<span class="w"> </span>--ntasks<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">16</span><span class="w"> </span>--output<span class="o">=</span><span class="s2">"slurm-simultaneous-CPU-1-</span><span class="nv">$SLURM_JOB_ID</span><span class="s2">-</span><span class="nv">$i</span><span class="s2">.txt"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"export ROCR_VISIBLE_DEVICES=</span><span class="si">${</span><span class="nv">GPU_BIND</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> &amp;&amp; omp_check -w 30"</span><span class="w"> </span><span class="p">&amp;</span>
 
 <span class="w">    </span>sleep<span class="w"> </span><span class="m">2</span>
 <span class="k">done</span>
@@ -8829,7 +8829,7 @@ env<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep
 <span class="nb">wait</span>
 
 sleep<span class="w"> </span><span class="m">2</span>
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="w"> </span>--format<span class="w"> </span>JobID%-13,Start,End,AllocCPUS,NCPUS,TotalCPU,MaxRSS<span class="w"> </span>--units<span class="o">=</span>M<span class="w"> </span><span class="k">)</span><span class="s2">\n&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nsacct for the job:\n</span><span class="k">$(</span>sacct<span class="w"> </span>-j<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span><span class="w"> </span>--format<span class="w"> </span>JobID%-13,Start,End,AllocCPUS,NCPUS,TotalCPU,MaxRSS<span class="w"> </span>--units<span class="o">=</span>M<span class="w"> </span><span class="k">)</span><span class="s2">\n"</span>
 </code></pre></div>
 <p>It will start 8 parallel job steps and in total create 9 files: One file with the output of the job script itself,
 and then one file for each job step with the output specific to that job step.
@@ -9137,7 +9137,7 @@ in the <a href="https://slurm.schedmd.com/archive/slurm-23.02.7/sreport.html"><c
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

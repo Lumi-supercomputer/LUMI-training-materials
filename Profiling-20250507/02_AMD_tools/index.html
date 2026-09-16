@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6030,15 +6030,15 @@
 </li>
 <li>
 <p>Following the slide I run rocprof --hip-trace  --output-format pftrace ./pluto</p>
-<div class="highlight"><pre><span></span><code>RPL: on &#39;250507_143448&#39; from &#39;/opt/rocm-6.0.3&#39; in &#39;/users/...&#39;
-/opt/rocm-6.0.3/bin/rocprof: **Error: Wrong option &#39;--output-format&#39;**
+<div class="highlight"><pre><span></span><code>RPL: on '250507_143448' from '/opt/rocm-6.0.3' in '/users/...'
+/opt/rocm-6.0.3/bin/rocprof: **Error: Wrong option '--output-format'**
 </code></pre></div>
 <ul>
 <li>You need to go to ROCm 6.2 for that. Try <code>module spider rocm/6.2</code></li>
 </ul>
 <p>I load rocm/6.2.2 but i obtain the same error rocprof --hip-trace  --output-format pftrace ./pluto -maxsteps 5</p>
-<div class="highlight"><pre><span></span><code>RPL: on &#39;250507_150325&#39; from &#39;/pfs/lustrep2/appl/lumi/SW/LUMI-24.03/G/EB/rocm/6.2.2&#39; in &#39;/users/...&#39;
-/appl/lumi/SW/LUMI-24.03/G/EB/rocm/6.2.2/bin/rocprof: **Error: Wrong option &#39;--output-format&#39;**
+<div class="highlight"><pre><span></span><code>RPL: on '250507_150325' from '/pfs/lustrep2/appl/lumi/SW/LUMI-24.03/G/EB/rocm/6.2.2' in '/users/...'
+/appl/lumi/SW/LUMI-24.03/G/EB/rocm/6.2.2/bin/rocprof: **Error: Wrong option '--output-format'**
 </code></pre></div>
 <ul>
 <li>You need to use <code>rocprofv3</code> instead of <code>rocprof</code> to get the newest rocprof. The <code>rocprof</code> command is still rocprof version 1.</li>
@@ -6156,7 +6156,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

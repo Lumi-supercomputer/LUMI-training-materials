@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6503,7 +6503,7 @@ while true ; do
 done
 </code></pre></div>
   then you can use in your submission script:
-  <div class="highlight"><pre><span></span><code>mpids=&#39;&#39;
+  <div class="highlight"><pre><span></span><code>mpids=''
 if [ $SLURM_LOCALID -eq 0 ] ; then
   rocm-monitor &amp;
   mpids=$!
@@ -6651,7 +6651,7 @@ The results are OK! (21.824s - UnifiedMemNoCopy)
 </li>
 <li>
 <p>(HPE) Login do not have GPUs and drivers. I'm running this (use your project ID):
-    <div class="highlight"><pre><span></span><code>srun --nodes=1 --ntasks-per-node=1 -p pilot -A project_462000031 -t &quot;00:10:00&quot; --ntasks=1 --gres=gpu:8 rocm-smi
+    <div class="highlight"><pre><span></span><code>srun --nodes=1 --ntasks-per-node=1 -p pilot -A project_462000031 -t "00:10:00" --ntasks=1 --gres=gpu:8 rocm-smi
 </code></pre></div>
     On the login you can get the help though.</p>
 </li>
@@ -6665,7 +6665,7 @@ I ask for an interactive session, then cannot run rocm-smi there.</p>
 <ul>
 <li>So, <code>salloc</code> does reserves nodes for you, but you are still on the login node. 
     You need <code>srun</code> to "access" the compute nodes. Example:
-    <div class="highlight"><pre><span></span><code>[13:21:26] ≈≈XXXXXX@uan04:~ &gt; salloc --nodes=1 --ntasks-per-node=1 -p pilot -A project_XXXXXXXX -t &quot;00:10:00&quot; --ntasks=1 --gres=gpu:8 
+    <div class="highlight"><pre><span></span><code>[13:21:26] ≈≈XXXXXX@uan04:~ &gt; salloc --nodes=1 --ntasks-per-node=1 -p pilot -A project_XXXXXXXX -t "00:10:00" --ntasks=1 --gres=gpu:8 
 salloc: Pending job allocation 1442086
 salloc: job 1442086 queued and waiting for resources
 salloc: job 1442086 has been allocated resources
@@ -6797,11 +6797,11 @@ RUN set -eux ; \
 ui/build
 
 RUN set -eux ; \
-sed -i &#39;s/127\.0\.0\.1/0.0.0.0/g&#39; ui/build.js
+sed -i 's/127\.0\.0\.1/0.0.0.0/g' ui/build.js
 
 EXPOSE 10000
 ENTRYPOINT []
-CMD [&quot;./ui/run-dev-server&quot;, &quot;-n&quot;]
+CMD ["./ui/run-dev-server", "-n"]
 </code></pre></div>
     build with
     <div class="highlight"><pre><span></span><code>#!/bin/bash
@@ -6810,7 +6810,7 @@ docker network rm \
 lan-restricted
 
 docker network create \
--o &quot;com.docker.network.bridge.enable_ip_masquerade&quot;=&quot;false&quot; \
+-o "com.docker.network.bridge.enable_ip_masquerade"="false" \
 lan-restricted
 
 docker run -p 10000:10000 --name myperfetto --network  lan-restricted myperfetto
@@ -6856,17 +6856,17 @@ The README contains basic instructions</p>
     select_gpu.sh
     <div class="highlight"><pre><span></span><code>#!/bin/bash
 
-GPUSID=&quot;4 5 2 3 6 7 0 1&quot;
+GPUSID="4 5 2 3 6 7 0 1"
 GPUSID=(${GPUSID})
-if [ ${#GPUSID[@]} -gt 0 -a -n &quot;${SLURM_NTASKS_PER_NODE}&quot; ]; then
+if [ ${#GPUSID[@]} -gt 0 -a -n "${SLURM_NTASKS_PER_NODE}" ]; then
     export ROCR_VISIBLE_DEVICES=${GPUSID[$((SLURM_LOCALID / ($SLURM_NTASKS_PER_NODE / ${#GPUSID[@]})))]}
 fi
 
 exec $*
 </code></pre></div></p>
 <div class="highlight"><pre><span></span><code>#SBATCH --job-name=NAME          # &lt;--- SET 
-#SBATCH --output=&quot;NAME.%J.out&quot;   # &lt;--- SET
-#SBATCH --error=&quot;NAME.%J.err&quot;    # &lt;--- SET
+#SBATCH --output="NAME.%J.out"   # &lt;--- SET
+#SBATCH --error="NAME.%J.err"    # &lt;--- SET
 #SBATCH --nodes=2                # &lt;--- SET: Number of nodes, each noode has 8 GPUs
 #SBATCH --ntasks=16              # &lt;--- SET: Number of processes you want to use, MUST be nodes*8 !!!
 #SBATCH --gpus=16                # &lt;--- SET: MUST be the same as ntasks !!!
@@ -7022,7 +7022,7 @@ srun -n 16 ./td-wslda-3d input.txt
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

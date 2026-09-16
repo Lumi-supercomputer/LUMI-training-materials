@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6114,12 +6114,12 @@ module load lumi-vnc
 <p>If we enable hardware threads for a job/allocation, does "--cpus-per-task" become HW threads?</p>
 <p><strong>Answer:</strong> Yes:
 <div class="highlight"><pre><span></span><code># 2 HWT per core, all cores allocated 
-$ srun -pstandard --cpus-per-task=256 --hint=multithread --pty bash -c &#39;taskset -c -p $$&#39;
-pid 161159&#39;s current affinity list: 0-255
+$ srun -pstandard --cpus-per-task=256 --hint=multithread --pty bash -c 'taskset -c -p $$'
+pid 161159's current affinity list: 0-255
 
 # 2 HWT per core but only the first 64 cores allocated 
-$ srun -pstandard --cpus-per-task=128 --hint=multithread --pty bash -c &#39;taskset -c -p $$&#39;
-pid 161411&#39;s current affinity list: 0-63,128-191
+$ srun -pstandard --cpus-per-task=128 --hint=multithread --pty bash -c 'taskset -c -p $$'
+pid 161411's current affinity list: 0-63,128-191
 </code></pre></div></p>
 </li>
 <li>
@@ -6140,11 +6140,11 @@ pid 161411&#39;s current affinity list: 0-63,128-191
 </li>
 <li>
 <p>For a sub-node allocation, you will get random cores depending on which cores are available:
-<div class="highlight"><pre><span></span><code>$ srun -psmall --cpus-per-task=16 --pty bash -c &#39;taskset -c -p $$&#39;
-pid 46818&#39;s current affinity list: 44-46,50,52-63
+<div class="highlight"><pre><span></span><code>$ srun -psmall --cpus-per-task=16 --pty bash -c 'taskset -c -p $$'
+pid 46818's current affinity list: 44-46,50,52-63
 
-$ srun -pstandard --cpus-per-task=16 --pty bash -c &#39;taskset -c -p $$&#39;
-pid 220496&#39;s current affinity list: 0-15
+$ srun -pstandard --cpus-per-task=16 --pty bash -c 'taskset -c -p $$'
+pid 220496's current affinity list: 0-15
 </code></pre></div></p>
 </li>
 </ul>
@@ -6284,7 +6284,7 @@ pid 220496&#39;s current affinity list: 0-15
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

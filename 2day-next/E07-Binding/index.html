@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6055,10 +6055,10 @@ exec \$*
 EOF
 chmod +x ./select_gpu_$SLURM_JOB_ID
 
-CPU_BIND=&quot;mask_cpu:0xfe000000000000,0xfe00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe0000,0xfe000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe,0xfe00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe00000000,0xfe0000000000&quot;
+CPU_BIND="mask_cpu:0xfe000000000000,0xfe00000000000000,"
+CPU_BIND="${CPU_BIND}0xfe0000,0xfe000000,"
+CPU_BIND="${CPU_BIND}0xfe,0xfe00,"
+CPU_BIND="${CPU_BIND}0xfe00000000,0xfe0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6094,10 +6094,10 @@ exec \$*
 EOF
 chmod +x ./select_gpu_$SLURM_JOB_ID
 
-CPU_BIND=&quot;mask_cpu:0xfe000000000000,0xfe00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe0000,0xfe000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe,0xfe00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe00000000,0xfe0000000000&quot;
+CPU_BIND="mask_cpu:0xfe000000000000,0xfe00000000000000,"
+CPU_BIND="${CPU_BIND}0xfe0000,0xfe000000,"
+CPU_BIND="${CPU_BIND}0xfe,0xfe00,"
+CPU_BIND="${CPU_BIND}0xfe00000000,0xfe0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6210,7 +6210,7 @@ srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

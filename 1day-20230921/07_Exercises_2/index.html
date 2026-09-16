@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6047,10 +6047,10 @@
 <p>Run single task with a job step of <code>srun</code> using multiple cpu cores. Inspect default task allocation with <code>taskset</code> command (<code>taskset -cp $$</code> will show you cpu numbers allocated to a current process). Try with <code>standard-g</code> and <code>small-g</code> partitions. Are there any diffences? You may need to use specific reservation for <code>standard-g</code> partition to avoid long waiting. </p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
-<div class="highlight"><pre><span></span><code>srun --partition=small-g --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; bash -c &#39;taskset -cp $$&#39; 
+<div class="highlight"><pre><span></span><code>srun --partition=small-g --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; bash -c 'taskset -cp $$' 
 </code></pre></div>
 <p>Note you need to replace <code>&lt;project_id&gt;</code> with actual project account ID in a form of <code>project_</code> plus 9 digits number.</p>
-<div class="highlight"><pre><span></span><code>srun --partition=standard-g --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; --reservation=&lt;res_id&gt; bash -c &#39;taskset -cp $$&#39; 
+<div class="highlight"><pre><span></span><code>srun --partition=standard-g --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; --reservation=&lt;res_id&gt; bash -c 'taskset -cp $$' 
 </code></pre></div>
 <p>The command runs single process (<code>bash</code> shell with a native Linux <code>taskset</code> tool showing process's CPU affinity) on a compute node. You can use <code>man taskset</code> command to see how the tool works.</p>
 </details>
@@ -6191,10 +6191,10 @@ EOF
 
 chmod +x ./select_gpu
 
-CPU_BIND=&quot;mask_cpu:0x7e000000000000,0x7e00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e0000,0x7e000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e,0x7e00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0x7e00000000,0x7e0000000000&quot;
+CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
+CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
+CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
+CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6307,7 +6307,7 @@ srun --cpu-bind=${CPU_BIND} ./select_gpu gpu_check -l
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

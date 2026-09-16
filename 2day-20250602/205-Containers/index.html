@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6543,7 +6543,7 @@ either using the
 <code>--bind src1:dest1,src2:dest2</code> 
 flag (or <code>-B</code>) or via the <code>SINGULARITY_BIND</code> or <code>SINGULARITY_BINDPATH</code> environment variables.
 E.g.,</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">&#39;/pfs,/scratch,/projappl,/project,/flash&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SINGULARITY_BIND</span><span class="o">=</span><span class="s1">'/pfs,/scratch,/projappl,/project,/flash'</span>
 </code></pre></div>
 <p>will ensure that you have access to the scratch, project and flash directories of your project.</p>
 <p>For some containers that are provided by the LUMI User Support Team, modules are also available that 
@@ -6981,21 +6981,21 @@ you to always go through the resource manager if you want access to a compute no
 variable. This will be needed to set up the communication in PyTorch. Store it in <code>get-master.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_parser</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Extract master node name from Slurm node list&quot;</span><span class="p">,</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Extract master node name from Slurm node list"</span><span class="p">,</span>
             <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;nodelist&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Slurm nodelist&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"nodelist"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Slurm nodelist"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-    <span class="n">first_nodelist</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">nodelist</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">first_nodelist</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">nodelist</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="s1">&#39;[&#39;</span> <span class="ow">in</span> <span class="n">first_nodelist</span><span class="p">:</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">first_nodelist</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)</span>
-        <span class="n">first_node</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">'['</span> <span class="ow">in</span> <span class="n">first_nodelist</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">first_nodelist</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'['</span><span class="p">)</span>
+        <span class="n">first_node</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="n">first_node</span> <span class="o">=</span> <span class="n">first_nodelist</span>
@@ -7021,7 +7021,7 @@ sleep<span class="w"> </span><span class="m">2</span>
 
 <span class="c1"># MIOPEN needs some initialisation for the cache as the default location</span>
 <span class="c1"># does not work on LUMI as Lustre does not provide the necessary features.</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_USER_DB_PATH</span><span class="o">=</span><span class="s2">&quot;/tmp/</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">-miopen-cache-</span><span class="nv">$SLURM_NODEID</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_USER_DB_PATH</span><span class="o">=</span><span class="s2">"/tmp/</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">-miopen-cache-</span><span class="nv">$SLURM_NODEID</span><span class="s2">"</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_CUSTOM_CACHE_DIR</span><span class="o">=</span><span class="nv">$MIOPEN_USER_DB_PATH</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$SLURM_LOCALID</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
@@ -7045,12 +7045,12 @@ sleep<span class="w"> </span><span class="m">2</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">ROCR_VISIBLE_DEVICES</span><span class="o">=</span><span class="nv">$SLURM_LOCALID</span>
 
 <span class="c1"># Report affinity to check</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Rank </span><span class="nv">$SLURM_PROCID</span><span class="s2"> --&gt; </span><span class="k">$(</span>taskset<span class="w"> </span>-p<span class="w"> </span><span class="nv">$$</span><span class="k">)</span><span class="s2">; GPU </span><span class="nv">$ROCR_VISIBLE_DEVICES</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Rank </span><span class="nv">$SLURM_PROCID</span><span class="s2"> --&gt; </span><span class="k">$(</span>taskset<span class="w"> </span>-p<span class="w"> </span><span class="nv">$$</span><span class="k">)</span><span class="s2">; GPU </span><span class="nv">$ROCR_VISIBLE_DEVICES</span><span class="s2">"</span>
 
 <span class="c1"># The usual PyTorch initialisations (also needed on NVIDIA)</span>
 <span class="c1"># Note that since we fix the port ID it is not possible to run, e.g., two</span>
 <span class="c1"># instances via this script using half a node each.</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>get-master.py<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SLURM_NODELIST</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>get-master.py<span class="w"> </span><span class="s2">"</span><span class="nv">$SLURM_NODELIST</span><span class="s2">"</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_PORT</span><span class="o">=</span><span class="m">29500</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">WORLD_SIZE</span><span class="o">=</span><span class="nv">$SLURM_NPROCS</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">RANK</span><span class="o">=</span><span class="nv">$SLURM_PROCID</span>
@@ -7084,7 +7084,7 @@ sleep<span class="w"> </span><span class="m">2</span>
 <p>The <code>MIOPEN_</code> environment variables are needed to make 
     <a href="https://rocm.docs.amd.com/projects/MIOpen/en/latest/">MIOpen</a> create its caches on <code>/tmp</code>
     as doing this on Lustre fails because of file locking issues:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_USER_DB_PATH</span><span class="o">=</span><span class="s2">&quot;/tmp/</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">-miopen-cache-</span><span class="nv">$SLURM_NODEID</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_USER_DB_PATH</span><span class="o">=</span><span class="s2">"/tmp/</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">-miopen-cache-</span><span class="nv">$SLURM_NODEID</span><span class="s2">"</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MIOPEN_CUSTOM_CACHE_DIR</span><span class="o">=</span><span class="nv">$MIOPEN_USER_DB_PATH</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$SLURM_LOCALID</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
@@ -7113,7 +7113,7 @@ inter-node communications!</p>
     NVIDIA systems.</p>
 <p>PyTorch needs to find the master for communication which is done through the
 <code>get-master.py</code> script that we created before:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>get-master.py<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SLURM_NODELIST</span><span class="s2">&quot;</span><span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_ADDR</span><span class="o">=</span><span class="k">$(</span>python<span class="w"> </span>get-master.py<span class="w"> </span><span class="s2">"</span><span class="nv">$SLURM_NODELIST</span><span class="s2">"</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MASTER_PORT</span><span class="o">=</span><span class="m">29500</span>
 </code></pre></div>
 <p><strong>As we fix the port number here, the <code>conda-python-distributed</code> script that we provide, 
@@ -7131,7 +7131,7 @@ this version of the script.</strong></p>
 <span class="c1">#SBATCH --nodes=4</span>
 <span class="c1">#SBATCH --gpus-per-node=8</span>
 <span class="c1">#SBATCH --tasks-per-node=8</span>
-<span class="c1">#SBATCH --output=&quot;output_%x_%j.txt&quot;</span>
+<span class="c1">#SBATCH --output="output_%x_%j.txt"</span>
 <span class="c1">#SBATCH --partition=standard-g</span>
 <span class="c1">#SBATCH --mem=480G</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
@@ -7140,7 +7140,7 @@ this version of the script.</strong></p>
 <span class="nv">CONTAINER</span><span class="o">=</span>your-container-image.sif
 
 <span class="nv">c</span><span class="o">=</span>fe
-<span class="nv">MYMASKS</span><span class="o">=</span><span class="s2">&quot;0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000000000&quot;</span>
+<span class="nv">MYMASKS</span><span class="o">=</span><span class="s2">"0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000000000"</span>
 
 srun<span class="w"> </span>--cpu-bind<span class="o">=</span>mask_cpu:<span class="nv">$MYMASKS</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="se">\</span>
@@ -7188,17 +7188,17 @@ It is in <code>$CONTAINERROOT/runscripts</code> or in the container as <code>/ru
 <span class="c1">#SBATCH --nodes=4</span>
 <span class="c1">#SBATCH --gpus-per-node=8</span>
 <span class="c1">#SBATCH --tasks-per-node=8</span>
-<span class="c1">#SBATCH --output=&quot;output_%x_%j.txt&quot;</span>
+<span class="c1">#SBATCH --output="output_%x_%j.txt"</span>
 <span class="c1">#SBATCH --partition=standard-g</span>
 <span class="c1">#SBATCH --mem=480G</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
 <span class="c1">#SBATCH --account=project_&lt;your_project_id&gt;</span>
 
-module<span class="w"> </span>load<span class="w"> </span>LUMI<span class="w">  </span><span class="c1"># Which version doesn&#39;t matter, it is only to get the container.</span>
+module<span class="w"> </span>load<span class="w"> </span>LUMI<span class="w">  </span><span class="c1"># Which version doesn't matter, it is only to get the container.</span>
 module<span class="w"> </span>load<span class="w"> </span>PyTorch/2.6.0-rocm-6.2.4-python-3.12-singularity-20250404
 
 <span class="nv">c</span><span class="o">=</span>fe
-<span class="nv">MYMASKS</span><span class="o">=</span><span class="s2">&quot;0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000000000&quot;</span>
+<span class="nv">MYMASKS</span><span class="o">=</span><span class="s2">"0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">00000000,0x</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0000000000"</span>
 
 <span class="nb">cd</span><span class="w"> </span>mnist
 srun<span class="w"> </span>--cpu-bind<span class="o">=</span>mask_cpu:<span class="nv">$MYMASKS</span><span class="w"> </span><span class="se">\</span>
@@ -7538,7 +7538,7 @@ will not work.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6008,7 +6008,7 @@ them through modules. For this, first add an additional directory to the module 
     (<code>taskset -cp $$</code> will show you the cpu numbers allocated to the current process). </p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
-<div class="highlight"><pre><span></span><code>srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; bash -c &#39;taskset -cp $$&#39; 
+<div class="highlight"><pre><span></span><code>srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; bash -c 'taskset -cp $$' 
 </code></pre></div>
 <p>Note that you need to replace <code>&lt;project_id&gt;</code> with the actual project account ID of the 
 form  <code>project_</code> plus a 9 digits number.</p>
@@ -6140,7 +6140,7 @@ module load PrgEnv-cray
 module load rocm
 </code></pre></div>
 <p>To build the code, use</p>
-<div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME=&quot;frontier&quot;
+<div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME="frontier"
 </code></pre></div>
 <p>You need to add <code>LMOD_SYSTEM_NAME="frontier"</code> variable for make as the code originates from the Frontier system
 and doesn't know LUMI.</p>
@@ -6187,10 +6187,10 @@ exec \$*
 EOF
 chmod +x ./select_gpu_$SLURM_JOB_ID
 
-CPU_BIND=&quot;mask_cpu:0xfe000000000000,0xfe00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe0000,0xfe000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe,0xfe00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe00000000,0xfe0000000000&quot;
+CPU_BIND="mask_cpu:0xfe000000000000,0xfe00000000000000,"
+CPU_BIND="${CPU_BIND}0xfe0000,0xfe000000,"
+CPU_BIND="${CPU_BIND}0xfe,0xfe00,"
+CPU_BIND="${CPU_BIND}0xfe00000000,0xfe0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6226,10 +6226,10 @@ exec \$*
 EOF
 chmod +x ./select_gpu_$SLURM_JOB_ID
 
-CPU_BIND=&quot;mask_cpu:0xfe000000000000,0xfe00000000000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe0000,0xfe000000,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe,0xfe00,&quot;
-CPU_BIND=&quot;${CPU_BIND}0xfe00000000,0xfe0000000000&quot;
+CPU_BIND="mask_cpu:0xfe000000000000,0xfe00000000000000,"
+CPU_BIND="${CPU_BIND}0xfe0000,0xfe000000,"
+CPU_BIND="${CPU_BIND}0xfe,0xfe00,"
+CPU_BIND="${CPU_BIND}0xfe00000000,0xfe0000000000"
 
 export OMP_NUM_THREADS=6
 export OMP_PROC_BIND=close
@@ -6342,7 +6342,7 @@ srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

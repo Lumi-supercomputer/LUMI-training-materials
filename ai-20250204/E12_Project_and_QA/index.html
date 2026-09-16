@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -5991,7 +5991,7 @@ you have learned during the workshop - with on-site support from LUST/AMD.</p>
     Right now I am using <code>lumi-pytorch-rocm-6.2.3-python-3.12-pytorch-v2.5.1.sif</code>
     I need to activate conda to have access to the pytorch modules, so the current hack it to put this in my .sh file
     <div class="highlight"><pre><span></span><code>srun singularity exec $CONTAINER \
-    bash -c &quot;\$WITH_CONDA; python3 $PYTHON_FILE --max-samples=256&quot;
+    bash -c "\$WITH_CONDA; python3 $PYTHON_FILE --max-samples=256"
 </code></pre></div>
     Is there a better/prettier way to activate conda so I don't have to put all arguments inside the quotes and the bash call?</p>
 <ul>
@@ -6001,7 +6001,7 @@ you have learned during the workshop - with on-site support from LUST/AMD.</p>
 <p>Those EasyBuild modules are not perfect and not all modules implement all functionality, basically because our time is also finite and we don't want to invest time in things that we don't know will be used. But we're always open to further develop them on request.</p>
 <p>With some of the newer PyTorch EasyBuild containers, your command would become </p>
 <div class="highlight"><pre><span></span><code>srun singularity exec $CONTAINER \
-    python3 $PYTHON_FILE --max-samples=256&quot;
+    python3 $PYTHON_FILE --max-samples=256"
 </code></pre></div>
 </li>
 </ul>
@@ -6135,7 +6135,7 @@ you have learned during the workshop - with on-site support from LUST/AMD.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

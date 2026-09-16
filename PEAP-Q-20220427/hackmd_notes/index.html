@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6153,7 +6153,7 @@ Tutorial on the Cray module environment and compiler wrapper scripts.</em></p>
 <ul>
 <li><strong>A:</strong> It is not included in the Cray branded module.
      <div class="highlight"><pre><span></span><code>module load cray-python/3.9.4.2
-python -c &#39;import h5py&#39;
+python -c 'import h5py'
 pip3 list
 </code></pre></div></li>
 <li><strong>A:</strong> It may be one that needs to be compiled from sources, and may also depend on which of the HDF5 configurations 
@@ -6368,10 +6368,10 @@ InstalledDir: /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/bin
 </code></pre></div>
     Despite using the clang++ the compilation fails that it does not find C++ header file. It seems to me, that C compiler is used instead of C++.
     <div class="highlight"><pre><span></span><code>[ 2/82] Compiling src/meric/meric.cpp
-14:57:01 runner [&#39;clang++&#39;, &#39;-O0&#39;, &#39;-g&#39;, &#39;-std=c++11&#39;, &#39;-fPIC&#39;, &#39;-fopenmp&#39;, &#39;-I/pfs/lustrep2/users/onvysock/meric/include/&#39;, &#39;-DMERIC_PATH=&quot;/pfs/lustrep2/users/onvysock/meric&quot;&#39;, &#39;-DVERBOSE&#39;, &#39;../src/meric/meric.cpp&#39;, &#39;-c&#39;, &#39;-o/pfs/lustrep2/users/onvysock/meric/build/src/meric/meric.cpp.1.o&#39;]
+14:57:01 runner ['clang++', '-O0', '-g', '-std=c++11', '-fPIC', '-fopenmp', '-I/pfs/lustrep2/users/onvysock/meric/include/', '-DMERIC_PATH="/pfs/lustrep2/users/onvysock/meric"', '-DVERBOSE', '../src/meric/meric.cpp', '-c', '-o/pfs/lustrep2/users/onvysock/meric/build/src/meric/meric.cpp.1.o']
 
 In file included from ../src/meric/meric.cpp:2:
-../src/meric/meric.h:5:10: fatal error: &#39;iostream&#39; file not found
+../src/meric/meric.h:5:10: fatal error: 'iostream' file not found
 #include &lt;iostream&gt;
          ^~~~~~~~~~
 1 error generated.
@@ -6402,11 +6402,11 @@ $ vim hello.cpp
     #include &lt;iostream&gt;
     int main()
     {
-        std::cout &lt;&lt; &quot;Hello LUMI\n&quot;;
+        std::cout &lt;&lt; "Hello LUMI\n";
         return 0;
     }
 $ clang++ -std=c++11 hello.cpp
-    hello.cpp:1:10: fatal error: &#39;iostream&#39; file not found
+    hello.cpp:1:10: fatal error: 'iostream' file not found
     #include &lt;iostream&gt;
             ^~~~~~~
     1 error generated.
@@ -6436,8 +6436,8 @@ $
     should be possible to use statements like <code>export CC='cc'</code> and <code>export CXX='CC'</code> to tell Waf to use the wrappers.
     Using the <code>waf</code> command line options (if that is what you are doing) is NOT enough to say 
     With this on a C++ demo program the output does show
-    <div class="highlight"><pre><span></span><code>Checking for &#39;g++&#39; (C++ compiler)        : not found
-Checking for &#39;clang++&#39; (C++ compiler)    : CC
+    <div class="highlight"><pre><span></span><code>Checking for 'g++' (C++ compiler)        : not found
+Checking for 'clang++' (C++ compiler)    : CC
 </code></pre></div>
     Whis is exactly what I want to see, and continuing this with <code>waf configure build -vvv</code> clearly shows once 
     more that Waf is using the <code>CC</code> wrapper. In general, I'd say never trust autodetection of compilers when 
@@ -6452,10 +6452,10 @@ Checking for &#39;clang++&#39; (C++ compiler)    : CC
    <a href="https://gitlab.com/ita1024/waf/-/blob/master/demos/c%2B%2B/wscript">the C++ one</a> with the current version 
    of Waf (2.0.23) and telling it via the <code>CXX</code> environment variable to use <code>CC</code> as I described above. I'm not
    a Waf specialist, but I guess it is the
-   <div class="highlight"><pre><span></span><code><span class="n">opt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;compiler_cxx&#39;</span><span class="p">)</span>
+   <div class="highlight"><pre><span></span><code><span class="n">opt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'compiler_cxx'</span><span class="p">)</span>
 </code></pre></div>
    or
-   <div class="highlight"><pre><span></span><code><span class="n">conf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;compiler_cxx&#39;</span><span class="p">)</span>
+   <div class="highlight"><pre><span></span><code><span class="n">conf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'compiler_cxx'</span><span class="p">)</span>
 </code></pre></div>
    lines that activate the routines that do the magic.</li>
 </ul>
@@ -7044,7 +7044,7 @@ Exercises: about 20 minutes</em></p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

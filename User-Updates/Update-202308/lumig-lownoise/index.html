@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6309,7 +6309,7 @@ cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu</span>
 
 chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
 
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;map_cpu:49,57,17,25,1,9,33,41&quot;</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"map_cpu:49,57,17,25,1,9,33,41"</span>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_SUPPORT_ENABLED</span><span class="o">=</span><span class="m">1</span>
 
@@ -6380,10 +6380,10 @@ cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu</span>
 
 chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
 
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;mask_cpu:7e000000000000,7e00000000000000&quot;</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,7e0000,7e000000&quot;</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,7e,7e00&quot;</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,7e00000000,7e0000000000&quot;</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"mask_cpu:7e000000000000,7e00000000000000"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,7e0000,7e000000"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,7e,7e00"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,7e00000000,7e0000000000"</span>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_SUPPORT_ENABLED</span><span class="o">=</span><span class="m">1</span>
@@ -6448,7 +6448,7 @@ as is the job script on slide 65 that uses that mask:</p>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">7</span>
 
-<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000&quot;</span>
+<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">"srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"</span>
 
 <span class="si">${</span><span class="nv">ASRUN</span><span class="si">}</span><span class="w"> </span>./xthi<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">4</span><span class="w"> </span>-k<span class="w"> </span><span class="m">6</span>
 </code></pre></div>
@@ -6472,7 +6472,7 @@ so we also cannot rely on <code>SLURM_CPUS_PER_TASK</code>.)</p>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">7</span>
 
-<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">&quot;srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000&quot;</span>
+<span class="nv">ASRUN</span><span class="o">=</span><span class="s2">"srun --cpu-bind=mask_cpu:0xfe,0xfe00,0xfe0000,0xfe000000,0xfe00000000,0xfe0000000000,0xfe000000000000,0xfe00000000000000"</span>
 
 <span class="si">${</span><span class="nv">ASRUN</span><span class="si">}</span><span class="w"> </span>./select_gpu.sh<span class="w"> </span>&lt;my_app&gt;
 </code></pre></div>
@@ -6487,9 +6487,9 @@ so we also cannot rely on <code>SLURM_CPUS_PER_TASK</code>.)</p>
 <p>will still give a correct CPU binding and the GPU binding is still too naive.
 It is corrected by the <code>select_gpu.sh</code> script on slide 74 which does not require any modifications either:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nv">GPUSID</span><span class="o">=</span><span class="s2">&quot;4 5 2 3 6 7 0 1&quot;</span>
+<span class="nv">GPUSID</span><span class="o">=</span><span class="s2">"4 5 2 3 6 7 0 1"</span>
 <span class="nv">GPUSID</span><span class="o">=(</span><span class="si">${</span><span class="nv">GPUSID</span><span class="si">}</span><span class="o">)</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${#</span><span class="nv">GPUSID</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SLURM_NTASKS_PER_NODE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${#</span><span class="nv">GPUSID</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">SLURM_NTASKS_PER_NODE</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${#</span><span class="nv">GPUSID</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="nv">$SLURM_NTASKS_PER_NODE</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">ROCR_VISIBLE_DEVICES</span><span class="o">=</span><span class="si">${</span><span class="nv">GPUSID</span><span class="p">[</span><span class="k">$((</span><span class="nv">$SLURM_LOCALID</span><span class="k">))</span><span class="p">]</span><span class="si">}</span>
 <span class="w">    </span><span class="k">else</span>
@@ -6562,11 +6562,11 @@ cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu</span>
 <span class="s">EOF</span>
 chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
 
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;mask_cpu&quot;</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">:00fe000000000000,fe00000000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 6. 7</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000000fe0000,00000000fe000000&quot;</span><span class="w"> </span><span class="c1"># CCD 2, 3</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000000000000fe,000000000000fe00&quot;</span><span class="w"> </span><span class="c1"># CCD 0, 1</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000fe00000000,0000fe0000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 4, 5</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"mask_cpu"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">:00fe000000000000,fe00000000000000"</span><span class="w"> </span><span class="c1"># CCD 6. 7</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000000fe0000,00000000fe000000"</span><span class="w"> </span><span class="c1"># CCD 2, 3</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000000000000fe,000000000000fe00"</span><span class="w"> </span><span class="c1"># CCD 0, 1</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000fe00000000,0000fe0000000000"</span><span class="w"> </span><span class="c1"># CCD 4, 5</span>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">7</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MPICH_GPU_SUPPORT_ENABLED</span><span class="o">=</span><span class="m">1</span>
@@ -6642,15 +6642,15 @@ cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu</span>
 <span class="s">EOF</span>
 chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu
 
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;mask_cpu&quot;</span><span class="w">  </span><span class="c1">#7766554433221100,7766554433221100</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">:000E000000000000,00E0000000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 6</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0E00000000000000,E000000000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 7</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000000000E0000,0000000000E00000&quot;</span><span class="w"> </span><span class="c1"># CCD 2</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000000E000000,00000000E0000000&quot;</span><span class="w"> </span><span class="c1"># CCD 3</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000000000000E,00000000000000E0&quot;</span><span class="w"> </span><span class="c1"># CCD 0</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000000000E00,000000000000E000&quot;</span><span class="w"> </span><span class="c1"># CCD 1</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000E00000000,000000E000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 4</span>
-<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000E0000000000,0000E00000000000&quot;</span><span class="w"> </span><span class="c1"># CCD 5</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"mask_cpu"</span><span class="w">  </span><span class="c1">#7766554433221100,7766554433221100</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">:000E000000000000,00E0000000000000"</span><span class="w"> </span><span class="c1"># CCD 6</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0E00000000000000,E000000000000000"</span><span class="w"> </span><span class="c1"># CCD 7</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000000000E0000,0000000000E00000"</span><span class="w"> </span><span class="c1"># CCD 2</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000000E000000,00000000E0000000"</span><span class="w"> </span><span class="c1"># CCD 3</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,000000000000000E,00000000000000E0"</span><span class="w"> </span><span class="c1"># CCD 0</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000000000E00,000000000000E000"</span><span class="w"> </span><span class="c1"># CCD 1</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,0000000E00000000,000000E000000000"</span><span class="w"> </span><span class="c1"># CCD 4</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">,00000E0000000000,0000E00000000000"</span><span class="w"> </span><span class="c1"># CCD 5</span>
 <span class="c1">#                     7766554433221100,7766554433221100</span>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">3</span>
@@ -6771,7 +6771,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>./select_gpu
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

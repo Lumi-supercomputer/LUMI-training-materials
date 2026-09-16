@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -5973,7 +5973,7 @@
     (<code>taskset -cp $$</code> will show you the cpu numbers allocated to the current process). </p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
-<div class="highlight"><pre><span></span><code>srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; bash -c &#39;taskset -cp $$&#39; 
+<div class="highlight"><pre><span></span><code>srun --partition=small --nodes=1 --tasks=1 --cpus-per-task=16 --time=5 --account=&lt;project_id&gt; bash -c 'taskset -cp $$' 
 </code></pre></div>
 <p>Note that you need to replace <code>&lt;project_id&gt;</code> with the actual project account ID of the 
 form  <code>project_</code> plus a 9 digits number (and this argument can be omitted
@@ -6037,7 +6037,7 @@ on LUMI (but remember that this will be more of you than you may expect)!</p>
 compiler. LUMI is very similar to Frontier, so when calling the <code>make</code> program
 to build the code from the Makefile, don't use simply <code>make</code> as suggested in the
 <code>README.md</code>, but use</p>
-<div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME=&quot;frontier&quot;
+<div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME="frontier"
 </code></pre></div>
 <p><em>Note:</em> Given that the reservation is on <code>standard-g</code> where you can only get
 whole nodes, which is rather stupid for this example, it is better to try to
@@ -6076,7 +6076,7 @@ of <code>PrgEnv-cray</code>:</p>
 <p>In this case, you do not need to load the ROCm module as it is loaded automatically by
 <code>cpeCray/24.03</code> when working in <code>partition/G</code>.</p>
 <p>To build the code, use</p>
-<div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME=&quot;frontier&quot;
+<div class="highlight"><pre><span></span><code>make LMOD_SYSTEM_NAME="frontier"
 </code></pre></div>
 <p>You need to add <code>LMOD_SYSTEM_NAME="frontier"</code> variable for make as the code originates from the Frontier system
 and doesn't know LUMI.</p>
@@ -6195,7 +6195,7 @@ You need to work with <code>--overlap</code> option for srun to mitigate this.</
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

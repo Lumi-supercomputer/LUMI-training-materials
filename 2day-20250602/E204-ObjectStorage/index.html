@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6389,7 +6389,7 @@ sligthly earlier as the key expires if the lifetime of the key used to create th
 <div class="highlight"><pre><span></span><code>s3cmd ls --recursive s3://462000265:intro-training.private/
 </code></pre></div>
 <p>returns</p>
-<div class="highlight"><pre><span></span><code>ERROR: Access to bucket &#39;462000265:intro-training.private&#39; was denied
+<div class="highlight"><pre><span></span><code>ERROR: Access to bucket '462000265:intro-training.private' was denied
 ERROR: S3 error: 403 (AccessDenied)
 </code></pre></div>
 <p>This should not surprise you, as you are not a member of the <code>462000265</code> project and are not using
@@ -6398,7 +6398,7 @@ access credentials for that project in this exercise, but for <code>465001965</c
 </li>
 <li>
 <p>With <code>rclone</code>: </p>
-<div class="highlight"><pre><span></span><code>rclone ls lumi-465001965-private:&quot;462000265:intro-training.public&quot;
+<div class="highlight"><pre><span></span><code>rclone ls lumi-465001965-private:"462000265:intro-training.public"
 </code></pre></div>
 <p>returns something along the lines of</p>
 <div class="highlight"><pre><span></span><code>    231 HTML/public.html
@@ -6407,7 +6407,7 @@ access credentials for that project in this exercise, but for <code>465001965</c
     57 public-in-public.txt
 </code></pre></div>
 <p>while</p>
-<div class="highlight"><pre><span></span><code>rclone ls lumi-465001965-private:&quot;462000265:intro-training.private&quot;
+<div class="highlight"><pre><span></span><code>rclone ls lumi-465001965-private:"462000265:intro-training.private"
 </code></pre></div>
 <p>returns something similar to</p>
 <div class="highlight"><pre><span></span><code>2024/12/07 19:39:03 Failed to ls: AccessDenied:
@@ -6435,7 +6435,7 @@ Storage:   STANDARD
 MD5 sum:   db24072368ff20ad202395aa7dd66487
 SSE:       none
 Policy:    Not available: GetPolicy permission is needed to read the policy
-ERROR: Access to bucket &#39;462000265:intro-training.public&#39; was denied
+ERROR: Access to bucket '462000265:intro-training.public' was denied
 ERROR: S3 error: 403 (AccessDenied)
 </code></pre></div>
 <p>The reason is that listing permissions does require more rights than the ones we have in the bucket
@@ -6460,7 +6460,7 @@ to also check permissions.</p>
 </li>
 <li>
 <p>With <code>rclone</code>:</p>
-<div class="highlight"><pre><span></span><code>rclone copy lumi-465001965-private:&quot;462000265:intro-training.public/HTML/public.html&quot; .
+<div class="highlight"><pre><span></span><code>rclone copy lumi-465001965-private:"462000265:intro-training.public/HTML/public.html" .
 </code></pre></div>
 </li>
 <li>
@@ -6499,7 +6499,7 @@ to also check permissions.</p>
     Download the <code>HTML/shared.html</code> from the <code>intro-training.private</code> bucket.
     This is a private object in a private bucket that has been explicitly shared with the
     training project using</p>
-<div class="highlight"><pre><span></span><code>s3cmd setacl --acl-grant=&#39;read:465001965$465001965&#39; s3://intro-training.private/HTML/shared.html
+<div class="highlight"><pre><span></span><code>s3cmd setacl --acl-grant='read:465001965$465001965' s3://intro-training.private/HTML/shared.html
 </code></pre></div>
 <details class="solution">
 <summary>Click here to see the solution.</summary>
@@ -6513,7 +6513,7 @@ private except for the explicit read rights given to the training project.</p>
 </li>
 <li>
 <p>With <code>rclone</code>:</p>
-<div class="highlight"><pre><span></span><code>rclone copy lumi-465001965-private:&quot;462000265:intro-training.private/HTML/shared.html&quot; .
+<div class="highlight"><pre><span></span><code>rclone copy lumi-465001965-private:"462000265:intro-training.private/HTML/shared.html" .
 </code></pre></div>
 <p>and this also works.</p>
 </li>
@@ -6996,7 +6996,7 @@ sligthly earlier as the key expires if the lifetime of the key used to create th
 <div class="highlight"><pre><span></span><code>s3cmd ls --recursive s3://462000265:intro-training.private/
 </code></pre></div>
 <p>returns</p>
-<div class="highlight"><pre><span></span><code>ERROR: Access to bucket &#39;462000265:intro-training.private&#39; was denied
+<div class="highlight"><pre><span></span><code>ERROR: Access to bucket '462000265:intro-training.private' was denied
 ERROR: S3 error: 403 (AccessDenied)
 </code></pre></div>
 <p>This should not surprise you, as you are not a member of the <code>462000265</code> project and are not using
@@ -7005,7 +7005,7 @@ access credentials for that project in this exercise, but for <code>46YXXXXXX</c
 </li>
 <li>
 <p>With <code>rclone</code>: </p>
-<div class="highlight"><pre><span></span><code>rclone ls lumi-46YXXXXXX-private:&quot;462000265:intro-training.public&quot;
+<div class="highlight"><pre><span></span><code>rclone ls lumi-46YXXXXXX-private:"462000265:intro-training.public"
 </code></pre></div>
 <p>returns something along the lines of</p>
 <div class="highlight"><pre><span></span><code>    231 HTML/public.html
@@ -7014,7 +7014,7 @@ access credentials for that project in this exercise, but for <code>46YXXXXXX</c
     57 public-in-public.txt
 </code></pre></div>
 <p>while</p>
-<div class="highlight"><pre><span></span><code>rclone ls lumi-46YXXXXXX-private:&quot;462000265:intro-training.private&quot;
+<div class="highlight"><pre><span></span><code>rclone ls lumi-46YXXXXXX-private:"462000265:intro-training.private"
 </code></pre></div>
 <p>returns something similar to</p>
 <div class="highlight"><pre><span></span><code>2024/12/07 19:39:03 Failed to ls: AccessDenied:
@@ -7042,7 +7042,7 @@ Storage:   STANDARD
 MD5 sum:   db24072368ff20ad202395aa7dd66487
 SSE:       none
 Policy:    Not available: GetPolicy permission is needed to read the policy
-ERROR: Access to bucket &#39;462000265:intro-training.public&#39; was denied
+ERROR: Access to bucket '462000265:intro-training.public' was denied
 ERROR: S3 error: 403 (AccessDenied)
 </code></pre></div>
 <p>The reason is that listing permissions does require more rights than the ones we have in the bucket
@@ -7067,7 +7067,7 @@ to also check permissions.</p>
 </li>
 <li>
 <p>With <code>rclone</code>:</p>
-<div class="highlight"><pre><span></span><code>rclone copy lumi-46YXXXXXX-private:&quot;462000265:intro-training.public/HTML/public.html&quot; .
+<div class="highlight"><pre><span></span><code>rclone copy lumi-46YXXXXXX-private:"462000265:intro-training.public/HTML/public.html" .
 </code></pre></div>
 </li>
 <li>
@@ -7218,7 +7218,7 @@ script with your project number <code>46YXXXXXX</code> as the argument:</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

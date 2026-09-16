@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6330,7 +6330,7 @@ pip install --no-deps jax*.whl
 </ul>
 <div class="highlight"><pre><span></span><code>Python 3.9.12 (main, Apr 18 2022, 21:29:31)
 [GCC 9.3.0 20200312 (Cray Inc.)] on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; import jax
 &gt;&gt;&gt; import jaxlib
 &gt;&gt;&gt; jax.device_count()
@@ -6349,11 +6349,11 @@ srun: job 2420138 has been allocated resources
 (jaxenv) ❄️ (12:32) nid007565 [~/sandbox] $ python
 Python 3.9.12 (main, Apr 18 2022, 21:29:31)
 [GCC 9.3.0 20200312 (Cray Inc.)] on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more    information.
+Type "help", "copyright", "credits" or "license" for more    information.
 &gt;&gt;&gt; import jax
 &gt;&gt;&gt; jax.device_count()
 1
-&gt;&gt;&gt; jax.devices(&#39;gpu&#39;)
+&gt;&gt;&gt; jax.devices('gpu')
 [StreamExecutorGpuDevice(id=0, process_index=0, slice_index=0)]
 </code></pre></div>
 <ul>
@@ -6647,7 +6647,7 @@ Running kernels 100 times
 Precision: double                                                                                          
 Array size: 268.4 MB (=0.3 GB)
 Total size: 805.3 MB (=0.8 GB)                                                                             
-terminate called after throwing an instance of    &#39;cl::Error&#39;                                                                                                                                                            
+terminate called after throwing an instance of    'cl::Error'                                                                                                                                                            
   what():  clGetPlatformIDs
 Aborted (core dumped)
 </code></pre></div>
@@ -6863,7 +6863,7 @@ harveyri@nid007307:~/workshop/2023_01&gt; echo $?
 <ul>
 <li>
 <p>This can be fixed if you add to each process instance something like:
-    <div class="highlight"><pre><span></span><code>export MIOPEN_USER_DB_PATH=&quot;/tmp/sam-miopen-cache-$SLURM_PROCID&quot;
+    <div class="highlight"><pre><span></span><code>export MIOPEN_USER_DB_PATH="/tmp/sam-miopen-cache-$SLURM_PROCID"
 export MIOPEN_CUSTOM_CACHE_DIR=$MIOPEN_USER_DB_PATH
 
 rm -rf $MIOPEN_USER_DB_PATH
@@ -6936,8 +6936,8 @@ The program being debugged has been started already.
 Start it from the beginning? (y or n) y
 Starting program: /pfs/lustrep2/users/---/prw/parallel_random_walk
 [Thread debugging using libthread_db enabled]
-Using host libthread_db library &quot;/lib64/libthread_db.so.1&quot;.
-OMP: Warning #234: OMP_NUM_THREADS: Invalid symbols found. Check the value &quot;&quot;.
+Using host libthread_db library "/lib64/libthread_db.so.1".
+OMP: Warning #234: OMP_NUM_THREADS: Invalid symbols found. Check the value "".
 [New Thread 0x1554aae22700 (LWP 61357)]
 Markers 1000000 Steps 320000 Gridsize 10240.
 [New Thread 0x1554a37ff700 (LWP 61358)]
@@ -7112,7 +7112,7 @@ rocgdb ./omp-stream
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

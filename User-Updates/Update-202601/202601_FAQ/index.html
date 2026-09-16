@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6113,8 +6113,8 @@
 </li>
 <li>
 <p>We want to compile our Fortran code base with cce/17.0.0 (want to stick to it) on Lumi. We previously used hipcc (rocm/6.0.3) for compiling our HIP source code and linked with the Fortran code, that worked really well on lumi. now, we need to shift to hipcc from ROCm/6.3.4. While linking (with ftn) different objects compiled with cce/17 and hipcc on current environment on lumi we see the following bit code incompatibility issue </p>
-<div class="highlight"><pre><span></span><code>error: Invalid record (Producer: &#39;LLVM18.0.0git&#39; Reader: &#39;LLVM 17.0.6rc&#39;)
-warning: Linking two modules of different data layouts: &#39;/opt/rocm-6.3.4/amdgcn/bitcode/ockl.bc&#39; is &#39;e-p:64:64-p…..-A5-G1-ni:7:8:9&#39; whereas &#39;llvm-link&#39; is &#39;e-p:64:64-p1...... A5-G1-ni:7:8&#39;
+<div class="highlight"><pre><span></span><code>error: Invalid record (Producer: 'LLVM18.0.0git' Reader: 'LLVM 17.0.6rc')
+warning: Linking two modules of different data layouts: '/opt/rocm-6.3.4/amdgcn/bitcode/ockl.bc' is 'e-p:64:64-p…..-A5-G1-ni:7:8:9' whereas 'llvm-link' is 'e-p:64:64-p1...... A5-G1-ni:7:8'
 </code></pre></div>
 <p>Could someone help us understand the issue ?  And is there a workaround for such an issue if we don’t want to upgrade to a new version of CCE and neither downgrade ROCm for our custom environment ?</p>
 <ul>
@@ -6134,7 +6134,7 @@ warning: Linking two modules of different data layouts: &#39;/opt/rocm-6.3.4/amd
 </li>
 <li>
 <p>CMake fails to detect proper GPU architecture with the following message even when I loaded <code>craype-accel-amd-gfx90a</code>. This can be workarounded by passing additional flags such as <code>-DAMDGPU_TARGETS=gfx90a</code>, but is this a general issue or should I consider this as something specific to me? 
-    <div class="highlight"><pre><span></span><code>The amdgpu-arch tool failed: Error: &#39;Failed to get device count&#39;
+    <div class="highlight"><pre><span></span><code>The amdgpu-arch tool failed: Error: 'Failed to get device count'
 As a result, --offload-arch will not be set for subsuqent  &gt;&gt; compilations, and the default architecture  &gt;&gt; (gfx906 for dynamic build / gfx942 for static build) will be used`
 </code></pre></div></p>
 <ul>
@@ -6284,7 +6284,7 @@ As a result, --offload-arch will not be set for subsuqent  &gt;&gt; compilations
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

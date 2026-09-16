@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/favicon-LUMI.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -6456,7 +6456,7 @@ Some code suggestions include <code>nbody-block.cu, nbody-orig.cu, nbody-soa.cu<
 <div class="highlight"><pre><span></span><code>hipify-perl -no-output -print-stats nbody-orig.cu
 </code></pre></div>
 <p>You'll see the statistics of HIP APIs that will be generated.</p>
-<div class="highlight"><pre><span></span><code>[HIPIFY] info: file &#39;nbody-orig.cu&#39; statistics:
+<div class="highlight"><pre><span></span><code>[HIPIFY] info: file 'nbody-orig.cu' statistics:
   CONVERTED refs count: 7
   TOTAL lines of code: 82
   WARNINGS: 0
@@ -6673,9 +6673,9 @@ module load LUMI/25.09 partition/G rocm/6.4.4
 <div class="highlight"><pre><span></span><code>cd HPCTrainingExamples/HIP/jacobi
 </code></pre></div>
 <p>Now build the code (needs a couple of changes to accomodate the system MPI implementation)</p>
-<p><div class="highlight"><pre><span></span><code>sed -i &#39;s/USE_CRAYPE=.*/USE_CRAYPE=yes/g&#39; Makefile
+<p><div class="highlight"><pre><span></span><code>sed -i 's/USE_CRAYPE=.*/USE_CRAYPE=yes/g' Makefile
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sed -i &#39;s/IS_MPICH=.*/IS_MPICH=yes/g&#39; Makefile
+<div class="highlight"><pre><span></span><code>sed -i 's/IS_MPICH=.*/IS_MPICH=yes/g' Makefile
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>make -f Makefile
 </code></pre></div>
@@ -6704,7 +6704,7 @@ module load LUMI/25.09 partition/G rocm/6.4.4
 </li>
 <li>
 <p>About Jacobi example, as the dynamic instrumentation would take long time, check what the binary calls and gets instrumented: 
-    <div class="highlight"><pre><span></span><code>nm --demangle Jacobi_hip | egrep -i &#39; (t|u) &#39;
+    <div class="highlight"><pre><span></span><code>nm --demangle Jacobi_hip | egrep -i ' (t|u) '
 </code></pre></div></p>
 </li>
 <li>
@@ -7085,7 +7085,7 @@ srun ./daxpy_5 10000000
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "header.autohide", "toc.follow", "content.code.annotate", "content.code.copy", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
