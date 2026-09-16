@@ -8,7 +8,8 @@
 
 ## Course organisation
 
--   Location: Riga (Latvia)
+-   Location: [University of Latvia, Kalpaka bulvāris 4, Rīga, LV-1050, Latvia](https://maps.app.goo.gl/1CV7ok2RnX824kcZA). 
+    Second floor, room 218 ( named also Sapere Auda)
 
 <!--
 -   Location: UiT - The Artic University of Norway, Tromsø.
