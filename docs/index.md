@@ -6,9 +6,11 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [LUMI-G hackathon (Sep 28-Oct 2, 2026)](Hackathon-20260928/index.md)
+-   [LUMI-G hackathon (September 28-Oct 2, 2026)](Hackathon-20260928/index.md)
 
 -   [Moving your HPC workloads to LUMI (November 9-10, 2026)](2day-20261109/index.md) on-site in Copenhagen and online.
+
+-   [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md) (onsite only training)
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
     An official announcement will follow.
@@ -110,7 +112,7 @@ By theme in reverse chronological order:
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (February 4-5, 2025)](ai-20250204/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 26-27, 2024)](ai-20241126/index.md)
     -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (May 29-30, 2024)](ai-20240529/index.md)
--   Comprehensive general LUMI trainings aimed at at developers and advanced users, mostly focusing on traditional HPC users
+-   Comprehensive general LUMI trainings aimed at developers and advanced users, mostly focusing on traditional HPC users
     -   [LUMI Intensive: Comprehensive Intro and Advanced Workshop (March 3-7, 2025)](2p3day-20250303/index.md)
     -   [Advanced LUMI course (October 28-31, 2024)](4day-20241028/index.md)
     -   [Comprehensive general LUMI course (April 23-26, 2024)](4day-20240423/index.md)
@@ -122,6 +124,7 @@ By theme in reverse chronological order:
     -   [LUMI-G Pilot Training (August 23, 2022)](LUMI-G-20220823/index.md)
     -   [Detailed introduction to the LUMI-C environment and architecture (April 27/28, 2022)](PEAP-Q-20220427/index.md)
 -   Performance analysis tools and/or program optimization
+    -   [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md)
     -   [LUMI Profiling and Optimization Workshop (Advanced Level), KTH, Stockholm (May 11-13, 2026)](paow-20260511/index.md)
     -   [LUMI Performance Analysis and Optimization Workshop, TalTech, Tallinn (22-24 October, 2025)](paow-20251022/index.md)
     -   [HPE and AMD profiling tools (May 7, 2025)](Profiling-20250507/index.md)
