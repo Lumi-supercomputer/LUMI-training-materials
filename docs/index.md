@@ -15,6 +15,8 @@ Upcoming or currently running events with materials already partly available:
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
     An official announcement will follow.
 
+-   [Using EasyBuild on LUMI](EasyBuild-20270303/index.md)
+
 
 Most recently completed main training events:
 
