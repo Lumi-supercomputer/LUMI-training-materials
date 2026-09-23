@@ -272,3 +272,6 @@ DAY 2
     </tr>
 </tbody>
 </table>
+
+
+This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)

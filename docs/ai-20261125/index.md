@@ -151,3 +151,8 @@ materials are uploaded.
     -   [Main LUMI web page](https://lumi-supercomputer.eu/)
   
     -   [Main LUMI AI Factory web page](https://lumi-ai-factory.eu/)
+
+
+## Acknowledgement
+
+This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)
