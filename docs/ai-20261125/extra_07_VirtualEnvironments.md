@@ -12,7 +12,7 @@ Contents:
 A video recording will follow.
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20260611/recordings/07_VirtualEnvironments.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20260611/recordings/LUMI-ai-20261125-07_VirtualEnvironments.mp4" controls="controls"></video>
 -->
 
 
