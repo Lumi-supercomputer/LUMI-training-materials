@@ -6,13 +6,28 @@ The venue can easily be reached by public transportation.
 
 Suggested path: Arrive at Nørreport station and take a bus from [this busstop](https://maps.app.goo.gl/TA3ytatx6GnYcjnH6). Most if not all busses from that stop should go to the correct stop - Rigshospitalet Syd (Tagensvej)
 
-Depending on where your hotel is, you may also have a direct bus to Rigshospitalet Syd (Tagensvej).
-
 ## Getting to the room
 
-The room is Panum - 13.1.83
+### Wednesday + Thursday
 
-From the main entrance of Panum at Blegdamsvej 3, head up the large wooden stairs and turn left. Go forward until you see a bathroom. In front of that, turn right into building area 13. 
+Room: Panum - 21.2.22a 
+
+From the main entrance of Panum at Blegdamsvej 3, head up the large wooden stairs and turn right, go past the Shabaz Café. Now turn left and head down the corridor until you arrive in building 21. It can be useful to notice the building number signs hanging down from the ceiling at regular intervals. You will know you are at 21 when you see this statue and the Haderup auditorium is to your right:
+
+![Picture of statue](https://462000265.lumidata.eu/paow-20261111/img/Picture_1_statue.jpg){ loading=lazy }
+ 
+Go up the yellow stairway. You will see this artwork:
+
+![Black circles/blob painting](https://462000265.lumidata.eu/paow-20261111/img/Picture_2_artwork.jpg){ loading=lazy }
+
+Turn left and go through the green door. 
+
+
+### Friday
+
+Room: Panum - 7.15.149  
+
+From the main entrance of Panum at Blegdamsvej 3, head to the elevators and enter 15 on the panel. Take the elevator up to the 15th floor of the tower. Upstairs, turn right and go into the conference area. The code at the door is 3203#. 
 
 
 ## Suggestions for a drink at night
