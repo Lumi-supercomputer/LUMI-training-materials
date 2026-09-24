@@ -8,7 +8,7 @@
 -   Location: [University of Copenhagen, Panum and Mærsk Tower, Blegdamsvej 3B, 2200 Copenhagen, Denmark](https://maps.app.goo.gl/YSgVHpUqN3ExZ81x9),
     Room Panum - 21.2.22a (11-12 November) and Panum – Mødelokale, Bygn. 7.15.149 on (13 November).
 
--   [Travel and local information](../2day-20261109/local_info.md)
+-   [Travel and local information](local_info.md)
 
 -   [Tentative schedule](schedule.md)
 
