@@ -1,4 +1,4 @@
-# Schedule
+# Tentative schedule
 
 Room: Dogmi (24 seats - CSC), Debatti (20 seats - CSC)
 
@@ -10,7 +10,9 @@ Room: Dogmi (24 seats - CSC), Debatti (20 seats - CSC)
 
     -   15:30: Coffee break
 
-    -   Until 17:30: Group work
+    -   Until 18:00: Group work
+
+    -   18:00: Aperitif (provided by CSC)
 
 -   Tuesday till Thursday, September 29 - October 1
 
@@ -27,10 +29,6 @@ Room: Dogmi (24 seats - CSC), Debatti (20 seats - CSC)
 
     -   15:00: Coffee break
 
-    -   Group dinner on Wednesday evening at 19:00 at [Antwerpse Brouw Company](https://maps.app.goo.gl/BABnaxjnzXQaQTYy9).
-        We meet at 18:15 outside [Opera Metro Station](https://maps.app.goo.gl/EXPd5UPiAHJbXntS6) if you want to join for a
-        walk to the dinner place. 
-
 -   Friday October 2
 
     -   9:00: Last group work
@@ -44,5 +42,5 @@ Room: Dogmi (24 seats - CSC), Debatti (20 seats - CSC)
   
     -   10:45: Coffee break
 
-    -   12:00: End.
+    -   12:00: End
 
