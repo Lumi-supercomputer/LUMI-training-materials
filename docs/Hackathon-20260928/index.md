@@ -6,7 +6,7 @@
 
     With directions to the venue, and hotel, restaurant and bar suggestions.
 
--   [Tentative schedule](schedule.md) preparatory lectures and hackathon
+<!-- -   [Tentative schedule](schedule.md) preparatory lectures and hackathon -->
 
 -   Project that can be used for sharing files with support staff and small experiments: `project_465002953`.
 
