@@ -5,6 +5,8 @@ Room: Dogmi (24 seats - CSC), Debatti (20 seats - CSC)
 This is a very tentative schedule showing what a typical day may look like.
 Times may vary though.
 
+Someone will be around to receive participants who arrive early.
+
 Participants are on their own for lunch. There are some options in the 
 building complex where CSC is and in the neighbourhood.
 Coffee is available just outside the room
