@@ -48,6 +48,8 @@ Most recently completed main training events:
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
 
+-   [AITTA Inference Platform (October 7, 2026)](User-Coffee-Breaks/20261007-user-coffee-break-LAIF-AITTA.md)
+
 -   [LUMI AI Software Environment (March 26, 2026)](User-Coffee-Breaks/20260326-user-coffee-break-LAIF-software-environment.md)
 
 -   [LUMI Update Webinar (February 11, 2026)](User-Coffee-Breaks/20260211-user-coffee-break-LUMI-update.md)
