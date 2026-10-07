@@ -1,6 +1,6 @@
 # The LUMI AI Software Environment
 
-**Presenters:** Marlon Tobaben and Mitja Sainio (CSC/LUMI AI Factory)
+**Presenters:** Marlon Tobaben and Lukas Prediger (CSC/LUMI AI Factory)
 
 <video src="https://462000265.lumidata.eu/user-coffee-breaks/recordings/20261007-user-coffee-break-LAIF-AITTA.mp4" controls="controls"></video>
 
