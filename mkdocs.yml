@@ -60,13 +60,27 @@ nav:
       - Responsible use: User-Updates/Update-202308/responsible-use.md
   - User Coffee Breaks:
     - User-Coffee-Breaks/index.md
+  - "AI workshop November 2026":
+    - ai-20261125/index.md
+    - Schedule: ai-20261125/schedule.md
+    - Course materials: ai-20261125/index.html#course-materials
+  - "Performance Analysis & Optimization November 2026":
+    - paow-20261111/index.md
+    - Schedule: paow-20261111/schedule.md
+    - Travel info: paow-20261111/local_info.md
+    - Course materials: paow-20261111/index.html#course-materials
+  - "Moving your HPC workloads to LUMI November 2026":
+    - 2day-20261109/index.md
+    - Schedule: 2day-20261109/schedule.md
+    - Travel info: 2day-20261109/local_info.md
+    - Course materials: 2day-20261109/index.html#course-materials
+  - "LUMI hackathon Sep-Oct 2026":
+    - Hackathon-20260928/index.md
+    - Local info: Hackathon-20260928/localinfo.md
   - "AI workshop June 2026":
     - ai-20260611/index.md
     - Schedule: ai-20260611/schedule.md
     - Course materials: ai-20260611/index.html#course-materials
-  - "LUMI hackathon May 2026":
-    - Hackathon-20260518/index.md
-    - Local info: Hackathon-20260518/localinfo.md
   - "Performance Analysis & Optimization May 2026":
     - paow-20260511/index.md
     - Schedule: paow-20260511/schedule.md
@@ -79,10 +93,6 @@ nav:
   - "Smartsim March 2026":
     - smartsim-20260331/index.md
     - Schedule: smartsim-20260331/schedule.md
-  - "AI workshop October 2025":
-    - ai-20251008/index.md
-    - Schedule: ai-20251008/schedule.md
-    - Course materials: ai-20251008/index.html#course-materials
   - EasyBuild June 2025:
     - EasyBuild-LUST-20250604/index.md
     - Course notes: https://lumi-supercomputer.github.io/easybuild-tutorial/2025-LUST
@@ -97,6 +107,9 @@ nav:
   - Partner courses:
     - GROMACS workshop 2024: https://zenodo.org/records/10610643
   - Archive:
+    - "LUMI hackathon May 2026":
+      - Hackathon-20260518/index.md
+      - Local info: Hackathon-20260518/localinfo.md
     - "Performance Analysis & Optimization October 2025":
       - paow-20251022/index.md
       - Schedule: paow-20251022/schedule.md
@@ -105,6 +118,10 @@ nav:
       - 2day-20251020/index.md
       - Schedule: 2day-20251020/schedule.md
       - Course materials: 2day-20251020/index.html#course-materials
+    - "AI workshop October 2025":
+      - ai-20251008/index.md
+      - Schedule: ai-20251008/schedule.md
+      - Course materials: ai-20251008/index.html#course-materials
     - Supercomputing with LUMI June 2025:
       - 2day-20250602/index.md
       - Schedule: 2day-20250602/schedule.md
