@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [LUMI-G hackathon (September 28-Oct 2, 2026)](Hackathon-20260928/index.md)
-
 -   [Moving your HPC workloads to LUMI (November 9-10, 2026)](2day-20261109/index.md) on-site in Copenhagen and online.
 
 -   [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md) (onsite only training)
@@ -47,6 +45,8 @@ Most recently completed main training events:
 ### LUMI User Coffee Break Talks
 
 [Archive of recordings and questions](User-Coffee-Breaks/index.md)
+
+-   [AITTA Inference Platform (October 7, 2026)](User-Coffee-Breaks/20261007-user-coffee-break-LAIF-AITTA.md)
 
 -   [LUMI AI Software Environment (March 26, 2026)](User-Coffee-Breaks/20260326-user-coffee-break-LAIF-software-environment.md)
 
