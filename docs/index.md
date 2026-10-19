@@ -2,6 +2,11 @@
 
 ## Organised by LUST in cooperation with partners
 
+### In development
+
+-   [EasyBuild training for the LUMI User Day](EasyBuild-20270303/index.md)
+
+
 ### Regular trainings
 
 Upcoming or currently running events with materials already partly available:
