@@ -8,5 +8,8 @@
   
     -   [Part II: Basic concepts](02-Basic-concepts.md)
 
+    -   [Part III: The easyconfig file](03-Easyconfigs.md)
+
     -   [Appendix A: Additional links](A-Links.md)
-  
+
+    -   [Appendix B: Examples edited for projector display](B-ExamplesForSlides.md)
