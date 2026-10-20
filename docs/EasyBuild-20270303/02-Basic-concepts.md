@@ -237,6 +237,8 @@ those can be used when installing software on top of the [EESSI stack](https://w
 offered by the EuroHPC Federation Platform.
 
 
+### Environment modules
+
 <figure markdown style="border: 1px solid #000">
   ![Terminology: Environment modules](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildEnvironmentModules.png){ loading=lazy }
 </figure>
@@ -306,6 +308,8 @@ installing packages on top of it (and especially the `EBROOT` variables are very
     -   [Lmod documentation](https://lmod.readthedocs.io/en/latest/) and 
         [Lmod development on GitHub](https://github.com/TACC/Lmod)
 
+
+### Dependencies
 
 <figure markdown style="border: 1px solid #000">
   ![Terminology: Dependencies](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildDependencies1.png){ loading=lazy }
@@ -391,6 +395,8 @@ With software that uses ROCm(tm) the situation is often more complicated though 
 in a newer ROCm(tm) library for an older one.
 
 
+### Bundles and extensions
+
 <figure markdown style="border: 1px solid #000">
   ![Terminology: Bundles and Extensions](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildBundlesExtensions.png){ loading=lazy }
 </figure>
@@ -450,32 +456,182 @@ bar, and we install those as much as possible as extensions as their installatio
 debug (as we can restart as explained).
 
 
-<figure markdown style="border: 1px solid #000">
-  ![Terminology: Toolchain](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchain.png){ loading=lazy }
-</figure>
-
-
-
-
-OLD TEXT
-
-## The toolchain concept
+### Toolchains
 
 <figure markdown style="border: 1px solid #000">
-  ![The toolchain concept](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchain_1.png){ loading=lazy }
+  ![Terminology: Toolchain (1)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchain1.png){ loading=lazy }
 </figure>
 
-EasyBuild uses the toolchain concept. A toolchain consists of compilers, an MPI implementation
-and some basic mathematics libraries. The latter two are optional in a toolchain. All these 
-components have a level of exchangeability as there are language standards, as MPI is standardised,
-and the math libraries that are typically included are those that provide a standard API for which
-several implementations exist. All these components also have in common that it is risky to combine 
-pieces of code compiled with different sets of such libraries and compilers because there can
-be conflicts in names in the libraries.
+One of the most important concepts in EasyBuild is that of a toolchain. A full toolchain consists of a
+C/C++/Fortran compiler, an MPI library and some popular math libraries with standardised APIs such as
+BLAS, Lapack, ScaLAPACK and maybe a FFT library.
 
-LUMI doesn't use the standard EasyBuild toolchains but its own toolchains specifically for Cray
-and these are precisely the `cpeCray`, `cpeGNU`, `cpeAOCC` and `cpeAMD` modules already mentioned 
-before.
+When building an application, one should not mix different compilers or different library implementations
+of those libraries to build a single executable as that can lead to issues at linktime or runtime.
+Mixing compilers is dangerous if advanced features that require runtime library support are used,
+as those runtimes may be incompatible. One important example is OpenMP: Though OpenMP is fully standardised
+at the source code level, how it is implemented is a choice that each compiler vendor makes, and 
+different implementations have different and incompatible runtime libraries. Another case where issues can
+occur is with the use of pre-compiled module files in Fortran. These are incompatible between compilers and 
+may even be incompatible between different versions of the same compiler. (E.g., the Cray Fortran compiler 
+has broken compatibility in the past.)
+
+The same holds for libraries that provide a standard API but are not standardised at the ABI (Application
+Binary Interface) level. If you mix multiple such libraries, they will contain common symbols and the linker
+will not know when to use which one.
+
+Technically speaking, the toolchain is also a dependency (and in fact, there should be an EasyBuild-generated
+module for all but one special toolchain, see later). However, it is treated differently by EasyBuild and you
+do not need to specify it with the other dependencies. It gets its own parameter in the easyconfig and 
+each package module will also load the module of the toolchain it was built with.
+
+Toolchains can be organised in a hierarchy. 
+A **full toolchain** consists of C/C++/Fortran compilers, an MPI library and libraries for BLAS and LAPACK and
+possibly some others (such as FFT). A full toolchain can have a **subtoolchain** which can be a compiler only,
+or compiler with MPI libraries, or compiler with some linear algebra libraries. And in fact, a subtoolchain
+can have subtoolchains itself, but we will come back to this later when we discuss the various toolchains
+offered on LUMI and through EESSI.
+
+There is one special toolchain that does not have a corresponding module: the **SYSTEM toolchain**, 
+using the compilers from the operating system. It is used to bootstrap the whole process, though on
+LUMI we use it for some software also. Unfortunately this toolchain also treats dependencies differently,
+as EasyBuild will not automatically detect dependencies of dependencies and is therefore a bit harder to use. 
+The EasyBuild designers had in mind that this compiler would only be used to bootstrap an EasyBuild-managed
+software stack, but on LUMI it is used for a bit more as it offers a relatively easy way to compile some
+packages also for the CrayEnv stack and do this in a way that they interact as little as possible
+with other software.
+
+You can safely load packages of one full toolchain and its subtoolchains together, but you should not
+mix packages compiled with different full toolchains or its subtoolchains. 
+Usually, you can also load packages built with the system toolchain together with those of one 
+full toolchain and its subtoolchains.
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Terminology: Toolchain (2)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchain2.png){ loading=lazy }
+</figure>
+
+The EasyBuild common toolchains are the two full toolchains and their subtoolchains that for which most
+easyconfigs are available in the EasyBuild distribution. They reflect very much the origin of EasyBuild:
+Intel-compatible x86 systems without GPUs.
+
+``` mermaid
+graph LR
+  A[GCCcore] --> |binutils| B[GCC];
+  A --> |binutils| C[intel-compilers];
+  B --> |OpenMPI| E[gompi];
+  C --> |impi| F[iimpi];
+  B --> |"FlexiBLAS (incl. LAPACK) + FFTW"| D[gfbf];
+  D --> |OpenMPI + ScaLAPACK| G[foss];
+  E --> |FlexiBLAS + FFTW + ScaLAPACK| G[foss];
+  F --> |imkl| Z[intel];
+  C --> |imkl| H[iimkl];
+  H --> |impi| Z[intel];
+```
+
+Both toolchains start at a common basis, `GCCcore` which is a compiler that cannot function without
+loading another module, `binutils`, but is used to compile a lot of OS-level libraries that do not
+use OpenMP or don't provide Fortran interfaces and don't use any special linear algebra libraries
+or MPI or other communication library and are compatible with any Linux-based compiler.
+As such, a site needs to compile those packages only once for each architecture rather than for each
+toolchain which they may use.
+
+On top of that common core, there are two full toolchains part of the common toolchains:
+
+-   The `foss` toolchain consists entirely of open source software (with foss standing for
+    Free and Open Source Software). It provides:
+
+    -   The [GNU Compiler Collection](https://gcc.gnu.org/) (or at least, the C, C++ and Fortran
+        compilers from that family)
+
+    -   [Open MPI](https://www.open-mpi.org/) as the MPI library
+
+    -   [FlexiBLAS](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) which is a linear algebra
+        library offering BLAS and LAPACK and allows to switch between different libraries under the
+        hood. The default is to use [OpenBLAS](http://www.openblas.net/) and 
+        [LAPACK](http://netlib.org/lapack) as the backend.
+
+    -   [ScaLAPACK](http://netlib.org/scalapack)
+  
+    -   [FFTW](http://fftw.org/)
+
+    Its subtoolchains are:
+
+    -   `GCC`, only providing the compilers (essentially just loading `GCCcore` and `binutils`)
+
+    -   `gfbf`, building on top of `GCC` and adding the shared memory math libraries: FlexiBLAS and FFTW
+
+    -   `gompi`, building on top of `GCC` and adding the Open MPI libraries
+
+-   The `intel` toolchain consists of the Intel compilers and libraries, i.e.,
+
+    -   GCC in `GCCcore` and binutils as the basis,
+
+    -   the [Intel C/C++/Fortran compilers](https://software.intel.com/en-us/intel-compilers),
+
+    -   [Intel MPI](https://software.intel.com/en-us/intel-mpi-library)
+        as the MPI implementation,
+
+    -   the [Intel Match Kernel Library (MKL)](https://software.intel.com/en-us/intel-mkl)
+        for BLAS, LAPACK and FFT functionality.
+
+Both of these toolchains have issues on LUMI which is why we don't offer them in the LUST-provided stacks.
+The issue with `foss` is that getting Open MPI to run on LUMI was simply impossible in the early years of 
+LUMI and is still hard, with often poor performance, and especially hard for GPU. Open MPI made some 
+technical choices and has some library preferences that make it hard to work on Slingshot.
+Intel compilers and their libraries have a history of breaking performance on AMD CPUs, often refusing to
+detect them correctly (even if they are just the equivalent of an Intel processor) and instead falling back
+to a very badly optimised code path basically designed for the Pentium 4. And Intel MPI, though it should
+work in theory, has also had its issues on LUMI with some versions working and others failing. Using the
+ABI compatibility between various MPICH-based implementations, it might be possible to switch it out with
+Cray MPI. We don't have a license though for a version of Cray MPICH that is fully tested with the Intel
+compilers.
+
+As you can note, the two common toolchains are purely CPU based, and one can only be used on x86-compatible
+hardware. This is for historical reasons as that was the hardware that was available when the development
+of EasyBuild was started and as that were the two most popular compiler families in those days.
+
+EasyBuild does also support GPUs though, though the support for ROCm(tm) is in the very early stages.
+There are already plenty of easyconfigs available for software that uses CUDA. Some of that software simply
+uses the `foss` toolchain with a CUDA module loaded on top of it, while other packages (e.g., VASP) use 
+another toolchain, e.g., `NVHPC` based on the NVIDIA compilers.
+
+As non-Intel processors are gaining market share, EasyBuild is also paying increasing attention to 
+the LLVM based compilers. After all, many CPU vendors have given up their own compiler development in
+favour of contributing to the LLVM compiler family. Fortran support has also greatly improved with the
+new generation Fortran compiler that became the standard Fortran compiler in LLVM 20 and now already
+often beats gfortran in performance of the generated code. So EasyBuild did introduce more toolchains
+based upon LLVM, both with Open MPI and with MPICH (to better support systems as LUMI),
+and easyconfigs are starting to appear. E.g., some recent GROMACS versions are already available
+in two LLVM-based toolchains.
+
+In all, EasyBuild nowadays includes over 100 toolchains implemented in EasyBuild framework, but some
+of those are really contributed by one site for their particular needs and some of them are not
+very well maintained or tested in recent EasyBuild versions either. So consider this more as a 
+marketing number.
+
+
+## Toolchains available on LUMI
+
+### Toolchains in the LUMI software stacks
+
+<figure markdown style="border: 1px solid #000">
+  ![Toolchains in the LUMI stacks](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchainLUMIStack.png){ loading=lazy }
+</figure>
+
+The LUMI software stacks build upon the HPE Cray Programming Environments,
+but we do provide other EasyBuild-generated modules to load the toolchains.
+These modules also better guarantee that the correct version of each module
+for the toolchain version is loaded and work around some issues in the 
+HPE Cray PE or bugs in specific versions.
+
+The LUMI stack toolchains are not hierarchical, so they have no subtoolchains.
+Each of them is a full toolchain, consisting of the compiler family, the Cray
+MPI libraries and Cray LibSci for the linear algebra.
+
+The table below shows the name of the HPE Cray PE programming environment module
+and the corresponding toolchain module in the LUMI stack:
+
 
 | HPE Cray PE   | LUMI toolchain | What?                                           |
 |:--------------|:---------------|:------------------------------------------------|
@@ -485,81 +641,168 @@ before.
 | `PrgEnv-amd`  | `cpeAMD`       | AMD ROCm GPU compilers (LUMI-G only)            |
 
 
+### Toolchains in EESSI
+
 <figure markdown style="border: 1px solid #000">
-  ![The toolchain concept 2](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchain_2.png){ loading=lazy }
+  ![Toolchains in EESSI (1)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchainEESSI1.png){ loading=lazy }
 </figure>
 
-There is also a special toolchain called the SYSTEM toolchain that uses the compiler
-provided by the operating system. This toolchain does not fully function in the same way as the other
-toolchains when it comes to handling dependencies of a package and is therefore a bit harder to use.
-The EasyBuild designers had in mind that this compiler would only be used to bootstrap an
-EasyBuild-managed software stack, but on LUMI it is used for a bit more as it offers a
-relatively easy way to compile some packages also for the CrayEnv stack and do this in a way
-that they interact as little as possible with other software.
+<figure markdown style="border: 1px solid #000">
+  ![Toolchains in EESSI (2)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchainEESSI2.png){ loading=lazy }
+</figure>
 
-It is not possible to load packages from different cpe toolchains at the same time.
-This is an EasyBuild restriction, because mixing libraries compiled with different compilers
-does not always work. This could happen, e.g., if a package compiled with the Cray Compiling
-Environment and one compiled with the GNU compiler collection would both use a particular 
-library, as these would have the same name and hence the last loaded one would be used
-by both executables (LUMI doesn't use rpath or runpath linking in EasyBuild for those familiar
-with that technique).
+Though EESSI is based on EasyBuild and easyconfigs available in EasyBuild, it cannot support
+all software that is available through EasyBuild. EESSI is a binary distribution and it can
+only provide software for which the binaries can be freely distributed. Likewise, as EESSI 
+cannot check who is running the software, the software has to be free for everybody and
+not just for academic use. Software with restrictions on binary distributions, or with 
+license fees, or even just requiring a mandatory registration of the user, cannot be
+distributed as part of EESSI.
 
-However, as LUMI does not use hierarchy in the Lmod implementation of the software stack
-at the toolchain level, the module system will not protect you from these mistakes. 
-When the LUST set up the software stack, most people in the support team considered it too misleading
-and difficult to ask users to first select the toolchain they want to use and then see the 
-software for that toolchain.
+We can see this in the toolchains also. EESSI cannot provide the Intel-based common
+toolchain. Almost all software in EESSI at the time of writing (October 2026) is built
+with `foss` and its subtoolchains, though a toolchain based on the LLVM compilers with
+Open MPI is also already set up.
 
-It is however possible to combine packages compiled with one CPE-based toolchain with packages
-compiled with the system toolchain, but you should avoid mixing those when linking as that may cause
-problems. The reason that it works when running software is because static linking
-is used as much as possible in the SYSTEM
-toolchain so that these packages are as independent as possible.
+``` mermaid
+graph LR
+  A[GCCcore] --> |binutils| B[GCC];
+  B --> |"FlexiBLAS (incl. LAPACK) + FFTW"| C[gfbf];
+  B --> |OpenMPI| D[gompi];
+  C --> |OpenMPI + ScaLAPACK| E[foss];
+  D --> |FlexiBLAS + FFTW + ScaLAPACK| E[foss];
+  A --> |binutils + LLVM| F[llvm-compilers];
+  F --> |"FlexiBLAS (incl. LAPACK) + FFTW"| G[lfbf];
+  F --> |OpenMPI| H[lompi];
+  G --> |OpenMPI + ScaLAPACK| I[lfoss];
+  H --> |FlexiBLAS + FFTW + ScaLAPACK| I[lfoss];
+  A --> |binutils + ROCm-LLVM| J[rocm-compilers];
+  J --> |OpenMPI| L[rompi];
+```
 
-And with some tricks it might also be possible to combine packages from the LUMI software stack
-with packages compiled with Spack, but one should make sure that no Spack packages are available
-when building as mixing libraries could cause problems. Spack uses rpath linking which is why
-this may work.
+<!--
+``` mermaid
+graph LR
+  A[GCCcore] --> |binutils| B[GCC];
+  B --> |"FlexiBLAS (incl. LAPACK) + FFTW"| C[gfbf];
+  B --> |OpenMPI| D[gompi];
+  C --> |OpenMPI + ScaLAPACK| E[foss];
+  D --> |FlexiBLAS + FFTW + ScaLAPACK| E[foss];
+  A --> |binutils + LLVM| F[llvm-compilers];
+  F --> |"FlexiBLAS (incl. LAPACK) + FFTW"| G[lfbf];
+  F --> |OpenMPI| H[lompi];
+  G --> |OpenMPI + ScaLAPACK| I[lfoss];
+  H --> |FlexiBLAS + FFTW + ScaLAPACK| I[lfoss];
+  A --> |binutils + ROCm-LLVM| J[rocm-compilers];
+  J --> |"FlexiBLAS (incl. LAPACK) + FFTW"| K[rfbf]
+  J --> |OpenMPI| L[rompi];
+  K --> |OpenMPI + ScaLAPACK| M[rfoss];
+  L --> |FlexiBLAS + FFTW + ScaLAPACK| M[rfoss];
+```
+-->
+For now, EESSI is still very much focused on Open MPI, which is a problem on LUMI and the reason
+why as of today (late October 2026) they still have to announce that performance on multiple nodes
+on LUMI is subpar.
+
+At the time of writing (October 2026), ROCm(tm) support was still in full development. Though EasyBuild
+did already define a `rfoss` toolchain based on the ROCm(tm) compiler, there were no easyconfigs 
+available to already install that toolchain apart from the subtoolchains `rocm-compilers` and
+`rompi`, the latter providing the ROCm(tm) compilers and Open MPI. There will also be a
+`rfbf` toolchain combining the ROCm(tm) compilers with FlexiBLAS and FFTW, but these easyconfigs
+are also still missing.
+
+At the time of writing, no NVIDIA toolchains were used in EESSI. All CUDA software used the `foss` 
+toolchain with the CUDA module loaded on top of it, which is enough to build software that does
+not use OpenMP offload or OpenACC. 
+On LUMI, the CUDA software is not included as the LUMI-D GPUs are not
+really meant to be used for compute and only for visualisation tasks and some other interactive
+work.
 
 
-## EasyConfig names and module names
+### What about LUMI-AI?
+
+<figure markdown style="border: 1px solid #000">
+  ![LUMI-AI](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildToolchainLUMIAI.png){ loading=lazy }
+</figure>
+
+LUMI-AI is a supercomputer based on AMD CPUs (Zen6 generation) and GPUs (MI430x), so just as LUMI,
+the main programming environment for the GPU nodes is ROCm(tm). 
+However, the machine is delivered by Bull and not by HPE. This implies that the HPE Cray
+Programming Environment will not be available (and it wouldn't on an HPE machine either
+as it is end-of-life) nor its successor HPE SUPS, the HPE Supercomputer Programming Software
+distribution. 
+LUMI-AI also uses a different interconnect, BXI3, and at the time of writing (October 2026) it
+is not yet clear what communication libraries it will use (though certainly not UCX).
+The proprietary network implies that we will again depend very much on a vendor-specific
+MPI implementation. Bull bases its MPI on Open MPI rather than MPICH though.
+
+As it may be easier to integrate EESSI in a system that uses Open MPI as its primary implementation,
+we currently expect that we will be offering the EESSI toolchains for users who want to use the 
+regular EasyBuild easyconfigs (after injecting a specially optimised Open MPI in EESSI on LUMI-AI).
+However, we also expect to develop our own toolchain variants based on the AOCC (CPU) and AMD ROCm(tm)
+compilers (GPU). In these developments, we will aim for a simpler setup of the linear algebra 
+libraries, skipping FlexiBLAS and instead use one choice, likely AMD AOCL (so the BLIS library for
+BLAS) as that is what we can get most vendor support for. We also expect to install ROCm(tm)
+from binaries rather tan building from sources so that we can support new versions quicker
+(at least if the driver permits) and so that we can offer ROCm(tm) as a single module rather than
+the zoo of modules that EasyBuild seems to be moving to.
+
+There is a small chance that the Intel compilers will also be available, but then likely using
+Open MPI and with some compromises and little support for performance issues. We also may not
+develop an EasyBuild toolchain for it as there will certainly be higher priorities and as we 
+will focus first on things for which we can get proper vendor support.
+
+
+## Easyconfig names and module names
 
 <figure markdown style="border: 1px solid #000">
   ![easyconfig names and module names](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigModuleNames.png){ loading=lazy }
 </figure>
 
-There is a convention for the naming of an EasyConfig as shown on the slide. This is not
-mandatory, but EasyBuild will fail to automatically locate easyconfigs for dependencies 
-of a package that are not yet installed if the easyconfigs don't follow the naming
-convention. Each part of the name also corresponds to a parameter in the easyconfig 
-file.
+We have already said that if we want EasyBuild to find an easyconfig when automatically
+installing dependencies of a package, we need to ensure that the naming of the easyconfig
+follows certain rules. We know have all the bits and pieces in place to explain that naming 
+convention.
 
-Consider, e.g., the easyconfig file `GROMACS-2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU.eb`.
+Software in EasyBuild is characterised by up to 4 elements:
+
+1.  the name of the package
+
+2.  the version of the package
+
+3.  a version suffix providing additional information if there are multiple configurations of
+    the same package,
+
+4.  and the toolchain used to build the package (which itself has a name and version).
+
+Each also corresponds to a parameter in the easyconfig file.
+
+We find these elements back in the name of a package. Consider, e.g., that we want to write
+an easyconfig to install GROMACS 2024.3 in a configuration for CPU-only, using PLUMED 2.9.4 but
+not including the Python support, and build it with `cpeGNU/25.03`.
+The name for the easyconfig could then be
+`GROMACS-2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU.eb`.
 
 1.  The first part of the name, `GROMACS`, is the name of the package, specified by the
     `name` parameter in the easyconfig, and is after installation also the name of the
     module.
 2.  The second part, `2024.3`, is the version of GROMACS and specified by the
     `version` parameter in the easyconfig.
-3.  The next part, `cpeGNU-24.03` is the name and version of the toolchain,
+3.  The next part, `cpeGNU-25.03` is the name and version of the toolchain,
     specified by the `toolchain` parameter in the easyconfig. The version of the
     toolchain must always correspond to the version of the LUMI stack. So this is
-    an easyconfig for installation in `LUMI/24.03`.
+    an easyconfig for installation in `LUMI/25.03`.
 
     This part is not present for the SYSTEM toolchain
 
-4.  The final part, `-PLUMED-2.9.2-noPython-CPU`, is the version suffix and used to provide
+4.  The final part, `-PLUMED-2.9.4-noPython-CPU`, is the version suffix and used to provide
     additional information and distinguish different builds with different options
-    of the same package. It is specified in the `versionsuffix` parameter of the
+    of the same package. It is specified in the `version_suffix` parameter of the
     easyconfig.
 
     This part is optional.
 
-The version, toolchain + toolchain version and versionsuffix together also combine
+The version, toolchain + toolchain version and version suffix together also combine
 to the version of the module that will be generated during the installation process.
 Hence this easyconfig file will generate the module 
-`GROMACS/2024.3-cpeGNU-24.03-PLUMED-2.9.2-noPython-CPU`.
-
-
-
+`GROMACS/2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU`.
