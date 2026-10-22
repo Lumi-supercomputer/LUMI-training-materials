@@ -97,6 +97,10 @@ env_mod_category = 'lib'
 
 ## Easyblock or easyconfig?
 
+<figure markdown style="border: 1px solid #000">
+  ![Easyblock or easyconfig?](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigEasyBlockOrEasyConfig.png){ loading=lazy }
+</figure>
+
 Before continuing, we should ask us the question whether we should use an easyblock to do most
 of the implementation of the installation of a package, or simply use an easyconfig.
 
@@ -171,3 +175,257 @@ Sometimes the work can be rather easily done in a generic easyconfig also.
     installation of VMD that someone would need to have to do all the work in an easyconfig using the
     generic `ConfigureMake` easyblock, especially as the easyblock also calls the make command in some
     other directories to build one or two extra components. So using an easyblock was still a good idea.
+
+
+## Easyconfig parameter: `easyblock`
+
+<figure markdown style="border: 1px solid #000">
+  ![Easyconfig parameter: easyblock (1)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigEasyblock1.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Easyconfig parameter: easyblock (2)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigEasyblock2.png){ loading=lazy }
+</figure>
+
+Each easyconfig file does a build process with a particular easyblock.
+
+If the easyconfig uses an application-specific easyblock that follows the naming convention
+(with the name of the easyblock derived from the name of the package in a particular way),
+it is not needed to specify the easyblock at the top of the easyconfig file. 
+On LUMI, we do not follow that convention if we make our own variant of an easyblock that 
+already exists in EasyBuild to ensure that our version is always taken.
+**Example: The [ESMF package in EasyBuild](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/e/ESMF) uses a custom easyblock (see, e.g., 
+[ESMF-8.9.0-foss-2025b.eb](https://github.com/easybuilders/easybuild-easyconfigs/blob/develop/easybuild/easyconfigs/e/ESMF/ESMF-8.9.0-foss-2025b.eb))
+but we have our own variant for LUMI so we need to specify it at the top of the easyconfig file,
+see, e.g., [ESMF-8.9.1-cpeGNU-26.03-MPI-PIO.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/e/ESMF/ESMF-8.9.1-cpeGNU-26.03-MPI-PIO/).**
+
+EasyBuild has an [extensive list of generic easyblocks](https://docs.easybuild.io/version-specific/generic-easyblocks/) 
+(48 in version 5.4.1).
+Some of the more important ones that you will come across in the LUMI software stacks are:
+
+-   [`ConfigureMake`](https://docs.easybuild.io/version-specific/generic-easyblocks/#configuremake):
+    Use GNU Autotools in the configure step, then build and install with `make`.
+
+    *Examples in the LUMI software stacks: There are literally 10s of packages installed with this
+    easyblock. One example is [gnuplot](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/gnuplot/#pre-installed-modules-and-easyconfigs),
+    e.g., [gnuplot-6.0.4-cpeGNU-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/gnuplot/gnuplot-6.0.4-cpeGNU-26.03/).*
+
+-   [`CMakeMake`](https://docs.easybuild.io/version-specific/generic-easyblocks/#cmakemake):
+    Use `cmake` for the configure step, then build and install with `make`.
+    CMake is definitely a tool that is gaining popularity as it supports more than only Linux,
+    but it does have its quirks also.
+
+    *Examples in the LUMI software stacks: Here too there are literally 10s of packages installed with
+    this easyblock. One example is [GROMACS](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/),
+    e.g., [GROMACS-2026.3-cpeGNU-26.03-CPU.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/GROMACS-2026.3-cpeGNU-26.03-CPU/).*
+
+-   [`MesonNinja`](https://docs.easybuild.io/version-specific/generic-easyblocks/#mesonninja):
+    Configure with Meson, then build and install with `ninja`.
+
+    [Meson](https://mesonbuild.com/) itself is Python software. It is also rather immature. 
+    You may need multiple versions on a system,
+    as if it is used to install Python packages, it has to be available for that particular version of Python,
+    and as often multiple versions are needed because too many packages are only compatible with a limited 
+    version range. It is also not very Fortran-friendly (even though it claims to be so). 
+    In our opinion, it is to be avoided if possible
+    and we have had software with broken Meson definition files for which we could not build some versions
+    of that package. Python may be a very powerful scripting language, but configure tools seem to be 
+    better served by application-specific languages.
+    [Ninja](https://ninja-build.org/) is a nice and compact alternative to building 
+    with `make` an claims more speed as its greatest feature. 
+
+    *Meson is a very popular tool for software from the [GNOME project](https://www.gnome.org/). As such, it is
+    used in several packages from the GNOME project that are pre-installed in the LUMI software stacks. 
+    One example is [GLib](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GLib/),
+    e.g., [GLib-2.89.1-cpeGNU-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GLib/GLib-2.89.1-cpeGNU-26.03/),
+    which despite being a basic library that we would prefer to offer for all containers, currently cannot be 
+    offered with `cpeAMD/26.03` due to build issues.
+    Currently we have only one scientific software package that uses the `MesonNinja` easyblock,
+    [DFT-D4](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/d/DFTD4/), 
+    e.g., [DFTD4-4.2.0-cpeGNU-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/d/DFTD4/DFTD4-4.2.0-cpeGNU-26.03/).*
+
+-   [`SCons`](https://docs.easybuild.io/version-specific/generic-easyblocks/#scons): 
+    SCons has no configure step, but is used as a tool in the build and install steps.
+
+    [SCons](https://scons.org/) itself is Python software and it has basically the same 
+    disadvantages as Meson.
+
+    *It is currently on LUMI only used for one component in the 
+    [syslibs libraries](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/syslibs/),
+    see, e.g., [syslibs-26.03-static.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/syslibs/syslibs-26.03-static/).
+    At the time of writing, there are also only 3 packages using SCons in the standard EasyBuild packages.*
+
+-   [`Binary`](https://docs.easybuild.io/version-specific/generic-easyblocks/#binary): An easyblock to install software
+    from a binary distribution. It has no configure and build step. It unpacks the sources into the build 
+    directory and then runs the install step which can consist of a 
+    single command or a list of commands specified in the easyconfig, or the default behaviour
+    which is to just copy the unpacked files to the install directory.
+
+    As such it is also a good easyblock to abuse if software has a non-standard installation procedure but you
+    want to avoid creating an easyblock for it, as you can give a list of installation commands to run.
+
+    *An example on LUMI where we use it as intended are recent versions of 
+    [HyperQueue](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/h/HyperQueue/),
+    e.g., [HyperQueue-0.26.2-bindist-noPython.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/h/HyperQueue/HyperQueue-0.26.2-bindist-noPython/).
+    In this particular example we give an explicit install command as we do not want to copy the files to the
+    installation directory, but to the `bin` subdirectory in that directory to ensure that EasyBuild automatically
+    generates the correct lines in the environment module file to add the `hq` command to the `PATH`.
+    An example where we abuse the `Binary` easyblock to install software from sources, is in our
+    [OpenFOAM](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/o/OpenFOAM/) easyconfigs,
+    e.g., [OpenFOAM-v2506-cpeGNU-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/o/OpenFOAM/OpenFOAM-v2506-cpeGNU-26.03/). 
+    Here we use some options to let EasyBuild first copy to the install directory instead of to the build directory,
+    and then use one single long install command. We cannot split that over multiple commands in an
+    `install_cmds` line as we really first build an environment and then execute two commands in it to
+    configure and build OpenFOAM. If we would have used a list of commands, each of them would run in
+    their own shell.*
+
+-   [`PackedBinary`](https://docs.easybuild.io/version-specific/generic-easyblocks/#packedbinary):
+    This easyblock is meant to just copy the downloaded file to the installation directory.
+    This is really a simplified version of `Binary` that simply copies all unpacked source files
+    to the installation directory without further options (they are defined, but ignored?).
+
+    *An example in the LUMI software stack where we use this easyblock, is
+    the [unicore-uftp](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/) 
+    client which is simply Java software (lots of jar files) and a wrapper script to start the tool, e.g.,
+    [unicore-uftp-2.4.2-Java-25.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/u/unicore-uftp/unicore-uftp-2.4.2-Java-25/).*
+
+-   [`Bundle`](https://docs.easybuild.io/version-specific/generic-easyblocks/#bundle): A special
+    easyblock that enables installing multiple packages from a single easyconfig in a single
+    environment module. Each component of the bundle can be installed with a different easyblock
+    with all available options of that easyblock, though some things work differently than you
+    might expect at first and we may make some more remarks about this further in this section.
+    A special use of a `Bundle` is to install no package at all but to simply generate a module
+    that loads a number of dependencies.
+
+    *One example in the LUMI software stack is the easyconfig that we use to install
+    [EasyBuild](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/e/EasyBuild/) itself, e.g.,
+    [EasyBuild-5.4.0.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/e/EasyBuild/EasyBuild-5.4.0/).
+    This easyconfig is rather different from the 
+    [standard easyconfigs to install EasyBuild](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/e/EasyBuild),
+    partly because we don't use the (rather old) system Python and need to work around some issues that 
+    that introduces, partly because we want to install some additional tools that we use from EasyBuild,
+    and partly as the Python implementation that we use misses a Python package that we need to install
+    EasyBuild.*
+
+    *Another example is the [buildtools](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/b/buildtools/) module, 
+    e.g., [buildtools-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/b/buildtools/buildtools-26.03/),
+    which we use to provide a number of tools that are used during the configure and build phases
+    to provide an as consistent as possible build environment, even across updates of LUMI.
+    This is in fact a rather tricky easyconfig. We want to install these tools with the system
+    compiler to make them independent from the HPE Cray Programming Environment and also want to
+    link them statically to make any interference with software that is being installed impossible,
+    so we first build a limited version 
+    (e.g., [buildtools-26.03-bootstrap.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/b/buildtools/buildtools-26.03-bootstrap/)),
+    then build a bundle of static libraries that we need to build a more full-featured version
+    (the [syslibs](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/syslibs/) modules)
+    and finally build the full buildtools bundle.*
+
+    *An example of using the `Bundle` easyblock to simply generate a module that loads multiple 
+    dependencies, is the [GCC](https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs/g/GCC)
+    package in the regular EasyBuild distribution (e.g., [GCC-16.2.0.eb](https://github.com/easybuilders/easybuild-easyconfigs/blob/develop/easybuild/easyconfigs/g/GCC/GCC-16.2.0.eb)). The module simply loads the `GCCcore` and
+    `binutils` modules but it does play an important role in the toolchain hierarchy of the FOSS
+    toolchain.*
+
+-   [`PythonPackage`](https://docs.easybuild.io/version-specific/generic-easyblocks/#pythonpackage):
+    An easyblock to install a single Python package. 
+
+    This should be used with care on LUMI, as some Python installations put a very high stress on a parallel
+    filesystem. In fact, the file access pattern of Python itself when using packages is more suited to a 
+    local disk than to any shared filesystem. Therefore we advise to put Python installations in containers.
+    Yet the `PythonPackage` easyblock is still a good choice for a minor addition on top of Cray Python,
+    in particular for software that is not used at scale but mostly used in pre- or postprocessing or 
+    data staging.
+
+    *We do have some examples in the LUMI software stack, sometimes also because containerisation turned
+    out to be very difficult as we needed to compile software with different compilers than Python is
+    usually compiled with. One example is 
+    [h5py](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/h/h5py/) where we offer a
+    configuration that runs on top of Cray Python and uses the Cray HDF5 module 
+    (e.g., [h5py-3.11.0-cpeGNU-25.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/h/h5py/h5py-3.11.0-cpeGNU-25.03/)).
+    A not-so-good example where it proved difficult to offer a container with the resources
+    that we have available in LUST, is
+    [VeloxChem](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/v/VeloxChem/),
+    e.g., [VeloxChem-1.0-gpu-cpeAMD-25.03-rocm.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/v/VeloxChem/VeloxChem-1.0-gpu-cpeAMD-25.03-rocm/),
+    which we built for a single project that needed it and for which we also had to build a special version
+    of NumPy and SciPy. That package had to be compiled with the AMD compilers and uses OpenMP offload.
+    The tricky bit is that the AMD OpenMP library is not compatible with the one that is used for the
+    stock NumPy and SciPy in Cray Python, as Python itself is usually compiled with the GNU compilers.*
+
+-   [`PythonBundle`](https://docs.easybuild.io/version-specific/generic-easyblocks/#pythonbundle):
+    An easyblock to install one or more Python packages through the extension mechanism. 
+    It is based on the `Bundle` easyblock but installs no regular components. Instead it sets up
+    the extensions part of the easyconfig to install Python packages. 
+    Installing Python packages through the extensions mechanism is easier to debug than a `Bundle`
+    with `PythonPackage` components would be, because if installing a `Bundle` fails, you have to
+    start over from scratch, while with extensions there is a mechanism to detect which extensions
+    have already been installed.
+
+    All remarks made for `PythonPackage` on LUMI of course hold even more here. 
+
+    *Examples are necessarily limited as it is usually not a very good idea to install Python that
+    way on LUMI, but over the years we have made some `PythonBundle` easyconfigs for individual needs,
+    and they haven't always been updated to newer toolchains because they were often for specific 
+    projects. You'll find older ones for, e.g., 
+    [matplotlib](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/m/matplotlib/).
+    In most cases, it might be better to install this tool in a container or with 
+    [lumi-container-wrapper](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/l/lumi-container-wrapper/)
+    using conda-forge. Containerising becomes more difficult though if a package needs a high-performance
+    MPI implementation, though we have some tricks for that also.*
+
+
+## Easyconfig parameters: `name`, `version` and `version_suffix`
+
+<figure markdown style="border: 1px solid #000">
+  ![Easyconfig parameters: name, version and version_suffix](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigNameVersion.png){ loading=lazy }
+</figure>
+
+Example:
+
+``` python
+name =           'GROMACS'
+version =        '2025.4'
+version_suffix = '-CPU'
+```
+
+All EasyBuild installations must have a `name` and a `version` (the meaning speaks for itself).
+
+In some cases, a version may not be directly available, e.g., because you install just from a commit
+in GitHub. You could then use the GitHub commit as the version, but from the point of view of maintenance,
+this would be a nightmare. It is also impossible for users to interpret the version in that case. So
+much better would be to use the date of the commit, and if you make that a number YYYYMMDD, the 
+EasyConfigs (and environment module names in `module avail` and `module spider`) would even sort 
+correctly, making it very easy for a user to see what version is the most recent one or to 
+remember which one they used before.
+
+In some cases, you want to install multiple configurations of the same version of a software package
+(or different users need a different configuration and we have those EasyConfigs in our software library).
+In that case, you can use the `version_suffix` parameter (`versionsuffix` in older versions of EasyBuild)
+to distinguish the different versions as we have already discussed before when we discussed the
+[relationship between those parameters, the name of the easyconfig and the name of the environment module](02-Basic-concepts.md#easyconfig-names-and-module-names).
+
+On LUMI, we also use `version_suffix` to indicate that a package needs a GPU and has been built with ROCm(tm).
+We then add `-rocm` to the `version_siffux` unless we used a version that was not standard for the toolchain,
+in which case we add the ROCm(tm) version too. 
+
+One quirk of EasyBuild is that it does not automatically add the dash between the toolchain version and
+the version suffix when generating the environment module name (or the name for the easyconfig according
+to the naming convention, which it stores in a repo after installing the package).
+So the value of the `version_suffix` should start with a `-`.
+In fact, we've lied when writing down the different directory and file names in the previous chapter
+when discussing [where EasyBuild write things](02-Basic-concepts.md#where-does-easybuild-write-when-installing-software)
+as we set a `-` before `<version_suffix>`, but that dash really has to come from the value of
+`version_suffix`.
+
+
+## Easyconfig parameters for `module help`
+
+<figure markdown style="border: 1px solid #000">
+  ![Info for module help (1)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigHelp1.png){ loading=lazy }
+</figure>
+
+<figure markdown style="border: 1px solid #000">
+  ![Info for module help (2)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigHelp2.png){ loading=lazy }
+</figure>
+
+
+

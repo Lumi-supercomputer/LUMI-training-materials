@@ -806,3 +806,53 @@ The version, toolchain + toolchain version and version suffix together also comb
 to the version of the module that will be generated during the installation process.
 Hence this easyconfig file will generate the module 
 `GROMACS/2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU`.
+
+
+## Where does EasyBuild write when installing software?
+
+<figure markdown style="border: 1px solid #000">
+  ![Where does EasyBuild write?](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyBuildWhereWrite.png){ loading=lazy }
+</figure>
+
+-   Software is installed in the directory with the software installation, in the LUMI stacks set by
+    the environment variable `EASYBUILD_INSTALLPATH_SOFTWARE`.
+
+    A package is installed in a subdirectory of that directory with the name `<name>/<version>-<toolchain+version>-<version_suffix>`,
+    e.g., `GROMACS/2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU`.
+
+-   The module file is installed in the module files directory, in the LUMI stacks set by
+    the environment variable `EASYBUILD_INSTALLPATH_MODULES`.
+
+    The precise location and name in this directory depends on the naming scheme chosen and is different
+    for the LUMI stacks and for EESSI (which in the future may even support multiple naming schemes).
+    On LUMI, the module file is stored as `<name>/<version>-<toolchain+version>-<version_suffix>.lua`, 
+    e.g., `GROMACS/2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU.lua`
+
+-   Downloaded sources are saved in the sources directory. It is the first directory in a path of
+    directories that will all be searched for sources, in the LUMI stacks set by 
+    the environment variable `EASYBUILD_SOURCEPATH` (with a `:` as separator just as the `PATH` 
+    environment variable for executables).
+
+    The downloaded files for a package are stored in the subdirectory
+    `<lowercase_first_letter_of_name>/<name>`, e.g., `g/GROMACS`.
+
+-   EasyBuild will also save a processed copy of the easyconfig in a new repository.
+    That file has the correct name based on the name, version, toolchain+version and version suffix
+    used for the package, and may have other edits also if some of the `-try-*` flags of EasyBuild 
+    where used to experiment with a different toolchain or to try to change some versions of dependencies.
+
+    At the bottom of that file, EasyBuild will also add another variable, `buildstats`, with information
+    about the build. This parameter will be ignored if you use EasyBuild to install the package 
+    again.
+
+    In the LUMI stacks, the location of that repository is given by the environment variable
+    `EASYBUILD_REPOSITORYPATH`.
+
+    The processed easyconfig is stored as `<name>/<name>-<version>-<toolchain+version>-<version_suffix>.eb`,
+    e.g., `GROMACS/GROMACS-2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU.eb`.
+
+-   Within the installation directory of a package, you will also find a subdirectory `easybuild`.
+    That subdirectory contains a log file of the installation, another copy of the processed and correctly
+    name easyconfig but this time without the additional `buildstats` parameter, and some other files to 
+    enhance reproducibility, including a copy of the easyblock that was used as those may change behaviour
+    across different versions of EasyBuild.1
