@@ -427,5 +427,173 @@ as we set a `-` before `<version_suffix>`, but that dash really has to come from
   ![Info for module help (2)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigHelp2.png){ loading=lazy }
 </figure>
 
+<figure markdown style="border: 1px solid #000">
+  ![Info for module help (3)](https://462000265.lumidata.eu/easybuild-20270303/img/LUMI-UD-20270303-EasyBuild/EasyConfigHelp3.png){ loading=lazy }
+</figure>
 
+There are a number of easyconfig parameters used by EasyBuild to assemble the text shown by the
+`module help` command:
+
+-   `homepage`: A mandatory parameter, meant to provide a URL to the home page of the software package or
+    library. If there is really no homepage available, you can leave it empty though there is an unspoken
+    convention to use `(none)` as the value in that case.
+
+-   `description`: A mandatory parameter with a description of what the module provides. This can be a 
+    multi-line string in Python.
+
+    The trouble with this parameter is that it is currently used in two different ways if the 
+    parameter that we will discuss next is not used:
+
+    -   It is a block of text printed literally in the `module help` information.
+        Here you would like to provide very specific information about the specific configuration
+        of that particular module in case there are multiple configuration characterised by
+        different version suffixes.
+
+    -   But it is also used for a `Description:` whatis-line in the module where it is used by the 
+        `module whatis` command but also by the `module spider` command. 
+        
+        When used by 
+        `module spider`, you want it to provide more generic information as it appears in three 
+        different contexts:
+
+        1.  `module spider` without arguments: The `Description:` whatis-line is used to give a
+            short description that should be valid for all modules with that name.
+
+        2.  `module spider` with the name of a package for which there are multiple modules: The 
+            `Description:` whatis-field is now shown before all versions are shown, and should
+            again be valid for all modules that are shown.
+
+        3.  `module spider` with a concrete name: The information given by the easyconfig `description`
+            parameter is now shown twice: Once at the top where it is meant to be a short description,
+            and once when the help information for the module is shown.
+
+        When used by the `module whatis` command, a long, multi-line argument for the `Description:`
+        parameter, and especially one with multiple paragraphs, causes an ugly layout in the output
+        of the `module whatis` command. E.g., try `module whatis ASE/3.26.0-gfbf-2025b` in the 2025.06
+        version of EESSI.
+
+    Therefore, on LUMI, we suggest to combine `description` with the next parameter, even though it
+    does come with a considerable disadvantage also.
+
+-   `whatis`: A list of strings that will be used to generate `whatis` module functions in the 
+    module file. Though it is not enforced, to be consistent with what Lmod expects, each line
+    should be of the form "Keyword: value", and there should be a line starting with `Description:`
+    as that line is searched for by Lmod for the output of the `module whatis` and 
+    `module spider` commands.
+
+    E.g., to return to our GROMACS example [GROMACS-2025.4-cpeGNU-26.03-CPU.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GROMACS/GROMACS-2025.4-cpeGNU-26.03-CPU/),
+    we have
+
+    ``` python
+    whatis = [
+        'Description: GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.',
+    ]
+    ```
+
+    The disadvantage of this parameter is that it completely turns off the generation of the 
+    automatically added `whatis`-lines in EasyBuild rather than merging both giving priority to
+    those specified by `whatis` if one overwrites an automatically generated value.
+
+    This is very clear if you know look at the information provided by `module whatis` in the LUMI
+    stacks and compare with that provided in the `EESSI` stacks. In most EasyConfigs for the LUMI 
+    stack, we overwrite the `whatis`-lines to provide a shorter more generic description as 
+    discussed for the `description` parameter. However, this means we also loose other lines
+    that are added automatically such as the `Homepage:`, `URL:` and `Extensions:` fields
+    (the latter for packages that define extensions).
+
+    For our GROMACS case, we could have obtained the same information as EasyBuild would have
+    generated should we have put that one-liner in the `description` field instead of the long one 
+    with:
+
+    ``` python
+    whatis = [
+        'Description: GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.',
+        f'Homepage: {homepage}',
+        f'URL: {homepage}'
+    ]
+    ```
+
+    but for modules with extensions we would have to do more work by hand.
+
+-   `usage`: A multi-line string that is used for the "Usage" block in the help information 
+    shown by `module help`. This parameter is entirely optional and there are not that many
+    easyconfigs that use it.
+
+-   `examples`: A multi-line string that is used for the "Examples" block in the help information
+    hown by `module help`. This parameter is entirely optional and there are even less
+    easyconfigs that use it. But if you want, you can use it to provide a lot of information
+    in the module files.
+
+-   `doc_urls` (before EB5: `docurls`): A list of URLs to documentation for the package.
+
+    On LUMI we also abuse the parameter to refer to available manual pages, etc. 
+
+    One example in the LUMI stacks is [FFmpeg-8.1.1-cpeGNU-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/f/FFmpeg/FFmpeg-8.1.1-cpeGNU-26.03/), where we find
+
+    ``` python
+    doc_urls = [
+        'Manual pages in section 1 and 3',
+        'Web-based documentation at https://ffmpeg.org/documentation.html'
+    ]
+    ```
+
+-   `doc_paths` (before EB5: `docpaths`): A list of strings, each string a relative path with respect
+    to the installation directory to a file or directory with documentation about the package.
+
+    An example in the LUMI software stack is 
+    [Pango-1.57.1-cpeGNU-26.03.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/Pango/Pango-1.57.1-cpeGNU-26.03/),
+    where we find
+
+    ``` Python
+    doc_paths = [
+        'share/gtk-doc/html/pango'
+    ]
+    ```
+
+    which will result in 
+
+    ```
+    - Documentation:
+    - $EBROOTPANGO/share/gtk-doc/html/pango
+    ```
+
+    in the information shown by `module help`.
+
+-   `site_contacts`: A list of strings, adding lines towards the end of the `module help` information
+    telling the user who can be contacted in case of issues with this module.
+
+    In the LUMI software stacks we use an EasyBuild hook to add this parameter automatically to all
+    easyconfigs for software installed in the central software stack so even though the information
+    is present in all modules, you will not find it back in our easyconfigs.
+    (A hook is a bit of site-specific Python code that hooks into EasyBuild to provide additional
+    functionality, but this is an advanced feature outside the scope of this course as it is also
+    something site administrators should do.)
+
+-   `upstream_contacts`: A list of string, adding lines towards the end of the `module help` information
+    telling the user who can be contacted upstream (outside the LUMI support teams) in case help
+    is needed. It can be used to refer to, e.g., a user forum available for the software.
+
+    An example in the LUMI Software Library is 
+    [NAMD-3.0.3-cpeGNU-26.03-mpi-crayshasta.eb](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/n/NAMD/NAMD-3.0.3-cpeGNU-26.03-mpi-crayshasta/),
+    where we find
+
+    ``` python
+    upstream_contacts = [
+        'NAMD Mailing List/forum: http://www.ks.uiuc.edu/Research/namd/mailing_list/',
+        'NAMD bug report instructions: http://www.ks.uiuc.edu/Research/namd/bugreport.html',
+    ]
+    ```
+
+EasyBuild also has two parameters that were meant to provide information about the license for
+the software, `software_license` and `software_license_urls` that despite still being mentioned
+as mandatory on the ["Available easyconfig parameters" page in the EasyBuild documentation](https://docs.easybuild.io/version-specific/easyconfig-parameters/?h=easyconfig+parameter)
+are not mandatory at all and have never been fully implemented. The information is not shown
+in the module files, and in particular `software_license` is even used in the wrong way in
+several standard EasyConfigs. It was not meant to be a sentence but just a kind of constant
+defined in EasyBuild. You can already see the problem here: There are really too many different
+software licenses to include them all into EasyBuild and even then you'd still have to provide
+a special value for a custom license. These parameters were mandatory in EasyBuild 2 but 
+it became quickly clear that they were hard to use. 
+
+In fact, the same list also mentions `doc_urls` as mandatory even though it isn't at all.
 
