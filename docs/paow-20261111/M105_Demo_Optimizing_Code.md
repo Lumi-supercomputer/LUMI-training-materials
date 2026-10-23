@@ -1,6 +1,6 @@
 # Interactive demo/exercises 3: Strategies for code optimization
 
-*Presenter:*  Harvey Richardson and Alfio Lazzaro (HPE)
+*Presenter:*  Alfio Lazzaro (HPE)
 
 
 ## Materials

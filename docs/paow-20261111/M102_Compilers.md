@@ -1,6 +1,6 @@
-# Compilers, libraries, runtime, single-core optimisations
+# Compilers and libraries
 
-*Presenter: Harvey Richardson (HPE)*
+*Presenter: Alfio Lazzaro (HPE)*
 
 ## Materials
 

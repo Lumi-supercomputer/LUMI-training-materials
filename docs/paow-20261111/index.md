@@ -10,7 +10,7 @@
 
 -   [Travel and local information](local_info.md)
 
--   [Tentative schedule](schedule.md)
+-   [Schedule](schedule.md)
 
 <!-- 
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/advanced-may-2026?both)
