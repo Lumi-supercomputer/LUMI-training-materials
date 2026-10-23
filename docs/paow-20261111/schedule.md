@@ -1,4 +1,4 @@
-# Tentative schedule
+# Schedule
 
 <ul>
     <li><a href="#Day1">Day 1 - Wednesday 11/11/2026</a>
@@ -22,7 +22,7 @@ DAY 1
             <br/><em>10:00 EET</em>
         </td>
         <td><b><a href="../M100_Course_Introduction/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Jonathan Vincent (LUST) and Harvey Richardson (HPE)</em>
+        <br/><em>Presenters: Tor Skovsgaard (LUST) and Harvey Richardson (HPE)</em>
         </td>
     </tr>
     <tr>
@@ -58,8 +58,8 @@ DAY 1
             10:30 CET
             <br/><em>11:30 EET</em>
         </td>
-        <td><b><a href="../M102_Compilers/">Compilers, libraries, runtime, single-core optimisations</a></b>
-        <br/><em>Presenter: Harvey Richardson (HPE)</em>
+        <td><b><a href="../M102_Compilers/">Compilers and libraries</a></b>
+        <br/><em>Presenter: Alfio Lazzaro (HPE)</em>
         <ul>
             <li>Topics relevant to performance and optimization.</li>
         </ul>
@@ -70,7 +70,7 @@ DAY 1
             11:20 CET
             <br/><em>12:20 EET</em>
         </td>
-        <td><a name="hackathon_1"></a><b><a href="../M103_Perftools/">Introduction to Performance Analysis with Perftools</a></b>
+        <td><a name="hackathon_1"></a><b><a href="../M103_Perftools/">Introduction to Performance Analysis with Perftools - Perftools-lite modules</a></b>
         <br/><em>Presenter: Thierry Braconnier (HPE)</em>
         <ul>
             <li>Overview of the Cray Performance and Analysis toolkit for profiling applications.</li>
@@ -122,7 +122,7 @@ DAY 1
             <br/><em>15:50 EET</em>
         </td>
         <td><b><a href="../M105_Demo_Optimizing_Code/">Interactive demo/Exercises 3: Strategies for code optimization</a></b>
-        <br/><em>Presenters: Harvey Richardson and Alfio Lazzaro (HPE)</em>
+        <br/><em>Presenters: Alfio Lazzaro (HPE)</em>
         </td>
     </tr>
     <tr>
