@@ -463,7 +463,7 @@ There are a number of easyconfig parameters used by EasyBuild to assemble the te
             `Description:` whatis-field is now shown before all versions are shown, and should
             again be valid for all modules that are shown.
 
-        3.  `module spider` with a concrete name: The information given by the easyconfig `description`
+        3.  `module spider` with a full name and module version: The information given by the easyconfig `description`
             parameter is now shown twice: Once at the top where it is meant to be a short description,
             and once when the help information for the module is shown.
 
