@@ -6526,9 +6526,7 @@
 <p>So what approach should one use to compile code which uses MPI, OpenMP threads (but no OpenMP offload), and HIP all in one code and in the same source code files as well?</p>
 <p><strong>Answer</strong> [Sam AMD] If you are building HIP code in the source file you need to rule out GNU. I'd try with the Cray wrappers (CC) with <code>-x hip</code> to point out you want that to be interpreted as an HIP source code. Because you care about OpenMP you need to enable it with -fopenmp. You could always use the ROCm clang and link MPI in if you feel confortable with it. Order matters: <code>-fopenmp</code> needs to come prior to <code>-x hip</code>.</p>
 <p><strong>Reply</strong> Currently Loaded Modules:</p>
-<p>```
-1) craype-accel-amd-gfx90a   3) craype/2.7.19      5) libfabric/1.15.2.0   7) cray-mpich/8.1.23       9) PrgEnv-cray/8.3.3  11) craype-x86-trento 2) cce/15.0.0                4) cray-dsmml/0.2.2   6) craype-network-ofi   8) cray-libsci/22.12.1.1  10) rocm/5.2.3
-````</p>
+<p><code>1) craype-accel-amd-gfx90a   3) craype/2.7.19      5) libfabric/1.15.2.0   7) cray-mpich/8.1.23       9) PrgEnv-cray/8.3.3  11) craype-x86-trento 2) cce/15.0.0                4) cray-dsmml/0.2.2   6) craype-network-ofi   8) cray-libsci/22.12.1.1  10) rocm/5.2.3</code></p>
 <p>I compile with:
 <code>CC -g -O3 -fopenmp -x hip</code>
 Trying to link with:
