@@ -20,6 +20,14 @@ Materials will be made available after the lecture
 -   [Course notes](103-Access.md)
 
 -   [Exercises](E103-Access.md)
+
+For users of the EuroHPC Federation Platform:
+
+-   [Documentation](https://docs.my-eurohpc.eu/training/overview/)
+
+-   [Recent and upcoming trainings](https://docs.my-eurohpc.eu/training/overview/)
+
+    -   In particular, [features showcase of 19 October 2026](https://docs.my-eurohpc.eu/training/overview/#oct26-features-showcase)
 -->
 
 
