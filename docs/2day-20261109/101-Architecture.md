@@ -705,26 +705,24 @@ but presumably those were not yet available when the design of MI300A was tested
 for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan)
 which became the number 1 in the [TOP500 list of November 2024](https://top500.org/lists/top500/2024/11/)
 and stayed in that position until June 2026 when it was surpassed by a [Chinese system](https://top500.org/system/180490/).
-[HLRS is building the Hunter cluster based on AMD MI300A](https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart) 
+[HLRS built the Hunter cluster based on AMD MI300A](https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart) 
 as a transitional system
-to their first exascale-class system Herder that will become operational by 2027.
-The fact that the chip has recently been selected for the Hunter development system
-also indicates that even if no successor using the same techniques to combine GPU and
-CPU compute dies and memory would be made, there should at least be a successor that
-towards software behaves very similarly.
+to their first exascale-class system Herder that will become operational by the end of 2027
+and will be based on AMD Venice CPUs and MI430X GPUs, the same type as also used in the successor
+of LUMI, LUMI-AI.
+The fact that the MI300A chip was selected for the Hunter development system
+also indicates that even if there is no successor using the same techniques to combine GPU and
+CPU compute dies and memory, the Venice/MI400X series combination should behave very similarly,
+so the expectations for the CPU-to-GPU communication of MI430X are high.
 
-Intel at some point has shown only very conceptual drawings of its Falcon Shores chip 
-which it calls an XPU, but those drawings suggest that that chip will also support some low-bandwidth
-but higher capacity external memory, similar to the approach taken in some Sapphire 
-Rapids Xeon processors that combine HBM memory on-package with DDR5 memory outside 
-the package. Falcon Shores was meant to be the next generation of Intel GPUs for HPC, after 
-Ponte Vecchio which is used in the Aurora supercomputer. However, it then first reverted
-to a more traditional design and ultimately got canceled except for some internal use, with 
-Jaguar Shores now being the successor for the Ponte Vecchio GPU in Aurora and no architecture
-known yet. The NVIDIA Grace-Hopper and Grace-Blackwell chips also do not completely follow
-the design philosophy of MI300A as that chip also still has separate memory for the CPU die and
-GPU dies, but the connection between both is so fast that at least the CPU should be able to 
-work with data in GPU-attached memory without the need for copying.
+The NVIDIA Grace-Hopper, Grace-Blackwell and Vera-Rubin chips also do not completely follow
+the design philosophy of MI300A as those chips also have separate memory for the CPU die and
+GPU dies, just as AMD MI430X/MI455X, but like the MI300A CPU and GPU are integrated in a single
+package (though not as closely as in MI300A). 
+Yet the connection between both is so fast 
+that at least the CPU should be able to work with data in GPU-attached memory without the need for copying.
+It remains to be seen how close MI430X and MI455X get to that as there the CPU and GPU dies are
+in separate packages, and distance has a negative effect on latency and bandwidth.
 
 
 ## Building LUMI: The Slingshot interconnect
