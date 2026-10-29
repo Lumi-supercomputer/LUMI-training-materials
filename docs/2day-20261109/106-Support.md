@@ -57,6 +57,11 @@ The system software on a big shared machine cannot be upgraded as easily as on a
 Usually you will have to look for workarounds, or if they show up in a preparatory project,
 postpone applying for an allocation until all problems are fixed.
 
+The [EuroHPC Federation Platform helpdesk](https://docs.my-eurohpc.eu/support/)
+(email: [helpdesk@my-eurohpc.eu](mailto:helpdesk@my-eurohpc.eu)) is the point-of-contact for all
+questions regarding their services: EuroHPC projects managed through the EFP, the EESSI software stack,
+the interactive EFP services and their workflow tools.
+
 <!-- BELGIUM
 In Flanders, the **VSC** has a Tier-0 support project to offer more advanced L2 and some L3 support.
 The project unfortunately is not yet fully staffed.
@@ -709,8 +714,8 @@ As a result,
     search engine for the documentation. L0 support is the responsibility of every user.
 
 -   Resource allocators are responsible for the first steps in getting a project and userid on
-    LUMI. EuroHPC projects the support is offered through CSC,
-    the operator of LUMI, at lumi-customer-accounts@csc.fi, or by EuroHPC itself at
+    LUMI. For EuroHPC projects the support is offered the EuroHPC Federation Platform
+    helpdesk at helpdesk@my-eurohpc.eu, or by EuroHPC itself at
     access@eurohpc-ju.europa.eu if you have not yet been granted a project by them.
 
     Once your project is created and accepted (and the resource allocator can confirm that you
@@ -721,9 +726,10 @@ As a result,
     [the limits specified in the LUMI documentation](https://docs.lumi-supercomputer.eu/storage/#lumi-network-file-system-disk-storage-areas).
 
     If you run out of billing units for compute or storage, only the instance that granted your project
-    can help you, your resource allocator for local projects and access@eurohpc-ju.europa.eu 
-    for EuroHPC projects (CSC EuroHPC support at lumi-customer-accounts@csc.fi cannot help you
-    directly for project extensions and increase of billing units).
+    can help you, your resource allocator for local projects and helpdesk@my-eurohpc.eu for projects managed
+    through the EuroHPC Federation Platform (lumi-customer-accounts@csc.fi for older EuroHPC projects,
+    but they will likely have to refer you to access@eurohpc-ju.europa.eu first as they cannot do
+    large project extensions or granting compute billing units without prior EuroHPC approval).
 
     Projects cannot be extended past one year unless the granting instance is willing to take a 
     charge on the annual budget for the remaining billing units.
