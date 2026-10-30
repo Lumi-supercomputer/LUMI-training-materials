@@ -382,55 +382,84 @@ Some useful commands with respect to Slurm partitions:
     ```
     $ sinfo --format "%4D %10P %25f %.4c %.8m %25G %N"
     NODE PARTITION  AVAIL_FEATURES            CPUS   MEMORY GRES                      NODELIST
-    2    debug      AMD_EPYC_7763,x1004        256   229376 (null)                    nid[002275-002276]
-    5    debug      AMD_EPYC_7763,x1005        256   229376 (null)                    nid[002500-002501,002504-002506]
-    3    debug      AMD_EPYC_7763,x1006        256   229376 (null)                    nid[002595-002597]
-    2    interactiv AMD_EPYC_7763,x1004        256   229376 (null)                    nid[002278-002279]
-    2    interactiv AMD_EPYC_7763,x1005        256   229376 (null)                    nid[002502,002507]
-    2    interactiv AMD_EPYC_7763,x1006        256   229376 (null)                    nid[002594,002599]
-    1    q_fiqci    AMD_EPYC_7763,x1005        256   491520 (null)                    nid002343
-    1    q_industry AMD_EPYC_7763,x1005        256   491520 (null)                    nid002343
-    1    q_nordiq   AMD_EPYC_7763,x1005        256   229376 (null)                    nid002503
-    247  small      AMD_EPYC_7763,x1005        256  229376+ (null)                    nid[002280-002342,002344-002499,002508-002535]
-    58   small      AMD_EPYC_7763,x1006        256   229376 (null)                    nid[002536-002593]
-    256  standard   AMD_EPYC_7763,x1000        256   229376 (null)                    nid[001000-001255]
-    256  standard   AMD_EPYC_7763,x1001        256   229376 (null)                    nid[001256-001511]
-    256  standard   AMD_EPYC_7763,x1002        256   229376 (null)                    nid[001512-001767]
-    256  standard   AMD_EPYC_7763,x1003        256   229376 (null)                    nid[001768-002023]
-    251  standard   AMD_EPYC_7763,x1004        256   229376 (null)                    nid[002024-002274]
-    192  standard   AMD_EPYC_7763,x1006        256   229376 (null)                    nid[002600-002791]
-    256  standard   AMD_EPYC_7763,x1007        256   229376 (null)                    nid[002792-003047]
-    24   dev-g      AMD_EPYC_7A53,x1405        128   491520 gpu:mi250:8(S:0)          nid[007954-007977]
-    24   dev-g      AMD_EPYC_7A53,x1100        128   491520 gpu:mi250:8(S:0)          nid[005002-005025]
-    98   small-g    AMD_EPYC_7A53,x1100        128   491520 gpu:mi250:8(S:0)          nid[005026-005123]
-    100  small-g    AMD_EPYC_7A53,x1405        128   491520 gpu:mi250:8(S:0)          nid[007852-007951]
-    124  standard-g AMD_EPYC_7A53,x1103        128   491520 gpu:mi250:8(S:0)          nid[005372-005495]
-    2    standard-g AMD_EPYC_7A53,x1200        128   491520 gpu:mi250:8(S:0-7)        nid[005834-005835]
-    1    standard-g AMD_EPYC_7A53,x1302        128   491520 gpu:mi250:8               nid006839
-    1    standard-g AMD_EPYC_7A53,x1305        128   491520 gpu:mi250:8               nid007220
-    124  standard-g AMD_EPYC_7A53,x1101        128   491520 gpu:mi250:8(S:0)          nid[005124-005247]
-    124  standard-g AMD_EPYC_7A53,x1102        128   491520 gpu:mi250:8(S:0)          nid[005248-005371]
-    124  standard-g AMD_EPYC_7A53,x1104        128   491520 gpu:mi250:8(S:0)          nid[005496-005619]
-    124  standard-g AMD_EPYC_7A53,x1105        128   491520 gpu:mi250:8(S:0)          nid[005620-005743]
-    122  standard-g AMD_EPYC_7A53,x1200        128   491520 gpu:mi250:8(S:0)          nid[005744-005833,005836-005867]
-    124  standard-g AMD_EPYC_7A53,x1201        128   491520 gpu:mi250:8(S:0)          nid[005868-005991]
-    124  standard-g AMD_EPYC_7A53,x1202        128   491520 gpu:mi250:8(S:0)          nid[005992-006115]
-    124  standard-g AMD_EPYC_7A53,x1203        128   491520 gpu:mi250:8(S:0)          nid[006116-006239]
-    124  standard-g AMD_EPYC_7A53,x1204        128   491520 gpu:mi250:8(S:0)          nid[006240-006363]
-    124  standard-g AMD_EPYC_7A53,x1205        128   491520 gpu:mi250:8(S:0)          nid[006364-006487]
-    124  standard-g AMD_EPYC_7A53,x1300        128   491520 gpu:mi250:8(S:0)          nid[006488-006611]
-    124  standard-g AMD_EPYC_7A53,x1301        128   491520 gpu:mi250:8(S:0)          nid[006612-006735]
-    123  standard-g AMD_EPYC_7A53,x1302        128   491520 gpu:mi250:8(S:0)          nid[006736-006838,006840-006859]
-    124  standard-g AMD_EPYC_7A53,x1303        128   491520 gpu:mi250:8(S:0)          nid[006860-006983]
-    124  standard-g AMD_EPYC_7A53,x1304        128   491520 gpu:mi250:8(S:0)          nid[006984-007107]
-    123  standard-g AMD_EPYC_7A53,x1305        128   491520 gpu:mi250:8(S:0)          nid[007108-007219,007221-007231]
-    124  standard-g AMD_EPYC_7A53,x1400        128   491520 gpu:mi250:8(S:0)          nid[007232-007355]
-    124  standard-g AMD_EPYC_7A53,x1401        128   491520 gpu:mi250:8(S:0)          nid[007356-007479]
-    124  standard-g AMD_EPYC_7A53,x1402        128   491520 gpu:mi250:8(S:0)          nid[007480-007603]
-    124  standard-g AMD_EPYC_7A53,x1403        128   491520 gpu:mi250:8(S:0)          nid[007604-007727]
-    124  standard-g AMD_EPYC_7A53,x1404        128   491520 gpu:mi250:8(S:0)          nid[007728-007851]
+    2    debug      AMD_EPYC_7763,x1004,eessi  256   229376 (null)                    nid[002275-002276]
+    5    debug      AMD_EPYC_7763,x1005,eessi  256   229376 (null)                    nid[002500-002501,002504-002506]
+    2    debug      AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid[002595-002596]
+    2    interactiv AMD_EPYC_7763,x1004,eessi  256   229376 (null)                    nid[002278-002279]
+    2    interactiv AMD_EPYC_7763,x1005,eessi  256   229376 (null)                    nid[002502,002507]
+    2    interactiv AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid[002594,002599]
+    1    q_fiqci    AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid002597
+    1    q_industry AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid002597
+    1    q_nordiq   AMD_EPYC_7763,x1005,eessi  256   229376 (null)                    nid002503
+    58   small      AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid[002536-002593]
+    248  small      AMD_EPYC_7763,x1005,eessi  256  229376+ (null)                    nid[002280-002499,002508-002535]
+    256  standard   AMD_EPYC_7763,x1000,eessi  256   229376 (null)                    nid[001000-001255]
+    256  standard   AMD_EPYC_7763,x1001,eessi  256   229376 (null)                    nid[001256-001511]
+    256  standard   AMD_EPYC_7763,x1002,eessi  256   229376 (null)                    nid[001512-001767]
+    256  standard   AMD_EPYC_7763,x1003,eessi  256   229376 (null)                    nid[001768-002023]
+    251  standard   AMD_EPYC_7763,x1004,eessi  256   229376 (null)                    nid[002024-002274]
+    192  standard   AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid[002600-002791]
+    256  standard   AMD_EPYC_7763,x1007,eessi  256   229376 (null)                    nid[002792-003047]
+    248  fmr        AMD_EPYC_7763,x1006,eessi  256   229376 (null)                    nid[002536-002591,002600-002791]
+    256  fmr        AMD_EPYC_7763,x1000,eessi  256   229376 (null)                    nid[001000-001255]
+    256  fmr        AMD_EPYC_7763,x1001,eessi  256   229376 (null)                    nid[001256-001511]
+    256  fmr        AMD_EPYC_7763,x1002,eessi  256   229376 (null)                    nid[001512-001767]
+    256  fmr        AMD_EPYC_7763,x1003,eessi  256   229376 (null)                    nid[001768-002023]
+    248  fmr        AMD_EPYC_7763,x1004,eessi  256   229376 (null)                    nid[002024-002271]
+    244  fmr        AMD_EPYC_7763,x1005,eessi  256  229376+ (null)                    nid[002280-002339,002344-002499,002508-002535]
+    256  fmr        AMD_EPYC_7763,x1007,eessi  256   229376 (null)                    nid[002792-003047]
+    26   dev-g      AMD_EPYC_7A53,x1100,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005000-005025]
+    25   dev-g      AMD_EPYC_7A53,x1405,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007953-007977]
+    98   small-g    AMD_EPYC_7A53,x1100,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005026-005123]
+    101  small-g    AMD_EPYC_7A53,x1405,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007852-007952]
+    124  standard-g AMD_EPYC_7A53,x1101,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005124-005247]
+    124  standard-g AMD_EPYC_7A53,x1102,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005248-005371]
+    124  standard-g AMD_EPYC_7A53,x1103,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005372-005495]
+    124  standard-g AMD_EPYC_7A53,x1104,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005496-005619]
+    124  standard-g AMD_EPYC_7A53,x1105,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005620-005743]
+    124  standard-g AMD_EPYC_7A53,x1200,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005744-005867]
+    124  standard-g AMD_EPYC_7A53,x1201,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005868-005991]
+    124  standard-g AMD_EPYC_7A53,x1202,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005992-006115]
+    124  standard-g AMD_EPYC_7A53,x1203,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006116-006239]
+    124  standard-g AMD_EPYC_7A53,x1204,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006240-006363]
+    124  standard-g AMD_EPYC_7A53,x1205,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006364-006487]
+    124  standard-g AMD_EPYC_7A53,x1300,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006488-006611]
+    124  standard-g AMD_EPYC_7A53,x1301,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006612-006735]
+    124  standard-g AMD_EPYC_7A53,x1302,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006736-006859]
+    124  standard-g AMD_EPYC_7A53,x1303,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006860-006983]
+    124  standard-g AMD_EPYC_7A53,x1304,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006984-007107]
+    124  standard-g AMD_EPYC_7A53,x1305,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007108-007231]
+    124  standard-g AMD_EPYC_7A53,x1400,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007232-007355]
+    124  standard-g AMD_EPYC_7A53,x1401,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007356-007479]
+    124  standard-g AMD_EPYC_7A53,x1402,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007480-007603]
+    124  standard-g AMD_EPYC_7A53,x1403,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007604-007727]
+    124  standard-g AMD_EPYC_7A53,x1404,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007728-007851]
+    92   fmr-g      AMD_EPYC_7A53,x1100,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005032-005123]
+    96   fmr-g      AMD_EPYC_7A53,x1405,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007852-007947]
+    124  fmr-g      AMD_EPYC_7A53,x1101,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005124-005247]
+    124  fmr-g      AMD_EPYC_7A53,x1102,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005248-005371]
+    124  fmr-g      AMD_EPYC_7A53,x1103,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005372-005495]
+    124  fmr-g      AMD_EPYC_7A53,x1104,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005496-005619]
+    124  fmr-g      AMD_EPYC_7A53,x1105,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005620-005743]
+    124  fmr-g      AMD_EPYC_7A53,x1200,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005744-005867]
+    124  fmr-g      AMD_EPYC_7A53,x1201,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005868-005991]
+    124  fmr-g      AMD_EPYC_7A53,x1202,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[005992-006115]
+    124  fmr-g      AMD_EPYC_7A53,x1203,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006116-006239]
+    124  fmr-g      AMD_EPYC_7A53,x1204,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006240-006363]
+    124  fmr-g      AMD_EPYC_7A53,x1205,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006364-006487]
+    124  fmr-g      AMD_EPYC_7A53,x1300,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006488-006611]
+    124  fmr-g      AMD_EPYC_7A53,x1301,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006612-006735]
+    124  fmr-g      AMD_EPYC_7A53,x1302,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006736-006859]
+    124  fmr-g      AMD_EPYC_7A53,x1303,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006860-006983]
+    124  fmr-g      AMD_EPYC_7A53,x1304,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[006984-007107]
+    124  fmr-g      AMD_EPYC_7A53,x1305,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007108-007231]
+    124  fmr-g      AMD_EPYC_7A53,x1400,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007232-007355]
+    124  fmr-g      AMD_EPYC_7A53,x1401,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007356-007479]
+    124  fmr-g      AMD_EPYC_7A53,x1402,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007480-007603]
+    124  fmr-g      AMD_EPYC_7A53,x1403,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007604-007727]
+    124  fmr-g      AMD_EPYC_7A53,x1404,eessi  128   491520 gpu:mi250:8(S:0-7)        nid[007728-007851]
     6    largemem   AMD_EPYC_7742              256 4096000+ (null)                    nid[000101-000106]
-    8    lumid      AMD_EPYC_7742              256  2048000 gpu:a40:8,nvme:40000      nid[000016-000023]    
+    8    lumid      AMD_EPYC_7742              256  2048000 gpu:a40:8,nvme:40000      nid[000016-000023]   
     ```
     (Output may vary over time)
     
@@ -445,6 +474,9 @@ Some useful commands with respect to Slurm partitions:
     compute nodes. The memory reported is always 32 GB less than you would expect from the 
     node specifications. This is because 32 GB on each node is reserved for the OS and the 
     RAM disk it needs.
+
+    The `fmr` and `fmr-g` partitions are not normally accessible to users but are used for the
+    full machine hero runs.
 
 
 ## Accounting of jobs
@@ -612,17 +644,17 @@ that in fact can also be found on the web.
         so another user may submit a job that gets a higher priority than yours, pushing back the start
         time of your job. So it is basically a random number generator.
 
--   To delete a job, use [`scancel <jobID>`](https://slurm.schedmd.com/archive/slurm-24.05.8/scancel.html)
+-   To delete a job, use [`scancel <jobID>`](https://slurm.schedmd.com/archive/slurm-25.05.9/scancel.html)
 
 -   An important command to manage jobs while they are running is 
-    [`sstat -j <jobID>`](https://slurm.schedmd.com/archive/slurm-24.05.8/sstat.html).
+    [`sstat -j <jobID>`](https://slurm.schedmd.com/archive/slurm-25.05.9/sstat.html).
     This command display real-time information directly gathered from the resource manager
     component of Slurm and can also be used to show information about individual job steps using
     the job step identifier (which is in most case `<jobID>.0` for the first regular job step and so on).
     We will cover this command in more detail 
     [further in the notes of this session](201-Slurm.md/#the-sstat-command).
 
--   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-24.05.8/sacct.html) can be used both while the
+-   The [`sacct -j <jobID>` command](https://slurm.schedmd.com/archive/slurm-25.05.9/sacct.html) can be used both while the
     job is running and when the job has finished. It is the main command to get information about a job
     after the job has finished. All information comes from a database, also while the job is running, so 
     the information is available with some delay compared to the information obtained with `sstat` for
@@ -694,9 +726,9 @@ For the `sbatch` command this are the `SBATCH_*` environment variables, for `sal
 the `SALLOC_*` environment variables and for `srun` the `SLURM_*` and some `SRUN_*` environment variables.
 For the `sbatch` command this will overwrite values on the `#SBATCH` lines. You can find
 lists in the manual pages of the 
-[`sbatch`](https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html),
-[ `salloc`](https://slurm.schedmd.com/archive/slurm-24.05.8/salloc.html) and
-[`srun`](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html) command.
+[`sbatch`](https://slurm.schedmd.com/archive/slurm-25.05.9/sbatch.html),
+[ `salloc`](https://slurm.schedmd.com/archive/slurm-25.05.9/salloc.html) and
+[`srun`](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html) command.
 Specifying command line options via environment variables that are hidden in your
 `.profile` or `.bashrc` file or any script that you run before starting your work,
 is not free of risks. Users often forget that they set those environment variables and
@@ -731,7 +763,7 @@ command line and lead to unexpected behaviour.
     the number of nodes. 
 
     Checking the 
-    [srun manual page for the `--ntasks-per-node` option](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks-per-node), 
+    [srun manual page for the `--ntasks-per-node` option](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_ntasks-per-node), 
     you read that the `--ntasks` option takes precedence and if present, 
     `--ntasks-per-node` will be interpreted as the **maximum** number of tasks per node.
 
@@ -855,8 +887,8 @@ information. Examples are `%x` which will be replaced with the name of the job (
 `--job-name`) and `%j` which will be replaced with the job ID (job number). It is recommended to always include 
 the latter in the template for the filename as this ensures unique names if the same job script would be run a 
 few times with different input files. Discussing all patterns that can be used for the filename is outside the
-scope of this tutorial, but you can find them all in the [sbatch manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html)
-in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E).
+scope of this tutorial, but you can find them all in the [sbatch manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/sbatch.html)
+in the ["filename pattern" section](https://slurm.schedmd.com/archive/slurm-25.05.9/sbatch.html#SECTION_%3CB%3Efilename-pattern%3C/B%3E).
 
 
 ## Requesting resources: CPUs and GPUs
@@ -1182,7 +1214,7 @@ resources are for each individual task, but this scheme is an easy scheme:
 1.  Specifying the number of tasks: You can specify per node or the total number:
 
     1.  Specifying the total number of tasks: 
-        [`--ntasks=<ntasks` or `-n ntasks`](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks).
+        [`--ntasks=<ntasks` or `-n ntasks`](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_ntasks).
         There is a risk associated to this approach which is the same as when specifying the
         total number of GPUs for a job: If you change the number of nodes, then you should
         change the total number of tasks also. However, it is also very useful in certain cases.
@@ -1200,12 +1232,12 @@ resources are for each individual task, but this scheme is an easy scheme:
         be done, and even it it would, `SLURM_NNODES` would not be set).
 
     2.  Specifying on a per node basis: 
-        [`--ntasks-per-node=<ntasks>`](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks-per-core) 
+        [`--ntasks-per-node=<ntasks>`](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_ntasks-per-core) 
         is possible in combination with `--nodes` according to the Slurm manual. 
         In fact, this would be a logical thing to do in a per node allocation. 
         **However, we see it fail on LUMI when it is used as an option for `srun` and not with `sbatch`, 
         even though it should work
-        [according to the documentation](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#OPT_ntasks-per-core).**
+        [according to the documentation](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_ntasks-per-core).**
 
         The reason for the failure is that Slurm when starting a batch job defines a large number of `SLURM_*` and
         `SRUN_*` variables. Some only give information about the allocation, but others are picked up by `srun` as
@@ -1371,7 +1403,7 @@ core. This is illustrated with the example below.
     #SBATCH --output=%x-%j.txt
     #SBATCH --account=project_46YXXXXXX
 
-    module load LUMI/24.03 partition/C lumi-CPEtools/1.2a-cpeGNU-24.03
+    module load LUMI/24.03 partition/C lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
     echo -e "Job script:\n$(cat $0)\n"
 
@@ -2318,11 +2350,11 @@ With this statement, the job defined by the job script `jobdpend.slurm` will not
 given jobID has ended successfully (and you may have to clean up the queue if it never ends successfully). But 
 there are other possibilities also, e.g., start another job after a list of jobs has ended, or after a job has
 failed. We refer to the 
-[sbatch manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html) where you should 
-[look for `--dependency` on the page](https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html#OPT_dependency).
+[sbatch manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/sbatch.html) where you should 
+[look for `--dependency` on the page](https://slurm.schedmd.com/archive/slurm-25.05.9/sbatch.html#OPT_dependency).
 
 It is also possible to automate the process of submitting a chain of dependent jobs. For this the
-`sbatch` flag [`--parsable`](https://slurm.schedmd.com/archive/slurm-24.05.8/sbatch.html#OPT_parsable)
+`sbatch` flag [`--parsable`](https://slurm.schedmd.com/archive/slurm-25.05.9/sbatch.html#OPT_parsable)
 can be used which on LUMI will only print the job number of the job being submitted. So to 
 let the job defined by `jobdepend.slurm` run after the job defined by `jobfirst.slurm` while 
 submitting both at the same time, you can use something like
@@ -2772,7 +2804,7 @@ then tasks 0 till 3 would run the executable `./a.out --mypargs`, tasks 4 and 6 
 and task 5 would run `./c.out`.
 
 More information is available in the 
-["MULTIPLE PROGRAM CONFIGURATION" section of the `srun` manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/srun.html#SECTION_MULTIPLE-PROGRAM-CONFIGURATION).
+["MULTIPLE PROGRAM CONFIGURATION" section of the `srun` manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#SECTION_MULTIPLE-PROGRAM-CONFIGURATION).
 
 As this runs in a single job, it avoid the scheduling issues that heterogeneous jobs often experience
 on LUMI, but the job can not use multiple partitions. Yet it is highly recommended if you can fit
@@ -2970,7 +3002,7 @@ which task that is and on which node it is running.
 
 You can get a list of output fields using `sstat -e` or `sstat --helpformat`. 
 Or check the 
-["Job Status Fields" section in the `sstat` manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/sstat.html#SECTION_Job-Status-Fields). That page also contains further examples.
+["Job Status Fields" section in the `sstat` manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/sstat.html#SECTION_Job-Status-Fields). That page also contains further examples.
 
 
 ### The `sacct` command
@@ -3054,7 +3086,7 @@ in that column.
 
 You can get a list of output fields using `sacct -e` or `sacct --helpformat`. 
 Or check the 
-["Job Accounting Fields" section in the `sacct` manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/sacct.html#SECTION_Job-Accounting-Fields). That page also contains further examples.
+["Job Accounting Fields" section in the `sacct` manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/sacct.html#SECTION_Job-Accounting-Fields). That page also contains further examples.
 
 
 <figure markdown style="border: 1px solid #000">
@@ -3071,7 +3103,7 @@ restrict the load on Slurm as this is a query on a very large database.
 
 This is only a very brief introduction to `sacct`, basically so that you know that it exists and what
 its main purpose is. But you can find more information in the
-[`sacct` manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/sacct.html)
+[`sacct` manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/sacct.html)
 
 
 ### The `sreport` command
@@ -3095,7 +3127,7 @@ irrelevant to get an idea of how the CPU billing units were consumed.
 
 This section is mostly to discourage you to use `sreport` as its information is often misleading and certainly
 if it is used to follow up your use of billing units on LUMI, but should you insist, there is more information
-in the [`sreport` manual page](https://slurm.schedmd.com/archive/slurm-24.05.8/sreport.html).
+in the [`sreport` manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/sreport.html).
 
 
 <!-- BELGIUM
