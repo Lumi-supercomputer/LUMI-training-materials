@@ -10,7 +10,7 @@
 -   [Tentative schedule](schedule.md)
 
 <!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-amsterdam-may24?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-nov2026)
 -->
 
 <!--
@@ -22,8 +22,8 @@
 <!--
 -   There are two Slurm reservations for the course:
 
-    -   CPU nodes: `LUMI_Intro_SURF_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_SURF_standardg` (on the `standard-g` Slurm partition)
+    -   CPU nodes: `lumi-intro-small` (on the `small` Slurm partition)
+    -   GPU nodes: `lumi-intro-standard_g` (on the `standard-g` Slurm partition)
 -->
 
 
@@ -102,8 +102,8 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465003355/course-20260422-$USER/Exercises
-    cd /scratch/project_465003355/course-20260422-$USER/Exercises
+    mkdir -p /scratch/project_465003355/course-20261109-$USER/Exercises
+    cd /scratch/project_465003355/course-20261109-$USER/Exercises
     ```
 
     where you have to replace `project_465003355` using the number of your own project.
@@ -121,12 +121,12 @@ day).
 -   Now download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20261109/files/exercises-20260422.tar.bz2
-    tar -xf exercises-20260422.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2
+    tar -xf exercises-20261109.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20261109/files/exercises-20260422.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20261109/files/exercises-20260422.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2).
 
 -   You're all set to go!
 -->
@@ -150,8 +150,8 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
-    cd /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
+    mkdir -p /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
     ```
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
@@ -159,7 +159,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 -   Now install the exercise files:
 
     ```
-    tar -xf /appl/local/training/2day-20261109/files/exercises-20260422.tar.bz2
+    tar -xf /appl/local/training/2day-20261109/files/exercises-20261109.tar.bz2
     ```
 
 -   You're all set to go!

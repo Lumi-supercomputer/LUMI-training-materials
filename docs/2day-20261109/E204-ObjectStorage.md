@@ -102,7 +102,7 @@ tools configuration files that are used in the following exercises.
 
             This text can be copied to the `s3cmd` configuration file which on Linux-like systems is
             `~/.s3cfg`, and if you want to have an `s3cmd` configuration for multiple systems,
-            the suggested name is `~/.s3cfg-lumi-465001726`.
+            the suggested name is `~/.s3cfg-lumi-465003355`.
 
 4.  Use the `lumio-conf` command line tool to generate a configuration for `s3cmd` and for `rclone`.
 
