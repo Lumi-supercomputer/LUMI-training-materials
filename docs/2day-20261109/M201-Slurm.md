@@ -9,12 +9,11 @@ talk to understand the particular configuration on LUMI.
 
 ## Materials
 
-Materials will be made available after the lecture
+<!-- Materials will be made available after the lecture -->
 
 <!--
 <video src="https://462000265.lumidata.eu/2day-next/recordings/201-Slurm.mp4" controls="controls"></video>
 -->
-<!--
 -   A video recording will follow.
 
 -   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-201-Slurm.pdf)
@@ -22,7 +21,6 @@ Materials will be made available after the lecture
 -   [Course notes](201-Slurm.md)
 
 -   [Exercises](E201-Slurm.md)
--->
 
 
 ## Q&A
