@@ -559,7 +559,7 @@ Let us now again walk through the interface.
     </figure>
 
     We've created both a private and a public `rclone` endpoint with the name
-    `lumi-46500275-private` and `lumi-46500275-public` respectively. These endpoints can also be used
+    `lumi-465002175-private` and `lumi-465002175-public` respectively. These endpoints can also be used
     with the command line `rclone` tool provided by the `lumio` module.
 
     The "Delete" button can used to delete the endpoint only, but the authentication key will not be revoked, i.e., the
@@ -637,7 +637,7 @@ Let us now again walk through the interface.
   ![Slide rclone on LUMI-O](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-204-ObjectStorage/LUMIOCLIToolConfigRcloneS3cmd.png){ loading=lazy }
 </figure>
 
-**The materials in this section are only valid for the `lumio/2.0.0` module and newer. `lumio/2.0.0` is the default at the time of the course.**
+**The materials in this section are only valid for the `lumio/2.0.0` module and newer. `lumio/2.1.0` is the default at the time of the course.**
 
 On LUMI, you can use the `lumio-conf` tool to configure `rclone`, `s3cmd`, `aws`
 and the `boto3` Python packages. 

@@ -661,6 +661,70 @@ and as we shall see later in the course, exploiting this is a bit tricky at the 
     used in those EPYC 7004 SKUs that have only 4 CCDs.
 -->
 
+### The next Gen: El Capitan
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide The next gen: El Capitan](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-101-Architecture/GPUnodeFuture.png){ loading=lazy }
+</figure>
+
+Some users may be annoyed by the "small" amount of memory on each node. Others
+may be annoyed by the limited CPU capacity on a node compared to some systems 
+with NVIDIA GPUs. It is however very much in line with the cluster-booster
+philosophy already mentioned a few times, and it does seem to be the future
+according to AMD (with Intel also working into that direction). 
+In fact, it looks like with respect to memory 
+capacity things may even get worse.
+
+We saw the first little steps of bringing GPU and CPU closer together and 
+integrating both memory spaces in the USA pre-exascale systems Summit and Sierra.
+The LUMI-G node which was really designed for one of the first USA exascale systems
+continues on this philosophy, albeit with a CPU and GPU from a different manufacturer.
+Given that manufacturing large dies becomes prohibitively expensive in newer semiconductor
+processes and that the transistor density on a die is also not increasing at the same
+rate anymore with process shrinks, manufacturers are starting to look at other ways
+of increasing the number of transistors per "chip" or should we say package.
+So multi-die designs are here to stay, and as is already the case in the AMD CPUs,
+different dies may be manufactured with different processes for economical reasons.
+
+Moreover, a closer integration of CPU and GPU would not only make programming easier
+as memory management becomes easier, it would also enable some codes to run on GPU 
+accelerators that are currently bottlenecked by memory transfers between GPU and CPU.
+
+Such a chip is exactly what AMD launched in December 2023 with the MI300A version of 
+the MI300 series. 
+It employs 13 chiplets in two layers, linked to (still only) 8 
+memory stacks (albeit of a much faster type than on the MI250X). 
+The 4 chiplets on the
+bottom layer are the memory controllers and inter-GPU links (an they can be at the
+bottom as they produce less heat). Furthermore each package features 6 GPU dies
+(now called XCD or Accelerated Compute Die as they really can't do graphics) and
+3 Zen4 "Genoa" CPU dies. In the MI300A the memory is still limited to 8 16 GB stacks, 
+providing a total of 128 GB of RAM. The MI300X,  which is the regular version 
+without built-in CPU, already uses 24 GB stacks for a total of 192 GB of memory,
+but presumably those were not yet available when the design of MI300A was tested
+for the launch customer, the [El Capitan supercomputer](https://asc.llnl.gov/exascale/el-capitan)
+which became the number 1 in the [TOP500 list of November 2024](https://top500.org/lists/top500/2024/11/)
+and stayed in that position until June 2026 when it was surpassed by a [Chinese system](https://top500.org/system/180490/).
+[HLRS built the Hunter cluster based on AMD MI300A](https://www.hlrs.de/news/detail/exascale-supercomputing-is-coming-to-stuttgart) 
+as a transitional system
+to their first exascale-class system Herder that will become operational by the end of 2027
+and will be based on AMD Venice CPUs and MI430X GPUs, the same type as also used in the successor
+of LUMI, LUMI-AI.
+The fact that the MI300A chip was selected for the Hunter development system
+also indicates that even if there is no successor using the same techniques to combine GPU and
+CPU compute dies and memory, the Venice/MI400X series combination should behave very similarly,
+so the expectations for the CPU-to-GPU communication of MI430X are high.
+
+The NVIDIA Grace-Hopper, Grace-Blackwell and Vera-Rubin chips also do not completely follow
+the design philosophy of MI300A as those chips also have separate memory for the CPU die and
+GPU dies, just as AMD MI430X/MI455X, but like the MI300A CPU and GPU are integrated in a single
+package (though not as closely as in MI300A). 
+Yet the connection between both is so fast 
+that at least the CPU should be able to work with data in GPU-attached memory without the need for copying.
+It remains to be seen how close MI430X and MI455X get to that as there the CPU and GPU dies are
+in separate packages, and distance has a negative effect on latency and bandwidth.
+
+
 ## Building LUMI: The Slingshot interconnect
 
 ### Principles
