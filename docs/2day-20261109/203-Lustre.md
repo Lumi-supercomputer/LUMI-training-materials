@@ -461,9 +461,10 @@ object of the file.
 <figure markdown style="border: 1px solid #000">
   ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping3_PFL.png){ loading=lazy }
 </figure>
+
 The default value for all projects created after May 2026 is to use progressive layouts as shown in 
 the picture here: there are three ranges and according to the size of the file the layout will change.
-In all ranges, we have a 1MB stripe size. As we have already seen, that is the suggested size to be able
+In all ranges, we have a 4MB stripe size. As we have already seen, that is the suggested size to be able
 to engage all the levels of parallelism available in a Object Storage Server. Then for files up to 256MiB
 only 1 OSS will be engaged. File in the second range have a size from 256MiB to 16GiB, and in this case
 they will be distributed across 4 OSS (so stripe count of 4).
@@ -633,6 +634,7 @@ unfortunately).
 <figure markdown style="border: 1px solid #000">
   ![Real Usage: Bad](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreUsageBad.png){ loading=lazy }
 </figure>
+
 A couple of real use cases from LUMI production: in this first one we can see a "not so uncommon" situation:
 when user overload the MDS with an excessive amount of requests, the server itself can become unresponsive.
 In the example provided in the screenshot here we had a sysadmin reporting that it has been overloaded for almost 

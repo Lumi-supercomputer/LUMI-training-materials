@@ -30,7 +30,7 @@ The second mechanism is processor affinity which works at the process and thread
 used by Slurm at the task level and 
 can be used by the OpenMP runtime to further limit thread migration. It works through affinity masks
 which indicate the hardware threads that a thread or process can use. There is also a third
-mechanism provided by the ROCm(tm)) runtime to control which GPUs can be used.
+mechanism provided by the ROCm(tm) runtime to control which GPUs can be used.
 
 Some of the tools in the `lumi-CPEtools` module can show the affinity mask for each thread
 (or effectively the process for single-threaded processes) so you can use these tools to
@@ -85,7 +85,7 @@ In this section we will consider process and thread distribution and binding at 
     bind each task to CPUs allocated to that task, and depending on how the job step was started, bind each task to the GPUs allocated to the task or to the subset of the
     GPUs available to the job step on the node the task is running on.
 
--   With Cray MPICH, you can change the binding between MPI ranks and Slurm tasks. Normally MPI rank *i*
+-   With Cray MPICH, you can change the mapping between MPI ranks and Slurm tasks. Normally MPI rank *i*
     would be assigned to task *i* in the job step, but sometimes there are reasons to change this.
     The mapping options offered by Cray MPICH are more powerful than what can be obtained with the 
     options to change the task distribution in Slurm.
@@ -422,7 +422,7 @@ is not available for user threads. Basically, physical core 0 had to be reserved
 to help reduce OS jitter which can kill scalability of large parallel applications. 
 But as only reserving physical core 0 creates an asymmetry in the node which is difficult to deal
 with for users, the decision was made to - similar as on Frontier - reserve the first core of each CCD.
-Don't be surprised if when running a GPU code you see a lot of activity on core 0. It is caused by the ROCm(tm)) driver
+Don't be surprised if when running a GPU code you see a lot of activity on core 0. It is caused by the ROCm(tm) driver
 and often also by Lustre processes,
 and is precisely the reason why that core is reserved, as that activity would break scalability of applications that expect
 to have the same amount of available compute power on each core.
@@ -1402,7 +1402,7 @@ the second level is sometimes used but the third level is very tricky and both t
 are often better replaced with other mechanisms that will also be discussed in this chapter on distribution
 and binding.
 
-The [general form of the `--distribution` option](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_distribution) is 
+The [general form of the `--distribution` option](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_distribution) is 
 
 ```
 --distribution={*|block|cyclic|arbitrary|plane=<size>}[:{*|block|cyclic|fcyclic}[:{*|block|cyclic|fcyclic}]][,{Pack|NoPack}]
@@ -1443,7 +1443,7 @@ The [general form of the `--distribution` option](https://slurm.schedmd.com/arch
     -   `plane=<size>` is a combination of both of the former methods: Blocks of `<size>` consecutive tasks
         are allocated in a cyclic way. 
 
-        E.g., with 10 quarter node tasks (32 cores on LUMI-C) spread across 3 nodes,
+        E.g., with 10 quarter node tasks (32 cores on LUMI-C) spread across 3 nodes and `size = 2`,
         task 0 and 1 would be put on the first node, then tasks 2 and 3 on the second, tasks 4 and 5
         on the third, tasks 6 and 7 again on the first and finally tasks 8 and 9 on the second node,
         resulting in tasks 0, 1, 6 and 7 on the first node, tasks 2, 3, 8 and 9 on the second node
@@ -1546,7 +1546,7 @@ Task-to-CPU binding is controlled through the Slurm option
 ```
 
 We'll describe a few of the possibilities for the `<type>` parameter but for a more concrete overview
-we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_cpu-bind)
+we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_cpu-bind)
 
 -   `--cpu-bind=threads` is the default behaviour on LUMI. Tasks will be allocated a number
     of hardware threads and be bound to them.
@@ -1560,7 +1560,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeGNU-24.03
+    module load LUMI/25.03 partition/G lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
     srun --ntasks=8 --cpu-bind=map_cpu:49,57,17,25,1,9,33,41 mpi_check -r
     ```
 
@@ -1583,7 +1583,7 @@ we refer to the [Slurm `srun` manual page](https://slurm.schedmd.com/archive/slu
     
     ```
     salloc --nodes=1 --partition=standard-g
-    module load LUMI/24.03 partition/G lumi-CPEtools/1.2a-cpeGNU-24.03
+    module load LUMI/25.03 partitionG lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
     srun --ntasks=8 --cpu-bind=mask_cpu:7e000000000000,7e00000000000000,7e0000,7e000000,7e,7e00,7e00000000,7e0000000000 hybrid_check -r
     ```
 
@@ -1894,399 +1894,6 @@ sometimes is to carefully map onto L3 cache domains for performance.
 
     So basically this mask means that we are creating slots for 8 tasks that each use 6 cores on a single 
     CCD (cores 1 till 6), in the order CCD 6, CCD 7, CCD 2, CCD 3, CCD 0, CCD 1, CCD 4 and CCD 5.
-
-
-## Task-to-GPU binding with Slurm
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide Task-to-GPU binding with Slurm (1)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/SlurmTaskGPU_1.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide Task-to-GPU binding with Slurm (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/SlurmTaskGPU_2.png){ loading=lazy }
-</figure>
-
-**Be very careful when doing the task-to-GPU binding fully via Slurm. 
-The problem is that Slurm by default uses control groups at the task level rather than just `ROCR_VISIBLE_DEVICES`
-with the latter being more or less the equivalent of affinity masks. When using control groups this way,
-the other GPUs in a job step on a node become completely invisible to a task, and the
-Peer2Peer IPC mechanism for communication cannot be used anymore.
-So you should always combine this with `--gres-flags=task-sharing`.**
-
-We present the options for completeness, and as it may still help users if the control group setup
-is not a problem for the application.
-
-Task-to-GPU binding is done with
-
-```
---gpu-bind=[verbose,]<type>
-```
-
-[(see the Slurm manual)](https://slurm.schedmd.com/archive/slurm-23.02.7/srun.html#OPT_gpu-bind)
-which is somewhat similar to `--cpu-binding` (to the extent that that makes sense).
-
-Some options for the `<type>` parameter that are worth considering:
-
--   `--gpu-bind=closest`: This currently does not work well on LUMI. The problem is being investigated
-    so the situation may have changed by the time you read this.
-
--   `--gpu-bind=none`: Turns off the GPU binding of Slurm. This can actually be useful on shared node
-    jobs where doing a proper allocation of GPUs is difficult. You can then first use Slurm options such 
-    as `--gpus-per-task` to get a working allocation of GPUs and CPUs, then un-bind and rebind using a 
-    different mechanism that we will discuss later.
-
--   `--gpu-bind=map_gpu:<list>` is the equivalent of `--cpu-bind=map_cpu:<list>`.
-    This option only makes sense on a job-exclusive node and is for jobs that need a single 
-    GPU per task. It defines the list of GPUs that should be used, with the task with local ID 0
-    using the first one in the list, etc.
-    The numbering and topology was already discussed in the "LUMI Architecture" chapter, section
-    ["Building LUMI: What a LUMI-G really looks like](101-Architecture.md#building-lumi-what-a-lumi-g-node-really-looks-like).
-   
--   `--gpu-bind=mask_gpu:<list>` is the equivalent of `--cpu-bind=mask_cpu:<list>`. 
-    Now the bits in the mask correspond to individual GPUs, with GPU 0 the least significant bit. 
-    This option again only makes sense on a job-exclusive node.
-
-Though `map_gpu` and `mask_gpu` could be very useful to get a proper mapping taking the topology of the 
-node into account, due to the current limitation of creating a control group per task it can not often
-be used as it breaks some efficient communication mechanisms between tasks, including the GPU Peer2Peer 
-IPC used by Cray MPICH for intro-node MPI transfers if GPU aware MPI support is enabled.
-
-??? advanced "What do the HPE Cray manuals say about this? (Click to expand)"
-    From the HPE Cray CoE: 
-    *"Slurm may choose to use cgroups to implement the required
-    affinity settings. Typically, the use of cgroups has the downside of preventing the use of 
-    GPU Peer2Peer IPC mechanisms. By default Cray MPI uses IPC for
-    implementing intra-node, inter-process MPI data movement operations that involve GPU-attached user buffers. 
-    When Slurm’s cgroups settings are in effect, users are
-    advised to set `MPICH_SMP_SINGLE_COPY_MODE=NONE` or `MPICH_GPU_IPC_ENABLED=0`
-    to disable the use of IPC-based implementations. 
-    Disabling IPC also has a noticeable impact on intra-node MPI performance when 
-    GPU-attached memory regions are involved."*
-
-    This is exactly what Slurm does on LUMI unless `--gres-flags=task-sharing`
-    is used.
-
-??? Example "Playing around with `--gpu-bind` (click to expand)"
-    Consider the following script which is a variant of scripts used before
-    in this chapter of the tutorial.
-
-    ``` bash
-    #!/bin/bash
-    #SBATCH --job-name=gpubind-demo1
-    #SBATCH --output %x-%j.txt
-    #SBATCH --account=project_46YXXXXXX
-    #SBATCH --partition=standard-g
-    #SBATCH --nodes=1
-    #SBATCH --hint=nomultithread
-    #SBATCH --time=15:00
-
-    module load LUMI/25.03 partition/G systools/25.03-2 lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
-
-    cat << EOF > task_lstopo_$SLURM_JOB_ID
-    #!/bin/bash
-    echo "Task \$SLURM_LOCALID"                                                              > output-\$SLURM_JOB_ID-\$SLURM_LOCALID
-    echo "Relevant lines of lstopo:"                                                         >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
-    lstopo -p | awk '/ PCI.*Display/ || /GPU/ || /OpenCL/ || / Core / || /PU L/ {print \$0}' >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
-    echo "GPUs as found by rocm-smi:"                                                        >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
-    rocm-smi --showbus                                                                       >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
-    echo "ROCR_VISIBLE_DEVICES: \$ROCR_VISIBLE_DEVICES"                                      >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
-    EOF
-    chmod +x ./task_lstopo_$SLURM_JOB_ID
-
-    echo "Overview of CCD-to-GPU binding in the node:"
-    lstopo -p | awk '/ L3 P/ || / PCI.*Display/ || /GPU/ {print \$0}'
-
-    echo -e "\nRunning two tasks with 2 GPUs each with -G 4, extracting parts from lstopo output in each:"
-    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc ./task_lstopo_$SLURM_JOB_ID
-    echo
-    cat output-$SLURM_JOB_ID-0
-    echo
-    cat output-$SLURM_JOB_ID-1
-
-    sleep 2
-
-    echo -e "\nRunning gpu_check in the same configuration:"
-    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc gpu_check -l
-
-    sleep 2
-
-    echo -e "\nRunning two tasks with 2 GPUs each with -G 4, now with --gres-flags=allow-task-sharing, extracting parts from lstopo output in each:"
-    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing ./task_lstopo_$SLURM_JOB_ID
-    echo
-    cat output-$SLURM_JOB_ID-0
-    echo
-    cat output-$SLURM_JOB_ID-1
-
-    sleep 2
-
-    echo -e "\nRunning gpu_check in the same configuration with --gres-flags=allow-task-sharing:"
-    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing gpu_check -l
-
-    sleep 2
-
-    echo -e "\nRunning two tasks with 2 GPUs each with -G 8, now with --gres-flags=allow-task-sharing, extracting parts from lstopo output in each:"
-    srun -n 2 -c 1 -G 8 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing ./task_lstopo_$SLURM_JOB_ID
-    echo
-    cat output-$SLURM_JOB_ID-0
-    echo
-    cat output-$SLURM_JOB_ID-1
-
-    sleep 2
-
-    echo -e "\nRunning gpu_check in the same configuration with --gres-flags=allow-task-sharing:"
-    srun -n 2 -c 1 -G 8 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing gpu_check -l
-
-    /bin/rm task_lstopo_$SLURM_JOB_ID output-$SLURM_JOB_ID-0 output-$SLURM_JOB_ID-1
-    ```
-
-    Let us first check the output for the two first `srun` commands:
-
-    ```
-    Task 0
-    Relevant lines of lstopo:
-        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
-            PCI d1:00.0 (Display)
-              GPU(RSMI) "rsmi0"
-              CoProc(OpenCL) "opencl0d0"
-        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
-            PCI d6:00.0 (Display)
-              GPU(RSMI) "rsmi1"
-              CoProc(OpenCL) "opencl0d1"
-            PCI c9:00.0 (Display)
-            PCI ce:00.0 (Display)
-            PCI d9:00.0 (Display)
-            PCI de:00.0 (Display)
-            PCI c1:00.0 (Display)
-            PCI c6:00.0 (Display)
-    GPUs as found by rocm-smi:
-    ============================ ROCm System Management Interface ============================
-    ======================================= PCI Bus ID =======================================
-    GPU[0]      : PCI Bus: 0000:D1:00.0
-    GPU[1]      : PCI Bus: 0000:D6:00.0
-    ==========================================================================================
-    ================================== End of ROCm SMI Log ===================================
-    ROCR_VISIBLE_DEVICES: 0,1
-
-    Task 1
-    Relevant lines of lstopo:
-        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
-            PCI d1:00.0 (Display)
-        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
-            PCI d6:00.0 (Display)
-            PCI c9:00.0 (Display)
-              GPU(RSMI) "rsmi0"
-              CoProc(OpenCL) "opencl0d0"
-            PCI ce:00.0 (Display)
-              GPU(RSMI) "rsmi1"
-              CoProc(OpenCL) "opencl0d1"
-            PCI d9:00.0 (Display)
-            PCI de:00.0 (Display)
-            PCI c1:00.0 (Display)
-            PCI c6:00.0 (Display)
-    GPUs as found by rocm-smi:
-    ============================ ROCm System Management Interface ============================
-    ======================================= PCI Bus ID =======================================
-    GPU[0]      : PCI Bus: 0000:C9:00.0
-    GPU[1]      : PCI Bus: 0000:CE:00.0
-    ==========================================================================================
-    ================================== End of ROCm SMI Log ===================================
-    ROCR_VISIBLE_DEVICES: 0,1
-
-    Running gpu_check in the same configuration:
-    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID d1(GCD4/CCD0),d6(GCD5/CCD1)
-    MPI 001 - OMP 000 - HWT 009 (CCD1) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID c9(GCD2/CCD2),ce(GCD3/CCD3)
-    ```
- 
-    From the mask, we would expect that the first task gets the GPUs `rsmi0` and `rsmi1` in
-    the node-global numbering and the second task then gets `rsmi2` and `rsmi3` in that numbering,
-    but this is not what is happening here. Instead, task 0 gets GCD 4 and 5, attached to CCD 0 and 1
-    respectively but task 2 does get GCD2 and 3, but probably only because these happen to be 
-    attached to CCD 2 and 3.
-
-    `ROCR_VISIBLE_DEVICES` is for both tasks set to `0,1` as it uses the numbering within
-    the task-based cgroups.
-
-    When we run with `--gres-flags=allow-sharing` but still using `-G 4`, the result is different though:
-
-    ```
-    Task 0
-    Relevant lines of lstopo:
-        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
-            PCI d1:00.0 (Display)
-              GPU(RSMI) "rsmi2"
-        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
-            PCI d6:00.0 (Display)
-              GPU(RSMI) "rsmi3"
-            PCI c9:00.0 (Display)
-              GPU(RSMI) "rsmi0"
-              CoProc(OpenCL) "opencl0d0"
-            PCI ce:00.0 (Display)
-              GPU(RSMI) "rsmi1"
-              CoProc(OpenCL) "opencl0d1"
-            PCI d9:00.0 (Display)
-            PCI de:00.0 (Display)
-            PCI c1:00.0 (Display)
-            PCI c6:00.0 (Display)
-    GPUs as found by rocm-smi:
-    ============================ ROCm System Management Interface ============================
-    ======================================= PCI Bus ID =======================================
-    GPU[0]      : PCI Bus: 0000:C9:00.0
-    GPU[1]      : PCI Bus: 0000:CE:00.0
-    GPU[2]      : PCI Bus: 0000:D1:00.0
-    GPU[3]      : PCI Bus: 0000:D6:00.0
-    ==========================================================================================
-    ================================== End of ROCm SMI Log ===================================
-    ROCR_VISIBLE_DEVICES: 0,1
-
-    Task 1
-    Relevant lines of lstopo:
-        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
-            PCI d1:00.0 (Display)
-              GPU(RSMI) "rsmi2"
-              CoProc(OpenCL) "opencl0d0"
-        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
-            PCI d6:00.0 (Display)
-              GPU(RSMI) "rsmi3"
-              CoProc(OpenCL) "opencl0d1"
-            PCI c9:00.0 (Display)
-              GPU(RSMI) "rsmi0"
-            PCI ce:00.0 (Display)
-              GPU(RSMI) "rsmi1"
-            PCI d9:00.0 (Display)
-            PCI de:00.0 (Display)
-            PCI c1:00.0 (Display)
-            PCI c6:00.0 (Display)
-    GPUs as found by rocm-smi:
-    ============================ ROCm System Management Interface ============================
-    ======================================= PCI Bus ID =======================================
-    GPU[0]      : PCI Bus: 0000:C9:00.0
-    GPU[1]      : PCI Bus: 0000:CE:00.0
-    GPU[2]      : PCI Bus: 0000:D1:00.0
-    GPU[3]      : PCI Bus: 0000:D6:00.0
-    ==========================================================================================
-    ================================== End of ROCm SMI Log ===================================
-    ROCR_VISIBLE_DEVICES: 2,3
-
-    Running gpu_check in the same configuration with --gres-flags=allow-task-sharing:
-    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid005322 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID c9(GCD2/CCD2),ce(GCD3/CCD3)
-    MPI 001 - OMP 000 - HWT 009 (CCD1) - Node nid005322 - RT_GPU_ID 0,1 - GPU_ID 2,3 - Bus_ID d1(GCD4/CCD0),d6(GCD5/CCD1)
-    ```
-
-    `lstopo` or `rocm-smi --showbus` now sees the same 4 GPUs in each task, and these are actually 
-    GCD2, GCD3, GCD4 and GCD5 rather than GCD 0 till GCD3, i.e., we get the GCDs attached to CCD 0 till 3.
-    These are then renumberd in the order GCD2, GCD3, GCD4, GCD5 to `rsmi0` till `rsmi3`
-    which follows the order in the physical numbering and not the order of the CCDs.
-    Both tasks get a different
-    value of `ROCR_VISIBLE_DEVICES` corresponding to the values in the mask: The first task 
-    get `0,1` which corresponds to `0x3` and the second task gets `2,3` which corresponds to
-    `0xc`. These are GPUs within the numbering in the Slurm jobstep though and not the physical
-    numbering of the GPUs. It does result in a different mapping though than when we were not
-    using the `--gres-flags` option as the numbering is now relative to the GPU numbering in the
-    job step based cgroup.
-
-    Finally, when we allow the job step access to all GPUs with `-G 8` but then restrict 
-    the GPUs per task with the same masks as before, we now get:
-
-    ```
-    Task 0
-    Relevant lines of lstopo:
-        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
-            PCI d1:00.0 (Display)
-              GPU(RSMI) "rsmi4"
-        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
-            PCI d6:00.0 (Display)
-              GPU(RSMI) "rsmi5"
-            PCI c9:00.0 (Display)
-              GPU(RSMI) "rsmi2"
-            PCI ce:00.0 (Display)
-              GPU(RSMI) "rsmi3"
-            PCI d9:00.0 (Display)
-              GPU(RSMI) "rsmi6"
-            PCI de:00.0 (Display)
-              GPU(RSMI) "rsmi7"
-            PCI c1:00.0 (Display)
-              GPU(RSMI) "rsmi0"
-              CoProc(OpenCL) "opencl0d0"
-            PCI c6:00.0 (Display)
-              GPU(RSMI) "rsmi1"
-              CoProc(OpenCL) "opencl0d1"
-    GPUs as found by rocm-smi:
-    ============================ ROCm System Management Interface ============================
-    ======================================= PCI Bus ID =======================================
-    GPU[0]      : PCI Bus: 0000:C1:00.0
-    GPU[1]      : PCI Bus: 0000:C6:00.0
-    GPU[2]      : PCI Bus: 0000:C9:00.0
-    GPU[3]      : PCI Bus: 0000:CE:00.0
-    GPU[4]      : PCI Bus: 0000:D1:00.0
-    GPU[5]      : PCI Bus: 0000:D6:00.0
-    GPU[6]      : PCI Bus: 0000:D9:00.0
-    GPU[7]      : PCI Bus: 0000:DE:00.0
-    ==========================================================================================
-    ================================== End of ROCm SMI Log ===================================
-    ROCR_VISIBLE_DEVICES: 0,1
-
-    Task 1
-    Relevant lines of lstopo:
-        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
-            PCI d1:00.0 (Display)
-              GPU(RSMI) "rsmi4"
-        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
-            PCI d6:00.0 (Display)
-              GPU(RSMI) "rsmi5"
-            PCI c9:00.0 (Display)
-              GPU(RSMI) "rsmi2"
-              CoProc(OpenCL) "opencl0d0"
-            PCI ce:00.0 (Display)
-              GPU(RSMI) "rsmi3"
-              CoProc(OpenCL) "opencl0d1"
-            PCI d9:00.0 (Display)
-              GPU(RSMI) "rsmi6"
-            PCI de:00.0 (Display)
-              GPU(RSMI) "rsmi7"
-            PCI c1:00.0 (Display)
-              GPU(RSMI) "rsmi0"
-            PCI c6:00.0 (Display)
-              GPU(RSMI) "rsmi1"
-    GPUs as found by rocm-smi:
-    ============================ ROCm System Management Interface ============================
-    ======================================= PCI Bus ID =======================================
-    GPU[0]      : PCI Bus: 0000:C1:00.0
-    GPU[1]      : PCI Bus: 0000:C6:00.0
-    GPU[2]      : PCI Bus: 0000:C9:00.0
-    GPU[3]      : PCI Bus: 0000:CE:00.0
-    GPU[4]      : PCI Bus: 0000:D1:00.0
-    GPU[5]      : PCI Bus: 0000:D6:00.0
-    GPU[6]      : PCI Bus: 0000:D9:00.0
-    GPU[7]      : PCI Bus: 0000:DE:00.0
-    ==========================================================================================
-    ================================== End of ROCm SMI Log ===================================
-    ROCR_VISIBLE_DEVICES: 2,3
-
-    Running gpu_check in the same configuration with --gres-flags=allow-task-sharing:
-    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID c1(GCD0/CCD6),c6(GCD1/CCD7)
-    MPI 001 - OMP 000 - HWT 009 (CCD1) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 2,3 - Bus_ID c9(GCD2/CCD2),ce(GCD3/CCD3)
-    ```
-
-    Each task now sees all GPUs. `ROCR_VISIBLE_DEVICES` is again set to `0,1` for the first task
-    and to `2,3` for the second task, but as all GPUs are visible in the cgroup, this now sets
-    yet a different mapping: Task 0 is now mapped to GCD0 and 1 in the physical, node-global 
-    numbering, while task 1 is now mapped to GCD2 and 3 in the physical, node-global numbering.
-
-    What this example shows is that when a job step does not use all GPUs on a node, even though it
-    is an exclusive node, you have to be very careful as there is still a control group at the
-    jobstep level restricting the job step to a number of GPUs and mask then refer to the 
-    numbering within that jobstep-specific control group.
-
-    **This example shows that CPU binding and GPU binding works differently because the underlying
-    mechanisms work differently: CPU affinity masks work with absolute virtual core numbers, while
-    `ROCR_VISIBLE_DEVICES` works with a numbering that is based on the GPUs visible in the innermost
-    control group if not all GPUs are visible. The example also shows that the way Slurm assigns
-    GPUs on a node to a job step, differs depending on whether `--gres-flags=allow-task-sharing` 
-    is used     or not and that is confusing...**
-
-    It shows that binding is very complex and that you should never assume you understand what
-    Slurm does and instead whenever you change mappings, check those with the tools that we
-    have made available if that is possible.
 
 
 ## MPI rank redistribution with Cray MPICH
@@ -3382,13 +2989,404 @@ Some further documentation:
     (as the current list in the HTML version of the 5.2 standard has some problems).
 
 
+## Task-to-GPU binding with Slurm
+
+<figure markdown style="border: 1px solid #000">
+  ![Slide GPU binding with Slurm](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUBindingSlurm.png){ loading=lazy }
+</figure>
+
+**Be very careful when doing the task-to-GPU binding fully via Slurm. 
+The problem is that Slurm by default uses control groups at the task level rather than just `ROCR_VISIBLE_DEVICES`
+with the latter being more or less the equivalent of affinity masks. When using control groups this way,
+the other GPUs in a job step on a node become completely invisible to a task, and the
+Peer2Peer IPC mechanism for communication cannot be used anymore.
+So you should always combine this with `--gres-flags=task-sharing`.**
+
+Task-to-GPU binding is done with
+
+```
+--gpu-bind=[verbose,]<type>
+```
+
+[(see the Slurm manual)](https://slurm.schedmd.com/archive/slurm-25.05.9/srun.html#OPT_gpu-bind)
+which is somewhat similar to `--cpu-bind` (to the extent that that makes sense).
+
+Some options for the `<type>` parameter that are worth considering:
+
+-   `--gpu-bind=closest`: This currently does not work well on LUMI. The problem is being investigated
+    so the situation may have changed by the time you read this.
+
+-   `--gpu-bind=none`: Turns off the GPU binding of Slurm. This was a very useful option before the 
+    system update of January 2026 that brought us `--gres-flags=task-sharing`, but we don't currently 
+    see a practical use for it.
+
+-   `--gpu-bind=map_gpu:<list>` is the equivalent of `--cpu-bind=map_cpu:<list>`.
+    This option only makes sense on a job-exclusive node and is for jobs that need a single 
+    GPU per task. It defines the list of GPUs that should be used, with the task with local ID 0
+    using the first one in the list, etc.
+    The numbering and topology was already discussed in the "LUMI Architecture" chapter, section
+    ["Building LUMI: What a LUMI-G node really looks like"](101-Architecture.md#building-lumi-what-a-lumi-g-node-really-looks-like).
+   
+-   `--gpu-bind=mask_gpu:<list>` is the equivalent of `--cpu-bind=mask_cpu:<list>`. 
+    Now the bits in the mask correspond to individual GPUs, with GPU 0 the least significant bit. 
+    This option again only makes sense on a job-exclusive node.
+
+Though `map_gpu` and `mask_gpu` are very useful to get a proper mapping taking the topology of the 
+node into account, but by default they create a control group per task and htis breaks some
+efficient communication mechanisms between tasks, including the GPU Peer2Peer 
+IPC used by Cray MPICH for intro-node MPI transfers if GPU aware MPI support is enabled.
+However, more recent versions of Slurm (on LUMI starting with the Slurm version that we got 
+after the January 2026 system update), a new command line option, 
+`--gres-flags=task-sharing`, changes this behaviour in a way that allows GPU IPC.
+When using this flag, Slurm does no longer create a cgroup per task for the GPUs, but 
+instead uses the `ROCR_VISIBLE_DEVICES` environment variable to restrict the access of
+each task to some particular GPUs.
+
+??? advanced "What do the HPE Cray manuals say about this? (Click to expand)"
+    From the HPE Cray CoE: 
+    *"Slurm may choose to use cgroups to implement the required
+    affinity settings. Typically, the use of cgroups has the downside of preventing the use of 
+    GPU Peer2Peer IPC mechanisms. By default Cray MPI uses IPC for
+    implementing intra-node, inter-process MPI data movement operations that involve GPU-attached user buffers. 
+    When Slurm’s cgroups settings are in effect, users are
+    advised to set `MPICH_SMP_SINGLE_COPY_MODE=NONE` or `MPICH_GPU_IPC_ENABLED=0`
+    to disable the use of IPC-based implementations. 
+    Disabling IPC also has a noticeable impact on intra-node MPI performance when 
+    GPU-attached memory regions are involved."*
+
+    This is exactly what Slurm does on LUMI unless `--gres-flags=task-sharing`
+    is used.
+
+??? Example "Playing around with `--gpu-bind` (click to expand)"
+    Consider the following script which is a variant of scripts used before
+    in this chapter of the tutorial.
+
+    ``` bash
+    #!/bin/bash
+    #SBATCH --job-name=gpubind-demo1
+    #SBATCH --output %x-%j.txt
+    #SBATCH --account=project_46YXXXXXX
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=1
+    #SBATCH --hint=nomultithread
+    #SBATCH --time=15:00
+
+    module load LUMI/25.03 partition/G systools/25.03-2 lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+
+    cat << EOF > task_lstopo_$SLURM_JOB_ID
+    #!/bin/bash
+    echo "Task \$SLURM_LOCALID"                                                              > output-\$SLURM_JOB_ID-\$SLURM_LOCALID
+    echo "Relevant lines of lstopo:"                                                         >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
+    lstopo -p | awk '/ PCI.*Display/ || /GPU/ || /OpenCL/ || / Core / || /PU L/ {print \$0}' >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
+    echo "GPUs as found by rocm-smi:"                                                        >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
+    rocm-smi --showbus                                                                       >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
+    echo "ROCR_VISIBLE_DEVICES: \$ROCR_VISIBLE_DEVICES"                                      >> output-\$SLURM_JOB_ID-\$SLURM_LOCALID
+    EOF
+    chmod +x ./task_lstopo_$SLURM_JOB_ID
+
+    echo "Overview of CCD-to-GPU binding in the node:"
+    lstopo -p | awk '/ L3 P/ || / PCI.*Display/ || /GPU/ {print \$0}'
+
+    echo -e "\nRunning two tasks with 2 GPUs each with -G 4, extracting parts from lstopo output in each:"
+    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc ./task_lstopo_$SLURM_JOB_ID
+    echo
+    cat output-$SLURM_JOB_ID-0
+    echo
+    cat output-$SLURM_JOB_ID-1
+
+    sleep 2
+
+    echo -e "\nRunning gpu_check in the same configuration:"
+    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc gpu_check -l
+
+    sleep 2
+
+    echo -e "\nRunning two tasks with 2 GPUs each with -G 4, now with --gres-flags=allow-task-sharing, extracting parts from lstopo output in each:"
+    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing ./task_lstopo_$SLURM_JOB_ID
+    echo
+    cat output-$SLURM_JOB_ID-0
+    echo
+    cat output-$SLURM_JOB_ID-1
+
+    sleep 2
+
+    echo -e "\nRunning gpu_check in the same configuration with --gres-flags=allow-task-sharing:"
+    srun -n 2 -c 1 -G 4 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing gpu_check -l
+
+    sleep 2
+
+    echo -e "\nRunning two tasks with 2 GPUs each with -G 8, now with --gres-flags=allow-task-sharing, extracting parts from lstopo output in each:"
+    srun -n 2 -c 1 -G 8 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing ./task_lstopo_$SLURM_JOB_ID
+    echo
+    cat output-$SLURM_JOB_ID-0
+    echo
+    cat output-$SLURM_JOB_ID-1
+
+    sleep 2
+
+    echo -e "\nRunning gpu_check in the same configuration with --gres-flags=allow-task-sharing:"
+    srun -n 2 -c 1 -G 8 --gpu-bind=mask_gpu:0x3,0xc --gres-flags=allow-task-sharing gpu_check -l
+
+    /bin/rm task_lstopo_$SLURM_JOB_ID output-$SLURM_JOB_ID-0 output-$SLURM_JOB_ID-1
+    ```
+
+    Let us first check the output for the two first `srun` commands:
+
+    ```
+    Task 0
+    Relevant lines of lstopo:
+        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
+            PCI d1:00.0 (Display)
+              GPU(RSMI) "rsmi0"
+              CoProc(OpenCL) "opencl0d0"
+        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
+            PCI d6:00.0 (Display)
+              GPU(RSMI) "rsmi1"
+              CoProc(OpenCL) "opencl0d1"
+            PCI c9:00.0 (Display)
+            PCI ce:00.0 (Display)
+            PCI d9:00.0 (Display)
+            PCI de:00.0 (Display)
+            PCI c1:00.0 (Display)
+            PCI c6:00.0 (Display)
+    GPUs as found by rocm-smi:
+    ============================ ROCm System Management Interface ============================
+    ======================================= PCI Bus ID =======================================
+    GPU[0]      : PCI Bus: 0000:D1:00.0
+    GPU[1]      : PCI Bus: 0000:D6:00.0
+    ==========================================================================================
+    ================================== End of ROCm SMI Log ===================================
+    ROCR_VISIBLE_DEVICES: 0,1
+
+    Task 1
+    Relevant lines of lstopo:
+        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
+            PCI d1:00.0 (Display)
+        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
+            PCI d6:00.0 (Display)
+            PCI c9:00.0 (Display)
+              GPU(RSMI) "rsmi0"
+              CoProc(OpenCL) "opencl0d0"
+            PCI ce:00.0 (Display)
+              GPU(RSMI) "rsmi1"
+              CoProc(OpenCL) "opencl0d1"
+            PCI d9:00.0 (Display)
+            PCI de:00.0 (Display)
+            PCI c1:00.0 (Display)
+            PCI c6:00.0 (Display)
+    GPUs as found by rocm-smi:
+    ============================ ROCm System Management Interface ============================
+    ======================================= PCI Bus ID =======================================
+    GPU[0]      : PCI Bus: 0000:C9:00.0
+    GPU[1]      : PCI Bus: 0000:CE:00.0
+    ==========================================================================================
+    ================================== End of ROCm SMI Log ===================================
+    ROCR_VISIBLE_DEVICES: 0,1
+
+    Running gpu_check in the same configuration:
+    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID d1(GCD4/CCD0),d6(GCD5/CCD1)
+    MPI 001 - OMP 000 - HWT 009 (CCD1) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID c9(GCD2/CCD2),ce(GCD3/CCD3)
+    ```
+ 
+    From the mask, we would expect that the first task gets the GPUs `rsmi0` and `rsmi1` in
+    the node-global numbering and the second task then gets `rsmi2` and `rsmi3` in that numbering,
+    but this is not what is happening here. Instead, task 0 gets GCD 4 and 5, attached to CCD 0 and 1
+    respectively but task 2 does get GCD2 and 3, but probably only because these happen to be 
+    attached to CCD 2 and 3.
+
+    `ROCR_VISIBLE_DEVICES` is for both tasks set to `0,1` as it uses the numbering within
+    the task-based cgroups.
+
+    When we run with `--gres-flags=allow-sharing` but still using `-G 4`, the result is different though:
+
+    ```
+    Task 0
+    Relevant lines of lstopo:
+        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
+            PCI d1:00.0 (Display)
+              GPU(RSMI) "rsmi2"
+        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
+            PCI d6:00.0 (Display)
+              GPU(RSMI) "rsmi3"
+            PCI c9:00.0 (Display)
+              GPU(RSMI) "rsmi0"
+              CoProc(OpenCL) "opencl0d0"
+            PCI ce:00.0 (Display)
+              GPU(RSMI) "rsmi1"
+              CoProc(OpenCL) "opencl0d1"
+            PCI d9:00.0 (Display)
+            PCI de:00.0 (Display)
+            PCI c1:00.0 (Display)
+            PCI c6:00.0 (Display)
+    GPUs as found by rocm-smi:
+    ============================ ROCm System Management Interface ============================
+    ======================================= PCI Bus ID =======================================
+    GPU[0]      : PCI Bus: 0000:C9:00.0
+    GPU[1]      : PCI Bus: 0000:CE:00.0
+    GPU[2]      : PCI Bus: 0000:D1:00.0
+    GPU[3]      : PCI Bus: 0000:D6:00.0
+    ==========================================================================================
+    ================================== End of ROCm SMI Log ===================================
+    ROCR_VISIBLE_DEVICES: 0,1
+
+    Task 1
+    Relevant lines of lstopo:
+        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
+            PCI d1:00.0 (Display)
+              GPU(RSMI) "rsmi2"
+              CoProc(OpenCL) "opencl0d0"
+        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
+            PCI d6:00.0 (Display)
+              GPU(RSMI) "rsmi3"
+              CoProc(OpenCL) "opencl0d1"
+            PCI c9:00.0 (Display)
+              GPU(RSMI) "rsmi0"
+            PCI ce:00.0 (Display)
+              GPU(RSMI) "rsmi1"
+            PCI d9:00.0 (Display)
+            PCI de:00.0 (Display)
+            PCI c1:00.0 (Display)
+            PCI c6:00.0 (Display)
+    GPUs as found by rocm-smi:
+    ============================ ROCm System Management Interface ============================
+    ======================================= PCI Bus ID =======================================
+    GPU[0]      : PCI Bus: 0000:C9:00.0
+    GPU[1]      : PCI Bus: 0000:CE:00.0
+    GPU[2]      : PCI Bus: 0000:D1:00.0
+    GPU[3]      : PCI Bus: 0000:D6:00.0
+    ==========================================================================================
+    ================================== End of ROCm SMI Log ===================================
+    ROCR_VISIBLE_DEVICES: 2,3
+
+    Running gpu_check in the same configuration with --gres-flags=allow-task-sharing:
+    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid005322 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID c9(GCD2/CCD2),ce(GCD3/CCD3)
+    MPI 001 - OMP 000 - HWT 009 (CCD1) - Node nid005322 - RT_GPU_ID 0,1 - GPU_ID 2,3 - Bus_ID d1(GCD4/CCD0),d6(GCD5/CCD1)
+    ```
+
+    `lstopo` or `rocm-smi --showbus` now sees the same 4 GPUs in each task, and these are actually 
+    GCD2, GCD3, GCD4 and GCD5 rather than GCD 0 till GCD3, i.e., we get the GCDs attached to CCD 0 till 3.
+    These are then renumberd in the order GCD2, GCD3, GCD4, GCD5 to `rsmi0` till `rsmi3`
+    which follows the order in the physical numbering and not the order of the CCDs.
+    Both tasks get a different
+    value of `ROCR_VISIBLE_DEVICES` corresponding to the values in the mask: The first task 
+    get `0,1` which corresponds to `0x3` and the second task gets `2,3` which corresponds to
+    `0xc`. These are GPUs within the numbering in the Slurm jobstep though and not the physical
+    numbering of the GPUs. It does result in a different mapping though than when we were not
+    using the `--gres-flags` option as the numbering is now relative to the GPU numbering in the
+    job step based cgroup.
+
+    Finally, when we allow the job step access to all GPUs with `-G 8` but then restrict 
+    the GPUs per task with the same masks as before, we now get:
+
+    ```
+    Task 0
+    Relevant lines of lstopo:
+        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
+            PCI d1:00.0 (Display)
+              GPU(RSMI) "rsmi4"
+        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
+            PCI d6:00.0 (Display)
+              GPU(RSMI) "rsmi5"
+            PCI c9:00.0 (Display)
+              GPU(RSMI) "rsmi2"
+            PCI ce:00.0 (Display)
+              GPU(RSMI) "rsmi3"
+            PCI d9:00.0 (Display)
+              GPU(RSMI) "rsmi6"
+            PCI de:00.0 (Display)
+              GPU(RSMI) "rsmi7"
+            PCI c1:00.0 (Display)
+              GPU(RSMI) "rsmi0"
+              CoProc(OpenCL) "opencl0d0"
+            PCI c6:00.0 (Display)
+              GPU(RSMI) "rsmi1"
+              CoProc(OpenCL) "opencl0d1"
+    GPUs as found by rocm-smi:
+    ============================ ROCm System Management Interface ============================
+    ======================================= PCI Bus ID =======================================
+    GPU[0]      : PCI Bus: 0000:C1:00.0
+    GPU[1]      : PCI Bus: 0000:C6:00.0
+    GPU[2]      : PCI Bus: 0000:C9:00.0
+    GPU[3]      : PCI Bus: 0000:CE:00.0
+    GPU[4]      : PCI Bus: 0000:D1:00.0
+    GPU[5]      : PCI Bus: 0000:D6:00.0
+    GPU[6]      : PCI Bus: 0000:D9:00.0
+    GPU[7]      : PCI Bus: 0000:DE:00.0
+    ==========================================================================================
+    ================================== End of ROCm SMI Log ===================================
+    ROCR_VISIBLE_DEVICES: 0,1
+
+    Task 1
+    Relevant lines of lstopo:
+        L2 P#1 (512KB) + L1d P#1 (32KB) + L1i P#1 (32KB) + Core P#1
+            PCI d1:00.0 (Display)
+              GPU(RSMI) "rsmi4"
+        L2 P#9 (512KB) + L1d P#9 (32KB) + L1i P#9 (32KB) + Core P#9
+            PCI d6:00.0 (Display)
+              GPU(RSMI) "rsmi5"
+            PCI c9:00.0 (Display)
+              GPU(RSMI) "rsmi2"
+              CoProc(OpenCL) "opencl0d0"
+            PCI ce:00.0 (Display)
+              GPU(RSMI) "rsmi3"
+              CoProc(OpenCL) "opencl0d1"
+            PCI d9:00.0 (Display)
+              GPU(RSMI) "rsmi6"
+            PCI de:00.0 (Display)
+              GPU(RSMI) "rsmi7"
+            PCI c1:00.0 (Display)
+              GPU(RSMI) "rsmi0"
+            PCI c6:00.0 (Display)
+              GPU(RSMI) "rsmi1"
+    GPUs as found by rocm-smi:
+    ============================ ROCm System Management Interface ============================
+    ======================================= PCI Bus ID =======================================
+    GPU[0]      : PCI Bus: 0000:C1:00.0
+    GPU[1]      : PCI Bus: 0000:C6:00.0
+    GPU[2]      : PCI Bus: 0000:C9:00.0
+    GPU[3]      : PCI Bus: 0000:CE:00.0
+    GPU[4]      : PCI Bus: 0000:D1:00.0
+    GPU[5]      : PCI Bus: 0000:D6:00.0
+    GPU[6]      : PCI Bus: 0000:D9:00.0
+    GPU[7]      : PCI Bus: 0000:DE:00.0
+    ==========================================================================================
+    ================================== End of ROCm SMI Log ===================================
+    ROCR_VISIBLE_DEVICES: 2,3
+
+    Running gpu_check in the same configuration with --gres-flags=allow-task-sharing:
+    MPI 000 - OMP 000 - HWT 001 (CCD0) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 0,1 - Bus_ID c1(GCD0/CCD6),c6(GCD1/CCD7)
+    MPI 001 - OMP 000 - HWT 009 (CCD1) - Node nid005416 - RT_GPU_ID 0,1 - GPU_ID 2,3 - Bus_ID c9(GCD2/CCD2),ce(GCD3/CCD3)
+    ```
+
+    Each task now sees all GPUs. `ROCR_VISIBLE_DEVICES` is again set to `0,1` for the first task
+    and to `2,3` for the second task, but as all GPUs are visible in the cgroup, this now sets
+    yet a different mapping: Task 0 is now mapped to GCD0 and 1 in the physical, node-global 
+    numbering, while task 1 is now mapped to GCD2 and 3 in the physical, node-global numbering.
+
+    What this example shows is that when a job step does not use all GPUs on a node, even though it
+    is an exclusive node, you have to be very careful as there is still a control group at the
+    jobstep level restricting the job step to a number of GPUs and mask then refer to the 
+    numbering within that jobstep-specific control group.
+
+    **This example shows that CPU binding and GPU binding works differently because the underlying
+    mechanisms work differently: CPU affinity masks work with absolute virtual core numbers, while
+    `ROCR_VISIBLE_DEVICES` works with a numbering that is based on the GPUs visible in the innermost
+    control group if not all GPUs are visible. The example also shows that the way Slurm assigns
+    GPUs on a node to a job step, differs depending on whether `--gres-flags=allow-task-sharing` 
+    is used     or not and that is confusing...**
+
+    It shows that binding is very complex and that you should never assume you understand what
+    Slurm does and instead whenever you change mappings, check those with the tools that we
+    have made available if that is possible.
+
+
 ## GPU binding with ROCR_VISIBLE_DEVICES
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding with ROCR_VISIBLE_DEVICES](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRGPU.png){ loading=lazy }
+  ![Slide GPU binding with ROCR_VISIBLE_DEVICES](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUBindingROCR.png){ loading=lazy }
 </figure>
 
-The `ROCR_VISIBLE_DEVICES` environment variable restricts access to GPUs at the ROCm platform runtime 
+The `ROCR_VISIBLE_DEVICES` environment variable restricts access to GPUs at the ROCm(tm) platform runtime 
 level. Contrary to control groups however this mechanism is compatible with the Peer2Peer IPC used by
 GPU-aware Cray MPI for intra-node communication.
 
@@ -3417,14 +3415,14 @@ many respects.
     would need to discover them first before they can be used.
 
 
-## Combining Slurm task binding with ROCR_VISIBLE_DEVICES
+## Mapping CCDs on GCDs and vice-versa
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Optimal mapping (1)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRGPUMap_1.png){ loading=lazy }
+  ![Slide GPU binding: Optimal mapping (1)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUMap_1.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Optimal mapping (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRGPUMap_2.png){ loading=lazy }
+  ![Slide GPU binding: Optimal mapping (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUMap_2.png){ loading=lazy }
 </figure>
 
 In the chapter on [the architecture of LUMI](101-Architecture.md) we discussed 
@@ -3469,7 +3467,7 @@ or the reverse mapping
 |   7 |   5 | 40-47, 104-111 | 41-47, 105-111 |     0xfe0000000000      |
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Embedded rings](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRGPURing.png){ loading=lazy }
+  ![Slide GPU binding: Embedded rings](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUMapRing.png){ loading=lazy }
 </figure>
 
 Moreover, if you look more carefully at the topology, you can see that the connections between the 
@@ -3492,7 +3490,7 @@ Note: The red ring and green ring correspond to the red and green rings on page 
 ["Introducing AMD CDNA<sup>TM</sup> 2 Architecture" whitepaper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf).
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanism.png){ loading=lazy }
+  ![Slide GPU binding: Implementation](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUBindingMechanism.png){ loading=lazy }
 </figure>
 
 To implement a proper CCD-to-GCD mapping we will use three mechanisms:
@@ -3525,21 +3523,16 @@ Let us start with the simplest case:
 ### Linear assignment of GCD, then match the cores
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear GCD, match CPU, no OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearGCD1.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear GCD, match CPU, with Slurm](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearGCDSlurm.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear GCD, match CPU, OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearGCD2.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear GCD, match CPU, wrapper script, single cores](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearGCDWrapperSingleCores.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear GCD, match CPU, OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearGCD3.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear GCD, match CPU, wrapper script, masks](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearGCDWrapperMasks.png){ loading=lazy }
 </figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear GCD, match CPU, OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearGCD4.png){ loading=lazy }
-</figure>
-
 
 In this scenario, task 0 uses GCD 0 and the matching CCD, CCD 6, task 1 uses GCD 1 and the matching CCD 7,
 etc. So the following table is the relevant one to use:
@@ -3729,27 +3722,19 @@ mapping is as intended. Note that the GCDs are indeed in the linear order starti
 ### Linear assignment of the CCDs, then match the GCD
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear CCD, match GCD, no OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearCCD1.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear CCD, match GCD,with Slurm](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearCCDSlurm.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear CCD, match GCD, OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearCCD2.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear CCD, match GCD, single cores](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearCCDWrapperSingleCores.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearCCD3.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with masks](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearCCDWrapperMasks.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearCCD4.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearCCD5.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismLinearCCD6.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Linear CCD, match GCD, with cpus-per-task and OpenMP](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapLinearCCDWrapperCPTOpenMP.png){ loading=lazy }
 </figure>
 
 Modifying the order of the GPUs to match the CCDs which are assigned as CCD *i* for local task *i*,
@@ -3767,7 +3752,8 @@ assigning the GPU is more difficult. The relevant table for this example is:
 |   6 | 48-55, 112-119 | 49-55, 113-119 |   0xfe000000000000      |   0 |
 |   7 | 56-63, 120-127 | 57-63, 121-127 | 0xfe00000000000000      |   1 |
 
-To modify the order of the GPUs, we now use an array with the desired order in the `select_gpu` script,
+To modify the order of the GPUs, we now need a non-trivial list of GCDs for `--gpu-bind`
+or have to use an array with the desired order in the `select_gpu` script,
 and that order can be read from the last column in the above table.
 With the current setup of LUMI, with one core reserved on each chiplet, there are now two options
 to get the proper CPUs:
@@ -3866,7 +3852,7 @@ which will put each task on a separate CCD and in order (task 0 on CCD 0, task 1
 so on), and if there is a need to restrict which cores will be used, we can then set
 `OMP_NUM_THREADS` in case the application uses OpenMP. We have done this for one case
 above as `gpu_check` is in fact an OpenMP application that will always launch a thread on
-each available virtual core. The `Pure MPI with --cpus-per-task` is not completely equivalent
+each available virtual core. The `Pure MPI with --cpus-per-task`  block above is not completely equivalent
 to running with `--gpu-bind` though as now each process can migrate among all cores of 
 its CCD and is not pinned to a single core in that CCD. The `--cpus-per-task` option is 
 really equivalent to using `0xfe` and shifts of it as a mask.
@@ -3937,23 +3923,15 @@ really equivalent to using `0xfe` and shifts of it as a mask.
 ### The green ring
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Green ring, OpenMP, slide 1](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismGreenRing1.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Green ring, structure of the mapping](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapGreenRingStructure.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Green ring, OpenMP, slide 2](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismGreenRing2.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Green ring, wrapper script, single cores](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapGreenRingWrapperSingleCores.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Green ring, OpenMP, slide 3](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismGreenRing3.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Green ring, OpenMP, slide 4](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismGreenRing4.png){ loading=lazy }
-</figure>
-
-<figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Implementation: Green ring, OpenMP, slide 5](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismGreenRing5.png){ loading=lazy }
+  ![Slide GPU binding: Implementation: Green ring, wrapper script, masks](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/MapGreenRingWrapperMasks.png){ loading=lazy }
 </figure>
 
 As a final example for whole node allocations, lets bind tasks such that the MPI ranks are
@@ -4337,7 +4315,7 @@ is is also easy to check that each task is also mapped on the optimal CCD for th
 ### What about "allocate by resources" partitions?
 
 <figure markdown style="border: 1px solid #000">
-  ![Slide GPU binding: Allocatable-by-resources partitions](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/ROCRMechanismAllocateByResource.png){ loading=lazy }
+  ![Slide GPU binding: Allocatable-by-resources partitions](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-202-Binding/GPUBindingAllocateByResource.png){ loading=lazy }
 </figure>
 
 On partitions that are "allocatable by resource", e.g., `small-g`, you are never guaranteed that tasks 
