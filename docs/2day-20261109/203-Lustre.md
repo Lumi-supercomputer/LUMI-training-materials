@@ -174,14 +174,16 @@ that should be used for a file. Lustre itself takes care of choosing the OSTs in
 
 There are variants of Lustre where one has multiple layouts per file which can come in handy if one 
 doesn't know the size of the file in advance. The first part of the file will then typically be written
-with fewer OSTs and/or smaller chunks, but this is outside the scope of this course.
+with fewer OSTs and/or smaller chunks.
 The feature is known as *Progressive File Layout*.
 
 The stripe size and number of OSTs used can be chosen on a file-by-file basis. The default on LUMI
-is to use only one OST for a file. This is done because that is the most reasonable choice for the many
+has changed in May 2026, and now is to use the progressive file layout. It used to be only one OST for a file.
+The previous choice was done because that is the most reasonable choice for the many
 small files that many unsuspecting users have, and as we shall see, it is sometimes even the best choice
 for users working with large files. But it is not always the best choice.
-And unfortunately there is no single set of parameters that is good for all users.
+It was decided to adopt a progressive layout with three ranges, as we will see in a few slides, to simplify
+life for users. But remember that, unfortunately, there is no single set of parameters that is good for all users.
 
 !!! Note "Objects"
 
@@ -201,7 +203,7 @@ second client in the above picture wants to write something to the file.
 1.  The first step is opening the file. 
 
     <figure markdown style="border: 1px solid #000">
-      ![Accessing: Query MDS](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreFileAccess_1_queryMDS.png){ loading=lazy }
+      ![Accessing: Query MDS](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreFileAccess_2_queryMDS.png){ loading=lazy }
     </figure>
   
     For that, the Lustre client has to talk to the metadata server (MDS) and query some information
@@ -210,7 +212,7 @@ second client in the above picture wants to write something to the file.
 2.  MDS answers:
 
     <figure markdown style="border: 1px solid #000">
-      ![Accessing: Return MDS](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreFileAccess_2_returnMDS.png){ loading=lazy }
+      ![Accessing: Return MDS](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreFileAccess_3_returnMDS.png){ loading=lazy }
     </figure>
 
     The MDS in turn will return information about the file, including the layout of the file: chunksize
@@ -219,7 +221,7 @@ second client in the above picture wants to write something to the file.
 3.  Data access:
 
     <figure markdown style="border: 1px solid #000">
-      ![Accessing: Write to OSS](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreFileAccess_3_writeOSS.png){ loading=lazy }
+      ![Accessing: Write to OSS](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreFileAccess_4_writeOSS.png){ loading=lazy }
     </figure>
 
     From that point on, the client doesn't need to talk to the MDS anymore and can talk directly to 
@@ -405,7 +407,7 @@ filesystem, with the capacity.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping2_0_full.png){ loading=lazy }
+  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping2_3_ost.png){ loading=lazy }
 </figure>
 
 Striping in Lustre is set at a filesystem level by the sysadmins, but users can
@@ -455,11 +457,23 @@ object of the file.
 
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (3)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping3.png){ loading=lazy }
+  ![Managing the striping parameters (2)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping3_PFL.png){ loading=lazy }
+</figure>
+The default value for all projects created after May 2026 is to use progressive layouts as shown in 
+the picture here: there are three ranges and according to the size of the file the layout will change.
+In all ranges, we have a 1MB stripe size. As we have already seen, that is the suggested size to be able
+to engage all the levels of parallelism available in a Object Storage Server. Then for files up to 256MiB
+only 1 OSS will be engaged. File in the second range have a size from 256MiB to 16GiB, and in this case
+they will be distributed across 4 OSS (so stripe count of 4).
+Larger files will have a stripe count of 8.
+
+
+<figure markdown style="border: 1px solid #000">
+  ![Managing the striping parameters (3)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping4.png){ loading=lazy }
 </figure>
 
 <figure markdown style="border: 1px solid #000">
-  ![Managing the striping parameters (4)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping4.png){ loading=lazy }
+  ![Managing the striping parameters (4)](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreManageStriping5.png){ loading=lazy }
 </figure>
 
 The final subcommand that we will discuss is the `setstripe` subcommand to set the striping policy
@@ -612,6 +626,27 @@ that the LUMI User Support Team organises a few times per year, and you'll find 
 about proper use of Lustre in that lecture (which is only available to actual users on LUMI
 unfortunately).
 
+## Real Usage
+
+<figure markdown style="border: 1px solid #000">
+  ![Real Usage: Bad](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreUsageBad.png){ loading=lazy }
+</figure>
+A couple of real use cases from LUMI production: in this first one we can see a "not so uncommon" situation:
+when user overload the MDS with an excessive amount of requests, the server itself can become unresponsive.
+In the example provided in the screenshot here we had a sysadmin reporting that it has been overloaded for almost 
+1 full day. The symptoms were in that case that the MDS was able to serve a very small amount of requests per 
+second (compare lustrep3 with other partitions: it's one order of magnitude less!). And the machine has been unresponsive
+for every user/project that needed to work with that partition.
+
+<figure markdown style="border: 1px solid #000">
+  ![Real Usage: Good](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreUsageGood.png){ loading=lazy }
+</figure>
+
+On the other end, it is really possible to achieve very good results with LUMI's lustre. The picture here
+reports the speed of checkpoints for the Vlasiator program. In this case the user have been able to tune
+striping parameters and used proper file format and were able to achieve up to 500GB/s on LUMI-F and up to 80GB/s on 
+LUMI-P. Note that this means that they achieved 1/4 of the nominal bandwidth. And they were able to do so while other 
+users were active on the system, so this is a very good achievement!
 
 ## Lustre on LUMI
 
