@@ -178,12 +178,14 @@ with fewer OSTs and/or smaller chunks.
 The feature is known as *Progressive File Layout*.
 
 The stripe size and number of OSTs used can be chosen on a file-by-file basis. The default on LUMI
-has changed in May 2026, and now is to use the progressive file layout. It used to be only one OST for a file.
+has changed in May 2026, and now is to use the **progressive file layout.** It used to be only one OST for a file.
 The previous choice was done because that is the most reasonable choice for the many
 small files that many unsuspecting users have, and as we shall see, it is sometimes even the best choice
 for users working with large files. But it is not always the best choice.
 It was decided to adopt a progressive layout with three ranges, as we will see in a few slides, to simplify
-life for users. But remember that, unfortunately, there is no single set of parameters that is good for all users.
+life for users. But remember that, unfortunately, there is no single set of parameters that is good for all users,
+and advanced users may still want to fine-tune the striping parameters for individual files (with and example
+at the end of the lecture of the performance a group obtained doing so).
 
 !!! Note "Objects"
 
@@ -637,6 +639,11 @@ In the example provided in the screenshot here we had a sysadmin reporting that 
 1 full day. The symptoms were in that case that the MDS was able to serve a very small amount of requests per 
 second (compare lustrep3 with other partitions: it's one order of magnitude less!). And the machine has been unresponsive
 for every user/project that needed to work with that partition.
+
+The graph also illustrate how misleading a graph can be to the unexperienced observer: The flash filesystem
+also shows a very high metadata server load (the green line) but is still doing fine. However, p3
+shows only 235 operations per second which is suspiciously low.
+
 
 <figure markdown style="border: 1px solid #000">
   ![Real Usage: Good](https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-203-Lustre/LustreUsageGood.png){ loading=lazy }
