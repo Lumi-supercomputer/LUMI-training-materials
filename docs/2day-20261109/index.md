@@ -77,7 +77,8 @@ These materials will become available as the course progresses.
 <!-- -->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
-<!--
+## Setting up for the exercises
+
 During the course, you can use the training project `project_465003355` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
@@ -91,7 +92,7 @@ missing only one element from the during-the-course
 version that can be made in your own project.
 For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 5pm CEST/ 6pm EEST that
+if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
 day).
 
 -   Create a directory in the scratch of your project, or if you want to
@@ -102,11 +103,11 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465003355/course-20261109-$USER/Exercises
-    cd /scratch/project_465003355/course-20261109-$USER/Exercises
+    mkdir -p /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
     ```
 
-    where you have to replace `project_465003355` using the number of your own project.
+    where you have to replace `project_46YXXXXXX` using the number of your own project.
 
     If you have no other project on LUMI, you can also use the scratch of the
     course project `project_465003355`. Do use a personal subdirectory as in the
@@ -118,7 +119,13 @@ day).
     ```
 
 
--   Now download the exercises and un-tar:
+-   In that directory, untar the exercises:
+
+    ``` bash
+    tar -xf /scratch/project_465003355/exercises-20261109.tar.bz2
+    ```   
+    
+    Alternatively (or if the file would be missing), download the exercises and un-tar:
 
     ```
     wget https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2
@@ -129,7 +136,7 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2).
 
 -   You're all set to go!
--->
+
 
 <!--
 ## Making the exercises after the course
