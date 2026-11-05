@@ -58,7 +58,7 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
         of the LUMI software stack.
 
         Of course we prefer to use a recent software stack, the `25.03` or `25.09` (and preferably the `25.03` as 
-        that is the system default stack and best supported on at this time, April 2025). 
+        that is the system default stack and best supported on at this time, November 2026). 
         Since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
         different toolchains. So the module we want to load is `Brotli/1.1.0-cpeCray-25.03`.

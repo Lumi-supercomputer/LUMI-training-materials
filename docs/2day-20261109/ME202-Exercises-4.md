@@ -25,15 +25,15 @@ them through modules. For this, first add an additional directory to the module 
 module use /appl/local/training/modules/2day-20261109
 ```
 
-and then you can load either the module `exercises/intro-C` (to use the reservation in the
-`small` partition of LUMI-C) or `exercises/intro-G` (to use the reservation in the `standard-g`
+and then you can load either the module `exercises/small` (to use the reservation in the
+`small` partition of LUMI-C) or `exercises/standard-g` (to use the reservation in the `standard-g`
 partition of LUMI-G).
 
 !!! Note "Check what these modules do..."
     Try, e.g., 
 
     ```
-    module show exercises/intro-C
+    module show exercises/small
     ```
 
     to get an idea of what these modules do. Can you see which environment variables they set?
@@ -41,15 +41,13 @@ partition of LUMI-G).
 
 ## Exercises
 
-Exercises will be made available during the course
+<!-- Exercises will be made available during the course -->
 
-<!--
 -   Start with the [exercises on "Slurm on LUMI"](E201-Slurm.md)
 
     You may want to postpone the advanced exercise a bit as that one takes a lot of time.
 
 -   Proceed with the [exercises on "Process and Thread Distribution and Binding"](E202-Binding.md)
--->
 
 
 ## A&A
