@@ -202,4 +202,3 @@ project='project_465003355'
             ```
             ./create_buckets_462000265.sh ${project/project_/}
             ```
-
