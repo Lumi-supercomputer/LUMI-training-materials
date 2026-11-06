@@ -9,22 +9,20 @@
 
 -   [Tentative schedule](schedule.md)
 
-<!--
--   [HedgeDoc for questions](https://md.sigma2.no/lumi-intro-course-amsterdam-may24?both)
--->
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-nov2026)
 
-<!--
+    Please ask questions only about the current lecture, or possibly past lectures,
+    but not about the material that is yet to come. Ask questions in the section of
+    the current lecture or exercise session as that is the section that is being monitored.
+
 -   Project for the course: `project_465003355`.
 
     This project provides resources for the exercises. The project should not be used for your own work!
--->
 
-<!--
 -   There are two Slurm reservations for the course:
 
-    -   CPU nodes: `LUMI_Intro_SURF_small` (on the `small` Slurm partition)
-    -   GPU nodes: `LUMI_Intro_SURF_standardg` (on the `standard-g` Slurm partition)
--->
+    -   CPU nodes: `lumi-intro-small` (on the `small` Slurm partition)
+    -   GPU nodes: `lumi-intro-standard_g` (on the `standard-g` Slurm partition)
 
 
 ## Course materials
@@ -38,7 +36,7 @@ These materials will become available as the course progresses.
 
 <!-- Note: spantable fails if there are spaces after the trailing |! -->
 
-<!--
+<!-- -->
 ::spantable::
 
 | Presentation | slides | notes | recording |
@@ -69,15 +67,16 @@ These materials will become available as the course progresses.
 | [Exercises 5](ME204-Exercises-5.md) | / | / | / |
 | **Theme: Containers on LUMI** @span |  |  |  |
 | [Containers on LUMI-C and LUMI-G](M205-Containers.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-205-Containers.pdf) | [N](205-Containers.md) | [V](M205-Containers.md) |
-| [Wrap-Up Day 2](MI202-WrapUpDay2.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I202-WrapUpDay2.pdf) | / | [V](MI202-WrapUpDay2.md) |
+| [Wrap-Up Day 2](MI202-WhatElse.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I202-WrapUpDay2.pdf) | / | [V](MI202-WhatElse.md) |
 | **Appendices** @span |  |  |  |
 | A1 Additional documentation | / | [N](A01-Documentation.md) | / |
 
 ::end-spantable::
--->
+<!-- -->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
-<!--
+## Setting up for the exercises
+
 During the course, you can use the training project `project_465003355` for the exercises.
 After the course, it is still possible to make almost all exercises in your own project.
 They need only very little resources, but you will need both CPU and GPU resources. 
@@ -91,7 +90,7 @@ missing only one element from the during-the-course
 version that can be made in your own project.
 For the
 exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use the reservation
-if they are not made during the second course day (the reservation expires at 5pm CEST/ 6pm EEST that
+if they are not made during the second course day (the reservation expires at 5pm CET/ 6pm EET that
 day).
 
 -   Create a directory in the scratch of your project, or if you want to
@@ -102,11 +101,11 @@ day).
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_465003355/course-20260422-$USER/Exercises
-    cd /scratch/project_465003355/course-20260422-$USER/Exercises
+    mkdir -p /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
     ```
 
-    where you have to replace `project_465003355` using the number of your own project.
+    where you have to replace `project_46YXXXXXX` using the number of your own project.
 
     If you have no other project on LUMI, you can also use the scratch of the
     course project `project_465003355`. Do use a personal subdirectory as in the
@@ -118,18 +117,24 @@ day).
     ```
 
 
--   Now download the exercises and un-tar:
+-   In that directory, untar the exercises:
+
+    ``` bash
+    tar -xf /scratch/project_465003355/exercises-20261109.tar.bz2
+    ```   
+    
+    Alternatively (or if the file would be missing), download the exercises and un-tar:
 
     ```
-    wget https://462000265.lumidata.eu/2day-20261109/files/exercises-20260422.tar.bz2
-    tar -xf exercises-20260422.tar.bz2
+    wget https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2
+    tar -xf exercises-20261109.tar.bz2
     ```
 
-    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20261109/files/exercises-20260422.tar) and the
-    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20261109/files/exercises-20260422.tar.bz2).
+    [Link to the tar-file with the exercises](https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar) and the
+    [bzip2-compressed version](https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2).
 
 -   You're all set to go!
--->
+
 
 <!--
 ## Making the exercises after the course
@@ -150,8 +155,8 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
     E.g., in the scratch directory of your project:
 
     ```
-    mkdir -p /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
-    cd /scratch/project_46YXXXXXX/course-20260422-$USER/Exercises
+    mkdir -p /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
+    cd /scratch/project_46YXXXXXX/course-20261109-$USER/Exercises
     ```
 
     where you have to replace `project_46YXXXXXX` using the number of your own project.
@@ -159,7 +164,7 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 -   Now install the exercise files:
 
     ```
-    tar -xf /appl/local/training/2day-20261109/files/exercises-20260422.tar.bz2
+    tar -xf /appl/local/training/2day-20261109/files/exercises-20261109.tar.bz2
     ```
 
 -   You're all set to go!

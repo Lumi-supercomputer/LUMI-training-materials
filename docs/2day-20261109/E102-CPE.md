@@ -131,7 +131,8 @@ relying on the course materials and the compiler documentation, so don't search 
 
     Note that we add the `-O3` option and it is very important to add either `-O2` or `-O3` as by default
     the GNU compiler will generate code without any optimization for debugging purposes, and that code is
-    in this case easily four times or more slower. So if you got much longer run times than indicated this
+    in this case easily four times or more slower (just try and compare the results...). 
+    So if you got much longer run times than indicated this
     is likely the mistake that you made.
 
     To use the Cray C compiler instead only one small change is needed: Loading a different programming 
@@ -159,6 +160,9 @@ relying on the course materials and the compiler documentation, so don't search 
     module load PrgEnv-aocc
     cc -O3 matrix_mult_C.c -lm -o matrix_mult_C_aocc.x
     ```
+
+    (But if you happen to forget `-O3`, AOCC will still optimise the code pretty well as optimizing code is
+    its default rather than a quick compile for debugging.)
 
     For the Fortran version of the program we have to use the `ftn` compiler wrapper instead, and the issue
     with the math libraries in the AOCC compiler does not occur. So we get
@@ -211,6 +215,8 @@ relying on the course materials and the compiler documentation, so don't search 
     ftn -O3 -h nopattern matrix_mult_F.f90 -o matrix_mult_F_cray.x
     ```
 
+    The Cray Fortran compiler, unlike its C/C++-cousin, also turns on a pretyy high level of 
+    optimisations by default.
 
 
 ## Compilation of a program 3: A hybrid MPI/OpenMP program
@@ -266,4 +272,5 @@ on the login nodes and it will then contain just a single MPI rank.
     are provided also. Though they will take care of linking with the MPI
     libraries properly, they do not take care of linking with the BLAS libraries
     and some other HPE CPE libraries that are linked in automatically when using
-    the CPE wrappers.
+    the CPE wrappers. They will also not automatically create programs using
+    GPU-aware MPI.

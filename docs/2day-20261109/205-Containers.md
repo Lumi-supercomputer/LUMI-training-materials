@@ -30,8 +30,7 @@ If you are interested in doing AI on LUMI, we highly recommend that you have a l
 and the
 [AI course materials](https://lumi-supercomputer.github.io/AI-latest/).
 The former is updated regularly and may be the most up-to-date document, while the latter
-is updated whenever the course is given. The next one will in in June in Norway, but we 
-are in talk with groups in Latvia to have one there in the fall.
+is updated whenever the course is given. The next one will in in November in Riga.
 
 Remember though that the compute nodes of LUMI are an HPC infrastructure and not a container cloud!
 HPC has its own container runtimes specifically for an HPC environment and the typical security
@@ -74,9 +73,13 @@ family over the years come to a large extent from adding new instructions to the
 with the same instructions set extensions may still benefit from different optimisations by the compilers. 
 Not using the proper instruction set extensions can have a lot of influence. At my local site we've seen GROMACS 
 doubling its speed by choosing proper options, and the difference can even be bigger.
+So if you would take a container developed for the zen3 "Milan" nodes of LUMI to its successor, LUMI-AI,
+with zen6 "Venice" nodes, chances are that you will run at only half the speed of what the LUMI-AI
+CPUs are capable of.
 The same holds for GPUs: newer generations may add new instructions that speed up things.
 Sometimes, this is dealt with by just-in-time compiling, but this is not the case in all applications
 as just-in-time compiling also greatly increases the startup time of applications.
+In fact, AMD GPU codes don't often use just-in-time compiling.
 
 Many HPC sites try to build software as much as possible from sources to exploit the available hardware as much as 
 possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
@@ -529,7 +532,7 @@ You can also check the
 [page for the `singularity-bindings` in the LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-bindings/).
 
 You may need to change the EasyConfig for your specific purpose though.
-E.e., the module injects `LD_LIBRARY_PATH` into the container to force it to talk to
+E.g., the module injects `LD_LIBRARY_PATH` into the container to force it to talk to
 Cray MPICH, but if `LD_LIBRARY_PATH` is already set in the container, you may need to 
 modify the list of directories in that environment variable as it overwrites what is 
 set in the container and not adds to it. Also, sometimes, `libc` needs to be injected
@@ -593,7 +596,7 @@ of the AI containers that are provided by LUST, but it does no harm either.
 </figure>
 
 The next tool is [**`cotainr`**](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/), 
-a tool developed by DeIC, the Danish partner in the LUMI consortium.
+a tool developed by DeiC, the Danish partner in the LUMI consortium.
 It is a tool to pack a Conda installation into a container. It runs entirely in user space and doesn't need
 any special rights. (For the container specialists: It is based on the container sandbox idea to build
 containers in user space.)
@@ -787,7 +790,7 @@ be a better alternative.
 
 #### CCPE
 
-Together with HPE LUST also maintains containerised versions of the Cray Programming Environment
+Together with HPE, LUST also maintains containerised versions of the Cray Programming Environment
 to be able to test newer versions of the Cray PE than are offered on LUMI, or to keep using
 older ones that have been removed from the system.
 
@@ -835,7 +838,7 @@ images:
 -   `lumi-multitorch-rocm-*`: Base container based on Ubuntu with ROCm
 -   `lumi-multitorch-libfabric-*`: Adding libfabric on top of the previous one
 -   `lumi-multitorch-mpich-*`: Adding the MPICH MPI library with GPU support on top of the previous one
--   `lumi-multitorch-torch-*`: Adding PyTprch on top of the previous one
+-   `lumi-multitorch-torch-*`: Adding PyTorch on top of the previous one
 -   `lumi-multitorch-full-*`: Adding a selection of additional AI and ML libraries on top of the previous one
 
 They can be found on LUMI in `/appl/local/laifs/containers`.
@@ -909,7 +912,8 @@ file that contains a whole filesystem that can be bind mounted to a container an
 supercomputers even directly mounted on a directory in a compute node using 
 [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace)
 (and we [have it on LUMI](https://docs.lumi-supercomputer.eu/storage/formats/FUSE/)
-though some care is needed to clean up at the end of a job).
+though some care is needed to clean up at the end of a job, but unfortunately it is disabled
+at times due to security vulnerabilities).
 
 The basic idea works as follows:
 
@@ -1157,7 +1161,7 @@ likely not give you much gain anymore. On the LUMI login nodes there is a maximu
 CPU capacity a single user can use and hence letting `makesquasfs` use all the cores only creates
 threads that will fight with each other for limited resources.
 The `-all-root` flag is not strictly necessary but will reset the user and group IDs of all files
-to 0, the root user and group. This is a good way to anonymize the container. 
+to 0, the root user and group. This is a good way to anonymize the SquashFS file. 
 The last part, `-action "chmod(a+rX) @true"` is used to reset the file permissions on all files and
 directories to ensure that everybody has read rights to all files and directories and execute rights
 where needed (for files that were executable by the owner and for directories). The argument looks a bit
@@ -1784,7 +1788,7 @@ From: ubuntu:24.04
     apt update
     # Split over multiple commands for readability
     apt install -y lz4 libmunge2 libnghttp2-14 curl 
-    apt install -y libldap-common libjson-c5
+    apt install -y libldap-common libjson-c5 libyaml-0-2
     apt install -y lua5.3 liblua5.3-0 lua-posix
     # Symbolic links that exist in SUSE 15 SP6 to libraries
     # that we copied to run the Slurm clients
@@ -1848,7 +1852,8 @@ Slurm tools that we want to be available in the container. There are more tools,
 but these are probably the most useful ones. And adding more tools may also requiring
 adding more libraries.
 
-Note that the `salloc` command will not work in a container!
+Note that the `salloc` command will not work in a container unless you explicitly specify the 
+shell you want (really only `bash` on LUMI if you want to play safe).
 
 ??? Tip "EasyConfigs to create a module for this container."
 

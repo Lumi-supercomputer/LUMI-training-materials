@@ -9,12 +9,11 @@ to the user base of the machine, the approach taken on LUMI may be a bit unusual
 
 ## Materials
 
-Materials will be made available after the lecture
+<!-- Materials will be made available after the lecture -->
 
 <!--
 <video src="https://462000265.lumidata.eu/2day-next/recordings/105-SoftwareStacks.mp4" controls="controls"></video>
 -->
-<!--
 -   A video recording will follow.
 
 -   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-105-SoftwareStacks.pdf)
@@ -22,7 +21,6 @@ Materials will be made available after the lecture
 -   [Course notes](105-SoftwareStacks.md)
 
 -   [Exercises](E105-SoftwareStacks.md)
--->
 
 
 ## Q&A
