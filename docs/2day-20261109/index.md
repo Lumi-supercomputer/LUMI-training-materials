@@ -9,22 +9,20 @@
 
 -   [Tentative schedule](schedule.md)
 
-<!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-nov2026)
--->
 
-<!--
+    Please ask questions only about the current lecture, or possibly past lectures,
+    but not about the material that is yet to come. Ask questions in the section of
+    the current lecture or exercise session as that is the section that is being monitored.
+
 -   Project for the course: `project_465003355`.
 
     This project provides resources for the exercises. The project should not be used for your own work!
--->
 
-<!--
 -   There are two Slurm reservations for the course:
 
     -   CPU nodes: `lumi-intro-small` (on the `small` Slurm partition)
     -   GPU nodes: `lumi-intro-standard_g` (on the `standard-g` Slurm partition)
--->
 
 
 ## Course materials
