@@ -12,8 +12,7 @@
 
 -   [Schedule](schedule.md)
 
-<!-- 
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/advanced-may-2026?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/performance-optimization-nov26?both)
 
     This document is for questions during the course by course participants only.
     It will not be checked before the course. If you have issues joining the project,
@@ -25,35 +24,28 @@
 
 -   Reservations:
 
-    -   Day 1: `LUMI_Advanced_Day1` (on the `standard` Slurm partition)
+    -   Day 1: `workshop-day1` (on the `standard-g` Slurm partition)
 
-    -   Day 2: `LUMI_Advanced_Day2` for CPU (on the `standard` Slurm partition)
-        and `LUMI_Advanced_Day2_gpu` for GPU (on the `standard-g` Slurm partition)
+    -   Day 2: `workshop-day2` for GPU (on the `standard-g` Slurm partition)
 
-    -   Day 3: `LUMI_Advanced_Day3_gpu` (on the `standard-g` Slurm partition)
--->
+    -   Day 3: `workshop-day3` (on the `standard-g` Slurm partition)
+
 <!--
-ReservationName=LUMI_Advanced_Day1 StartTime=2026-05-11T10:00:00 EndTime=2026-05-11T18:00:00 Duration=08:00:00
-   Nodes=nid[002006-002008,002703-002715] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
-   TRES=cpu=4096
+ReservationName=workshop-day1 StartTime=2026-11-11T10:00:00 EndTime=2026-11-11T18:00:00 Duration=08:00:00
+   Nodes=nid[005881-005884,006612-006616,006884-006887,007544-007547] NodeCnt=17 CoreCnt=1088 Features=(null) PartitionName=standard-g Flags=
+   TRES=cpu=2176
    Users=(null) Groups=(null) Accounts=project_465003358 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=LUMI_Advanced_Day2 StartTime=2026-05-12T10:00:00 EndTime=2026-05-12T18:00:00 Duration=08:00:00
-   Nodes=nid[002006-002008,002703-002715] NodeCnt=16 CoreCnt=2048 Features=(null) PartitionName=standard Flags=
-   TRES=cpu=4096
+ReservationName=workshop-day2 StartTime=2026-11-12T10:00:00 EndTime=2026-11-12T18:00:00 Duration=08:00:00
+   Nodes=nid[005881-005884,006612-006616,006884-006887,007544-007547] NodeCnt=17 CoreCnt=1088 Features=(null) PartitionName=standard-g Flags=
+   TRES=cpu=2176
    Users=(null) Groups=(null) Accounts=project_465003358 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=LUMI_Advanced_Day2_gpu StartTime=2026-05-12T10:00:00 EndTime=2026-05-12T18:00:00 Duration=08:00:00
-   Nodes=nid[005206,005304,005921,005923,005929,006040,006158,006235,006261,006980,007204,007364,007530,007552,007751,007753] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
-   TRES=cpu=2048
-   Users=(null) Groups=(null) Accounts=project_465003358 Licenses=(null) State=INACTIVE BurstBuffer=(null)
-   MaxStartDelay=(null)
-
-ReservationName=LUMI_Advanced_Day3_gpu StartTime=2026-05-13T10:00:00 EndTime=2026-05-13T18:00:00 Duration=08:00:00
-   Nodes=nid[005206,005304,005921,005923,005929,006040,006158,006235,006261,006980,007204,007206,007364,007530,007552,007751] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=standard-g Flags=
-   TRES=cpu=2048
+ReservationName=workshop-day3 StartTime=2026-11-12T10:00:00 EndTime=2026-11-12T14:00:00 Duration=04:00:00
+   Nodes=nid[005124-005125,005530-005532,005923-005925,006875-006877,007107-007109,007801-007803] NodeCnt=17 CoreCnt=1088 Features=(null) PartitionName=standard-g Flags=
+   TRES=cpu=2176
    Users=(null) Groups=(null) Accounts=project_465003358 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 -->
