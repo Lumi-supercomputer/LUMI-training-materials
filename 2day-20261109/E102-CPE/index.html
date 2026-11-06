@@ -6623,7 +6623,8 @@ cc -O3 matrix_mult_C.c -o matrix_mult_C_gnu.x
 <p>will generate the executable <code>matrix_mult_C_gnu.x</code>.</p>
 <p>Note that we add the <code>-O3</code> option and it is very important to add either <code>-O2</code> or <code>-O3</code> as by default
 the GNU compiler will generate code without any optimization for debugging purposes, and that code is
-in this case easily four times or more slower. So if you got much longer run times than indicated this
+in this case easily four times or more slower (just try and compare the results...). 
+So if you got much longer run times than indicated this
 is likely the mistake that you made.</p>
 <p>To use the Cray C compiler instead only one small change is needed: Loading a different programming 
 environment module:</p>
@@ -6641,6 +6642,8 @@ not linked automatically, but this is easily done by adding the <code>-lm</code>
 <div class="highlight"><pre><span></span><code>module load PrgEnv-aocc
 cc -O3 matrix_mult_C.c -lm -o matrix_mult_C_aocc.x
 </code></pre></div>
+<p>(But if you happen to forget <code>-O3</code>, AOCC will still optimise the code pretty well as optimizing code is
+its default rather than a quick compile for debugging.)</p>
 <p>For the Fortran version of the program we have to use the <code>ftn</code> compiler wrapper instead, and the issue
 with the math libraries in the AOCC compiler does not occur. So we get</p>
 <div class="highlight"><pre><span></span><code>module load PrgEnv-gnu
@@ -6677,6 +6680,8 @@ flag to the command line:</p>
 <div class="highlight"><pre><span></span><code>module load PrgEnv-cray
 ftn -O3 -h nopattern matrix_mult_F.f90 -o matrix_mult_F_cray.x
 </code></pre></div>
+<p>The Cray Fortran compiler, unlike its C/C++-cousin, also turns on a pretyy high level of 
+optimisations by default.</p>
 </details>
 <h2 id="compilation-of-a-program-3-a-hybrid-mpiopenmp-program">Compilation of a program 3: A hybrid MPI/OpenMP program<a class="headerlink" href="#compilation-of-a-program-3-a-hybrid-mpiopenmp-program" title="Permanent link">&para;</a></h2>
 <p>The file <code>mpi_omp_hello.c</code> is a hybrid MPI and OpenMP C program that sends a message
@@ -6718,7 +6723,8 @@ been bugs in the past preventing this to work with <code>PrgEnv-aocc</code>.</p>
 are provided also. Though they will take care of linking with the MPI
 libraries properly, they do not take care of linking with the BLAS libraries
 and some other HPE CPE libraries that are linked in automatically when using
-the CPE wrappers.</p>
+the CPE wrappers. They will also not automatically create programs using
+GPU-aware MPI.</p>
 </details>
 
 

@@ -6530,39 +6530,43 @@ a specific core. </p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
 <p>Add the following OpenMP environment variables definition to your script:</p>
-<div class="highlight"><pre><span></span><code>export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
-export OMP_PLACES=cores
-export OMP_PROC_BIND=close
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
 </code></pre></div>
-<p>To avoid having to use the <code>--cpus-per-task</code> flag, you can also set the environment variable <code>SRUN_CPUS_PER_TASK</code>
+<p>The first line is not strictly necessary here as the OpenMP runtime correctly detects the 
+number of (virtual) cores available to its process and takes that as the number of threads
+to use.</p>
+<p>To avoid having to use the <code>--cpus-per-task</code> flag with <code>srun</code>, you can also set the environment variable <code>SRUN_CPUS_PER_TASK</code>
 instead: </p>
-<div class="highlight"><pre><span></span><code>export SRUN_CPUS_PER_TASK=16 
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRUN_CPUS_PER_TASK</span><span class="o">=</span><span class="nv">$SLURM_</span>+CPUS_PER_TASK<span class="w"> </span>
 </code></pre></div>
-<p>On LUMI this is not strictly necessary as the Slurm <code>sbatch</code> processing has been modified to set
+<p>On LUMI it is not strictly necessary to repeat <code>--cpus-per-task</code> for the <code>srun</code> command (or do so
+by setting <code>SRUN_CPUS_PER_TASK) as the Slurm</code>sbatch` processing has been modified to set
 this environment variable, but that was a clunky patch to reconstruct some old behaviour of Slurm
 and we have already seen cases where the patch did not work (but that were more complex cases that
 required different environment variables for a similar function).</p>
 <p>The list of environment variables that the <code>srun</code> command can use as input, is actually confusing, as
 some start with <code>SLURM_</code> but a few start with <code>SRUN_</code> while the <code>SLURM_</code> equivalent is ignored.</p>
 <p>So we end up with the following script:</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash -l
-#SBATCH --partition=small           # Partition (queue) name
-#SBATCH --nodes=1                   # Total number of nodes
-#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-#SBATCH --cpus-per-task=16          # 16 threads per task
-#SBATCH --time=5                    # Run time (minutes)
-#SBATCH --account=&lt;project_id&gt;      # Project for billing
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --partition=small           # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=1                   # Total number of nodes</span>
+<span class="c1">#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node</span>
+<span class="c1">#SBATCH --cpus-per-task=16          # 16 threads per task</span>
+<span class="c1">#SBATCH --time=5                    # Run time (minutes)</span>
+<span class="c1">#SBATCH --account=&lt;project_id&gt;      # Project for billing</span>
 
-module load LUMI/25.03
-module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03
+module<span class="w"> </span>load<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
+<span class="nb">export</span><span class="w"> </span><span class="nv">SRUN_CPUS_PER_TASK</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
 
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
-export OMP_PROC_BIND=close
-export OMP_PLACES=cores
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 
-srun hybrid_check -n -r
+srun<span class="w"> </span>hybrid_check<span class="w"> </span>-n<span class="w"> </span>-r
 </code></pre></div>
 </details>
 <details class="note">
@@ -6594,29 +6598,29 @@ to the way Slurm CPU masks for <code>--cpu-bind</code> are constructed.</p>
 we follow the 
 <a href="../202-Binding/#linear-assignment-of-gcd-then-match-the-cores">"GPU binding: Linear GCD, match cores"</a> 
 slides and we only need to adapt the CPU mask:</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash -l
-#SBATCH --partition=standard-g      # Partition (queue) name
-#SBATCH --nodes=1                   # Total number of nodes
-#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
-#SBATCH --time=5                    # Run time (minutes)
-#SBATCH --account=&lt;project_id&gt;      # Project for billing
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --partition=standard-g      # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=1                   # Total number of nodes</span>
+<span class="c1">#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node</span>
+<span class="c1">#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank</span>
+<span class="c1">#SBATCH --time=5                    # Run time (minutes)</span>
+<span class="c1">#SBATCH --account=&lt;project_id&gt;      # Project for billing</span>
 
-module load LUMI/25.03 partition/G
-module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/G
+module<span class="w"> </span>load<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
-CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
-CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
-CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"mask_cpu:0x7e000000000000,0x7e00000000000000,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e0000,0x7e000000,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e,0x7e00,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e00000000,0x7e0000000000"</span>
 
-export OMP_NUM_THREADS=6
-export OMP_PROC_BIND=close
-export OMP_PLACES=cores
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 
-srun --cpu-bind=${CPU_BIND} \
-     --gpu-bind=map:0,1,2,3,4,5,6,7 --gres-flags=allow-task-sharing \
-     gpu_check -l
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--gpu-bind<span class="o">=</span>map:0,1,2,3,4,5,6,7<span class="w"> </span>--gres-flags<span class="o">=</span>allow-task-sharing<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>gpu_check<span class="w"> </span>-l
 </code></pre></div>
 <p>The base mask we need for this exercise, with each first and last core of a chiplet disabled,
 is <code>01111110</code> which is <code>0x7e</code> in hexadecimal notation (though using <code>0xfe</code>
@@ -6625,6 +6629,14 @@ of threads to 6 through <code>OMP_NUM_THREADS</code> and use other binding varia
 that will bind all threads as close as possible to the core with relative
 number 1 of each chiplet).</p>
 <p>Save the job script as <code>job_step.sh</code> then simply submit it with sbatch. Inspect the job output.</p>
+<p>The first line of actual output of the <code>gpu_check</code> command is:</p>
+<div class="highlight"><pre><span></span><code>MPI 000 - OMP 000 - HWT 049 (CCD6) - Node nid005225 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+</code></pre></div>
+<p>What is important here is that the CCD number which is shown after <code>HWT</code> which stands for hardware thread
+or virtual core (and this is <code>CCD6</code> in this case as virtual core 49 is on the seventh CCD, with numbering
+starting from 0) is the same as the one shown at the end. The <code>(GCD0/CCD6)</code> is the number of the GCD in
+the physical numbering (also called "bare OS numbering" in these notes) and the matching CCD for an optimal
+mapping. So if those CCD numbers correspond, the mapping is OK. </p>
 <p>Note that in fact, if you had used the <code>cpeCray</code> version of the
 <code>lumi-CPEtools</code> module, 
 you don't even need to use the <code>OMP_*</code> environment variables above as the threads are 
@@ -6632,94 +6644,90 @@ automatically pinned to a single core and as the correct number of threads is de
 the affinity mask for each task.</p>
 <p>An alternative is to use a 
 <a href="../202-Binding/#linear-assignment-of-the-ccds-then-match-the-gcd">linear CCD mapping, adapting the order of the GPUs</a>:</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash -l
-#SBATCH --partition=standard-g      # Partition (queue) name
-#SBATCH --nodes=1                   # Total number of nodes
-#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
-#SBATCH --time=5                    # Run time (minutes)
-#SBATCH --account=&lt;project_id&gt;      # Project for billing
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --partition=standard-g      # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=1                   # Total number of nodes</span>
+<span class="c1">#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node</span>
+<span class="c1">#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank</span>
+<span class="c1">#SBATCH --time=5                    # Run time (minutes)</span>
+<span class="c1">#SBATCH --account=&lt;project_id&gt;      # Project for billing</span>
 
-module load LUMI/25.03 partition/G
-module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/G
+module<span class="w"> </span>load<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-CPU_BIND="mask_cpu:0x7e,0x7e00,"
-CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
-CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
-CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"mask_cpu:0x7e,0x7e00,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e0000,0x7e000000,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e00000000,0x7e0000000000,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e000000000000,0x7e00000000000000"</span>
 
-export OMP_NUM_THREADS=6
-export OMP_PROC_BIND=close
-export OMP_PLACES=cores
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 
-srun --cpu-bind=${CPU_BIND} \
-     --gpu-bind=map:4,5,2,3,6,7,0,1 --gres-flags=allow-task-sharing \
-     gpu_check -l
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--gpu-bind<span class="o">=</span>map:4,5,2,3,6,7,0,1<span class="w"> </span>--gres-flags<span class="o">=</span>allow-task-sharing<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>gpu_check<span class="w"> </span>-l
 </code></pre></div>
 <p>As the code that we want to run is OpenMP-based and as threads can be restricted via OpenMP
 environment variables, we can as well make life easier then and simply allocate 7 cores to 
 each task, then restricting via OpenMP environment variables. So we can also use
 <code>--cps-per-task</code>: </p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash -l
-#SBATCH --partition=standard-g      # Partition (queue) name
-#SBATCH --nodes=1                   # Total number of nodes
-#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
-#SBATCH --time=5                    # Run time (minutes)
-#SBATCH --account=&lt;project_id&gt;      # Project for billing
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --partition=standard-g      # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=1                   # Total number of nodes</span>
+<span class="c1">#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node</span>
+<span class="c1">#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank</span>
+<span class="c1">#SBATCH --time=5                    # Run time (minutes)</span>
+<span class="c1">#SBATCH --account=&lt;project_id&gt;      # Project for billing</span>
 
-module load LUMI/25.03 partition/G
-module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/G
+module<span class="w"> </span>load<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-CPU_BIND="mask_cpu:0x7e,0x7e00,"
-CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
-CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
-CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 
-export OMP_NUM_THREADS=6
-export OMP_PROC_BIND=close
-export OMP_PLACES=cores
-
-srun --cpus-per-task=7 \
-     --gpu-bind=map:4,5,2,3,6,7,0,1 --gres-flags=allow-task-sharing \
-     gpu_check -l
+srun<span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">7</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--gpu-bind<span class="o">=</span>map:4,5,2,3,6,7,0,1<span class="w"> </span>--gres-flags<span class="o">=</span>allow-task-sharing<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>gpu_check<span class="w"> </span>-l
 </code></pre></div>
 <p>Finally, we can of course also do the GPU binding via a wrapper script.
 For the linear GCD case, we get:</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash -l
-#SBATCH --partition=standard-g      # Partition (queue) name
-#SBATCH --nodes=1                   # Total number of nodes
-#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node
-#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank
-#SBATCH --time=5                    # Run time (minutes)
-#SBATCH --account=&lt;project_id&gt;      # Project for billing
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --partition=standard-g      # Partition (queue) name</span>
+<span class="c1">#SBATCH --nodes=1                   # Total number of nodes</span>
+<span class="c1">#SBATCH --ntasks-per-node=8         # 8 MPI ranks per node</span>
+<span class="c1">#SBATCH --gpus-per-node=8           # Allocate one gpu per MPI rank</span>
+<span class="c1">#SBATCH --time=5                    # Run time (minutes)</span>
+<span class="c1">#SBATCH --account=&lt;project_id&gt;      # Project for billing</span>
 
-module load LUMI/25.03 partition/G
-module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
+module<span class="w"> </span>load<span class="w"> </span>LUMI/25.03<span class="w"> </span>partition/G
+module<span class="w"> </span>load<span class="w"> </span>lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-cat &lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID
-#!/bin/bash
-export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
-exec \$*
-EOF
-chmod +x ./select_gpu_$SLURM_JOB_ID
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; select_gpu_$SLURM_JOB_ID</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID</span>
+<span class="s">exec \$*</span>
+<span class="s">EOF</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>./select_gpu_<span class="nv">$SLURM_JOB_ID</span>
 
-CPU_BIND="mask_cpu:0x7e000000000000,0x7e00000000000000,"
-CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
-CPU_BIND="${CPU_BIND}0x7e,0x7e00,"
-CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000"
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"mask_cpu:0x7e000000000000,0x7e00000000000000,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e0000,0x7e000000,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e,0x7e00,"</span>
+<span class="nv">CPU_BIND</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="s2">0x7e00000000,0x7e0000000000"</span>
 
-export OMP_NUM_THREADS=6
-export OMP_PROC_BIND=close
-export OMP_PLACES=cores
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
 
-srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
+<span class="c1"># With the wrapper script</span>
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span>./select_gpu_<span class="nv">$SLURM_JOB_ID</span><span class="w"> </span>gpu_check<span class="w"> </span>-l
 
-# Or without the wrapper script
-echo -e "\nWithout wrapper script:"
-srun --cpu-bind=${CPU_BIND} bash -c "ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l"
-echo -e "\nOr with another quoting style:"
-srun --cpu-bind=${CPU_BIND} bash -c 'ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l'
+<span class="c1"># Or without the wrapper script but clever use of bash:</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nWithout wrapper script, with bash and double quotes:"</span>
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l"</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"\nOr with single quotes:"</span>
+srun<span class="w"> </span>--cpu-bind<span class="o">=</span><span class="si">${</span><span class="nv">CPU_BIND</span><span class="si">}</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l'</span>
 </code></pre></div>
 <p>The difference between the last two lines is something for bash specialists. We don't want
 the environment variable <code>SLURM_LOCALID</code> to be expanded while the script is executing, but only 

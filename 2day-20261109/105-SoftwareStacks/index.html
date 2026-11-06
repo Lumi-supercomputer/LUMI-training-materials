@@ -6837,7 +6837,8 @@
     and that interconnect has a different software stack than your typical Mellanox InfiniBand cluster. </p>
 </li>
 <li>
-<p>It also uses a <strong>relatively recent GPU architecture</strong>, AMD CDNA2, with a still maturing software ecosystem. 
+<p>At the start of LUMI, the <strong>GPU architecture, CDNA2, was relatively</strong>, with a software ecosystem that even today
+    is still rapidly evolving. 
     The GPU nodes are really <strong>GPU-first</strong>, with the <strong>interconnect cards connected directly to the GPU packages</strong> 
     and only one CPU socket, and another feature which is relatively new: the option to use a <strong>partly coherent fully unified memory</strong>
     space between the CPU and GPUs, though of course very NUMA. This is a feature that has previously
@@ -6853,11 +6854,12 @@ a rapid evolution.</p>
     NVIDIA GPUs. </p>
 </li>
 </ol>
-<p>Given the rather novel interconnect and GPU we cannot expect that all system and application software
-is already fully mature and we need to be prepared for <strong>fast evolution</strong>, 
+<p>Given the rather novel interconnect and GPU we could not expect that all system and application software
+was already fully mature and we needed to be prepared for <strong>fast evolution</strong>, 
 hence we needed a setup that enables us
 to remain very agile, which leads to different compromises compared to a software stack for a more
-conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.</p>
+conventional and mature system as an x86 cluster with NVIDIA GPUs and Mellanox InfiniBand.
+Even today this is still important and we often need to move quickly.</p>
 </li>
 <li>
 <p>Users also come to LUMI from <strong>12 different channels</strong>, not counting subchannels as some countries have
@@ -7133,7 +7135,7 @@ and a list of
 <li>
 <p><code>Local-quantum</code> contains some packages of general use, but also some packages that 
     are only relevant to Finnish researchers with an account on the 
-    <a href="https://docs.csc.fi/computing/quantum-computing/overview/">VTT quantum computers</a>. 
+    <a href="https://docs.csc.fi/computing/quantum-computing/overview/">Finnish Aalto Q20 or VTT Q50 quantum computers</a>. 
     These quantum computers are not a EuroHPC-JU computers so being eligible for an account on LUMI does 
     not mean that you are also eligible for an account on one of these machines.</p>
 </li>
@@ -7146,7 +7148,7 @@ and a list of
     Instead, users have to indicate that their job needs EESSI and then a copy which
     is synchronised every now and then with the central repository, is mounted on the node.
     On the login nodes, a basic container has to be used to access EESSI.</p>
-<p>As currently AMD support is still missing, any initial offering is only 
+<p>As currently AMD support is still mostly missing, any initial offering is only 
 for the CPU nodes. Moreover, at launch multi-node MPI performance was not completely according
 to expectations and low compared to Cray MPICH. This is partly due to their choice of MPI
 implementation (Open MPI) which is not a very good match with the LUMI hardware and difficult
@@ -7341,9 +7343,11 @@ or in your personal or project stack.</p>
 <p>For the GNU toolchain there would be problems with MPI. EasyBuild uses Open MPI and that
     needs to be configured differently to work well on LUMI, and there are also still issues with
     getting it to collaborate with the resource manager as it is installed on LUMI.</p>
-<p>EESSI comes with an Open MPI built differently and specifically for LUMI, so it should be 
+<p>EESSI will with an Open MPI built differently and specifically for LUMI, so it should be 
 possible to install many packages for the foss toolchain and its subtoolchains on top of 
-an EESSI installation as <a href="https://docs.my-eurohpc.eu/software-catalog/adding-software/">discussed in the EFP docs</a>.</p>
+an EESSI installation as <a href="https://docs.my-eurohpc.eu/software-catalog/adding-software/">discussed in the EFP docs</a>,
+but at the time of writing (October 2026), it still only offers a standard EasyBuild
+Open MPI with rather poor multinode performance.</p>
 </li>
 <li>
 <p>The Intel-based toolchains have their problems also. At the moment, the Intel compilers with the
@@ -7624,10 +7628,14 @@ since there are scenarios where this is not desired and it cannot be turned off 
 it can be turned on.</p>
 <div class="admonition demo">
 <p class="admonition-title">Running EasyBuild to install GROMACS and dependency</p>
+<p>For the demo we first set</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">EASYBUILD_DISABLE_TRACE</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p>to reduce the amount of output.</p>
 <p>The command</p>
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>GROMACS-2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU.eb<span class="w"> </span>-r
 </code></pre></div>
-<p>results in:</p>
+<p>then results in:</p>
 <p><figure markdown style="border: 1px solid #000">
   <img alt="eb GROMACS-2024.3-cpeGNU-25.03-PLUMED-2.9.4-noPython-CPU.eb -r" loading="lazy" src="https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-105-SoftwareStacks/EasyBuildGROMACSInst_01.png" />
 </figure></p>
@@ -7716,7 +7724,7 @@ For instance,
 will tell you for which versions of VASP LUMI provides EasyBuild recipes, but you will still have
 to download the source file that the EasyBuild recipe expects. 
 Put it somewhere in a directory, and then from that
-directory run EasyBuild, for instance for VASP 6.5.01 with the GNU compilers:
+directory run EasyBuild, for instance for VASP 6.5.1 with the GNU compilers:
 <div class="highlight"><pre><span></span><code>eb<span class="w"> </span>VASP-6.5.1-cpeGNU-25.03-build02.eb<span class="w"> </span>–r<span class="w"> </span>.<span class="w"> </span>
 </code></pre></div>
 or
@@ -7812,7 +7820,7 @@ The site also contains a LUST-specific tutorial oriented towards Cray systems.</
 <p>There is also a later course developed by LUST for developers of EasyConfigs for LUMI
 that can be found on 
 <a href="https://lumi-supercomputer.github.io/easybuild-tutorial/">lumi-supercomputer.github.io/easybuild-tutorial</a>. LUMI is also considering organising an EasyBuild training
-for users in fall of 2026.</p>
+for users in the spring of 2027.</p>
 <h3 id="documentation-links-for-software-stacks">Documentation links for software stacks<a class="headerlink" href="#documentation-links-for-software-stacks" title="Permanent link">&para;</a></h3>
 <figure style="border: 1px solid #000">
 <p><img alt="Software stacks on LUMI" loading="lazy" src="https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-105-SoftwareStacks/DocsLocalStacks.png" /></p>
@@ -7837,7 +7845,7 @@ for users in fall of 2026.</p>
 <p>Module: <code>Local-LAIF</code></p>
 </li>
 <li>
-<p><a href="https://docs.csc.fi/computing/quantum-computing/running-quantum-jobs/">Software for the Helmi (VTT Q5) and VTT Q50 quantum computers</a>.
+<p><a href="https://docs.csc.fi/computing/quantum-computing/running-quantum-jobs/">Software for the Aalto Q20 and VTT Q50 quantum computers</a>.
     Support is requested through the <a href="https://docs.csc.fi/support/contact/">CSC service desk</a>,
     clearly stating that you are contacting them for an issue with the quantum computers.</p>
 </li>

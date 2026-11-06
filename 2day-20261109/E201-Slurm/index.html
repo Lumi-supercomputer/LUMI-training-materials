@@ -6577,9 +6577,11 @@ This particular exercise makes most sense if you will be building software
 on LUMI (but remember that this will be more of you than you may expect)!</p>
 <ol>
 <li>
-<p>Build the <code>hello_jobstep</code> program tool using interactive shell on a GPU node. 
-    You can pull the source code for the program from git repository 
-    <a href="https://code.ornl.gov/olcf/hello_jobstep"><code>https://code.ornl.gov/olcf/hello_jobstep.git</code></a>. 
+<p>Build the <code>hello_jobstep</code> program tool using interactive shell on a GPU node.
+    You can find this program in the <code>hello_jobstep</code> subdirectory of the exercises.
+    (Original source is the git repository 
+    <a href="https://code.ornl.gov/olcf/hello_jobstep"><code>https://code.ornl.gov/olcf/hello_jobstep.git</code></a>,
+    but is no longer accessible from Europe.) 
     It uses a <code>Makefile</code> for building and requires Clang and HIP. The code also
     contains a <code>README.md</code> file with instructions, but they will need some changes.
     The <code>hello_jobstep</code> program is actually the main source of inspiration for the 
@@ -6597,10 +6599,6 @@ get a single GPU with 7 cores and 60GB of memory on the <code>small-g</code> par
 if the wait is not too long.</p>
 <details class="solution">
 <summary>Click to see the solution.</summary>
-<p>Clone the code using <code>git</code> command:</p>
-<div class="highlight"><pre><span></span><code>git clone https://code.ornl.gov/olcf/hello_jobstep.git
-</code></pre></div>
-<p>It will create <code>hello_jobstep</code> directory consisting source code and <code>Makefile</code>.</p>
 <p>Allocate resources for a single task with a single GPU with <code>salloc</code>:</p>
 <div class="highlight"><pre><span></span><code>salloc --partition=small-g --tasks=1 --cpus-per-task=7 --gpus=1 --mem=60G --time=10 --account=&lt;project_id&gt;
 </code></pre></div>

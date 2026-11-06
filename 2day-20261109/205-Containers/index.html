@@ -6982,8 +6982,7 @@ CPU compute power and has no GPUs.</p>
 and the
 <a href="https://lumi-supercomputer.github.io/AI-latest/">AI course materials</a>.
 The former is updated regularly and may be the most up-to-date document, while the latter
-is updated whenever the course is given. The next one will in in June in Norway, but we 
-are in talk with groups in Latvia to have one there in the fall.</p>
+is updated whenever the course is given. The next one will in in November in Riga.</p>
 <p>Remember though that the compute nodes of LUMI are an HPC infrastructure and not a container cloud!
 HPC has its own container runtimes specifically for an HPC environment and the typical security
 constraints of such an environment.</p>
@@ -7019,9 +7018,13 @@ family over the years come to a large extent from adding new instructions to the
 with the same instructions set extensions may still benefit from different optimisations by the compilers. 
 Not using the proper instruction set extensions can have a lot of influence. At my local site we've seen GROMACS 
 doubling its speed by choosing proper options, and the difference can even be bigger.
+So if you would take a container developed for the zen3 "Milan" nodes of LUMI to its successor, LUMI-AI,
+with zen6 "Venice" nodes, chances are that you will run at only half the speed of what the LUMI-AI
+CPUs are capable of.
 The same holds for GPUs: newer generations may add new instructions that speed up things.
 Sometimes, this is dealt with by just-in-time compiling, but this is not the case in all applications
-as just-in-time compiling also greatly increases the startup time of applications.</p>
+as just-in-time compiling also greatly increases the startup time of applications.
+In fact, AMD GPU codes don't often use just-in-time compiling.</p>
 <p>Many HPC sites try to build software as much as possible from sources to exploit the available hardware as much as 
 possible. You may not care much about 10% or 20% performance difference on your PC, but 20% on a 160 million EURO
 investment represents 32 million EURO and a lot of science can be done for that money...</p>
@@ -7383,7 +7386,7 @@ run</p>
 <p>You can also check the 
 <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/s/singularity-bindings/">page for the <code>singularity-bindings</code> in the LUMI Software Library</a>.</p>
 <p>You may need to change the EasyConfig for your specific purpose though.
-E.e., the module injects <code>LD_LIBRARY_PATH</code> into the container to force it to talk to
+E.g., the module injects <code>LD_LIBRARY_PATH</code> into the container to force it to talk to
 Cray MPICH, but if <code>LD_LIBRARY_PATH</code> is already set in the container, you may need to 
 modify the list of directories in that environment variable as it overwrites what is 
 set in the container and not adds to it. Also, sometimes, <code>libc</code> needs to be injected
@@ -7427,7 +7430,7 @@ of the AI containers that are provided by LUST, but it does no harm either.</p>
 <p><img alt="Environment enhancements (3)" loading="lazy" src="https://462000265.lumidata.eu/2day-20261109/img/LUMI-2day-20261109-205-Containers/ContainersEnvironmentEnhancement_3.png" /></p>
 </figure>
 <p>The next tool is <a href="https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/c/cotainr/"><strong><code>cotainr</code></strong></a>, 
-a tool developed by DeIC, the Danish partner in the LUMI consortium.
+a tool developed by DeiC, the Danish partner in the LUMI consortium.
 It is a tool to pack a Conda installation into a container. It runs entirely in user space and doesn't need
 any special rights. (For the container specialists: It is based on the container sandbox idea to build
 containers in user space.)</p>
@@ -7591,7 +7594,7 @@ have to create an ssh tunnel to access the server. Try</p>
 <p>For most users, the Open OnDemand web interface and tools offered in that interface will
 be a better alternative.</p>
 <h4 id="ccpe">CCPE<a class="headerlink" href="#ccpe" title="Permanent link">&para;</a></h4>
-<p>Together with HPE LUST also maintains containerised versions of the Cray Programming Environment
+<p>Together with HPE, LUST also maintains containerised versions of the Cray Programming Environment
 to be able to test newer versions of the Cray PE than are offered on LUMI, or to keep using
 older ones that have been removed from the system.</p>
 <p>As working in a container requires a very good understanding of the differences between the
@@ -7628,7 +7631,7 @@ images:</p>
 <li><code>lumi-multitorch-rocm-*</code>: Base container based on Ubuntu with ROCm</li>
 <li><code>lumi-multitorch-libfabric-*</code>: Adding libfabric on top of the previous one</li>
 <li><code>lumi-multitorch-mpich-*</code>: Adding the MPICH MPI library with GPU support on top of the previous one</li>
-<li><code>lumi-multitorch-torch-*</code>: Adding PyTprch on top of the previous one</li>
+<li><code>lumi-multitorch-torch-*</code>: Adding PyTorch on top of the previous one</li>
 <li><code>lumi-multitorch-full-*</code>: Adding a selection of additional AI and ML libraries on top of the previous one</li>
 </ul>
 <p>They can be found on LUMI in <code>/appl/local/laifs/containers</code>.
@@ -7692,7 +7695,8 @@ file that contains a whole filesystem that can be bind mounted to a container an
 supercomputers even directly mounted on a directory in a compute node using 
 <a href="https://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a>
 (and we <a href="https://docs.lumi-supercomputer.eu/storage/formats/FUSE/">have it on LUMI</a>
-though some care is needed to clean up at the end of a job).</p>
+though some care is needed to clean up at the end of a job, but unfortunately it is disabled
+at times due to security vulnerabilities).</p>
 <p>The basic idea works as follows:</p>
 <ol>
 <li>
@@ -7868,7 +7872,7 @@ likely not give you much gain anymore. On the LUMI login nodes there is a maximu
 CPU capacity a single user can use and hence letting <code>makesquasfs</code> use all the cores only creates
 threads that will fight with each other for limited resources.
 The <code>-all-root</code> flag is not strictly necessary but will reset the user and group IDs of all files
-to 0, the root user and group. This is a good way to anonymize the container. 
+to 0, the root user and group. This is a good way to anonymize the SquashFS file. 
 The last part, <code>-action "chmod(a+rX) @true"</code> is used to reset the file permissions on all files and
 directories to ensure that everybody has read rights to all files and directories and execute rights
 where needed (for files that were executable by the owner and for directories). The argument looks a bit
@@ -8343,7 +8347,7 @@ elements are certainly needed in the definition file:</p>
 <span class="w">    </span>apt<span class="w"> </span>update
 <span class="w">    </span><span class="c1"># Split over multiple commands for readability</span>
 <span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>lz4<span class="w"> </span>libmunge2<span class="w"> </span>libnghttp2-14<span class="w"> </span>curl<span class="w"> </span>
-<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libldap-common<span class="w"> </span>libjson-c5
+<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libldap-common<span class="w"> </span>libjson-c5<span class="w"> </span>libyaml-0-2
 <span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>lua5.3<span class="w"> </span>liblua5.3-0<span class="w"> </span>lua-posix
 <span class="w">    </span><span class="c1"># Symbolic links that exist in SUSE 15 SP6 to libraries</span>
 <span class="w">    </span><span class="c1"># that we copied to run the Slurm clients</span>
@@ -8395,7 +8399,8 @@ including some plugins specific for the Cray EX supercomputers, and the various
 Slurm tools that we want to be available in the container. There are more tools,
 but these are probably the most useful ones. And adding more tools may also requiring
 adding more libraries.</p>
-<p>Note that the <code>salloc</code> command will not work in a container!</p>
+<p>Note that the <code>salloc</code> command will not work in a container unless you explicitly specify the 
+shell you want (really only <code>bash</code> on LUMI if you want to play safe).</p>
 <details class="tip">
 <summary>EasyConfigs to create a module for this container.</summary>
 <p>The following EasyConfig will create a recipe for a module similar
