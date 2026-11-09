@@ -26,7 +26,7 @@ The beer selection is the old-school danish beers but in Denmark they are also a
 
 ### Places near the venue
 
--   [Cafeen?](https://maps.app.goo.gl/vtnhfrYchEEmxZMT9) (Only for people with a bachelors or working at a university)
+-   ***CLOSED THIS WEEK*** [Cafeen?](https://maps.app.goo.gl/vtnhfrYchEEmxZMT9) (Only for people with a bachelors or working at a university)
 
     Study bar for the Science campus of KU.
     Very close to the location, very cheap and a decent selection of beers.
