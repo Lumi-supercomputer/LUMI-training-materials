@@ -6541,7 +6541,33 @@ modules can be found.</p>
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>How can I check which projects involved after login  Lumi?</p>
+<ul>
+<li>It's in the message-of-the-day: <code>lumi-workspaces</code>. Or just the <code>groups</code> command</li>
+</ul>
+</li>
+<li>
+<p>My main cpu programs use the following modules on HPC with the following compile modules:</p>
+<p><code>ml purge
+ml load ESMF/8.3.0-iomkl-2022a
+ml load UDUNITS/2.2.28-GCCcore-11.3.0
+ml load GSL/2.7-intel-compilers-2022.1.0
+ml load NCO/5.1.9-iomkl-2022a
+ml load Python/3.10.4-GCCcore-11.3.0
+ml load FFTW/3.3.10-GCC-11.3.0</code></p>
+<p>Do you have suggested compiler chain for the Lumi modules?</p>
+<ul>
+<li>
+<p>These are regular EasyBuild toolchains, in this case with the Intel compiler and MKL. We don't really support that compiler on LUMI. But I think we have all of those libraries compile with GCC. Anyway, if you want to interface with Python through .so libraries, it is always best to use the GNU compilers.</p>
+</li>
+<li>
+<p>Please check https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/ for packages available or installable with easybuild on LUMI.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
