@@ -8,8 +8,8 @@
 <!-- Materials will be made available after the lecture -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/06-WrapUpDay1.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/06-WrapUpDay1.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-I102-WrapUpDay1.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I102-WrapUpDay1.pdf)

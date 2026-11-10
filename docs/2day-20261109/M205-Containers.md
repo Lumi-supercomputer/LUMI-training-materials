@@ -13,11 +13,11 @@ available or because there are simply too many dependencies.
 <!-- Materials will be made available after the lecture -->
 
 <!--
-<video src="https://462000265.lumidata.eu/2day-next/recordings/205-Containers.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/205-Containers.mp4" controls="controls"></video>
 -->
 -   A video recording will follow.
 
--   [Slides](https://462000265.lumidata.eu/2day-next/files/LUMI-2day-next-205-Containers.pdf)
+-   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-205-Containers.pdf)
 
 -   [Course notes](205-Containers.md)
 
