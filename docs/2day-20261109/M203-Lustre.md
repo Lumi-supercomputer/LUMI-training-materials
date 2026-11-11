@@ -21,3 +21,11 @@ work of other users.
 
 -   [Course notes](203-Lustre.md)
 
+
+## Q&A
+
+1.  What are the best practices for developing a tool best suited for the HPC architectures?
+
+    -   This is a very generic question to answer... But the keywords are parallelism, exploiting hierarchies (like the memory hierarchy) and streaming rather than random access. The latter holds for both RAM memory (where you want predictability) and for file storage (where ideally you also want operations that work on a large block of data at a time).
+    -   Also keep in mind that you have a very fast network connecting the nodes that is faster than anything else. So don't read the same file from every node or process separately but read it once and send the contents to other nodes. Don't use the file system for communication (unless probably a RAM disk, but then you're bound to the node).
+    -   But good programming is really a big course by itself... Some elements of this are touched upon in the Program Analysis and Optimization Workshops that we organise (like the one the next three days).

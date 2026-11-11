@@ -28,6 +28,18 @@ LuMI-O can be accessed.
 
 ## Q&A
 
-/
+1.  What is the benefit of a flat structure for the object storage system?
+
+    -   That is just a basic property of object storage. Internally it is implemented in a totally different way from classical filesystems (and actually uses database technology for the metadata). It is also developed with totally different applications in mind from classical filesystems and is really made for, e.g., replicating data across sites.
+
+2.  Does LUMI also provide a long-term archival system, like on tapes?
+
+    -   No. That is the task of other organisations, and typically national supercomputer centres that get permanent structural funding rather than one-off projects such as LUMI that get funding without guarantee for a successor. LUMI only offers work storage. In fact, data should be copied from LUMI as soon as it is generated as there is also no backup of any volume.
+
+    -   Research Data Management has totally different requirements than what LUMI can provide and is organised in different projects. And often at the national or even university level, organisations that are also likely to persist for the duration that the data has to persist.
+
+3.  In the context of EU digital sovereignty, will the next generation LUMI system consider migerate away from S3 bucket to something EU based providers for object storage?
+
+    -   Nothing is stored in S3. It uses the S3 protocols but no storage from Amazon. Your data is in Kajaani on hardware owned by EuroHPC JU and operated by CSC.
 
 
