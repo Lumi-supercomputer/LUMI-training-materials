@@ -58,10 +58,8 @@ Materials will follow as the course progresses
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
 
-<!--
 **Note:** Some links in the table below are dead and will remain so until after the end of the course.
--->
-<!--
+
 ::spantable::
 
 | Presentation | slides | recording |
@@ -73,6 +71,13 @@ downloaded from LUMI.
 | [Compilers, libraries, runtime, single-core optimisations](M102_Compilers.md) | [slides](M102_Compilers.md#materials) | [lumi](M102_Compilers.md) |
 | [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [lumi](M103_Perftools.md) |
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [lumi](M104_AdvancedPerformanceAnalysis.md) |
+| [Exercises #2](ME104_Session_2.md) | / | / |
+| **Extras** @span |  |  |
+| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
+
+::end-spantable::
+
+<!--
 | [Exercises #2](ME104_Session_2.md) | / | / |
 | [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
 | **Day 2** @span |  |  |
@@ -87,11 +92,8 @@ downloaded from LUMI.
 | **Day 3** @span |  |  |
 | [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
 | [Exercises #8](ME301_Best_Practices_GPU_Optimization.md) | / | / |
-| **Extras** @span |  |  |
-| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
-
-::end-spantable::
 -->
+
 
 <!--
 ## Making the exercises after the course

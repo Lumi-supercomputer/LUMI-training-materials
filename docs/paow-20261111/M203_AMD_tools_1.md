@@ -4,10 +4,10 @@
 
 <!--
 >=== "HIP and ROCm"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_03a_AMD_tools_1a_ROCm.mp4" controls="controls"></video>
+    <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_03a_AMD_tools_1a_ROCm.mp4" controls="controls"></video>
 
 === "ROC-profiler"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4" controls="controls"></video>
+    <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_03b_AMD_tools_1b_rocprof.mp4" controls="controls"></video>
 -->
 
 ## Materials
@@ -17,9 +17,9 @@ Course materials will be made available during and after the course
 <!--
 Directly available as web downloads:
 
--   [First part of the presentation: HIP and ROCm](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_01_HIP-and-ROCm.pdf)
+-   [First part of the presentation: HIP and ROCm](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_01_HIP-and-ROCm.pdf)
 
--   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_01_introduction-to-rocprof.pdf)
+-   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_01_introduction-to-rocprof.pdf)
 -->
 
 <!--
@@ -38,12 +38,12 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Slides first part of the presentation: HIP and ROCm: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_01_HIP-and-ROCm.pdf`
+-   Slides first part of the presentation: HIP and ROCm: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_01_HIP-and-ROCm.pdf`
 
--   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_01_introduction-to-rocprof.pdf`
+-   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_01_introduction-to-rocprof.pdf`
 
--   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_03a_AMD_tools_1a_ROCm.mp4` and
-    `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4`
+-   Recording: `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_03a_AMD_tools_1a_ROCm.mp4` and
+    `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_03b_AMD_tools_1b_rocprof.mp4`
 -->
 
 <!--

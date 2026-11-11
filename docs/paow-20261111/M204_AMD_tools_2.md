@@ -4,10 +4,10 @@
 
 <!--
 === "rocprofiler-sys"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_04a_AMD_tools_2a_rocprof-sys.mp4" controls="controls"></video>
+    <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_04a_AMD_tools_2a_rocprof-sys.mp4" controls="controls"></video>
 
 === "rocprofiler-compute"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_04b_AMD_tools_2b_rocprof-compute.mp4" controls="controls"></video>
+    <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_04b_AMD_tools_2b_rocprof-compute.mp4" controls="controls"></video>
 -->
 
 ## Materials
@@ -17,9 +17,9 @@ Course materials will be made available during and after the course
 <!--
 Directly available as web downloads:
 
--   Presentation 1: [System Profiling with rocprofiler-sys](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_02_rocprof-sys.pdf)
+-   Presentation 1: [System Profiling with rocprofiler-sys](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_02_rocprof-sys.pdf)
 
--   Presentation 2: [Introduction to rocprofiler-compute](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_02_rocprof-compute.pdf)
+-   Presentation 2: [Introduction to rocprofiler-compute](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_02_rocprof-compute.pdf)
 -->
 
 <!--
@@ -36,11 +36,11 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 Archived materials on LUMI:
 
--   Presentation 1: System Profiling with rocprofiler-sys: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_02_rocprof-sys.pdf`
+-   Presentation 1: System Profiling with rocprofiler-sys: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_02_rocprof-sys.pdf`
 
--   Presentation 2: Introduction to Rocprofiler-compute: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_02_rocprof-compute.pdf`
+-   Presentation 2: Introduction to Rocprofiler-compute: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_02_rocprof-compute.pdf`
 
--   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_04a_AMD_tools_2a_rocprof-sys.mp4` and `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_04b_AMD_tools_2b_rocprof-compute.mp4`
+-   Recording: `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_04a_AMD_tools_2a_rocprof-sys.mp4` and `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_04b_AMD_tools_2b_rocprof-compute.mp4`
 -->
 
 <!--

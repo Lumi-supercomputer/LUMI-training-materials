@@ -22,8 +22,8 @@ No materials available at the moment.
     Sections 0on HIP, Hipify and Rocprof.
 
 -   Files for the exercises can be downloaded as either a
-    [bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2)
-    or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar)
+    [bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar.bz2)
+    or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar)
 -->
 
 <!--
@@ -35,13 +35,13 @@ Temporary location of materials (for the lifetime of the training project):
 <!--
 -   [Basic examples](https://hackmd.io/@sfantao/lumi-training-oslo2024-basic-examples)
 
-    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-basic-examples.html)[^1]
-    or as as [MHTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-basic-examples.mhtml)[^2]
+    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-basic-examples.html)[^1]
+    or as as [MHTML file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-basic-examples.mhtml)[^2]
 
 -   [Advanced Omnitrace examples](https://hackmd.io/@sfantao/lumi-training-oslo2024-advanced-omnitrace)
 
-    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-advanced-omnitrace-examples.html)[^1]
-    or as as [MHTML file](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-advanced-omnitrace-examples.mhtml)[^2]
+    Local copy as as [HTML file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-advanced-omnitrace-examples.html)[^1]
+    or as as [MHTML file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-advanced-omnitrace-examples.mhtml)[^2]
 
 [^1]: Single-page HTML with embedded figures, but some layout issues.
 
@@ -53,8 +53,8 @@ to the way the pages are served, the page will be downloaded.
 Archived materials on LUMI:
 
 -   Exercise files as either a
-    bzip2-compressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar.bz2` or
-    an uncompressed tar file `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_AMD.tar`.
+    bzip2-compressed tar file `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar.bz2` or
+    an uncompressed tar file `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar`.
 -->
 
 <!--
