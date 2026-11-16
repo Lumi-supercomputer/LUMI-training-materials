@@ -5,6 +5,7 @@
 ### Regular trainings
 
 Upcoming or currently running events with materials already partly available:
+
 -   [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md) (onsite only training)
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
