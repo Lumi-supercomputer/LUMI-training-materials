@@ -5,9 +5,6 @@
 ### Regular trainings
 
 Upcoming or currently running events with materials already partly available:
-
--   [Moving your HPC workloads to LUMI (November 9-10, 2026)](2day-20261109/index.md) on-site in Copenhagen and online.
-
 -   [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md) (onsite only training)
 
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
@@ -17,7 +14,7 @@ Upcoming or currently running events with materials already partly available:
 Most recently completed main training events:
 
 -   Introductory LUMI training aimed at regular users:
-    [Intro to Supercomputing with LUMI (April 22-23, 2026)](2day-20260422/index.md)
+    [Moving your HPC workloads to LUMI (November 9-10, 2026)](2day-20261109/index.md)
 
     *Short URL to the most recently completed introductory training for regular users:
     [lumi-supercomputer.github.io/intro-latest](https://lumi-supercomputer.github.io/intro-latest)*
