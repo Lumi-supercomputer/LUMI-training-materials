@@ -285,3 +285,7 @@ DAY 2
 
 
 This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)
+
+In addition, this workshop has received funding from the LUMI AI Factory Service Center, 
+which is funded jointly by the EuroHPC Joint Undertaking under Grant Agreement 101234208 
+and the Participating States FI, CZ, DK, EE, NO, PL.
