@@ -3,34 +3,32 @@
 
 ## Materials
 
-No materials available at the moment.
-
 <!--
--   [Exercises on Rocprof](https://hackmd.io/@sfantao/lumi-training-sto-2026#Rocprof)
+No materials available at the moment.
+-->
+
+-   [Exercises on Rocprof](https://hackmd.io/@sfantao/lumi-training-cph-2026#Rocprof)
 
 -   Alternatively, you can make exercises on HIP:
 
-    -   [HIP exercises](https://hackmd.io/@sfantao/lumi-training-sto-2026#HIP-Exercises)
+    -   [HIP exercises](https://hackmd.io/@sfantao/lumi-training-cph-2026#HIP-Exercises)
 
-    -   [Exercises on hipify](https://hackmd.io/@sfantao/lumi-training-sto-2026#Hipify)
--->
+    -   [Exercises on hipify](https://hackmd.io/@sfantao/lumi-training-cph-2026#Hipify)
 
 <!--
--   [Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-sto-2026)
+-   [Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-cph-2026)
     and [local clone of this document](exercises_AMD_hackmd.md).
 
-    Sections 0on HIP, Hipify and Rocprof.
+    Sections on HIP, Hipify and Rocprof.
 
 -   Files for the exercises can be downloaded as either a
     [bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar.bz2)
     or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar)
 -->
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Files for the exercises are in `/project/project_465003358/Exercises/AMD/HPCTrainingExamples`.
--->
 
 <!--
 -   [Basic examples](https://hackmd.io/@sfantao/lumi-training-oslo2024-basic-examples)

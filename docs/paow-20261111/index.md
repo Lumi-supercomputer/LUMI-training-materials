@@ -26,7 +26,7 @@
 
     -   Day 1: `workshop-day1` (on the `standard-g` Slurm partition)
 
-    -   Day 2: `workshop-day2` for GPU (on the `standard-g` Slurm partition)
+    -   Day 2: `workshop-day2` (on the `standard-g` Slurm partition)
 
     -   Day 3: `workshop-day3` (on the `standard-g` Slurm partition)
 
@@ -72,13 +72,6 @@ downloaded from LUMI.
 | [Performance Analysis with Perftools](M103_Perftools.md) | [slides](M103_Perftools.md#materials) | [lumi](M103_Perftools.md) |
 | [Advanced Performance Analysis](M104_AdvancedPerformanceAnalysis.md) | [slides](M104_AdvancedPerformanceAnalysis.md#materials) | [lumi](M104_AdvancedPerformanceAnalysis.md) |
 | [Exercises #2](ME104_Session_2.md) | / | / |
-| **Extras** @span |  |  |
-| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
-
-::end-spantable::
-
-<!--
-| [Exercises #2](ME104_Session_2.md) | / | / |
 | [Interactive demo: Strategies for code optimization](M105_Demo_Optimizing_Code.md) | [lumi](M105_Demo_Optimizing_Code.md#materials) | / |
 | **Day 2** @span |  |  |
 | [MPI Optimizations](M201_MPI.md) | [slides](M201_MPI.md) | [lumi](M201_MPI.md) |
@@ -92,6 +85,12 @@ downloaded from LUMI.
 | **Day 3** @span |  |  |
 | [Best practices: GPU Optimization, tips & tricks](M301_Best_Practices_GPU_Optimization.md) | [slides](M301_Best_Practices_GPU_Optimization.md#materials) | [recording](M301_Best_Practices_GPU_Optimization.md) |
 | [Exercises #8](ME301_Best_Practices_GPU_Optimization.md) | / | / |
+| **Extras** @span |  |  |
+| [Appendix: Links to documentation](A01_Documentation.md) | / | / |
+
+::end-spantable::
+
+<!--
 -->
 
 

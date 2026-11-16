@@ -2,7 +2,6 @@
 
 Exercises on MPI optimizations.
 
-<!--
 Exercises are in `Exercises/HPE/day2/ProgrammingModels`.
 
 Test the Pi example with MPI or MPI/OpenMP on 4 nodes and 4 tasks.
@@ -10,13 +9,12 @@ Test the Pi example with MPI or MPI/OpenMP on 4 nodes and 4 tasks.
 Show where the ranks/threads are running by using the appropriate MPICH environment variable.
 
 Use environment variables to change this order (rank-reordering)
--->
+
 
 ## Materials
  
 No materials available at the moment.
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -30,12 +28,9 @@ Temporary web-available materials:
 
 -    Overview exercise assignments day 2 temporarily available on
      [this link](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_HPE.pdf)
--->
 
-<!--
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-E-2-03-ProgrammingModelExamples_SLURM.pdf).
--->
 
 <!--
 Archived materials on LUMI:
