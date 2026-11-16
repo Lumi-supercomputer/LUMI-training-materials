@@ -6553,18 +6553,16 @@ which was the first edition of this training based on the
 </div>
 <h2 id="course-organisation">Course organisation<a class="headerlink" href="#course-organisation" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Location: <a href="https://maps.app.goo.gl/1CV7ok2RnX824kcZA">University of Latvia, Kalpaka bulvāris 4, Rīga, LV-1050, Latvia</a>. 
-    Second floor, room 218 ( named also Sapere Auda)</li>
+<li>
+<p>Location: <a href="https://maps.app.goo.gl/1CV7ok2RnX824kcZA">University of Latvia, Kalpaka bulvāris 4, Rīga, LV-1050, Latvia</a>. 
+    Second floor, room 218 ( named also Sapere Auda)</p>
+</li>
+<li>
+<p><a href="schedule/">Preliminary schedule</a></p>
+</li>
 </ul>
 <!--
--   Location: UiT - The Artic University of Norway, Tromsø.
-    [University library room UB 244 (2nd floor)](https://use.mazemap.com/#v=1&config=uit&campusid=5&zlevel=1&center=18.973518,69.680798&zoom=18&sharepoitype=poi&sharepoi=174057&search=244)
--->
-<ul>
-<li><a href="schedule/">Preliminary schedule</a></li>
-</ul>
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-June2026?both)
+-   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-Nov2026?both)
 
     Questions with longer-term relevance have been incorporated into the pages linked below.
     This HedgeDoc document will not be monitored anymore for further questions after the course.
@@ -6574,27 +6572,37 @@ which was the first edition of this training based on the
     <br/>Meeting ID: 652 0710 8811
     <br/>Passcode: 530739
 
--   There are two Slurm reservations for the course. One for each day:
+-   There are three Slurm reservations for the course. One for each day:
 
-    -   First day: `AI_workshop_Day1` (on the `small-g` Slurm partition)
-    -   Second day: `AI_workshop_Day2` (on the `standard-g` Slurm partition)
+    -   First day: `AI_workshop_Day1` (on the `small-g` Slurm partition),
+        valid 9am-5pm EET.
+    -   Second day: `AI_workshop_Day2_fullnodes` (on the `standard-g` Slurm partition)
+        for the morning, 9am-12:30pm EET.
+    -   Second day: `AI_workshop_Day2_small` (on the `small-g` Slurm partition) 
+        for work in the afternoon, 1pm till 4:30pm EET.
 
-    Project with the compute resources: `project_465002757`.
+    Project with the compute resources: `project_465003393`.
     These resources are limited and should only be used for the exercises during
     the course and not for your own work.
 -->
 
 <!--
-ReservationName=AI_workshop_Day1 StartTime=2026-06-11T10:00:00 EndTime=2026-06-11T17:30:00 Duration=07:30:00
-   Nodes=nid[005039,005052,005056,005059,005066,005088,005098,005102,005109,007861-007863,007884-007885,007899-007900] NodeCnt=16 CoreCnt=1024 Features=(null) PartitionName=small-g Flags=
-   TRES=cpu=2048
-   Users=(null) Groups=(null) Accounts=project_465002757 Licenses=(null) State=INACTIVE BurstBuffer=(null)
+ReservationName=AI_workshop_Day1 StartTime=2026-11-25T09:00:00 EndTime=2026-11-25T17:00:00 Duration=08:00:00
+   Nodes=nid[005049,005078,005088,005095,005111,007863,007899,007902,007918,007920] NodeCnt=10 CoreCnt=640 Features=(null) PartitionName=small-g Flags=
+   TRES=cpu=1280
+   Users=(null) Groups=(null) Accounts=project_465003393 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 
-ReservationName=AI_workshop_Day2 StartTime=2026-06-12T10:00:00 EndTime=2026-06-12T17:30:00 Duration=07:30:00
-   Nodes=nid[005133,005146,005184,005211,005236,005292-005293,005304,005321,005346,005348-005349,005353,005380,005408,005538,005540-005541,005584-005585,005659,006401,006516-006518,006522-006523,006703,006794-006795,006906-006907] NodeCnt=32 CoreCnt=2048 Features=(null) PartitionName=standard-g Flags=
-   TRES=cpu=4096
-   Users=(null) Groups=(null) Accounts=project_465002757 Licenses=(null) State=INACTIVE BurstBuffer=(null)
+ReservationName=AI_workshop_Day2_small StartTime=2026-11-26T13:00:00 EndTime=2026-11-26T16:30:00 Duration=03:30:00
+   Nodes=nid[005049,005078,005088,005095,005111,007863,007899,007902,007918,007920] NodeCnt=10 CoreCnt=640 Features=(null) PartitionName=small-g Flags=
+   TRES=cpu=1280
+   Users=(null) Groups=(null) Accounts=project_465003393 Licenses=(null) State=INACTIVE BurstBuffer=(null)
+   MaxStartDelay=(null)
+
+ReservationName=AI_workshop_Day2_fullnodes StartTime=2026-11-26T09:00:00 EndTime=2026-11-26T12:30:00 Duration=03:30:00
+   Nodes=nid[005605-005607,006832-006840,007343-007350] NodeCnt=20 CoreCnt=1280 Features=(null) PartitionName=standard-g Flags=
+   TRES=cpu=2560
+   Users=(null) Groups=(null) Accounts=project_465003393 Licenses=(null) State=INACTIVE BurstBuffer=(null)
    MaxStartDelay=(null)
 -->
 
@@ -6707,6 +6715,9 @@ materials are uploaded.
 </ul>
 <h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permanent link">&para;</a></h2>
 <p>This course is supported by the Latvian National Partnership Plan for PRACE (Project No. 1.1.1.5/3/24/I/004)</p>
+<p>In addition, this workshop has received funding from the LUMI AI Factory Service Center, 
+which is funded jointly by the EuroHPC Joint Undertaking under Grant Agreement 101234208 
+and the Participating States FI, CZ, DK, EE, NO, PL.</p>
 
 
 
