@@ -26,9 +26,9 @@ EuroHPC currently funds
     [Alice Recoque](https://eurohpc-ju.europa.eu/new-call-procure-european-exascale-supercomputer-alice-recoque-2024-09-09_en), 
     hosted by the [Jules Verne consortium](https://eurohpc-ju.europa.eu/jules-verne-consortium-will-host-new-eurohpc-exascale-supercomputer-france-2023-06-20_en) (in France) is under procurement.
 
-4.  Another 2 mid-range systems are currently under procurement or under construction:
-    [Daedalus](https://eurohpc-ju.europa.eu/daedalus-call-acquire-new-european-world-class-supercomputer-greece-2024-06-25_en) (in Greece) and
-    [Arrhenius](https://eurohpc-ju.europa.eu/sweden-will-host-new-eurohpc-supercomputer-2023-06-19_en) (in Sweden).
+4.  Another 2 mid-range systems are about to become available:
+    [Daedalus](https://www.eurohpc-ju.europa.eu/supercomputers/our-supercomputers_en#daedalus) (in Greece) and
+    [Arrhenius](https://www.naiss.se/resource/arrhenius/) (in Sweden).
 
 5.  Various upgrades are planned to the current systems and there is also a programme for
     "AI-optimised" supercomputers, whatever that may mean, as these will be very large systems 
@@ -230,7 +230,7 @@ Many new projects (after 15 April 2026) are created in the new
 [separate documentation](https://docs.my-eurohpc.eu/). The EFP is a very ambitious
 project (many say overly ambitious) to unify access to all EuroHPC supercomputers and
 also provide a common software stack and some workflow services. However, it was far
-from ready at the start and overkill for many projects.
+from ready at the start and overkill for many projects. Even today there are still issues.
 So some new EuroHPC projects are still created in the original EuroHPC LUMI portal
 [my.lumi-supercomputer.eu](https://my.lumi-supercomputer.eu/), and this is also were
 all older EuroHPC projects are managed. Both portals also rely on MyAccessID, so all
@@ -246,13 +246,13 @@ Each LUMI country except Finland has its own portal that interfaces with Puhuri
 to manage project for LUMI (Finland of course has a portal too but that is not
 interfacing with Puhuri and uses a different authentication system). Some countries
 (Denmark, Belgium) even have multiple such portals. EuroHPC currently also uses two
-different portals to manage the projets they allocate:
+different portals to manage the projects they allocate:
 Many new EuroHPC projects (after 15 April 2026) are created in the new 
 [EuroHPC Federation Platform (EFP)](https://my-eurohpc.eu) which also has its
 [separate documentation](https://docs.my-eurohpc.eu/). The EFP is a very ambitious
 project (many say overly ambitious) to unify access to all EuroHPC supercomputers and
 also provide a common software stack and some workflow services. However, it was far
-from ready at the start and overkill for many projects.
+from ready at the start and overkill for many projects. Even today there are still issues.
 So some new EuroHPC projects are still created in the original EuroHPC LUMI portal
 [my.lumi-supercomputer.eu](https://my.lumi-supercomputer.eu/), and this is also were
 all older EuroHPC projects are managed. 
@@ -276,7 +276,8 @@ a member of such a project, which is explained in the
 ["AAI" section of the EFP documentation](https://docs.my-eurohpc.eu/aai/aai/).
 <!-- END GENERAL -->
 
-Puhuri can be used to check your remaining project resources, but once your user account 
+MyCSC, Puhuri or the EuroHPC Federation Platform, dependent on where your project is managed,
+can be used to check your remaining project resources, but once your user account 
 on LUMI is created, it is very easy to do this on the command line with the
 `lumi-workspaces` command.
 
@@ -554,6 +555,8 @@ your account in My CSC to MyAccessID so that you do not get a second account on 
 Puhuri-managed project, and in this case your keys are still managed through the My CSC service.
 But this procedure is only important for those LUMI-BE users who may have gotten their first access 
 to LUMI via a project managed by CSC.
+Users with only a project managed through the EuroHPC Federation Platform cannot upload keys to LUMI
+though.  They can only enter LUMI as discussed in the next paragraph.
 END BELGIUM -->
 
 <!-- GENERAL More general version -->
@@ -563,6 +566,8 @@ User accounts that were created via the My CSC service have to use
 the [my.csc.fi](https://my.csc.fi/) portal to manage their keys. It recently became possible to link
 your account in My CSC to MyAccessID so that you do not get a second account on LUMI ones you join a 
 Puhuri-managed project, and in this case your keys are still managed through the My CSC service.
+Users with only a project managed through the EuroHPC Federation Platform cannot upload keys to LUMI
+though.  They can only enter LUMI as discussed in the next paragraph.
 <!-- END GENERAL -->
 
 There is also one login node for certificate-based ssh for users of the EuroHPC Federation Platform (EFP).
@@ -586,6 +591,11 @@ so a more lightweight solution is chosen to be able to serve more users on the a
 It makes no sense to request much richer environments such as Gnome or KDE; they are simply too
 heavyweight and would require to dedicate too much of the budget to hardware for something that
 is not the core task of a supercomputer.
+
+Projects managed through the EuroHPC federation platform have their own web interface that
+gives access to all EuroHPC system on which you have projects. That interface can be reached
+through [https://interactive.my-eurohpc.eu](https://interactive.my-eurohpc.eu), 
+and of course also through the [my-eurohpc.eu portal](https://my-eurohpc.eu) with some extra clicks.
 
 <!-- BELGIUM
 There is currently not much support for other technologies for GUI applications on LUMI. 

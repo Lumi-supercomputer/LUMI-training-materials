@@ -9,7 +9,7 @@ to set up for the exercises.
 
     ??? Solution "Click to see the solution."
         How to check your quota and status of your allocation, is explained in
-        the message-of-the-day at the bottom of the "Announcements" section:
+        the message-of-the-day in the "Announcements" section:
         you can use the `lumi-workspaces` command.
 
         The `lumi-workspaces` command uses Lustre commands to check the quota
@@ -31,7 +31,8 @@ to set up for the exercises.
 
         This may be useful if you use software on your desktop that tries to connect
         repeatedly to LUMI and then tries to find, e.g., a running server that it 
-        created before.
+        created before (e.g., when using Visual Studio Code, though the web interface
+        version of it may be more stable).
 
 3.  Create a shell on a login node using the Open OnDemand web interface.
   
@@ -41,7 +42,7 @@ to set up for the exercises.
             With some browsers
             it is sufficient to type `lumi.csc.fi` in the address bar while others
             require `www.lumi.csc.fi`.
-        -   Click the "Go to login" button. What you need to do here, depends on how
+        -   Click the "Login to LUMI" button. What you need to do here, depends on how
             you got your account. Most users in the course will have to use the "Login Puhuri"
             choice, but if you got your userid via a 462 project, it will be "Login Haka" or in rare
             cases "Login CSC".

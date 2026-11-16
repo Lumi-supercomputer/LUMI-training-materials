@@ -58,7 +58,7 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
         of the LUMI software stack.
 
         Of course we prefer to use a recent software stack, the `25.03` or `25.09` (and preferably the `25.03` as 
-        that is the system default stack and best supported on at this time, April 2025). 
+        that is the system default stack and best supported on at this time, November 2026). 
         Since we want to use other software
         compiled with the Cray compilers also, we really want a `cpeCray` version to avoid conflicts between 
         different toolchains. So the module we want to load is `Brotli/1.1.0-cpeCray-25.03`.
@@ -88,14 +88,14 @@ Explore the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-Ea
 
 *Note*: If you want to be able to uninstall all software installed through the exercises
 easily, we suggest you make a separate EasyBuild installation for the course, e.g.,
-in `/scratch/project_465002764/$USER/eb-course` if you make the exercises during the course.
+in `/scratch/project_465ZZZZZZ/$USER/eb-course` if you make the exercises during the course.
 See also the [instructions on the intro page of the course](index.md).
 
 -   Start from a clean login shell with only the standard modules loaded.
 -   Set `EBU_USER_PREFIX`: 
      
     ```
-    export EBU_USER_PREFIX=/scratch/project_465002764/$USER/eb-course
+    export EBU_USER_PREFIX=/scratch/project_465ZZZZZZ/$USER/eb-course
     ```
 
     You'll need to do that in every shell session where you want to install or use that software.
@@ -106,7 +106,7 @@ See also the [instructions on the intro page of the course](index.md).
     that you just created.
 
     ```
-    rm -rf /scratch/project_465002764/$USER/eb-course
+    rm -rf /scratch/project_465ZZZZZZ/$USER/eb-course
     ```
 
 

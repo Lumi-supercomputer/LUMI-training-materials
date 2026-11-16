@@ -71,9 +71,11 @@ These exercises combine material from several chapters of the tutorial.
 This particular exercise makes most sense if you will be building software
 on LUMI (but remember that this will be more of you than you may expect)!
 
-1.  Build the `hello_jobstep` program tool using interactive shell on a GPU node. 
-    You can pull the source code for the program from git repository 
-	[`https://code.ornl.gov/olcf/hello_jobstep.git`](https://code.ornl.gov/olcf/hello_jobstep). 
+1.  Build the `hello_jobstep` program tool using interactive shell on a GPU node.
+    You can find this program in the `hello_jobstep` subdirectory of the exercises.
+    (Original source is the git repository 
+	[`https://code.ornl.gov/olcf/hello_jobstep.git`](https://code.ornl.gov/olcf/hello_jobstep),
+	but is no longer accessible from Europe.) 
 	It uses a `Makefile` for building and requires Clang and HIP. The code also
 	contains a `README.md` file with instructions, but they will need some changes.
 	The `hello_jobstep` program is actually the main source of inspiration for the 
@@ -95,14 +97,6 @@ on LUMI (but remember that this will be more of you than you may expect)!
 	if the wait is not too long.
 
 	??? Solution "Click to see the solution."
-		
-		Clone the code using `git` command:
-		
-		```
-		git clone https://code.ornl.gov/olcf/hello_jobstep.git
-		```
-		
-		It will create `hello_jobstep` directory consisting source code and `Makefile`.
 		
 		Allocate resources for a single task with a single GPU with `salloc`:
 		

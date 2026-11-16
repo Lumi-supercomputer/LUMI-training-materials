@@ -31,20 +31,25 @@
 		
 		Add the following OpenMP environment variables definition to your script:
 		
-		```
-		export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+		``` bash
+		export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 		export OMP_PLACES=cores
 		export OMP_PROC_BIND=close
 		```
 		
-		To avoid having to use the `--cpus-per-task` flag, you can also set the environment variable `SRUN_CPUS_PER_TASK`
+        The first line is not strictly necessary here as the OpenMP runtime correctly detects the 
+		number of (virtual) cores available to its process and takes that as the number of threads
+		to use.
+
+		To avoid having to use the `--cpus-per-task` flag with `srun`, you can also set the environment variable `SRUN_CPUS_PER_TASK`
 		instead: 
 		
-        ```
-		export SRUN_CPUS_PER_TASK=16 
+        ``` bash
+		export SRUN_CPUS_PER_TASK=$SLURM_+CPUS_PER_TASK 
 		```
 
-		On LUMI this is not strictly necessary as the Slurm `sbatch` processing has been modified to set
+		On LUMI it is not strictly necessary to repeat `--cpus-per-task` for the `srun` command (or do so
+		by setting `SRUN_CPUS_PER_TASK) as the Slurm `sbatch` processing has been modified to set
 		this environment variable, but that was a clunky patch to reconstruct some old behaviour of Slurm
 		and we have already seen cases where the patch did not work (but that were more complex cases that
 		required different environment variables for a similar function).
@@ -54,7 +59,7 @@
 
 		So we end up with the following script:
 
-		```
+		``` bash
 		#!/bin/bash -l
 		#SBATCH --partition=small           # Partition (queue) name
 		#SBATCH --nodes=1                   # Total number of nodes
@@ -74,7 +79,6 @@
 
 		srun hybrid_check -n -r
 		``` 
-
 
     ??? Note "Using `MPICH_CPUMASK_DISPLAY`"
         Cray MPICH can also return information about the CPU mask per process in binary form (a long string of zeros and ones)
@@ -108,7 +112,7 @@
 		["GPU binding: Linear GCD, match cores"](202-Binding.md#linear-assignment-of-gcd-then-match-the-cores) 
 		slides and we only need to adapt the CPU mask:
 		
-		```
+		``` bash
 		#!/bin/bash -l
 		#SBATCH --partition=standard-g      # Partition (queue) name
 		#SBATCH --nodes=1                   # Total number of nodes
@@ -142,6 +146,18 @@
 		number 1 of each chiplet).
 
 		Save the job script as `job_step.sh` then simply submit it with sbatch. Inspect the job output.
+
+		The first line of actual output of the `gpu_check` command is:
+
+		```
+        MPI 000 - OMP 000 - HWT 049 (CCD6) - Node nid005225 - RT_GPU_ID 0 - GPU_ID 0 - Bus_ID c1(GCD0/CCD6)
+		```
+
+		What is important here is that the CCD number which is shown after `HWT` which stands for hardware thread
+		or virtual core (and this is `CCD6` in this case as virtual core 49 is on the seventh CCD, with numbering
+		starting from 0) is the same as the one shown at the end. The `(GCD0/CCD6)` is the number of the GCD in
+		the physical numbering (also called "bare OS numbering" in these notes) and the matching CCD for an optimal
+		mapping. So if those CCD numbers correspond, the mapping is OK. 
 		
 		Note that in fact, if you had used the `cpeCray` version of the
 		`lumi-CPEtools` module, 
@@ -152,7 +168,7 @@
 		An alternative is to use a 
 		[linear CCD mapping, adapting the order of the GPUs](202-Binding.md#linear-assignment-of-the-ccds-then-match-the-gcd):
 
-		```
+		``` bash
 		#!/bin/bash -l
 		#SBATCH --partition=standard-g      # Partition (queue) name
 		#SBATCH --nodes=1                   # Total number of nodes
@@ -183,7 +199,7 @@
 		each task, then restricting via OpenMP environment variables. So we can also use
 		`--cps-per-task`: 
 
-		```
+		``` bash
 		#!/bin/bash -l
 		#SBATCH --partition=standard-g      # Partition (queue) name
 		#SBATCH --nodes=1                   # Total number of nodes
@@ -195,11 +211,6 @@
 		module load LUMI/25.03 partition/G
 		module load lumi-CPEtools/1.2-cpeGNU-25.03-hpcat-0.9
 
-		CPU_BIND="mask_cpu:0x7e,0x7e00,"
-		CPU_BIND="${CPU_BIND}0x7e0000,0x7e000000,"
-		CPU_BIND="${CPU_BIND}0x7e00000000,0x7e0000000000,"
-		CPU_BIND="${CPU_BIND}0x7e000000000000,0x7e00000000000000"
-		
 		export OMP_NUM_THREADS=6
 		export OMP_PROC_BIND=close
 		export OMP_PLACES=cores
@@ -212,7 +223,7 @@
         Finally, we can of course also do the GPU binding via a wrapper script.
 		For the linear GCD case, we get:
 
-		```
+		``` bash
 		#!/bin/bash -l
 		#SBATCH --partition=standard-g      # Partition (queue) name
 		#SBATCH --nodes=1                   # Total number of nodes
@@ -240,12 +251,13 @@
 		export OMP_PROC_BIND=close
 		export OMP_PLACES=cores
 		
+		# With the wrapper script
 		srun --cpu-bind=${CPU_BIND} ./select_gpu_$SLURM_JOB_ID gpu_check -l
 
-		# Or without the wrapper script
-		echo -e "\nWithout wrapper script:"
+		# Or without the wrapper script but clever use of bash:
+		echo -e "\nWithout wrapper script, with bash and double quotes:"
 		srun --cpu-bind=${CPU_BIND} bash -c "ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID gpu_check -l"
-		echo -e "\nOr with another quoting style:"
+		echo -e "\nOr with single quotes:"
 		srun --cpu-bind=${CPU_BIND} bash -c 'ROCR_VISIBLE_DEVICES=$SLURM_LOCALID gpu_check -l'
 		```
 
