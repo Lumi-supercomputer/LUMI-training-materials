@@ -26,7 +26,7 @@
 
     -   Day 1: `workshop-day1` (on the `standard-g` Slurm partition)
 
-    -   Day 2: `workshop-day2` for GPU (on the `standard-g` Slurm partition)
+    -   Day 2: `workshop-day2` (on the `standard-g` Slurm partition)
 
     -   Day 3: `workshop-day3` (on the `standard-g` Slurm partition)
 
@@ -58,10 +58,8 @@ Materials will follow as the course progresses
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
 
-<!--
 **Note:** Some links in the table below are dead and will remain so until after the end of the course.
--->
-<!--
+
 ::spantable::
 
 | Presentation | slides | recording |
@@ -91,7 +89,10 @@ downloaded from LUMI.
 | [Appendix: Links to documentation](A01_Documentation.md) | / | / |
 
 ::end-spantable::
+
+<!--
 -->
+
 
 <!--
 ## Making the exercises after the course

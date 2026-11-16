@@ -4,53 +4,52 @@
 
 <!--
 >=== "HIP and ROCm"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_03a_AMD_tools_1a_ROCm.mp4" controls="controls"></video>
+    <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_03a_AMD_tools_1a_ROCm.mp4" controls="controls"></video>
 
 === "ROC-profiler"
-    <video src="https://462000265.lumidata.eu/paow-20260511/recordings/LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4" controls="controls"></video>
+    <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_03b_AMD_tools_1b_rocprof.mp4" controls="controls"></video>
 -->
 
 ## Materials
 
 Course materials will be made available during and after the course
 
-<!--
 Directly available as web downloads:
 
--   [First part of the presentation: HIP and ROCm](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_01_HIP-and-ROCm.pdf)
+-   [First part of the presentation: HIP and ROCm](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_01_HIP-and-ROCm.pdf)
 
--   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20260511/files/LUMI-paow-20260511-2_01_introduction-to-rocprof.pdf)
--->
+-   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_01_introduction-to-rocprof.pdf)
 
-<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   Slides first part of the presentation: HIP and ROCm: `'/project/project_465003358/Slides/AMD/session 01 - HIP and ROCm.pdf'`
 
 -   Slides second part of the presentation: Introduction to ROC-Profiler: `'/project/project_465003358/Slides/AMD/session 02 - introduction to rocprof.pdf'`
--->
 
 <!--
 -   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
 -->
 
 
-<!--
 Archived materials on LUMI:
 
--   Slides first part of the presentation: HIP and ROCm: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_01_HIP-and-ROCm.pdf`
+-   Slides first part of the presentation: HIP and ROCm: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_01_HIP-and-ROCm.pdf`
 
--   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20260511/files/LUMI-paow-20260511-2_01_introduction-to-rocprof.pdf`
-
--   Recording: `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_03a_AMD_tools_1a_ROCm.mp4` and
-    `/appl/local/training/paow-20260511/recordings/LUMI-paow-20260511-2_03b_AMD_tools_1b_rocprof.mp4`
--->
+-   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_01_introduction-to-rocprof.pdf`
 
 <!--
-## References (from the slides)
+-   Recording: `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_03a_AMD_tools_1a_ROCm.mp4` and
+    `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_03b_AMD_tools_1b_rocprof.mp4`
+-->
 
--   [HIP Porting Guide corrected link](https://github.com/ROCm/hip/blob/develop/docs/how-to/hip_porting_guide.rst)
+## References (from the slides and some extra)
+
+-   [HIP Porting Guide](https://github.com/ROCm/hip/blob/develop/docs/how-to/hip_porting_guide.rst)
     or [this version for ROCm(tm) 6.4.3](https://rocm.docs.amd.com/projects/HIP/en/docs-6.4.3/how-to/hip_porting_guide.html)
+
+-   [Supported GPUs](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)
+
+-   [AMD HPC Training Examples](https://github.com/AMD/HPCTrainingExamples)
 
 -   New generation flang:
 
@@ -58,10 +57,9 @@ Archived materials on LUMI:
 
     -   [Report issues with the new generation Fortran compiler](https://github.com/ROCm/llvm-project/issues)
 
--   [ROC-profiler repo](https://github.com/ROCm-Developer-Tools/rocprofiler)
+-   [Using rocprofv3 (ROCm(tm) 6.3 version of the documentation)](https://rocm.docs.amd.com/projects/rocprofiler-sdk/en/docs-6.3.3/how-to/using-rocprofv3.html)
 
 -   [Perfetto UI for visualisation](https://ui.perfetto.dev/)
--->
 
 <!--
 -   [Omnitrace documentation web site](https://rocm.github.io/omnitrace/index.html)
