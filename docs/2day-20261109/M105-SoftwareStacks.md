@@ -24,8 +24,7 @@ to the user base of the machine, the approach taken on LUMI may be a bit unusual
 
 ## Q&A
 
-1.  When we are using EasyBuild will it still upset Lastre
-
+1.  When we are using EasyBuild will it still upset Lustre.
     -   Yes if you use it in an inconsiderate manner it can still upset the lustre filesystem.
 
         EasyBuild itself also puts some load on the filesystem as Python software with lots of small EasyConfigs, but at least it spends most of its time compiling, etc., and we set up EasyBuild to do that on RAM disks as much as possible.
@@ -33,6 +32,6 @@ to the user base of the machine, the approach taken on LUMI may be a bit unusual
 
 2. If we load cray python module from our project folder and execute some python app, will it still run from Login node / dev G
 
-    -   If you execute a python script after loading the cray-python module yes it will execute on the login node. If you do an srun command it will remember what modules you have loaded and bring them into the running job. If this does not answer your question please feel free to elaborate
+    -   If you execute a python script after loading the `cray-python` module yes it will execute on the login node. If you do an `srun` command it will remember what modules you have loaded and bring them into the running job.
 
 

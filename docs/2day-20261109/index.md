@@ -11,10 +11,16 @@
 
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-nov2026)
 
+    During the course, you can ask questions via this documents, and for remote participants
+    this is the only way to ask questions.
     Please ask questions only about the current lecture, or possibly past lectures,
     but not about the material that is yet to come. Ask questions in the section of
     the current lecture or exercise session as that is the section that is being monitored.
 
+    Note that while the document may remain available for some time after the course, we do
+    no longer monitor it to answer further questions.
+
+<!--
 -   Project for the course: `project_465003355`.
 
     This project provides resources for the exercises. The project should not be used for your own work!
@@ -23,6 +29,7 @@
 
     -   CPU nodes: `lumi-intro-small` (on the `small` Slurm partition)
     -   GPU nodes: `lumi-intro-standard_g` (on the `standard-g` Slurm partition)
+-->
 
 
 ## Course materials

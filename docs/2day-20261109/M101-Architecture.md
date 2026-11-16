@@ -36,6 +36,8 @@ be mapped upon the machine for optimal performance.
 
     -   It's a little bit more complicated. At the BIOS/UEFI level, they are enabled on LUMI. So, e.g., the second set of registers is always there. At the level of running a job, the default on LUMI but only for a job step started with `srun` is to not use the second hardware thread. But the batch job step will use them all. So it is not the same as turning off the hardware threads at the BIOS/UEFI level as then the second set of registers is not even there and more space is available for the internal register renumbering.
 
+    -   And whether it's on or not at the BIOS/UEFI level is completely up to the sysadmins. There are cases where using the
+        hyperthreads may make sense, so they are left on on LUMI so that users can still chose what is best for their job.
 
 3.  Are all NUMA regions connected all 4 GPUs ?
 
