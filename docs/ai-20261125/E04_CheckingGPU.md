@@ -3,7 +3,7 @@
 *Presenters:* **Samuel Antão** and Paul Bauer (AMD)
 
 <!--
-[Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611/04_Understanding_GPU_activity_and_checking_jobs).
+[Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20261125/04_Understanding_GPU_activity_and_checking_jobs).
 -->
 
 <!--
@@ -15,7 +15,7 @@ A video recording of the discussion of the solution will follow.
 -->
 
 <!--
-<video src="https://462000265.lumidata.eu/ai-20260611/recordings/E04_CheckingGPU.mp4" controls="controls"></video>
+<video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-E04_CheckingGPU.mp4" controls="controls"></video>
 -->
 
 
