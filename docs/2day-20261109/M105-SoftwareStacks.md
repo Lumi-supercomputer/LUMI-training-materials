@@ -11,10 +11,9 @@ to the user base of the machine, the approach taken on LUMI may be a bit unusual
 
 <!-- Materials will be made available after the lecture -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20261109/recordings/105-SoftwareStacks.mp4" controls="controls"></video>
--->
--   A video recording will follow.
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/LUMI-2day-20261109-105-SoftwareStacks.mp4" controls="controls"></video>
+
+<!-- -   A video recording will follow. -->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-105-SoftwareStacks.pdf)
 

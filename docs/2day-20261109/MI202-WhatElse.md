@@ -9,10 +9,9 @@ and how you can learn about it.
 
 <!-- Materials will be made available after the lecture -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20261109/recordings/13-WhatElse.mp4" controls="controls"></video>
--->
--   A video recording will follow.
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/LUMI-2day-20261109-I202-WhatElse.mp4" controls="controls"></video>
+
+<!-- -   A video recording will follow. -->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I202-WhatElse.pdf)
 
