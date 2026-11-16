@@ -14,10 +14,9 @@ LuMI-O can be accessed.
 
 <!-- Materials will be made available during and after the lecture -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20261109/recordings/204-ObjectStorage.mp4" controls="controls"></video>
--->
--   A video recording will follow.
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/LUMI-2day-20261109-204-ObjectStorage.mp4" controls="controls"></video>
+
+<!-- -   A video recording will follow. -->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-2day-20261109-204-ObjectStorage.pdf)
 
@@ -38,8 +37,8 @@ LuMI-O can be accessed.
 
     -   Research Data Management has totally different requirements than what LUMI can provide and is organised in different projects. And often at the national or even university level, organisations that are also likely to persist for the duration that the data has to persist.
 
-3.  In the context of EU digital sovereignty, will the next generation LUMI system consider migerate away from S3 bucket to something EU based providers for object storage?
+3.  In the context of EU digital sovereignty, will the next generation LUMI system consider migrate away from S3 bucket to something EU based providers for object storage?
 
-    -   Nothing is stored in S3. It uses the S3 protocols but no storage from Amazon. Your data is in Kajaani on hardware owned by EuroHPC JU and operated by CSC.
+    -   Nothing is stored in S3. LUMI-O uses the S3 protocols but no storage from Amazon. Your data is in Kajaani on hardware owned by EuroHPC JU and operated by CSC.
 
 

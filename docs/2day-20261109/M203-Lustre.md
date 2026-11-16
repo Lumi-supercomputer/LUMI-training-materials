@@ -12,10 +12,9 @@ work of other users.
 
 <!-- Materials will be made available after the lecture -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20261109/recordings/203-Lustre.mp4" controls="controls"></video>
--->
--   A video recording will follow.
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/LUMI-2day-20261109-203-Lustre.mp4" controls="controls"></video>
+
+<!-- -   A video recording will follow. -->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-203-Lustre.pdf)
 
@@ -27,5 +26,13 @@ work of other users.
 1.  What are the best practices for developing a tool best suited for the HPC architectures?
 
     -   This is a very generic question to answer... But the keywords are parallelism, exploiting hierarchies (like the memory hierarchy) and streaming rather than random access. The latter holds for both RAM memory (where you want predictability) and for file storage (where ideally you also want operations that work on a large block of data at a time).
+
     -   Also keep in mind that you have a very fast network connecting the nodes that is faster than anything else. So don't read the same file from every node or process separately but read it once and send the contents to other nodes. Don't use the file system for communication (unless probably a RAM disk, but then you're bound to the node).
+
     -   But good programming is really a big course by itself... Some elements of this are touched upon in the Program Analysis and Optimization Workshops that we organise (like the one the next three days).
+
+2.  Does Lustre have a maximum file size?
+
+    -   It does, and how large it is, depends on how Lustre is set up (as there are different options).
+        However, noone on LUMI gets a big enough quotum to reach that filesize. Depending on the Lustre system
+        it ranges from several petabytes to exabytes.

@@ -14,10 +14,9 @@ run a program.
 
 <!-- Materials will be made available after the lecture -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20261109/recordings/102-CPE.mp4" controls="controls"></video>
--->
--   A video recording will follow.
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/LUMI-2day-20261109-102-CPE.mp4" controls="controls"></video>
+
+<!-- -   A video recording will follow. -->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-102-CPE.pdf)
 
@@ -30,7 +29,11 @@ run a program.
 
 1.  Why is the next system Nvidia ? is it to do with vendor lock
 
-    -   LUMI-AI will be an AMD machine (see: https://www.eurohpc-ju.europa.eu/eurohpc-ju-signs-contract-deploy-lumi-ai-supercomputer-2026-08-31_en ).
+    -   LUMI-AI will be an AMD machine, see the [EuroHPC announcement](https://www.eurohpc-ju.europa.eu/eurohpc-ju-signs-contract-deploy-lumi-ai-supercomputer-2026-08-31_en).
 
-    -   If the confusion comes from the Wave32 model: AMD currently has two architectures: CDNA version 1 till 4 (MI250X is CDNA2) have Wave64, but the some of the RDNA GPUs are also supported by ROCm and they have Wave32. For the next iteration, CDNA5, AMD is moving to a more unified architecture and also goes to Wave32 as the native format for the compute GPUs.
+    -   If the confusion comes from the Wave32 model: AMD currently has two architectures: 
+        CDNA version 1 till 4 (MI250X is CDNA2) have Wave64, but the some of the RDNA GPUs 
+        are also supported by ROCm and they have Wave32. For the next iteration, CDNA5, 
+        AMD is moving to a more unified architecture and also goes to Wave32 as the native 
+        format for the compute GPUs.
 

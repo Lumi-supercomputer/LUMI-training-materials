@@ -11,10 +11,9 @@ modules can be found.
 
 <!-- Materials will be made available after the lecture -->
 
-<!--
-<video src="https://462000265.lumidata.eu/2day-20261109/recordings/104-Modules.mp4" controls="controls"></video>
--->
--   A video recording will follow.
+<video src="https://462000265.lumidata.eu/2day-20261109/recordings/LUMI-2day-20261109-104-Modules.mp4" controls="controls"></video>
+
+<!-- -   A video recording will follow. -->
 
 -   [Slides](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-104-Modules.pdf)
 
@@ -45,5 +44,6 @@ modules can be found.
     
     -   These are regular EasyBuild toolchains, in this case with the Intel compiler and MKL. We don't really support that compiler on LUMI. But I think we have all of those libraries compile with GCC. Anyway, if you want to interface with Python through .so libraries, it is always best to use the GNU compilers.
 
-    -   Please check https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/ for packages available or installable with easybuild on LUMI.
+    -   Please check the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)
+        for packages available or installable with easybuild on LUMI.
     

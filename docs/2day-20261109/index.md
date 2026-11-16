@@ -11,10 +11,16 @@
 
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/LUMI-intro-course-nov2026)
 
+    During the course, you can ask questions via this documents, and for remote participants
+    this is the only way to ask questions.
     Please ask questions only about the current lecture, or possibly past lectures,
     but not about the material that is yet to come. Ask questions in the section of
     the current lecture or exercise session as that is the section that is being monitored.
 
+    Note that while the document may remain available for some time after the course, we do
+    no longer monitor it to answer further questions.
+
+<!--
 -   Project for the course: `project_465003355`.
 
     This project provides resources for the exercises. The project should not be used for your own work!
@@ -23,6 +29,7 @@
 
     -   CPU nodes: `lumi-intro-small` (on the `small` Slurm partition)
     -   GPU nodes: `lumi-intro-standard_g` (on the `standard-g` Slurm partition)
+-->
 
 
 ## Course materials
@@ -54,7 +61,7 @@ These materials will become available as the course progresses.
 | [LUMI Software Stacks](M105-SoftwareStacks.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-105-SoftwareStacks.pdf) | [N](105-SoftwareStacks.md) | [V](M105-SoftwareStacks.md) |
 | [Exercises 3](ME105-Exercises-3.md) | / | / | / |
 | [LUMI Support and Documentation](M106-Support.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-106-Support.pdf) | [N](106-Support.md) | [V](M106-Support.md) |
-| [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I102-WrapUpDay1.pdf) | / | [V](MI102-WrapUpDay1.md) |
+| [Wrap-Up Day 1](MI102-WrapUpDay1.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I102-WrapUpDay1.pdf) | / | / |
 | **Day 2** @span |  |  |  |
 | [Introduction Day 2](MI201-IntroductionDay2.md) | [S](https://462000265.lumidata.eu/2day-20261109/files/LUMI-2day-20261109-I201-IntroductionDay2.pdf) | / | [V](MI201-IntroductionDay2.md) |
 | ***Theme: Running jobs efficiently*** @span |  |  |  |
@@ -75,6 +82,7 @@ These materials will become available as the course progresses.
 <!-- -->
 <!-- | [Miscellaneous questions](A02-Misc_Questions.md) | / | [questions](A02-Misc_Questions.md) | / | -->
 
+<!--
 ## Setting up for the exercises
 
 During the course, you can use the training project `project_465003355` for the exercises.
@@ -134,9 +142,8 @@ day).
     [bzip2-compressed version](https://462000265.lumidata.eu/2day-20261109/files/exercises-20261109.tar.bz2).
 
 -   You're all set to go!
+-->
 
-
-<!--
 ## Making the exercises after the course
 
 The ["Object Storage" exercises](E204-ObjectStorage.md)
@@ -172,8 +179,6 @@ exercises from [Exercise session 4](ME202-Exercises-4.md) you can no longer use 
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
-
 
 
 ## Web links
