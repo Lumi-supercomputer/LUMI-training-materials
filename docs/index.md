@@ -6,8 +6,6 @@
 
 Upcoming or currently running events with materials already partly available:
 
--   [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md) (onsite only training)
-
 -   [Moving your AI training jobs to LUMI: A Hands-On Workshop. A 2-day AI workshop (November 25-26, 2026, Riga)](ai-20261125/index.md).
     An official announcement will follow.
 
@@ -28,7 +26,7 @@ Most recently completed main training events:
 
 -   Program Analysis and Optimization Workshop (advanced level): A shorter version of the 4-day advanced
     training, focussed on profiling tools and techniques to improve program performance:
-    [LUMI Profiling and Optimization Workshop (Advanced Level) (May 11-13, 2026)](paow-20260511/index.md)
+    [LUMI Profiling and Optimization Workshop (Advanced Level), Copenhagen (November 11-13, 2026)](paow-20261111/index.md)
 
     *Short URL to the most recently completed Program Analysis and Optimization workshop:
     [lumi-supercomputer.github.io/paow-latest](https://lumi-supercomputer.github.io/paow-latest)*
