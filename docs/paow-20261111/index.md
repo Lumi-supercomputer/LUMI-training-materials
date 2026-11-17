@@ -1,6 +1,6 @@
 # LUMI Performance Analysis and Optimization Workshop, Copenhagen, 11-13 November 2026
 
-**[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-profiling-and-optimization-workshop-on-site/)**
+<!-- **[Registration is via the LUMI web site.](https://lumi-supercomputer.eu/events/lumi-profiling-and-optimization-workshop-on-site/)** -->
 
 
 ## Course organisation
@@ -17,7 +17,15 @@
     This document is for questions during the course by course participants only.
     It will not be checked before the course. If you have issues joining the project,
     please contact the LUMI helpdesk instead.
+    
+    Please ask questions only about the current lecture, or possibly past lectures,
+    but not about the material that is yet to come. Ask questions in the section of
+    the current lecture or exercise session as that is the section that is being monitored.
 
+    Note that while the document may remain available for some time after the course, we do
+    no longer monitor it to answer further questions.
+
+<!--
 -   Course project: `project_465003358`.
     This project should only be used during the course and be used for the course exercise 
     sessions only.
@@ -29,7 +37,7 @@
     -   Day 2: `workshop-day2` (on the `standard-g` Slurm partition)
 
     -   Day 3: `workshop-day3` (on the `standard-g` Slurm partition)
-
+-->
 <!--
 ReservationName=workshop-day1 StartTime=2026-11-11T10:00:00 EndTime=2026-11-11T18:00:00 Duration=08:00:00
    Nodes=nid[005881-005884,006612-006616,006884-006887,007544-007547] NodeCnt=17 CoreCnt=1088 Features=(null) PartitionName=standard-g Flags=
@@ -53,7 +61,7 @@ ReservationName=workshop-day3 StartTime=2026-11-12T10:00:00 EndTime=2026-11-12T1
 
 ## Course materials
 
-Materials will follow as the course progresses
+<!-- Materials will follow as the course progresses -->
 
 Due to copyright issues some of the materials are only available to current LUMI users and have to be
 downloaded from LUMI.
@@ -94,7 +102,6 @@ downloaded from LUMI.
 -->
 
 
-<!--
 ## Making the exercises after the course
 
 ### HPE
@@ -110,16 +117,11 @@ The exercise material remains available in the course archive on LUMI:
 To reconstruct the exercise material in your own home, project or scratch directory, all you need to do is run:
 
 ```
-tar -xf /appl/local/training/paow-20260511/files/LUMI-paow-20260511-Exercises_HPE.tar.bz2
+tar -xf /appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_HPE.tar.bz2
 ```
 
 in the directory where you want to work on the exercises. This will create the `Exercises/HPE` subdirectory
 from the training project. 
-
-However, instead of running the `lumi_c.sh` or `lumi_g.sh` scripts that only work for the course as 
-they set the course project as the active project for Slurm and also set a reservation, use the
-`lumi_c_after.sh` and `lumi_g_after.sh` scripts instead, but first edit them to use one of your
-projects.
 
 
 ### AMD
@@ -139,4 +141,4 @@ or will still work after an update of the system.
 !!! Warning
     The software and exercises were tested thoroughly at the time of the course. LUMI however is in
     continuous evolution and changes to the system may break exercises and software
--->
+

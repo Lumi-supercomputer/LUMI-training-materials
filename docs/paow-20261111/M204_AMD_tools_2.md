@@ -2,13 +2,12 @@
 
 *Presenter: Samuel Antao (AMD)*
 
-<!--
 === "rocprofiler-sys"
     <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_04a_AMD_tools_2a_rocprof-sys.mp4" controls="controls"></video>
 
 === "rocprofiler-compute"
     <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_04b_AMD_tools_2b_rocprof-compute.mp4" controls="controls"></video>
--->
+
 
 ## Materials
 
@@ -23,15 +22,15 @@ Directly available as web downloads:
 -   Presentation 2: [Introduction to rocprofiler-compute](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_02_rocprof-compute.pdf)
 
 <!--
--   The last slides cover [exercises for this session](ME_2_02_AMD_tools_2.md#materials)
+-   The last slides cover [exercises for this session](ME204_AMD_tools_2.md#materials)
 -->
 
-Temporary location of materials (for the lifetime of the training project):
+<!-- Temporary location of materials (for the lifetime of the training project):
 
 -   Presentation 1: System Profiling with rocprofiler-sys: `'/project/project_465003358/Slides/AMD/session 03 - rocprof-sys.pdf'`
 
 -   Presentation 2: Introduction to Rocprofiler-compute: `'/project/project_465003358/Slides/AMD/session 04 - rocprof-compute.pdf'`
-
+-->
 
 Archived materials on LUMI:
 
@@ -39,9 +38,8 @@ Archived materials on LUMI:
 
 -   Presentation 2: Introduction to Rocprofiler-compute: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_02_rocprof-compute.pdf`
 
-<!--
 -   Recording: `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_04a_AMD_tools_2a_rocprof-sys.mp4` and `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_04b_AMD_tools_2b_rocprof-compute.mp4`
--->
+
 
 ## Links from the slides
 

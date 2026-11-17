@@ -2,13 +2,12 @@
 
 *Presenter: Samuel Antao (AMD)*
 
-<!--
->=== "HIP and ROCm"
+=== "HIP and ROCm"
     <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_03a_AMD_tools_1a_ROCm.mp4" controls="controls"></video>
 
 === "ROC-profiler"
     <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-2_03b_AMD_tools_1b_rocprof.mp4" controls="controls"></video>
--->
+
 
 ## Materials
 
@@ -20,14 +19,14 @@ Directly available as web downloads:
 
 -   [Second part of the presentation: Introduction to ROC-Profiler](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-2_01_introduction-to-rocprof.pdf)
 
-Temporary location of materials (for the lifetime of the training project):
+<!-- Temporary location of materials (for the lifetime of the training project):
 
 -   Slides first part of the presentation: HIP and ROCm: `'/project/project_465003358/Slides/AMD/session 01 - HIP and ROCm.pdf'`
 
 -   Slides second part of the presentation: Introduction to ROC-Profiler: `'/project/project_465003358/Slides/AMD/session 02 - introduction to rocprof.pdf'`
-
+-->
 <!--
--   Many of the slides cover the ["Basic examples" from the exercises for this session](ME_2_01_AMD_tools_1.md#materials)
+-   Many of the slides cover the ["Basic examples" from the exercises for this session](ME203_AMD_tools_1.md#materials)
 -->
 
 
@@ -37,10 +36,9 @@ Archived materials on LUMI:
 
 -   Slides second part of the presentation: Introduction to ROC-Profiler: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-2_01_introduction-to-rocprof.pdf`
 
-<!--
 -   Recording: `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_03a_AMD_tools_1a_ROCm.mp4` and
     `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-2_03b_AMD_tools_1b_rocprof.mp4`
--->
+
 
 ## References (from the slides and some extra)
 
@@ -61,11 +59,6 @@ Archived materials on LUMI:
 
 -   [Perfetto UI for visualisation](https://ui.perfetto.dev/)
 
-<!--
--   [Omnitrace documentation web site](https://rocm.github.io/omnitrace/index.html)
-
--   [Ghost Exhange OpenMP offload example suite on GitHub](https://github.com/amd/HPCTrainingExamples/tree/main/MPI-examples/GhostExchange/GhostExchange_ArrayAssign)
-
 -   [ROCm docs](https://rocm.docs.amd.com/en/latest/)
 
 -   [ROCm blog post "Introduction to profiling tools for AMD hardware"](https://rocm.blogs.amd.com/software-tools-optimization/profilers/README.html)
@@ -73,7 +66,12 @@ Archived materials on LUMI:
 -   [AMD Instinct(tm) GPU Training](https://fs.hlrs.de/projects/par/events/2024/GPU-AMD/) - 
     Look for session 15, on day 4.
 
--   [See also the materials linked in Exercise session #2](ME_2_01_AMD_tools_1.md)
+-   [See also the materials linked in Exercise session #5](ME203_AMD_tools_1.md)
+
+<!--
+-   [Omnitrace documentation web site](https://rocm.github.io/omnitrace/index.html)
+
+-   [Ghost Exhange OpenMP offload example suite on GitHub](https://github.com/amd/HPCTrainingExamples/tree/main/MPI-examples/GhostExchange/GhostExchange_ArrayAssign)
 -->
 
 

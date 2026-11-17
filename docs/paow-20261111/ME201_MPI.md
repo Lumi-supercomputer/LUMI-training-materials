@@ -13,8 +13,9 @@ Use environment variables to change this order (rank-reordering)
 
 ## Materials
  
-No materials available at the moment.
+<!-- No materials available at the moment. -->
 
+<!--
 Temporary location of materials (for the lifetime of the training project):
 
 -   See the exercise assignments in
@@ -31,8 +32,8 @@ Temporary web-available materials:
 
 -    Exercise notes (ProgrammingModelExamples_SLURM.pdf) on
      [this link](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-E-2-03-ProgrammingModelExamples_SLURM.pdf).
+-->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise assignments in `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_HPE.pdf`
@@ -42,4 +43,3 @@ Archived materials on LUMI:
 
 -   Exercises as uncompressed tar file in
     `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_HPE.tar`
--->

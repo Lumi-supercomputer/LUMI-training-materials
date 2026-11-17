@@ -81,11 +81,6 @@ nav:
     - ai-20260611/index.md
     - Schedule: ai-20260611/schedule.md
     - Course materials: ai-20260611/index.html#course-materials
-  - "Performance Analysis & Optimization May 2026":
-    - paow-20260511/index.md
-    - Schedule: paow-20260511/schedule.md
-    - Travel info: paow-20260511/travel.md
-    - Course materials: paow-20260511/index.html#course-materials
   - "Smartsim March 2026":
     - smartsim-20260331/index.md
     - Schedule: smartsim-20260331/schedule.md
@@ -106,6 +101,11 @@ nav:
     - "LUMI hackathon May 2026":
       - Hackathon-20260518/index.md
       - Local info: Hackathon-20260518/localinfo.md
+    - "Performance Analysis & Optimization May 2026":
+      - paow-20260511/index.md
+      - Schedule: paow-20260511/schedule.md
+      - Travel info: paow-20260511/travel.md
+      - Course materials: paow-20260511/index.html#course-materials
     - "Supercomputing with LUMI April 2026":
       - 2day-20260422/index.md
       - Schedule: 2day-20260422/schedule.md
@@ -238,7 +238,7 @@ plugins:
   - redirects:
       redirect_maps:
           intro-latest.md: 2day-20261109/index.md
-          paow-latest.md: paow-20260511/index.md
+          paow-latest.md: paow-20261111/index.md
           comprehensive-latest.md: 2p3day-20250303/index.md
           advanced-latest.md: 2p3day-20250303/index.md
           AI-latest.md: ai-20260611/index.md
