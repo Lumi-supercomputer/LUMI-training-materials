@@ -3,9 +3,7 @@
 <!-- Cannot do in full italics as the ã is misplaced which is likely an mkdocs bug. -->
 *Presenter:* Samuel Antao (AMD)
 
-<!--
 <video src="https://462000265.lumidata.eu/paow-20261111/recordings/LUMI-paow-20261111-3_01_Best_Practices_GPU_Optimization.mp4" controls="controls"></video>
--->
 
 
 ## Materials
@@ -14,11 +12,12 @@
 Course materials will be provided during and after the course.
 -->
 
-Temporary location of materials (for the lifetime of the training project):
+<!-- Temporary location of materials (for the lifetime of the training project):
 
 -   Slides: `'/project/project_465003358/Slides/AMD/session 05 - ToolsInActionPytorchExample.pdf'`
 
 -   Scripts: `/project/project_465003358/Exercises/AMD/Pytorch`
+-->
 
 Materials on the web:
 
@@ -28,23 +27,20 @@ Materials on the web:
     [bzip2-compressed tar archive](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-3_01-scripts.tar.bz2) and 
     [uncompressed tar archive](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-3_01-scripts.tar)
 
-<!--
 -   [AMD exercise assignments and notes, "Pytorch" section](https://hackmd.io/@sfantao/lumi-training-tal-2025#Pytorch-example),
     or in [the local copy](exercises_AMD_hackmd.md#pytorch-example).
--->
 
 
 Archived materials on LUMI:
 
 -   Slides: `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-3_01_Best_Practices_GPU_Optimization.pdf`
 
-<!--
 -   Scripts as
     bzip2-compressed tar archive in `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-3_01-scripts.tar.bz2` and
     uncompressed tar archive in `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-3_01-scripts.tar`.
 
 -   Recording: `/appl/local/training/paow-20261111/recordings/LUMI-paow-20261111-3_01_Best_Practices_GPU_Optimization.mp4`
--->
+
 
 <!--
 !!! Note "PyTorch in the LUMI Software Library" 

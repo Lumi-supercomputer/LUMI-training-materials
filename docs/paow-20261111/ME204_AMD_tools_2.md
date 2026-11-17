@@ -11,11 +11,6 @@ Participants are encouraged to try out the tools on their own code also.
 No materials available at the moment.
 -->
 
--   [Rocprof-sys exercises](https://hackmd.io/@sfantao/lumi-training-cph-2026#Rocprof-sys)
-
--   [Rocprof-compute exercises](https://hackmd.io/@sfantao/lumi-training-cph-2026#Rocprof-compute)
-
-<!--
 -   [Exercises on AMD profiling tools and GPU optimizations](https://hackmd.io/@sfantao/lumi-training-cph-2026)
     and [local clone of this document](exercises_AMD_hackmd.md).
 
@@ -34,15 +29,12 @@ No materials available at the moment.
 -   Files for the exercises can be downloaded as either a
     [bzip2-compressed tar file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar.bz2)
     or an [uncompressed tar file](https://462000265.lumidata.eu/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar)
--->
 
-<!--
 Archived materials on LUMI:
 
 -   Exercise files as either a
     bzip2-compressed tar file `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar.bz2` or
     an uncompressed tar file `/appl/local/training/paow-20261111/files/LUMI-paow-20261111-Exercises_AMD.tar`.
--->
 
 <!--
 ## Q&A
