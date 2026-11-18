@@ -1,6 +1,6 @@
 # Hands-on: Pull and run a container
 
-*Presenter*: Julius Roeder (DeiC)
+*Presenter*: Tor Skovsgaard (DeiC)
 
 <!--
 [Exercises on the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20261125/05_Running_containers_on_LUMI).

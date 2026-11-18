@@ -1,6 +1,6 @@
-# Preliminary schedule
+# Schedule
 
-This is a very preliminary schedule. Presenters and exact times of the lectures may still change.
+<!-- This is a very preliminary schedule. Presenters and exact times of the lectures may still change.-->
 
 <ul>
     <li><a href="#Day1">Day 1</a>
@@ -32,7 +32,7 @@ DAY 1
             <br/><em>08:15 CET</em>
         </td>
         <td><b><a href="../extra_01_Introduction/">Introduction to LUMI</a></b>
-        <br/><em>Presenter: Henk Dreuning (LUST)</em>
+        <br/><em>Presenter: Gregor Decristoforo (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ DAY 1
             <br/><em>12:05 CET</em>
         </td>
         <td><b><a href="../extra_04_CheckingGPU/">Understanding GPU activity & checking jobs</a></b>
-        <br/><em>Presenters: <b>Paul Bauer (AMD)</b> and Samuel Antão (AMD)</em>
+        <br/><em>Presenters: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -102,7 +102,7 @@ DAY 1
             <br/><em>12:25 CET</em>
         </td>
         <td><b><a href="../E04_CheckingGPU/">Hands-on: Checking GPU usage interactively using rocm-smi</a></b>
-        <br/><em>Presenter: <b>Samuel Antão</b> and Paul Bauer (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>
@@ -111,7 +111,7 @@ DAY 1
             <br/><em>12:45 CET</em>
         </td>
         <td><b><a href="../extra_05_RunningContainers/">Running containers on LUMI</a></b>
-        </br><em>Presenter: Julius Roeder (DeiC)</em>
+        </br><em>Presenter: Tor Skovsgaard (DeiC)</em>
         </td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@ DAY 1
             <br/><em>13:05 CET</em>
         </td>
         <td><b><a href="../E05_RunningContainers/">Hands-on: Pull and run a container</a></b>
-        </br><em>Presenter: Julius Roeder (DeiC)</em>
+        </br><em>Presenter: Tor Skovsgaard (DeiC)</em>
         </td>
     </tr>
     <tr>
@@ -137,7 +137,7 @@ DAY 1
             <br/><em>13:40 CET</em>
         </td>
         <td><b><a href="../extra_06_BuildingContainers/">Building containers from conda/pip environments</a></b>
-        </br><em>Presenter: Julius Roeder (DeiC)</em>
+        </br><em>Presenter: Tor Skovsgaard (DeiC)</em>
         </td>
     </tr>
     <tr>
@@ -146,7 +146,7 @@ DAY 1
             <br/><em>14:00 CET</em>
         </td>
         <td><b><a href="../E06_BuildingContainers">Hands-on: Creating a conda environment file and building a container using cotainr</a></b>
-        </br><em>Presenter: Julius Roeder (DeiC)</em>
+        </br><em>Presenter: Tor Skovsgaard (DeiC)</em>
         </td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ DAY 1
             <br/><em>14:20 CET</em>
         </td>
         <td><b><a href="../extra_07_VirtualEnvironments/">Extending containers with virtual environments for faster testing</a></b>
-        </br><em>Presenter: Henk Dreuning (LUST)</em>
+        </br><em>Presenter: Gregor Decristoforo (LUST)</em>
         </td>
     </tr>
     <tr>
@@ -225,7 +225,7 @@ DAY 2
             <br/><em>09:35 CET</em>
         </td>
         <td><b><a href="../extra_09_ExtremeScale/">Extreme scale AI</a></b>
-        <br/><em>Presenter: <b>Samuel Antão</b> and Paul Bauer (AMD)</em>
+        <br/><em>Presenter: Samuel Antão (AMD)</em>
         </td>
     </tr>
     <tr>

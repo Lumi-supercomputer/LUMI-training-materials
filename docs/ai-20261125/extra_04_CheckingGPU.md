@@ -1,6 +1,6 @@
 # Understanding GPU activity & checking jobs
 
-*Presenters:* **Paul Bauer (AMD)** and Samuel Antão (AMD)
+*Presenters:* Samuel Antão (AMD)
 
 Content:
 

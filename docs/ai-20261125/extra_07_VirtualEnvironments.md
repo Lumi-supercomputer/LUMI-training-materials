@@ -1,6 +1,6 @@
 # Extending containers with virtual environments for faster testing
 
-*Presenter:* Henk Dreuning (LUST)
+*Presenter:* Gregor Decristoforo (LUST)
 
 Contents:
 

@@ -1,6 +1,6 @@
 # Building containers from Conda/pip environments
 
-*Presenter*: Julius Roeder (DeiC)
+*Presenter*: Tor Skovsgaard (DeiC)
 
 Content:
 
