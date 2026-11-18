@@ -1,6 +1,6 @@
 # Extreme-scale AI
 
-*Presenters:* **Samuel Antão** and Paul Bauer (AMD)
+*Presenters:* Samuel Antão (AMD)
 
 Content:
 

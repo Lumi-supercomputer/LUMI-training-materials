@@ -1,6 +1,6 @@
 # Running containers on LUMI
 
-*Presenter*: Julius Roeder (DeiC)
+*Presenter*: Tor Skovsgaard (DeiC)
 
 Content:
 

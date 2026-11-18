@@ -11,7 +11,7 @@
 -   Location: [University of Latvia, Kalpaka bulvāris 4, Rīga, LV-1050, Latvia](https://maps.app.goo.gl/1CV7ok2RnX824kcZA). 
     Second floor, room 218 ( named also Sapere Auda)
 
--   [Preliminary schedule](schedule.md)
+-   [Schedule](schedule.md)
 <!--
 -   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-Nov2026?both)
    
