@@ -37,6 +37,8 @@
     the course and not for your own work.
 -->
 
+-   [Something for the night](night.md)
+
 <!--
 ReservationName=AI_workshop_Day1 StartTime=2026-11-25T09:00:00 EndTime=2026-11-25T17:00:00 Duration=08:00:00
    Nodes=nid[005049,005078,005088,005095,005111,007863,007899,007902,007918,007920] NodeCnt=10 CoreCnt=640 Features=(null) PartitionName=small-g Flags=
