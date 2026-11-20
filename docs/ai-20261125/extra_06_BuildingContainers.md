@@ -19,11 +19,9 @@ A video recording will follow.
 
 More materials will become available during and shortly after the course.
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-06-Building_containers_from_conda_pip_environments.pdf)
 
 -   [Hands-on exercises](E06_BuildingContainers.md)
--->
 
 <!--
 -   ["Bonus materials" from the course GitHub](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20261125/bonus_material)

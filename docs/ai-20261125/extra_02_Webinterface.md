@@ -17,15 +17,13 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
+<!-- More materials will become available during and shortly after the course. -->
   
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-02-Using_LUMI_web_UI.pdf)
 
 -   [Hands-on exercises](E02_Webinterface.md)
 
 -   [Direct link to the LUMI web interface](https://www.lumi.csc.fi/)
--->
 
 
 ## Q&A

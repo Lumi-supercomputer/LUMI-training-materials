@@ -11,11 +11,10 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
+<!-- More materials will become available during and shortly after the course. -->
 
-<!--
 -   [Slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-00-Course_Introduction.pdf)
--->
+   
 -   [AI guide mentioned in the intro](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)
 
 
