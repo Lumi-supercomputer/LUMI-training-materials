@@ -6553,7 +6553,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are looking for course materials in advance of the course, check the pages of the 
-<a href="../ai-20260611/">previous edition in June 2026</a>
+<a href="./">previous edition in June 2026</a>
 which was the first edition of this training based on the 
 <a href="https://docs.lumi-supercomputer.eu/laif/software/ai-environment/">LUMI AI Factory containers</a>.</p>
 </div>
@@ -6566,34 +6566,34 @@ which was the first edition of this training based on the
 <li>
 <p><a href="schedule/">Schedule</a></p>
 </li>
-</ul>
-<!--
--   [HedgeDoc for questions](https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-Nov2026?both)
-
-    Questions with longer-term relevance have been incorporated into the pages linked below.
-    This HedgeDoc document will not be monitored anymore for further questions after the course.
-    The link will likely die over time.
-
--   [Zoom link](https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09) 
+<li>
+<p><a href="https://siili.rahtiapp.fi/Moving-AI-training-to-LUMI-Nov2026?both">HedgeDoc for questions</a></p>
+<p>Questions with longer-term relevance have been incorporated into the pages linked below.
+This HedgeDoc document will not be monitored anymore for further questions after the course.
+The link will likely die over time.</p>
+</li>
+<li>
+<p><a href="https://cscfi.zoom.us/j/65207108811?pwd=Mm8wZGUyNW1DQzdwL0hSY1VIMDBLQT09">Zoom link</a> 
     <br/>Meeting ID: 652 0710 8811
-    <br/>Passcode: 530739
-
--   There are three Slurm reservations for the course. One for each day:
-
-    -   First day: `AI_workshop_Day1` (on the `small-g` Slurm partition),
-        valid 9am-5pm EET.
-    -   Second day: `AI_workshop_Day2_fullnodes` (on the `standard-g` Slurm partition)
-        for the morning, 9am-12:30pm EET.
-    -   Second day: `AI_workshop_Day2_small` (on the `small-g` Slurm partition) 
-        for work in the afternoon, 1pm till 4:30pm EET.
-
-    Project with the compute resources: `project_465003393`.
-    These resources are limited and should only be used for the exercises during
-    the course and not for your own work.
--->
-
+    <br/>Passcode: 530739</p>
+</li>
+<li>
+<p>There are three Slurm reservations for the course. One for each day:</p>
 <ul>
-<li><a href="night/">Something for the night</a></li>
+<li>First day: <code>AI_workshop_Day1</code> (on the <code>small-g</code> Slurm partition),
+    valid 9am-5pm EET.</li>
+<li>Second day: <code>AI_workshop_Day2_fullnodes</code> (on the <code>standard-g</code> Slurm partition)
+    for the morning, 9am-12:30pm EET.</li>
+<li>Second day: <code>AI_workshop_Day2_small</code> (on the <code>small-g</code> Slurm partition) 
+    for work in the afternoon, 1pm till 4:30pm EET.</li>
+</ul>
+<p>Project with the compute resources: <code>project_465003393</code>.
+These resources are limited and should only be used for the exercises during
+the course and not for your own work.</p>
+</li>
+<li>
+<p><a href="night/">Something for the night</a></p>
+</li>
 </ul>
 <!--
 ReservationName=AI_workshop_Day1 StartTime=2026-11-25T09:00:00 EndTime=2026-11-25T17:00:00 Duration=08:00:00
@@ -6639,20 +6639,20 @@ More information will follow after the course.
 Setting up for the exercises is a bit more elaborate now.
 
 The exercises as they were during the course are 
-[available as the tag `ai-20260611` in the GitHub repository](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20260611). Whereas the repository could simply 
+[available as the tag `ai-20261125` in the GitHub repository](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/tree/ai-20261125). Whereas the repository could simply 
 be cloned during the course, now you have to either:
 
 -   Download the content of the repository as 
-    a [tar file](https://462000265.lumidata.eu/ai-20260611/files/ai-20260611-Getting_Started_with_AI_workshop.tar)
-    or [bzip2-compressed tar file](https://462000265.lumidata.eu/ai-20260611/files/ai-20260611-Getting_Started_with_AI_workshop.tar.bz2)
-    or [from the GitHub release](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/releases/tag/ai-20260611)
+    a [tar file](https://462000265.lumidata.eu/ai-20261125/files/ai-20261125-Getting_Started_with_AI_workshop.tar)
+    or [bzip2-compressed tar file](https://462000265.lumidata.eu/ai-20261125/files/ai-20261125-Getting_Started_with_AI_workshop.tar.bz2)
+    or [from the GitHub release](https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop/releases/tag/ai-20261125)
     where you have a choice of formats,
 
--   or clone the repository and then check out the tag `ai-20260611`:
+-   or clone the repository and then check out the tag `ai-20261125`:
 
     <div class="highlight"><pre><span></span><code>git clone https://github.com/Lumi-supercomputer/Getting_Started_with_AI_workshop.git
 cd Getting_Started_with_AI_workshop
-git checkout ai-20260611
+git checkout ai-20261125
 </code></pre></div>
 
 Note also that any reference to a reservation in Slurm has to be removed.
@@ -6665,34 +6665,122 @@ become incompatible with the ROCm versions used in the containers for the course
 -->
 
 <h2 id="course-materials">Course materials<a class="headerlink" href="#course-materials" title="Permanent link">&para;</a></h2>
-<p>Course materials will be made available during the course.</p>
-<!--
-**Note:** Some links in the table below will remain invalid until after the course when all
-materials are uploaded.
+<!-- Course materials will be made available during the course. -->
 
-| Presentation | Slides | recording |
-|:-------------|:-------|:----------|
-| [Welcome and course introduction](extra_00_Course_Introduction.md) | / | [video](extra_00_Course_Introduction.md) |
-| [Introduction to LUMI](extra_01_Introduction.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-01-Lumi_intro.pdf) | [video](extra_01_Introduction.md) |
-| [Using the LUMI web-interface](extra_02_Webinterface.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-02-Using_LUMI_web_UI.pdf) | [video](extra_02_Webinterface.md) |
-| [Hands-on: Run a simple PyTorch example notebook](E02_Webinterface.md) | / | [video](E02_Webinterface.md) |
-| [Your first AI training job on LUMI](extra_03_FirstJob.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-03-First_AI_job.pdf) | [video](extra_03_FirstJob.md) |
-| [Hands-on: Run a simple single-GPU PyTorch AI training job](E03_FirstJob.md) | / | [video](E03_FirstJob.md) |
-| [Understanding GPU activity & checking jobs](extra_04_CheckingGPU.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-04-Understanding_GPU_activity.pdf) | [video](extra_04_CheckingGPU.md) |
-| [Hands-on: Checking GPU usage interactively using rocm-smi](E04_CheckingGPU.md) | / | [video](E04_CheckingGPU.md) |
-| [Running containers on LUMI](extra_05_RunningContainers.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-05-Running_containers_on_LUMI.pdf) | [video](extra_05_RunningContainers.md) |
-| [Hands-on: Pull and run a container](E05_RunningContainers.md) | / | [video](E05_RunningContainers.md) |
-| [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
-| [Hands-on: Creating a conda environment file and building a container using cotainr](E06_BuildingContainers.md) | / | [video](E06_BuildingContainers.md) |
-| [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |
-| [Scaling AI training to multiple GPUs](extra_08_MultipleGPUs.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-08-Scaling_multiple_GPUs.pdf) | [video](extra_08_MultipleGPUs.md) |
-| [Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP](E08_MultipleGPUs.md) | / | [video](E08_MultipleGPUs.md) |
-| [Extreme scale AI](extra_09_ExtremeScale.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-09-Extreme_scale_AI.pdf) | [video](extra_09_ExtremeScale.md) |
-| [Hands-on: Extreme scale AI](E09_ExtremeScale.md) | / | [video](E09_ExtremeScale.md) |
-| [Loading training data on LUMI](extra_10_TrainingData.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-10-Training_Data_on_LUMI.pdf) | [video](extra_10_TrainingData.md) |
-| [Coupling machine learning with HPC simulation](extra_11_Coupling.md) | [slides](https://462000265.lumidata.eu/ai-20260611/files/LUMI-ai-20260611-11-Coupling_Simulation_and_AI.pdf) | [video](extra_11_Coupling.md) |
-| [Hands-on: Advancing your project and general Q&A](E12_Project_and_QA.md)| / | [video](E12_Project_and_QA.md) |
--->
+<p>Course materials may be further updated during and shortly after the course.</p>
+<p><strong>Note:</strong> Some links in the table below will remain invalid until after the course when all
+materials are uploaded, or may still show an older version of the talk.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Presentation</th>
+<th style="text-align: left;">Slides</th>
+<th style="text-align: left;">recording</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="extra_00_Course_Introduction/">Welcome and course introduction</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-00-Course_Introduction.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_00_Course_Introduction/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_01_Introduction/">Introduction to LUMI</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-01-Lumi_intro.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_01_Introduction/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_02_Webinterface/">Using the LUMI web-interface</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-02-Using_LUMI_web_UI.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_02_Webinterface/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E02_Webinterface/">Hands-on: Run a simple PyTorch example notebook</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E02_Webinterface/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_03_FirstJob/">Your first AI training job on LUMI</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-03-First_AI_job.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_03_FirstJob/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E03_FirstJob/">Hands-on: Run a simple single-GPU PyTorch AI training job</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E03_FirstJob/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_04_CheckingGPU/">Understanding GPU activity &amp; checking jobs</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-04-Understanding_GPU_activity.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_04_CheckingGPU/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E04_CheckingGPU/">Hands-on: Checking GPU usage interactively using rocm-smi</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E04_CheckingGPU/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_05_RunningContainers/">Running containers on LUMI</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-05-Running_containers_on_LUMI.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_05_RunningContainers/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E05_RunningContainers/">Hands-on: Pull and run a container</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E05_RunningContainers/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_06_BuildingContainers/">Building containers from Conda/pip environments</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-06-Building_containers_from_conda_pip_environments.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_06_BuildingContainers/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E06_BuildingContainers/">Hands-on: Creating a conda environment file and building a container using cotainr</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E06_BuildingContainers/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_07_VirtualEnvironments/">Extending containers with virtual environments for faster testing</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-07-Extending_containers.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_07_VirtualEnvironments/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_08_MultipleGPUs/">Scaling AI training to multiple GPUs</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-08-Scaling_multiple_GPUs.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_08_MultipleGPUs/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E08_MultipleGPUs/">Hands-on: Converting the PyTorch single GPU AI training job to use all GPUs in a single node via DDP</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E08_MultipleGPUs/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_09_ExtremeScale/">Extreme scale AI</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-09-Extreme_scale_AI.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_09_ExtremeScale/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E09_ExtremeScale/">Hands-on: Extreme scale AI</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E09_ExtremeScale/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_10_TrainingData/">Loading training data on LUMI</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-10-Training_Data_on_LUMI.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_10_TrainingData/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="extra_11_Coupling/">Coupling machine learning with HPC simulation</a></td>
+<td style="text-align: left;"><a href="https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-11-Coupling_Simulation_and_AI.pdf">slides</a></td>
+<td style="text-align: left;"><a href="extra_11_Coupling/">video</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="E12_Project_and_QA/">Hands-on: Advancing your project and general Q&amp;A</a></td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;"><a href="E12_Project_and_QA/">video</a></td>
+</tr>
+</tbody>
+</table>
 <!--
 -->
 
