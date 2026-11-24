@@ -11,11 +11,11 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
+<!-- More materials will become available during and shortly after the course. -->
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-10-Training_Data_on_LUMI.pdf)
 
+<!--
 -   Links from the "More Information" slide:
 
     -   [LUMI-O in the LUMI documentation](https://docs.lumi-supercomputer.eu/storage/lumio/)
@@ -39,10 +39,11 @@ More materials will become available during and shortly after the course
 
     -   [PyTorch profiler in the PyTorch documentation](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
 
--   [Training materials from the most recent LUMI introductory training in April 2026](../2day-20260422/index.md)
+-   [Training materials from the most recent LUMI introductory training in April 2026](../2day-20261109/index.md)
 
-    -   The ["LUMI-O Object Storage" talk](../2day-20260422/M204-ObjectStorage.md)
+    -   The ["LUMI-O Object Storage" talk](../2day-20261109/M204-ObjectStorage.md)
         discusses using LUMI-O and the differences with a parallel file system such as Lustre..
+-->
 
 
 ## Nice-to-knows
@@ -70,7 +71,6 @@ Note that asking for more quota doesn't make sense if your project doesn't have 
 Storing 20TB for one year on /scratch or /project would cost you 175,200 TB hours, so make sure you have enough storage
 billing units. There is enough storage on LUMI that resource allocators can grant decent amounts of storage, but it is
 not infinite. LUST cannot grant you storage billing units, that is something you need to negotiate with the instance that granted you your project on LUMI.
--->
 
 
 ## Q&A

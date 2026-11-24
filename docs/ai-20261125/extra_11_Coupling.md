@@ -12,11 +12,11 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
+<!-- More materials will become available during and shortly after the course. -->
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-11-Coupling_Simulation_and_AI.pdf)
 
+<!--
 -   [Recent LUMI User Coffee Break seminar on SmartSim](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Coffee-Breaks/20250924-user-coffee-break-SmartSim/)
 
 -   [Recent LUMI SmartSim training](../smartsim-20260331/index.md)

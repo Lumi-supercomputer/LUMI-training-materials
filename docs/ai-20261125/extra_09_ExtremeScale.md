@@ -17,14 +17,14 @@ A video recording will follow.
 
 ## Extra materials
 
-More materials will become available during and shortly after the course
+<!-- More materials will become available during and shortly after the course -->
 
-<!--
 -   [Presentation slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-09-Extreme_scale_AI.pdf)
 
 -   [Demo and hands-on exercises](E09_ExtremeScale.md)
 
 
+<!--
 ## Links from the slides
 
 -   [Advice on RCCL tuning](https://github.com/HewlettPackard/shs-ccl-docs/blob/main/rccl/rccl_tuning_guide.md)
