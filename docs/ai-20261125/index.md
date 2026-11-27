@@ -128,7 +128,7 @@ materials are uploaded, or may still show an older version of the talk.
 | [Understanding GPU activity & checking jobs](extra_04_CheckingGPU.md) | [slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-04-Understanding_GPU_activity.pdf) | [video](extra_04_CheckingGPU.md) |
 | [Hands-on: Checking GPU usage interactively using rocm-smi](E04_CheckingGPU.md) | / | [video](E04_CheckingGPU.md) |
 | [Running containers on LUMI](extra_05_RunningContainers.md) | [slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-05-Running_containers_on_LUMI.pdf) | [video](extra_05_RunningContainers.md) |
-| [Hands-on: Pull and run a container](E05_RunningContainers.md) | / | [video](E05_RunningContainers.md) |
+| [Hands-on: Pull and run a container](E05_RunningContainers.md) | / | / |
 | [Building containers from Conda/pip environments](extra_06_BuildingContainers.md) | [slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-06-Building_containers_from_conda_pip_environments.pdf) | [video](extra_06_BuildingContainers.md) |
 | [Hands-on: Creating a conda environment file and building a container using cotainr](E06_BuildingContainers.md) | / | [video](E06_BuildingContainers.md) |
 | [Extending containers with virtual environments for faster testing](extra_07_VirtualEnvironments.md) | [slides](https://462000265.lumidata.eu/ai-20261125/files/LUMI-ai-20261125-07-Extending_containers.pdf) | [video](extra_07_VirtualEnvironments.md) |

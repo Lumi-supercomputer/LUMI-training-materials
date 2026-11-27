@@ -2,11 +2,9 @@
 
 *Presenter:* Harvey Richardson (HPE)
 
-A video recording will follow.
+<!-- A video recording will follow. -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-10_TrainingData.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials
@@ -75,5 +73,7 @@ not infinite. LUST cannot grant you storage billing units, that is something you
 
 ## Q&A
 
-/
+1.  Given the low number/large files vs. high number/small files concept - would it make sense in some scenarios to add the training data into the same - or another linked "data-container"?
+
+    -  Putting data into the same container would be impractical since you would have to update the container every time you work with new data. The LUMI AI guide has a [chapter on suitable data formats](https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/03-file-formats). One option that is discussed in the guide is squashfs which is the closest to your "data container" idea.  
 

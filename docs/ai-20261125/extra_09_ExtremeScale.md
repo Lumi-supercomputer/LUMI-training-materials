@@ -8,11 +8,9 @@ Content:
 -   Scaling beyond a single node 
 
 
-A video recording will follow.
+<!-- A video recording will follow. -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-09_ExtremeScale.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials
