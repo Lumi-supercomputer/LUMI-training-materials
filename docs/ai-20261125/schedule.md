@@ -23,7 +23,7 @@ DAY 1
             <br/><em>08:00 CET</em>
         </td>
         <td><b><a href="../extra_00_Course_Introduction/">Welcome and Introduction</a></b>
-        <br/><em>Presenters: Gregor Decristoforo (LUST)</em>
+        <br/><em>Presenters: Gregor Decristoforo (LUST) and Marlon Tobaben (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -41,7 +41,7 @@ DAY 1
             <br/><em>08:45 CET</em>
         </td>
         <td><b><a href="../extra_02_Webinterface/">Using the LUMI web interface</a></b>
-        <br/><em>Presenters: <b>Mats Sjöberg (CSC)</b> and Marlon Tobaben (CSC)</em>
+        <br/><em>Presenters: <b>Marlon Tobaben (CSC)</b> and Mats Sjöberg (CSC)</em>
         </td>
     </tr>
     <tr>
@@ -259,7 +259,7 @@ DAY 2
             <br/><em>12:00 CET</em>
         </td>
         <td><b><a href="../extra_11_Coupling/">Coupling machine learning with HPC simulation</a></b>
-        </br><em>Presenter: Harvey Richardson (HPE)</em>
+        </br><em>Presenters: <b>Harvey Richardson (HPE)</b> and Andrew Shao (HPE)</em>
         </td>
     </tr>
     <tr>

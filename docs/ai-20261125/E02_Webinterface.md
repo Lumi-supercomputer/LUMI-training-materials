@@ -12,11 +12,12 @@
 A video recording of the discussion of the solution will follow.
 -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-E02_Webinterface.mp4" controls="controls"></video>
--->
 
 
 ## Q&A
 
-/
+1.  Copy PASTE works with SHIFT INSERT for me in the terminal when normal pasting doesnt
+
+    -   Okay, good to know. This depends on the browser.
+

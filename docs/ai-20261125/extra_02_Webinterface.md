@@ -1,6 +1,6 @@
 # Using the LUMI web interface
 
-*Presenters:* **Mats Sjöberg (CSC)** and Marlon Tobaben (CSC)
+*Presenters:* **Marlon Tobaben (CSC)** and Mats Sjöberg (CSC)
 
 Content:
 
@@ -8,11 +8,9 @@ Content:
 -   Using PyTorch in JupyterLab on LUMI
 -   Limitations of the web-based interactive interface and the CLI interface
   
-A video recording will follow.
+<!-- A video recording will follow. -->
 
-<!--
 <video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-02_Webinterface.mp4" controls="controls"></video>
--->
 
 
 ## Extra materials

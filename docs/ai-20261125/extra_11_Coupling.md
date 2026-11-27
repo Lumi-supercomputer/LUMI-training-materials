@@ -1,7 +1,7 @@
 # Coupling machine learning with HPC simulation
 
 *Presenter:* Harvey Richardson(HPE)
-<br/>*Co-author:*  Alessandro Rigazzi (formerly HPE)
+<br/>*Co-author:*  Andrew Shao (HPE)
 
 A video recording will follow.
 
