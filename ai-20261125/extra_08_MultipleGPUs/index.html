@@ -434,6 +434,8 @@
       
         
       
+        
+      
     
     
     
@@ -496,6 +498,71 @@
           
         
       
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202701/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2027
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    January 2027
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
         
       
         
@@ -508,7 +575,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -530,14 +597,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -638,7 +705,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -660,14 +727,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -798,7 +865,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -820,14 +887,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6529,10 +6596,9 @@
 <li>Setting up the experiment as a SLURM batch job</li>
 <li>Setting the correct CPU-GPU bindings</li>
 </ul>
-<p>A video recording will follow.</p>
-<!--
+<!-- A video recording will follow. -->
+
 <video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-08_MultipleGPUs.mp4" controls="controls"></video>
--->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
 <!-- More materials will become available during and shortly after the course -->
@@ -6546,7 +6612,36 @@
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>If I want 16 GPUs, how I request that with the parameters, e.g., <code>--gpus-per-node=8 --nodes=2</code>?</p>
+<ul>
+<li>Yes, see <a href="https://github.com/Lumi-supercomputer/LUMI-AI-Guide/blob/3f428088712f4425fd8df8acf2c0bb722c6e5df3/05-multi-gpu-and-node/run_ddp_torchrun_4.sh#L4-L5">LUMI AI Guide</a> for examples.</li>
+</ul>
+</li>
+<li>
+<p>Do I need standard-g to run in multiple nodes, e.g., can I use also small-g with similar settings with <code>--gpus-per-node=8</code>,  <code>--ntasks-per-node=8</code>?</p>
+<ul>
+<li>
+<p>You can also use small-g but small-g only allows up to 4 nodes, see <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/#slurm-partitions-allocatable-by-resources">LUMI Documentation on partitions</a>.</p>
+</li>
+<li>
+<p>It is likely a good idea to use standard-g for full node jobs as on small-g fractions of many nodes might be already used for jobs that only use less than one node</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Can we use deepspeed to run the python script, e.g., <code>deepspeed --master_port xxxx run.py</code>? </p>
+<ul>
+<li>
+<p>Yes, any framework could work. You just need to make sure that you are respecting the assumptions of the process launching logic that each framework use. E.g., does it expect to see all GPUs of the job, or all the GPUs of a given node.</p>
+</li>
+<li>
+<p>See also <a href="https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/05-multi-gpu-and-node">LUMI AI Guide examples with DeepSpeed</a></p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

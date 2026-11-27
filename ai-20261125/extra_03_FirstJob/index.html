@@ -434,6 +434,8 @@
       
         
       
+        
+      
     
     
     
@@ -496,6 +498,71 @@
           
         
       
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../User-Updates/Update-202701/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2027
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    January 2027
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
         
       
         
@@ -508,7 +575,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -530,14 +597,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -638,7 +705,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -660,14 +727,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -798,7 +865,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -820,14 +887,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -6528,10 +6595,9 @@
 <li>Using LUMI via the command line</li>
 <li>Submitting and running AI training jobs using the batch system</li>
 </ul>
-<p>A video recording will follow.</p>
-<!--
+<!-- A video recording will follow. -->
+
 <video src="https://462000265.lumidata.eu/ai-20261125/recordings/LUMI-ai-20261125-03_FirstJob.mp4" controls="controls"></video>
--->
 
 <h2 id="extra-materials">Extra materials<a class="headerlink" href="#extra-materials" title="Permanent link">&para;</a></h2>
 <!-- More materials will become available during and shortly after the course -->
@@ -6562,7 +6628,45 @@
 </li>
 </ul>
 <h2 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">&para;</a></h2>
-<p>/</p>
+<ol>
+<li>
+<p>What is the largest memory we can use in the mem-per-gpu ? </p>
+<ul>
+<li>
+<p>480 GB, but then you pay for all 8 GCDs in the node, so in practice 480/8=60 GB. See: 
+    <a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/">"LUMI-G example batch scripts" in the LUMI documentation</a>and <a href="https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#gpu-nodes-lumi-g">"Billing Policy" in the LUMI documentation</a>.</p>
+</li>
+<li>
+<p>The host memory matches roughly the GPU own memory, which is 64GB per GCD.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If data preprocessing is computationally intensive, is it possible to perform the preprocessing on LUMI-C and then use the processed data for model training on LUMI-G? If so, what is the recommended workflow for managing data storage and coordinating the CPU and GPU jobs using Slurm?</p>
+<ul>
+<li>
+<p>File system is shared across partitions (CPU and GPU) so it is possible to have pre-processing that uses the CPU partition generate data to be consumed by the GPU partition. Of course, your project needs to have CPU hours to use the CPU partition.</p>
+</li>
+<li>
+<p>You can always consider if there are GPU-accelerated pipelines to pre-process your data. E.g., <a href="https://github.com/ROCm/rocAL">AMD rocAL</a> allows you to preprocess images in the GPU. GPUs can run other workloads other than plain training/inference.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If I need to train/test on a large dataset (hundreds/millions of images + txt + json files) that is local in my computer, where I can put my dataset?</p>
+<ul>
+<li>
+<p>Ideally you would first convert to a file format that does not have millions of images like discussed  in <a href="https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/03-file-formats">the file formats section of the LUMI AI guide</a>.</p>
+</li>
+<li>
+<p>Then you can <a href="https://docs.lumi-supercomputer.eu/storage/lumio/">upload to LUMI-O</a>.</p>
+</li>
+<li>
+<p>For training you can stage the data on scratch or stream from LUMI-O.</p>
+</li>
+</ul>
+</li>
+</ol>
 
 
 
